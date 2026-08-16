@@ -211,6 +211,8 @@ tempCodeRunnerFile.py
 
 # Source GIS datasets are local, read-only inputs.
 data/raw/
+# Intermediate input for external shelter geocoding; not a published artifact.
+data/processed/gis/hapcheon_shelter_geocoding_input.csv
 
 # Marimo
 marimo/_static/
