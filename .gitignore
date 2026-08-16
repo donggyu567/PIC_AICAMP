@@ -209,6 +209,11 @@ tempCodeRunnerFile.py
 # PyPI configuration file
 .pypirc
 
+# Source GIS datasets are local, read-only inputs.
+data/raw/
+# Generated GIS artifacts may contain sensitive facility and population data.
+data/processed/gis/
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
