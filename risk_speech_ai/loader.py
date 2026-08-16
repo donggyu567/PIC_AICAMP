@@ -30,8 +30,8 @@ def load_stt_text(path: str | Path) -> str:
 def load_tuned_result(path: str | Path) -> dict[str, Any]:
     """Load and validate a task 2 result from an explicitly provided path.
 
-    The extension is intentionally not used to infer the format: the current
-    task specification permits uncertainty between ``.json`` and ``.txt``.
+    ``.json`` is the official filename convention, but the extension is not
+    used to validate a caller-provided path.
     """
 
     try:

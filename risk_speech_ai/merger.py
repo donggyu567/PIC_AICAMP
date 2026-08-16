@@ -6,7 +6,12 @@ import re
 from pathlib import Path
 from typing import Any, Mapping
 
-from .loader import InputDataError, validate_tuned_result
+from .loader import (
+    InputDataError,
+    load_stt_text,
+    load_tuned_result,
+    validate_tuned_result,
+)
 from .schemas import Utterance
 
 
@@ -24,6 +29,24 @@ def extract_utterance_id_from_stt_filename(path: str | Path) -> int:
             "cannot extract utterance_id: expected a filename like result0004.txt"
         )
     return int(match.group(1))
+
+
+def load_utterance(raw_path: str | Path, tuned_path: str | Path) -> Utterance:
+    """Load task 1 and task 2 files, verify their IDs, and merge one utterance.
+
+    The raw file must use the explicit ``result00xx.txt`` pattern so its ID can
+    be verified. The tuned result is read from its caller-provided path, which
+    conventionally uses a name such as ``tuned_result0004.json``.
+    """
+
+    raw_text = load_stt_text(raw_path)
+    raw_utterance_id = extract_utterance_id_from_stt_filename(raw_path)
+    tuned_result = load_tuned_result(tuned_path)
+    return merge_utterance(
+        raw_text,
+        tuned_result,
+        raw_utterance_id=raw_utterance_id,
+    )
 
 
 def merge_utterance(
