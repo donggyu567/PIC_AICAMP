@@ -1,0 +1,50 @@
+[
+  {
+    "candidate_id": "candidate_f97a47c36ee55d1f",
+    "recommendation_rank": 1,
+    "newly_covered_grid_ids": [
+      "라마67b27a",
+      "라마67b27b"
+    ],
+    "newly_covered_elderly_population": 98,
+    "recommendation_reasons": []
+  },
+  {
+    "candidate_id": "candidate_57e6e8240ed37570",
+    "recommendation_rank": 2,
+    "newly_covered_grid_ids": [
+      "라마67b29b",
+      "라마68a29b"
+    ],
+    "newly_covered_elderly_population": 98,
+    "recommendation_reasons": []
+  },
+  {
+    "candidate_id": "candidate_3a893cbf1ea48407",
+    "recommendation_rank": 3,
+    "newly_covered_grid_ids": [
+      "라마69a29a"
+    ],
+    "newly_covered_elderly_population": 91,
+    "recommendation_reasons": []
+  },
+  {
+    "candidate_id": "candidate_3179392515141e3b",
+    "recommendation_rank": 4,
+    "newly_covered_grid_ids": [
+      "라마70a28a"
+    ],
+    "newly_covered_elderly_population": 89,
+    "recommendation_reasons": []
+  },
+  {
+    "candidate_id": "candidate_1f53f34eb944666f",
+    "recommendation_rank": 5,
+    "newly_covered_grid_ids": [
+      "라마56b28b",
+      "라마56b29a"
+    ],
+    "newly_covered_elderly_population": 85,
+    "recommendation_reasons": []
+  }
+]

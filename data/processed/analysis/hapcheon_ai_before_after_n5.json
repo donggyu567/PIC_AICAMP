@@ -1,0 +1,20 @@
+{
+  "total_vulnerable_population": 9833,
+  "before": {
+    "covered_vulnerable_population": 1921,
+    "vulnerable_population_coverage_rate": 0.19536255466286992,
+    "blind_spot_grid_count": 401,
+    "blind_spot_area_m2": 100250000
+  },
+  "after": {
+    "covered_vulnerable_population": 2382,
+    "vulnerable_population_coverage_rate": 0.24224549984745244,
+    "blind_spot_grid_count": 393,
+    "blind_spot_area_m2": 98250000
+  },
+  "improvement": {
+    "newly_covered_vulnerable_population": 461,
+    "vulnerable_population_coverage_rate_delta": 0.046882945185,
+    "blind_spot_grid_reduction_count": 8
+  }
+}
