@@ -3,6 +3,7 @@
 from typing import Any, Mapping, Sequence
 
 from .config import INSTALLATION_WEIGHTS, VULNERABILITY_WEIGHTS
+from .features import calculate_heat_exposure_value
 from .normalization import normalize
 from .schemas import validate_grid
 from .scoring import main_factors, risk_level, weighted_score
@@ -36,6 +37,8 @@ def analyze_grids(grids: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:
         elif missing:
             result.update(_empty_result("INSUFFICIENT_DATA"))
         else:
+            # ``heat_exposure_value`` is an AI-derived feature, not an input contract field.
+            grid["heat_exposure_value"] = calculate_heat_exposure_value(grid["temperature"], grid["humidity"])
             result["analysis_status"] = "OK"
             valid_indexes.append(index)
         prepared.append({"grid": grid, "result": result})

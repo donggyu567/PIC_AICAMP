@@ -16,7 +16,8 @@ MAIN_FACTOR_TOP_K = 3
 FACTOR_MIN_SCORE = 50
 
 REQUIRED_FEATURES = (
-    "heat_exposure_value",
+    "temperature",
+    "humidity",
     "elderly_ratio",
     "farmland_ratio",
     "nearest_shelter_distance_m",

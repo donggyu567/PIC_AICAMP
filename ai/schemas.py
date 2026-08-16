@@ -16,6 +16,7 @@ def validate_grid(grid: Mapping[str, Any]) -> tuple[list[str], list[str]]:
             errors.append(f"{field} must be numeric")
     _check_range(grid, "elderly_ratio", 0, 1, errors)
     _check_range(grid, "farmland_ratio", 0, 1, errors)
+    _check_range(grid, "humidity", 0, 100, errors)
     _check_minimum(grid, "nearest_shelter_distance_m", 0, errors)
     _check_minimum(grid, "population", 0, errors)
     _check_minimum(grid, "elderly_population", 0, errors)
