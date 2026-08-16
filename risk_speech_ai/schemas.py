@@ -1,8 +1,4 @@
-"""Data structures shared by the risk-speech analysis module.
-
-Risk levels, score ranges, and decision criteria have not been decided yet.
-Accordingly, every decision-related field is optional.
-"""
+"""JSON-serializable data structures for task 3 conversation input."""
 
 from __future__ import annotations
 
@@ -10,14 +6,40 @@ from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
-class RiskAssessment:
-    """A model's assessment of one preprocessed utterance.
+class Utterance:
+    """One raw STT utterance combined with its task 2 correction result."""
 
-    ``None`` means that the relevant value is unknown or has not been produced
-    by the configured assessor; it does not mean that the utterance is safe.
-    """
+    utterance_id: int
+    raw_text: str
+    tuned_text: str
+    is_tuned: bool
+    has_unclear: bool
+    unclear_segments: list[str]
 
-    is_risky: bool | None = None
-    risk_level: str | None = None
-    risk_score: float | None = None
-    reason: str | None = None
+    def to_dict(self) -> dict[str, object]:
+        """Return the exact task 3 utterance JSON shape."""
+
+        return {
+            "utterance_id": self.utterance_id,
+            "raw_text": self.raw_text,
+            "tuned_text": self.tuned_text,
+            "is_tuned": self.is_tuned,
+            "has_unclear": self.has_unclear,
+            "unclear_segments": list(self.unclear_segments),
+        }
+
+
+@dataclass(frozen=True)
+class ConversationContext:
+    """The latest utterance and its immediately preceding conversation."""
+
+    current: Utterance
+    history: list[Utterance]
+
+    def to_dict(self) -> dict[str, object]:
+        """Return a JSON-serializable context for a later risk-sensitivity AI."""
+
+        return {
+            "current": self.current.to_dict(),
+            "history": [utterance.to_dict() for utterance in self.history],
+        }

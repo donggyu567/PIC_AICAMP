@@ -1,12 +1,17 @@
-"""Minimal, model-agnostic interfaces for risk-speech analysis."""
+"""Task 3: prepare merged conversation JSON for a later risk-sensitivity AI."""
 
-from .analyzer import analyze_risk
-from .risk_assessor import RiskAssessor, UnconfiguredRiskAssessor
-from .schemas import RiskAssessment
+from .context_manager import ConversationContextManager
+from .loader import InputDataError, load_stt_text, load_tuned_result
+from .merger import extract_utterance_id_from_stt_filename, merge_utterance
+from .schemas import ConversationContext, Utterance
 
 __all__ = [
-    "RiskAssessment",
-    "RiskAssessor",
-    "UnconfiguredRiskAssessor",
-    "analyze_risk",
+    "ConversationContext",
+    "ConversationContextManager",
+    "InputDataError",
+    "Utterance",
+    "extract_utterance_id_from_stt_filename",
+    "load_stt_text",
+    "load_tuned_result",
+    "merge_utterance",
 ]
