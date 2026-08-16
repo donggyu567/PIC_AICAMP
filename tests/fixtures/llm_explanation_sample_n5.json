@@ -1,0 +1,46 @@
+[
+  {
+    "candidate_id": "candidate_f97a47c36ee55d1f",
+    "candidate_name": "유하경로당",
+    "candidate_type": "마을회관및경로당",
+    "recommendation_rank": 1,
+    "newly_covered_grid_count": 2,
+    "newly_covered_elderly_population": 98,
+    "covered_grids": [
+      {"grid_id": "라마67b27a", "region_name": "초계면", "installation_need_score": 63.4, "risk_level": "VERY_HIGH", "elderly_ratio": 0.75, "farmland_ratio": 0.6664762955239596, "nearest_shelter_distance_m": 696.6379362142632, "main_factors": ["HIGH_FARMLAND_RATIO", "HIGH_ELDERLY_RATIO", "HIGH_HEAT"]},
+      {"grid_id": "라마67b27b", "region_name": "초계면", "installation_need_score": 62.45, "risk_level": "VERY_HIGH", "elderly_ratio": 0.6535433070866141, "farmland_ratio": 0.5935857979031606, "nearest_shelter_distance_m": 929.6858238876918, "main_factors": ["HIGH_FARMLAND_RATIO", "HIGH_ELDERLY_RATIO", "HIGH_HEAT"]}
+    ],
+    "before": {"covered_vulnerable_population": 1921, "vulnerable_population_coverage_rate": 0.19536255466286992},
+    "after": {"covered_vulnerable_population": 2382, "vulnerable_population_coverage_rate": 0.24224549984745244},
+    "overall_improvement": {"newly_covered_vulnerable_population": 461, "vulnerable_population_coverage_rate_delta": 0.046882945185}
+  },
+  {
+    "candidate_id": "candidate_57e6e8240ed37570",
+    "candidate_name": "대동경로당",
+    "candidate_type": "마을회관및경로당",
+    "recommendation_rank": 2,
+    "newly_covered_grid_count": 2,
+    "newly_covered_elderly_population": 98,
+    "covered_grids": [
+      {"grid_id": "라마67b29b", "region_name": "초계면", "installation_need_score": 57.62, "risk_level": "HIGH", "elderly_ratio": 0.704225352112676, "farmland_ratio": 0.212114472796846, "nearest_shelter_distance_m": 2204.9918352091795, "main_factors": ["HIGH_ELDERLY_RATIO", "LOW_SHELTER_ACCESSIBILITY", "HIGH_HEAT"]},
+      {"grid_id": "라마68a29b", "region_name": "초계면", "installation_need_score": 65.66, "risk_level": "HIGH", "elderly_ratio": 0.631578947368421, "farmland_ratio": 0.4899045979883344, "nearest_shelter_distance_m": 1913.2042684172643, "main_factors": ["HIGH_FARMLAND_RATIO", "HIGH_ELDERLY_RATIO", "LOW_SHELTER_ACCESSIBILITY"]}
+    ],
+    "before": {"covered_vulnerable_population": 1921, "vulnerable_population_coverage_rate": 0.19536255466286992},
+    "after": {"covered_vulnerable_population": 2382, "vulnerable_population_coverage_rate": 0.24224549984745244},
+    "overall_improvement": {"newly_covered_vulnerable_population": 461, "vulnerable_population_coverage_rate_delta": 0.046882945185}
+  },
+  {
+    "candidate_id": "candidate_3a893cbf1ea48407",
+    "candidate_name": "교촌경로당",
+    "candidate_type": "마을회관및경로당",
+    "recommendation_rank": 3,
+    "newly_covered_grid_count": 1,
+    "newly_covered_elderly_population": 91,
+    "covered_grids": [
+      {"grid_id": "라마69a29a", "region_name": "초계면", "installation_need_score": 50.28, "risk_level": "HIGH", "elderly_ratio": 0.3823529411764705, "farmland_ratio": 0.4427033080710623, "nearest_shelter_distance_m": 1160.7473142069948, "main_factors": ["HIGH_FARMLAND_RATIO", "HIGH_HEAT"]}
+    ],
+    "before": {"covered_vulnerable_population": 1921, "vulnerable_population_coverage_rate": 0.19536255466286992},
+    "after": {"covered_vulnerable_population": 2382, "vulnerable_population_coverage_rate": 0.24224549984745244},
+    "overall_improvement": {"newly_covered_vulnerable_population": 461, "vulnerable_population_coverage_rate_delta": 0.046882945185}
+  }
+]
