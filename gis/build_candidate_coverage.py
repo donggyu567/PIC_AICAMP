@@ -2,7 +2,7 @@
 
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping
 
 import geopandas as gpd
 import pandas as pd
@@ -15,9 +15,7 @@ def build_candidate_coverage(
     grid_geojson_path: Path = GRID_GEOJSON, candidates_path: Path = CANDIDATES_CSV
 ) -> tuple[pd.DataFrame, dict[str, int]]:
     """Return candidates with GIS-supplied 300m centroid coverage lists."""
-    grids = gpd.read_file(grid_geojson_path).to_crs(ANALYSIS_CRS)
-    if grids["grid_id"].isna().any() or grids["grid_id"].duplicated().any():
-        raise ValueError("final grid_id must be unique and non-null")
+    centroids = load_final_grid_centroids(grid_geojson_path)
     candidates = pd.read_csv(candidates_path, dtype={"candidate_id": "string"})
     _validate_candidates(candidates)
     source_fields = candidates.drop(columns=["region_code", "region_name"], errors="ignore")
@@ -28,9 +26,7 @@ def build_candidate_coverage(
         raise ValueError("a candidate mapped to multiple legal regions")
     points = points.merge(mapped[["candidate_id", "region_code", "region_name"]], on="candidate_id", how="left")
 
-    centroids = gpd.GeoDataFrame(grids[["grid_id"]], geometry=grids.geometry.centroid, crs=ANALYSIS_CRS)
-    joined = gpd.sjoin(points[["candidate_id", "geometry"]], centroids, how="left", predicate="dwithin", distance=COVERAGE_DISTANCE_M)
-    coverage = joined.dropna(subset="grid_id").groupby("candidate_id")["grid_id"].agg(lambda ids: sorted(set(ids))).to_dict()
+    coverage = map_points_to_covered_grid_ids(points, "candidate_id", centroids)
     result = points.drop(columns="geometry").copy()
     result["covered_grid_ids"] = result["candidate_id"].map(lambda candidate_id: coverage.get(candidate_id, []))
     result = result[["candidate_id", "candidate_name", "candidate_type", "region_code", "region_name", "latitude", "longitude", "covered_grid_ids"]].sort_values("candidate_id").reset_index(drop=True)
@@ -41,6 +37,37 @@ def build_candidate_coverage(
         "empty_coverage_candidate_count": int((~result["covered_grid_ids"].map(bool)).sum()),
     }
     return result, report
+
+
+def load_final_grid_centroids(grid_geojson_path: Path = GRID_GEOJSON) -> gpd.GeoDataFrame:
+    """Load the fixed final Hapcheon grid and expose its EPSG:5179 centroids."""
+    grids = gpd.read_file(grid_geojson_path).to_crs(ANALYSIS_CRS)
+    if grids["grid_id"].isna().any() or grids["grid_id"].duplicated().any():
+        raise ValueError("final grid_id must be unique and non-null")
+    return gpd.GeoDataFrame(
+        grids[["grid_id"]], geometry=grids.geometry.centroid, crs=ANALYSIS_CRS
+    )
+
+
+def map_points_to_covered_grid_ids(
+    points: gpd.GeoDataFrame,
+    point_id_column: str,
+    centroids: gpd.GeoDataFrame,
+) -> Mapping[str, list[str]]:
+    """Map EPSG:5179 points to sorted final-grid IDs within the P0 radius."""
+    joined = gpd.sjoin(
+        points[[point_id_column, "geometry"]],
+        centroids,
+        how="left",
+        predicate="dwithin",
+        distance=COVERAGE_DISTANCE_M,
+    )
+    return (
+        joined.dropna(subset="grid_id")
+        .groupby(point_id_column)["grid_id"]
+        .agg(lambda ids: sorted(set(ids)))
+        .to_dict()
+    )
 
 
 def _validate_candidates(candidates: pd.DataFrame) -> None:
