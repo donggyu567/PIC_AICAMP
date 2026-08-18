@@ -17,7 +17,7 @@ from .build_ai_input import OUTPUT_PATH as INTEGRATION_GRID_PATH
 
 ROOT = Path(__file__).resolve().parents[1]
 WEATHER_PATH = ROOT / "data" / "raw" / "weather" / "kma_aws_hourly_915_samga_cleaned.csv"
-CANDIDATES_PATH = ROOT / "data" / "processed" / "gis" / "hapcheon_candidate_coverage.json"
+CANDIDATES_PATH = ROOT / "data" / "processed" / "gis" / "hapcheon_mobile_shelter_candidate_coverage.json"
 ANALYSIS_DIR = ROOT / "data" / "processed" / "analysis"
 
 

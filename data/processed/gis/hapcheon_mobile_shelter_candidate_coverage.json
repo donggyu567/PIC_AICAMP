@@ -1,0 +1,4814 @@
+[
+  {
+    "candidate_id": "MOBILE_라마43b27a",
+    "candidate_name": "신규 이동식 쉼터 후보 1",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.54025447682911,
+    "longitude": 127.98263517208127,
+    "covered_grid_ids": [
+      "라마43b27a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마43b30a",
+    "candidate_name": "신규 이동식 쉼터 후보 2",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.56730335786106,
+    "longitude": 127.98279732543196,
+    "covered_grid_ids": [
+      "라마43b30a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마44a25a",
+    "candidate_name": "신규 이동식 쉼터 후보 3",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.5221996358139,
+    "longitude": 127.9880416084869,
+    "covered_grid_ids": [
+      "라마44a25a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마44a26a",
+    "candidate_name": "신규 이동식 쉼터 후보 4",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.53121596289135,
+    "longitude": 127.98809620445824,
+    "covered_grid_ids": [
+      "라마44a26a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마44a26b",
+    "candidate_name": "신규 이동식 쉼터 후보 5",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.53572412133772,
+    "longitude": 127.98812351153788,
+    "covered_grid_ids": [
+      "라마44a26b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마44a27a",
+    "candidate_name": "신규 이동식 쉼터 후보 6",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.54023227638897,
+    "longitude": 127.98815082468197,
+    "covered_grid_ids": [
+      "라마44a27a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마44a34a",
+    "candidate_name": "신규 이동식 쉼터 후보 7",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.60334609051403,
+    "longitude": 127.98853384622385,
+    "covered_grid_ids": [
+      "라마44a34a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마44b26b",
+    "candidate_name": "신규 이동식 쉼터 후보 8",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.535701672358755,
+    "longitude": 127.99363884949024,
+    "covered_grid_ids": [
+      "라마44b26b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마44b32b",
+    "candidate_name": "신규 이동식 쉼터 후보 9",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.58979926426615,
+    "longitude": 127.9939707153762,
+    "covered_grid_ids": [
+      "라마44b32b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마45a18b",
+    "candidate_name": "신규 이동식 쉼터 후보 10",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.463548148090425,
+    "longitude": 127.99870813884586,
+    "covered_grid_ids": [
+      "라마45a18b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마45a25b",
+    "candidate_name": "신규 이동식 쉼터 후보 11",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.52666266581397,
+    "longitude": 127.99909833929703,
+    "covered_grid_ids": [
+      "라마45a25b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마45a26a",
+    "candidate_name": "신규 이동식 쉼터 후보 12",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.53117082019043,
+    "longitude": 127.9991262572033,
+    "covered_grid_ids": [
+      "라마45a26a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마45b16b",
+    "candidate_name": "신규 이동식 쉼터 후보 13",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.445492429004,
+    "longitude": 128.00410604401569,
+    "covered_grid_ids": [
+      "라마45b16b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마45b18a",
+    "candidate_name": "신규 이동식 쉼터 후보 14",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.459017053869246,
+    "longitude": 128.0041904040065,
+    "covered_grid_ids": [
+      "라마45b18a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마45b18b",
+    "candidate_name": "신규 이동식 쉼터 후보 15",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.46352525537144,
+    "longitude": 128.0042185364941,
+    "covered_grid_ids": [
+      "라마45b18b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마45b19b",
+    "candidate_name": "신규 이동식 쉼터 후보 16",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.4725416481954,
+    "longitude": 128.00427482021385,
+    "covered_grid_ids": [
+      "라마45b19b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마45b29a",
+    "candidate_name": "신규 이동식 쉼터 후보 17",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.558196702752845,
+    "longitude": 128.0048107640932,
+    "covered_grid_ids": [
+      "라마45b29a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마45b32b",
+    "candidate_name": "신규 이동식 쉼터 후보 18",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.58975351902916,
+    "longitude": 128.00500878779712,
+    "covered_grid_ids": [
+      "라마45b32b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마45b36b",
+    "candidate_name": "신규 이동식 쉼터 후보 19",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.625818247997785,
+    "longitude": 128.00523547783652,
+    "covered_grid_ids": [
+      "라마45b36b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마45b37a",
+    "candidate_name": "신규 이동식 쉼터 후보 20",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.630326323820576,
+    "longitude": 128.00526384241778,
+    "covered_grid_ids": [
+      "라마45b37a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마46a17a",
+    "candidate_name": "신규 이동식 쉼터 후보 21",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.449977507916024,
+    "longitude": 128.0096436271265,
+    "covered_grid_ids": [
+      "라마46a17a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마46a17b",
+    "candidate_name": "신규 이동식 쉼터 후보 22",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.45448571237497,
+    "longitude": 128.00967205440227,
+    "covered_grid_ids": [
+      "라마46a17b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마46a20a",
+    "candidate_name": "신규 이동식 쉼터 후보 23",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.47702668376403,
+    "longitude": 128.00981428550634,
+    "covered_grid_ids": [
+      "라마46a20a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마46b21a",
+    "candidate_name": "신규 이동식 쉼터 후보 24",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.48601963339547,
+    "longitude": 128.0153831453602,
+    "covered_grid_ids": [
+      "라마46b21a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마46b24b",
+    "candidate_name": "신규 이동식 쉼터 후보 25",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.51757677610643,
+    "longitude": 128.01558477916876,
+    "covered_grid_ids": [
+      "라마46b24b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마47a15b",
+    "candidate_name": "신규 이동식 쉼터 후보 26",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.436405877746004,
+    "longitude": 128.02057546003152,
+    "covered_grid_ids": [
+      "라마47a15b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마47a21a",
+    "candidate_name": "신규 이동식 쉼터 후보 27",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.48599596648425,
+    "longitude": 128.02089506214978,
+    "covered_grid_ids": [
+      "라마47a21a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마47a21b",
+    "candidate_name": "신규 이동식 쉼터 후보 28",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.49050413599954,
+    "longitude": 128.02092415561702,
+    "covered_grid_ids": [
+      "라마47a21b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마47a24a",
+    "candidate_name": "신규 이동식 쉼터 후보 29",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.51304493263515,
+    "longitude": 128.02106971989852,
+    "covered_grid_ids": [
+      "라마47a24a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마47a33b",
+    "candidate_name": "신규 이동식 쉼터 후보 30",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.59869918519896,
+    "longitude": 128.0216243404748,
+    "covered_grid_ids": [
+      "라마47a33b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마47a34a",
+    "candidate_name": "신규 이동식 쉼터 후보 31",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.60320726976365,
+    "longitude": 128.02165359590214,
+    "covered_grid_ids": [
+      "라마47a34a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마47a35a",
+    "candidate_name": "신규 이동식 쉼터 후보 32",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.612223428691586,
+    "longitude": 128.02171212624987,
+    "covered_grid_ids": [
+      "라마47a35a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마47b16b",
+    "candidate_name": "신규 이동식 쉼터 후보 33",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.44539840501037,
+    "longitude": 128.02614265446795,
+    "covered_grid_ids": [
+      "라마47b16b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마47b17a",
+    "candidate_name": "신규 이동식 쉼터 후보 34",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.449906601125626,
+    "longitude": 128.0261719970568,
+    "covered_grid_ids": [
+      "라마47b17a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마47b19b",
+    "candidate_name": "신규 이동식 쉼터 후보 35",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.47244753077958,
+    "longitude": 128.02631880777605,
+    "covered_grid_ids": [
+      "라마47b19b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마47b23a",
+    "candidate_name": "신규 이동식 쉼터 후보 36",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.50400468967904,
+    "longitude": 128.0265246168167,
+    "covered_grid_ids": [
+      "라마47b23a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마47b27b",
+    "candidate_name": "신규 이동식 쉼터 후보 37",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.54457793511429,
+    "longitude": 128.02678969894512,
+    "covered_grid_ids": [
+      "라마47b27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마48a14b",
+    "candidate_name": "신규 이동식 쉼터 후보 38",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.42734146815973,
+    "longitude": 128.0315332576039,
+    "covered_grid_ids": [
+      "라마48a14b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마48a15a",
+    "candidate_name": "신규 이동식 쉼터 후보 39",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.43184967385758,
+    "longitude": 128.03156288107436,
+    "covered_grid_ids": [
+      "라마48a15a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마48a19a",
+    "candidate_name": "신규 이동식 쉼터 후보 40",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.46791519723131,
+    "longitude": 128.03180010579626,
+    "covered_grid_ids": [
+      "라마48a19a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마48a22b",
+    "candidate_name": "신규 이동식 쉼터 후보 41",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.499472351909674,
+    "longitude": 128.0320080234021,
+    "covered_grid_ids": [
+      "라마48a22b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마48a38a",
+    "candidate_name": "신규 이동식 쉼터 후보 42",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.639223463750895,
+    "longitude": 128.03293269615423,
+    "covered_grid_ids": [
+      "라마48a38a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마48b22a",
+    "candidate_name": "신규 이동식 쉼터 후보 43",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.494939766917504,
+    "longitude": 128.03749081400733,
+    "covered_grid_ids": [
+      "라마48b22a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마48b22b",
+    "candidate_name": "신규 이동식 쉼터 후보 44",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.49944791763985,
+    "longitude": 128.0375208442681,
+    "covered_grid_ids": [
+      "라마48b22b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마48b23a",
+    "candidate_name": "신규 이동식 쉼터 후보 45",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.50395606496468,
+    "longitude": 128.037550881198,
+    "covered_grid_ids": [
+      "라마48b23a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마48b28a",
+    "candidate_name": "신규 이동식 쉼터 후보 46",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.54903735131004,
+    "longitude": 128.03785161762616,
+    "covered_grid_ids": [
+      "라마48b28a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마48b34b",
+    "candidate_name": "신규 이동식 쉼터 후보 47",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.607642515301386,
+    "longitude": 128.03824357468778,
+    "covered_grid_ids": [
+      "라마48b34b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마49a17b",
+    "candidate_name": "신규 이동식 쉼터 후보 48",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.4543416122393,
+    "longitude": 128.0427305792613,
+    "covered_grid_ids": [
+      "라마49a17b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마49a23b",
+    "candidate_name": "신규 이동식 쉼터 후보 49",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.508439514585625,
+    "longitude": 128.0430943551079,
+    "covered_grid_ids": [
+      "라마49a23b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마49a24b",
+    "candidate_name": "신규 이동식 쉼터 후보 50",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.5174557840756,
+    "longitude": 128.0431550787129,
+    "covered_grid_ids": [
+      "라마49a24b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마49a28b",
+    "candidate_name": "신규 이동식 쉼터 후보 51",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.553520726073224,
+    "longitude": 128.04339824299396,
+    "covered_grid_ids": [
+      "라마49a28b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마49b17b",
+    "candidate_name": "신규 이동식 쉼터 후보 52",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.45431671546853,
+    "longitude": 128.0482403102736,
+    "covered_grid_ids": [
+      "라마49b17b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마49b24a",
+    "candidate_name": "신규 이동식 쉼터 후보 53",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.51292270064691,
+    "longitude": 128.04863844526565,
+    "covered_grid_ids": [
+      "라마49b24a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마49b24b",
+    "candidate_name": "신규 이동식 쉼터 후보 54",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.51743082956547,
+    "longitude": 128.04866911866498,
+    "covered_grid_ids": [
+      "라마49b24b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마49b27b",
+    "candidate_name": "신규 이동식 쉼터 후보 55",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.544479531688346,
+    "longitude": 128.04885330216527,
+    "covered_grid_ids": [
+      "라마49b27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마49b38a",
+    "candidate_name": "신규 이동식 쉼터 후보 56",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.63914902488527,
+    "longitude": 128.04949988035114,
+    "covered_grid_ids": [
+      "라마49b38a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마49b54b",
+    "candidate_name": "신규 이동식 쉼터 후보 57",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.787912337617776,
+    "longitude": 128.0505220434106,
+    "covered_grid_ids": [
+      "라마49b54b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마50a16a",
+    "candidate_name": "신규 이동식 쉼터 후보 58",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890440",
+    "region_name": "가회면",
+    "latitude": 35.440767040084715,
+    "longitude": 128.05365739869038,
+    "covered_grid_ids": [
+      "라마50a16a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마50a24a",
+    "candidate_name": "신규 이동식 쉼터 후보 59",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.512897498273304,
+    "longitude": 128.05415217018145,
+    "covered_grid_ids": [
+      "라마50a24a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마50a28b",
+    "candidate_name": "신규 이동식 쉼터 후보 60",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.55347049861936,
+    "longitude": 128.05443125261746,
+    "covered_grid_ids": [
+      "라마50a28b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마50a39a",
+    "candidate_name": "신규 이동식 쉼터 후보 61",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.64813976118708,
+    "longitude": 128.05508461810484,
+    "covered_grid_ids": [
+      "라마50a39a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마50a55b",
+    "candidate_name": "신규 이동식 쉼터 후보 62",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.7969027107642,
+    "longitude": 128.05611751109282,
+    "covered_grid_ids": [
+      "라마50a55b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마50a56a",
+    "candidate_name": "신규 이동식 쉼터 후보 63",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.801410620979865,
+    "longitude": 128.05614892919695,
+    "covered_grid_ids": [
+      "라마50a56a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마50b25a",
+    "candidate_name": "신규 이동식 쉼터 후보 64",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.521888281588254,
+    "longitude": 128.05972847485995,
+    "covered_grid_ids": [
+      "라마50b25a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마50b33b",
+    "candidate_name": "신규 이동식 쉼터 후보 65",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.59852575256354,
+    "longitude": 128.0602615850551,
+    "covered_grid_ids": [
+      "라마50b33b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마50b55a",
+    "candidate_name": "신규 이동식 쉼터 후보 66",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.79236908084038,
+    "longitude": 128.06161905781946,
+    "covered_grid_ids": [
+      "라마50b55a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마51a26a",
+    "candidate_name": "신규 이동식 쉼터 후보 67",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890450",
+    "region_name": "대병면",
+    "latitude": 35.53087878230185,
+    "longitude": 128.06530603368833,
+    "covered_grid_ids": [
+      "라마51a26a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마51a28a",
+    "candidate_name": "신규 이동식 쉼터 후보 68",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.54891117262822,
+    "longitude": 128.06543258042043,
+    "covered_grid_ids": [
+      "라마51a28a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마51a28b",
+    "candidate_name": "신규 이동식 쉼터 후보 69",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.55341926170571,
+    "longitude": 128.06546423467017,
+    "covered_grid_ids": [
+      "라마51a28b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마51a33b",
+    "candidate_name": "신규 이동식 쉼터 후보 70",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.59849996533927,
+    "longitude": 128.06578116406624,
+    "covered_grid_ids": [
+      "라마51a33b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마51a35a",
+    "candidate_name": "신규 이동식 쉼터 후보 71",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.61202411006244,
+    "longitude": 128.06587638020113,
+    "covered_grid_ids": [
+      "라마51a35a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마51b36a",
+    "candidate_name": "신규 이동식 쉼터 후보 72",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890310",
+    "region_name": "봉산면",
+    "latitude": 35.62101412799895,
+    "longitude": 128.07146101313947,
+    "covered_grid_ids": [
+      "라마51b36a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마52a11b",
+    "candidate_name": "신규 이동식 쉼터 후보 73",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.40009037252298,
+    "longitude": 128.0754039581969,
+    "covered_grid_ids": [
+      "라마52a11b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마52a24a",
+    "candidate_name": "신규 이동식 쉼터 후보 74",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.512794168892434,
+    "longitude": 128.07620700037162,
+    "covered_grid_ids": [
+      "라마52a24a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마52a31a",
+    "candidate_name": "신규 이동식 쉼터 후보 75",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.575907366494285,
+    "longitude": 128.07665865505672,
+    "covered_grid_ids": [
+      "라마52a31a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마52a50b",
+    "candidate_name": "신규 이동식 쉼터 후보 76",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.75171918316294,
+    "longitude": 128.07792426510943,
+    "covered_grid_ids": [
+      "라마52a50b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마52a55a",
+    "candidate_name": "신규 이동식 쉼터 후보 77",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.792290404463806,
+    "longitude": 128.0782178888393,
+    "covered_grid_ids": [
+      "라마52a55a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마52b13a",
+    "candidate_name": "신규 이동식 쉼터 후보 78",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.413588574099926,
+    "longitude": 128.08100701440313,
+    "covered_grid_ids": [
+      "라마52b13a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53a10b",
+    "candidate_name": "신규 이동식 쉼터 후보 79",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.3910210375915,
+    "longitude": 128.08635068763718,
+    "covered_grid_ids": [
+      "라마53a10b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53a11b",
+    "candidate_name": "신규 이동식 쉼터 후보 80",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.40003741550697,
+    "longitude": 128.0864159642644,
+    "covered_grid_ids": [
+      "라마53a11b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53a12b",
+    "candidate_name": "신규 이동식 쉼터 후보 81",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.40905377983217,
+    "longitude": 128.0864812698877,
+    "covered_grid_ids": [
+      "라마53a12b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53a13a",
+    "candidate_name": "신규 이동식 쉼터 후보 82",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.41356195689795,
+    "longitude": 128.08651393357698,
+    "covered_grid_ids": [
+      "라마53a13a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53a24a",
+    "candidate_name": "신규 이동식 쉼터 후보 83",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.512740992284655,
+    "longitude": 128.0872343728249,
+    "covered_grid_ids": [
+      "라마53a24a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53a28a",
+    "candidate_name": "신규 이동식 쉼터 후보 84",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.54880568789552,
+    "longitude": 128.08749722455877,
+    "covered_grid_ids": [
+      "라마53a28a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53a35b",
+    "candidate_name": "신규 이동식 쉼터 후보 85",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.61642640494482,
+    "longitude": 128.08799133188765,
+    "covered_grid_ids": [
+      "라마53a35b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53a49a",
+    "candidate_name": "신규 이동식 쉼터 후보 86",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.738141763715966,
+    "longitude": 128.0888848831729,
+    "covered_grid_ids": [
+      "라마53a49a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53a49b",
+    "candidate_name": "신규 이동식 쉼터 후보 87",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.74264969222817,
+    "longitude": 128.08891808066343,
+    "covered_grid_ids": [
+      "라마53a49b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53a50a",
+    "candidate_name": "신규 이동식 쉼터 후보 88",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.74715761732873,
+    "longitude": 128.08895128552695,
+    "covered_grid_ids": [
+      "라마53a50a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53b11b",
+    "candidate_name": "신규 이동식 쉼터 후보 89",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.40001056058405,
+    "longitude": 128.09192195645863,
+    "covered_grid_ids": [
+      "라마53b11b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53b12b",
+    "candidate_name": "신규 이동식 쉼터 후보 90",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.409026916011946,
+    "longitude": 128.09198787516436,
+    "covered_grid_ids": [
+      "라마53b12b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53b17b",
+    "candidate_name": "신규 이동식 쉼터 후보 91",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.45410848921539,
+    "longitude": 128.09231790817284,
+    "covered_grid_ids": [
+      "라마53b17b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53b37a",
+    "candidate_name": "신규 이동식 쉼터 후보 92",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.629923373983004,
+    "longitude": 128.09361206215775,
+    "covered_grid_ids": [
+      "라마53b37a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53b39a",
+    "candidate_name": "신규 이동식 쉼터 후보 93",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.647955376991206,
+    "longitude": 128.09374543070328,
+    "covered_grid_ids": [
+      "라마53b39a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53b48a",
+    "candidate_name": "신규 이동식 쉼터 후보 94",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.72909871551241,
+    "longitude": 128.0943470573319,
+    "covered_grid_ids": [
+      "라마53b48a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53b48b",
+    "candidate_name": "신규 이동식 쉼터 후보 95",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.733606646363086,
+    "longitude": 128.0943805515971,
+    "covered_grid_ids": [
+      "라마53b48b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53b49a",
+    "candidate_name": "신규 이동식 쉼터 후보 96",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.73811457380198,
+    "longitude": 128.0944140533012,
+    "covered_grid_ids": [
+      "라마53b49a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마53b49b",
+    "candidate_name": "신규 이동식 쉼터 후보 97",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.7426224978289,
+    "longitude": 128.09444756244577,
+    "covered_grid_ids": [
+      "라마53b49b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a12a",
+    "candidate_name": "신규 이동식 쉼터 후보 98",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.40449162964237,
+    "longitude": 128.09746120353486,
+    "covered_grid_ids": [
+      "라마54a12a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a12b",
+    "candidate_name": "신규 이동식 쉼터 후보 99",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.40899980116673,
+    "longitude": 128.0974944731207,
+    "covered_grid_ids": [
+      "라마54a12b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a13a",
+    "candidate_name": "신규 이동식 쉼터 후보 100",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.41350796929217,
+    "longitude": 128.09752775009494,
+    "covered_grid_ids": [
+      "라마54a13a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a14b",
+    "candidate_name": "신규 이동식 쉼터 후보 101",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.42703245327306,
+    "longitude": 128.09762762536442,
+    "covered_grid_ids": [
+      "라마54a14b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a15a",
+    "candidate_name": "신규 이동식 쉼터 후보 102",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.43154060780092,
+    "longitude": 128.09766093190865,
+    "covered_grid_ids": [
+      "라마54a15a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a15b",
+    "candidate_name": "신규 이동식 쉼터 후보 103",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.43604875892891,
+    "longitude": 128.0976942458495,
+    "covered_grid_ids": [
+      "라마54a15b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a26b",
+    "candidate_name": "신규 이동식 쉼터 후보 104",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.53522722319853,
+    "longitude": 128.09842902722383,
+    "covered_grid_ids": [
+      "라마54a26b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a27a",
+    "candidate_name": "신규 이동식 쉼터 후보 105",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.5397352960778,
+    "longitude": 128.0984625117416,
+    "covered_grid_ids": [
+      "라마54a27a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a31a",
+    "candidate_name": "신규 이동식 쉼터 후보 106",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.57579975653939,
+    "longitude": 128.09873065572685,
+    "covered_grid_ids": [
+      "라마54a31a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a31b",
+    "candidate_name": "신규 이동식 쉼터 후보 107",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.58030779877271,
+    "longitude": 128.0987642072303,
+    "covered_grid_ids": [
+      "라마54a31b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a34a",
+    "candidate_name": "신규 이동식 쉼터 후보 108",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.60284795884507,
+    "longitude": 128.09893207654824,
+    "covered_grid_ids": [
+      "라마54a34a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a34b",
+    "candidate_name": "신규 이동식 쉼터 후보 109",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.60735598063939,
+    "longitude": 128.0989656727836,
+    "covered_grid_ids": [
+      "라마54a34b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a46b",
+    "candidate_name": "신규 이동식 쉼터 후보 110",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.715547481134045,
+    "longitude": 128.09977422461617,
+    "covered_grid_ids": [
+      "라마54a46b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a48a",
+    "candidate_name": "신규 이동식 쉼터 후보 111",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.72907128057945,
+    "longitude": 128.0998755969225,
+    "covered_grid_ids": [
+      "라마54a48a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a48b",
+    "candidate_name": "신규 이동식 쉼터 후보 112",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.73357920690392,
+    "longitude": 128.0999094027017,
+    "covered_grid_ids": [
+      "라마54a48b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54a49a",
+    "candidate_name": "신규 이동식 쉼터 후보 113",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.7380871298161,
+    "longitude": 128.099943215989,
+    "covered_grid_ids": [
+      "라마54a49a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b08b",
+    "candidate_name": "신규 이동식 쉼터 후보 114",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.37290700419116,
+    "longitude": 128.10273266306854,
+    "covered_grid_ids": [
+      "라마54b08b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b09b",
+    "candidate_name": "신규 이동식 쉼터 후보 115",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.381923382359,
+    "longitude": 128.10279971853103,
+    "covered_grid_ids": [
+      "라마54b09b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b16b",
+    "candidate_name": "신규 이동식 쉼터 후보 116",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.44503764884127,
+    "longitude": 128.10326994152325,
+    "covered_grid_ids": [
+      "라마54b16b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b23a",
+    "candidate_name": "신규 이동식 쉼터 후보 117",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.50364315658043,
+    "longitude": 128.10370788800256,
+    "covered_grid_ids": [
+      "라마54b23a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b26b",
+    "candidate_name": "신규 이동식 쉼터 후보 118",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.53519973023051,
+    "longitude": 128.10394422950068,
+    "covered_grid_ids": [
+      "라마54b26b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b27b",
+    "candidate_name": "신규 이동식 쉼터 후보 119",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.54421586349125,
+    "longitude": 128.10401182314553,
+    "covered_grid_ids": [
+      "라마54b27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b34b",
+    "candidate_name": "신규 이동식 쉼터 후보 120",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.607328414867624,
+    "longitude": 128.10448582012765,
+    "covered_grid_ids": [
+      "라마54b34b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b35a",
+    "candidate_name": "신규 이동식 쉼터 후보 121",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.61183642870032,
+    "longitude": 128.10451973347458,
+    "covered_grid_ids": [
+      "라마54b35a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b38a",
+    "candidate_name": "신규 이동식 쉼터 후보 122",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.63888444012535,
+    "longitude": 128.10472337177788,
+    "covered_grid_ids": [
+      "라마54b38a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b40a",
+    "candidate_name": "신규 이동식 쉼터 후보 123",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.65691637956561,
+    "longitude": 128.1048592814578,
+    "covered_grid_ids": [
+      "라마54b40a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b40b",
+    "candidate_name": "신규 이동식 쉼터 후보 124",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.66142435590193,
+    "longitude": 128.10489327774462,
+    "covered_grid_ids": [
+      "라마54b40b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b47b",
+    "candidate_name": "신규 이동식 쉼터 후보 125",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.72453566649051,
+    "longitude": 128.10537001929077,
+    "covered_grid_ids": [
+      "라마54b47b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b48a",
+    "candidate_name": "신규 이동식 쉼터 후보 126",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.729043591659504,
+    "longitude": 128.1054041290068,
+    "covered_grid_ids": [
+      "라마54b48a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마54b48b",
+    "candidate_name": "신규 이동식 쉼터 후보 127",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.73355151341586,
+    "longitude": 128.10543824629832,
+    "covered_grid_ids": [
+      "라마54b48b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55a14b",
+    "candidate_name": "신규 이동식 쉼터 후보 128",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.42697743407949,
+    "longitude": 128.1086432529747,
+    "covered_grid_ids": [
+      "라마55a14b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55a23b",
+    "candidate_name": "신규 이동식 쉼터 후보 129",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.50812353110393,
+    "longitude": 128.10925497349422,
+    "covered_grid_ids": [
+      "라마55a23b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55a28b",
+    "candidate_name": "신규 이동식 쉼터 후보 130",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.55320421961946,
+    "longitude": 128.10959587620343,
+    "covered_grid_ids": [
+      "라마55a28b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55a34b",
+    "candidate_name": "신규 이동식 쉼터 후보 131",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.60730059623951,
+    "longitude": 128.1100059599418,
+    "covered_grid_ids": [
+      "라마55a34b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55a38a",
+    "candidate_name": "신규 이동식 쉼터 후보 132",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.63885658931268,
+    "longitude": 128.11024568057744,
+    "covered_grid_ids": [
+      "라마55a38a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55a40a",
+    "candidate_name": "신규 이동식 쉼터 후보 133",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.65688851035059,
+    "longitude": 128.110382831192,
+    "covered_grid_ids": [
+      "라마55a40a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55a48a",
+    "candidate_name": "신규 이동식 쉼터 후보 134",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.72901564875366,
+    "longitude": 128.11093265351553,
+    "covered_grid_ids": [
+      "라마55a48a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55b13a",
+    "candidate_name": "신규 이동식 쉼터 후보 135",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.41342510489516,
+    "longitude": 128.11404841927634,
+    "covered_grid_ids": [
+      "라마55b13a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55b14b",
+    "candidate_name": "신규 이동식 쉼터 후보 136",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.42694954770011,
+    "longitude": 128.11415105551706,
+    "covered_grid_ids": [
+      "라마55b14b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55b23b",
+    "candidate_name": "신규 이동식 쉼터 후보 137",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.50809556152844,
+    "longitude": 128.11476831084076,
+    "covered_grid_ids": [
+      "라마55b23b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55b27b",
+    "candidate_name": "신규 이동식 쉼터 후보 138",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.54416010255345,
+    "longitude": 128.11504343945765,
+    "covered_grid_ids": [
+      "라마55b27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55b30a",
+    "candidate_name": "신규 이동식 쉼터 후보 139",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.566700330003115,
+    "longitude": 128.11521564320068,
+    "covered_grid_ids": [
+      "라마55b30a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55b34b",
+    "candidate_name": "신규 이동식 쉼터 후보 140",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.60727252475616,
+    "longitude": 128.11552609215732,
+    "covered_grid_ids": [
+      "라마55b34b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55b41b",
+    "candidate_name": "신규 이동식 쉼터 후보 141",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.670384278860055,
+    "longitude": 128.11601024766523,
+    "covered_grid_ids": [
+      "라마55b41b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55b48a",
+    "candidate_name": "신규 이동식 쉼터 후보 142",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.72898745186307,
+    "longitude": 128.1164611703796,
+    "covered_grid_ids": [
+      "라마55b48a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마55b49b",
+    "candidate_name": "신규 이동식 쉼터 후보 143",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.742511179104724,
+    "longitude": 128.1165654144612,
+    "covered_grid_ids": [
+      "라마55b49b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a10a",
+    "candidate_name": "신규 이동식 쉼터 후보 144",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.3863480318182,
+    "longitude": 128.11934838763565,
+    "covered_grid_ids": [
+      "라마56a10a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a10b",
+    "candidate_name": "신규 이동식 쉼터 후보 145",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.39085619856686,
+    "longitude": 128.11938285287357,
+    "covered_grid_ids": [
+      "라마56a10b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a11a",
+    "candidate_name": "신규 이동식 쉼터 후보 146",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.395364361915334,
+    "longitude": 128.1194173257654,
+    "covered_grid_ids": [
+      "라마56a11a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a11b",
+    "candidate_name": "신규 이동식 쉼터 후보 147",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.39987252186345,
+    "longitude": 128.1194518063128,
+    "covered_grid_ids": [
+      "라마56a11b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a26a",
+    "candidate_name": "신규 이동식 쉼터 후보 148",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.53060768035004,
+    "longitude": 128.12045508003055,
+    "covered_grid_ids": [
+      "라마56a26a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a30a",
+    "candidate_name": "신규 이동식 쉼터 후보 149",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.566672047760825,
+    "longitude": 128.12073298403283,
+    "covered_grid_ids": [
+      "라마56a30a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a31b",
+    "candidate_name": "신규 이동식 쉼터 후보 150",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.58019612932107,
+    "longitude": 128.12083732537627,
+    "covered_grid_ids": [
+      "라마56a31b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a35b",
+    "candidate_name": "신규 이동식 쉼터 후보 151",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.616260196846405,
+    "longitude": 128.12111590901912,
+    "covered_grid_ids": [
+      "라마56a35b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a40b",
+    "candidate_name": "신규 이동식 쉼터 후보 152",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.66133997438194,
+    "longitude": 128.12146483523884,
+    "covered_grid_ids": [
+      "라마56a40b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a41b",
+    "candidate_name": "신규 이동식 쉼터 후보 153",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.67035588895808,
+    "longitude": 128.12153471351007,
+    "covered_grid_ids": [
+      "라마56a41b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a47b",
+    "candidate_name": "신규 이동식 쉼터 후보 154",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.724451089774035,
+    "longitude": 128.12195463549463,
+    "covered_grid_ids": [
+      "라마56a47b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a48a",
+    "candidate_name": "신규 이동식 쉼터 후보 155",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.72895900098884,
+    "longitude": 128.12198967952992,
+    "covered_grid_ids": [
+      "라마56a48a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56a49a",
+    "candidate_name": "신규 이동식 쉼터 후보 156",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.73797481317576,
+    "longitude": 128.1220597909511,
+    "covered_grid_ids": [
+      "라마56a49a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b09b",
+    "candidate_name": "신규 이동식 쉼터 후보 157",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.38181151989799,
+    "longitude": 128.1248186520125,
+    "covered_grid_ids": [
+      "라마56b09b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b12b",
+    "candidate_name": "신규 이동식 쉼터 후보 158",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.40886046160409,
+    "longitude": 128.12502735071482,
+    "covered_grid_ids": [
+      "라마56b12b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b20b",
+    "candidate_name": "신규 이동식 쉼터 후보 159",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.48099037405448,
+    "longitude": 128.1255852418595,
+    "covered_grid_ids": [
+      "라마56b20b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b21a",
+    "candidate_name": "신규 이동식 쉼터 후보 160",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.48549846465264,
+    "longitude": 128.12562017591137,
+    "covered_grid_ids": [
+      "라마56b21a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b25a",
+    "candidate_name": "신규 이동식 쉼터 후보 161",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.52156306685452,
+    "longitude": 128.12589992776077,
+    "covered_grid_ids": [
+      "라마56b25a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b28b",
+    "candidate_name": "신규 이동식 쉼터 후보 162",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.55311941496108,
+    "longitude": 128.12614511862157,
+    "covered_grid_ids": [
+      "라마56b28b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b29a",
+    "candidate_name": "신규 이동식 쉼터 후보 163",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.55762745106221,
+    "longitude": 128.12618017700953,
+    "covered_grid_ids": [
+      "라마56b29a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b35b",
+    "candidate_name": "신규 이동식 쉼터 후보 164",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.616231610212246,
+    "longitude": 128.126636645187,
+    "covered_grid_ids": [
+      "라마56b35b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b39a",
+    "candidate_name": "신규 이동식 쉼터 후보 165",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.647787457229086,
+    "longitude": 128.12688298208505,
+    "covered_grid_ids": [
+      "라마56b39a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b39b",
+    "candidate_name": "신규 이동식 쉼터 후보 166",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.65229542173034,
+    "longitude": 128.1269182043388,
+    "covered_grid_ids": [
+      "라마56b39b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b40b",
+    "candidate_name": "신규 이동식 쉼터 후보 167",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.66131134049797,
+    "longitude": 128.12698867231504,
+    "covered_grid_ids": [
+      "라마56b40b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b41b",
+    "candidate_name": "신규 이동식 쉼터 후보 168",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.67032724561788,
+    "longitude": 128.12705917159454,
+    "covered_grid_ids": [
+      "라마56b41b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b42a",
+    "candidate_name": "신규 이동식 쉼터 후보 169",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.67483519305946,
+    "longitude": 128.1270944329774,
+    "covered_grid_ids": [
+      "라마56b42a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b44b",
+    "candidate_name": "신규 이동식 쉼터 후보 170",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.6973748790765,
+    "longitude": 128.12727085739292,
+    "covered_grid_ids": [
+      "라마56b44b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b47a",
+    "candidate_name": "신규 이동식 쉼터 후보 171",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.71991447975837,
+    "longitude": 128.1274474778045,
+    "covered_grid_ids": [
+      "라마56b47a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b48b",
+    "candidate_name": "신규 이동식 쉼터 후보 172",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.733438199197046,
+    "longitude": 128.1275535442209,
+    "covered_grid_ids": [
+      "라마56b48b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마56b50b",
+    "candidate_name": "신규 이동식 쉼터 후보 173",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.75146977730616,
+    "longitude": 128.12769507607223,
+    "covered_grid_ids": [
+      "라마56b50b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57a13b",
+    "candidate_name": "신규 이동식 쉼터 후보 174",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.41784811784319,
+    "longitude": 128.13060414469692,
+    "covered_grid_ids": [
+      "라마57a13b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57a14a",
+    "candidate_name": "신규 이동식 쉼터 후보 175",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.42235625134535,
+    "longitude": 128.13063927708512,
+    "covered_grid_ids": [
+      "라마57a14a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57a16b",
+    "candidate_name": "신규 이동식 쉼터 후보 176",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.44489686781429,
+    "longitude": 128.13081505609148,
+    "covered_grid_ids": [
+      "라마57a16b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57a39b",
+    "candidate_name": "신규 이동식 쉼터 후보 177",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.65226654403072,
+    "longitude": 128.13244141286006,
+    "covered_grid_ids": [
+      "라마57a39b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57a42b",
+    "candidate_name": "신규 이동식 쉼터 후보 178",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.67931423076928,
+    "longitude": 128.13265477372713,
+    "covered_grid_ids": [
+      "라마57a42b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57b11a",
+    "candidate_name": "신규 이동식 쉼터 후보 179",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.39527854165449,
+    "longitude": 128.1359342250524,
+    "covered_grid_ids": [
+      "라마57b11a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57b16a",
+    "candidate_name": "신규 이동식 쉼터 후보 180",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.44035984585268,
+    "longitude": 128.13628857732323,
+    "covered_grid_ids": [
+      "라마57b16a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57b18a",
+    "candidate_name": "신규 이동식 쉼터 후보 181",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.45839227223569,
+    "longitude": 128.13643053869384,
+    "covered_grid_ids": [
+      "라마57b18a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57b19b",
+    "candidate_name": "신규 이동식 쉼터 후보 182",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.47191655627558,
+    "longitude": 128.1365370924994,
+    "covered_grid_ids": [
+      "라마57b19b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57b28b",
+    "candidate_name": "신규 이동식 쉼터 후보 183",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.553061616765696,
+    "longitude": 128.13717790809469,
+    "covered_grid_ids": [
+      "라마57b28b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57b29a",
+    "candidate_name": "신규 이동식 쉼터 후보 184",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.55756964331096,
+    "longitude": 128.1372135841167,
+    "covered_grid_ids": [
+      "라마57b29a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57b37a",
+    "candidate_name": "신규 이동식 쉼터 후보 185",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.62969760432387,
+    "longitude": 128.13778547918386,
+    "covered_grid_ids": [
+      "라마57b37a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57b45a",
+    "candidate_name": "신규 이동식 쉼터 후보 186",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.70182469194446,
+    "longitude": 128.13835940976762,
+    "covered_grid_ids": [
+      "라마57b45a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마57b52b",
+    "candidate_name": "신규 이동식 쉼터 후보 187",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890330",
+    "region_name": "가야면",
+    "latitude": 35.769443042696885,
+    "longitude": 128.13889932484096,
+    "covered_grid_ids": [
+      "라마57b52b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58a13b",
+    "candidate_name": "신규 이동식 쉼터 후보 188",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.41779010363655,
+    "longitude": 128.14161845310014,
+    "covered_grid_ids": [
+      "라마58a13b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58a14a",
+    "candidate_name": "신규 이동식 쉼터 후보 189",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.4222982275311,
+    "longitude": 128.14165419901877,
+    "covered_grid_ids": [
+      "라마58a14a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58a14b",
+    "candidate_name": "신규 이동식 쉼터 후보 190",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.426806348022055,
+    "longitude": 128.14168995287565,
+    "covered_grid_ids": [
+      "라마58a14b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58a22b",
+    "candidate_name": "신규 이동식 쉼터 후보 191",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.49893581283494,
+    "longitude": 128.14226309563162,
+    "covered_grid_ids": [
+      "라마58a22b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58a25b",
+    "candidate_name": "신규 이동식 쉼터 후보 192",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.52598413733244,
+    "longitude": 128.14247854968582,
+    "covered_grid_ids": [
+      "라마58a25b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58a31a",
+    "candidate_name": "신규 이동식 쉼터 후보 193",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.575572413574,
+    "longitude": 128.1428742950984,
+    "covered_grid_ids": [
+      "라마58a31a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58a33b",
+    "candidate_name": "신규 이동식 쉼터 후보 194",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.59811240275375,
+    "longitude": 128.1430544991776,
+    "covered_grid_ids": [
+      "라마58a33b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58a37b",
+    "candidate_name": "신규 이동식 쉼터 후보 195",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.63417620806372,
+    "longitude": 128.14334324218814,
+    "covered_grid_ids": [
+      "라마58a37b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58a38a",
+    "candidate_name": "신규 이동식 쉼터 후보 196",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.63868416837356,
+    "longitude": 128.14337937114388,
+    "covered_grid_ids": [
+      "라마58a38a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58a49b",
+    "candidate_name": "신규 이동식 쉼터 후보 197",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.742366313248205,
+    "longitude": 128.14421255528376,
+    "covered_grid_ids": [
+      "라마58a49b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58b11b",
+    "candidate_name": "신규 이동식 쉼터 후보 198",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.39972820973467,
+    "longitude": 128.14698146473464,
+    "covered_grid_ids": [
+      "라마58b11b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58b13b",
+    "candidate_name": "신규 이동식 쉼터 후보 199",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.41776071988558,
+    "longitude": 128.14712559543102,
+    "covered_grid_ids": [
+      "라마58b13b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58b16b",
+    "candidate_name": "신규 이동식 쉼터 후보 200",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.44480938299023,
+    "longitude": 128.14734203164943,
+    "covered_grid_ids": [
+      "라마58b16b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58b18b",
+    "candidate_name": "신규 이동식 쉼터 후보 201",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.46284175696112,
+    "longitude": 128.1474864827437,
+    "covered_grid_ids": [
+      "라마58b18b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58b25b",
+    "candidate_name": "신규 이동식 쉼터 후보 202",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890460",
+    "region_name": "용주면",
+    "latitude": 35.52595463664592,
+    "longitude": 128.14799307314868,
+    "covered_grid_ids": [
+      "라마58b25b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58b30b",
+    "candidate_name": "신규 이동식 쉼터 후보 203",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.5710348560066,
+    "longitude": 128.14835588884694,
+    "covered_grid_ids": [
+      "라마58b30b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58b32a",
+    "candidate_name": "신규 이동식 쉼터 후보 204",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.5845588553217,
+    "longitude": 128.14846489075026,
+    "covered_grid_ids": [
+      "라마58b32a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58b38a",
+    "candidate_name": "신규 이동식 쉼터 후보 205",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.6386545455506,
+    "longitude": 128.14890162522389,
+    "covered_grid_ids": [
+      "라마58b38a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58b41b",
+    "candidate_name": "신규 이동식 쉼터 후보 206",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.67021013789781,
+    "longitude": 128.14915692494964,
+    "covered_grid_ids": [
+      "라마58b41b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58b42b",
+    "candidate_name": "신규 이동식 쉼터 후보 207",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890320",
+    "region_name": "묘산면",
+    "latitude": 35.67922599069843,
+    "longitude": 128.1492299406476,
+    "covered_grid_ids": [
+      "라마58b42b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마58b50a",
+    "candidate_name": "신규 이동식 쉼터 후보 208",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.74684445121311,
+    "longitude": 128.1497785932549,
+    "covered_grid_ids": [
+      "라마58b50a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59a13b",
+    "candidate_name": "신규 이동식 쉼터 후보 209",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.41773108503775,
+    "longitude": 128.15263272975736,
+    "covered_grid_ids": [
+      "라마59a13b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59a16a",
+    "candidate_name": "신규 이동식 쉼터 후보 210",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.44027162159238,
+    "longitude": 128.15281460773002,
+    "covered_grid_ids": [
+      "라마59a16a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59a19a",
+    "candidate_name": "신규 이동식 쉼터 후보 211",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.46732015307705,
+    "longitude": 128.15303312801254,
+    "covered_grid_ids": [
+      "라마59a19a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59a22b",
+    "candidate_name": "신규 이동식 쉼터 후보 212",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.49887661814144,
+    "longitude": 128.1532884365769,
+    "covered_grid_ids": [
+      "라마59a22b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59a23a",
+    "candidate_name": "신규 이동식 쉼터 후보 213",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.50338467094921,
+    "longitude": 128.15332494163485,
+    "covered_grid_ids": [
+      "라마59a23a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59a37b",
+    "candidate_name": "신규 이동식 쉼터 후보 214",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.63411671910378,
+    "longitude": 128.15438712215897,
+    "covered_grid_ids": [
+      "라마59a37b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59a38a",
+    "candidate_name": "신규 이동식 쉼터 후보 215",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.638624669587976,
+    "longitude": 128.15442387121143,
+    "covered_grid_ids": [
+      "라마59a38a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59a48b",
+    "candidate_name": "신규 이동식 쉼터 후보 216",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.73329084090972,
+    "longitude": 128.15519748939255,
+    "covered_grid_ids": [
+      "라마59a48b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59a49b",
+    "candidate_name": "신규 이동식 쉼터 후보 217",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.74230658817267,
+    "longitude": 128.15527135564196,
+    "covered_grid_ids": [
+      "라마59a49b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59b12a",
+    "candidate_name": "신규 이동식 쉼터 후보 218",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.40417685115108,
+    "longitude": 128.15802990624573,
+    "covered_grid_ids": [
+      "라마59b12a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59b15b",
+    "candidate_name": "신규 이동식 쉼터 후보 219",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.43573361534743,
+    "longitude": 128.1582865696776,
+    "covered_grid_ids": [
+      "라마59b15b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59b42b",
+    "candidate_name": "신규 이동식 쉼터 후보 220",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.67916589640221,
+    "longitude": 128.160280011499,
+    "covered_grid_ids": [
+      "라마59b42b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59b45b",
+    "candidate_name": "신규 이동식 쉼터 후보 221",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.70621331330513,
+    "longitude": 128.16050298416067,
+    "covered_grid_ids": [
+      "라마59b45b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59b46a",
+    "candidate_name": "신규 이동식 쉼터 후보 222",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.710721204163804,
+    "longitude": 128.16054017516257,
+    "covered_grid_ids": [
+      "라마59b46a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마59b46b",
+    "candidate_name": "신규 이동식 쉼터 후보 223",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.71522909160528,
+    "longitude": 128.16057737442418,
+    "covered_grid_ids": [
+      "라마59b46b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60a12a",
+    "candidate_name": "신규 이동식 쉼터 후보 224",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890430",
+    "region_name": "삼가면",
+    "latitude": 35.404146729082534,
+    "longitude": 128.1635361044955,
+    "covered_grid_ids": [
+      "라마60a12a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60a17b",
+    "candidate_name": "신규 이동식 쉼터 후보 225",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.45373580012766,
+    "longitude": 128.16394298779124,
+    "covered_grid_ids": [
+      "라마60a17b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60a31a",
+    "candidate_name": "신규 이동식 쉼터 후보 226",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.57545268070901,
+    "longitude": 128.1649459250145,
+    "covered_grid_ids": [
+      "라마60a31a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60a34b",
+    "candidate_name": "신규 이동식 쉼터 후보 227",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.60700850310899,
+    "longitude": 128.1652069288159,
+    "covered_grid_ids": [
+      "라마60a34b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60a35b",
+    "candidate_name": "신규 이동식 쉼터 후보 228",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.61602442164763,
+    "longitude": 128.16528157587723,
+    "covered_grid_ids": [
+      "라마60a35b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60a36a",
+    "candidate_name": "신규 이동식 쉼터 후보 229",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.62053237579626,
+    "longitude": 128.16531891184164,
+    "covered_grid_ids": [
+      "라마60a36a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60a38a",
+    "candidate_name": "신규 이동식 쉼터 후보 230",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.63856415824851,
+    "longitude": 128.1654683386337,
+    "covered_grid_ids": [
+      "라마60a38a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60b13a",
+    "candidate_name": "신규 이동식 쉼터 후보 231",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.413132571370944,
+    "longitude": 128.16911681259114,
+    "covered_grid_ids": [
+      "라마60b13a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60b13b",
+    "candidate_name": "신규 이동식 쉼터 후보 232",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.417640673924936,
+    "longitude": 128.16915408402758,
+    "covered_grid_ids": [
+      "라마60b13b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60b16a",
+    "candidate_name": "신규 이동식 쉼터 후보 233",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.44018113559946,
+    "longitude": 128.16934056540177,
+    "covered_grid_ids": [
+      "라마60b16a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60b18a",
+    "candidate_name": "신규 이동식 쉼터 후보 234",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.45821344361317,
+    "longitude": 128.16948989964172,
+    "covered_grid_ids": [
+      "라마60b18a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60b25a",
+    "candidate_name": "신규 이동식 쉼터 후보 235",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.521326092196304,
+    "longitude": 128.1700136152476,
+    "covered_grid_ids": [
+      "라마60b25a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60b25b",
+    "candidate_name": "신규 이동식 쉼터 후보 236",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.52583411295132,
+    "longitude": 128.17005108584095,
+    "covered_grid_ids": [
+      "라마60b25b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60b33a",
+    "candidate_name": "신규 이동식 쉼터 후보 237",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890250",
+    "region_name": "합천읍",
+    "latitude": 35.593454014892124,
+    "longitude": 128.17061414433772,
+    "covered_grid_ids": [
+      "라마60b33a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60b44b",
+    "candidate_name": "신규 이동식 쉼터 후보 238",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.69713637262901,
+    "longitude": 128.17148115147717,
+    "covered_grid_ids": [
+      "라마60b44b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60b45a",
+    "candidate_name": "신규 이동식 쉼터 후보 239",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.701644260229486,
+    "longitude": 128.17151894798147,
+    "covered_grid_ids": [
+      "라마60b45a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60b45b",
+    "candidate_name": "신규 이동식 쉼터 후보 240",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.70615214441201,
+    "longitude": 128.17155675287987,
+    "covered_grid_ids": [
+      "라마60b45b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60b46a",
+    "candidate_name": "신규 이동식 쉼터 후보 241",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.7106600251764,
+    "longitude": 128.17159456617426,
+    "covered_grid_ids": [
+      "라마60b46a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마60b49b",
+    "candidate_name": "신규 이동식 쉼터 후보 242",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.742215094803896,
+    "longitude": 128.1718594944805,
+    "covered_grid_ids": [
+      "라마60b49b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61a13a",
+    "candidate_name": "신규 이동식 쉼터 후보 243",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.41310193722108,
+    "longitude": 128.1746236075326,
+    "covered_grid_ids": [
+      "라마61a13a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61a16a",
+    "candidate_name": "신규 이동식 쉼터 후보 244",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.44015047100017,
+    "longitude": 128.17484920147749,
+    "covered_grid_ids": [
+      "라마61a16a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61a18a",
+    "candidate_name": "신규 이동식 쉼터 후보 245",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.45818275870313,
+    "longitude": 128.17499976450353,
+    "covered_grid_ids": [
+      "라마61a18a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61a23a",
+    "candidate_name": "신규 이동식 쉼터 후보 246",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.50326323934763,
+    "longitude": 128.17537675765587,
+    "covered_grid_ids": [
+      "라마61a23a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61a31a",
+    "candidate_name": "신규 이동식 쉼터 후보 247",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.57539129896404,
+    "longitude": 128.17598169060844,
+    "covered_grid_ids": [
+      "라마61a31a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61a42a",
+    "candidate_name": "신규 이동식 쉼터 후보 248",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.674565954027045,
+    "longitude": 128.1768169905309,
+    "covered_grid_ids": [
+      "라마61a42a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61a46b",
+    "candidate_name": "신규 이동식 쉼터 후보 249",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.715136927211304,
+    "longitude": 128.17715988202264,
+    "covered_grid_ids": [
+      "라마61a46b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61a49b",
+    "candidate_name": "신규 이동식 쉼터 후보 250",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.74218408881774,
+    "longitude": 128.17738885736352,
+    "covered_grid_ids": [
+      "라마61a49b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61b15b",
+    "candidate_name": "신규 이동식 쉼터 후보 251",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.435611479774735,
+    "longitude": 128.18031990230872,
+    "covered_grid_ids": [
+      "라마61b15b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61b18b",
+    "candidate_name": "신규 이동식 쉼터 후보 252",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.46265988061244,
+    "longitude": 128.18054759002516,
+    "covered_grid_ids": [
+      "라마61b18b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61b19a",
+    "candidate_name": "신규 이동식 쉼터 후보 253",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.467167935487886,
+    "longitude": 128.1805855674787,
+    "covered_grid_ids": [
+      "라마61b19a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61b23b",
+    "candidate_name": "신규 이동식 쉼터 후보 254",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.50774027592486,
+    "longitude": 128.18092774430625,
+    "covered_grid_ids": [
+      "라마61b23b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61b25a",
+    "candidate_name": "신규 이동식 쉼터 후보 255",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.52126432801224,
+    "longitude": 128.1810419552937,
+    "covered_grid_ids": [
+      "라마61b25a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61b26a",
+    "candidate_name": "신규 이동식 쉼터 후보 256",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.53028034567953,
+    "longitude": 128.18111813823063,
+    "covered_grid_ids": [
+      "라마61b26a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61b45a",
+    "candidate_name": "신규 이동식 쉼터 후보 257",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.7015820865476,
+    "longitude": 128.18257206096993,
+    "covered_grid_ids": [
+      "라마61b45a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61b45b",
+    "candidate_name": "신규 이동식 쉼터 후보 258",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.70608996046948,
+    "longitude": 128.18261048801514,
+    "covered_grid_ids": [
+      "라마61b45b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마61b46a",
+    "candidate_name": "신규 이동식 쉼터 후보 259",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.710597830972105,
+    "longitude": 128.18264892359448,
+    "covered_grid_ids": [
+      "라마61b46a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62a16b",
+    "candidate_name": "신규 이동식 쉼터 후보 260",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.44459645466558,
+    "longitude": 128.1859046909008,
+    "covered_grid_ids": [
+      "라마62a16b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62a27a",
+    "candidate_name": "신규 이동식 쉼터 후보 261",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.53926506885124,
+    "longitude": 128.18670974607232,
+    "covered_grid_ids": [
+      "라마62a27a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62a31b",
+    "candidate_name": "신규 이동식 쉼터 후보 262",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.57983687143243,
+    "longitude": 128.18705592056625,
+    "covered_grid_ids": [
+      "라마62a31b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62a34b",
+    "candidate_name": "신규 이동식 쉼터 후보 263",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.606884586170914,
+    "longitude": 128.18728708820566,
+    "covered_grid_ids": [
+      "라마62a34b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62a36b",
+    "candidate_name": "신규 이동식 쉼터 후보 264",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.624916327684325,
+    "longitude": 128.18744137115968,
+    "covered_grid_ids": [
+      "라마62a36b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62a38a",
+    "candidate_name": "신규 이동식 쉼터 후보 265",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.638440097946955,
+    "longitude": 128.18755717333926,
+    "covered_grid_ids": [
+      "라마62a38a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62a47b",
+    "candidate_name": "신규 이동식 쉼터 후보 266",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.72408992857258,
+    "longitude": 128.18829238133048,
+    "covered_grid_ids": [
+      "라마62a47b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62b19b",
+    "candidate_name": "신규 이동식 쉼터 후보 267",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.4716133287106,
+    "longitude": 128.19164508559157,
+    "covered_grid_ids": [
+      "라마62b19b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62b22b",
+    "candidate_name": "신규 이동식 쉼터 후보 268",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.49866150366603,
+    "longitude": 128.19187687098568,
+    "covered_grid_ids": [
+      "라마62b22b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62b25a",
+    "candidate_name": "신규 이동식 쉼터 후보 269",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.52120155563988,
+    "longitude": 128.19207026151443,
+    "covered_grid_ids": [
+      "라마62b25a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62b29a",
+    "candidate_name": "신규 이동식 쉼터 후보 270",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.557265461326175,
+    "longitude": 128.19238013330852,
+    "covered_grid_ids": [
+      "라마62b29a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62b30a",
+    "candidate_name": "신규 이동식 쉼터 후보 271",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.56628140360911,
+    "longitude": 128.1924576873044,
+    "covered_grid_ids": [
+      "라마62b30a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62b31b",
+    "candidate_name": "신규 이동식 쉼터 후보 272",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.579805291423355,
+    "longitude": 128.19257408289616,
+    "covered_grid_ids": [
+      "라마62b31b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62b34b",
+    "candidate_name": "신규 이동식 쉼터 후보 273",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.6068529748368,
+    "longitude": 128.19280710682247,
+    "covered_grid_ids": [
+      "라마62b34b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62b35b",
+    "candidate_name": "신규 이동식 쉼터 후보 274",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.61586884197945,
+    "longitude": 128.19288485048185,
+    "covered_grid_ids": [
+      "라마62b35b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62b36a",
+    "candidate_name": "신규 이동식 쉼터 후보 275",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.62037677042582,
+    "longitude": 128.19292373526096,
+    "covered_grid_ids": [
+      "라마62b36a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마62b47b",
+    "candidate_name": "신규 이동식 쉼터 후보 276",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.72405818125655,
+    "longitude": 128.19382047249366,
+    "covered_grid_ids": [
+      "라마62b47b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마63a19a",
+    "candidate_name": "신규 이동식 쉼터 후보 277",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890420",
+    "region_name": "쌍백면",
+    "latitude": 35.46707358635783,
+    "longitude": 128.19711693049896,
+    "covered_grid_ids": [
+      "라마63a19a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마63a37b",
+    "candidate_name": "신규 이동식 쉼터 후보 278",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.63386863949506,
+    "longitude": 128.19856231015592,
+    "covered_grid_ids": [
+      "라마63a37b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마63a44a",
+    "candidate_name": "신규 이동식 쉼터 후보 279",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890340",
+    "region_name": "야로면",
+    "latitude": 35.69247119644686,
+    "longitude": 128.19907297200237,
+    "covered_grid_ids": [
+      "라마63a44a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마64a30a",
+    "candidate_name": "신규 이동식 쉼터 후보 280",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.56618519578166,
+    "longitude": 128.20900934069553,
+    "covered_grid_ids": [
+      "라마64a30a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마64a32b",
+    "candidate_name": "신규 이동식 쉼터 후보 281",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.588724912195254,
+    "longitude": 128.20920801349055,
+    "covered_grid_ids": [
+      "라마64a32b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마64b22b",
+    "candidate_name": "신규 이동식 쉼터 후보 282",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.498533040684585,
+    "longitude": 128.2139272175968,
+    "covered_grid_ids": [
+      "라마64b22b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마64b29b",
+    "candidate_name": "신규 이동식 쉼터 후보 283",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.56164467344001,
+    "longitude": 128.2144865239239,
+    "covered_grid_ids": [
+      "라마64b29b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마64b32a",
+    "candidate_name": "신규 이동식 쉼터 후보 284",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.58418438001144,
+    "longitude": 128.21468669793032,
+    "covered_grid_ids": [
+      "라마64b32a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마64b32b",
+    "candidate_name": "신규 이동식 쉼터 후보 285",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.58869231107332,
+    "longitude": 128.21472675940785,
+    "covered_grid_ids": [
+      "라마64b32b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마65a22a",
+    "candidate_name": "신규 이동식 쉼터 후보 286",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.49399230139473,
+    "longitude": 128.21939959042032,
+    "covered_grid_ids": [
+      "라마65a22a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마65a22b",
+    "candidate_name": "신규 이동식 쉼터 후보 287",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.49850029535826,
+    "longitude": 128.21943978227765,
+    "covered_grid_ids": [
+      "라마65a22b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마65a23b",
+    "candidate_name": "신규 이동식 쉼터 후보 288",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.507516273040984,
+    "longitude": 128.21952019277086,
+    "covered_grid_ids": [
+      "라마65a23b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마65a31a",
+    "candidate_name": "신규 이동식 쉼터 후보 289",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.575135670131964,
+    "longitude": 128.220124411079,
+    "covered_grid_ids": [
+      "라마65a31a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마65a35b",
+    "candidate_name": "신규 이동식 쉼터 후보 290",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.61570693929003,
+    "longitude": 128.22048790924688,
+    "covered_grid_ids": [
+      "라마65a35b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마65b31b",
+    "candidate_name": "신규 이동식 쉼터 후보 291",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.57961050709101,
+    "longitude": 128.22568287349128,
+    "covered_grid_ids": [
+      "라마65b31b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마66a22b",
+    "candidate_name": "신규 이동식 쉼터 후보 292",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.498434049217565,
+    "longitude": 128.23046488479446,
+    "covered_grid_ids": [
+      "라마66a22b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마66a23a",
+    "candidate_name": "신규 이동식 쉼터 후보 293",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890410",
+    "region_name": "대양면",
+    "latitude": 35.50294202880666,
+    "longitude": 128.23050570150434,
+    "covered_grid_ids": [
+      "라마66a23a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마66a32b",
+    "candidate_name": "신규 이동식 쉼터 후보 294",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.58859299172198,
+    "longitude": 128.23128294350485,
+    "covered_grid_ids": [
+      "라마66a32b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마66a33b",
+    "candidate_name": "신규 이동식 쉼터 후보 295",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.59760881076366,
+    "longitude": 128.23136494936813,
+    "covered_grid_ids": [
+      "라마66a33b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마66b27a",
+    "candidate_name": "신규 이동식 쉼터 후보 296",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.53897219180874,
+    "longitude": 128.23634787347285,
+    "covered_grid_ids": [
+      "라마66b27a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마66b28a",
+    "candidate_name": "신규 이동식 쉼터 후보 297",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.54798807496917,
+    "longitude": 128.2364302964985,
+    "covered_grid_ids": [
+      "라마66b28a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마66b28b",
+    "candidate_name": "신규 이동식 쉼터 후보 298",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.55249601142155,
+    "longitude": 128.23647152173982,
+    "covered_grid_ids": [
+      "라마66b28b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마66b35a",
+    "candidate_name": "신규 이동식 쉼터 후보 299",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.61109887412158,
+    "longitude": 128.2370082837293,
+    "covered_grid_ids": [
+      "라마66b35a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마66b35b",
+    "candidate_name": "신규 이동식 쉼터 후보 300",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.61560676269333,
+    "longitude": 128.23704963732715,
+    "covered_grid_ids": [
+      "라마66b35b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67a27b",
+    "candidate_name": "신규 이동식 쉼터 후보 301",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.54344632659297,
+    "longitude": 128.2419046916423,
+    "covered_grid_ids": [
+      "라마67a27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67a28a",
+    "candidate_name": "신규 이동식 쉼터 후보 302",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.54795426087383,
+    "longitude": 128.24194621637355,
+    "covered_grid_ids": [
+      "라마67a28a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67a28b",
+    "candidate_name": "신규 이동식 쉼터 후보 303",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.55246219173546,
+    "longitude": 128.2419877503263,
+    "covered_grid_ids": [
+      "라마67a28b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67a29a",
+    "candidate_name": "신규 이동식 쉼터 후보 304",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.55697011917765,
+    "longitude": 128.24202929350264,
+    "covered_grid_ids": [
+      "라마67a29a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67b25a",
+    "candidate_name": "신규 이동식 쉼터 후보 305",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.52087257131035,
+    "longitude": 128.24721126607284,
+    "covered_grid_ids": [
+      "라마67b25a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67b27a",
+    "candidate_name": "신규 이동식 쉼터 후보 306",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.538904333777886,
+    "longitude": 128.2473784695708,
+    "covered_grid_ids": [
+      "라마67b27a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67b27b",
+    "candidate_name": "신규 이동식 쉼터 후보 307",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.543412265846555,
+    "longitude": 128.24742029365493,
+    "covered_grid_ids": [
+      "라마67b27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67b28a",
+    "candidate_name": "신규 이동식 쉼터 후보 308",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.54792019449555,
+    "longitude": 128.24746212702706,
+    "covered_grid_ids": [
+      "라마67b28a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67b29b",
+    "candidate_name": "신규 이동식 쉼터 후보 309",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.56144395992267,
+    "longitude": 128.247587682892,
+    "covered_grid_ids": [
+      "라마67b29b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67b32b",
+    "candidate_name": "신규 이동식 쉼터 후보 310",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.58849139842024,
+    "longitude": 128.24783904567732,
+    "covered_grid_ids": [
+      "라마67b32b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67b36a",
+    "candidate_name": "신규 이동식 쉼터 후보 311",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.62004658764989,
+    "longitude": 128.2481327258389,
+    "covered_grid_ids": [
+      "라마67b36a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67b36b",
+    "candidate_name": "신규 이동식 쉼터 후보 312",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.6245544581355,
+    "longitude": 128.24817471742418,
+    "covered_grid_ids": [
+      "라마67b36b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67b37a",
+    "candidate_name": "신규 이동식 쉼터 후보 313",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.62906232519803,
+    "longitude": 128.24821671833485,
+    "covered_grid_ids": [
+      "라마67b37a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67b37b",
+    "candidate_name": "신규 이동식 쉼터 후보 314",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.63357018883729,
+    "longitude": 128.24825872857295,
+    "covered_grid_ids": [
+      "라마67b37b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마67b38a",
+    "candidate_name": "신규 이동식 쉼터 후보 315",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.63807804905308,
+    "longitude": 128.2483007481406,
+    "covered_grid_ids": [
+      "라마67b38a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a26a",
+    "candidate_name": "신규 이동식 쉼터 후보 316",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.52985416341293,
+    "longitude": 128.25280951647753,
+    "covered_grid_ids": [
+      "라마68a26a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a26b",
+    "candidate_name": "신규 이동식 쉼터 후보 317",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.534362096648685,
+    "longitude": 128.2528516304252,
+    "covered_grid_ids": [
+      "라마68a26b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a27b",
+    "candidate_name": "신규 이동식 쉼터 후보 318",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.54337795286026,
+    "longitude": 128.2529358863796,
+    "covered_grid_ids": [
+      "라마68a27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a28a",
+    "candidate_name": "신규 이동식 쉼터 후보 319",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.54788587583571,
+    "longitude": 128.2529780283905,
+    "covered_grid_ids": [
+      "라마68a28a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a29b",
+    "candidate_name": "신규 이동식 쉼터 후보 320",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.56140962423843,
+    "longitude": 128.25310451058309,
+    "covered_grid_ids": [
+      "라마68a29b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a33a",
+    "candidate_name": "신규 이동식 쉼터 후보 321",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.5929649174324,
+    "longitude": 128.25339996356635,
+    "covered_grid_ids": [
+      "라마68a33a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a33b",
+    "candidate_name": "신규 이동식 쉼터 후보 322",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.59747280277209,
+    "longitude": 128.2534422086366,
+    "covered_grid_ids": [
+      "라마68a33b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a34b",
+    "candidate_name": "신규 이동식 쉼터 후보 323",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.60648856318358,
+    "longitude": 128.25352672692392,
+    "covered_grid_ids": [
+      "라마68a34b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a35a",
+    "candidate_name": "신규 이동식 쉼터 후보 324",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.61099643825499,
+    "longitude": 128.2535690001452,
+    "covered_grid_ids": [
+      "라마68a35a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a36a",
+    "candidate_name": "신규 이동식 쉼터 후보 325",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.62001217812819,
+    "longitude": 128.25365357475343,
+    "covered_grid_ids": [
+      "라마68a36a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a36b",
+    "candidate_name": "신규 이동식 쉼터 후보 326",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.62452004292961,
+    "longitude": 128.25369587614458,
+    "covered_grid_ids": [
+      "라마68a36b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a37a",
+    "candidate_name": "신규 이동식 쉼터 후보 327",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.62902790430733,
+    "longitude": 128.2537381869299,
+    "covered_grid_ids": [
+      "라마68a37a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68a38a",
+    "candidate_name": "신규 이동식 쉼터 후보 328",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.63804361679086,
+    "longitude": 128.25382283669134,
+    "covered_grid_ids": [
+      "라마68a38a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68b27b",
+    "candidate_name": "신규 이동식 쉼터 후보 329",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.543343387635474,
+    "longitude": 128.2584514697477,
+    "covered_grid_ids": [
+      "라마68b27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68b29a",
+    "candidate_name": "신규 이동식 쉼터 후보 330",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.55686712915255,
+    "longitude": 128.25857884997404,
+    "covered_grid_ids": [
+      "라마68b29a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마68b33a",
+    "candidate_name": "신규 이동식 쉼터 후보 331",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890350",
+    "region_name": "율곡면",
+    "latitude": 35.5929302893052,
+    "longitude": 128.25891894570992,
+    "covered_grid_ids": [
+      "라마68b33a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마69a27a",
+    "candidate_name": "신규 이동식 쉼터 후보 332",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.53880065524878,
+    "longitude": 128.26392429390214,
+    "covered_grid_ids": [
+      "라마69a27a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마69a29a",
+    "candidate_name": "신규 이동식 쉼터 후보 333",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890360",
+    "region_name": "초계면",
+    "latitude": 35.55683229441788,
+    "longitude": 128.2640953500266,
+    "covered_grid_ids": [
+      "라마69a29a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마69a32a",
+    "candidate_name": "신규 이동식 쉼터 후보 334",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.58387965050399,
+    "longitude": 128.264352219252,
+    "covered_grid_ids": [
+      "라마69a32a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마69a36a",
+    "candidate_name": "신규 이동식 쉼터 후보 335",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.619942600242034,
+    "longitude": 128.2646952443375,
+    "covered_grid_ids": [
+      "라마69a36a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마69a37b",
+    "candidate_name": "신규 이동식 쉼터 후보 336",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.63346614989001,
+    "longitude": 128.26482403592456,
+    "covered_grid_ids": [
+      "라마69a37b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마69a38a",
+    "candidate_name": "신규 이동식 쉼터 후보 337",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.63797399292221,
+    "longitude": 128.26486698552273,
+    "covered_grid_ids": [
+      "라마69a38a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마69b26a",
+    "candidate_name": "신규 이동식 쉼터 후보 338",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.529749762829816,
+    "longitude": 128.26935346175995,
+    "covered_grid_ids": [
+      "라마69b26a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마69b27a",
+    "candidate_name": "신규 이동식 쉼터 후보 339",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.53876559134917,
+    "longitude": 128.26943954978776,
+    "covered_grid_ids": [
+      "라마69b27a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마69b31a",
+    "candidate_name": "신규 이동식 쉼터 후보 340",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.574828768531376,
+    "longitude": 128.26978428446577,
+    "covered_grid_ids": [
+      "라마69b31a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마69b32a",
+    "candidate_name": "신규 이동식 쉼터 후보 341",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.58384452859547,
+    "longitude": 128.26987056386233,
+    "covered_grid_ids": [
+      "라마69b32a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마69b36b",
+    "candidate_name": "신규 이동식 쉼터 후보 342",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.62441527937852,
+    "longitude": 128.27025929566565,
+    "covered_grid_ids": [
+      "라마69b36b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마70a27b",
+    "candidate_name": "신규 이동식 쉼터 후보 343",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.54323817854401,
+    "longitude": 128.27499816302804,
+    "covered_grid_ids": [
+      "라마70a27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마70a28a",
+    "candidate_name": "신규 이동식 쉼터 후보 344",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.54774607840824,
+    "longitude": 128.27504153957312,
+    "covered_grid_ids": [
+      "라마70a28a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마70a36b",
+    "candidate_name": "신규 이동식 쉼터 후보 345",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.62437985222165,
+    "longitude": 128.27578041639669,
+    "covered_grid_ids": [
+      "라마70a36b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마70b27b",
+    "candidate_name": "신규 이동식 쉼터 후보 346",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.543202604379154,
+    "longitude": 128.28051370828504,
+    "covered_grid_ids": [
+      "라마70b27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마70b30b",
+    "candidate_name": "신규 이동식 쉼터 후보 347",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.57024991691328,
+    "longitude": 128.2807759648865,
+    "covered_grid_ids": [
+      "라마70b30b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마71a26b",
+    "candidate_name": "신규 이동식 쉼터 후보 348",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.5341509915938,
+    "longitude": 128.28594128554477,
+    "covered_grid_ids": [
+      "라마71a26b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마71a27a",
+    "candidate_name": "신규 이동식 쉼터 후보 349",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.53865888650027,
+    "longitude": 128.2859852598112,
+    "covered_grid_ids": [
+      "라마71a27a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마71a27b",
+    "candidate_name": "신규 이동식 쉼터 후보 350",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.54316677798282,
+    "longitude": 128.28602924384302,
+    "covered_grid_ids": [
+      "라마71a27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마71a31b",
+    "candidate_name": "신규 이동식 쉼터 후보 351",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.579229786558344,
+    "longitude": 128.28638146791283,
+    "covered_grid_ids": [
+      "라마71a31b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마71b26b",
+    "candidate_name": "신규 이동식 쉼터 후보 352",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.53411492489636,
+    "longitude": 128.29145619429292,
+    "covered_grid_ids": [
+      "라마71b26b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마71b28b",
+    "candidate_name": "신규 이동식 쉼터 후보 353",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.55214646011734,
+    "longitude": 128.29163338431815,
+    "covered_grid_ids": [
+      "라마71b28b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마71b31b",
+    "candidate_name": "신규 이동식 쉼터 후보 354",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.57919366018988,
+    "longitude": 128.29189946461378,
+    "covered_grid_ids": [
+      "라마71b31b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마71b33b",
+    "candidate_name": "신규 이동식 쉼터 후보 355",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890370",
+    "region_name": "쌍책면",
+    "latitude": 35.597225058381056,
+    "longitude": 128.29207704852095,
+    "covered_grid_ids": [
+      "라마71b33b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마71b35b",
+    "candidate_name": "신규 이동식 쉼터 후보 356",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.61525640173888,
+    "longitude": 128.29225479022708,
+    "covered_grid_ids": [
+      "라마71b35b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마72a26b",
+    "candidate_name": "신규 이동식 쉼터 후보 357",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.53407860605369,
+    "longitude": 128.29697109320938,
+    "covered_grid_ids": [
+      "라마72a26b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마72a27b",
+    "candidate_name": "신규 이동식 쉼터 후보 358",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.54309436850142,
+    "longitude": 128.29706028558775,
+    "covered_grid_ids": [
+      "라마72a27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마72a28b",
+    "candidate_name": "신규 이동식 쉼터 후보 359",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.552110117247366,
+    "longitude": 128.29714951758442,
+    "covered_grid_ids": [
+      "라마72a28b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마72a35b",
+    "candidate_name": "신규 이동식 쉼터 후보 360",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.61521997468993,
+    "longitude": 128.29777525235966,
+    "covered_grid_ids": [
+      "라마72a35b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마72a40a",
+    "candidate_name": "신규 이동식 쉼터 후보 361",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890380",
+    "region_name": "덕곡면",
+    "latitude": 35.65579024251359,
+    "longitude": 128.29817853883745,
+    "covered_grid_ids": [
+      "라마72a40a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마72b27b",
+    "candidate_name": "신규 이동식 쉼터 후보 362",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.54305778541926,
+    "longitude": 128.30257579163748,
+    "covered_grid_ids": [
+      "라마72b27b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마72b28a",
+    "candidate_name": "신규 이동식 쉼터 후보 363",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.54756565545619,
+    "longitude": 128.3026207113019,
+    "covered_grid_ids": [
+      "라마72b28a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마72b30a",
+    "candidate_name": "신규 이동식 쉼터 후보 364",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890400",
+    "region_name": "적중면",
+    "latitude": 35.56559710133896,
+    "longitude": 128.30280048973492,
+    "covered_grid_ids": [
+      "라마72b30a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마73a31a",
+    "candidate_name": "신규 이동식 쉼터 후보 365",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.57457592576282,
+    "longitude": 128.30840809668473,
+    "covered_grid_ids": [
+      "라마73a31a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마73a35a",
+    "candidate_name": "신규 이동식 쉼터 후보 366",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.61063854938717,
+    "longitude": 128.30877076756144,
+    "covered_grid_ids": [
+      "라마73a35a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마73a38b",
+    "candidate_name": "신규 이동식 쉼터 후보 367",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890380",
+    "region_name": "덕곡면",
+    "latitude": 35.642193165004606,
+    "longitude": 128.30908863349006,
+    "covered_grid_ids": [
+      "라마73a38b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마73a39a",
+    "candidate_name": "신규 이동식 쉼터 후보 368",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890380",
+    "region_name": "덕곡면",
+    "latitude": 35.64670095351319,
+    "longitude": 128.30913408325446,
+    "covered_grid_ids": [
+      "라마73a39a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마73b29a",
+    "candidate_name": "신규 이동식 쉼터 후보 369",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.55650742573852,
+    "longitude": 128.3137434147786,
+    "covered_grid_ids": [
+      "라마73b29a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마73b31a",
+    "candidate_name": "신규 이동식 쉼터 후보 370",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.57453879529076,
+    "longitude": 128.31392574446437,
+    "covered_grid_ids": [
+      "라마73b31a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마73b32a",
+    "candidate_name": "신규 이동식 쉼터 후보 371",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.58355445949482,
+    "longitude": 128.31401697005356,
+    "covered_grid_ids": [
+      "라마73b32a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마73b34a",
+    "candidate_name": "신규 이동식 쉼터 후보 372",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.601585746751134,
+    "longitude": 128.31419954281495,
+    "covered_grid_ids": [
+      "라마73b34a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마73b37b",
+    "candidate_name": "신규 이동식 쉼터 후보 373",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890380",
+    "region_name": "덕곡면",
+    "latitude": 35.63314036738899,
+    "longitude": 128.31451943560373,
+    "covered_grid_ids": [
+      "라마73b37b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마74a28b",
+    "candidate_name": "신규 이동식 쉼터 후보 374",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.55196222267647,
+    "longitude": 128.31921395087397,
+    "covered_grid_ids": [
+      "라마74a28b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마74a29a",
+    "candidate_name": "신규 이동식 쉼터 후보 375",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.556470067459784,
+    "longitude": 128.31925981674743,
+    "covered_grid_ids": [
+      "라마74a29a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마74a29b",
+    "candidate_name": "신규 이동식 쉼터 후보 376",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.560977908814394,
+    "longitude": 128.31930569280632,
+    "covered_grid_ids": [
+      "라마74a29b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마74a32a",
+    "candidate_name": "신규 이동식 쉼터 후보 377",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.58351706414992,
+    "longitude": 128.3195352259614,
+    "covered_grid_ids": [
+      "라마74a32a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마74a32b",
+    "candidate_name": "신규 이동식 쉼터 후보 378",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.588024884928195,
+    "longitude": 128.3195811631805,
+    "covered_grid_ids": [
+      "라마74a32b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마74a37a",
+    "candidate_name": "신규 이동식 쉼터 후보 379",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890380",
+    "region_name": "덕곡면",
+    "latitude": 35.628595117556785,
+    "longitude": 128.3199950574852,
+    "covered_grid_ids": [
+      "라마74a37a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마74b24b",
+    "candidate_name": "신규 이동식 쉼터 후보 380",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.51586178630282,
+    "longitude": 128.32436100581015,
+    "covered_grid_ids": [
+      "라마74b24b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마74b25a",
+    "candidate_name": "신규 이동식 쉼터 후보 381",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.52036965229736,
+    "longitude": 128.32440709848171,
+    "covered_grid_ids": [
+      "라마74b25a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마74b29b",
+    "candidate_name": "신규 이동식 쉼터 후보 382",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.560940291971605,
+    "longitude": 128.32482239340584,
+    "covered_grid_ids": [
+      "라마74b29b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마75a24b",
+    "candidate_name": "신규 이동식 쉼터 후보 383",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.51582397963664,
+    "longitude": 128.32987461109815,
+    "covered_grid_ids": [
+      "라마75a24b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마75a31a",
+    "candidate_name": "신규 이동식 쉼터 후보 384",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.57442588879223,
+    "longitude": 128.33047862677356,
+    "covered_grid_ids": [
+      "라마75a31a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마75a34a",
+    "candidate_name": "신규 이동식 쉼터 후보 385",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.601472728253775,
+    "longitude": 128.33075799184112,
+    "covered_grid_ids": [
+      "라마75a34a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마75b24b",
+    "candidate_name": "신규 이동식 쉼터 후보 386",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.515785921002305,
+    "longitude": 128.33538820608436,
+    "covered_grid_ids": [
+      "라마75b24b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마75b31b",
+    "candidate_name": "신규 이동식 쉼터 후보 387",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.57889555712157,
+    "longitude": 128.33604307772566,
+    "covered_grid_ids": [
+      "라마75b31b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마75b33a",
+    "candidate_name": "신규 이동식 쉼터 후보 388",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.59241896308421,
+    "longitude": 128.33618367241394,
+    "covered_grid_ids": [
+      "라마75b33a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마75b33b",
+    "candidate_name": "신규 이동식 쉼터 후보 389",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.596926758207346,
+    "longitude": 128.33623055812618,
+    "covered_grid_ids": [
+      "라마75b33b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마75b34a",
+    "candidate_name": "신규 이동식 쉼터 후보 390",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.60143454989799,
+    "longitude": 128.33627745425034,
+    "covered_grid_ids": [
+      "라마75b34a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마76a24b",
+    "candidate_name": "신규 이동식 쉼터 후보 391",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.51574761040135,
+    "longitude": 128.34090179070031,
+    "covered_grid_ids": [
+      "라마76a24b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마76a27a",
+    "candidate_name": "신규 이동식 쉼터 후보 392",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.53828681164944,
+    "longitude": 128.34113698141795,
+    "covered_grid_ids": [
+      "라마76a27a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마76a32b",
+    "candidate_name": "신규 이동식 쉼터 후보 393",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.5878727524591,
+    "longitude": 128.34165532103188,
+    "covered_grid_ids": [
+      "라마76a32b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마76a36b",
+    "candidate_name": "신규 이동식 쉼터 후보 394",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890380",
+    "region_name": "덕곡면",
+    "latitude": 35.62393499398558,
+    "longitude": 128.34203309129134,
+    "covered_grid_ids": [
+      "라마76a36b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마76a37b",
+    "candidate_name": "신규 이동식 쉼터 후보 395",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890380",
+    "region_name": "덕곡면",
+    "latitude": 35.63295052002734,
+    "longitude": 128.3421276387561,
+    "covered_grid_ids": [
+      "라마76a37b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마76b29b",
+    "candidate_name": "신규 이동식 쉼터 후보 396",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.56078730074996,
+    "longitude": 128.34688909255584,
+    "covered_grid_ids": [
+      "라마76b29b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마76b36a",
+    "candidate_name": "신규 이동식 쉼터 후보 397",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890380",
+    "region_name": "덕곡면",
+    "latitude": 35.61938851636999,
+    "longitude": 128.3475065131991,
+    "covered_grid_ids": [
+      "라마76b36a"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마76b36b",
+    "candidate_name": "신규 이동식 쉼터 후보 398",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890380",
+    "region_name": "덕곡면",
+    "latitude": 35.62389627814812,
+    "longitude": 128.3475540809564,
+    "covered_grid_ids": [
+      "라마76b36b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마76b38b",
+    "candidate_name": "신규 이동식 쉼터 후보 399",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890380",
+    "region_name": "덕곡면",
+    "latitude": 35.641927290907915,
+    "longitude": 128.34774445764373,
+    "covered_grid_ids": [
+      "라마76b38b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마77a23b",
+    "candidate_name": "신규 이동식 쉼터 후보 400",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.50665455438898,
+    "longitude": 128.35183369300074,
+    "covered_grid_ids": [
+      "라마77a23b"
+    ]
+  },
+  {
+    "candidate_id": "MOBILE_라마77a30b",
+    "candidate_name": "신규 이동식 쉼터 후보 401",
+    "candidate_type": "이동식쉼터_설치검토지점",
+    "region_code": "48890390",
+    "region_name": "청덕면",
+    "latitude": 35.56976401853556,
+    "longitude": 128.35250123082974,
+    "covered_grid_ids": [
+      "라마77a30b"
+    ]
+  }
+]
