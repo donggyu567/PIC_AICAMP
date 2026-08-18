@@ -7,10 +7,12 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class Utterance:
-    """One raw STT utterance combined with its task 2 correction result."""
+    """One masked utterance combined with its task 2 correction result."""
 
     utterance_id: int
-    raw_text: str
+    masked_text: str
+    has_masked_data: bool
+    masked_types: list[str]
     tuned_text: str
     is_tuned: bool
     has_unclear: bool
@@ -21,7 +23,9 @@ class Utterance:
 
         return {
             "utterance_id": self.utterance_id,
-            "raw_text": self.raw_text,
+            "masked_text": self.masked_text,
+            "has_masked_data": self.has_masked_data,
+            "masked_types": list(self.masked_types),
             "tuned_text": self.tuned_text,
             "is_tuned": self.is_tuned,
             "has_unclear": self.has_unclear,

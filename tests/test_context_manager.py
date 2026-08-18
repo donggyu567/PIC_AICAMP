@@ -12,8 +12,10 @@ from risk_speech_ai.schemas import ConversationContext, Utterance
 def utterance(utterance_id: int) -> Utterance:
     return Utterance(
         utterance_id=utterance_id,
-        raw_text=f"원본 {utterance_id}",
-        tuned_text=f"보정 {utterance_id}",
+        masked_text=f"[이름] {utterance_id}",
+        has_masked_data=True,
+        masked_types=["PERSON"],
+        tuned_text=f"[이름] {utterance_id}.",
         is_tuned=True,
         has_unclear=False,
         unclear_segments=[],
@@ -77,7 +79,7 @@ class ConversationContextManagerTests(unittest.TestCase):
 
         self.assert_context_ids(manager.get_context(), current=6, history=[3, 4, 5])
 
-    def test_context_converts_to_json_serializable_dict(self) -> None:
+    def test_context_converts_to_expected_dict_without_raw_text(self) -> None:
         manager = ConversationContextManager()
         add_range(manager, 4)
 
@@ -85,6 +87,9 @@ class ConversationContextManagerTests(unittest.TestCase):
 
         self.assertEqual(4, payload["current"]["utterance_id"])
         self.assertEqual([1, 2, 3], [item["utterance_id"] for item in payload["history"]])
+        self.assertNotIn("raw_text", payload["current"])
+        self.assertTrue(payload["current"]["has_masked_data"])
+        self.assertEqual(["PERSON"], payload["current"]["masked_types"])
         json.dumps(payload)
 
     def assert_context_ids(

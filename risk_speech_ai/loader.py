@@ -1,4 +1,4 @@
-"""File loading and validation for task 1 STT and task 2 correction output."""
+"""Loading and validation for masked task 1 and tuned task 2 output."""
 
 from __future__ import annotations
 
@@ -8,7 +8,15 @@ from typing import Any, Mapping
 
 
 class InputDataError(ValueError):
-    """Raised when an input file has an invalid task 1 or task 2 payload."""
+    """Raised when a task 1 or task 2 payload is invalid."""
+
+
+MASKED_RESULT_FIELDS = (
+    "utterance_id",
+    "masked_text",
+    "has_masked_data",
+    "masked_types",
+)
 
 
 TUNED_RESULT_FIELDS = (
@@ -20,11 +28,10 @@ TUNED_RESULT_FIELDS = (
 )
 
 
-def load_stt_text(path: str | Path) -> str:
-    """Load raw STT text, removing only terminal CR/LF characters."""
+def load_masked_result(path: str | Path) -> dict[str, Any]:
+    """Load and validate a task 1 masked result."""
 
-    text = Path(path).read_text(encoding="utf-8")
-    return text.rstrip("\r\n")
+    return validate_masked_result(_load_json(path, "masked result"))
 
 
 def load_tuned_result(path: str | Path) -> dict[str, Any]:
@@ -34,12 +41,41 @@ def load_tuned_result(path: str | Path) -> dict[str, Any]:
     used to validate a caller-provided path.
     """
 
-    try:
-        payload = json.loads(Path(path).read_text(encoding="utf-8"))
-    except json.JSONDecodeError as error:
-        raise InputDataError("tuned result file contains malformed JSON") from error
+    return validate_tuned_result(_load_json(path, "tuned result"))
 
-    return validate_tuned_result(payload)
+
+def _load_json(path: str | Path, description: str) -> object:
+    try:
+        return json.loads(Path(path).read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise InputDataError(f"{description} file contains malformed JSON") from error
+
+
+def validate_masked_result(payload: object) -> dict[str, Any]:
+    """Validate the task 1 masked-text API payload."""
+
+    if not isinstance(payload, Mapping):
+        raise InputDataError("masked result must be a JSON object")
+
+    missing_fields = [field for field in MASKED_RESULT_FIELDS if field not in payload]
+    if missing_fields:
+        raise InputDataError(
+            "masked result is missing required field(s): " + ", ".join(missing_fields)
+        )
+
+    utterance_id = payload["utterance_id"]
+    if not isinstance(utterance_id, int) or isinstance(utterance_id, bool):
+        raise InputDataError("utterance_id must be an integer")
+    if not isinstance(payload["masked_text"], str):
+        raise InputDataError("masked_text must be a string")
+    if not isinstance(payload["has_masked_data"], bool):
+        raise InputDataError("has_masked_data must be a boolean")
+    if not isinstance(payload["masked_types"], list) or not all(
+        isinstance(masked_type, str) for masked_type in payload["masked_types"]
+    ):
+        raise InputDataError("masked_types must be a list of strings")
+
+    return dict(payload)
 
 
 def validate_tuned_result(payload: object) -> dict[str, Any]:

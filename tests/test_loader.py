@@ -1,4 +1,4 @@
-"""Tests for explicit task 1 and task 2 file loading."""
+"""Tests for masked task 1 and tuned task 2 JSON loading."""
 
 from __future__ import annotations
 
@@ -7,14 +7,28 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from risk_speech_ai.loader import InputDataError, load_stt_text, load_tuned_result
-from risk_speech_ai.merger import load_utterance
+from risk_speech_ai.loader import (
+    InputDataError,
+    load_masked_result,
+    load_tuned_result,
+)
 
 
-def valid_payload(**overrides: object) -> dict[str, object]:
+def masked_payload(**overrides: object) -> dict[str, object]:
     payload: dict[str, object] = {
         "utterance_id": 4,
-        "tuned_text": "보정 문장",
+        "masked_text": "[이름] 씨",
+        "has_masked_data": True,
+        "masked_types": ["PERSON"],
+    }
+    payload.update(overrides)
+    return payload
+
+
+def tuned_payload(**overrides: object) -> dict[str, object]:
+    payload: dict[str, object] = {
+        "utterance_id": 4,
+        "tuned_text": "[이름] 씨.",
         "is_tuned": True,
         "has_unclear": False,
         "unclear_segments": [],
@@ -24,26 +38,26 @@ def valid_payload(**overrides: object) -> dict[str, object]:
 
 
 class LoaderTests(unittest.TestCase):
-    def test_removes_only_terminal_cr_lf_from_raw_text(self) -> None:
+    def test_loads_valid_masked_json(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / "result0004.txt"
-            path.write_text("  서울 중앙 지검입니다 \r\n", encoding="utf-8")
+            path = Path(directory) / "masked_result0004.json"
+            path.write_text(json.dumps(masked_payload()), encoding="utf-8")
 
-            self.assertEqual("  서울 중앙 지검입니다 ", load_stt_text(path))
+            self.assertEqual(masked_payload(), load_masked_result(path))
 
-    def test_loads_valid_json_from_explicit_json_path(self) -> None:
+    def test_loads_valid_tuned_json(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "tuned_result0004.json"
-            path.write_text(json.dumps(valid_payload()), encoding="utf-8")
+            path.write_text(json.dumps(tuned_payload()), encoding="utf-8")
 
-            self.assertEqual(valid_payload(), load_tuned_result(path))
+            self.assertEqual(tuned_payload(), load_tuned_result(path))
 
-    def test_reports_missing_file(self) -> None:
+    def test_reports_missing_files(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            missing_path = Path(directory) / "missing.txt"
+            missing_path = Path(directory) / "missing.json"
 
             with self.assertRaises(FileNotFoundError):
-                load_stt_text(missing_path)
+                load_masked_result(missing_path)
             with self.assertRaises(FileNotFoundError):
                 load_tuned_result(missing_path)
 
@@ -53,47 +67,24 @@ class LoaderTests(unittest.TestCase):
             path.write_text("{not valid json", encoding="utf-8")
 
             with self.assertRaises(InputDataError):
+                load_masked_result(path)
+            with self.assertRaises(InputDataError):
                 load_tuned_result(path)
 
-    def test_load_utterance_merges_matching_file_ids(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            raw_path = Path(directory) / "result0004.txt"
-            tuned_path = Path(directory) / "tuned_result0004.json"
-            raw_path.write_text("원본 STT 문장\n", encoding="utf-8")
-            tuned_path.write_text(json.dumps(valid_payload()), encoding="utf-8")
-
-            utterance = load_utterance(raw_path, tuned_path)
-
-            self.assertEqual(4, utterance.utterance_id)
-            self.assertEqual("원본 STT 문장", utterance.raw_text)
-            self.assertEqual("보정 문장", utterance.tuned_text)
-
-    def test_load_utterance_rejects_mismatched_ids(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            raw_path = Path(directory) / "result0004.txt"
-            tuned_path = Path(directory) / "tuned_result0005.json"
-            raw_path.write_text("원본 STT 문장", encoding="utf-8")
-            tuned_path.write_text(
-                json.dumps(valid_payload(utterance_id=5)), encoding="utf-8"
-            )
-
-            with self.assertRaises(InputDataError):
-                load_utterance(raw_path, tuned_path)
-
-    def test_load_utterance_rejects_unrecognized_raw_filename(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            raw_path = Path(directory) / "raw.txt"
-            tuned_path = Path(directory) / "tuned_result0004.json"
-            raw_path.write_text("원본 STT 문장", encoding="utf-8")
-            tuned_path.write_text(json.dumps(valid_payload()), encoding="utf-8")
-
-            with self.assertRaises(InputDataError):
-                load_utterance(raw_path, tuned_path)
-
-    def test_reports_missing_required_json_field(self) -> None:
+    def test_reports_missing_required_masked_field(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "missing-field.json"
-            payload = valid_payload()
+            payload = masked_payload()
+            del payload["masked_types"]
+            path.write_text(json.dumps(payload), encoding="utf-8")
+
+            with self.assertRaises(InputDataError):
+                load_masked_result(path)
+
+    def test_reports_missing_required_tuned_field(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "missing-field.json"
+            payload = tuned_payload()
             del payload["has_unclear"]
             path.write_text(json.dumps(payload), encoding="utf-8")
 
