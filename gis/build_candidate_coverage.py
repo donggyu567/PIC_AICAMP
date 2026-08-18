@@ -12,7 +12,9 @@ from .config import ANALYSIS_CRS, CANDIDATE_COVERAGE_CSV, CANDIDATE_COVERAGE_JSO
 
 
 def build_candidate_coverage(
-    grid_geojson_path: Path = GRID_GEOJSON, candidates_path: Path = CANDIDATES_CSV
+    grid_geojson_path: Path = GRID_GEOJSON,
+    candidates_path: Path = CANDIDATES_CSV,
+    boundaries: gpd.GeoDataFrame | None = None,
 ) -> tuple[pd.DataFrame, dict[str, int]]:
     """Return candidates with GIS-supplied 300m centroid coverage lists."""
     centroids = load_final_grid_centroids(grid_geojson_path)
@@ -20,8 +22,15 @@ def build_candidate_coverage(
     _validate_candidates(candidates)
     source_fields = candidates.drop(columns=["region_code", "region_name"], errors="ignore")
     points = gpd.GeoDataFrame(source_fields, geometry=gpd.points_from_xy(candidates.longitude, candidates.latitude), crs="EPSG:4326").to_crs(ANALYSIS_CRS)
-    boundaries = load_hapcheon_boundaries()
-    mapped = gpd.sjoin(points[["candidate_id", "geometry"]], boundaries, how="left", predicate="within")
+    boundary_data = (
+        load_hapcheon_boundaries()
+        if boundaries is None
+        else boundaries.to_crs(ANALYSIS_CRS).copy()
+    )
+    required_boundary_fields = {"region_code", "region_name", "geometry"}
+    if not required_boundary_fields.issubset(boundary_data.columns):
+        raise ValueError("boundary input is missing required fields")
+    mapped = gpd.sjoin(points[["candidate_id", "geometry"]], boundary_data, how="left", predicate="within")
     if mapped["candidate_id"].duplicated().any():
         raise ValueError("a candidate mapped to multiple legal regions")
     points = points.merge(mapped[["candidate_id", "region_code", "region_name"]], on="candidate_id", how="left")

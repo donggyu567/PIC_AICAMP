@@ -1,4 +1,5 @@
 from copy import deepcopy
+from pathlib import Path
 
 import pandas as pd
 import pytest
@@ -77,7 +78,67 @@ def test_zero_placements_keeps_before_and_after_identical():
     result = simulate_placement_risk(*args, [])
     assert result["requested_shelter_count"] == 0
     assert result["newly_covered_grid_ids"] == []
-    assert all(item["before"] == item["after"] for item in result["grid_results"])
+    invariant_fields = (
+        "nearest_shelter_distance_m",
+        "shelter_count",
+        "current_covered",
+        "blind_spot",
+        "vulnerability_score",
+        "risk_level",
+        "placement_risk_score",
+        "placement_risk_level",
+    )
+    for item in result["grid_results"]:
+        for field in invariant_fields:
+            assert item["before"][field] == item["after"][field]
+        assert item["newly_covered"] is False
+
+
+def test_placement_risk_score_does_not_reuse_installation_need_score():
+    grids, analysis, accessibility, shelters = _scenario()
+    target_analysis = next(item for item in analysis if item["grid_id"] == "G-TARGET")
+    target_analysis["installation_need_score"] = 1.23
+
+    target = _target(
+        simulate_placement_risk(grids, analysis, accessibility, shelters, [])
+    )
+
+    assert target["before"]["placement_risk_score"] == 85.0
+    assert target["after"]["placement_risk_score"] == 85.0
+    assert target_analysis["installation_need_score"] == 1.23
+
+
+def test_real_3934_grid_zero_placement_regression():
+    root = Path(__file__).resolve().parents[1]
+    grids = pd.read_csv(
+        root / "data/processed/integration/hapcheon_ai_grid_features.csv",
+        dtype={"grid_id": "string"},
+    )
+    analysis = pd.read_csv(
+        root / "data/processed/analysis/hapcheon_ai_analysis.csv",
+        dtype={"grid_id": "string"},
+    ).to_dict("records")
+    accessibility = pd.read_csv(
+        root / "data/processed/gis/hapcheon_grid_shelter_accessibility.csv",
+        dtype={"grid_id": "string"},
+    )
+
+    result = simulate_placement_risk(
+        grids,
+        analysis,
+        accessibility,
+        pd.DataFrame(),
+        [],
+    )
+
+    mismatches = [
+        item["grid_id"]
+        for item in result["grid_results"]
+        if item["before"] != item["after"]
+    ]
+    assert len(result["grid_results"]) == 3934
+    assert mismatches == []
+    assert result["newly_covered_grid_ids"] == []
     assert all(item["newly_covered"] is False for item in result["grid_results"])
 
 
@@ -126,6 +187,35 @@ def test_multiple_placements_are_counted_and_nearest_is_actual_minimum():
     target = _target(simulate_placement_risk(*args, placements))
     assert target["after"]["shelter_count"] == 2
     assert target["after"]["nearest_shelter_distance_m"] == pytest.approx(100, abs=0.01)
+
+
+def test_same_coordinates_with_distinct_placement_ids_are_counted_separately():
+    args = _scenario()
+    target = _target(
+        simulate_placement_risk(
+            *args,
+            [
+                _placement("P-SAME-1", ORIGIN_X + 1000),
+                _placement("P-SAME-2", ORIGIN_X + 1000),
+            ],
+        )
+    )
+    assert target["after"]["nearest_shelter_distance_m"] == pytest.approx(0, abs=0.01)
+    assert target["after"]["shelter_count"] == 2
+
+
+@pytest.mark.parametrize(
+    "field",
+    ["nearest_shelter_distance_m", "shelter_count", "current_covered"],
+)
+def test_valid_analysis_fails_fast_when_baseline_accessibility_is_missing(field):
+    grids, analysis, accessibility, shelters = _scenario()
+    accessibility.loc[accessibility["grid_id"] == "G-TARGET", field] = None
+    with pytest.raises(
+        ValueError,
+        match=rf"baseline accessibility field '{field}' is missing for grid_id: G-TARGET",
+    ):
+        simulate_placement_risk(grids, analysis, accessibility, shelters, [])
 
 
 def test_exact_300m_boundary_is_covered():

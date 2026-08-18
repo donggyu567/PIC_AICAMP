@@ -57,6 +57,7 @@ def simulate_placement_risk(
         for grid_id, result in analysis_by_id.items()
         if result.get("analysis_status") == "OK"
     ]
+    _validate_baseline_accessibility(valid_grid_ids, access_by_id)
     baseline_distances = [
         _required_number(
             access_by_id[grid_id].get("nearest_shelter_distance_m"),
@@ -87,8 +88,8 @@ def simulate_placement_risk(
         analysis = analysis_by_id[grid_id]
         before_access = access_by_id[grid_id]
         after_access = after_by_id[grid_id]
-        before_state = _state(analysis, before_access, reference, use_existing_score=True)
-        after_state = _state(analysis, after_access, reference, use_existing_score=False)
+        before_state = _state(analysis, before_access, reference)
+        after_state = _state(analysis, after_access, reference)
         _validate_accessibility_monotonicity(grid_id, before_state, after_state)
 
         newly_covered = (
@@ -143,38 +144,18 @@ def _state(
     analysis: Mapping[str, Any],
     accessibility: Mapping[str, Any],
     reference: NormalizationReference | None,
-    *,
-    use_existing_score: bool,
 ) -> dict[str, Any]:
     distance = _optional_number(accessibility.get("nearest_shelter_distance_m"))
     count = _optional_integer(accessibility.get("shelter_count"))
     covered = _optional_bool(accessibility.get("current_covered"))
     vulnerability = _optional_number(analysis.get("vulnerability_score"))
-    structural_level = analysis.get("risk_level")
-    if structural_level is not None and not isinstance(structural_level, str):
-        raise ValueError("risk_level must be a string or null")
+    structural_level = _optional_string(analysis.get("risk_level"), "risk_level")
 
     placement_score: float | None = None
     if analysis.get("analysis_status") == "OK":
         if distance is None or reference is None:
             raise ValueError("valid analysis requires distance and normalization reference")
-        if use_existing_score:
-            placement_score = _required_number(
-                analysis.get("installation_need_score"), "installation_need_score"
-            )
-        else:
-            coverage_gap_score = round(transform_with_reference([distance], reference)[0], 2)
-            components = {
-                name: _required_number(analysis.get(f"{name}_score"), f"{name}_score")
-                for name in ("heat", "elderly", "farmland")
-            }
-            placement_score = round(
-                weighted_score(
-                    {**components, "coverage_gap": coverage_gap_score},
-                    INSTALLATION_WEIGHTS,
-                ),
-                2,
-            )
+        placement_score = _calculate_placement_risk_score(analysis, distance, reference)
 
     return {
         "nearest_shelter_distance_m": distance,
@@ -188,6 +169,26 @@ def _state(
             None if placement_score is None else placement_risk_level(placement_score)
         ),
     }
+
+
+def _calculate_placement_risk_score(
+    analysis: Mapping[str, Any],
+    distance: float,
+    reference: NormalizationReference,
+) -> float:
+    """Calculate the scenario score independently from installation_need_score."""
+    coverage_gap_score = round(transform_with_reference([distance], reference)[0], 2)
+    components = {
+        name: _required_number(analysis.get(f"{name}_score"), f"{name}_score")
+        for name in ("heat", "elderly", "farmland")
+    }
+    return round(
+        weighted_score(
+            {**components, "coverage_gap": coverage_gap_score},
+            INSTALLATION_WEIGHTS,
+        ),
+        2,
+    )
 
 
 def _index_grid_frame(data: pd.DataFrame) -> dict[str, dict[str, Any]]:
@@ -254,6 +255,31 @@ def _validate_baseline_coverage_scores(
             )
 
 
+def _validate_baseline_accessibility(
+    valid_grid_ids: Sequence[str],
+    access_by_id: Mapping[str, Mapping[str, Any]],
+) -> None:
+    """Require complete baseline access for every normally analyzed grid."""
+    validators = {
+        "nearest_shelter_distance_m": _optional_number,
+        "shelter_count": _optional_integer,
+        "current_covered": _optional_bool,
+    }
+    for grid_id in valid_grid_ids:
+        accessibility = access_by_id[grid_id]
+        for field, validator in validators.items():
+            try:
+                value = validator(accessibility.get(field))
+            except ValueError as exc:
+                raise ValueError(
+                    f"baseline accessibility field '{field}' is invalid for grid_id: {grid_id}"
+                ) from exc
+            if value is None:
+                raise ValueError(
+                    f"baseline accessibility field '{field}' is missing for grid_id: {grid_id}"
+                )
+
+
 def _validate_accessibility_monotonicity(
     grid_id: str, before: Mapping[str, Any], after: Mapping[str, Any]
 ) -> None:
@@ -301,3 +327,11 @@ def _optional_bool(value: Any) -> bool | None:
     if isinstance(value, bool) or value.__class__.__name__ == "bool_":
         return bool(value)
     raise ValueError("current_covered must be boolean or null")
+
+
+def _optional_string(value: Any, field: str) -> str | None:
+    if value is None or pd.isna(value):
+        return None
+    if isinstance(value, str):
+        return value
+    raise ValueError(f"{field} must be a string or null")

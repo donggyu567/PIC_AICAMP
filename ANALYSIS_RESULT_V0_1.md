@@ -23,6 +23,8 @@
 
 `placement_risk_score`는 접근성을 포함하는 별도의 MVP 배치 반영 위험도입니다.
 
+Before와 After는 각각의 접근성 거리에서 동일한 normalization reference와 동일한 계산 순서를 사용합니다. `placement_risk_score`는 기존 `installation_need_score`를 복사하지 않으며, 두 필드는 산식의 가중치가 같더라도 계산 생명주기와 용도가 분리됩니다.
+
 ```text
 heat_score × 0.25
 + elderly_score × 0.25
@@ -101,6 +103,8 @@ AND risk_level in {HIGH, VERY_HIGH}
 
 `coverage_comparison`은 다음 구조입니다.
 
+정상 분석(`analysis_status == "OK"`) Grid의 baseline accessibility에서 `nearest_shelter_distance_m`, `shelter_count`, `current_covered` 중 하나라도 누락되면 비교 결과를 임의의 0으로 보정하지 않고 해당 필드와 `grid_id`를 포함한 `ValueError`를 발생시킵니다. 분석 불충분 Grid의 nullable 결과는 기존 계약대로 유지됩니다.
+
 ```json
 {
   "total_vulnerable_population": 30,
@@ -156,7 +160,13 @@ AND after.current_covered == true
 
 배치 전 Grid cohort에서 적합한 normalization reference를 배치 후 `coverage_gap_score` 계산에도 동일하게 사용합니다. 따라서 Before/After 점수를 서로 다른 분포로 재정규화하지 않습니다.
 
-## 11. Frontend 시각화 의미
+배치가 0개이면 baseline accessibility를 그대로 사용하고 Before/After 모두 동일한 Placement Risk 계산 함수를 실행하므로 모든 Grid 상태가 정확히 동일하며 `newly_covered_grid_ids`는 빈 배열입니다.
+
+## 11. Shelter identity와 count
+
+`shelter_count`는 좌표가 아니라 고유 shelter/placement ID의 수입니다. 동일한 latitude/longitude에 서로 다른 `placement_id` 두 개가 전달되면 두 독립 배치로 계산합니다. 동일 `placement_id` 중복 입력은 validation 오류이며 중복 count하지 않습니다.
+
+## 12. Frontend 시각화 의미
 
 - Before 지도 fill: `before.placement_risk_level`
 - After 지도 fill: `after.placement_risk_level`
@@ -166,7 +176,7 @@ AND after.current_covered == true
 
 현재 결과는 `Mock JSON → placementSimulationService → ComparisonPage → ComparisonMap` 흐름의 원천 데이터로 사용할 수 있습니다. 필드 변환이 필요하면 향후 Front adapter가 담당하며 Analysis 필드명은 변경하지 않습니다.
 
-## 12. Analysis Schema와 API Schema
+## 13. Analysis Schema와 API Schema
 
 확정된 범위는 이 문서의 **Analysis Result v0.1 구조**입니다.
 
@@ -182,7 +192,7 @@ AND after.current_covered == true
 - 분석 데이터 version
 - 실데이터 기준시점
 
-## 13. 실행환경과 재현
+## 14. 실행환경과 재현
 
 - 공식 검증 환경: Python `3.11.9` x64
 - 사용 문법의 최소 기준: Python `3.10+`
@@ -191,8 +201,8 @@ AND after.current_covered == true
 
 Python 3.11.9는 현재 공식 **검증 환경**이며, 프로젝트 공식 최소 버전을 3.11.9로 선언하는 것은 아닙니다.
 
-## 14. v0.1 상태와 알려진 검증 환경 이슈
+## 15. v0.1 상태와 검증
 
 이 계약은 **Draft / MVP v0.1**입니다. 실데이터 API 및 전체 합천군 데이터 연동 이후 schema와 calibration은 변경될 수 있으므로 production 최종 계약이 아닙니다.
 
-현재 전체 테스트 suite 결과는 `126 passed, 1 failed`입니다. 단일 실패는 `data/raw/boundary/hapcheon_legal_emd_boundary_raw_crs.zip` 원천 fixture가 로컬 저장소에 없어서 발생하는 기존 테스트 환경 문제이며 Placement Risk 기능과 무관합니다. 이 문서화 단계에서는 fixture를 생성하거나 대체하지 않습니다.
+Candidate Coverage unit test는 synthetic boundary fixture를 주입하므로 외부 raw boundary ZIP 없이 실행됩니다. Production pipeline의 기본 동작은 기존 raw boundary 경로를 계속 사용합니다.
