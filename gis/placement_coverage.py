@@ -27,7 +27,7 @@ def build_placement_coverage(
     The returned list preserves the input placement order.  An otherwise valid
     point outside every final-grid radius is represented by an empty list.
     """
-    records = _validate_placements(placements)
+    records = validate_placements(placements)
     if not records:
         return []
     points = gpd.GeoDataFrame(
@@ -61,7 +61,8 @@ def _default_grid_centroids() -> gpd.GeoDataFrame:
     return load_final_grid_centroids(GRID_GEOJSON)
 
 
-def _validate_placements(placements: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
+def validate_placements(placements: Iterable[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    """Validate placement identifiers and WGS84 coordinates without mutation."""
     if isinstance(placements, (str, bytes)):
         raise ValueError("placements must be an iterable of mappings")
     try:

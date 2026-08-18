@@ -19,6 +19,18 @@ def risk_level(vulnerability_score: float) -> str:
     return "VERY_HIGH"
 
 
+def placement_risk_level(placement_risk_score: float) -> str:
+    """Classify the separate MVP v0.1 placement-aware residual-risk score."""
+    return risk_level(placement_risk_score)
+
+
+def blind_spot(current_covered: bool | None, vulnerability_risk_level: str | None) -> bool | None:
+    """Apply the official blind-spot rule using structural vulnerability risk."""
+    if current_covered is None or vulnerability_risk_level is None:
+        return None
+    return current_covered is False and vulnerability_risk_level in {"HIGH", "VERY_HIGH"}
+
+
 def main_factors(scores: Mapping[str, float]) -> list[str]:
     labels = {
         "heat": "HIGH_HEAT",

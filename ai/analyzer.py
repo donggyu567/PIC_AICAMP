@@ -6,7 +6,7 @@ from .config import INSTALLATION_WEIGHTS, VULNERABILITY_WEIGHTS
 from .features import calculate_heat_exposure_value
 from .normalization import normalize
 from .schemas import validate_grid
-from .scoring import main_factors, risk_level, weighted_score
+from .scoring import blind_spot, main_factors, risk_level, weighted_score
 
 _FEATURE_TO_COMPONENT = {
     "heat_exposure_value": "heat",
@@ -60,7 +60,7 @@ def analyze_grids(grids: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:
             risk_level=level,
             installation_need_score=round(installation, 2),
             installation_rank=None,
-            blind_spot=_blind_spot(result["current_covered"], level),
+            blind_spot=blind_spot(result["current_covered"], level),
             main_factors=main_factors(components),
         )
 
@@ -82,9 +82,3 @@ def _empty_result(status: str, validation_errors: list[str] | None = None) -> di
     if validation_errors:
         result["validation_errors"] = validation_errors
     return result
-
-
-def _blind_spot(current_covered: Any, level: str) -> bool | None:
-    if current_covered is None:
-        return None
-    return current_covered is False and level in {"HIGH", "VERY_HIGH"}

@@ -1,0 +1,82 @@
+{
+  "requested_shelter_count": 1,
+  "selected_placement_ids": [
+    "P-TARGET"
+  ],
+  "newly_covered_grid_ids": [
+    "G-TARGET"
+  ],
+  "newly_covered_elderly_population": 20,
+  "reduced_blind_spot_count": 1,
+  "coverage_ratio_change": 0.666666666667,
+  "coverage_comparison": {
+    "total_vulnerable_population": 30,
+    "before": {
+      "covered_vulnerable_population": 10,
+      "vulnerable_population_coverage_rate": 0.3333333333333333,
+      "blind_spot_grid_count": 1,
+      "blind_spot_area_m2": 250000
+    },
+    "after": {
+      "covered_vulnerable_population": 30,
+      "vulnerable_population_coverage_rate": 1.0,
+      "blind_spot_grid_count": 0,
+      "blind_spot_area_m2": 0
+    },
+    "improvement": {
+      "newly_covered_vulnerable_population": 20,
+      "vulnerable_population_coverage_rate_delta": 0.666666666667,
+      "blind_spot_grid_reduction_count": 1
+    }
+  },
+  "grid_results": [
+    {
+      "grid_id": "G-REF",
+      "before": {
+        "nearest_shelter_distance_m": 0.0,
+        "shelter_count": 1,
+        "current_covered": true,
+        "blind_spot": false,
+        "vulnerability_score": 80.0,
+        "risk_level": "VERY_HIGH",
+        "placement_risk_score": 60.0,
+        "placement_risk_level": "HIGH"
+      },
+      "after": {
+        "nearest_shelter_distance_m": 0.0,
+        "shelter_count": 1,
+        "current_covered": true,
+        "blind_spot": false,
+        "vulnerability_score": 80.0,
+        "risk_level": "VERY_HIGH",
+        "placement_risk_score": 60.0,
+        "placement_risk_level": "HIGH"
+      },
+      "newly_covered": false
+    },
+    {
+      "grid_id": "G-TARGET",
+      "before": {
+        "nearest_shelter_distance_m": 1000.0,
+        "shelter_count": 0,
+        "current_covered": false,
+        "blind_spot": true,
+        "vulnerability_score": 80.0,
+        "risk_level": "VERY_HIGH",
+        "placement_risk_score": 85.0,
+        "placement_risk_level": "VERY_HIGH"
+      },
+      "after": {
+        "nearest_shelter_distance_m": 3.4924596548080444e-10,
+        "shelter_count": 1,
+        "current_covered": true,
+        "blind_spot": false,
+        "vulnerability_score": 80.0,
+        "risk_level": "VERY_HIGH",
+        "placement_risk_score": 60.0,
+        "placement_risk_level": "HIGH"
+      },
+      "newly_covered": true
+    }
+  ]
+}
