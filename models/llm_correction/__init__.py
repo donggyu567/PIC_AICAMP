@@ -20,9 +20,20 @@ from .output import (
 )
 from .parser import LLMResponseError, ParsedCorrection, parse_correction_response
 from .prompts import SYSTEM_PROMPT, build_user_prompt
+from .providers import (
+    DEFAULT_OPENAI_MAX_OUTPUT_TOKENS,
+    DEFAULT_OPENAI_MAX_RETRIES,
+    DEFAULT_OPENAI_MODEL,
+    DEFAULT_OPENAI_TIMEOUT_SECONDS,
+    OpenAIResponsesClient,
+)
 
 __all__ = [
     "ALLOWED_MASKED_TYPES",
+    "DEFAULT_OPENAI_MAX_OUTPUT_TOKENS",
+    "DEFAULT_OPENAI_MAX_RETRIES",
+    "DEFAULT_OPENAI_MODEL",
+    "DEFAULT_OPENAI_TIMEOUT_SECONDS",
     "SUPPORTED_SCHEMA_VERSION",
     "UNCLEAR_TOKEN",
     "ContractError",
@@ -36,6 +47,7 @@ __all__ = [
     "LLMClientError",
     "LLMResponseError",
     "MaskedTranscript",
+    "OpenAIResponsesClient",
     "ParsedCorrection",
     "SYSTEM_PROMPT",
     "build_user_prompt",
