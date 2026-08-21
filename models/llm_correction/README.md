@@ -1,7 +1,8 @@
-# STT Correction Contract
+# Masked STT Correction
 
 이 모듈은 태블릿의 로컬 NER 결과를 Python 보정 단계가 안전하게 받고,
-업무 3 문맥 관리 단계에 전달하기 위한 데이터 계약을 정의합니다.
+LLM으로 보정하고 결과를 저장해 업무 3 문맥 관리 단계에 전달하기 위한
+계약과 핵심 처리 기능을 제공합니다.
 
 현재 모듈에는 데이터 계약과 공급자 독립적인 LLM 보정 엔진이 포함됩니다.
 OpenAI 같은 실제 LLM 공급자 SDK 연결과 HTTP API 엔드포인트는 다음 통합
@@ -44,6 +45,50 @@ class MyLLMClient:
 engine = CorrectionEngine(MyLLMClient())
 result = engine.correct(masked_transcript)
 ```
+
+## 보정 결과 저장
+
+`CorrectionResultStore`는 검증된 결과를 UTF-8 JSON 파일로 저장합니다.
+저장 위치는 호출자가 반드시 지정하므로 모듈이 임의의 운영 경로에 파일을
+만들지 않습니다.
+
+```python
+store = CorrectionResultStore("outputs")
+
+existing = store.load(masked_transcript)
+if existing is not None:
+    result = existing
+else:
+    result = engine.correct(masked_transcript)
+    output_path = store.save(result)
+```
+
+파일 경로는 다음 규칙을 사용합니다.
+
+```text
+<output_root>/conversation-<conversation_id의 SHA-256>/tuned_result0017.json
+```
+
+- `conversation_id`는 JSON에는 원래 값으로 저장하지만 파일 경로에는 직접
+  넣지 않습니다. `/`, `\\`, `..` 같은 값으로 저장 루트를 벗어나는 것을
+  방지하기 위해 고정 길이 SHA-256 폴더명을 사용합니다.
+- 파일명은 `tuned_result{utterance_id:04d}.json`입니다. 네 자리는 최소
+  너비이므로 발화 ID가 10,000 이상이어도 잘리지 않습니다.
+- 임시 파일을 완전히 기록하고 `fsync`한 뒤, 기존 파일을 덮어쓰지 않는
+  방식으로 최종 경로에 게시합니다.
+- 동일한 결과를 다시 저장하면 기존 경로를 반환합니다. 같은 통화 ID와
+  발화 ID에 다른 결과가 있으면 `CorrectionOutputConflictError`를 발생시키고
+  기존 파일을 보존합니다.
+- 멱등성 키는 합의된 `(conversation_id, utterance_id)`입니다. `load()`는 같은
+  키의 파일이 있으면 기존 결과를 반환하므로, 클라이언트는 서로 다른 발화에
+  한 번 사용한 `utterance_id`를 다시 사용하면 안 됩니다.
+- 저장된 파일이 손상됐거나 계약을 위반하면 자동으로 덮어쓰지 않습니다.
+- `load()`를 LLM 호출 전에 사용해야 중복 요청의 모델 호출 비용도 막을 수
+  있습니다.
+- 원자적인 create-if-absent 게시에는 하드 링크를 사용하므로 `output_root`는
+  NTFS, ext4처럼 하드 링크를 지원하는 로컬 파일 시스템에 두어야 합니다.
+  최종 파일 게시 후 임시 링크 정리만 실패한 경우에는 완성된 최종 경로를
+  성공 결과로 반환합니다.
 
 ## 입력 계약
 

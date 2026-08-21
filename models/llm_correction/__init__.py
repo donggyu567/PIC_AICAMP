@@ -13,6 +13,11 @@ from .contracts import (
     validate_masking_token_preservation,
 )
 from .engine import CorrectionEngine, CorrectionValidationError
+from .output import (
+    CorrectionOutputConflictError,
+    CorrectionOutputError,
+    CorrectionResultStore,
+)
 from .parser import LLMResponseError, ParsedCorrection, parse_correction_response
 from .prompts import SYSTEM_PROMPT, build_user_prompt
 
@@ -22,7 +27,10 @@ __all__ = [
     "UNCLEAR_TOKEN",
     "ContractError",
     "CorrectionEngine",
+    "CorrectionOutputConflictError",
+    "CorrectionOutputError",
     "CorrectionResult",
+    "CorrectionResultStore",
     "CorrectionValidationError",
     "LLMClient",
     "LLMClientError",
