@@ -53,7 +53,7 @@ def test_builds_only_uncovered_blind_spot_centroids_with_existing_coverage_helpe
     assert result.to_dict("records") == [
         {
             "candidate_id": "MOBILE_G001",
-            "candidate_name": "신규 이동식 쉼터 후보 1",
+            "candidate_name": "경상남도 합천군 One 일대",
             "candidate_type": CANDIDATE_TYPE,
             "region_code": "R1",
             "region_name": "One",

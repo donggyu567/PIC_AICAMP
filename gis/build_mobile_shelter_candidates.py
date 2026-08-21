@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 GRID_FEATURES_PATH = ROOT / "data" / "processed" / "integration" / "hapcheon_ai_grid_features.csv"
 ANALYSIS_PATH = ROOT / "data" / "processed" / "analysis" / "hapcheon_ai_analysis.csv"
 
-CANDIDATE_TYPE = "이동식쉼터_설치검토지점"
+CANDIDATE_TYPE = "이동식 쉼터 설치 검토 지점"
 OUTPUT_FIELDS = [
     "candidate_id",
     "candidate_name",
@@ -97,9 +97,7 @@ def build_mobile_shelter_candidates(
         crs=API_CRS,
     ).to_crs(ANALYSIS_CRS)
     points["candidate_id"] = points["grid_id"].map(lambda grid_id: f"MOBILE_{grid_id}")
-    points["candidate_name"] = [
-        f"신규 이동식 쉼터 후보 {position}" for position in range(1, len(points) + 1)
-    ]
+    points["candidate_name"] = points["region_name"].map(_candidate_display_name)
     points["candidate_type"] = CANDIDATE_TYPE
 
     coverage = map_points_to_covered_grid_ids(points, "candidate_id", centroids)
@@ -125,6 +123,13 @@ def _validate_source(data: pd.DataFrame, name: str, required: set[str]) -> None:
         raise ValueError(f"{name} is missing required fields")
     if data["grid_id"].isna().any() or data["grid_id"].duplicated().any():
         raise ValueError(f"{name} grid_id must be unique and non-null")
+
+
+def _candidate_display_name(region_name: Any) -> str:
+    """Return the best address fallback available in the processed Grid data."""
+    if isinstance(region_name, str) and region_name.strip():
+        return f"경상남도 합천군 {region_name.strip()} 일대"
+    return "경상남도 합천군 일대"
 
 
 def write_mobile_shelter_candidates(
