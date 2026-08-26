@@ -12,6 +12,8 @@ class InputDataError(ValueError):
 
 
 MASKED_RESULT_FIELDS = (
+    "schema_version",
+    "conversation_id",
     "utterance_id",
     "masked_text",
     "has_masked_data",
@@ -20,6 +22,8 @@ MASKED_RESULT_FIELDS = (
 
 
 TUNED_RESULT_FIELDS = (
+    "schema_version",
+    "conversation_id",
     "utterance_id",
     "tuned_text",
     "is_tuned",
@@ -63,6 +67,10 @@ def validate_masked_result(payload: object) -> dict[str, Any]:
             "masked result is missing required field(s): " + ", ".join(missing_fields)
         )
 
+    if not isinstance(payload["schema_version"], str):
+        raise InputDataError("schema_version must be a string")
+    if not isinstance(payload["conversation_id"], str):
+        raise InputDataError("conversation_id must be a string")
     utterance_id = payload["utterance_id"]
     if not isinstance(utterance_id, int) or isinstance(utterance_id, bool):
         raise InputDataError("utterance_id must be an integer")
@@ -90,6 +98,10 @@ def validate_tuned_result(payload: object) -> dict[str, Any]:
             "tuned result is missing required field(s): " + ", ".join(missing_fields)
         )
 
+    if not isinstance(payload["schema_version"], str):
+        raise InputDataError("schema_version must be a string")
+    if not isinstance(payload["conversation_id"], str):
+        raise InputDataError("conversation_id must be a string")
     utterance_id = payload["utterance_id"]
     if not isinstance(utterance_id, int) or isinstance(utterance_id, bool):
         raise InputDataError("utterance_id must be an integer")

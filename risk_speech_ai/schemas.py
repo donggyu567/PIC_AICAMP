@@ -9,6 +9,8 @@ from dataclasses import dataclass
 class Utterance:
     """One masked utterance combined with its task 2 correction result."""
 
+    schema_version: str
+    conversation_id: str
     utterance_id: int
     masked_text: str
     has_masked_data: bool
@@ -22,6 +24,8 @@ class Utterance:
         """Return the exact task 3 utterance JSON shape."""
 
         return {
+            "schema_version": self.schema_version,
+            "conversation_id": self.conversation_id,
             "utterance_id": self.utterance_id,
             "masked_text": self.masked_text,
             "has_masked_data": self.has_masked_data,

@@ -16,6 +16,8 @@ from risk_speech_ai.loader import (
 
 def masked_payload(**overrides: object) -> dict[str, object]:
     payload: dict[str, object] = {
+        "schema_version": "1.0",
+        "conversation_id": "C0001",
         "utterance_id": 4,
         "masked_text": "[이름] 씨",
         "has_masked_data": True,
@@ -27,6 +29,8 @@ def masked_payload(**overrides: object) -> dict[str, object]:
 
 def tuned_payload(**overrides: object) -> dict[str, object]:
     payload: dict[str, object] = {
+        "schema_version": "1.0",
+        "conversation_id": "C0001",
         "utterance_id": 4,
         "tuned_text": "[이름] 씨.",
         "is_tuned": True,

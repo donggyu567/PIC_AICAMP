@@ -10,6 +10,8 @@ from risk_speech_ai.merger import merge_utterance
 
 def masked_result(**overrides: object) -> dict[str, object]:
     result: dict[str, object] = {
+        "schema_version": "1.0",
+        "conversation_id": "C0001",
         "utterance_id": 4,
         "masked_text": "[이름] 씨 [전화번호] 번호 맞으시죠",
         "has_masked_data": True,
@@ -21,6 +23,8 @@ def masked_result(**overrides: object) -> dict[str, object]:
 
 def tuned_result(**overrides: object) -> dict[str, object]:
     result: dict[str, object] = {
+        "schema_version": "1.0",
+        "conversation_id": "C0001",
         "utterance_id": 4,
         "tuned_text": "[이름] 씨 [전화번호] 번호 맞으시죠.",
         "is_tuned": True,
@@ -35,6 +39,8 @@ class MergeUtteranceTests(unittest.TestCase):
     def test_merges_and_preserves_masked_and_tuned_values(self) -> None:
         utterance = merge_utterance(masked_result(), tuned_result())
 
+        self.assertEqual("1.0", utterance.schema_version)
+        self.assertEqual("C0001", utterance.conversation_id)
         self.assertEqual(4, utterance.utterance_id)
         self.assertEqual("[이름] 씨 [전화번호] 번호 맞으시죠", utterance.masked_text)
         self.assertTrue(utterance.has_masked_data)
@@ -57,8 +63,18 @@ class MergeUtteranceTests(unittest.TestCase):
         with self.assertRaisesRegex(InputDataError, "does not match"):
             merge_utterance(masked_result(utterance_id=5), tuned_result())
 
+    def test_rejects_schema_version_mismatch(self) -> None:
+        with self.assertRaisesRegex(InputDataError, "schema_version does not match"):
+            merge_utterance(masked_result(schema_version="2.0"), tuned_result())
+
+    def test_rejects_conversation_id_mismatch(self) -> None:
+        with self.assertRaisesRegex(InputDataError, "conversation_id does not match"):
+            merge_utterance(masked_result(conversation_id="C0002"), tuned_result())
+
     def test_rejects_each_missing_masked_field(self) -> None:
         for field in (
+            "schema_version",
+            "conversation_id",
             "utterance_id",
             "masked_text",
             "has_masked_data",
@@ -72,6 +88,8 @@ class MergeUtteranceTests(unittest.TestCase):
 
     def test_rejects_invalid_masked_field_types(self) -> None:
         invalid_results = {
+            "schema_version": masked_result(schema_version=1),
+            "conversation_id": masked_result(conversation_id=1),
             "utterance_id": masked_result(utterance_id=True),
             "masked_text": masked_result(masked_text=4),
             "has_masked_data": masked_result(has_masked_data=1),
@@ -90,6 +108,8 @@ class MergeUtteranceTests(unittest.TestCase):
 
     def test_rejects_each_missing_tuned_field(self) -> None:
         for field in (
+            "schema_version",
+            "conversation_id",
             "utterance_id",
             "tuned_text",
             "is_tuned",
@@ -104,6 +124,8 @@ class MergeUtteranceTests(unittest.TestCase):
 
     def test_rejects_invalid_tuned_field_types(self) -> None:
         invalid_results = {
+            "schema_version": tuned_result(schema_version=1),
+            "conversation_id": tuned_result(conversation_id=1),
             "utterance_id": tuned_result(utterance_id=True),
             "tuned_text": tuned_result(tuned_text=4),
             "is_tuned": tuned_result(is_tuned="true"),
