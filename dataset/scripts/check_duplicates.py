@@ -18,6 +18,7 @@ from typing import Iterable
 
 
 SIMILARITY_THRESHOLD = 0.90
+VALID_CONVERSATION_STATUSES = {"reserved", "raw_added", "labeled", "validated"}
 
 
 @dataclass(frozen=True)
@@ -135,7 +136,65 @@ def duplicate_registry_values(registry_path: Path) -> tuple[list[list[dict[str, 
     return duplicates("source_url"), duplicates("source_name")
 
 
-def run_check(raw_dir: Path, registry_path: Path) -> tuple[int, str]:
+def validate_conversation_registry(
+    conversation_registry_path: Path, source_registry_path: Path
+) -> list[str]:
+    """Validate reservation ownership without treating shared sources as duplicates."""
+
+    with source_registry_path.open(encoding="utf-8", newline="") as file:
+        sources = {
+            row["source_id"]: row
+            for row in csv.DictReader(file)
+            if row.get("source_id")
+        }
+    with conversation_registry_path.open(encoding="utf-8", newline="") as file:
+        rows = list(csv.DictReader(file))
+
+    errors: list[str] = []
+    seen_conversation_ids: set[str] = set()
+    seen_source_items: set[tuple[str, str]] = set()
+    for row_number, row in enumerate(rows, start=2):
+        conversation_id = row.get("conversation_id", "").strip()
+        source_id = row.get("source_id", "").strip()
+        source_item_id = row.get("source_item_id", "").strip()
+        data_type = row.get("data_type", "").strip()
+        status = row.get("status", "").strip()
+
+        if conversation_id:
+            if conversation_id in seen_conversation_ids:
+                errors.append(
+                    f"conversation registry row {row_number}: duplicate conversation_id {conversation_id}"
+                )
+            seen_conversation_ids.add(conversation_id)
+        if source_item_id:
+            source_item_key = (source_id, source_item_id)
+            if source_item_key in seen_source_items:
+                errors.append(
+                    "conversation registry row "
+                    f"{row_number}: duplicate source_id/source_item_id {source_item_key}"
+                )
+            seen_source_items.add(source_item_key)
+        if source_id not in sources:
+            errors.append(
+                f"conversation registry row {row_number}: unknown source_id {source_id}"
+            )
+        elif data_type != sources[source_id].get("data_type", "").strip():
+            errors.append(
+                "conversation registry row "
+                f"{row_number}: data_type {data_type} does not match source {source_id}"
+            )
+        if status not in VALID_CONVERSATION_STATUSES:
+            errors.append(
+                f"conversation registry row {row_number}: invalid status {status}"
+            )
+    return errors
+
+
+def run_check(
+    raw_dir: Path,
+    registry_path: Path,
+    conversation_registry_path: Path | None = None,
+) -> tuple[int, str]:
     utterances, errors = load_raw_utterances(raw_dir)
     exact_groups = group_duplicates(utterances, lambda utterance: utterance.text)
     normalized_groups = group_duplicates(
@@ -148,6 +207,10 @@ def run_check(raw_dir: Path, registry_path: Path) -> tuple[int, str]:
     duplicate_conversation_groups = duplicate_conversations(conversations)
     similar_candidates = similar_conversations(conversations)
     url_groups, name_groups = duplicate_registry_values(registry_path)
+    if conversation_registry_path is not None:
+        errors.extend(
+            validate_conversation_registry(conversation_registry_path, registry_path)
+        )
 
     lines: list[str] = []
     for group in exact_groups:
@@ -212,11 +275,25 @@ def run_check(raw_dir: Path, registry_path: Path) -> tuple[int, str]:
 
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
-    parser = argparse.ArgumentParser(description="Check duplicate candidates in dataset/raw.")
+    parser = argparse.ArgumentParser(
+        description="Check duplicate candidates in dataset/raw.",
+        epilog=(
+            "Before collection: verify source_registry, verify conversation_registry and "
+            "source_item_id, reserve the conversation, then add raw data. Update status "
+            "from reserved to raw_added, labeled, and validated as work completes."
+        ),
+    )
     parser.add_argument("raw_dir", nargs="?", type=Path, default=root / "raw")
     parser.add_argument("--registry", type=Path, default=root / "metadata" / "source_registry.csv")
+    parser.add_argument(
+        "--conversation-registry",
+        type=Path,
+        default=root / "metadata" / "conversation_registry.csv",
+    )
     args = parser.parse_args()
-    exit_code, output = run_check(args.raw_dir, args.registry)
+    exit_code, output = run_check(
+        args.raw_dir, args.registry, args.conversation_registry
+    )
     print(output)
     return exit_code
 

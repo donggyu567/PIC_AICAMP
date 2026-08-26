@@ -1,0 +1,10 @@
+conversation_id,source_id,source_item_id,data_type,assignee,status,utterance_count,notes
+P0001,S001,S001,phishing,,validated,5,
+P0002,S002,S002,phishing,,validated,3,
+P0003,S003,S003-P0003,phishing,,validated,4,Fallback repository identifier; source-specific item ID unavailable
+P0004,S003,S003-P0004,phishing,,validated,5,Fallback repository identifier; source-specific item ID unavailable
+N0001,S004,S00007822,normal,,validated,36,
+,S005,,phishing,,reserved,,Reserved in shared source registry; assignee/local conversation ID unknown
+,S006,,phishing,,reserved,,Reserved in shared source registry; assignee/local conversation ID unknown
+,S007,,phishing,,reserved,,Reserved in shared source registry; assignee/local conversation ID unknown
+,S008,,phishing,,reserved,,Reserved in shared source registry; assignee/local conversation ID unknown

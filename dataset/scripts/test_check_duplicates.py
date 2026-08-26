@@ -25,9 +25,12 @@ class DuplicateCheckerTests(unittest.TestCase):
         self.raw_dir = self.root / "raw"
         self.registry = self.root / "source_registry.csv"
         self.registry.write_text(
-            "source_id,source_name,source_url\nS001,source,https://example.test/source\n",
+            "source_id,source_name,source_url,data_type\n"
+            "S001,source,https://example.test/source,phishing\n",
             encoding="utf-8",
         )
+        self.conversation_registry = self.root / "conversation_registry.csv"
+        self.write_conversation_registry([])
 
     def tearDown(self) -> None:
         self.tempdir.cleanup()
@@ -47,6 +50,14 @@ class DuplicateCheckerTests(unittest.TestCase):
             ),
             encoding="utf-8",
         )
+
+    def write_conversation_registry(self, rows: list[list[str]]) -> None:
+        header = (
+            "conversation_id,source_id,source_item_id,data_type,assignee,status,"
+            "utterance_count,notes\n"
+        )
+        body = "".join(",".join(row) + "\n" for row in rows)
+        self.conversation_registry.write_text(header + body, encoding="utf-8")
 
     def test_shared_utterance_does_not_make_conversations_an_error(self) -> None:
         self.write_utterance("P0001", 1, "같은 문장")
@@ -101,6 +112,78 @@ class DuplicateCheckerTests(unittest.TestCase):
 
         self.assertEqual(0, exit_code)
         self.assertIn("Utterances scanned: 1", output)
+
+    def test_shared_source_with_different_source_items_is_valid(self) -> None:
+        self.write_conversation_registry(
+            [
+                ["P0001", "S001", "item-1", "phishing", "", "reserved", "", ""],
+                ["P0002", "S001", "item-2", "phishing", "", "reserved", "", ""],
+            ]
+        )
+
+        exit_code, output = check_duplicates.run_check(
+            self.raw_dir, self.registry, self.conversation_registry
+        )
+
+        self.assertEqual(0, exit_code)
+        self.assertIn("Errors: 0", output)
+
+    def test_duplicate_source_item_is_an_error(self) -> None:
+        self.write_conversation_registry(
+            [
+                ["P0001", "S001", "item-1", "phishing", "", "reserved", "", ""],
+                ["P0002", "S001", "item-1", "phishing", "", "reserved", "", ""],
+            ]
+        )
+
+        exit_code, output = check_duplicates.run_check(
+            self.raw_dir, self.registry, self.conversation_registry
+        )
+
+        self.assertEqual(1, exit_code)
+        self.assertIn("duplicate source_id/source_item_id", output)
+
+    def test_unknown_source_and_mismatched_data_type_are_errors(self) -> None:
+        self.write_conversation_registry(
+            [
+                ["P0001", "S999", "item-1", "phishing", "", "reserved", "", ""],
+                ["P0002", "S001", "item-2", "normal", "", "reserved", "", ""],
+            ]
+        )
+
+        exit_code, output = check_duplicates.run_check(
+            self.raw_dir, self.registry, self.conversation_registry
+        )
+
+        self.assertEqual(1, exit_code)
+        self.assertIn("unknown source_id S999", output)
+        self.assertIn("does not match source S001", output)
+
+    def test_reserved_row_without_conversation_id_is_valid(self) -> None:
+        self.write_conversation_registry(
+            [["", "S001", "", "phishing", "", "reserved", "", ""]]
+        )
+
+        exit_code, output = check_duplicates.run_check(
+            self.raw_dir, self.registry, self.conversation_registry
+        )
+
+        self.assertEqual(0, exit_code)
+
+    def test_duplicate_conversation_id_is_an_error(self) -> None:
+        self.write_conversation_registry(
+            [
+                ["P0001", "S001", "item-1", "phishing", "", "reserved", "", ""],
+                ["P0001", "S001", "item-2", "phishing", "", "reserved", "", ""],
+            ]
+        )
+
+        exit_code, output = check_duplicates.run_check(
+            self.raw_dir, self.registry, self.conversation_registry
+        )
+
+        self.assertEqual(1, exit_code)
+        self.assertIn("duplicate conversation_id P0001", output)
 
 
 if __name__ == "__main__":
