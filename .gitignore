@@ -1,5 +1,9 @@
+.idea/
 __pycache__/
 *.py[cod]
+.env
+.env.*
+!.env.example
 .venv/
 venv/
-.env
+outputs/
