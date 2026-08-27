@@ -8,22 +8,22 @@ N0001,S004,S00007822,normal,,validated,36,
 ,S006,,phishing,,reserved,,Reserved in shared source registry; assignee/local conversation ID unknown
 ,S007,,phishing,,reserved,,Reserved in shared source registry; assignee/local conversation ID unknown
 ,S008,,phishing,,reserved,,Reserved in shared source registry; assignee/local conversation ID unknown
-P0005,S009,S009-01,phishing,김해린,raw_added,13,Internal sub-conversation id: S009-01
-P0006,S009,S009-02,phishing,김해린,raw_added,14,Internal sub-conversation id: S009-02
-P0007,S009,S009-03,phishing,김해린,raw_added,9,Internal sub-conversation id: S009-03
-P0008,S009,S009-04,phishing,김해린,raw_added,12,Internal sub-conversation id: S009-04
-P0009,S009,S009-05,phishing,김해린,raw_added,8,Internal sub-conversation id: S009-05
-P0010,S009,S009-06,phishing,김해린,raw_added,34,Internal sub-conversation id: S009-06
-P0011,S009,S009-07,phishing,김해린,raw_added,50,Internal sub-conversation id: S009-07
-P0012,S009,S009-08,phishing,김해린,raw_added,15,Internal sub-conversation id: S009-08
-P0013,S009,S009-09,phishing,김해린,raw_added,20,Internal sub-conversation id: S009-09
-P0014,S009,S009-10,phishing,김해린,raw_added,4,Internal sub-conversation id: S009-10
-P0015,S009,S009-11,phishing,김해린,raw_added,46,Internal sub-conversation id: S009-11
-P0016,S009,S009-12,phishing,김해린,raw_added,7,Internal sub-conversation id: S009-12
-P0017,S009,S009-13,phishing,김해린,raw_added,4,Internal sub-conversation id: S009-13
-P0018,S009,S009-14,phishing,김해린,raw_added,37,Internal sub-conversation id: S009-14
-P0019,S009,S009-15,phishing,김해린,raw_added,12,Internal sub-conversation id: S009-15
-P0020,S009,S009-16,phishing,김해린,raw_added,9,Internal sub-conversation id: S009-16
-N0002,S015,S00007727,normal,김해린,raw_added,46,AI Hub original conversation; train_D60 / J91 / S00007727
-N0003,S016,S00007728,normal,김해린,raw_added,41,AI Hub original conversation; train_D60 / J91 / S00007728
-N0004,S017,S00007761,normal,김해린,raw_added,26,AI Hub original conversation; train_D60 / J91 / S00007761
+P0005,S009,S009-01,phishing,김해린,labeled,13,Internal sub-conversation id: S009-01
+P0006,S009,S009-02,phishing,김해린,labeled,14,Internal sub-conversation id: S009-02
+P0007,S009,S009-03,phishing,김해린,labeled,9,Internal sub-conversation id: S009-03
+P0008,S009,S009-04,phishing,김해린,labeled,12,Internal sub-conversation id: S009-04
+P0009,S009,S009-05,phishing,김해린,labeled,8,Internal sub-conversation id: S009-05
+P0010,S009,S009-06,phishing,김해린,labeled,34,Internal sub-conversation id: S009-06
+P0011,S009,S009-07,phishing,김해린,labeled,50,Internal sub-conversation id: S009-07
+P0012,S009,S009-08,phishing,김해린,labeled,15,Internal sub-conversation id: S009-08
+P0013,S009,S009-09,phishing,김해린,labeled,20,Internal sub-conversation id: S009-09
+P0014,S009,S009-10,phishing,김해린,labeled,4,Internal sub-conversation id: S009-10
+P0015,S009,S009-11,phishing,김해린,labeled,46,Internal sub-conversation id: S009-11
+P0016,S009,S009-12,phishing,김해린,labeled,7,Internal sub-conversation id: S009-12
+P0017,S009,S009-13,phishing,김해린,labeled,4,Internal sub-conversation id: S009-13
+P0018,S009,S009-14,phishing,김해린,labeled,37,Internal sub-conversation id: S009-14
+P0019,S009,S009-15,phishing,김해린,labeled,12,Internal sub-conversation id: S009-15
+P0020,S009,S009-16,phishing,김해린,labeled,9,Internal sub-conversation id: S009-16
+N0002,S015,S00007727,normal,김해린,labeled,46,AI Hub original conversation; train_D60 / J91 / S00007727
+N0003,S016,S00007728,normal,김해린,labeled,41,AI Hub original conversation; train_D60 / J91 / S00007728
+N0004,S017,S00007761,normal,김해린,labeled,26,AI Hub original conversation; train_D60 / J91 / S00007761
