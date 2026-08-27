@@ -4,7 +4,7 @@
 - 작업 브랜치: `data/labeling-v0.1`
 - 데이터 반영 커밋: `3ff8d83 feat: add FSS phishing labels for P0005-P0007`
 - 적용 기준: `dataset/label_guide_v3.1.md`
-- 작업 상태: 라벨링, 검증, 커밋 및 원격 브랜치 push 완료 / 별도 PR 미생성
+- 작업 상태: 라벨링 및 검증 완료 / 담당자별 `staging` 제출 규칙 반영
 
 ## 1. 작업 개요
 
@@ -144,7 +144,7 @@ Warnings: 0
 - 중복 `conversation_id + utterance_id`: 0
 - `is_phishing=false`인데 labels가 있는 오류: 0
 - 허용되지 않은 label: 0
-- raw/processed 필드 불일치: 0
+- raw/staging 필드 불일치: 0
 - `is_phishing=true + labels=[]` 발화의 review queue 누락: 0
 
 ## 8. Label Guide v3.1 후속 개선 제안
@@ -175,8 +175,7 @@ Warnings: 0
 - `dataset/raw/phishing/P0005/`
 - `dataset/raw/phishing/P0006/`
 - `dataset/raw/phishing/P0007/`
-- `dataset/processed/pilot_labeled_P0005_P0007.jsonl`
-- `dataset/processed/pilot_labeled_all.jsonl`
-- `dataset/review/review_queue_P0005_P0007.jsonl`
+- `dataset/staging/phishing_part_임정윤.jsonl`
+- `dataset/staging/normal_part_임정윤.jsonl`
+- `dataset/staging/review_queue_임정윤.jsonl`
 - `dataset/label_guide_v3.1.md`
-

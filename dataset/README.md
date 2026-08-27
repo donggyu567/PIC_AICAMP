@@ -2,52 +2,44 @@
 
 ## Purpose
 
-This is the collection and normalization workspace for a voice-phishing detection dataset. The long-term target is at least 500 phishing-related utterances and 300 normal-conversation utterances. It currently contains only the directory structure, source registry schema, examples, and validation workflow; it contains no real collection data.
+보이스피싱 위험 감지 AI 학습을 위한 대화 데이터 수집·정규화·라벨링 작업 공간이다. 원본 데이터와 개인 라벨링 중간 산출물, 검증 완료 후의 최종 병합본을 분리하여 관리한다.
 
-## A-owner scope
+## Current snapshot
 
-The A owner records source information, separates calls into utterances, assigns IDs, identifies speakers with neutral IDs, preserves original utterance text, and records sources. Classification fields are out of scope.
+2026-08-28 기준으로 다음 데이터가 등록되어 있다.
+
+- 보이스피싱: P0001~P0007, 7 conversations / 82 utterances
+- 정상 대화: N0001, 1 conversation / 36 utterances
+- 전체: 8 conversations / 118 utterances
+- 출처: S001~S007
 
 ## Layout
 
 ```text
 dataset/
-|- raw/                    # real collected candidate data only
+|- raw/                    # 사람이 수집한 원본 후보 데이터
 |  |- phishing/
 |  `- normal/
-|- examples/               # schema-only sample JSON
-|- staging/                # B-owner intermediate work
-|- processed/              # final JSONL output
-|- metadata/source_registry.csv
-|- scripts/validate_raw.py
+|- staging/                # 담당자별 라벨링 중간 산출물
+|- processed/              # 검증 완료 후 최종 담당자가 만든 병합본
+|- examples/               # 스키마 예시
+|- metadata/               # 출처 관리표
+|- scripts/                # 검증·변환 스크립트
 `- README.md
 ```
 
-## `raw/`: real collection data only
+## Raw data
 
-`dataset/raw/` stores only genuinely collected candidate training data. It is intentionally empty now, except for `.gitkeep` files used to retain its directories in Git.
-
-When collection begins, use one JSON file per utterance:
+원본 데이터는 발화 하나당 JSON 파일 하나로 저장한다.
 
 ```text
 raw/phishing/P0001/utterance_001.json
 raw/normal/N0001/utterance_001.json
 ```
 
-Real phishing IDs start at `P0001`, `P0002`, and so on; real normal IDs start at `N0001`, `N0002`, and so on.
+Raw 파일은 수집 원문과 출처를 보존하며, 라벨링 과정에서 직접 수정하지 않는다. `is_phishing`과 `labels`는 raw 파일에 추가하지 않는다.
 
-## `examples/`: schema-only data
-
-`dataset/examples/` has one phishing and one normal JSON example for documentation and development tests.
-
-- It is not real collected data or a transcript.
-- It is not used for training or evaluation.
-- It is not included in dataset statistics.
-- `validate_raw.py` does not inspect it.
-
-The `P0001` and `N0001` IDs in the examples are schema illustrations only. They do not reserve or assign real collection IDs; real data starts at these IDs independently under `raw/`.
-
-## Raw JSON schema
+### Raw JSON schema
 
 ```json
 {
@@ -59,38 +51,85 @@ The `P0001` and `N0001` IDs in the examples are schema illustrations only. They 
 }
 ```
 
-- `conversation_id` matches `^[PN]\\d{4}$`, uses `P` under `raw/phishing/` and `N` under `raw/normal/`, and matches its parent directory.
-- `utterance_id` is a positive integer, normally consecutive from 1 per conversation, and matches `utterance_NNN.json`.
-- `speaker` is exactly `speaker_A`, `speaker_B`, or `unknown`.
-- `text` cannot be empty or whitespace-only.
-- `source` is a non-empty source name; never invent unavailable provenance or URLs.
+- `conversation_id`는 `^[PN]\\d{4}$` 형식을 사용한다.
+- `utterance_id`는 대화별로 1부터 시작하는 양의 정수다.
+- `speaker`는 `speaker_A`, `speaker_B`, `unknown` 중 하나다.
+- 동일 대화에서 동일 인물의 speaker 값은 일관되게 유지한다.
+- 화자를 신뢰성 있게 구분할 수 없으면 `unknown`을 사용한다.
+- `text`와 `source`는 비어 있을 수 없다.
 
-## Speaker rules
+## Labeling schema
 
-Allowed values are `speaker_A`, `speaker_B`, and `unknown`.
+라벨링할 때는 발화 단독이 아니라 speaker, 앞뒤 문맥, source를 함께 확인한다. 다만 `labels`는 현재 발화가 직접 표현하거나 수행하는 위험행위를 기준으로 부여한다.
 
-Within one `conversation_id`, use the same speaker ID consistently for the same person. `speaker_A` and `speaker_B` are neutral identifiers only: neither implies a scammer, victim, caller, callee, agent, customer, or any other real-world role. The A/B assignment may therefore represent different real-world roles in different conversations.
+```json
+{
+  "conversation_id": "P0001",
+  "utterance_id": 1,
+  "speaker": "speaker_A",
+  "text": "Original utterance text",
+  "source": "Source name",
+  "is_phishing": true,
+  "labels": ["institution_impersonation"]
+}
+```
 
-Use the same neutral convention for both phishing and normal data. Neutral IDs prevent role information from becoming a label-leakage hint that lets a model predict phishing versus normal data without relying on utterance content. If the source cannot reliably distinguish a speaker, use `unknown` rather than guessing an A/B ID.
+- `is_phishing=false`이면 `labels=[]`이다.
+- `is_phishing=true`이면 원칙적으로 하나 이상의 라벨을 부여한다.
+- 피싱 진행 발화이지만 현재 라벨 체계에 정확히 해당하지 않으면 억지로 라벨을 붙이지 않고 `labels=[]`로 유지한 뒤 review queue에 기록한다.
+- 피해자가 사기범의 말을 되묻거나 반복하는 발화는 원칙적으로 `is_phishing=false`, `labels=[]`로 처리한다.
 
-The current prototype is designed for two-person conversations. Do not merge three or more real speakers into two IDs or extend this schema ad hoc; flag those conversations for separate review.
+## 담당자별 staging 산출물
+
+각 담당자는 자신의 결과를 `dataset/staging/`에 JSONL 형식으로 제출한다. JSONL은 한 줄에 JSON 객체 하나를 기록한다.
+
+```text
+phishing_part_본인이름.jsonl
+normal_part_본인이름.jsonl
+review_queue_본인이름.jsonl
+```
+
+- `phishing_part_본인이름.jsonl`: 담당한 보이스피싱 대화 전체 발화
+- `normal_part_본인이름.jsonl`: 담당한 정상 대화 전체 발화
+- `review_queue_본인이름.jsonl`: 추가 검수가 필요한 발화와 사유
+- 보이스피싱 대화 안의 피해자 발화도 삭제하지 않고 `is_phishing=false`, `labels=[]` 상태로 포함한다.
+- 개인 담당자는 `dataset/processed/`에 직접 병합본을 만들지 않는다.
+
+## Processed data
+
+`dataset/processed/`에는 담당자별 staging 파일을 모두 검증한 후 최종 병합 담당자가 만든 학습용 JSONL만 저장한다. 개인 파일이나 임시 병합본은 저장하지 않는다.
 
 ## Source registry
 
-Record verified real sources in `metadata/source_registry.csv`. Unknown URLs, counts, transcript availability, and license information must be left blank or noted as unknown, never guessed. The registry has only its header until real sources are collected. Verify license and redistribution conditions before adding real transcripts to GitHub.
+출처를 추가하면 `metadata/source_registry.csv`와 공유드라이브의 `운영관리 / 데이터 관리 표`를 함께 갱신한다.
+
+CSV 필드는 다음과 같다.
+
+```text
+source_id, source_name, source_url, data_type,
+conversation_count, utterance_count, has_transcript,
+usage, status, notes
+```
+
+- 출처와 URL, 대화 수, 발화 수, Transcript 제공 여부를 확인하여 기록한다.
+- 직접 전사했더라도 원 출처가 Transcript를 제공하지 않았다면 `has_transcript=false`로 기록하고 `notes`에 직접 전사 사실을 남긴다.
+- 데이터와 출처표가 모두 갱신되어야 작업 완료로 본다.
+- 라이선스와 재배포 조건은 GitHub에 원문을 추가하기 전에 별도로 확인한다.
 
 ## Validation
 
-Run from the repository root:
+저장소 루트에서 다음 명령을 실행한다.
 
 ```bash
 python dataset/scripts/validate_raw.py
 ```
 
-The standard-library-only validator scans only `dataset/raw/phishing/` and `dataset/raw/normal/`; it excludes `examples/`, `staging/`, `processed/`, and `metadata/`. Empty raw directories are valid and report zero conversations and utterances.
+Validator는 `dataset/raw/phishing/`과 `dataset/raw/normal/`을 검사한다. JSON 구문, 필수 필드, 폴더와 ID 일치, 파일명과 utterance ID 일치, 중복 ID, 발화 번호 연속성을 확인한다.
 
-It checks JSON syntax, required fields, field values, directory/ID agreement, filename/utterance-ID agreement, duplicate records and utterance IDs, and non-consecutive utterance numbers.
+담당자별 staging 산출물은 추가로 다음을 확인한다.
 
-## B-owner handoff
-
-The B owner may later add `is_phishing` and `labels` during labeling or processing, not to raw records. Raw data preserves source material and provenance; processed data is the derived, label-ready JSONL output.
+- JSONL 구문과 필수 필드
+- conversation ID와 utterance ID 중복
+- `is_phishing=false`인데 labels가 존재하는 오류
+- `is_phishing=true`, `labels=[]` 발화의 review queue 누락
+- raw와 staging의 발화 수 및 원문 일치
