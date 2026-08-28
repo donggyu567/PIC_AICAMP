@@ -9,9 +9,9 @@
 2026-08-28 기준으로 다음 데이터가 등록되어 있다.
 
 - 보이스피싱: P0001~P0010, 10 conversations / 285 utterances
-- 정상 대화: N0001, 1 conversation / 36 utterances
-- 전체: 11 conversations / 321 utterances
-- 출처: S001~S007, S018~S020
+- 정상 대화: N0001, N0005~N0007, 4 conversations / 126 utterances
+- 전체: 14 conversations / 411 utterances
+- 출처: S001~S007, S018~S023
 
 ## Layout
 
