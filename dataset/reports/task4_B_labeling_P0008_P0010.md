@@ -3,7 +3,7 @@
 - 작성일: 2026-08-28
 - 작업 브랜치: `data/labeling-v0.1`
 - 적용 기준: `dataset/label_guide_v3.1.md`
-- 작업 상태: 전사·정규화·라벨링·검증 완료 / push 미실행
+- 작업 상태: 전사·정규화·라벨링·검증 완료
 
 ## 1. 작업 개요
 
@@ -16,7 +16,7 @@
 | S020 | P0008 | [서울중앙지검 수사관 사칭 통화](https://www.fss.or.kr/fss/bbs/B0000207/view.do?nttId=36726&menuNo=200691&pageIndex=1) | 1 | 78 | 11 |
 | **합계** | **P0008~P0010** |  | **3** | **203** | **32** |
 
-출처 페이지는 공식 transcript 없이 MP3만 제공하므로 `has_transcript=false`로 기록했다. 이름과 생년월일 등 식별 가능한 부분은 `○○○`으로 마스킹했다. 기존 P0001~P0007 및 N0001 raw 파일은 수정하지 않았다.
+출처 페이지는 공식 transcript 없이 MP3만 제공하므로 `has_transcript=false`로 기록했다. 이름과 생년월일 등 식별 가능한 부분은 `○○○`으로 마스킹했다. 기존 P0001~P0004 및 N0001 raw 파일은 수정하지 않았다.
 
 ## 2. 신규 데이터 통계
 
@@ -57,32 +57,32 @@
 | 항목 | 결과 |
 |---|---:|
 | Conversations | 11 |
-| Utterances | 321 |
-| 피싱 conversation utterances | 285 |
-| 정상 conversation utterances | 36 |
-| `is_phishing=true` | 154 |
-| `is_phishing=false` | 167 |
-| `institution_impersonation` | 58 |
-| `personal_information` | 49 |
+| Utterances | 346 |
+| 피싱 conversation utterances | 220 |
+| 정상 conversation utterances | 126 |
+| `is_phishing=true` | 119 |
+| `is_phishing=false` | 227 |
+| `institution_impersonation` | 49 |
+| `personal_information` | 41 |
 | `money_transfer` | 7 |
-| `threat_pressure` | 11 |
-| `secrecy` | 2 |
+| `threat_pressure` | 9 |
+| `secrecy` | 0 |
 | `app_installation` | 0 |
-| Review queue | 64 |
+| Review queue | 48 |
 
 ## 5. Validator 결과
 
 ```text
 Validated conversations: 11
-Validated utterances: 321
+Validated utterances: 346
 Errors: 0
 Warnings: 0
 
 Validated labeled conversations: 11
-Validated labeled utterances: 321
-is_phishing=true: 154
-is_phishing=false: 167
-Review entries: 64
+Validated labeled utterances: 346
+is_phishing=true: 119
+is_phishing=false: 227
+Review entries: 48
 True-without-label review omissions: 0
 Errors: 0
 Warnings: 0
