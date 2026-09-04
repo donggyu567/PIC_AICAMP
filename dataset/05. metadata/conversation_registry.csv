@@ -27,9 +27,9 @@ P0020,S009,S009-16,phishing,김해린,validated,9,Internal sub-conversation id: 
 N0002,S015,S00007727,normal,김해린,validated,46,AI Hub original conversation; train_D60 / J91 / S00007727
 N0003,S016,S00007728,normal,김해린,validated,41,AI Hub original conversation; train_D60 / J91 / S00007728
 N0004,S017,S00007761,normal,김해린,validated,26,AI Hub original conversation; train_D60 / J91 / S00007761
-P0021,S018,S018-36729,phishing,임정윤,validated,20,FSS public MP3 directly transcribed; raw retained locally
-P0022,S019,S019-36735,phishing,임정윤,validated,105,FSS public MP3 directly transcribed; raw retained locally
-P0023,S020,S020-36726,phishing,임정윤,validated,78,FSS public MP3 directly transcribed; raw retained locally
-N0005,S021,S00007741,normal,임정윤,validated,30,AI Hub original conversation; train_D60 / J91 / S00007741; raw retained locally
-N0006,S022,S00007764,normal,임정윤,validated,28,AI Hub original conversation; train_D60 / J91 / S00007764; raw retained locally
+P0027,S018,S018-36729,phishing,임정윤,validated,20,FSS public MP3 directly transcribed; raw retained locally
+P0028,S019,S019-36735,phishing,임정윤,validated,105,FSS public MP3 directly transcribed; raw retained locally
+P0029,S020,S020-36726,phishing,임정윤,validated,78,FSS public MP3 directly transcribed; raw retained locally
+N0008,S021,S00007741,normal,임정윤,validated,30,AI Hub original conversation; train_D60 / J91 / S00007741; raw retained locally
+N0009,S022,S00007764,normal,임정윤,validated,28,AI Hub original conversation; train_D60 / J91 / S00007764; raw retained locally
 N0007,S023,S00007743,normal,임정윤,validated,32,AI Hub original conversation; train_D60 / J91 / S00007743; raw retained locally
