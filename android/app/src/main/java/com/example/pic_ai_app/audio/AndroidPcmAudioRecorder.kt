@@ -11,16 +11,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.withContext
 
+// 마이크 → 16비트 PCM 수집 → FloatArray 변환 → onAudio 콜백 → 음성 인식 엔진
 class AndroidPcmAudioRecorder {
     @Volatile
-    private var activeRecorder: AudioRecord? = null
+    private var activeRecorder: AudioRecord? = null     //현재 사용중인 Android 녹음 객체 보관
 
     @Volatile
-    private var stopRequested = false
+    private var stopRequested = false                   //녹음 중단 요청 여부
 
     @SuppressLint("MissingPermission")
     @RequiresPermission(Manifest.permission.RECORD_AUDIO)
+    //녹음을 시작하고, 중단될 때까지 오디오를 반복해서 읽어 콜백으로 전달
     suspend fun capture(onAudio: suspend (FloatArray) -> Unit) = withContext(Dispatchers.IO) {
+        //중단 상태 초기화 및 버퍼 크기 설정
         stopRequested = false
         val minimumBufferBytes = AudioRecord.getMinBufferSize(
             SAMPLE_RATE,
@@ -30,6 +33,7 @@ class AndroidPcmAudioRecorder {
         check(minimumBufferBytes > 0) { "Unable to determine the microphone buffer size" }
         val bufferBytes = maxOf(minimumBufferBytes, TARGET_BUFFER_BYTES)
 
+        //녹음 객체 생성
         val recorder = AudioRecord.Builder()
             .setAudioSource(MediaRecorder.AudioSource.VOICE_RECOGNITION)
             .setAudioFormat(
@@ -47,6 +51,7 @@ class AndroidPcmAudioRecorder {
             "Unable to initialize the microphone"
         }
 
+        //녹음 시작
         activeRecorder = recorder
         val pcmBuffer = ShortArray(bufferBytes / Short.SIZE_BYTES)
         try {
@@ -84,6 +89,7 @@ class AndroidPcmAudioRecorder {
         }
     }
 
+    //stop() : 녹음 중단 요청
     fun stop() {
         stopRequested = true
         val recorder = activeRecorder ?: return

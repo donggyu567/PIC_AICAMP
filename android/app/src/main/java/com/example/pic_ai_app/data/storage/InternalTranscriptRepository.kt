@@ -1,4 +1,5 @@
 package com.example.pic_ai_app.data.storage
+//대화 폴더 생성 및 원본 파일 저장
 
 import android.content.Context
 import com.example.pic_ai_app.data.serialization.TranscriptJsonSerializer

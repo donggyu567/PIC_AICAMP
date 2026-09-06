@@ -6,6 +6,8 @@ data class SttUiState(
     val partialText: String = "",
     val lastFinalText: String = "",
     val savedUtteranceCount: Int = 0,
+    val maskedUtteranceCount: Int = 0,
+    val transmittedUtteranceCount: Int = 0,
     val errorMessage: String? = null,
 ) {
     val sessionActive: Boolean

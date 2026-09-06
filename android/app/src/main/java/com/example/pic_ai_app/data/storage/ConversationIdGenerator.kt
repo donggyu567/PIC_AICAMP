@@ -1,5 +1,5 @@
 package com.example.pic_ai_app.data.storage
-
+//대화 ID 생성
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
