@@ -1,61 +1,112 @@
 # atonlee 단독 ONNX 간단 평가
 
-앱·백엔드와 독립적으로 PC CPU에서 이름/주소 탐지를 확인합니다. PyTorch나 GPU는 필요 없습니다.
-모델의 최종 정확도는 별도 STT 평가 데이터로 검증해야 합니다.
+앱·백엔드와 독립적으로 PC CPU에서 이름·주소 탐지를 확인하는 테스트 도구입니다.
+모델은 이미 `models/ner/onnx`에 포함되어 있으므로 별도 다운로드 없이 사용합니다.
+처음 사용하는 PC에서는 Python 가상환경을 만들고 필요한 패키지만 설치하면 됩니다. PyTorch나 GPU는 필요 없습니다.
 
-## 다운로드 후 가장 간단한 사용법
+## 폴더 구성
 
-`start.cmd`를 탐색기에서 더블클릭하면 문장을 계속 입력할 수 있습니다.
-VS Code PowerShell 터미널에서는 프로젝트 루트에서 아래 한 줄을 실행합니다.
+```text
+models/ner/
+├─ .venv/               # 각 PC에서 생성하는 Python 가상환경
+├─ onnx/
+│  ├─ model.onnx        # FP32 모델, 약 56.6MB
+│  ├─ model_int8.onnx   # INT8 모델, 약 14.7MB
+│  ├─ config.json       # 모델 설정 및 라벨 매핑
+│  └─ tokenizer.json   # 토크나이저
+├─ cases.jsonl          # 정답을 표시한 예제 14개
+├─ requirements.txt     # 설치할 패키지 목록
+├─ run.py               # 모델 실행 및 평가 코드
+└─ start.cmd            # Windows 대화형 실행 파일
+```
+
+`run.py`는 자신의 위치를 기준으로 `onnx` 폴더를 찾습니다. Hugging Face 캐시를 사용하지 않습니다.
+다른 PC에서도 위 파일 구성을 유지하고, `.venv`는 복사하지 말고 해당 PC에서 새로 생성하세요.
+
+## 1. 가상환경 생성 및 패키지 설치 — 최초 1회
+
+Windows의 VS Code에서 프로젝트를 열고 **PowerShell 터미널**을 사용합니다.
+아래 명령은 모두 `models` 폴더가 보이는 **프로젝트 루트(`PIC_AICAMP`)**에서 실행합니다.
+`models/ner` 폴더에서 실행하는 명령이 아닙니다.
+
+Python 3.12와 Python Launcher(`py`)가 설치되어 있는지 확인합니다.
+
+```powershell
+py -3.12 --version
+```
+
+가상환경을 만들고 패키지를 설치합니다. 이 설치 단계에는 패키지를 받을 인터넷 연결이 필요합니다.
+
+```powershell
+py -3.12 -m venv .\models\ner\.venv
+.\models\ner\.venv\Scripts\python.exe -m pip install -r .\models\ner\requirements.txt
+```
+
+가상환경의 Python을 직접 실행하므로 `Activate.ps1`을 실행할 필요는 없습니다.
+이미 이 위치에 정상적인 가상환경과 패키지가 준비되어 있다면 바로 다음 단계로 진행합니다.
+
+## 2. 문장을 직접 입력하며 테스트
 
 ```powershell
 .\models\ner\start.cmd
 ```
 
-모델을 한 번 불러온 뒤 문장을 입력하고 Enter를 누르면 탐지 결과와 이름·주소 마스킹 결과가 표시됩니다.
-`/test`는 예제 14개 전체 평가, `/help`는 도움말, `/quit` 또는 Ctrl+C는 종료입니다.
-입력과 결과를 파일로 저장하지 않으며, 기본적으로 이미 다운로드된 모델만 사용합니다.
-자유 입력은 정답이 없으므로 정확도 점수를 계산하지 않습니다. 한 줄에 한 문장을 입력하세요.
+또는 탐색기에서 `models/ner/start.cmd`를 더블클릭합니다.
+모델을 한 번 불러온 뒤 문장을 입력하고 Enter를 누르면 탐지 결과·이름과 주소의 마스킹 결과·처리 시간이 표시됩니다.
+기본 모델은 FP32입니다.
 
-INT8도 다운로드했다면 `.\models\ner\start.cmd --variant int8`로 실행합니다.
+| 입력 | 동작 |
+| --- | --- |
+| 일반 문장 | 해당 문장 탐지 및 마스킹 |
+| `/test` | `cases.jsonl` 예제 전체 평가 |
+| `/help` | 사용법 표시 |
+| `/quit` 또는 Ctrl+C | 종료 |
 
-## 실행
+한 줄에 한 문장을 입력하세요. 자유 입력에는 정답이 없으므로 정확도 점수를 계산하지 않습니다.
+입력은 로컬에서 처리하고 원문과 결과는 콘솔에만 표시합니다. 추론 API로 전송하거나 결과 파일을 생성하지 않습니다.
 
-프로젝트 루트에서 실행합니다. Python 3.11 또는 3.12를 권장합니다.
-아래 설치 명령은 가상환경과 패키지 파일을 생성합니다.
-
-```powershell
-py -3.12 -m venv models/ner/.venv
-models/ner/.venv/Scripts/python.exe -m pip install -r models/ner/requirements.txt
-```
-
-모델 다운로드 없이 예제 형식만 검증할 수 있습니다. 이 명령에는 외부 패키지가 필요 없습니다.
+INT8 모델로 대화형 테스트를 실행하려면 다음 명령을 사용합니다.
 
 ```powershell
-py -3.12 models/ner/run.py --check-cases
+.\models\ner\start.cmd --variant int8
 ```
 
-첫 추론에는 모델 파일이 필요합니다. **파일 다운로드에 동의하는 경우에만** 아래 명령을 실행합니다.
-`--download`는 선택한 ONNX와 tokenizer.json, config.json을 Hugging Face 기본 캐시에 다운로드하도록 허용합니다.
-FP32 ONNX 약 56.6MB, INT8 약 14.7MB이며 부속 파일 용량이 추가됩니다. 결과 파일은 생성하지 않습니다.
+## 3. 예제 일괄 평가 및 개별 실행
+
+대화형 모드에 들어가지 않고 예제를 평가하려면 아래 명령을 실행합니다.
+FP32와 INT8을 같은 예제로 비교할 수 있습니다.
 
 ```powershell
-models/ner/.venv/Scripts/python.exe models/ner/run.py --download
-models/ner/.venv/Scripts/python.exe models/ner/run.py --variant int8 --download
+# FP32 예제 평가
+.\models\ner\.venv\Scripts\python.exe .\models\ner\run.py
+
+# INT8 예제 평가
+.\models\ner\.venv\Scripts\python.exe .\models\ner\run.py --variant int8
+
+# 문장 하나만 확인
+.\models\ner\.venv\Scripts\python.exe .\models\ner\run.py --text "제 이름은 윤서진이고 서울시 마포구 월드컵북로 45에 살아요."
+
+# 모델을 불러오지 않고 예제 형식과 정답 위치 확인
+.\models\ner\.venv\Scripts\python.exe .\models\ner\run.py --check-cases
 ```
 
-이후 `--download` 없이 실행하면 캐시만 사용합니다. 캐시가 없으면 안내 후 종료합니다.
-텍스트는 로컬에서 처리하며 추론 API로 전송하지 않습니다. 원문과 탐지 결과는 콘솔에 출력됩니다.
+모델 다운로드 옵션은 붙이지 않습니다. 현재 코드에는 과거의 `--download` 옵션과 캐시 관련 오류 안내가 남아 있지만,
+실제 모델 로딩은 `models/ner/onnx`의 파일만 읽으며 해당 옵션으로 다운로드하지 않습니다.
 
-```powershell
-models/ner/.venv/Scripts/python.exe models/ner/run.py --text "제 이름은 윤서진이고 서울시 마포구 월드컵북로 45에 살아요."
-```
+## 실행이 안 될 때
+
+- **`py` 또는 Python 3.12를 찾을 수 없음:** Python 3.12와 Python Launcher 설치 여부를 확인한 뒤 터미널을 다시 엽니다.
+- **`python.exe` 경로를 찾을 수 없음:** 프로젝트 루트에서 실행 중인지, `models/ner/.venv/Scripts/python.exe`가 있는지 확인합니다. 이전 `models/ner/quickcheck` 경로는 사용하지 않습니다.
+- **패키지 import 오류:** 위의 가상환경 Python으로 `pip install -r` 명령을 다시 실행합니다.
+- **모델 파일을 찾을 수 없음:** `models/ner/onnx` 안에 선택한 ONNX, `config.json`, `tokenizer.json`이 있는지 확인합니다. 캐시 폴더에만 파일이 있어서는 실행되지 않습니다.
 
 ## 평가 기준과 예제 편집
 
 `cases.jsonl`은 한 줄에 한 사례이며, 수작업으로 만든 14개 동작 점검용 가상 예제입니다.
 실제 STT에서 수집한 표본이나 통계적으로 대표성 있는 벤치마크가 아닙니다.
-고정된 모델 revision으로 실행하므로 FP32/INT8 비교에서 원본 버전이 바뀌지 않습니다.
+사용하는 모델 출처 revision은 아래 출처에 기록되어 있습니다.
+실행 코드는 로컬 파일을 읽으며 파일 내용이 해당 revision과 일치하는지 자동 검증하지는 않습니다.
+FP32/INT8 비교 시에는 같은 버전에서 가져온 모델과 토크나이저·설정을 사용하세요.
 
 ```json
 {"id":"my_case", "annotated":"[NAME:윤서진]이고 주소는 [ADDRESS:서울시 마포구 월드컵북로 45]예요."}
@@ -86,6 +137,6 @@ BIO에서 독립된 I 태그는 새 개체로 복구합니다. 별도 신뢰도 
 
 ## 출처
 
-- https://huggingface.co/atonlee/koelectra-ko-pii-ner
-- https://huggingface.co/atonlee/koelectra-ko-pii-ner/tree/1e75c01e707232401883cf364151bbe2e560c708
-- https://onnxruntime.ai/docs/api/python/api_summary.html
+- [atonlee 모델 카드](https://huggingface.co/atonlee/koelectra-ko-pii-ner)
+- [사용한 모델 revision](https://huggingface.co/atonlee/koelectra-ko-pii-ner/tree/1e75c01e707232401883cf364151bbe2e560c708)
+- [ONNX Runtime Python API](https://onnxruntime.ai/docs/api/python/api_summary.html)
