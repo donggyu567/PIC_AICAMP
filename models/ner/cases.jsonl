@@ -1,0 +1,14 @@
+{"id":"name", "annotated":"제 이름은 [NAME:윤서진]입니다."}
+{"id":"two_names", "annotated":"[NAME:박도윤] 씨가 [NAME:한수빈] 씨에게 연락했어요."}
+{"id":"repeat", "annotated":"[NAME:윤서진]입니다. 네, [NAME:윤서진] 맞습니다."}
+{"id":"road", "annotated":"배송지는 [ADDRESS:서울특별시 마포구 월드컵북로 45]입니다."}
+{"id":"unit", "annotated":"집 주소는 [ADDRESS:경기도 수원시 영통구 광교로 120 102동 803호]예요."}
+{"id":"lot", "annotated":"[ADDRESS:부산광역시 수영구 광안동 123-4]로 보내 주세요."}
+{"id":"partial_address", "annotated":"저는 [ADDRESS:서울시 마포구 연남동]에 살아요."}
+{"id":"spoken_unit", "annotated":"우리 집은 [ADDRESS:경기도 수원시 영통구 광교로 백이십 백이동 팔백삼호]예요."}
+{"id":"no_spaces", "annotated":"이름은[NAME:윤서진]이고주소는[ADDRESS:서울시마포구월드컵북로45]예요."}
+{"id":"name_address", "annotated":"[NAME:이하준]이고 [ADDRESS:대전광역시 서구 둔산로 30 5층]에 살아요."}
+{"id":"place_only", "annotated":"내일 강남역에서 만나서 점심 먹어요."}
+{"id":"ordinary", "annotated":"오늘 회의는 오후 세 시에 시작합니다."}
+{"id":"numbers_not_address", "annotated":"주문한 상품은 3개이고 가격은 12000원입니다."}
+{"id":"stt_like", "annotated":"아 그 저 [NAME:박도윤]인데요 그 집이 [ADDRESS:부산시 수영구 광안동 123-4]예요."}
