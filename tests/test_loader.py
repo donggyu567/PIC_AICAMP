@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from risk_speech_ai.loader import (
+from models.context_manager.loader import (
     InputDataError,
     load_masked_result,
     load_tuned_result,

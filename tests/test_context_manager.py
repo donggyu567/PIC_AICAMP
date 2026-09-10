@@ -5,8 +5,8 @@ from __future__ import annotations
 import json
 import unittest
 
-from risk_speech_ai.context_manager import ConversationContextManager
-from risk_speech_ai.schemas import ConversationContext, Utterance
+from models.context_manager.context_manager import ConversationContextManager
+from models.context_manager.schemas import ConversationContext, Utterance
 
 
 def utterance(utterance_id: int, conversation_id: str = "C0001") -> Utterance:

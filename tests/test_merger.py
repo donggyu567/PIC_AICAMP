@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import unittest
 
-from risk_speech_ai.loader import InputDataError
-from risk_speech_ai.merger import merge_utterance
+from models.context_manager.loader import InputDataError
+from models.context_manager.merger import merge_utterance
 
 
 def masked_result(**overrides: object) -> dict[str, object]:
