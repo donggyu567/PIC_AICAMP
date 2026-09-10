@@ -3,17 +3,26 @@ package com.example.pic_ai_app.presentation.stt
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.pic_ai_app.BuildConfig
 import com.example.pic_ai_app.audio.AndroidPcmAudioRecorder
+import com.example.pic_ai_app.data.remote.HttpMaskedTranscriptSender
 import com.example.pic_ai_app.data.storage.ConversationIdGenerator
+import com.example.pic_ai_app.data.storage.InternalMaskedTranscriptRepository
 import com.example.pic_ai_app.data.storage.InternalTranscriptRepository
 import com.example.pic_ai_app.domain.model.UtteranceTranscript
+import com.example.pic_ai_app.domain.remote.MaskedTranscriptTransmissionException
+import com.example.pic_ai_app.domain.remote.MaskedTranscriptSender
+import com.example.pic_ai_app.domain.repository.MaskedTranscriptRepository
 import com.example.pic_ai_app.domain.repository.TranscriptRepository
+import com.example.pic_ai_app.ner.PassThroughTranscriptNer
+import com.example.pic_ai_app.ner.TranscriptNer
 import com.example.pic_ai_app.stt.SherpaOnnxStreamingSttEngine
 import com.example.pic_ai_app.stt.SttDecodeResult
 import com.example.pic_ai_app.stt.StreamingSttEngine
 import java.util.concurrent.CancellationException
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.sync.Mutex
@@ -26,17 +35,31 @@ import kotlinx.coroutines.flow.update
 class SttViewModel(application: Application) : AndroidViewModel(application) {
     private val transcriptRepository: TranscriptRepository =
         InternalTranscriptRepository(application)
+    private val maskedTranscriptRepository: MaskedTranscriptRepository =
+        InternalMaskedTranscriptRepository(application)
+    private val transcriptNer: TranscriptNer = PassThroughTranscriptNer()
+    private val maskedTranscriptSender: MaskedTranscriptSender =
+        HttpMaskedTranscriptSender(BuildConfig.PIC_API_ENDPOINT)
     private val conversationIdGenerator = ConversationIdGenerator()
     private val sttEngine: StreamingSttEngine =
         SherpaOnnxStreamingSttEngine(application.assets)
     private val audioRecorder = AndroidPcmAudioRecorder()
     private val sessionMutex = Mutex()
+    private val postProcessingQueue = Channel<UtteranceTranscript>(Channel.UNLIMITED)
 
     private val _uiState = MutableStateFlow(SttUiState())
     val uiState: StateFlow<SttUiState> = _uiState.asStateFlow()
 
     private var recordingJob: Job? = null
     private var nextUtteranceId = 1
+
+    init {
+        viewModelScope.launch {
+            for (transcript in postProcessingQueue) {
+                postProcess(transcript)
+            }
+        }
+    }
 
     fun startRecording() {
         if (recordingJob?.isActive == true) return
@@ -113,7 +136,6 @@ class SttViewModel(application: Application) : AndroidViewModel(application) {
                 it.copy(
                     status = SttStatus.IDLE,
                     partialText = "",
-                    errorMessage = null,
                 )
             }
         } catch (cancelled: CancellationException) {
@@ -139,7 +161,7 @@ class SttViewModel(application: Application) : AndroidViewModel(application) {
         }
 
         _uiState.update { it.copy(partialText = "") }
-        val finalText = result.finalText ?: return
+        val finalText = result.finalText?.takeIf { it.isNotBlank() } ?: return
         val utteranceId = nextUtteranceId
         val transcript = UtteranceTranscript.unmasked(
             conversationId = conversationId,
@@ -147,12 +169,76 @@ class SttViewModel(application: Application) : AndroidViewModel(application) {
             finalTranscript = finalText,
         )
         transcriptRepository.save(transcript)
+        postProcessingQueue.send(transcript)
         nextUtteranceId += 1
         _uiState.update {
             it.copy(
                 lastFinalText = finalText,
                 savedUtteranceCount = utteranceId,
             )
+        }
+    }
+
+    private suspend fun postProcess(transcript: UtteranceTranscript) {
+        val maskedTranscript = try {
+            transcriptNer.mask(transcript).also {
+                maskedTranscriptRepository.save(it)
+            }
+        } catch (cancelled: CancellationException) {
+            throw cancelled
+        } catch (_: Throwable) {
+            updatePipelineFailure(
+                transcript,
+                "원본은 저장됐지만 NER 처리 또는 마스킹 결과 저장에 실패했습니다.",
+            )
+            return
+        }
+
+        updateCurrentConversation(transcript) {
+            copy(maskedUtteranceCount = maxOf(maskedUtteranceCount, transcript.utteranceId))
+        }
+
+        try {
+            maskedTranscriptSender.send(maskedTranscript)
+        } catch (cancelled: CancellationException) {
+            throw cancelled
+        } catch (_: MaskedTranscriptTransmissionException) {
+            updatePipelineFailure(
+                transcript,
+                "원본과 마스킹 결과는 저장됐지만 서버 전송에 실패했습니다.",
+            )
+            return
+        }
+
+        updateCurrentConversation(transcript) {
+            copy(
+                transmittedUtteranceCount = maxOf(
+                    transmittedUtteranceCount,
+                    transcript.utteranceId,
+                ),
+            )
+        }
+    }
+
+    private fun updatePipelineFailure(
+        transcript: UtteranceTranscript,
+        message: String,
+    ) {
+        updateCurrentConversation(transcript) {
+            copy(errorMessage = message)
+        }
+    }
+
+    private fun updateCurrentConversation(
+        transcript: UtteranceTranscript,
+        transform: SttUiState.() -> SttUiState,
+    ) {
+        _uiState.update { state ->
+            if (state.conversationId == transcript.conversationId) {
+                state.transform()
+            } else {
+                state
+            }
         }
     }
 
@@ -168,6 +254,7 @@ class SttViewModel(application: Application) : AndroidViewModel(application) {
 
     override fun onCleared() {
         recordingJob?.cancel()
+        postProcessingQueue.close()
         audioRecorder.stop()
         sttEngine.close()
     }

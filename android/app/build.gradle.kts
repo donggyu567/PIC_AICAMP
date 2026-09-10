@@ -3,6 +3,12 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
+val maskedTranscriptEndpoint = providers.gradleProperty("PIC_API_ENDPOINT")
+    .orElse("http://10.0.2.2:8000/api/v1/utterances")
+    .get()
+    .replace("\\", "\\\\")
+    .replace("\"", "\\\"")
+
 android {
     namespace = "com.example.pic_ai_app"
     compileSdk {
@@ -15,6 +21,12 @@ android {
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"
+
+        buildConfigField(
+            "String",
+            "PIC_API_ENDPOINT",
+            "\"$maskedTranscriptEndpoint\"",
+        )
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -38,6 +50,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     androidResources {
         noCompress += "onnx"

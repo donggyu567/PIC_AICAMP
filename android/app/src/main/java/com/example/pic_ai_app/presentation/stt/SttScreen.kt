@@ -136,6 +136,14 @@ private fun StatusCard(state: SttUiState) {
                 text = "저장된 발화: ${state.savedUtteranceCount}개",
                 style = MaterialTheme.typography.bodyMedium,
             )
+            Text(
+                text = "NER 처리·마스킹 저장: ${state.maskedUtteranceCount}개",
+                style = MaterialTheme.typography.bodyMedium,
+            )
+            Text(
+                text = "서버 전송 완료: ${state.transmittedUtteranceCount}개",
+                style = MaterialTheme.typography.bodyMedium,
+            )
         }
     }
 }
