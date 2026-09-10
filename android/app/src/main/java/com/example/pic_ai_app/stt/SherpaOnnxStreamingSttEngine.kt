@@ -21,9 +21,9 @@ class SherpaOnnxStreamingSttEngine(
         if (recognizer != null) return
 
         val transducerConfig = OnlineTransducerModelConfig().apply {
-            encoder = "$MODEL_DIRECTORY/encoder-epoch-99-avg-1.int8.onnx"
-            decoder = "$MODEL_DIRECTORY/decoder-epoch-99-avg-1.onnx"
-            joiner = "$MODEL_DIRECTORY/joiner-epoch-99-avg-1.int8.onnx"
+            encoder = "$MODEL_DIRECTORY/encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx"
+            decoder = "$MODEL_DIRECTORY/decoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx"
+            joiner = "$MODEL_DIRECTORY/joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx"
         }
         val modelConfig = OnlineModelConfig().apply {
             transducer = transducerConfig
@@ -48,8 +48,8 @@ class SherpaOnnxStreamingSttEngine(
             this.modelConfig = modelConfig
             this.endpointConfig = endpointConfig
             enableEndpoint = true
-            decodingMethod = "greedy_search"
-            maxActivePaths = 4
+            decodingMethod = "modified_beam_search"
+            maxActivePaths = 8
         }
 
         recognizer = OnlineRecognizer(assetManager, recognizerConfig)
@@ -79,12 +79,14 @@ class SherpaOnnxStreamingSttEngine(
         val activeRecognizer = recognizer ?: return SttDecodeResult(partialText = "")
         val activeStream = stream ?: return SttDecodeResult(partialText = "")
 
-        // Stopping the microphone supplies trailing silence so an in-progress
-        // utterance follows the same endpoint rule as normal speech.
+        // Supply trailing samples so the model can decode the final audio chunk.
+        // Manual stop finalization below does not depend on an automatic endpoint.
         activeStream.acceptWaveform(FloatArray(SAMPLE_RATE), SAMPLE_RATE)
         activeStream.inputFinished()
         decodeAvailable(activeRecognizer, activeStream)
-        return resultAfterDecode(activeRecognizer, activeStream)
+        // A manual stop ends the utterance even if the model has not emitted
+        // enough trailing blanks to satisfy the automatic endpoint rule.
+        return resultAfterDecode(activeRecognizer, activeStream, forceFinal = true)
     }
 
     @Synchronized
@@ -112,9 +114,10 @@ class SherpaOnnxStreamingSttEngine(
     private fun resultAfterDecode(
         recognizer: OnlineRecognizer,
         stream: OnlineStream,
+        forceFinal: Boolean = false,
     ): SttDecodeResult {
         val text = recognizer.getResult(stream).text
-        if (!recognizer.isEndpoint(stream)) {
+        if (!forceFinal && !recognizer.isEndpoint(stream)) {
             return SttDecodeResult(partialText = text)
         }
 
@@ -137,6 +140,6 @@ class SherpaOnnxStreamingSttEngine(
         const val RECOGNIZER_THREADS = 2
         const val TRAILING_SILENCE_SECONDS = 0.8f
         const val MODEL_DIRECTORY =
-            "models/sherpa-onnx-streaming-zipformer-korean-2024-06-16"
+            "models/icefall-asr-ko-streaming-zipformer-174m"
     }
 }
