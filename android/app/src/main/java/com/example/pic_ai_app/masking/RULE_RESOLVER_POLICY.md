@@ -23,3 +23,70 @@
 - 반환값은 시작 위치 오름차순이며 중복과 겹침이 없다.
 
 이 정책은 Regex와 NER의 실제 출력 사례가 모이면 대표 충돌 테스트를 추가하면서 조정한다.
+
+## 핵심 함수 정리
+
+### `DefaultNumberMaskingRuleEngine.validate()`
+
+Regex가 생성한 개인정보 후보를 원문 문맥과 유형별 규칙으로 검증한다. 검증된 후보와 원문에서 직접 찾은 PW 후보를 합쳐 반환한다.
+
+- 입력: `String` 형식의 STT 원문, `List<MaskCandidate>` 형식의 Regex 후보 목록
+- 출력: 유지·제거·재분류가 끝난 `List<MaskCandidate>`
+- 실패: 후보 위치가 원문 범위를 벗어나거나 지원 대상이 아닌 유형이면 예외 전달
+
+### 유형별 `validate()`
+
+`PhoneNumberRule`, `ResidentNumberRule`, `CardNumberRule`, `AccountNumberRule`, `BirthRule`, `EmailRule`에서 각 후보의 형식과 가까운 문맥을 확인한다.
+
+- 입력: `String` 형식의 STT 원문, 검증할 `MaskCandidate` 한 건
+- 출력: 유지·재분류된 `MaskCandidate` 한 건 또는 명확한 오탐일 때 `null`
+
+### `PasswordRule.detect()`
+
+원문에서 비밀번호 문맥과 연결된 실제 값의 위치를 찾아 PW 후보를 생성한다. 값이 없는 단순 언급은 제외한다.
+
+- 입력: `String` 형식의 STT 원문
+- 출력: `List<MaskCandidate>` 형식의 PW 후보 목록
+
+### `DefaultCandidateConflictResolver.resolve()`
+
+NER 후보와 Rule 검증 결과의 완전 중복, 포함 관계, 부분 겹침을 정리한다. 겹치지 않는 최종 후보를 원문 위치순으로 반환한다.
+
+- 입력: `List<MaskCandidate>` 형식의 전체 후보 목록
+- 출력: 중복·겹침이 제거된 `List<MaskCandidate>`
+- 대상 없음: `emptyList()` 반환
+
+## 전체 파이프라인
+
+1. `NerCandidateDetector.detect(text)`가 이름과 주소 후보를 생성한다.
+2. `RegexCandidateDetector.detect(text)`가 번호·생년월일·이메일 후보를 생성한다.
+3. `NumberMaskingRuleEngine.validate(text, regexCandidates)`가 Regex 후보를 검증하고 PW 후보를 추가한다.
+4. NER 후보와 Rule 결과를 하나의 목록으로 합친다.
+5. `CandidateConflictResolver.resolve(candidates)`가 중복과 겹침을 정리한다.
+6. `MaskedTextRenderer.render(text, candidates)`가 최종 후보 위치를 실제 마스킹 토큰으로 치환한다.
+
+Rule과 Resolver는 원문을 직접 변경하지 않는다. 실제 문자열 치환은 Renderer에서만 수행한다.
+
+## 연결 방법
+
+추가 설정이나 모델 로딩 없이 기본 구현체를 생성해 `MaskingPipeline`에 전달한다.
+
+```kotlin
+val ruleEngine: NumberMaskingRuleEngine = DefaultNumberMaskingRuleEngine()
+val conflictResolver: CandidateConflictResolver = DefaultCandidateConflictResolver()
+```
+
+Regex 담당자는 다음 조건으로 후보를 전달한다.
+
+- 후보 유형: `PHONE_NUMBER`, `RRN`, `CARD_NUMBER`, `ACCOUNT_NUMBER`, `BIRTH`, `EMAIL`
+- 위치: 정규화한 문자열이 아닌 원본 STT 문자열 기준의 `[start, endExclusive)`
+- 출처: `MaskSource.REGEX`
+- 공백과 하이픈을 제거해 검증하더라도 후보 위치는 구분자가 포함된 원문 범위를 유지
+
+새로운 후보 유형이나 현재 우선순위로 의미를 결정하기 어려운 충돌은 임의로 처리하지 않고, 정책 합의와 대표 테스트를 먼저 추가한다.
+
+## 검증 결과
+
+- Rule 테스트: 유형별 유지·제거·재분류, PW 탐지, 잘못된 원문 범위 검증
+- Resolver 테스트: 완전 중복, 같은 범위의 다른 유형, 포함·부분 겹침, 인접 후보, 입력 순서 독립성 검증
+- 결과: 총 25개 단위 테스트 통과
