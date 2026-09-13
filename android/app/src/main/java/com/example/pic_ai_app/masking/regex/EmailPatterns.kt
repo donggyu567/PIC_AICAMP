@@ -66,8 +66,9 @@ internal object EmailPatterns {
     private val atRegex = Regex(atMarker)
 
 
-    // 일반 이메일 아이디에서 영문, 숫자, 허용된 특수문자를 찾는다.
-    private val localCharacter = """[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]"""
+    // 한글은 STT가 이메일 아이디를 발음대로 기록한 경우를 위해 허용한다.
+    private val localCharacter =
+        """[A-Za-z0-9가-힣.!#$%&'*+/=?^_`{|}~-]"""
 
     // 붙여 쓴 '민수골뱅이'에서도 골뱅이를 아이디에 포함하지 않는다.
     private val writtenLocalPart = """(?:(?!$atMarker)$localCharacter)+"""
