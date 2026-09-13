@@ -24,13 +24,26 @@ internal object NumberPatterns {
         .sortedByDescending { it.length }
         .joinToString("|") { Regex.escape(it) }
 
+    // "이"를 제외한 한글 숫자 표현
+    private val nonAmbiguousKorNumPattern = korNumMap.keys
+        .filterNot { it == "이" }
+        .sortedByDescending { it.length }
+        .joinToString("|") { Regex.escape(it) }
+
+    // "010-1234-5678이고"처럼 아라비아 숫자 바로 뒤에 붙은 "이"는
+    // 숫자가 아니라 조사로 처리한다.
+    // "일이삼"처럼 한글 숫자 사이의 "이"는 숫자 2로 처리한다.
+    private val korNumTokenPattern =
+        """(?:$nonAmbiguousKorNumPattern|(?<![0-9])이)"""
+
     // 개별 한글 숫자를 찾기 위한 정규식
     private val korNumRegex = Regex(korNumPattern)
 
     // 숫자 표현이 2개 이상 연속되는 구간
     // 숫자 사이에는 공백, 탭, 점, 밑줄, 하이픈 허용
     private val numberLikeSequence = Regex(
-        """(?:[0-9]|$korNumPattern)(?:(?:[ \t._-]*)(?:[0-9]|$korNumPattern))+"""
+        """(?:[0-9]|$korNumTokenPattern)""" +
+            """(?:(?:[ \t._-]*)(?:[0-9]|$korNumTokenPattern))+"""
     )
 
     // 숫자로 시작하고 끝나는 구간을 찾는다.
