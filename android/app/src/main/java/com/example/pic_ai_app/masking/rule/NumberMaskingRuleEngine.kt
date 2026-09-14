@@ -8,3 +8,4 @@ interface NumberMaskingRuleEngine {
         candidate: List<MaskCandidate>
     ): List<MaskCandidate>
 }
+

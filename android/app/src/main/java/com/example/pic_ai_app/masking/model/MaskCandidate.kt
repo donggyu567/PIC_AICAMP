@@ -4,7 +4,7 @@ data class MaskCandidate(
     val start : Int,                //후보 시작 위치
     val endExclusive : Int,         //후보 끝난 다음 위치
     val type : MaskType,            //이름, 주소, 전화번호 등의 유형
-    val source : MaskSource,        //NER, Regex, Rule 중 탐지 출처a
+    val source : MaskSource,        //NER, Regex, Rule 중 탐지 출처
     val confidence: Float? = null,  //NER모델의 신뢰도
 ) {
     init {

@@ -7,7 +7,23 @@ class DefaultRegexCandidateDetector : RegexCandidateDetector {
     override fun detect(
         text: String,
     ): List<MaskCandidate> {
-        TODO("유형별 패턴 탐지 후 후보 목록 반환")
+        if (text.isBlank()) return emptyList()
+
+        return buildList {
+            addAll(NumberPatterns.detectPhoneNumbers(text))
+            addAll(NumberPatterns.detectRrnNumbers(text))
+            addAll(NumberPatterns.detectCardNumbers(text))
+            addAll(NumberPatterns.detectAccountNumbers(text))
+            addAll(NumberPatterns.detectBirthDates(text))
+            addAll(EmailPatterns.detectEmails(text))
+        }.sortedWith(
+            compareBy<MaskCandidate>(
+                { it.start },
+                { it.endExclusive },
+                { it.type.ordinal },
+            )
+        )
     }
 }
+
 
