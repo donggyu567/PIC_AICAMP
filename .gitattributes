@@ -1,2 +1,6 @@
 android/app/src/main/assets/models/**/*.onnx filter=lfs diff=lfs merge=lfs -text
 android/app/libs/*.aar filter=lfs diff=lfs merge=lfs -text
+android/app/src/main/assets/models/**/vocab.txt text eol=lf
+android/app/src/test/resources/koelectra_tokenizer_golden.tsv text eol=lf
+models/ner/*.json text eol=lf
+models/ner/*.py text eol=lf
