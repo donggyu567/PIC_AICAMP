@@ -17,32 +17,12 @@ internal object EmailPatterns {
 
     // 영어 철자로 변환하지 않고, 이메일을 읽는 표현으로 인식한다.
     private val spokenCharacter = "(?:" + alternatives(
-        listOf(
-            "에이", "비", "씨", "시", "디", "이", "에프", "지",
-            "에이치", "에치", "아이", "제이", "케이", "엘", "엠",
-            "엔", "오", "피", "큐", "알", "아르", "에스", "티",
-            "유", "브이", "더블유", "더블류", "엑스", "와이", "제트",
-            "공", "영", "일", "삼", "사", "육", "칠", "팔", "구",
-            "하나", "둘", "셋", "넷", "다섯", "여섯", "일곱", "여덟", "아홉"
-        )
+        (EnglishChange.expressions + NumberChange.expressions).toList(),
     ) + "|[0-9]|(?<![A-Za-z])[A-Za-z](?![A-Za-z]))"
 
     // 아이디 안에서 읽을 수 있는 구분 기호
     private val localSeparator = "(?:[.!#$%&'*+/=?^_`{|}~-]|" + alternatives(
-        listOf(
-            "언더스코어",
-            "언더바",
-            "하이픈",
-            "대시",
-            "플러스",
-            "닷",
-            "점",
-            "쩜",
-            "샵",
-            "해시",
-            "퍼센트",
-            "별표"
-        )
+        SpecialSymbolChange.emailLocalSeparatorExpressions.toList(),
     ) + ")"
 
     // 여러 어절은 등록된 읽기 표현과 숫자·독립된 영문 한 글자에만 허용한다.
@@ -53,12 +33,7 @@ internal object EmailPatterns {
     // @를 의미하는 표현.
 // STT에서 '골뱅이'가 잘못 인식되는 경우도 일부 허용한다.
     private val spokenAtMarker = alternatives(
-        listOf(
-            "골뱅이",
-            "고뱅이",
-            "골배이",
-            "골뱅니"
-        )
+        SpecialSymbolChange.emailAtExpressions.toList(),
     )
     private val atMarker =
         """(?:@|$spokenAtMarker|앳${gap}사인|앳)"""
@@ -79,7 +54,10 @@ internal object EmailPatterns {
 
     // 실제 점 앞뒤에는 공백을 허용하지 않는다.
     // 말로 읽은 '닷/점/쩜' 앞뒤에는 공백을 허용한다.
-    private val domainSeparator = """(?:\.|$gap(?:닷|점|쩜)$gap)"""
+    private val spokenDomainSeparator = alternatives(
+        SpecialSymbolChange.emailDomainSeparatorExpressions.toList(),
+    )
+    private val domainSeparator = """(?:\.|$gap(?:$spokenDomainSeparator)$gap)"""
 
     // 주소에 붙은 문장 끝 표현은 후보에서 제외한다.
     // 끝 표현 뒤에도 글자가 이어지면 문장 끝으로 취급하지 않는다.

@@ -5,124 +5,10 @@ import com.example.pic_ai_app.masking.model.MaskSource
 import com.example.pic_ai_app.masking.model.MaskType
 
 internal object NumberPatterns {
-    // 한글 숫자 표현과 대응하는 숫자
-    private val korNumMap = mapOf(
-        "공" to "0", "영" to "0",
-        "일" to "1", "하나" to "1",
-        "이" to "2", "둘" to "2",
-        "삼" to "3", "셋" to "3",
-        "사" to "4", "넷" to "4",
-        "오" to "5", "다섯" to "5",
-        "육" to "6", "여섯" to "6",
-        "칠" to "7", "일곱" to "7",
-        "팔" to "8", "여덟" to "8",
-        "구" to "9", "아홉" to "9"
-    )
-
-    // 긴 표현부터 찾는다. 예: "일곱"을 "일"보다 먼저 찾는다.
-    private val korNumPattern = korNumMap.keys
-        .sortedByDescending { it.length }
-        .joinToString("|") { Regex.escape(it) }
-
-    // "이"를 제외한 한글 숫자 표현
-    private val nonAmbiguousKorNumPattern = korNumMap.keys
-        .filterNot { it == "이" }
-        .sortedByDescending { it.length }
-        .joinToString("|") { Regex.escape(it) }
-
-    // "010-1234-5678이고"처럼 아라비아 숫자 바로 뒤에 붙은 "이"는
-    // 숫자가 아니라 조사로 처리한다.
-    // "일이삼"처럼 한글 숫자 사이의 "이"는 숫자 2로 처리한다.
-    private val korNumTokenPattern =
-        """(?:$nonAmbiguousKorNumPattern|(?<![0-9])이)"""
-
-    // 개별 한글 숫자를 찾기 위한 정규식
-    private val korNumRegex = Regex(korNumPattern)
-
-    // 숫자 표현이 2개 이상 연속되는 구간
-    // 숫자 사이에는 공백, 탭, 점, 밑줄, 하이픈 허용
-    private val numberLikeSequence = Regex(
-        """(?:[0-9]|$korNumTokenPattern)""" +
-            """(?:(?:[ \t._-]*)(?:[0-9]|$korNumTokenPattern))+"""
-    )
-
     // 숫자로 시작하고 끝나는 구간을 찾는다.
     // 중간에는 숫자, 공백, 탭, 점, 밑줄, 하이픈을 허용한다.
     private val numberSequence: Regex =
         """[0-9](?:[0-9 \t._-]*[0-9])?""".toRegex()
-
-    // 변환된 문자열과 원문 위치 대응 정보
-    data class NormalizedNumberText(
-        val text: String,
-        val originalOffsets: List<Int>
-    )
-
-    fun normalizeNumbers(text: String): NormalizedNumberText {
-        val converted = StringBuilder(text.length)
-        val originalOffsets = mutableListOf(0)
-
-        var cursor = 0
-
-        for (sequenceMatch in numberLikeSequence.findAll(text)) {
-
-            // 숫자 구간 전까지 일반 문자는 그대로 복사
-            while (cursor < sequenceMatch.range.first) {
-                converted.append(text[cursor])
-                cursor++
-                originalOffsets.add(cursor)
-            }
-
-            val sequence = sequenceMatch.value
-            var localCursor = 0
-
-            // 숫자처럼 판단된 구간 안에서만 한글 숫자를 변환
-            for (match in korNumRegex.findAll(sequence)) {
-
-                // 한글 숫자 전까지 그대로 복사
-                while (localCursor < match.range.first) {
-                    converted.append(sequence[localCursor])
-
-                    localCursor++
-                    cursor++
-
-                    originalOffsets.add(cursor)
-                }
-
-                // 한글 숫자 → 아라비아 숫자
-                converted.append(korNumMap.getValue(match.value))
-
-                val consumedLength = match.value.length
-
-                localCursor += consumedLength
-                cursor += consumedLength
-
-                originalOffsets.add(cursor)
-            }
-
-            // 구간 내 남아 있는 문자 복사
-            while (localCursor < sequence.length) {
-                converted.append(sequence[localCursor])
-
-                localCursor++
-                cursor++
-
-                originalOffsets.add(cursor)
-            }
-        }
-
-        // 마지막 남은 일반 문자 복사
-        while (cursor < text.length) {
-            converted.append(text[cursor])
-
-            cursor++
-            originalOffsets.add(cursor)
-        }
-
-        return NormalizedNumberText(
-            text = converted.toString(),
-            originalOffsets = originalOffsets
-        )
-    }
 
     // 찾은 구간에서 숫자만 남긴 새 문자열을 만든다.
     private fun digitsOnly(value: String): String {
@@ -133,7 +19,7 @@ internal object NumberPatterns {
 
     // 변환 문자열의 탐지 위치를 원문 위치로 복원해 후보를 만든다.
     private fun toNumberCandidate(
-        normalized: NormalizedNumberText,
+        normalized: NumberChange.ChangedNumberText,
         match: MatchResult,
         type: MaskType
     ): MaskCandidate {
@@ -152,7 +38,7 @@ internal object NumberPatterns {
     fun detectPhoneNumbers(text: String): List<MaskCandidate> {
         if (text.isBlank()) return emptyList()
 
-        val normalized = normalizeNumbers(text)
+        val normalized = NumberChange.changeWithOffsets(text)
 
         return numberSequence.findAll(normalized.text)
             .filter { match ->
@@ -172,7 +58,7 @@ internal object NumberPatterns {
     fun detectRrnNumbers(text: String): List<MaskCandidate> {
         if (text.isBlank()) return emptyList()
 
-        val normalized = normalizeNumbers(text)
+        val normalized = NumberChange.changeWithOffsets(text)
 
         return numberSequence.findAll(normalized.text)
             .filter { match ->
@@ -192,7 +78,7 @@ internal object NumberPatterns {
     fun detectCardNumbers(text: String): List<MaskCandidate> {
         if (text.isBlank()) return emptyList()
 
-        val normalized = normalizeNumbers(text)
+        val normalized = NumberChange.changeWithOffsets(text)
 
         return numberSequence.findAll(normalized.text)
             .filter { match ->
@@ -212,7 +98,7 @@ internal object NumberPatterns {
     fun detectAccountNumbers(text: String): List<MaskCandidate> {
         if (text.isBlank()) return emptyList()
 
-        val normalized = normalizeNumbers(text)
+        val normalized = NumberChange.changeWithOffsets(text)
 
         return numberSequence.findAll(normalized.text)
             .filter { match ->
@@ -259,7 +145,7 @@ internal object NumberPatterns {
 
         // 2. 숫자로만 표현된 생년월일 탐지
         // 숫자 개수가 5~8자리면 BIRTH 후보로 처리
-        val normalized = normalizeNumbers(text)
+        val normalized = NumberChange.changeWithOffsets(text)
 
         numberSequence.findAll(normalized.text)
             .filter { match ->
