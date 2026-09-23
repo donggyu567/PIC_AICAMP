@@ -135,7 +135,7 @@ class SherpaOnnxStreamingSttEngine(
     private companion object {
         const val SAMPLE_RATE = 16_000
         const val RECOGNIZER_THREADS = 2
-        const val TRAILING_SILENCE_SECONDS = 0.8f
+        const val TRAILING_SILENCE_SECONDS = 1.3f
         const val MODEL_DIRECTORY =
             "models/sherpa-onnx-streaming-zipformer-korean-2024-06-16"
     }

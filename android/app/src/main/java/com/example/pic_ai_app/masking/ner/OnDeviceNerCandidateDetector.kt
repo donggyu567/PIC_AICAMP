@@ -1,4 +1,5 @@
 package com.example.pic_ai_app.masking.ner
+//Android에서 실제 ONNX NER inference 수행
 
 import ai.onnxruntime.OnnxJavaType
 import ai.onnxruntime.OnnxTensor

@@ -28,6 +28,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.heightIn
 
 @Composable
 fun SttScreen(
@@ -41,6 +44,7 @@ fun SttScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
                 .padding(horizontal = 24.dp, vertical = 20.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
@@ -69,8 +73,30 @@ fun SttScreen(
                 emphasized = state.lastFinalText.isNotEmpty(),
             )
 
-            Spacer(modifier = Modifier.weight(1f))
+            val masked = state.lastMaskedTranscript
 
+            TranscriptCard(
+                title = "마지막 마스킹 결과",
+                text = if (masked == null) {
+                    "아직 마스킹을 완료한 발화가 없습니다."
+                } else {
+                    buildString {
+                        appendLine("발화 번호: ${masked.utteranceId}")
+                        appendLine()
+                        appendLine("원문: ${state.lastMaskingSourceText}")
+                        appendLine()
+                        appendLine("결과: ${masked.maskedText}")
+                        appendLine()
+                        append(
+                            "마스킹 유형: " +
+                                    masked.maskedTypes
+                                        .joinToString(", ")
+                                        .ifEmpty { "없음" }
+                        )
+                    }
+                },
+                emphasized = masked != null,
+            )
             state.errorMessage?.let { message ->
                 Card(
                     colors = CardDefaults.cardColors(
@@ -141,7 +167,7 @@ private fun StatusCard(state: SttUiState) {
                 style = MaterialTheme.typography.bodyMedium,
             )
             Text(
-                text = "서버 전송 완료: ${state.transmittedUtteranceCount}개",
+                text = "서버 전송: 꺼짐 · 서버 연결 전",
                 style = MaterialTheme.typography.bodyMedium,
             )
         }
@@ -157,7 +183,7 @@ private fun TranscriptCard(
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(132.dp),
+            .heightIn(132.dp),
         shape = RoundedCornerShape(16.dp),
     ) {
         Column(
