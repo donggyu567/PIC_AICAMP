@@ -1,5 +1,7 @@
 package com.example.pic_ai_app.masking.ner
-
+/**
+STT 원문을 KoELECTRA 입력 token으로 변환
+ */
 import java.io.Reader
 
 internal data class KoElectraToken(

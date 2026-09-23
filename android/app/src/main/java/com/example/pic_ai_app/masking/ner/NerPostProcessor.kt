@@ -1,5 +1,5 @@
 package com.example.pic_ai_app.masking.ner
-
+//모델 입력 길이 처리 및 NER 결과 후처리를 담당
 import com.example.pic_ai_app.masking.model.MaskCandidate
 import com.example.pic_ai_app.masking.model.MaskSource
 import com.example.pic_ai_app.masking.model.MaskType
