@@ -85,6 +85,15 @@ class DefaultNumberMaskingRuleEngine :
                 .filter { entry -> entry.assessment.formatValid }
                 .map { entry -> entry.original.type }
                 .toSet()
+            val acceptedTypesBeforeExclusion = assessedEntries
+                .asSequence()
+                .filter { entry ->
+                    entry.original.start == group.start &&
+                        entry.original.endExclusive == group.endExclusive
+                }
+                .filter { entry -> entry.assessment.accepted }
+                .map { entry -> entry.original.type }
+                .toSet()
             val contextSupportedTypes =
                 group.directlySupportedTypes + group.activeContextSupportedTypes
             val supportedTypes = contextSupportedTypes intersect formatValidTypes
@@ -111,6 +120,7 @@ class DefaultNumberMaskingRuleEngine :
                 supportedTypes = supportedTypes,
                 excludedTypes = group.excludedTypes,
                 evidence = evidence,
+                acceptedTypesBeforeExclusion = acceptedTypesBeforeExclusion,
             )
         }
 

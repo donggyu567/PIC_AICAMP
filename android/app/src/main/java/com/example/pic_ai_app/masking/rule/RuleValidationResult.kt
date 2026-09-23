@@ -17,6 +17,7 @@ data class RuleCandidateDecision(
     val supportedTypes: Set<MaskType>,
     val excludedTypes: Set<MaskType>,
     val evidence: Set<RuleEvidence>,
+    val acceptedTypesBeforeExclusion: Set<MaskType> = emptySet(),
 ) {
     init {
         require(start >= 0) {
@@ -36,6 +37,9 @@ data class RuleCandidateDecision(
         }
         require(excludedTypes.all(possibleTypes::contains)) {
             "Excluded types must be included in possible types"
+        }
+        require(acceptedTypesBeforeExclusion.all(formatValidTypes::contains)) {
+            "Accepted types must pass format validation"
         }
         require(supportedTypes.intersect(excludedTypes).isEmpty()) {
             "A Rule type cannot be supported and excluded at the same time"

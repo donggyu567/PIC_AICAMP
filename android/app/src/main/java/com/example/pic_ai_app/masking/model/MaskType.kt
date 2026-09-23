@@ -9,7 +9,8 @@ enum class MaskType {
     ACCOUNT_NUMBER, //계좌번호
     BIRTH,          //생년월일
     EMAIL,          //이메일 주소
-    PW              //비밀번호
+    PW,             //비밀번호
+    MASKED          //유형을 확정할 수 없지만 보호해야 하는 값
 }
 
 
