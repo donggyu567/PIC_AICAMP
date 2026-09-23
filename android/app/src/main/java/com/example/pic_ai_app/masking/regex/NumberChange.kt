@@ -14,9 +14,6 @@ internal object NumberChange {
         "구" to "9", "아홉" to "9",
     )
 
-    val expressions: Set<String>
-        get() = changes.keys
-
     private val expressionPattern = changes.keys
         .sortedByDescending { it.length }
         .joinToString("|") { Regex.escape(it) }
@@ -39,14 +36,23 @@ internal object NumberChange {
             """(?:(?:[ \t._-]*)(?:[0-9]|$numberTokenPattern))+""",
     )
 
-    data class ChangedNumberText(
-        val text: String,
-        val originalOffsets: List<Int>,
-    )
+    fun change(text: String): String = change(ChangedText.from(text)).text
 
-    fun change(text: String): String = changeWithOffsets(text).text
+    fun changeWithOffsets(text: String): ChangedText =
+        change(ChangedText.from(text))
 
-    fun changeWithOffsets(text: String): ChangedNumberText {
+    fun change(changedText: ChangedText): ChangedText {
+        val locallyChanged = changeOriginalText(changedText.text)
+
+        return ChangedText(
+            text = locallyChanged.text,
+            originalOffsets = locallyChanged.originalOffsets.map { offset ->
+                changedText.originalOffsets[offset]
+            },
+        )
+    }
+
+    private fun changeOriginalText(text: String): ChangedText {
         val changed = StringBuilder(text.length)
         val originalOffsets = mutableListOf(0)
         var cursor = 0
@@ -91,7 +97,7 @@ internal object NumberChange {
             originalOffsets.add(cursor)
         }
 
-        return ChangedNumberText(
+        return ChangedText(
             text = changed.toString(),
             originalOffsets = originalOffsets,
         )

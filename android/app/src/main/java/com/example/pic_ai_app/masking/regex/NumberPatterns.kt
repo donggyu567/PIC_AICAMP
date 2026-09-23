@@ -19,7 +19,7 @@ internal object NumberPatterns {
 
     // 변환 문자열의 탐지 위치를 원문 위치로 복원해 후보를 만든다.
     private fun toNumberCandidate(
-        normalized: NumberChange.ChangedNumberText,
+        normalized: ChangedText,
         match: MatchResult,
         type: MaskType
     ): MaskCandidate {

@@ -1,5 +1,9 @@
 package com.example.pic_ai_app.masking.regex
 
+import com.example.pic_ai_app.masking.model.MaskCandidate
+import com.example.pic_ai_app.masking.model.MaskSource
+import com.example.pic_ai_app.masking.model.MaskType
+
 internal data class PasswordPatternMatch(
     val start: Int,
     val endExclusive: Int,
@@ -7,97 +11,63 @@ internal data class PasswordPatternMatch(
 )
 
 internal object PasswordPatterns {
-    fun findPasswords(text: String): List<PasswordPatternMatch> = CONTEXT_PATTERN.findAll(text)
-        .mapNotNull { context -> valueAfter(text, context.range.last + 1) }
-        .distinctBy { it.start to it.endExclusive }
-        .sortedBy { it.start }
-        .toList()
+    fun findPasswords(text: String): List<PasswordPatternMatch> {
+        if (text.isBlank()) return emptyList()
 
-    private fun valueAfter(text: String, contextEnd: Int): PasswordPatternMatch? {
-        var cursor = skipWhitespace(text, contextEnd)
-        if (cursor >= text.length) return null
+        val changed = changePasswordText(text)
 
-        var hasConnector = false
-        if (text[cursor] == ':' || text[cursor] == '=') {
-            cursor += 1
-            hasConnector = true
-        } else if (text[cursor] in PARTICLES) {
-            cursor += 1
-            hasConnector = true
-            cursor = skipWhitespace(text, cursor)
-            if (cursor < text.length && (text[cursor] == ':' || text[cursor] == '=')) {
-                cursor += 1
+        return password.findAll(changed.text)
+            .mapNotNull { match ->
+                val changedValue = match.value.removeGaps()
+                if (changedValue.length !in MIN_PASSWORD_LENGTH..MAX_PASSWORD_LENGTH) {
+                    return@mapNotNull null
+                }
+
+                PasswordPatternMatch(
+                    start = changed.originalOffsets[match.range.first],
+                    endExclusive = changed.originalOffsets[match.range.last + 1],
+                    changedValue = changedValue,
+                )
             }
-        }
-
-        cursor = skipWhitespace(text, cursor)
-        if (cursor >= text.length) return null
-
-        val openingQuote = text[cursor].takeIf { it in QUOTE_PAIRS.keys }
-        val rawStart: Int
-        val rawEnd: Int
-        if (openingQuote != null) {
-            rawStart = cursor + 1
-            val closingQuote = QUOTE_PAIRS.getValue(openingQuote)
-            rawEnd = text.indexOf(closingQuote, rawStart).takeIf { it >= rawStart } ?: return null
-        } else {
-            if (!hasConnector) return null
-            rawStart = cursor
-            rawEnd = findUnquotedEnd(text, rawStart)
-        }
-
-        val end = trimSpokenEnding(text, rawStart, rawEnd)
-        if (end <= rawStart || end - rawStart > MAX_VALUE_LENGTH) return null
-
-        val originalValue = text.substring(rawStart, end)
-        if (originalValue.lowercase().let { value -> NEGATIVE_VALUES.any(value::startsWith) }) {
-            return null
-        }
-
-        return PasswordPatternMatch(
-            start = rawStart,
-            endExclusive = end,
-            changedValue = changePassword(originalValue),
-        )
+            .distinctBy { it.start to it.endExclusive }
+            .sortedBy { it.start }
+            .toList()
     }
 
-    private fun changePassword(value: String): String {
-        val numberChanged = NumberChange.change(value)
-        val englishChanged = EnglishChange.change(numberChanged)
-        return SpecialSymbolChange.change(englishChanged)
+    private fun changePasswordText(text: String): ChangedText {
+        var changed = ChangedText.from(text)
+
+        changed = SpecialSymbolChange.change(changed)
+        changed = NumberChange.change(changed)
+        changed = EnglishChange.change(changed)
+
+        return changed
     }
 
-    private fun skipWhitespace(text: String, from: Int): Int {
-        var cursor = from
-        while (cursor < text.length && text[cursor].isWhitespace()) cursor += 1
-        return cursor
+    private fun String.removeGaps(): String = filterNot { character ->
+        character == ' ' || character == '\t'
     }
 
-    private fun findUnquotedEnd(text: String, start: Int): Int {
-        var cursor = start
-        while (cursor < text.length && !text[cursor].isWhitespace() && text[cursor] !in VALUE_BOUNDARIES) {
-            cursor += 1
-        }
-        return cursor
-    }
+    private const val MIN_PASSWORD_LENGTH = 3
+    private const val MAX_PASSWORD_LENGTH = 64
 
-    private fun trimSpokenEnding(text: String, start: Int, end: Int): Int {
-        val value = text.substring(start, end)
-        val suffix = SPOKEN_ENDINGS.firstOrNull(value::endsWith) ?: return end
-        return end - suffix.length
-    }
+    // 복원된 비밀번호에서 허용하는 영문, 숫자, 특수문자다.
+    private val passwordCharacter =
+        """[A-Za-z0-9!@#${'$'}%^&*()_+=.\-]"""
 
-    private const val MAX_VALUE_LENGTH = 64
-    private val CONTEXT_PATTERN = Regex(
-        "(?:비밀번호|비번|패스워드|password|pin\\s*번호)",
-        RegexOption.IGNORE_CASE,
+    // 중간 공백과 탭은 원문 위치에 남겨 두고 실제 길이를 계산할 때만 제외한다.
+    private val password = Regex(
+        """$passwordCharacter(?:[ \t]*$passwordCharacter)*""",
     )
-    private val PARTICLES = setOf('은', '는', '이', '가')
-    private val QUOTE_PAIRS = mapOf('"' to '"', '\'' to '\'', '“' to '”', '‘' to '’')
-    private val VALUE_BOUNDARIES = setOf(',', '.', '?', ';', '，', '。', '？', '；')
-    private val SPOKEN_ENDINGS = listOf("이라고요", "이랍니다", "입니다", "이에요", "예요", "라고요")
-    private val NEGATIVE_VALUES = setOf(
-        "기억", "변경", "재설정", "분실", "모르", "입력", "확인", "찾", "잊",
-        "없", "틀", "필요", "설정", "잠금", "보내", "말해", "알려", "요청",
-    )
+
+    fun detectPasswords(text: String): List<MaskCandidate> =
+        findPasswords(text).map { match ->
+            MaskCandidate(
+                start = match.start,
+                endExclusive = match.endExclusive,
+                type = MaskType.PW,
+                source = MaskSource.REGEX,
+                confidence = null,
+            )
+        }
 }
