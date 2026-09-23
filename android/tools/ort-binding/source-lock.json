@@ -1,0 +1,18 @@
+{
+  "repository": "https://github.com/microsoft/onnxruntime.git",
+  "tag": "v1.27.1",
+  "commit": "df2ba1cf8108aa63627cf4cdf8f807880b938616",
+  "baseCommit": "1d4d0349eb4281450923bc7a5940017703821c30",
+  "sherpaAarSha256": "0012d9a28f15bd6fb966b62b70a75da3990512fdccce28b83098248ce4be1698",
+  "runtimeSha256": "dc5e4c172b1be9e530c6a62ad8f1be3e0a911cabdee6195abf28dab72477e194",
+  "abi": "arm64-v8a",
+  "minSdk": 24,
+  "ndk": "27.2.12479018",
+  "cmake": "3.31.6",
+  "model": {
+    "repository": "atonlee/koelectra-ko-pii-ner",
+    "revision": "1e75c01e707232401883cf364151bbe2e560c708",
+    "file": "onnx/model.onnx",
+    "sha256": "7794bdaa2daaa524d1e7f5e4f80e6b62c6fe3bf36d7a9175f4cd4c011837ddc3"
+  }
+}
