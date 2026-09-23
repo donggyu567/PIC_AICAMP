@@ -3,24 +3,58 @@ package com.example.pic_ai_app.masking.rule
 import com.example.pic_ai_app.masking.model.MaskCandidate
 
 internal class BirthRule : CandidateRule {
-    override fun validate(text: String, candidate: MaskCandidate): MaskCandidate? {
+    override fun assess(
+        text: String,
+        candidate: MaskCandidate,
+        context: CandidateRuleContext,
+    ): CandidateRuleAssessment {
         val value = RuleSupport.value(text, candidate)
-        val context = RuleSupport.localContext(text, candidate)
-        val birthContext = RuleSupport.containsAny(context, BIRTH_CONTEXT)
-        val scheduleContext = RuleSupport.containsAny(context, SCHEDULE_CONTEXT)
-
-        if (scheduleContext && !birthContext) return null
 
         val date = RuleSupport.parseDate(value)
-        val validDate = date != null && RuleSupport.isValidDate(date.first, date.second, date.third)
-        if (validDate) return candidate
+        val validDate = date != null &&
+            RuleSupport.isValidDate(date.first, date.second, date.third)
+        if (validDate) {
+            return CandidateRuleAssessment(formatValid = true, accepted = true)
+        }
 
-        // Preserve an STT-damaged date only with explicit birth wording nearby.
-        return candidate.takeIf { birthContext && RuleSupport.digits(value).length in 6..8 }
+        if (value.contains('월') && value.contains('일')) {
+            val monthDay = parseMonthDay(value)
+            val formatValid = monthDay != null &&
+                isValidMonthDay(monthDay.first, monthDay.second)
+            return CandidateRuleAssessment(
+                formatValid = formatValid,
+                accepted = formatValid && context.typeSupported,
+            )
+        }
+
+        val formatValid = RuleSupport.isNumberLike(value) &&
+            RuleSupport.digits(value).length in 5..8
+        return CandidateRuleAssessment(
+            formatValid = formatValid,
+            accepted = formatValid && context.typeSupported,
+        )
+    }
+
+    private fun parseMonthDay(value: String): Pair<Int, Int>? {
+        val match = MONTH_DAY_WITH_UNITS.matchEntire(value) ?: return null
+        val month = match.groupValues[1].toIntOrNull() ?: return null
+        val day = match.groupValues[2].toIntOrNull() ?: return null
+        return month to day
+    }
+
+    private fun isValidMonthDay(month: Int, day: Int): Boolean {
+        if (month !in 1..12) return false
+        val daysInMonth = when (month) {
+            2 -> 29
+            4, 6, 9, 11 -> 30
+            else -> 31
+        }
+        return day in 1..daysInMonth
     }
 
     private companion object {
-        val BIRTH_CONTEXT = setOf("생년월일", "생일", "출생", "태어난")
-        val SCHEDULE_CONTEXT = setOf("회의", "일정", "예약", "행사", "배송", "납기", "방문", "재판", "약속", "공연")
+        val MONTH_DAY_WITH_UNITS = Regex(
+            """^\s*([0-9]{1,2})\s*월\s*([0-9]{1,2})\s*일\s*$""",
+        )
     }
 }

@@ -4,6 +4,12 @@ import com.example.pic_ai_app.masking.model.MaskCandidate
 import com.example.pic_ai_app.masking.model.MaskSource
 import com.example.pic_ai_app.masking.model.MaskType
 
+internal data class EmailPatternMatch(
+    val start: Int,
+    val endExclusive: Int,
+    val changedValue: String,
+)
+
 internal object EmailPatterns {
     // 줄바꿈을 넘지 않도록 공백과 탭만 허용한다.
     private val gap = """[ \t]*"""
@@ -28,7 +34,7 @@ internal object EmailPatterns {
         "쥐메일" to "gmail",
 
         "네이버" to "naver",
-        "내이버" to "gmail",
+        "내이버" to "naver",
 
         "다음" to "daum",
         "네이트" to "nate",
@@ -58,23 +64,32 @@ internal object EmailPatterns {
         RegexOption.IGNORE_CASE,
     )
 
-    fun detectEmails(text: String): List<MaskCandidate> {
+    fun findEmails(text: String): List<EmailPatternMatch> {
         if (text.isBlank()) return emptyList()
 
         val changed = changeEmailText(text)
 
         return email.findAll(changed.text)
             .map { match ->
-                MaskCandidate(
+                EmailPatternMatch(
                     start = changed.originalOffsets[match.range.first],
                     endExclusive = changed.originalOffsets[match.range.last + 1],
-                    type = MaskType.EMAIL,
-                    source = MaskSource.REGEX,
-                    confidence = null,
+                    changedValue = match.value,
                 )
             }
             .toList()
     }
+
+    fun detectEmails(text: String): List<MaskCandidate> =
+        findEmails(text).map { match ->
+            MaskCandidate(
+                start = match.start,
+                endExclusive = match.endExclusive,
+                type = MaskType.EMAIL,
+                source = MaskSource.REGEX,
+                confidence = null,
+            )
+        }
 
     private fun changeEmailText(text: String): ChangedText {
         var changed = ChangedText.from(text)

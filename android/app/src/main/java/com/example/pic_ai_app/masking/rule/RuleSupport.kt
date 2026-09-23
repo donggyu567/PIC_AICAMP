@@ -1,63 +1,181 @@
 package com.example.pic_ai_app.masking.rule
 
 import com.example.pic_ai_app.masking.model.MaskCandidate
-import com.example.pic_ai_app.masking.model.MaskSource
 import com.example.pic_ai_app.masking.model.MaskType
-import kotlin.math.max
-import kotlin.math.min
+import com.example.pic_ai_app.masking.regex.NumberChange
 
-internal fun interface CandidateRule {
-    fun validate(
-        text: String,
-        candidate: MaskCandidate,
-    ): MaskCandidate?
+internal data class CandidateRuleContext(
+    val typeSupported: Boolean,
+)
+
+internal data class CandidateRuleAssessment(
+    val formatValid: Boolean,
+    val accepted: Boolean,
+) {
+    init {
+        require(!accepted || formatValid) {
+            "An accepted candidate must have a valid format"
+        }
+    }
 }
 
+internal fun interface CandidateRule {
+    fun assess(
+        text: String,
+        candidate: MaskCandidate,
+        context: CandidateRuleContext,
+    ): CandidateRuleAssessment
+}
+
+internal enum class RuleMarkerAction {
+    ACTIVATE,
+    REMOVE,
+    IGNORE,
+}
+
+internal data class RuleTypeMarker(
+    val start: Int,
+    val endExclusive: Int,
+    val type: MaskType,
+    val action: RuleMarkerAction,
+)
+
 internal object RuleSupport {
-    private const val CONTEXT_RADIUS = 36
     private val sentenceBoundaries = setOf('\n', '\r', '.', '?', '!')
-    private val allowedNumberCharacters = Regex("^[0-9+()\\-\\s]+$")
+    private val allowedNumberCharacters = Regex("""^[0-9+()._\-\s]+$""")
+
+    private data class TypeMarkerDefinition(
+        val type: MaskType,
+        val regex: Regex,
+    )
+
+    private data class RawTypeMarker(
+        val start: Int,
+        val endExclusive: Int,
+        val type: MaskType,
+    )
+
+    private val typeMarkerDefinitions = listOf(
+        TypeMarkerDefinition(
+            type = MaskType.PHONE_NUMBER,
+            regex = Regex("""(?:휴대폰\s*번호|핸드폰\s*번호|전화번호|연락처)"""),
+        ),
+        TypeMarkerDefinition(
+            type = MaskType.RRN,
+            regex = Regex("""(?:주민등록번호|주민번호)"""),
+        ),
+        TypeMarkerDefinition(
+            type = MaskType.CARD_NUMBER,
+            regex = Regex("""카드번호"""),
+        ),
+        TypeMarkerDefinition(
+            type = MaskType.ACCOUNT_NUMBER,
+            regex = Regex("""계좌번호"""),
+        ),
+        TypeMarkerDefinition(
+            type = MaskType.BIRTH,
+            regex = Regex("""(?:생년월일|출생일|생일)"""),
+        ),
+        TypeMarkerDefinition(
+            type = MaskType.EMAIL,
+            regex = Regex("""(?:이메일\s*주소|메일\s*주소|이메일)"""),
+        ),
+        TypeMarkerDefinition(
+            type = MaskType.PW,
+            regex = Regex(
+                """(?:PIN\s*번호|비밀번호|패스워드|password|비번)""",
+                RegexOption.IGNORE_CASE,
+            ),
+        ),
+    )
+
+    private val typeNegation = Regex(
+        """^\s*(?:은|는|이|가)?\s*(?:아니라|아니고|아니에요|말고)""",
+    )
+
+    private val disclosureProhibition = Regex(
+        """^\s*(?:은|는|이|가|을|를)?\s*(?:(?:알려\s*주지)|보내지|말하지)\s*마세요""",
+    )
 
     fun value(text: String, candidate: MaskCandidate): String =
         text.substring(candidate.start, candidate.endExclusive)
 
-    fun digits(value: String): String = value.filter(Char::isDigit)
+    fun numberValue(value: String): String = NumberChange.change(value)
 
-    fun isNumberLike(value: String): Boolean =
-        value.isNotBlank() && allowedNumberCharacters.matches(value)
+    fun digits(value: String): String = numberValue(value).filter(Char::isDigit)
 
-    fun localContext(
-        text: String,
-        candidate: MaskCandidate,
-    ): String {
-        val roughStart = max(0, candidate.start - CONTEXT_RADIUS)
-        val roughEnd = min(text.length, candidate.endExclusive + CONTEXT_RADIUS)
-
-        val boundaryBefore = text.lastIndexOfAny(
-            chars = sentenceBoundaries.toCharArray(),
-            startIndex = candidate.start - 1,
-        )
-        val boundaryAfter = text.indexOfAny(
-            chars = sentenceBoundaries.toCharArray(),
-            startIndex = candidate.endExclusive,
-        )
-
-        val start = max(roughStart, boundaryBefore + 1)
-        val end = if (boundaryAfter == -1) roughEnd else min(roughEnd, boundaryAfter)
-        return text.substring(start, end).lowercase()
+    fun isNumberLike(value: String): Boolean {
+        val changedValue = numberValue(value)
+        return changedValue.isNotBlank() && allowedNumberCharacters.matches(changedValue)
     }
 
-    fun containsAny(context: String, keywords: Set<String>): Boolean =
-        keywords.any(context::contains)
+    fun findTypeMarkers(text: String): List<RuleTypeMarker> {
+        val rawMarkers = typeMarkerDefinitions
+            .flatMap { definition ->
+                definition.regex.findAll(text).map { match ->
+                    RawTypeMarker(
+                        start = match.range.first,
+                        endExclusive = match.range.last + 1,
+                        type = definition.type,
+                    )
+                }
+            }
+            .sortedWith(
+                compareBy<RawTypeMarker> { it.start }
+                    .thenByDescending { it.endExclusive - it.start },
+            )
 
-    fun reclassify(
-        candidate: MaskCandidate,
-        type: MaskType,
-    ): MaskCandidate = candidate.copy(
-        type = type,
-        source = MaskSource.RULE,
-        confidence = null,
-    )
+        val nonOverlappingMarkers = mutableListOf<RawTypeMarker>()
+        rawMarkers.forEach { marker ->
+            val overlapsAcceptedMarker = nonOverlappingMarkers.any { accepted ->
+                marker.start < accepted.endExclusive &&
+                    accepted.start < marker.endExclusive
+            }
+            if (!overlapsAcceptedMarker) {
+                nonOverlappingMarkers += marker
+            }
+        }
+
+        return nonOverlappingMarkers
+            .sortedBy { it.start }
+            .mapIndexed { index, marker ->
+                val nextMarkerStart = nonOverlappingMarkers
+                    .getOrNull(index + 1)
+                    ?.start
+                    ?: text.length
+                val nextBoundaryStart = text.indexOfAny(
+                    chars = sentenceBoundaries.toCharArray(),
+                    startIndex = marker.endExclusive,
+                ).takeIf { it >= 0 } ?: text.length
+                val followingEnd = minOf(nextMarkerStart, nextBoundaryStart)
+                val followingText = text.substring(
+                    marker.endExclusive,
+                    followingEnd,
+                )
+
+                val action = when {
+                    typeNegation.containsMatchIn(followingText) ->
+                        RuleMarkerAction.REMOVE
+
+                    disclosureProhibition.containsMatchIn(followingText) ->
+                        RuleMarkerAction.IGNORE
+
+                    else -> RuleMarkerAction.ACTIVATE
+                }
+
+                RuleTypeMarker(
+                    start = marker.start,
+                    endExclusive = marker.endExclusive,
+                    type = marker.type,
+                    action = action,
+                )
+            }
+    }
+
+    fun findSentenceBoundaries(text: String): List<Int> =
+        text.indices.filter { index ->
+            text[index] in sentenceBoundaries
+        }
 
     fun isPlausiblePhone(digits: String): Boolean {
         val domestic = when {
@@ -96,6 +214,10 @@ internal object RuleSupport {
             val month = groups[1].toIntOrNull() ?: return null
             val day = groups[2].toIntOrNull() ?: return null
             return Triple(year, month, day)
+        }
+
+        if (value.contains('년') || value.contains('월')) {
+            return null
         }
 
         val compact = digits(value)
