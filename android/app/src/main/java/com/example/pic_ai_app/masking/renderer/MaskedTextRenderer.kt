@@ -57,6 +57,7 @@ class DefaultMaskedTextRenderer : MaskedTextRenderer {
             MaskType.BIRTH -> "[BIRTH]"
             MaskType.EMAIL -> "[EMAIL]"
             MaskType.PW -> "[PW]"
+            MaskType.MASKED -> "[MASKED]"
         }
 
     private fun splitsSurrogatePair(text: String, offset: Int): Boolean =

@@ -3,9 +3,18 @@ package com.example.pic_ai_app.masking.resolver
 import com.example.pic_ai_app.masking.model.MaskCandidate
 import com.example.pic_ai_app.masking.model.MaskSource
 import com.example.pic_ai_app.masking.model.MaskType
+import com.example.pic_ai_app.masking.rule.RuleCandidateDecision
+import com.example.pic_ai_app.masking.rule.RuleValidationResult
 
 class DefaultCandidateConflictResolver :
     CandidateConflictResolver {
+
+    override fun resolve(
+        nerCandidates: List<MaskCandidate>,
+        ruleResult: RuleValidationResult,
+    ): List<MaskCandidate> = resolve(
+        nerCandidates + selectRuleCandidates(ruleResult),
+    )
 
     override fun resolve(
         candidates: List<MaskCandidate>,
@@ -56,6 +65,59 @@ class DefaultCandidateConflictResolver :
             )
         }
     }
+
+    private fun selectRuleCandidates(
+        ruleResult: RuleValidationResult,
+    ): List<MaskCandidate> {
+        if (ruleResult.decisions.isEmpty()) return ruleResult.candidates
+
+        val candidatesByRange = ruleResult.candidates.groupBy { candidate ->
+            CandidateRange(candidate.start, candidate.endExclusive)
+        }
+        val decidedRanges = ruleResult.decisions.map { decision ->
+            CandidateRange(decision.start, decision.endExclusive)
+        }.toSet()
+
+        val selected = ruleResult.decisions.flatMap { decision ->
+            val range = CandidateRange(decision.start, decision.endExclusive)
+            selectRange(decision, candidatesByRange[range].orEmpty())
+        }
+        val undecided = ruleResult.candidates.filterNot { candidate ->
+            CandidateRange(candidate.start, candidate.endExclusive) in decidedRanges
+        }
+        return selected + undecided
+    }
+
+    private fun selectRange(
+        decision: RuleCandidateDecision,
+        acceptedCandidates: List<MaskCandidate>,
+    ): List<MaskCandidate> {
+        val acceptedTypes = acceptedCandidates.map { it.type }.toSet()
+        val supportedAcceptedTypes = decision.supportedTypes intersect acceptedTypes
+        val acceptedButExcluded =
+            decision.acceptedTypesBeforeExclusion intersect decision.excludedTypes
+
+        return when {
+            supportedAcceptedTypes.size == 1 -> acceptedCandidates.filter {
+                it.type in supportedAcceptedTypes
+            }
+            supportedAcceptedTypes.size > 1 -> listOf(maskedCandidate(decision))
+            acceptedButExcluded.isNotEmpty() -> listOf(maskedCandidate(decision))
+            acceptedTypes.size == 1 -> acceptedCandidates
+            acceptedTypes.size > 1 -> listOf(maskedCandidate(decision))
+            decision.formatValidTypes.size > 1 -> listOf(maskedCandidate(decision))
+            else -> emptyList()
+        }
+    }
+
+    private fun maskedCandidate(decision: RuleCandidateDecision): MaskCandidate =
+        MaskCandidate(
+            start = decision.start,
+            endExclusive = decision.endExclusive,
+            type = MaskType.MASKED,
+            source = MaskSource.REGEX,
+            confidence = null,
+        )
 
     private fun deduplicate(candidates: List<MaskCandidate>): List<MaskCandidate> =
         candidates
@@ -122,8 +184,9 @@ class DefaultCandidateConflictResolver :
         MaskType.PHONE_NUMBER -> 4
         MaskType.EMAIL -> 5
         MaskType.BIRTH -> 6
-        MaskType.ADDRESS -> 7
-        MaskType.PERSON -> 8
+        MaskType.MASKED -> 7
+        MaskType.ADDRESS -> 8
+        MaskType.PERSON -> 9
     }
 
     private val representativeOrder =
@@ -172,6 +235,11 @@ class DefaultCandidateConflictResolver :
         val start: Int,
         val endExclusive: Int,
         val type: MaskType,
+    )
+
+    private data class CandidateRange(
+        val start: Int,
+        val endExclusive: Int,
     )
 
     private data class IndexedCandidate(

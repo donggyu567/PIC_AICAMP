@@ -7,5 +7,15 @@ interface NumberMaskingRuleEngine {
         text: String,
         candidate: List<MaskCandidate>
     ): List<MaskCandidate>
+
+    fun validateWithContext(
+        text: String,
+        candidate: List<MaskCandidate>,
+        context: RuleContext,
+    ): RuleValidationResult = RuleValidationResult(
+        candidates = validate(text, candidate),
+        decisions = emptyList(),
+        updatedContext = context,
+    )
 }
 

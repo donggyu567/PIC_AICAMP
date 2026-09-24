@@ -16,6 +16,7 @@ class DefaultRegexCandidateDetector : RegexCandidateDetector {
             addAll(NumberPatterns.detectAccountNumbers(text))
             addAll(NumberPatterns.detectBirthDates(text))
             addAll(EmailPatterns.detectEmails(text))
+            addAll(PasswordPatterns.detectPasswords(text))
         }.sortedWith(
             compareBy<MaskCandidate>(
                 { it.start },
