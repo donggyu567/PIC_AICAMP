@@ -94,7 +94,7 @@ class MaskedTextRendererTest {
         val candidates = types.mapIndexed { index, type -> candidate(index, index + 1, type) }
         assertEquals(
             "[PERSON][ADDRESS][PHONE_NUMBER][RRN][CARD_NUMBER]" +
-                "[ACCOUNT_NUMBER][BIRTH][EMAIL][PW]",
+                "[ACCOUNT_NUMBER][BIRTH][EMAIL][PW][MASKED]",
             renderer.render(text, candidates),
         )
     }
