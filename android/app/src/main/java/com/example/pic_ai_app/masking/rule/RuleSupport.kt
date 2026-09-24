@@ -58,19 +58,19 @@ internal object RuleSupport {
     private val typeMarkerDefinitions = listOf(
         TypeMarkerDefinition(
             type = MaskType.PHONE_NUMBER,
-            regex = Regex("""(?:휴대폰\s*번호|핸드폰\s*번호|전화번호|연락처)"""),
+            regex = Regex("""(?:휴대폰\s*번호|핸드폰\s*번호|전화번호|연락처|휴대폰\s*버노|핸드폰\s*버노|전화버노|저나버노|저나번호|해드폰\s*번호|해드폰\s*버노)"""),
         ),
         TypeMarkerDefinition(
             type = MaskType.RRN,
-            regex = Regex("""(?:주민등록번호|주민번호)"""),
+            regex = Regex("""(?:주민등록번호|주민번호|주민등록버노|주민버노|주미등록번호|주미등록버노|주미번호|주미버노)"""),
         ),
         TypeMarkerDefinition(
             type = MaskType.CARD_NUMBER,
-            regex = Regex("""카드번호"""),
+            regex = Regex("""(?:카드번호|카드버노)"""),
         ),
         TypeMarkerDefinition(
             type = MaskType.ACCOUNT_NUMBER,
-            regex = Regex("""계좌번호"""),
+            regex = Regex("""(?:계좌번호|계좌|개좌|개좌번호|개자번호|게좌번호|게자번호|계좌버노|개좌버노|개자버노|게좌버노|게자버노)"""),
         ),
         TypeMarkerDefinition(
             type = MaskType.BIRTH,
