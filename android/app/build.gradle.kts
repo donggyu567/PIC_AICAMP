@@ -59,6 +59,7 @@ android {
 
 dependencies {
     implementation(files("libs/sherpa-onnx-1.13.6.aar"))
+    implementation(files("libs/onnxruntime-java-binding-1.27.1-arm64.aar"))
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)

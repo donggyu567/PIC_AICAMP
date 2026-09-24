@@ -3,9 +3,7 @@ package com.example.pic_ai_app.presentation.stt
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.pic_ai_app.BuildConfig
 import com.example.pic_ai_app.audio.AndroidPcmAudioRecorder
-import com.example.pic_ai_app.data.remote.HttpMaskedTranscriptSender
 import com.example.pic_ai_app.data.storage.ConversationIdGenerator
 import com.example.pic_ai_app.data.storage.InternalMaskedTranscriptRepository
 import com.example.pic_ai_app.data.storage.InternalTranscriptRepository
@@ -14,8 +12,6 @@ import com.example.pic_ai_app.domain.remote.MaskedTranscriptTransmissionExceptio
 import com.example.pic_ai_app.domain.remote.MaskedTranscriptSender
 import com.example.pic_ai_app.domain.repository.MaskedTranscriptRepository
 import com.example.pic_ai_app.domain.repository.TranscriptRepository
-import com.example.pic_ai_app.ner.PassThroughTranscriptNer
-import com.example.pic_ai_app.ner.TranscriptNer
 import com.example.pic_ai_app.stt.SherpaOnnxStreamingSttEngine
 import com.example.pic_ai_app.stt.SttDecodeResult
 import com.example.pic_ai_app.stt.StreamingSttEngine
@@ -31,15 +27,31 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import com.example.pic_ai_app.masking.MaskingPipeline
+import com.example.pic_ai_app.masking.TranscriptMasker
+import com.example.pic_ai_app.masking.ner.OnDeviceNerCandidateDetector
+import com.example.pic_ai_app.masking.regex.DefaultRegexCandidateDetector
+import com.example.pic_ai_app.masking.renderer.DefaultMaskedTextRenderer
+import com.example.pic_ai_app.masking.resolver.DefaultCandidateConflictResolver
+import com.example.pic_ai_app.masking.rule.DefaultNumberMaskingRuleEngine
+import kotlinx.coroutines.NonCancellable
 
 class SttViewModel(application: Application) : AndroidViewModel(application) {
     private val transcriptRepository: TranscriptRepository =
         InternalTranscriptRepository(application)
     private val maskedTranscriptRepository: MaskedTranscriptRepository =
         InternalMaskedTranscriptRepository(application)
-    private val transcriptNer: TranscriptNer = PassThroughTranscriptNer()
-    private val maskedTranscriptSender: MaskedTranscriptSender =
-        HttpMaskedTranscriptSender(BuildConfig.PIC_API_ENDPOINT)
+    private val nerDetector =
+        OnDeviceNerCandidateDetector(application.assets)
+    private val maskingPipeline = MaskingPipeline(
+        nerDetector = nerDetector,
+        regexDetector = DefaultRegexCandidateDetector(),
+        ruleEngine = DefaultNumberMaskingRuleEngine(),
+        conflictResolver = DefaultCandidateConflictResolver(),
+        renderer = DefaultMaskedTextRenderer(),
+    )
+    private val transcriptMasker = TranscriptMasker(maskingPipeline)
+    private val maskedTranscriptSender: MaskedTranscriptSender? = null
     private val conversationIdGenerator = ConversationIdGenerator()
     private val sttEngine: StreamingSttEngine =
         SherpaOnnxStreamingSttEngine(application.assets)
@@ -55,8 +67,14 @@ class SttViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         viewModelScope.launch {
-            for (transcript in postProcessingQueue) {
-                postProcess(transcript)
+            try{
+                for (transcript in postProcessingQueue) {
+                    postProcess(transcript)
+                }
+            } finally {
+                withContext(NonCancellable + Dispatchers.Default){
+                    nerDetector.close()
+                }
             }
         }
     }
@@ -181,7 +199,7 @@ class SttViewModel(application: Application) : AndroidViewModel(application) {
 
     private suspend fun postProcess(transcript: UtteranceTranscript) {
         val maskedTranscript = try {
-            transcriptNer.mask(transcript).also {
+            transcriptMasker.mask(transcript).also {
                 maskedTranscriptRepository.save(it)
             }
         } catch (cancelled: CancellationException) {
@@ -189,33 +207,36 @@ class SttViewModel(application: Application) : AndroidViewModel(application) {
         } catch (_: Throwable) {
             updatePipelineFailure(
                 transcript,
-                "원본은 저장됐지만 NER 처리 또는 마스킹 결과 저장에 실패했습니다.",
-            )
-            return
-        }
-
-        updateCurrentConversation(transcript) {
-            copy(maskedUtteranceCount = maxOf(maskedUtteranceCount, transcript.utteranceId))
-        }
-
-        try {
-            maskedTranscriptSender.send(maskedTranscript)
-        } catch (cancelled: CancellationException) {
-            throw cancelled
-        } catch (_: MaskedTranscriptTransmissionException) {
-            updatePipelineFailure(
-                transcript,
-                "원본과 마스킹 결과는 저장됐지만 서버 전송에 실패했습니다.",
+                "원본은 저장됐지만 마스킹 또는 결과 저장에 실패했습니다.",
             )
             return
         }
 
         updateCurrentConversation(transcript) {
             copy(
-                transmittedUtteranceCount = maxOf(
-                    transmittedUtteranceCount,
-                    transcript.utteranceId,
-                ),
+                lastMaskingSourceText = transcript.rawText,
+                lastMaskedTranscript = maskedTranscript,
+                maskedUtteranceCount = maskedUtteranceCount + 1,
+            )
+        }
+
+        val sender = maskedTranscriptSender ?: return
+
+        try {
+            sender.send(maskedTranscript)
+        } catch (cancelled: CancellationException) {
+            throw cancelled
+        } catch (_: MaskedTranscriptTransmissionException) {
+            updatePipelineFailure(
+                transcript,
+                "마스킹 결과는 저장됐지만 서버 전송에 실패했습니다.",
+            )
+            return
+        }
+
+        updateCurrentConversation(transcript) {
+            copy(
+                transmittedUtteranceCount = transmittedUtteranceCount + 1,
             )
         }
     }

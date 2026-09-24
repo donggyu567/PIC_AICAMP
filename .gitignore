@@ -7,3 +7,5 @@ __pycache__/
 .venv/
 venv/
 outputs/
+# Reproducible ORT source, tool caches and build outputs
+/.runtime-build/
