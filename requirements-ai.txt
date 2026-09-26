@@ -1,0 +1,3 @@
+# Minimal Windows/Python 3.11 ML runtime for risk_speech_ai.
+torch==2.6.0
+transformers==4.57.6
