@@ -1,0 +1,12 @@
+.venv-ai/
+__pycache__/
+*.py[cod]
+
+# Local model caches and checkpoint artifacts.
+/hf-cache/
+/.cache/huggingface/
+/checkpoints/
+*.safetensors
+*.pt
+*.pth
+pytorch_model*.bin
