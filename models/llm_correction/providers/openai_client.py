@@ -74,7 +74,18 @@ class OpenAIResponsesClient:
                 max_output_tokens=self._max_output_tokens,
                 text={"format": _correction_response_format()},
             )
-        except Exception:
+        except Exception as error:
+            print(
+                "OPENAI_ERROR",
+                {
+                    "type": type(error).__name__,
+                    "status": getattr(error, "status_code", None),
+                    "code": getattr(error, "code", None),
+                    "param": getattr(error, "param", None),
+                    "model": self._model,
+                },
+                flush=True,
+            )
             request_failed = True
 
         if request_failed:
