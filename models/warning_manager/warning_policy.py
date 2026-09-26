@@ -1,8 +1,13 @@
-"""경고 판단 인터페이스. 구현체 예: DefaultWarningPolicy."""
+"""경고 판단 인터페이스와 실제 구현."""
 
 from typing import Protocol
 
-from .contracts import CalculationResult, ConversationWarningState, WarningConfig, WarningDecision
+from .contracts import (
+    CalculationResult,
+    ConversationWarningState,
+    WarningConfig,
+    WarningDecision,
+)
 
 
 class WarningPolicy(Protocol):
@@ -11,9 +16,60 @@ class WarningPolicy(Protocol):
         calculation_result: CalculationResult,
         previous_state: ConversationWarningState | None,
         config: WarningConfig,
+        ) -> WarningDecision:
+            """경고 상태와 사유를 판단하는 함수의 형식."""
+            ...
+
+class DefaultWarningPolicy:
+    """검증된 서버 계산 결과로 경고 상태와 사유를 판단한다."""
+
+    def evaluate(
+        self,
+        calculation_result: CalculationResult,
+        previous_state: ConversationWarningState | None,
+        config: WarningConfig,
     ) -> WarningDecision:
-        """누적값으로 상태, M/A 점수의 각각 기준 충족 여부로 사유를 판단한다.
-        previous_warning의 사유는 최신 유효 이벤트에서 가져온다.
-        비교는 반올림 전에 수행한다. 누적식을 재실행하거나 상태를 변경하지 않는다.
-        """
-        ...
+        threshold = config.warning_threshold
+
+        if calculation_result.cumulative_score >= threshold:
+            single_triggered = (
+                calculation_result.window_max_score >= threshold
+            )
+            cumulative_triggered = (
+                calculation_result.accumulated_score >= threshold
+            )
+
+            if single_triggered and cumulative_triggered:
+                return WarningDecision(
+                    status="active",
+                    reason="both",
+                )
+
+            if single_triggered:
+                return WarningDecision(
+                    status="active",
+                    reason="single_utterance",
+                )
+
+            if cumulative_triggered:
+                return WarningDecision(
+                    status="active",
+                    reason="cumulative",
+                )
+
+            raise ValueError(
+                "경고 기준 이상이지만 경고 사유에 해당하는 점수가 없습니다."
+            )
+
+        if previous_state is not None and previous_state.events:
+            latest_event = previous_state.events[-1]
+
+            return WarningDecision(
+                status="previous_warning",
+                reason=latest_event.reason,
+            )
+
+        return WarningDecision(
+            status="none",
+            reason=None,
+        )
