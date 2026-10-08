@@ -1,0 +1,11 @@
+{"conversation_id":"P0044","utterance_id":1,"speaker":"speaker_A","text":"안녕하세요. [PERSON]고객님 맞으시죠?","is_phishing":true,"labels":["information_probing"],"source":"YTN(금융감독원 녹취 소개) - [생생경제] \"00금융입니다\" 금융회사 사칭 보이스피싱!"}
+{"conversation_id":"P0044","utterance_id":2,"speaker":"speaker_B","text":"네.","is_phishing":false,"labels":[],"source":"YTN(금융감독원 녹취 소개) - [생생경제] \"00금융입니다\" 금융회사 사칭 보이스피싱!"}
+{"conversation_id":"P0044","utterance_id":3,"speaker":"speaker_A","text":"고려저축은행 대출상담원입니다.","is_phishing":true,"labels":["institution_impersonation"],"source":"YTN(금융감독원 녹취 소개) - [생생경제] \"00금융입니다\" 금융회사 사칭 보이스피싱!"}
+{"conversation_id":"P0044","utterance_id":4,"speaker":"speaker_B","text":"어디요?","is_phishing":false,"labels":[],"source":"YTN(금융감독원 녹취 소개) - [생생경제] \"00금융입니다\" 금융회사 사칭 보이스피싱!"}
+{"conversation_id":"P0044","utterance_id":5,"speaker":"speaker_A","text":"다름이 아니라 고려저축은행입니다.","is_phishing":true,"labels":["institution_impersonation"],"source":"YTN(금융감독원 녹취 소개) - [생생경제] \"00금융입니다\" 금융회사 사칭 보이스피싱!"}
+{"conversation_id":"P0044","utterance_id":6,"speaker":"speaker_B","text":"네.","is_phishing":false,"labels":[],"source":"YTN(금융감독원 녹취 소개) - [생생경제] \"00금융입니다\" 금융회사 사칭 보이스피싱!"}
+{"conversation_id":"P0044","utterance_id":7,"speaker":"speaker_A","text":"고려 직영 정보로는 정부 지원 행복 기금으로 가능하셔서 따로 확인전화 드렸고요. 고객님","is_phishing":true,"labels":["loan_fraud"],"source":"YTN(금융감독원 녹취 소개) - [생생경제] \"00금융입니다\" 금융회사 사칭 보이스피싱!"}
+{"conversation_id":"P0044","utterance_id":8,"speaker":"speaker_B","text":"필요 없는데요.","is_phishing":false,"labels":[],"source":"YTN(금융감독원 녹취 소개) - [생생경제] \"00금융입니다\" 금융회사 사칭 보이스피싱!"}
+{"conversation_id":"P0044","utterance_id":9,"speaker":"speaker_A","text":"지금 추가 금액이나 다른 것 필요 없으시고요?","is_phishing":true,"labels":["information_probing"],"source":"YTN(금융감독원 녹취 소개) - [생생경제] \"00금융입니다\" 금융회사 사칭 보이스피싱!"}
+{"conversation_id":"P0044","utterance_id":10,"speaker":"speaker_B","text":"네.","is_phishing":false,"labels":[],"source":"YTN(금융감독원 녹취 소개) - [생생경제] \"00금융입니다\" 금융회사 사칭 보이스피싱!"}
+{"conversation_id":"P0044","utterance_id":11,"speaker":"speaker_A","text":"알겠습니다.","is_phishing":false,"labels":[],"source":"YTN(금융감독원 녹취 소개) - [생생경제] \"00금융입니다\" 금융회사 사칭 보이스피싱!"}
