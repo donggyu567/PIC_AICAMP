@@ -1,0 +1,9 @@
+{"conversation_id":"P0031","utterance_id":1,"speaker":"speaker_A","text":"내가 지금부터 민감한 이야기를 할 거니까 사람 없는 곳으로 가서 전화 받아요. 내 경고하는데, 경찰에 신고하거나 주위 사람에게 알리면 애 배때지 칼로 쑤셔 버립니다.","is_phishing":true,"labels":["secrecy","threat_pressure"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0031","utterance_id":2,"speaker":"speaker_B","text":"아이가 어디에 있습니까?","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0031","utterance_id":3,"speaker":"speaker_A","text":"애가 어디 있는지 XX 그걸 왜 나한테 묻나? 니 애 어디 있는지도 모르나, 아줌마?","is_phishing":true,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0031","utterance_id":4,"speaker":"speaker_B","text":"지금 아이가 학교 갔는데 이 전화가 와서.","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0031","utterance_id":5,"speaker":"speaker_A","text":"아줌마, 내가 원하는 건 단순히 돈이야, 돈. 난 돈이 필요하다. 나한테 돈 얼마나 해 줄 수 있나요, 최대한?","is_phishing":true,"labels":["money_transfer"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0031","utterance_id":6,"speaker":"speaker_B","text":"아이가 어디 있는 거예요?","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0031","utterance_id":7,"speaker":"speaker_A","text":"아이가 어디 있냐고? oo이요.","is_phishing":true,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0031","utterance_id":8,"speaker":"speaker_B","text":"oo 어딘데요? 아이가 어디 있는지 봐야 알죠.","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0031","utterance_id":9,"speaker":"speaker_A","text":"어딘지 왜 자꾸 위치 묻냐고, XXX아? 돈 준비 하라니까.","is_phishing":true,"labels":["money_transfer"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
