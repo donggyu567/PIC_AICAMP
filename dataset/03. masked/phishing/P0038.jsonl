@@ -1,0 +1,11 @@
+{"conversation_id":"P0038","utterance_id":1,"speaker":"speaker_B","text":"여보세요?","is_phishing":false,"labels":[],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0038","utterance_id":2,"speaker":"speaker_A","text":"네, [PERSON]이 엄마시죠? 잠시만요, [PERSON]아, 빨리 얘기해줘 엄마한테. 울지 말고!","is_phishing":true,"labels":["information_probing"],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0038","utterance_id":3,"speaker":"unknown","text":"흑흑... 엄마.. 아저씨가 때렸어..","is_phishing":true,"labels":["threat_pressure"],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0038","utterance_id":4,"speaker":"speaker_B","text":"왜요? 무슨 일 있어요?","is_phishing":false,"labels":[],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0038","utterance_id":5,"speaker":"speaker_A","text":"방금 내가 술 마시고 길가에서 담배를 피고 있었는데 얘가 XXXX라고 욕을 했어요. 아줌마, 내가 너무 열받았다가 참고 전화하는 건데, 애는 해칠 생각 없고 차에서 내려다 주면 되잖아.","is_phishing":true,"labels":[],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0038","utterance_id":6,"speaker":"speaker_B","text":"무슨 소리에요? 어디에요?","is_phishing":false,"labels":[],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0038","utterance_id":7,"speaker":"speaker_A","text":"애를 그냥 내려줄 수는 없고 나한테 성의 표시로 술값이라도 보내줘. 50만원만 입금해. 지금 통화 중인 상태로 입금해.","is_phishing":true,"labels":["money_transfer","threat_pressure"],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0038","utterance_id":8,"speaker":"speaker_B","text":"애 목소리 좀 들려주세요.","is_phishing":false,"labels":[],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0038","utterance_id":9,"speaker":"speaker_A","text":"지금 손, 발, 입 다 묶어놨어! 차 안에 있는데 애가 소리 지르면 경찰이 찾아올 거 아니야? 50만원만 빨리 입금해!","is_phishing":true,"labels":["money_transfer","threat_pressure"],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0038","utterance_id":10,"speaker":"speaker_B","text":"잠시만 기다려주세요!","is_phishing":false,"labels":[],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0038","utterance_id":11,"speaker":"speaker_A","text":"아니, 통화 중인 상태로 돈 바로 보낼 수 있는데 왜 기다리게 만들어? 빨리 이체해!","is_phishing":true,"labels":["money_transfer","threat_pressure"],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}

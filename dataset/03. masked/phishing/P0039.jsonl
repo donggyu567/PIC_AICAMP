@@ -1,0 +1,11 @@
+{"conversation_id":"P0039","utterance_id":1,"speaker":"speaker_B","text":"여보세요?","is_phishing":false,"labels":[],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0039","utterance_id":2,"speaker":"speaker_A","text":"여보세요? [PERSON]이 엄마시죠? 바꿔줄게요.","is_phishing":true,"labels":["information_probing"],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0039","utterance_id":3,"speaker":"unknown","text":"흑흑... 엄마... 이 사람이 때렸어.. 술 취한 사람이 때렸어..","is_phishing":true,"labels":["threat_pressure"],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0039","utterance_id":4,"speaker":"speaker_B","text":"어? 뭐라고? 지금 어디야?","is_phishing":false,"labels":[],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0039","utterance_id":5,"speaker":"unknown","text":"나 지금 차 안에 있어...","is_phishing":true,"labels":[],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0039","utterance_id":6,"speaker":"speaker_B","text":"어디세요?","is_phishing":false,"labels":[],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0039","utterance_id":7,"speaker":"speaker_A","text":"위치는 알려주면 니가 경찰에 신고할 거니까 나중에 알려줄 거고. 나도 애 해칠 생각 없으니까 좋게 해결하려고 전화한 거야. 그런데 방금 보니까 얘가 발로 차서 내 핸드폰 액정이 망가졌다고. 핸드폰 수리비만 보내주면, 애는 더 이상 때리지 않고 차에서 내려 줄게.","is_phishing":true,"labels":["money_transfer","threat_pressure"],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0039","utterance_id":8,"speaker":"speaker_B","text":"지금 어디 계세요? 학원인가요?","is_phishing":false,"labels":[],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0039","utterance_id":9,"speaker":"speaker_A","text":"됐고, 지금 통화 상태로 핸드폰 수리비 50만원만 입금해.","is_phishing":true,"labels":["money_transfer","threat_pressure"],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0039","utterance_id":10,"speaker":"speaker_B","text":"이거를 끊어야 할 수 있을 것 같아서..","is_phishing":false,"labels":[],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}
+{"conversation_id":"P0039","utterance_id":11,"speaker":"speaker_A","text":"통화 상태로 이체할 줄 몰라? 통화 상태로 바로 이체할 수 있으니까 바로 이체해!","is_phishing":true,"labels":["money_transfer","threat_pressure"],"source":"울면서 “엄마”부르는 아이 목소리… 알고보니 AI 보이스피싱"}

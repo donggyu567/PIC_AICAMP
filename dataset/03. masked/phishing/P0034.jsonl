@@ -1,0 +1,9 @@
+{"conversation_id":"P0034","utterance_id":1,"speaker":"speaker_A","text":"여기 지금 지하 창곤데. 내가 며칠 전에 감방에서 나왔는데. 돈이 쪼까 필요해서 어머님 지하 창고에 잡아두고 있어, 지금. 여보세요? XX, 전화기 끊고 경찰한테 신고하거나 딴짓거리 하면 내 니 엄마 손가락 다 잘라 버릴 거야, 알겠어? 여보세요? 지금 내 말 듣고 있는 거야? XX, [PERSON]아.","is_phishing":true,"labels":["money_transfer","secrecy","threat_pressure"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0034","utterance_id":2,"speaker":"speaker_B","text":"여보세요?","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0034","utterance_id":3,"speaker":"speaker_A","text":"어르신 꺼내다가 일단 손가락 한번 잘라버려, 지금.","is_phishing":true,"labels":["threat_pressure"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0034","utterance_id":4,"speaker":"speaker_B","text":"여보세요? 저기요?","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0034","utterance_id":5,"speaker":"speaker_A","text":"내가 지금 말 하면 금방금방 대답해. 여보세요. 어르신 그러는데 [PERSON](가명)씨 XX년생이라는데 맞아요?","is_phishing":true,"labels":["information_probing"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0034","utterance_id":6,"speaker":"speaker_B","text":"아니, 도대체 누구신데 그러세요?","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0034","utterance_id":7,"speaker":"speaker_A","text":"여보세요, 너 지금 상황 파악 잘 안 되는 거 같은데. 내가 어르신 니 엄마 잠깐 지하 창고에 감금하고 있다고. 무슨 말인지 알겠어?","is_phishing":true,"labels":["threat_pressure"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0034","utterance_id":8,"speaker":"speaker_B","text":"제가 무슨 말인지 모르겠다고요, 정확하게. 이해가 안 된다고요","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0034","utterance_id":9,"speaker":"speaker_A","text":"[PERSON](가명)씨, 내가 단지 필요한 건 지금 돈이지 니 엄마 목숨이 아니야. 어디에요, 지금? 직장이에요? 이 XX, 전화 끊어.","is_phishing":true,"labels":["money_transfer","threat_pressure","information_probing"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
