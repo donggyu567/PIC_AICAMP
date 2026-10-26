@@ -1,0 +1,3 @@
+{"conversation_id":"P0030","utterance_id":1,"speaker":"speaker_A","text":"계약위반으로 위약금이 청구되세요.","is_phishing":true,"labels":["threat_pressure"],"source":"경찰청 홍보콘텐츠 - 당신이 보이스피싱을 당할 수밖에 없는 이유[대출사기형,30초]"}
+{"conversation_id":"P0030","utterance_id":2,"speaker":"speaker_B","text":"천팔백이요?!","is_phishing":false,"labels":[],"source":"경찰청 홍보콘텐츠 - 당신이 보이스피싱을 당할 수밖에 없는 이유[대출사기형,30초]"}
+{"conversation_id":"P0030","utterance_id":3,"speaker":"speaker_A","text":"위약금을 납부하시지 않아도 되는 방법이 하나 있기는 한데요.","is_phishing":true,"labels":[],"source":"경찰청 홍보콘텐츠 - 당신이 보이스피싱을 당할 수밖에 없는 이유[대출사기형,30초]"}

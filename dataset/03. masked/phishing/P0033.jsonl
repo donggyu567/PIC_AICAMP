@@ -1,0 +1,7 @@
+{"conversation_id":"P0033","utterance_id":1,"speaker":"speaker_A","text":"똑바로 얘기하라고. XX, 신고하거나 하면 죽여버린다. 여보세요?","is_phishing":true,"labels":["secrecy","threat_pressure"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0033","utterance_id":2,"speaker":"speaker_B","text":"여보세요?","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0033","utterance_id":3,"speaker":"speaker_A","text":"나는 돈이 필요해 가지고 [PERSON](가명)를 잠깐 데리고 있지.","is_phishing":true,"labels":["money_transfer","threat_pressure"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0033","utterance_id":4,"speaker":"speaker_B","text":"일단은...","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0033","utterance_id":5,"speaker":"speaker_A","text":"사람 죽이고 싶지 않으니까.","is_phishing":true,"labels":["threat_pressure"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0033","utterance_id":6,"speaker":"speaker_B","text":"일단은 잠깐 전화를 끊을게요. 다시 전화 드릴게요.","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0033","utterance_id":7,"speaker":"speaker_A","text":"전화 끊고. [PERSON](가명) 죽는 줄 알고 끊어. 신고하려고 그래?","is_phishing":true,"labels":["secrecy","threat_pressure"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}

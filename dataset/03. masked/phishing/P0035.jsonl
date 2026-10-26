@@ -1,0 +1,4 @@
+{"conversation_id":"P0035","utterance_id":1,"speaker":"speaker_A","text":"돈이 쪼까 필요해서 어머님 지하 창고에 잡아두고 있어.","is_phishing":true,"labels":["money_transfer","threat_pressure"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0035","utterance_id":2,"speaker":"speaker_B","text":"뭐라고예?","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0035","utterance_id":3,"speaker":"speaker_A","text":"니 엄마 잠깐 데리고 있다고. XX, 너 짭새한테 신고하거나 딴짓거리 하면 어머님 손가락 다 잘라 버릴 거야, 알겠어?","is_phishing":true,"labels":["secrecy","threat_pressure"],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
+{"conversation_id":"P0035","utterance_id":4,"speaker":"speaker_B","text":"죄송한데, 우리 어머니가 5년 전에 암으로 돌아가셨는데요? 5년 전에 어머니가 돌아가셨는데 뭐 어떻게 어머니가 어디 있습니까.","is_phishing":false,"labels":[],"source":"가족을“납치”했다는 사기 전화에 침착하게 대응하세요"}
