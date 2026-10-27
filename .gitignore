@@ -1,8 +1,16 @@
-.venv-ai/
+.idea/
 __pycache__/
 *.py[cod]
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+outputs/
+backend/data/
 
 # Local model caches and checkpoint artifacts.
+.venv-ai/
 /hf-cache/
 /.cache/huggingface/
 /checkpoints/

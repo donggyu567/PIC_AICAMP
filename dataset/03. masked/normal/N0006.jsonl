@@ -1,0 +1,50 @@
+{"conversation_id": "N0006", "utterance_id": 1, "speaker": "speaker_A", "text": "[불명확] 카드 [PERSON] 상담원입니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 2, "speaker": "speaker_B", "text": "네, 안녕하세요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 3, "speaker": "speaker_B", "text": "제가 지금 어제 카드를 잃어버렸는데 어디서 잃어버렸는지는 모르겠는데 이거 일단 카드 정지시켜 주세요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 4, "speaker": "speaker_B", "text": "잃어버린건 아닌지 (12 시간)/(열 두 시간) 넘은 것 같아서 빠르게 부탁드릴께요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 5, "speaker": "speaker_A", "text": "정보 확인을 위해 성함과 연락처, 카드명 부탁드립니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 6, "speaker": "speaker_B", "text": "저는 [PERSON]이고요. [PHONE_NUMBER]이요. (CS)/(씨 에스) (3)/(삼) (0)/(공) 카드요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 7, "speaker": "speaker_A", "text": "고객님 카드 현 시간부터 정지되었습니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 8, "speaker": "speaker_B", "text": "감사합니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 9, "speaker": "speaker_B", "text": "혹시 제가 지금 정신이 없어서 그러는데, 혹시 어제 기준날짜로 누가 카드를 사용한 내역이 있나요?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 10, "speaker": "speaker_B", "text": "제가 지금 휴대폰으로 인터넷 접속이 잘 안되 가지고 확인이 어려워서요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 11, "speaker": "speaker_A", "text": "네, 고객님. 확인해보니 고객님께서 (A)/(에이) 편의점에서 마지막으로 결제하신 것으로 확인됩니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 12, "speaker": "speaker_B", "text": "아/ 다행이네요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 13, "speaker": "speaker_B", "text": "이게 저번에는 잃어버린 상태에서 누가 사용을 했었는데, 제 귀책이라고 하면서 보상을 못 받아 냈던 적이 있거든요?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 14, "speaker": "speaker_B", "text": "다행이네요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 15, "speaker": "speaker_B", "text": "혹시 그러면 제가 재발급 받으려면 어떻게 해야 하나요?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 16, "speaker": "speaker_B", "text": "제가 재발급 받으려고 홈페이지에서 찾아보니까 인터넷을 시작한 신청하는 방법, 물론 홈페이지 얘기 하는 거겠죠?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 17, "speaker": "speaker_B", "text": "은행 영업점 찾아가 재발급하기? 핸드폰 어플에서 신청하기 등등 있던데", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 18, "speaker": "speaker_B", "text": "제가 해보니까 이거 홈페이지는 무슨 보안프로그램 이거 자꾸 깔라고 해서 답답해서 못하겠고", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 19, "speaker": "speaker_B", "text": "은행 영업점은 이 근처에 은행이 없어서 제가 파견을 나와서, 또 어플은 무슨 공인인증서인가 뭔가 필요하다 하다고 하고 그냥 전화로 재발급은 안돼요?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 20, "speaker": "speaker_A", "text": "가능합니다, 고객님.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 21, "speaker": "speaker_B", "text": "그러면 저 전화로 재발급 신청 할게요. 아까 그 앞에서 제가 말씀드린 카드랑 동일한 카드로 해주세요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 22, "speaker": "speaker_A", "text": "(CS)/(씨 에스) 카드 맞으실까요?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 23, "speaker": "speaker_B", "text": "예, 맞아요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 24, "speaker": "speaker_A", "text": "수령하실 주소지가 어떻게 되실까요?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 25, "speaker": "speaker_B", "text": "저는 [ADDRESS]고요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 26, "speaker": "speaker_B", "text": "제가 말씀드린 주소랑 다르게 기재되어 있나요?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 27, "speaker": "speaker_B", "text": "아마 제가 회원정보수정을 얼마 전에 했었어서 이 주소로 되어 있을텐데.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 28, "speaker": "speaker_A", "text": "재확인을 위해 요청드렸습니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 29, "speaker": "speaker_B", "text": "그렇죠?그럼 이쪽으로 카드 오게끔 해주세요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 30, "speaker": "speaker_A", "text": "네, 고객님.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 31, "speaker": "speaker_B", "text": "맞다. 제가 한동안 집에 없어서 비어있을 것 같은데 이럴 경우 그냥 우편함에 넣어 주시면 안돼요?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 32, "speaker": "speaker_A", "text": "사고발생 등의 위험이 있어 카드는 본인 수령을 원칙으로 합니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 33, "speaker": "speaker_B", "text": "그럼 제가 꼭 받아야 하는건가요?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 34, "speaker": "speaker_B", "text": "만약 저의 부모님이나 친척들이 와서 받으면 안되는 건가요?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 35, "speaker": "speaker_A", "text": "수령자가 성인이시고 가족 및 친인척이면 가능합니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 36, "speaker": "speaker_B", "text": "그러면 저 수령지 변경할게요. 이거 집 말고 지금 직장으로도 가능한 거죠?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 37, "speaker": "speaker_A", "text": "네, 가능합니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 38, "speaker": "speaker_B", "text": "그러면 [ADDRESS]으로 오전 중에 사무실 쪽으로 배송해주세요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 39, "speaker": "speaker_B", "text": "혹시 아주 만약에 제가 자리를 비운 사이에 배달하시는 분이 오시면 직장 동료가 대신 받아줘도 돼요?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 40, "speaker": "speaker_A", "text": "네/ 가능합니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 41, "speaker": "speaker_B", "text": "아/ 좋네요. 그럼 알겠습니다. 얼마정도 걸리나요? 받는 데까지.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 42, "speaker": "speaker_A", "text": "영업일 기준 약 (2일)/(이 일)에서 (5일)/(오 일) 정도 소요됩니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 43, "speaker": "speaker_B", "text": "(5일)/(오 일)안에 확실히 오는거 맞죠?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 44, "speaker": "speaker_B", "text": "저번에 이쪽에 태풍와서 그런지 다른 물건들 배송도 예전 같으면 (3일)/(삼 일) 걸릴 거 막/ 일주일 넘게 거의 (10일)/(십 일)에 맞춰서 오던데.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 45, "speaker": "speaker_B", "text": "빨리 써야되서 최대한 빠른배송 부탁드려요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 46, "speaker": "speaker_A", "text": "알겠습니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 47, "speaker": "speaker_B", "text": "예/ 감사합니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 48, "speaker": "speaker_A", "text": "더 문의하실 사항이 있으신가요?", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 49, "speaker": "speaker_B", "text": "아뇨, 저 너무 급했는데 친절하게 응대해주셔서 진짜 감사합니다. 좋은 하루 보내세요.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
+{"conversation_id": "N0006", "utterance_id": 50, "speaker": "speaker_A", "text": "감사합니다, 셰어링 카드 [PERSON] 상담원이었습니다.", "source": "AI Hub - 상담 음성(D61\\J92\\S00000002)", "is_phishing": false, "labels": []}
