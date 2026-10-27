@@ -1,0 +1,129 @@
+{
+  "evaluation_set": "TRAIN (IN-SAMPLE)",
+  "environment": {
+    "device": "cpu",
+    "python": "3.11.16",
+    "torch": "2.6.0+cpu",
+    "transformers": "4.57.6",
+    "logical_cpus": 4,
+    "torch_threads": 2
+  },
+  "loading": {
+    "tokenizer_load_seconds": 0.3271758000009868,
+    "model_load_seconds": 16.75664830000096,
+    "total_load_seconds": 17.083824100001948
+  },
+  "cold_single_utterance_ms": 442.4141999988933,
+  "warmup": {
+    "single_utterance_calls": 3,
+    "token_length": 106
+  },
+  "warm_single_utterance": {
+    "n": 24,
+    "mean_ms": 409.8842666665708,
+    "median_ms": 210.7866999995167,
+    "p50_ms": 210.7866999995167,
+    "p95_ms": 1039.0071799974976,
+    "min_ms": 41.97340000246186,
+    "max_ms": 1138.6803000023065,
+    "batch_size": 1,
+    "repeats_per_length": 8,
+    "utterances_per_second": 2.439713063720671
+  },
+  "by_token_length": {
+    "short": {
+      "token_length": 4,
+      "n": 8,
+      "mean_ms": 53.33481250090699,
+      "median_ms": 50.40615000143589,
+      "p50_ms": 50.40615000143589,
+      "p95_ms": 65.29421000232105,
+      "min_ms": 41.97340000246186,
+      "max_ms": 68.29280000238214
+    },
+    "medium": {
+      "token_length": 106,
+      "n": 8,
+      "mean_ms": 226.08798749934067,
+      "median_ms": 210.7866999995167,
+      "p50_ms": 210.7866999995167,
+      "p95_ms": 312.41917499846744,
+      "min_ms": 176.59329999878537,
+      "max_ms": 341.1049999995157
+    },
+    "long": {
+      "token_length": 497,
+      "n": 8,
+      "mean_ms": 950.2299999994648,
+      "median_ms": 897.5843499993061,
+      "p50_ms": 897.5843499993061,
+      "p95_ms": 1103.8326550004058,
+      "min_ms": 847.9172999977891,
+      "max_ms": 1138.6803000023065
+    }
+  },
+  "full_train_evaluation": {
+    "sample_count": 1460,
+    "batch_size": 8,
+    "batch_count": 183,
+    "wall_seconds": 407.8181946000004,
+    "utterances_per_second": 3.580026637683513,
+    "batch_latency_ms": {
+      "n": 183,
+      "mean_ms": 2228.3315704918778,
+      "median_ms": 1923.1228999997256,
+      "p50_ms": 1923.1228999997256,
+      "p95_ms": 4140.114790002554,
+      "min_ms": 755.0335999985691,
+      "max_ms": 7304.629199999908
+    }
+  },
+  "batch_max_token_length_buckets": {
+    "1-128": {
+      "n": 70,
+      "mean_ms": 1411.616012857121,
+      "median_ms": 1412.2586499979661,
+      "p50_ms": 1412.2586499979661,
+      "p95_ms": 1855.5106799987698,
+      "min_ms": 755.0335999985691,
+      "max_ms": 2230.2451000032306
+    },
+    "129-256": {
+      "n": 94,
+      "mean_ms": 2369.853287234172,
+      "median_ms": 2242.3593500006973,
+      "p50_ms": 2242.3593500006973,
+      "p95_ms": 3160.321399999702,
+      "min_ms": 1453.2757999986643,
+      "max_ms": 3966.1064000029
+    },
+    "257-384": {
+      "n": 17,
+      "mean_ms": 4265.756076470793,
+      "median_ms": 4034.935299998324,
+      "p50_ms": 4034.935299998324,
+      "p95_ms": 5449.776980000023,
+      "min_ms": 3472.13980000015,
+      "max_ms": 6407.800900000439
+    },
+    "385-512": {
+      "n": 2,
+      "mean_ms": 6843.747099999746,
+      "median_ms": 6843.747099999746,
+      "p50_ms": 6843.747099999746,
+      "p95_ms": 7258.540989999892,
+      "min_ms": 6382.864999999583,
+      "max_ms": 7304.629199999908
+    }
+  },
+  "observed_peak_working_set_bytes": 1338994688,
+  "memory_measurement": "separate follow-up run: checkpoint load plus one batch-1 CPU inference; sampled process working set, not full-evaluation peak",
+  "full_train_evaluation_memory": "not_recorded: initial Windows working-set collector failed during 1460-sample evaluation",
+  "memory_followup": {
+    "process_start_bytes": 210059264,
+    "after_load_bytes": 1331011584,
+    "after_one_inference_bytes": 1338994688,
+    "batch_size": 1,
+    "inference_count": 1
+  }
+}

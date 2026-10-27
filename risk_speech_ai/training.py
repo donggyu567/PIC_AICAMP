@@ -5,6 +5,7 @@ from __future__ import annotations
 import math
 import platform
 import random
+import time
 from collections.abc import Sequence
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -23,6 +24,7 @@ from .dataset import RiskSpeechDataset, make_training_dataloader
 from .labels import LABELS, NUM_LABELS
 from .model import ModelOutput, RiskSpeechClassifier
 from .training_data import TrainingSample
+from .training_log import TrainingJournal, working_set_bytes
 
 
 @dataclass(frozen=True)
@@ -82,6 +84,7 @@ class TrainingResult:
     sample_count: int
     step_count: int
     checkpoint_path: Path
+    journal_dir: Path | None = None
 
 
 def set_training_seed(seed: int) -> None:
@@ -161,6 +164,7 @@ def _metadata(model: RiskSpeechClassifier, tokenizer: Any, config: TrainingConfi
 def train_model(
     model: RiskSpeechClassifier, samples: Sequence[TrainingSample], tokenizer: Any,
     config: TrainingConfig, *, checkpoint_path: str | Path, device: str | torch.device | None = None,
+    log_dir: str | Path | None = None,
 ) -> TrainingResult:
     """Use every supplied eligible sample; create_training_model seeds new heads."""
 
@@ -183,37 +187,73 @@ def train_model(
                                   weight_decay=config.weight_decay)
     epoch_losses: list[EpochLoss] = []
     step_count = 0
-    for epoch in range(1, config.epochs + 1):
-        model.train()
-        total_sum = risk_sum = type_sum = 0.0
-        for batch in loader:
-            batch = {key: value.to(chosen_device) for key, value in batch.items()}
-            optimizer.zero_grad()
-            output = model(
-                input_ids=batch["input_ids"],
-                attention_mask=batch["attention_mask"],
-                token_type_ids=batch["token_type_ids"],
-            )
-            losses = compute_losses(
-                output, batch["risk_target"], batch["type_targets"],
-                lambda_risk=config.lambda_risk, lambda_type=config.lambda_type,
-            )
-            if not torch.isfinite(losses.total_loss):
-                raise FloatingPointError("non-finite training loss")
-            losses.total_loss.backward()
-            optimizer.step()
-            size = batch["input_ids"].shape[0]
-            total_sum += losses.total_loss.detach().item() * size
-            risk_sum += losses.risk_loss.detach().item() * size
-            type_sum += losses.type_loss.detach().item() * size
-            step_count += 1
-        epoch_losses.append(EpochLoss(
-            epoch=epoch,
-            average_total_loss=total_sum / len(dataset),
-            average_risk_loss=risk_sum / len(dataset),
-            average_type_loss=type_sum / len(dataset),
-        ))
     path = Path(checkpoint_path)
+    journal_base = Path(log_dir) if log_dir is not None else path.parent / f"{path.stem}_logs"
+    with TrainingJournal(journal_base, {"checkpoint_path": str(path),
+                                        "data_version": config.data_version,
+                                        "training_config": asdict(config),
+                                        "device": str(chosen_device),
+                                        "optimizer": "AdamW"}) as journal:
+        samples_seen = 0
+        for epoch in range(1, config.epochs + 1):
+            epoch_started = time.perf_counter()
+            epoch_steps = 0
+            epoch_samples = 0
+            model.train()
+            total_sum = risk_sum = type_sum = 0.0
+            for batch_number, batch in enumerate(loader, 1):
+                step_started = time.perf_counter()
+                batch = {key: value.to(chosen_device) for key, value in batch.items()}
+                optimizer.zero_grad()
+                output = model(
+                    input_ids=batch["input_ids"],
+                    attention_mask=batch["attention_mask"],
+                    token_type_ids=batch["token_type_ids"],
+                )
+                losses = compute_losses(
+                    output, batch["risk_target"], batch["type_targets"],
+                    lambda_risk=config.lambda_risk, lambda_type=config.lambda_type,
+                )
+                if not torch.isfinite(losses.total_loss):
+                    raise FloatingPointError("non-finite training loss")
+                losses.total_loss.backward()
+                optimizer.step()
+                size = batch["input_ids"].shape[0]
+                batch_total = losses.total_loss.detach().item()
+                batch_risk = losses.risk_loss.detach().item()
+                batch_type = losses.type_loss.detach().item()
+                total_sum += batch_total * size
+                risk_sum += batch_risk * size
+                type_sum += batch_type * size
+                step_count += 1
+                epoch_steps += 1
+                samples_seen += size
+                epoch_samples += size
+                journal.log_batch({
+                    "epoch": epoch, "global_step": step_count, "batch_size": size,
+                    "samples_seen": samples_seen, "total_loss": batch_total,
+                    "risk_loss": batch_risk, "type_loss": batch_type,
+                    "learning_rate": optimizer.param_groups[0]["lr"],
+                    "step_duration_ms": (time.perf_counter() - step_started) * 1000,
+                    "memory_working_set_bytes": working_set_bytes(),
+                })
+                if batch_number % 20 == 0 or batch_number == len(loader):
+                    print(f"epoch={epoch}/{config.epochs} batch={batch_number}/{len(loader)} "
+                          f"steps={step_count} running_loss={total_sum / epoch_samples:.6f}", flush=True)
+            epoch_losses.append(EpochLoss(
+                epoch=epoch,
+                average_total_loss=total_sum / epoch_samples,
+                average_risk_loss=risk_sum / epoch_samples,
+                average_type_loss=type_sum / epoch_samples,
+            ))
+            journal.log_epoch({"epoch": epoch, **asdict(epoch_losses[-1]),
+                               "epoch_duration_ms": (time.perf_counter() - epoch_started) * 1000,
+                               "optimizer_steps": epoch_steps, "samples_seen": epoch_samples,
+                               "cumulative_optimizer_steps": step_count})
+            print(f"epoch={epoch}/{config.epochs} steps={step_count} "
+                  f"loss={epoch_losses[-1].average_total_loss:.6f} "
+                  f"risk_loss={epoch_losses[-1].average_risk_loss:.6f} "
+                  f"type_loss={epoch_losses[-1].average_type_loss:.6f}", flush=True)
     path.parent.mkdir(parents=True, exist_ok=True)
     torch.save({
         "checkpoint_schema_version": CHECKPOINT_SCHEMA_VERSION,
@@ -228,4 +268,4 @@ def train_model(
         "sample_count": len(dataset),
         "step_count": step_count,
     }, path)
-    return TrainingResult(epoch_losses, len(dataset), step_count, path)
+    return TrainingResult(epoch_losses, len(dataset), step_count, path, journal.path)

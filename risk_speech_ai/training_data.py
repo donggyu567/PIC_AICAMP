@@ -15,7 +15,7 @@ from typing import Any
 from .config import MAX_HISTORY_UTTERANCES
 from .labels import to_multi_hot
 
-LABEL_STATUSES = ("reviewed", "out_of_taxonomy", "unreviewed")
+LABEL_STATUSES = ("reviewed", "approved_for_training", "out_of_taxonomy", "unreviewed")
 _STRING_ID = re.compile(r"U(\d+)")
 
 
@@ -94,7 +94,7 @@ def _targets(row: Mapping[str, Any]) -> tuple[float, list[int]]:
     if status == "out_of_taxonomy":
         if not phishing or any(types):
             raise ValueError("out_of_taxonomy requires is_phishing=true and labels=[]")
-    elif status == "reviewed":
+    elif status in ("reviewed", "approved_for_training"):
         if phishing and not any(types):
             raise ValueError("reviewed phishing requires at least one type label")
         if not phishing and any(types):

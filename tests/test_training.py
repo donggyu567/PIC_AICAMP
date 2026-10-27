@@ -124,6 +124,8 @@ class TrainingTests(unittest.TestCase):
             self.assertEqual(3, result.sample_count)
             self.assertEqual(4, result.step_count)
             self.assertEqual(2, len(result.epoch_losses))
+            self.assertEqual(4, len(result.journal_dir.joinpath("batches.jsonl").read_text().splitlines()))
+            self.assertEqual(2, len(result.journal_dir.joinpath("epochs.jsonl").read_text().splitlines()))
             self.assertTrue(all(math.isfinite(item.average_total_loss) and
                                 math.isfinite(item.average_risk_loss) and
                                 math.isfinite(item.average_type_loss)
