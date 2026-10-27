@@ -20,8 +20,7 @@ from risk_speech_ai.model import RiskSpeechClassifier
 from risk_speech_ai.tokenization import TokenizerContractError, build_model_input
 from risk_speech_ai.training import TrainingConfig, create_training_model, load_training_checkpoint, train_model
 from risk_speech_ai.training_data import TrainingSample
-from test_dataset import SmallPairTokenizer
-from test_training import tiny_model
+from tests.ai_helpers import SmallPairTokenizer, tiny_model
 
 
 class CompatibilityTests(unittest.TestCase):

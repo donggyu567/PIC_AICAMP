@@ -2,12 +2,12 @@
 
 from datetime import datetime, timezone
 from pathlib import Path
-from threading import RLock
 
 from backend.schemas import (
     CalculationPreviewResponse, ConversationEndResponse, ModelResultRequest,
 )
 from backend.services.analysis_response import build_analysis_response
+from backend.services.notification_service import create_notification, expire_notifications
 from backend.services.risk_service import calculate_risk
 from backend.services.warning_service import WarningIntegrationError, update_warning
 from backend.stores.analysis_file_store import (
@@ -17,7 +17,8 @@ from backend.stores.analysis_file_store import (
     ConversationSnapshot,
     StoredAnalysis,
 )
-from backend.stores.analysis_store import AnalysisConflictError, AnalysisStore
+from backend.stores.analysis_store import AnalysisConflictError, validate_new_result
+from backend.stores.conversation_locks import ConversationLocks
 from models.warning_manager.contracts import (
     CalculationResult, ModelRiskResult, WarningConfig, WarningResult,
 )
@@ -35,8 +36,8 @@ class AnalysisNotFoundError(LookupError):
 analysis_store = AnalysisFileStore(
     Path(__file__).resolve().parents[1] / "data" / "analysis"
 )
-# 통합 처리에서 잠금을 잡은 상태로 계산 서비스를 호출할 수 있다.
-analysis_lock = RLock()
+# 같은 통화만 직렬화하며, 처리·대기가 끝난 잠금은 자동으로 정리한다.
+conversation_locks = ConversationLocks()
 
 # 신규 통화의 개발 기본값. 기존 통화는 파일에 저장된 설정을 사용한다.
 WINDOW_SIZE = 20
@@ -75,8 +76,8 @@ def _process_warning(
     manager: WarningManager | None,
     current: ModelRiskResult,
     calculation: CalculationResult | None,
+    config: WarningConfig | None,
 ) -> tuple[WarningResult | None, dict[str, object]]:
-    config = prepare_warning_session(snapshot, manager)
     if config is None:
         return None, {}
     previous_result = None
@@ -88,13 +89,21 @@ def _process_warning(
         snapshot.warning_state if snapshot is not None else None,
         config, previous_result,
     )
-    pending = list(snapshot.pending_notification_ids) if snapshot is not None else []
-    if update.notify_event_id is not None and update.notify_event_id not in pending:
-        pending.append(update.notify_event_id)
+    notifications = list(snapshot.notifications) if snapshot is not None else []
+    # 수신확인된 이벤트도 보존하므로 같은 ID를 다시 요청해도 재등록하지 않는다.
+    if update.notify_event_id is not None and update.notify_event_id not in {
+        item.event_id for item in notifications
+    }:
+        notifications.append(create_notification(
+            current.conversation_id, update.notify_event_id, update.result,
+        ))
     return update.result, {
         "warning_config": config,
         "warning_state": update.state,
-        "pending_notification_ids": pending,
+        "notifications": notifications,
+        "pending_notification_ids": [
+            item.event_id for item in notifications if item.status == "pending"
+        ],
     }
 
 
@@ -103,23 +112,24 @@ def process_model_result(
     warning_manager: WarningManager | None = None,
 ) -> CalculationPreviewResponse:
     """직접 전달받은 신규 분석 결과의 처리 시작점."""
-    with analysis_lock:
+    with conversation_locks.hold(payload.conversation_id):
         snapshot = analysis_store.load(payload.conversation_id)
         ensure_conversation_active(snapshot)
+        config = prepare_warning_session(snapshot, warning_manager)
 
         return _process_model_result_locked(
-            payload, snapshot, warning_manager,
+            payload, snapshot, warning_manager, config,
         )
 
 
 def _process_model_result_locked(
     payload: ModelResultRequest,
     snapshot: ConversationSnapshot | None,
-    warning_manager: WarningManager | None = None,
+    warning_manager: WarningManager | None,
+    warning_config: WarningConfig | None,
 ) -> CalculationPreviewResponse:
-    """계산·경고 처리·저장을 수행한다. 호출자는 analysis_lock을 잡아야 한다."""
+    """계산·경고 처리·저장. 호출자는 통화 잠금과 경고 설정을 준비해야 한다."""
     current = payload.to_model_result()
-    prepare_warning_session(snapshot, warning_manager)
 
     records = snapshot.records if snapshot is not None else []
     policy = snapshot.policy if snapshot is not None else CalculationPolicy(
@@ -129,27 +139,22 @@ def _process_model_result_locked(
         policy_version=POLICY_VERSION,
     )
 
-    # 저장된 이력을 복원하고 현재 결과의 순서·중복을 검사한다.
-    restored = AnalysisStore()
-    for record in records:
-        restored.add(record.model_result.to_model_result())
+    # 저장 파일 전체의 무결성은 load에서 검사했다. 신규 결과만 확인한다.
+    validate_new_result(
+        payload,
+        seen_ids={record.model_result.utterance_id for record in records},
+        expected_sequence=len(records) + 1,
+    )
 
-    restored.validate_new(current)
-    history = restored.get_history(current.conversation_id)
-
-    if any(item.analysis_status == "error" for item in history):
+    if records and records[-1].model_result.analysis_status == "error":
         raise AnalysisPendingError(
             "이전 분석 실패를 복구한 뒤 순서대로 재처리해야 합니다."
         )
 
-    calculation = None
-    if current.analysis_status == "ok":
-        calculation = calculate_risk(
-            history + [current], **policy.model_dump()
-        )
+    calculation = _calculate_current(records, current, policy)
 
     warning_result, warning_fields = _process_warning(
-        snapshot, warning_manager, current, calculation,
+        snapshot, warning_manager, current, calculation, warning_config,
     )
     response = build_analysis_response(
         current, calculation, warning_result,
@@ -174,27 +179,44 @@ def _process_model_result_locked(
     return response
 
 
+def _calculate_current(
+    previous_records: list[StoredAnalysis],
+    current: ModelRiskResult,
+    policy: CalculationPolicy,
+) -> CalculationResult | None:
+    """현재 발화를 포함한 계산 창만 공통 모델 객체로 변환한다."""
+    if current.analysis_status == "error":
+        return None
+    start = max(0, len(previous_records) - policy.window_size + 1)
+    window = [
+        record.model_result.to_model_result()
+        for record in previous_records[start:]
+    ]
+    return calculate_risk(window + [current], **policy.model_dump())
+
+
 def retry_model_result(
     payload: ModelResultRequest,
     warning_manager: WarningManager | None = None,
 ) -> CalculationPreviewResponse:
     """마지막 실패 발화의 재분석 결과를 등록한다."""
-    with analysis_lock:
+    with conversation_locks.hold(payload.conversation_id):
         snapshot = analysis_store.load(payload.conversation_id)
         if snapshot is None:
             raise AnalysisNotFoundError("재시도할 통화 기록이 없습니다.")
         ensure_conversation_active(snapshot)
-        return _retry_model_result_locked(payload, snapshot, warning_manager)
+        config = prepare_warning_session(snapshot, warning_manager)
+        return _retry_model_result_locked(payload, snapshot, warning_manager, config)
 
 
 def _retry_model_result_locked(
     payload: ModelResultRequest,
     snapshot: ConversationSnapshot,
-    warning_manager: WarningManager | None = None,
+    warning_manager: WarningManager | None,
+    warning_config: WarningConfig | None,
 ) -> CalculationPreviewResponse:
-    """실패 이력을 보존하며 재계산·저장한다. 호출자는 analysis_lock을 잡아야 한다."""
+    """실패 이력 보존·재계산. 호출자는 통화 잠금과 경고 설정을 준비해야 한다."""
     current = payload.to_model_result()
-    prepare_warning_session(snapshot, warning_manager)
 
     failed = snapshot.records[-1]
     if failed.model_result.analysis_status != "error":
@@ -209,17 +231,9 @@ def _retry_model_result_locked(
                 "재시도 결과의 발화 ID·순서·버전·문장이 실패 기록과 같아야 합니다."
             )
 
-    history = [
-        record.model_result.to_model_result()
-        for record in snapshot.records[:-1]
-    ]
-    calculation = None
-    if current.analysis_status == "ok":
-        calculation = calculate_risk(
-            history + [current], **snapshot.policy.model_dump()
-        )
+    calculation = _calculate_current(snapshot.records[:-1], current, snapshot.policy)
     warning_result, warning_fields = _process_warning(
-        snapshot, warning_manager, current, calculation,
+        snapshot, warning_manager, current, calculation, warning_config,
     )
     response = build_analysis_response(current, calculation, warning_result)
 
@@ -245,30 +259,53 @@ def _retry_model_result_locked(
     return response
 
 
-def end_conversation(conversation_id: str) -> ConversationEndResponse:
-    """분석 기록을 보존하고 종료 상태를 저장한다. 재요청은 최초 종료 시각을 반환한다."""
-    with analysis_lock:
+def end_conversation(
+    conversation_id: str, warning_manager: WarningManager | None = None,
+) -> ConversationEndResponse:
+    """경고 종료·알림 만료·통화 종료를 함께 저장하고 같은 최종 결과를 반환한다."""
+    with conversation_locks.hold(conversation_id):
         snapshot = analysis_store.load(conversation_id)
         if snapshot is None:
             raise AnalysisNotFoundError("종료할 통화 기록이 없습니다.")
 
-        if snapshot.conversation_status != "ended":
-            # 경고 상태·근거·알림 대기 목록과 실패 이력은 그대로 보존한다.
-            # strict 검증에서 경고 dataclass를 dict로 바꾸지 않도록 타입을 유지한다.
-            data = {
-                name: getattr(snapshot, name)
-                for name in ConversationSnapshot.model_fields
-            }
-            data.update(
+        # 이전 버전이 종료 상태만 저장한 통화도 최초 한 번 경고를 마무리한다.
+        needs_warning_end = (
+            snapshot.warning_config is not None and snapshot.final_warning_result is None
+        )
+        if snapshot.conversation_status != "ended" or needs_warning_end:
+            final_result = snapshot.final_warning_result
+            final_state = snapshot.warning_state
+            if needs_warning_end:
+                if warning_manager is None:
+                    raise WarningIntegrationError("경고를 종료하려면 경고 모듈 연결이 필요합니다.")
+                last = snapshot.records[-1]
+                current = last.model_result.to_model_result()
+                calculation = _calculate_current(snapshot.records[:-1], current, snapshot.policy)
+                update = update_warning(
+                    warning_manager, current, calculation, snapshot.warning_state,
+                    snapshot.warning_config,
+                    {"warning": last.response.warning, "evidence": last.response.evidence},
+                    conversation_ended=True,
+                )
+                final_result, final_state = update.result, update.state
+            ended_at = snapshot.ended_at or datetime.now(timezone.utc)
+            notifications = expire_notifications(snapshot.notifications, ended_at)
+            snapshot = snapshot.with_updates(
                 conversation_status="ended",
-                ended_at=datetime.now(timezone.utc),
+                ended_at=ended_at,
+                warning_state=final_state,
+                final_warning_result=final_result,
+                notifications=notifications,
+                pending_notification_ids=[],
             )
-            snapshot = ConversationSnapshot.model_validate(data)
             analysis_store.save(snapshot)
 
+        final_result = snapshot.final_warning_result
         return ConversationEndResponse(
             conversation_id=snapshot.conversation_id,
             ended_at=snapshot.ended_at,
+            warning=final_result["warning"] if final_result is not None else None,
+            evidence=final_result["evidence"] if final_result is not None else None,
         )
 
 
@@ -276,7 +313,7 @@ def get_analysis_result(
     conversation_id: str, utterance_id: int | None = None,
 ) -> CalculationPreviewResponse | None:
     """재계산 없이 저장된 최신 또는 특정 발화의 응답을 조회한다."""
-    with analysis_lock:
+    with conversation_locks.hold(conversation_id):
         snapshot = analysis_store.load(conversation_id)
         if snapshot is None:
             return None

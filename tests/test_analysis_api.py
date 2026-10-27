@@ -11,26 +11,8 @@ from fastapi.testclient import TestClient
 
 from backend.main import app
 from backend.services import analysis_service
-from backend.services.risk_service import ALLOWED_RISK_TYPES
 from backend.stores.analysis_file_store import AnalysisFileStore
-
-
-def payload(sequence=1, score=0.55, conversation_id="api-test"):
-    return {
-        "conversation_id": conversation_id,
-        "utterance_id": sequence,
-        "revision": 1,
-        "sequence": sequence,
-        "tuned_text": "계산 확인용 문장입니다.",
-        "analysis_status": "ok" if score is not None else "error",
-        "is_phishing_score": score,
-        "type_scores": (
-            {name: 0.2 for name in ALLOWED_RISK_TYPES}
-            if score is not None else None
-        ),
-        "detected_types": [] if score is not None else None,
-        "model_version": "sample-v1",
-    }
+from tests.api_helpers import payload
 
 
 class AnalysisApiTests(unittest.TestCase):

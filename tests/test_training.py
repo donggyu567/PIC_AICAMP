@@ -8,25 +8,16 @@ from pathlib import Path
 from unittest.mock import patch
 
 import torch
-from transformers import ElectraConfig, ElectraModel
 
 from risk_speech_ai.config import BASE_MODEL_NAME
 from risk_speech_ai.labels import LABELS
-from risk_speech_ai.model import ModelOutput, RiskSpeechClassifier
+from risk_speech_ai.model import ModelOutput
 from risk_speech_ai.training import (
     TrainingConfig, compute_losses, create_training_model, load_training_checkpoint, set_training_seed,
     train_model,
 )
 from risk_speech_ai.training_data import TrainingSample
-from test_dataset import SmallPairTokenizer
-
-
-def tiny_model():
-    config = ElectraConfig(vocab_size=100, embedding_size=16, hidden_size=16,
-                           num_hidden_layers=1, num_attention_heads=2,
-                           intermediate_size=32, max_position_embeddings=512,
-                           type_vocab_size=2)
-    return RiskSpeechClassifier(encoder=ElectraModel(config))
+from tests.ai_helpers import SmallPairTokenizer, tiny_model
 
 
 class LossTests(unittest.TestCase):

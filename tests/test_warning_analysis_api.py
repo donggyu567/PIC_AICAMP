@@ -2,7 +2,6 @@
 
 import tempfile
 import unittest
-from copy import deepcopy
 from dataclasses import replace
 from pathlib import Path
 from unittest.mock import patch
@@ -12,80 +11,10 @@ from fastapi.testclient import TestClient
 from backend.main import app
 from backend.services import analysis_service
 from backend.stores.analysis_file_store import AnalysisFileStore
-from models.warning_manager.contracts import (
-    ConversationWarningState, WarningConfig, WarningEvent, WarningUpdate,
+from models.warning_manager.contracts import WarningConfig
+from tests.api_helpers import (
+    StubCorrectionClient, StubRiskAnalyzer, StubWarningManager, payload, utterance,
 )
-from test_analysis_api import payload
-
-
-def evidence_for(state):
-    if state is None or not state.individual_evidence:
-        return {"recent": None, "highest": None, "cumulative_events": []}
-
-    def item(utterance):
-        return {
-            "utterance_id": utterance.utterance_id,
-            "text": utterance.tuned_text,
-            "risk_score": 100 * utterance.is_phishing_score,
-            "risk_types": list(utterance.detected_types),
-        }
-
-    return {
-        "recent": item(state.individual_evidence[-1]),
-        "highest": item(max(state.individual_evidence, key=lambda row: row.is_phishing_score)),
-        "cumulative_events": [],
-    }
-
-
-class StubWarningManager:
-    """성공 입력에 고정된 경고 시나리오를 반환하는 연동 테스트용 구현체."""
-
-    def __init__(self):
-        self.calls = []
-        self.fail = False
-        self.transform = lambda update: update
-
-    def update_warning(self, model, calculation, previous, config, **flags):
-        self.calls.append(deepcopy((model, calculation, previous, config, flags)))
-        if self.fail:
-            if previous is not None and previous.individual_evidence:
-                previous.individual_evidence[0].type_scores["money_transfer"] = 1.0
-            raise RuntimeError("private warning failure")
-        if model.analysis_status == "error":
-            state = previous
-            status = previous.status if previous is not None else "none"
-            reason = "single_utterance" if previous is not None else None
-            notify = None
-        else:
-            event_id = "event-" + model.conversation_id
-            if previous is None:
-                events = (WarningEvent(
-                    event_id=event_id, initial_calculation=calculation,
-                    reason="single_utterance", peak_score=calculation.cumulative_score,
-                    last_sequence=model.sequence, utterances=(model,),
-                ),)
-                evidence = (model,)
-            else:
-                events = (*previous.events[:-1], replace(
-                    previous.events[-1], last_sequence=model.sequence,
-                    peak_score=max(previous.events[-1].peak_score, calculation.cumulative_score),
-                    utterances=(*previous.events[-1].utterances, model),
-                ))
-                evidence = (*previous.individual_evidence, model)
-            status = "active"
-            reason = "single_utterance"
-            state = ConversationWarningState(
-                conversation_id=model.conversation_id, config=config,
-                status=status, cumulative_score=calculation.cumulative_score,
-                individual_evidence=evidence, events=events,
-            )
-            # 같은 ID가 재요청되어도 서버 대기 목록은 한 번만 기록해야 한다.
-            notify = event_id
-        result = {
-            "warning": {"status": status, "reason": reason, "message": "테스트 안내"},
-            "evidence": evidence_for(state),
-        }
-        return self.transform(WarningUpdate(result=result, state=state, notify_event_id=notify))
 
 
 class WarningAnalysisApiTests(unittest.TestCase):
@@ -212,7 +141,6 @@ class WarningAnalysisApiTests(unittest.TestCase):
         self.assertEqual(["event-api-test"], self.store.load("api-test").pending_notification_ids)
 
     def test_integrated_route_calls_warning_and_checks_disconnect_before_models(self):
-        from test_integrated_analysis_api import StubCorrectionClient, StubRiskAnalyzer, utterance
         from models.llm_correction import CorrectionEngine
 
         provider = StubCorrectionClient()

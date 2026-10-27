@@ -1,6 +1,6 @@
 from typing import Annotated
 
-from fastapi import Depends, FastAPI, HTTPException, Query, Request
+from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response
 from fastapi.responses import JSONResponse
 
 from backend.schemas import (
@@ -8,12 +8,16 @@ from backend.schemas import (
     ConversationEndRequest,
     ConversationEndResponse,
     ModelResultRequest,
+    NotificationAckRequest,
+    NotificationListResponse,
+    NotificationRecord,
     UtteranceAnalysisRetryRequest,
     UtteranceRequest,
 )
 from backend.services.ai_service import RiskAnalyzer
 from backend.services import analysis_service
 from backend.services.warning_service import WarningIntegrationError
+from backend.services.notification_service import NotificationNotFoundError, NotificationService
 from backend.services.pipeline_service import analyze_utterance, retry_utterance_analysis
 from backend.services.analysis_service import (
     AnalysisNotFoundError,
@@ -23,10 +27,6 @@ from backend.services.analysis_service import (
 )
 from backend.stores.analysis_file_store import AnalysisStorageError
 from backend.stores.analysis_store import AnalysisConflictError
-from backend.services.utterance_service import (
-    UtteranceOrderError,
-    process_utterance
-)
 from models.context_manager import InputDataError
 from models.warning_manager.warning_manager import WarningManager
 from models.llm_correction import (
@@ -35,8 +35,13 @@ from models.llm_correction import (
     LLMClientError,
     LLMResponseError,
 )
+from backend.lifespan import lifespan
 
-app = FastAPI(title="PIC API Server")
+
+app = FastAPI(
+    title="PIC API Server",
+    lifespan=lifespan,
+)
 
 
 def get_risk_analyzer(request: Request) -> RiskAnalyzer:
@@ -62,6 +67,10 @@ def get_warning_manager(request: Request) -> WarningManager | None:
     return manager
 
 
+def get_notification_service() -> NotificationService:
+    return NotificationService(analysis_service.analysis_store, analysis_service.conversation_locks)
+
+
 @app.exception_handler(WarningIntegrationError)
 async def handle_warning_error(request: Request, error: WarningIntegrationError):
     return JSONResponse(status_code=503, content={"detail": str(error)})
@@ -71,6 +80,25 @@ async def handle_warning_error(request: Request, error: WarningIntegrationError)
 def health_check():
     return {"status": "ok"}
 
+@app.get("/health/ready", tags=["상태 확인"])
+def readiness_check(request: Request):
+    analyzer = getattr(request.app.state, "risk_analyzer", None)
+    ai_ready = analyzer is not None
+    warning_ready = (
+        getattr(request.app.state, "warning_manager", None) is not None
+    )
+    ready = ai_ready and warning_ready
+
+    return JSONResponse(
+        status_code=200 if ready else 503,
+        content={
+            "status": "ready" if ready else "not_ready",
+            "ai_ready": ai_ready,
+            "warning_ready": warning_ready,
+            "ai_mode": getattr(request.app.state, "ai_mode", "disabled"),
+            "model_version": getattr(analyzer, "model_version", None),
+        },
+    )
 
 @app.post(
     "/api/v1/conversations/end",
@@ -81,16 +109,20 @@ def health_check():
         "저장된 통화를 종료합니다. 반복 요청은 최초 종료 시각을 반환합니다. "
         "실패 기록도 보존하며 종료 후 신규 분석·재시도는 차단합니다. "
         "기존 분석 결과는 계속 조회할 수 있습니다. "
-        "AI·경고 모듈은 호출하지 않으며 경고 종료 이벤트 처리는 추후 연동합니다."
+        "AI·LLM은 호출하지 않고 활성 경고를 종료하며 미확인 알림을 만료합니다. "
+        "종료 안내와 근거는 과거 발화 응답과 별도로 보존합니다."
     ),
     responses={
         404: {"description": "저장된 통화 없음"},
-        503: {"description": "분석 기록 읽기 또는 저장 실패"},
+        503: {"description": "경고 모듈 또는 저장소 오류"},
     },
 )
-def finish_conversation(payload: ConversationEndRequest):
+def finish_conversation(
+    payload: ConversationEndRequest,
+    warning_manager: Annotated[WarningManager | None, Depends(get_warning_manager)],
+):
     try:
-        return analysis_service.end_conversation(payload.conversation_id)
+        return analysis_service.end_conversation(payload.conversation_id, warning_manager)
     except AnalysisNotFoundError as error:
         raise HTTPException(status_code=404, detail=str(error)) from None
     except AnalysisStorageError:
@@ -99,42 +131,56 @@ def finish_conversation(payload: ConversationEndRequest):
         ) from None
 
 
-@app.post("/api/v1/utterances")
-def receive_utterance(payload: UtteranceRequest):
+@app.get(
+    "/api/v1/notifications",
+    response_model=NotificationListResponse,
+    tags=["경고 알림"],
+    summary="통화의 미확인 알림 조회",
+    description=(
+        "조회만으로 수신확인하지 않습니다. 확인 전에는 같은 이벤트 ID를 반환합니다. "
+        "앱은 통화·이벤트 ID로 중복 표시를 막고 처리 후 수신확인 API를 호출합니다. "
+        "종료된 통화의 알림 목록은 비어 있습니다."
+    ),
+    responses={404: {"description": "통화 없음"}, 503: {"description": "저장소 오류"}},
+)
+def read_notifications(
+    conversation_id: Annotated[str, Query(min_length=1, max_length=120, pattern=r"\S")],
+    response: Response,
+    service: Annotated[NotificationService, Depends(get_notification_service)],
+):
+    response.headers["Cache-Control"] = "no-store"
     try:
-        # 기존 보정 전용 경로도 종료된 분석 통화의 발화를 받지 않는다.
-        with analysis_service.analysis_lock:
-            snapshot = analysis_service.analysis_store.load(payload.conversation_id)
-            analysis_service.ensure_conversation_active(snapshot)
-            correction = process_utterance(payload.model_dump())
-
-    except (UtteranceOrderError, AnalysisConflictError) as error:
-        raise HTTPException(
-            status_code=409,
-            detail= str(error)
-        ) from None
-
+        return service.list_pending(conversation_id)
+    except NotificationNotFoundError as error:
+        raise HTTPException(status_code=404, detail=str(error)) from None
     except AnalysisStorageError:
-        raise HTTPException(
-            status_code=503, detail="분석 기록을 읽을 수 없습니다."
-        ) from None
+        raise HTTPException(status_code=503, detail="알림 기록을 읽을 수 없습니다.") from None
 
-    except (
-        LLMClientError,
-        LLMResponseError,
-        CorrectionValidationError,
-    ) as error:
-        print("CORRECTION_ERROR", type(error).__name__, flush=True)
 
-        raise HTTPException(
-            status_code=502,
-            detail="발화 보정 결과를 정상적으로 얻지 못했습니다.",
-        ) from None
-
-    return {
-        "status": "context_ready",
-        "correction": correction.to_dict(),
-    }
+@app.post(
+    "/api/v1/notifications/ack",
+    response_model=NotificationRecord,
+    tags=["경고 알림"],
+    summary="알림 수신확인",
+    description=(
+        "확인 상태를 저장한 뒤 반환합니다. 반복 요청은 최초 확인 시각을 유지합니다. "
+        "통화 종료로 만료된 알림에는 expired 상태를 그대로 반환합니다."
+    ),
+    responses={
+        404: {"description": "통화 또는 해당 통화의 알림 없음"},
+        503: {"description": "저장소 오류"},
+    },
+)
+def acknowledge_notification(
+    payload: NotificationAckRequest,
+    service: Annotated[NotificationService, Depends(get_notification_service)],
+):
+    try:
+        return service.acknowledge(payload.conversation_id, payload.event_id)
+    except NotificationNotFoundError as error:
+        raise HTTPException(status_code=404, detail=str(error)) from None
+    except AnalysisStorageError:
+        raise HTTPException(status_code=503, detail="알림 기록을 읽거나 저장할 수 없습니다.") from None
 
 
 @app.post(

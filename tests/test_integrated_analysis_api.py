@@ -1,6 +1,5 @@
 """실제 AI·OpenAI 호출 없이 보정 엔진부터 저장까지 통합 검증한다."""
 
-import json
 import tempfile
 import unittest
 from concurrent.futures import ThreadPoolExecutor
@@ -15,51 +14,7 @@ from backend.services.ai_service import RiskModelScores
 from backend.services.risk_service import ALLOWED_RISK_TYPES
 from backend.stores.analysis_file_store import AnalysisFileStore
 from models.llm_correction import CorrectionEngine
-
-
-def utterance(number=1, conversation_id="pipeline-test"):
-    return {
-        "schema_version": "1.0",
-        "conversation_id": conversation_id,
-        "utterance_id": number,
-        "masked_text": f"문장 {number}",
-        "has_masked_data": False,
-        "masked_types": [],
-    }
-
-
-class StubCorrectionClient:
-    def __init__(self):
-        self.calls = 0
-        self.fail = False
-
-    def complete(self, *, system_prompt, user_prompt):
-        self.calls += 1
-        if self.fail:
-            raise RuntimeError("private provider detail")
-        text = json.loads(user_prompt.splitlines()[-1])["masked_text"]
-        return json.dumps({"tuned_text": text + ".", "unclear_segments": []})
-
-
-class StubRiskAnalyzer:
-    model_version = "test-risk-v1"
-
-    def __init__(self):
-        self.inputs = []
-        self.fail = False
-        self.invalid_result = None
-
-    def analyze(self, model_input):
-        self.inputs.append(model_input)
-        if self.fail:
-            raise TimeoutError("private inference detail")
-        if self.invalid_result is not None:
-            return self.invalid_result
-        return RiskModelScores(
-            is_phishing_score=0.55,
-            type_scores={name: 0.0 for name in ALLOWED_RISK_TYPES},
-            detected_types=[],
-        )
+from tests.api_helpers import StubCorrectionClient, StubRiskAnalyzer, utterance
 
 
 class IntegratedAnalysisApiTests(unittest.TestCase):
@@ -126,6 +81,9 @@ class IntegratedAnalysisApiTests(unittest.TestCase):
     def test_invalid_masking_order_and_duplicates_do_not_call_models(self):
         invalid = {**utterance(), "masked_text": "[PERSON]님"}
         self.assertEqual(422, self.client.post(self.path, json=invalid).status_code)
+        self.assertEqual(422, self.client.post(
+            self.path, json={**utterance(), "raw_text": "must not reach the models"},
+        ).status_code)
         self.assertEqual(409, self.client.post(self.path, json=utterance(2)).status_code)
         self.assertEqual(0, self.provider.calls)
         self.client.post(self.path, json=utterance())

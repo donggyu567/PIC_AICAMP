@@ -11,11 +11,17 @@ from typing import Any
 
 import torch
 
-from .checkpoint import read_checkpoint, validate_checkpoint_metadata, validate_tokenizer
+from .checkpoint import (
+    CheckpointCompatibilityError,
+    load_training_checkpoint,
+    read_checkpoint,
+    validate_checkpoint_metadata,
+    validate_model_config,
+    validate_tokenizer,
+)
 from .labels import LABELS, NUM_LABELS
 from .model import ModelOutput, RiskSpeechClassifier
 from .tokenization import build_model_input
-from .checkpoint import load_training_checkpoint
 
 
 @dataclass(frozen=True)
@@ -146,21 +152,34 @@ def load_checkpoint_inference(
     thresholds: ThresholdConfig | None = None,
     device: str | torch.device | None = None,
     model: RiskSpeechClassifier | None = None,
+    checkpoint: dict[str, Any] | None = None,
 ) -> CheckpointInference:
-    """Restore a Phase-5 checkpoint; keep threshold settings separate."""
+    """Restore a checkpoint, reusing a caller's already loaded data if provided.
+
+    A newly created model stays private until restoration succeeds, so loading it
+    does not require a second model copy. Caller-owned models retain the protected
+    training restore path, which leaves their weights intact on invalid state.
+    """
 
     chosen_device = torch.device(device) if device is not None else torch.device(
         "cuda" if torch.cuda.is_available() else "cpu"
     )
-    checkpoint = read_checkpoint(checkpoint_path)
-    metadata = validate_checkpoint_metadata(checkpoint)
+    loaded = checkpoint if checkpoint is not None else read_checkpoint(checkpoint_path)
+    metadata = validate_checkpoint_metadata(loaded)
     if model is None:
         validate_tokenizer(metadata, tokenizer)
-    revision = metadata.get("resolved_model_revision") or metadata.get("requested_model_revision")
-    classifier = model if model is not None else RiskSpeechClassifier(
-        **({"model_revision": revision} if revision is not None else {})
-    )
-    load_training_checkpoint(checkpoint_path, classifier, tokenizer=tokenizer, checkpoint=checkpoint)
+        revision = metadata["resolved_model_revision"] or metadata["requested_model_revision"]
+        classifier = RiskSpeechClassifier(
+            **({"model_revision": revision} if revision is not None else {})
+        )
+        validate_model_config(metadata, classifier)
+        try:
+            classifier.load_state_dict(loaded["model_state_dict"])
+        except (RuntimeError, ValueError, TypeError) as error:
+            raise CheckpointCompatibilityError("checkpoint model state_dict is incompatible") from error
+    else:
+        classifier = model
+        load_training_checkpoint(checkpoint_path, classifier, tokenizer=tokenizer, checkpoint=loaded)
     selected_thresholds = thresholds if thresholds is not None else ThresholdConfig()
     classifier.to(chosen_device)
     classifier.eval()

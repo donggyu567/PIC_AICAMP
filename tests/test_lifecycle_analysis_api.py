@@ -15,9 +15,10 @@ from backend.main import app
 from backend.services import analysis_service
 from backend.stores.analysis_file_store import AnalysisFileStore, ConversationSnapshot
 from models.llm_correction import CorrectionEngine
-from test_analysis_api import payload
-from test_integrated_analysis_api import StubCorrectionClient, StubRiskAnalyzer, utterance
-from test_warning_analysis_api import StubWarningManager
+from models.warning_manager.warning_manager import DefaultWarningManager
+from tests.api_helpers import (
+    StubCorrectionClient, StubRiskAnalyzer, payload, utterance,
+)
 
 
 class ConversationLifecycleTests(unittest.TestCase):
@@ -96,11 +97,19 @@ class ConversationLifecycleTests(unittest.TestCase):
         path = self.store.path_for("api-test")
         path.write_text("broken-json", encoding="utf-8")
         self.assertEqual(503, self.end().status_code)
-        with patch("backend.main.process_utterance") as legacy:
+        provider = StubCorrectionClient()
+        analyzer = StubRiskAnalyzer()
+        with (
+            patch.object(app.state, "risk_analyzer", analyzer),
+            patch("backend.services.pipeline_service.get_correction_engine",
+                  return_value=CorrectionEngine(provider)) as correction_factory,
+        ):
             self.assertEqual(503, self.client.post(
-                "/api/v1/utterances", json=utterance(1, "api-test"),
+                "/api/v1/utterances/analyze", json=utterance(1, "api-test"),
             ).status_code)
-            legacy.assert_not_called()
+            correction_factory.assert_not_called()
+        self.assertEqual(0, provider.calls)
+        self.assertEqual([], analyzer.inputs)
         self.assertEqual("broken-json", path.read_text(encoding="utf-8"))
 
     def test_failed_tail_can_end_but_cannot_retry_or_append(self):
@@ -124,7 +133,6 @@ class ConversationLifecycleTests(unittest.TestCase):
             patch.object(app.state, "risk_analyzer", analyzer),
             patch("backend.services.pipeline_service.get_correction_engine",
                   return_value=CorrectionEngine(provider)) as correction_factory,
-            patch("backend.main.process_utterance") as legacy,
         ):
             self.assertEqual(409, self.client.post(
                 "/api/v1/utterances/analyze", json=utterance(2, "api-test"),
@@ -133,11 +141,7 @@ class ConversationLifecycleTests(unittest.TestCase):
                 "/api/v1/utterances/analyze/retry",
                 json={"conversation_id": "api-test", "utterance_id": 1},
             ).status_code)
-            self.assertEqual(409, self.client.post(
-                "/api/v1/utterances", json=utterance(2, "api-test"),
-            ).status_code)
             correction_factory.assert_not_called()
-            legacy.assert_not_called()
         self.assertEqual(0, provider.calls)
         self.assertEqual([], analyzer.inputs)
 
@@ -150,18 +154,134 @@ class ConversationLifecycleTests(unittest.TestCase):
         ).status_code)
         self.assertEqual("active", self.store.load("other").conversation_status)
 
-    def test_warning_state_and_pending_notifications_are_preserved_without_module_call(self):
-        manager = StubWarningManager()
+    def test_warning_enabled_call_requires_manager_to_finish_without_partial_save(self):
+        manager = DefaultWarningManager()
+        with patch.object(app.state, "warning_manager", manager):
+            response = self.client.post(self.result_path, json=payload(score=0.8))
+            self.assertEqual(200, response.status_code, response.text)
+        path = self.store.path_for("api-test")
+        before = path.read_text(encoding="utf-8")
+        self.assertEqual(503, self.end().status_code)
+        self.assertEqual(before, path.read_text(encoding="utf-8"))
+        with patch.object(app.state, "warning_manager", manager):
+            self.assertEqual(200, self.end().status_code)
+
+    def test_end_closes_real_warning_preserves_evidence_and_historical_responses(self):
+        manager = DefaultWarningManager()
+        with patch.object(app.state, "warning_manager", manager):
+            first = self.client.post(self.result_path, json=payload(score=0.55)).json()
+            latest = self.client.post(self.result_path, json=payload(2, 0.55)).json()
+            before = self.store.load("api-test")
+            self.assertEqual("active", before.warning_state.status)
+            with (
+                patch("backend.services.pipeline_service.get_correction_engine",
+                      side_effect=AssertionError("end must not call LLM")),
+                patch.object(app.state, "risk_analyzer", StubRiskAnalyzer()),
+            ):
+                ended = self.end()
+                self.assertEqual([], app.state.risk_analyzer.inputs)
+        self.assertEqual(200, ended.status_code, ended.text)
+        self.assertEqual("previous_warning", ended.json()["warning"]["status"])
+        self.assertEqual(latest["evidence"], ended.json()["evidence"])
+        after = self.store.load("api-test")
+        self.assertEqual("previous_warning", after.warning_state.status)
+        self.assertEqual(2, after.warning_state.events[-1].closed_sequence)
+        self.assertEqual(before.warning_state.cumulative_score, after.warning_state.cumulative_score)
+        self.assertEqual(before.warning_state.individual_evidence, after.warning_state.individual_evidence)
+        self.assertEqual(before.warning_state.events[-1].peak_score, after.warning_state.events[-1].peak_score)
+        self.assertEqual(before.records, after.records)
+        self.assertEqual(before.warning_config, after.warning_config)
+        self.assertEqual(ended.json()["warning"], after.final_warning_result["warning"])
+        for number, expected in ((1, first), (2, latest)):
+            fetched = self.client.get(self.result_path, params={
+                "conversation_id": "api-test", "utterance_id": number,
+            })
+            self.assertEqual(expected, fetched.json())
+        # 이미 종료된 통화는 경고 모듈 없이도 저장된 최종 결과를 반환한다.
+        with patch.object(self.store, "save", side_effect=AssertionError("repeat must not save")):
+            self.assertEqual(ended.json(), self.end().json())
+
+    def test_last_failed_analysis_can_close_previous_warning_without_losing_failure(self):
+        with patch.object(app.state, "warning_manager", DefaultWarningManager()):
+            self.client.post(self.result_path, json=payload(score=0.8))
+            failure = self.client.post(self.result_path, json=payload(2, None)).json()
+            before = self.store.load("api-test")
+            ended = self.end()
+        self.assertEqual(200, ended.status_code, ended.text)
+        after = self.store.load("api-test")
+        self.assertEqual("previous_warning", after.warning_state.status)
+        self.assertEqual(2, after.warning_state.events[-1].closed_sequence)
+        self.assertEqual(before.warning_state.cumulative_score, after.warning_state.cumulative_score)
+        self.assertEqual(before.records, after.records)
+        self.assertEqual(failure["evidence"], ended.json()["evidence"])
+        fetched = self.client.get(self.result_path, params={"conversation_id": "api-test"})
+        self.assertEqual(failure, fetched.json())
+
+    def test_call_with_only_failed_analysis_ends_without_inventing_warning_state(self):
+        with patch.object(app.state, "warning_manager", DefaultWarningManager()):
+            self.client.post(self.result_path, json=payload(score=None))
+            before = self.store.load("api-test")
+            ended = self.end()
+        self.assertEqual(200, ended.status_code, ended.text)
+        self.assertEqual("none", ended.json()["warning"]["status"])
+        self.assertIsNone(ended.json()["warning"]["reason"])
+        self.assertTrue(ended.json()["warning"]["message"].strip())
+        after = self.store.load("api-test")
+        self.assertIsNone(after.warning_state)
+        self.assertEqual([], after.notifications)
+        self.assertEqual(before.records, after.records)
+
+    def test_safe_call_ends_with_no_warning_event(self):
+        with patch.object(app.state, "warning_manager", DefaultWarningManager()):
+            self.client.post(self.result_path, json=payload(score=0.1))
+            ended = self.end()
+        self.assertEqual(200, ended.status_code, ended.text)
+        self.assertEqual("none", ended.json()["warning"]["status"])
+        self.assertEqual((), self.store.load("api-test").warning_state.events)
+
+    def test_warning_failure_and_storage_failure_leave_all_end_state_unchanged(self):
+        manager = DefaultWarningManager()
         with patch.object(app.state, "warning_manager", manager):
             self.client.post(self.result_path, json=payload(score=0.8))
-        before = self.store.load("api-test")
-        self.assertEqual(200, self.end().status_code)
-        after = self.store.load("api-test")
-        self.assertEqual(1, len(manager.calls))
-        self.assertEqual(before.warning_state, after.warning_state)
-        self.assertEqual(before.warning_config, after.warning_config)
-        self.assertEqual(before.pending_notification_ids, after.pending_notification_ids)
-        self.assertEqual(before.records, after.records)
+            path = self.store.path_for("api-test")
+            before = path.read_text(encoding="utf-8")
+            with patch.object(manager, "update_warning", side_effect=RuntimeError("private failure")):
+                response = self.end()
+            self.assertEqual(503, response.status_code, response.text)
+            self.assertNotIn("private failure", response.text)
+            self.assertEqual(before, path.read_text(encoding="utf-8"))
+            with patch("backend.stores.analysis_file_store.os.replace", side_effect=OSError("disk")):
+                self.assertEqual(503, self.end().status_code)
+            self.assertEqual(before, path.read_text(encoding="utf-8"))
+            self.assertEqual("pending", self.store.load("api-test").notifications[0].status)
+            self.assertEqual(200, self.end().status_code)
+
+    def test_legacy_ended_warning_is_finalized_once_without_changing_timestamp(self):
+        manager = DefaultWarningManager()
+        with patch.object(app.state, "warning_manager", manager):
+            original = self.client.post(self.result_path, json=payload(score=0.8)).json()
+            path = self.store.path_for("api-test")
+            legacy = json.loads(path.read_text(encoding="utf-8"))
+            ended_at = datetime.now(timezone.utc)
+            legacy["conversation_status"] = "ended"
+            legacy["ended_at"] = ended_at.isoformat()
+            legacy.pop("final_warning_result", None)
+            legacy.pop("notifications")
+            path.write_text(json.dumps(legacy), encoding="utf-8")
+            with patch.object(manager, "update_warning", wraps=manager.update_warning) as warning_call:
+                ended = self.end()
+                self.assertEqual(200, ended.status_code, ended.text)
+                self.assertEqual(1, warning_call.call_count)
+                self.assertTrue(warning_call.call_args.kwargs["conversation_ended"])
+                repeated = self.end()
+                self.assertEqual(1, warning_call.call_count)
+        self.assertEqual(ended.json(), repeated.json())
+        self.assertEqual(ended_at, datetime.fromisoformat(ended.json()["ended_at"]))
+        snapshot = self.store.load("api-test")
+        self.assertEqual(1, snapshot.warning_state.events[-1].closed_sequence)
+        self.assertEqual("expired", snapshot.notifications[0].status)
+        fetched = self.client.get(self.result_path, params={"conversation_id": "api-test"})
+        self.assertEqual(original, fetched.json())
 
     def test_legacy_files_default_to_active_and_lifecycle_validation_remains_enabled(self):
         self.client.post(self.result_path, json=payload())

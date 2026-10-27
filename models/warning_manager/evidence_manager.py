@@ -33,6 +33,14 @@ class EvidenceManager(Protocol):
         """
         ...
 
+    def close_conversation(
+        self,
+        previous_state: ConversationWarningState | None,
+        sequence: int,
+    ) -> ConversationWarningState | None:
+        """통화 종료 시 열린 이벤트만 닫고 점수와 근거를 보존한다."""
+        ...
+
     def build_payload(self, state: ConversationWarningState | None) -> EvidencePayload:
         """저장 근거 → 외부 evidence. 점수는 0~100.
         recent는 발생 순서 최대, highest는 개별 점수 최대(동점은 먼저 발생).
@@ -94,6 +102,28 @@ def _to_evidence_item(utterance: ModelRiskResult) -> EvidenceItem:
 
 class DefaultEvidenceManager:
     """개별 근거와 경고 이벤트를 관리하고 외부 근거를 구성한다."""
+
+    def close_conversation(
+        self,
+        previous_state: ConversationWarningState | None,
+        sequence: int,
+    ) -> ConversationWarningState | None:
+        if previous_state is None or previous_state.status != "active":
+            return previous_state
+
+        if not previous_state.events:
+            raise ValueError("종료할 활성 경고 이벤트가 없습니다.")
+        latest = previous_state.events[-1]
+        if latest.closed_sequence is not None or sequence < latest.last_sequence:
+            raise ValueError("경고 이벤트의 종료 순서가 올바르지 않습니다.")
+
+        return replace(
+            previous_state,
+            status="previous_warning",
+            events=previous_state.events[:-1] + (
+                replace(latest, closed_sequence=sequence),
+            ),
+        )
 
     def update(
         self,

@@ -37,6 +37,51 @@ class ConversationEndResponse(BaseModel):
     conversation_id: str
     conversation_status: Literal["ended"] = "ended"
     ended_at: AwareDatetime
+    warning: WarningPayload | None = None
+    evidence: EvidencePayload | None = None
+
+
+class NotificationAckRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+    conversation_id: str = Field(min_length=1, max_length=120, pattern=r"\S")
+    event_id: str = Field(min_length=1, max_length=200, pattern=r"\S")
+
+
+class NotificationRecord(BaseModel):
+    """최초 경고 내용과 수신 상태. 이전 저장 파일의 발생 시각은 알 수 없으면 null."""
+
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+    event_id: str = Field(min_length=1, max_length=200, pattern=r"\S")
+    conversation_id: str = Field(min_length=1, max_length=120)
+    created_at: AwareDatetime | None = None
+    warning: WarningPayload
+    evidence: EvidencePayload
+    status: Literal["pending", "acknowledged", "expired"] = "pending"
+    acknowledged_at: AwareDatetime | None = None
+    expired_at: AwareDatetime | None = None
+
+    @model_validator(mode="after")
+    def validate_status(self) -> Self:
+        if self.warning["status"] != "active" or self.warning["reason"] is None:
+            raise ValueError("알림에는 발생 당시의 활성 경고가 필요합니다.")
+        if not self.warning["message"].strip():
+            raise ValueError("알림 문구가 필요합니다.")
+        expected = (self.status == "acknowledged", self.status == "expired")
+        if (self.acknowledged_at is not None, self.expired_at is not None) != expected:
+            raise ValueError("알림 상태와 처리 시각이 일치하지 않습니다.")
+        processed_at = self.acknowledged_at or self.expired_at
+        if self.created_at is not None and processed_at is not None:
+            if processed_at < self.created_at:
+                raise ValueError("알림 처리 시각이 발생 시각보다 이릅니다.")
+        return self
+
+
+class NotificationListResponse(BaseModel):
+    conversation_id: str
+    conversation_status: Literal["active", "ended"]
+    notifications: list[NotificationRecord]
 
 
 ModelScore = Annotated[float, Field(ge=0, le=1, allow_inf_nan=False)]

@@ -384,6 +384,11 @@ class DefaultWarningManager:
         if not isinstance(conversation_ended, bool):
             raise ValueError("conversation_ended는 불리언이어야 합니다.")
 
+        if conversation_ended:
+            return self._close_conversation(
+                model_result, calculation_result, previous_state, config,
+            )
+
         if model_result.analysis_status == "error":
             if calculation_result is not None:
                 raise ValueError("분석 실패에는 계산 결과가 없어야 합니다.")
@@ -466,4 +471,46 @@ class DefaultWarningManager:
             result=_build_result(decision, evidence, message),
             state=state,
             notify_event_id=notify_event_id,
+        )
+
+    def _close_conversation(
+        self,
+        model_result: ModelRiskResult,
+        calculation_result: CalculationResult | None,
+        previous_state: ConversationWarningState | None,
+        config: WarningConfig,
+    ) -> WarningUpdate:
+        """마지막 발화를 재분석·재집계하지 않고 저장된 경고를 종료한다."""
+        if model_result.analysis_status == "error":
+            if calculation_result is not None:
+                raise ValueError("분석 실패에는 계산 결과가 없어야 합니다.")
+        else:
+            if calculation_result is None or previous_state is None:
+                raise ValueError("성공한 통화 종료에는 기존 계산과 경고 상태가 필요합니다.")
+            _validate_calculation(calculation_result, model_result, config)
+            if previous_state.cumulative_score != calculation_result.cumulative_score:
+                raise ValueError("기존 경고 상태와 마지막 계산 점수가 다릅니다.")
+
+        state = self._evidence_manager.close_conversation(
+            previous_state, model_result.sequence,
+        )
+        decision = _decision_for_failure(state)
+        evidence = self._evidence_manager.build_payload(state)
+        if state is None:
+            message = build_analysis_failure_message(
+                has_previous_state=False,
+                decision=decision,
+                evidence=evidence,
+                conversation_ended=True,
+            )
+        else:
+            message = self._message_builder.build(
+                model_result, calculation_result, decision, evidence,
+                conversation_ended=True,
+            )
+
+        return WarningUpdate(
+            result=_build_result(decision, evidence, message),
+            state=state,
+            notify_event_id=None,
         )

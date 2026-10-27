@@ -3,7 +3,8 @@
 """
 
 from dataclasses import dataclass
-from typing import Literal, TypedDict
+from typing import Literal
+from typing_extensions import TypedDict
 
 RiskType = Literal[
     "institution_impersonation", "money_transfer", "personal_information",

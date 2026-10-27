@@ -17,8 +17,7 @@ from risk_speech_ai.model import ModelOutput
 from risk_speech_ai.tokenization import InputTooLongError
 from risk_speech_ai.training import TrainingConfig, train_model
 from risk_speech_ai.training_data import TrainingSample
-from test_dataset import SmallPairTokenizer
-from test_training import tiny_model
+from tests.ai_helpers import SmallPairTokenizer, tiny_model
 
 
 class OutputTests(unittest.TestCase):

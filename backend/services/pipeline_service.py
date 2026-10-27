@@ -56,16 +56,16 @@ def analyze_utterance(
 ) -> CalculationPreviewResponse:
     transcript = validate_utterance(payload.model_dump())
 
-    # 기록 조회부터 보정·AI 분석·저장까지 같은 잠금으로 보호한다.
-    with analysis_service.analysis_lock:
+    # 같은 통화의 기록 조회부터 보정·AI 분석·저장까지 보호한다.
+    with analysis_service.conversation_locks.hold(transcript.conversation_id):
         snapshot = analysis_service.analysis_store.load(
             transcript.conversation_id
         )
         analysis_service.ensure_conversation_active(snapshot)
-        analysis_service.prepare_warning_session(snapshot, warning_manager)
+        config = analysis_service.prepare_warning_session(snapshot, warning_manager)
         records = snapshot.records if snapshot is not None else []
         
-        if any(item.model_result.analysis_status == "error" for item in records):
+        if records and records[-1].model_result.analysis_status == "error":
             raise analysis_service.AnalysisPendingError(
                 "이전 분석 실패를 복구한 뒤 다음 발화를 보내야 합니다."
             )
@@ -89,7 +89,7 @@ def analyze_utterance(
             history_texts=tuple(item.model_result.tuned_text for item in records[-5:]),
         )
         return analysis_service._process_model_result_locked(
-            model_result, snapshot, warning_manager
+            model_result, snapshot, warning_manager, config,
         )
 
 def retry_utterance_analysis(
@@ -98,14 +98,14 @@ def retry_utterance_analysis(
 ) -> CalculationPreviewResponse:
     """저장된 보정 문장·이전 문맥으로 AI만 재호출한다."""
 
-    with analysis_service.analysis_lock:
+    with analysis_service.conversation_locks.hold(conversation_id):
         snapshot = analysis_service.analysis_store.load(conversation_id)
         if snapshot is None:
             raise analysis_service.AnalysisNotFoundError(
                 "재시도할 통화 기록이 없습니다."
             )
         analysis_service.ensure_conversation_active(snapshot)
-        analysis_service.prepare_warning_session(snapshot, warning_manager)
+        config = analysis_service.prepare_warning_session(snapshot, warning_manager)
         
         failed = snapshot.records[-1].model_result
         if failed.utterance_id != utterance_id or failed.analysis_status != "error":
@@ -122,5 +122,5 @@ def retry_utterance_analysis(
             ),
         )
         return analysis_service._retry_model_result_locked(
-            model_result, snapshot, warning_manager,
+            model_result, snapshot, warning_manager, config,
         )

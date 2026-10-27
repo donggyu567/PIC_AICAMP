@@ -6,6 +6,7 @@
 import hashlib
 import os
 import tempfile
+from copy import deepcopy
 from pathlib import Path
 from typing import Literal, Self
 
@@ -16,10 +17,10 @@ from pydantic import (
     Field,
     model_validator
 )
-from backend.schemas import CalculationPreviewResponse, ModelResultRequest
-from backend.stores.analysis_store import AnalysisStore
+from backend.schemas import CalculationPreviewResponse, ModelResultRequest, NotificationRecord
+from backend.stores.analysis_store import validate_new_result
 from models.warning_manager.contracts import (
-    ConversationWarningState, ModelRiskResult, WarningConfig,
+    ConversationWarningState, ModelRiskResult, WarningConfig, WarningResult,
 )
 
 
@@ -46,7 +47,7 @@ class AnalysisAttempt(BaseModel):
 
     @model_validator(mode="after")
     def validate_response(self) -> Self:
-        current = self.model_result.to_model_result()
+        current = self.model_result
         response = self.response
         for field in (
             "conversation_id", "utterance_id", "revision", "sequence",
@@ -109,12 +110,52 @@ class ConversationSnapshot(BaseModel):
     records: list[StoredAnalysis] = Field(min_length=1)
     warning_config: WarningConfig | None = None
     warning_state: ConversationWarningState | None = None
+    final_warning_result: WarningResult | None = None
+    notifications: list[NotificationRecord] = Field(default_factory=list)
+    # 이전 파일/코드와의 호환용 목록. notifications의 pending 항목과 항상 일치한다.
     pending_notification_ids: list[str] = Field(default_factory=list)
+
+    def with_updates(self, **changes: object) -> Self:
+        """중첩 dataclass 타입을 유지하면서 전체 저장 계약을 검증한다."""
+        data = {name: getattr(self, name) for name in type(self).model_fields}
+        return type(self).model_validate({**data, **changes})
+
+    @model_validator(mode="after")
+    def restore_legacy_notifications(self) -> Self:
+        """ID만 있던 파일을 읽을 때 최초 이벤트의 저장 응답으로 내용을 복원한다."""
+        if "notifications" in self.model_fields_set:
+            return self
+        events = {
+            event.event_id: event for event in self.warning_state.events
+        } if self.warning_state is not None else {}
+        records = {record.model_result.sequence: record for record in self.records}
+        restored = []
+        for event_id in self.pending_notification_ids:
+            event = events.get(event_id)
+            if event is None or not event.initial_calculation.window_utterances:
+                raise ValueError("이전 알림의 경고 이벤트를 찾을 수 없습니다.")
+            trigger = event.initial_calculation.window_utterances[-1].utterance
+            record = records.get(trigger.sequence)
+            if record is None or record.response.warning is None or record.response.evidence is None:
+                raise ValueError("이전 알림의 최초 경고 응답을 찾을 수 없습니다.")
+            ended = self.conversation_status == "ended"
+            restored.append(NotificationRecord(
+                event_id=event_id,
+                conversation_id=self.conversation_id,
+                warning=deepcopy(record.response.warning),
+                evidence=deepcopy(record.response.evidence),
+                status="expired" if ended else "pending",
+                expired_at=self.ended_at if ended else None,
+            ))
+        self.notifications = restored
+        if self.conversation_status == "ended":
+            self.pending_notification_ids = []
+        return self
 
     @model_validator(mode="after")
     def validate_lifecycle(self) -> Self:
         if self.conversation_status == "active":
-            if self.ended_at is not None:
+            if self.ended_at is not None or self.final_warning_result is not None:
                 raise ValueError(
                     "진행 중인 통화에는 종료 시각이 없어야 합니다."
                 )
@@ -127,7 +168,8 @@ class ConversationSnapshot(BaseModel):
     @model_validator(mode="after")
     def validate_records(self) -> Self:
         if self.warning_config is None:
-            if self.warning_state is not None or self.pending_notification_ids:
+            if (self.warning_state is not None or self.pending_notification_ids
+                    or self.notifications or self.final_warning_result is not None):
                 raise ValueError("경고 미연결 통화에 경고 상태나 알림이 있습니다.")
         elif self.warning_state is not None:
             if (
@@ -140,20 +182,22 @@ class ConversationSnapshot(BaseModel):
             or len(self.pending_notification_ids) != len(set(self.pending_notification_ids))
         ):
             raise ValueError("알림 대기 ID가 비어 있거나 중복되었습니다.")
-        history = AnalysisStore()
+        seen_ids: set[int] = set()
+        policy_values = self.policy.model_dump()
         for index, record in enumerate(self.records):
-            current = record.model_result.to_model_result()
+            current = record.model_result
             response = record.response
             if (self.warning_config is None) != (response.warning is None):
                 raise ValueError("통화의 경고 연동 여부와 응답이 다릅니다.")
             if current.conversation_id != self.conversation_id:
                 raise ValueError("저장 파일에 다른 통화가 포함되어 있습니다.")
-            history.add(current)
+            validate_new_result(current, seen_ids=seen_ids, expected_sequence=index + 1)
+            seen_ids.add(current.utterance_id)
             if current.analysis_status == "error":
                 if index != len(self.records) - 1:
                     raise ValueError("실패 발화 뒤에 후속 결과가 저장되어 있습니다.")
             else:
-                for field, value in self.policy.model_dump().items():
+                for field, value in policy_values.items():
                     if getattr(response.calculation, field) != value:
                         raise ValueError("응답 계산 설정과 통화 정책이 다릅니다.")
         if self.warning_config is not None:
@@ -161,8 +205,50 @@ class ConversationSnapshot(BaseModel):
                 if self.warning_state is None:
                     raise ValueError("성공 분석이 있는 통화의 경고 상태가 없습니다.")
             if self.warning_state is not None:
-                if self.records[-1].response.warning["status"] != self.warning_state.status:
+                result = self.final_warning_result or {
+                    "warning": self.records[-1].response.warning,
+                    "evidence": self.records[-1].response.evidence,
+                }
+                if result["warning"]["status"] != self.warning_state.status:
                     raise ValueError("마지막 응답과 경고 저장 상태가 다릅니다.")
+        if self.final_warning_result is not None:
+            result = self.final_warning_result
+            if result["warning"]["status"] == "active":
+                raise ValueError("통화 종료 결과에 활성 경고가 있습니다.")
+            if not result["warning"]["message"].strip():
+                raise ValueError("통화 종료 안내 문구가 필요합니다.")
+            if (result["warning"]["status"] == "none") != (result["warning"]["reason"] is None):
+                raise ValueError("종료 경고의 상태와 사유가 다릅니다.")
+            if self.warning_state is None and result["warning"]["status"] != "none":
+                raise ValueError("저장 상태 없이 종료 경고가 존재합니다.")
+            if result["evidence"] != self.records[-1].response.evidence:
+                raise ValueError("종료 과정에서 기존 경고 근거가 변경되었습니다.")
+            if self.warning_state is not None and any(
+                event.closed_sequence is None for event in self.warning_state.events
+            ):
+                raise ValueError("통화 종료 후 열린 경고 이벤트가 있습니다.")
+        return self
+
+    @model_validator(mode="after")
+    def validate_notifications(self) -> Self:
+        event_ids = {
+            event.event_id for event in self.warning_state.events
+        } if self.warning_state is not None else set()
+        ids = [item.event_id for item in self.notifications]
+        if len(ids) != len(set(ids)):
+            raise ValueError("알림 이벤트가 중복되었습니다.")
+        for item in self.notifications:
+            if item.conversation_id != self.conversation_id or item.event_id not in event_ids:
+                raise ValueError("알림의 통화 또는 경고 이벤트가 다릅니다.")
+            if item.status == "pending" and self.conversation_status == "ended":
+                raise ValueError("종료된 통화에 대기 알림이 있습니다.")
+            if item.status == "expired" and (
+                self.conversation_status != "ended" or item.expired_at != self.ended_at
+            ):
+                raise ValueError("알림 만료 시각과 통화 종료 시각이 다릅니다.")
+        pending = [item.event_id for item in self.notifications if item.status == "pending"]
+        if self.pending_notification_ids != pending:
+            raise ValueError("알림 대기 ID와 알림 상태가 일치하지 않습니다.")
         return self
 
 
