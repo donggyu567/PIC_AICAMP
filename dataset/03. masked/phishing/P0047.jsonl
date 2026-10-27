@@ -1,0 +1,6 @@
+{"conversation_id":"P0047","utterance_id":1,"speaker":"speaker_A","text":"여보세요?","is_phishing":false,"labels":[],"source":"YTN Radio(금융감독원 녹취 소개) - [경제수사대] 알고 받은 보이스피싱, 범인은 황당!"}
+{"conversation_id":"P0047","utterance_id":2,"speaker":"speaker_B","text":"누구신지 이야기하시라고요.","is_phishing":false,"labels":[],"source":"YTN Radio(금융감독원 녹취 소개) - [경제수사대] 알고 받은 보이스피싱, 범인은 황당!"}
+{"conversation_id":"P0047","utterance_id":3,"speaker":"speaker_A","text":"그러니까 연락드린 건 다름이 아니고요. 사건 수사 중에 [PERSON]씨가 연루된 부분이 있어서 사실여부를 확인하고자 연락드린 거예요. 혹시 [PERSON]씨와 아는 사이이십니까?","is_phishing":true,"labels":["institution_impersonation","information_probing"],"source":"YTN Radio(금융감독원 녹취 소개) - [경제수사대] 알고 받은 보이스피싱, 범인은 황당!"}
+{"conversation_id":"P0047","utterance_id":4,"speaker":"speaker_B","text":"사무실 전화 번호 좀 줘보세요.","is_phishing":false,"labels":[],"source":"YTN Radio(금융감독원 녹취 소개) - [경제수사대] 알고 받은 보이스피싱, 범인은 황당!"}
+{"conversation_id":"P0047","utterance_id":5,"speaker":"speaker_A","text":"[PHONE_NUMBER]...","is_phishing":false,"labels":[],"source":"YTN Radio(금융감독원 녹취 소개) - [경제수사대] 알고 받은 보이스피싱, 범인은 황당!"}
+{"conversation_id":"P0047","utterance_id":6,"speaker":"speaker_B","text":"아니, 사무실 전화번호라니까요. 02로 시작해야죠.","is_phishing":false,"labels":[],"source":"YTN Radio(금융감독원 녹취 소개) - [경제수사대] 알고 받은 보이스피싱, 범인은 황당!"}

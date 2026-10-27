@@ -1,0 +1,16 @@
+{"conversation_id":"N0011","utterance_id":1,"speaker":"speaker_A","text":"기다려주셔서 감사합니다 고객님","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":2,"speaker":"speaker_A","text":"어떤 문의 주시는 건가요","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":3,"speaker":"speaker_B","text":"기미가 확실하게 빠지는 건지 물어보려고요","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":4,"speaker":"speaker_A","text":"상품이 고객님 #@상품# 맞으십니까","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":5,"speaker":"speaker_B","text":"#@상품# 맞아요","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":6,"speaker":"speaker_A","text":"고객님 상품이 사람마다 차이가 있기 때문에요","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":7,"speaker":"speaker_A","text":"저희가 그 부분까지는 확답 드리기가 어렵습니다","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":8,"speaker":"speaker_B","text":"그래요 그럼 써봐야 안다는 거예요 안 되면 소용없잖아요","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":9,"speaker":"speaker_A","text":"개인차가 있기 때문에 그 부분까지 안내 드리기가 어렵습니다","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":10,"speaker":"speaker_B","text":"아니 근데 오래된 것도 빠질 수 있나 아니면은 어렵나","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":11,"speaker":"speaker_A","text":"사람마다 다르기 때문에 딱 어떻게 안내드릴 수가 없습니다","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":12,"speaker":"speaker_B","text":"그렇게 얘기하면 못 사지 빠졌나 얘기를 해야지 그걸 사지예","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":13,"speaker":"speaker_B","text":"인터넷에는 다 빠진다고 나왔던데","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":14,"speaker":"speaker_A","text":"사람마다 다르기 때문에 저희가 확답을 드릴 수가 없습니다","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":15,"speaker":"speaker_B","text":"일단 그러면 알았어요 좀 더 생각해볼게요","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
+{"conversation_id":"N0011","utterance_id":16,"speaker":"speaker_A","text":"감사합니다 상담사 #@이름#이었습니다","is_phishing":false,"labels":[],"source":"AI Hub - 용도별 목적대화 데이터 (dataSetSn=544 / shopping2_0005)"}
