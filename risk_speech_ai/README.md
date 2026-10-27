@@ -8,6 +8,9 @@ and the canonical eight-label order. `*.pt` is ignored by Git. The trained
 checkpoint remains local and is **not included in this public repository or
 PR**; obtain it only through an authorized private channel. Its recorded
 SHA-256 is `1131f9dcc665f79073d98ecd6845573109a89e44dbf2917d299a8fea057020a7`.
+The official server handoff uses a local copy at `checkpoints/risk_speech_v1.pt`;
+see [CHECKPOINT_HANDOFF.md](CHECKPOINT_HANDOFF.md) for verified metadata,
+the real loader entry point, and pending backend integration.
 
 ## Team-lead training-use decision (2026-10-26/27)
 
