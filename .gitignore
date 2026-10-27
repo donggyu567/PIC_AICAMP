@@ -8,3 +8,15 @@ __pycache__/
 venv/
 outputs/
 backend/data/
+
+# Local model caches and checkpoint artifacts.
+.venv-ai/
+/hf-cache/
+/.cache/huggingface/
+/checkpoints/
+*.safetensors
+*.pt
+*.pth
+pytorch_model*.bin
+/artifacts/risk_speech_ai/prepared/
+/artifacts/risk_speech_ai/*_logs/

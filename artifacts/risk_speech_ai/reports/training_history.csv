@@ -1,0 +1,12 @@
+record_type,source,epoch,global_step,cumulative_total_loss,average_total_loss,average_risk_loss,average_type_loss,batch_total_loss,batch_risk_loss,batch_type_loss,batch_duration_ms,epoch_duration_ms,timestamp
+cumulative_console,2026-10-27 training CLI console output retained in the task record,1,20,1.206237,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded
+cumulative_console,2026-10-27 training CLI console output retained in the task record,1,40,1.066086,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded
+cumulative_console,2026-10-27 training CLI console output retained in the task record,1,60,1.033363,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded
+cumulative_console,2026-10-27 training CLI console output retained in the task record,1,80,0.978194,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded
+cumulative_console,2026-10-27 training CLI console output retained in the task record,1,100,0.954237,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded
+cumulative_console,2026-10-27 training CLI console output retained in the task record,1,120,0.928737,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded
+cumulative_console,2026-10-27 training CLI console output retained in the task record,1,140,0.914273,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded
+cumulative_console,2026-10-27 training CLI console output retained in the task record,1,160,0.889928,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded
+cumulative_console,2026-10-27 training CLI console output retained in the task record,1,180,0.868748,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded
+cumulative_console,2026-10-27 training CLI console output retained in the task record,1,183,0.870836,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded
+epoch_checkpoint,checkpoint_v1,1,183,not_recorded,0.8708360910415649,0.5623519494108957,0.3084841399976652,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded,not_recorded
