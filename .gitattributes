@@ -4,3 +4,9 @@ android/app/src/main/assets/models/**/vocab.txt text eol=lf
 android/app/src/test/resources/koelectra_tokenizer_golden.tsv text eol=lf
 models/ner/*.json text eol=lf
 models/ner/*.py text eol=lf
+
+# Preserved Android app: keep existing LFS and text rules.
+android_legacy/app/src/main/assets/models/**/*.onnx filter=lfs diff=lfs merge=lfs -text
+android_legacy/app/libs/*.aar filter=lfs diff=lfs merge=lfs -text
+android_legacy/app/src/main/assets/models/**/vocab.txt text eol=lf
+android_legacy/app/src/test/resources/koelectra_tokenizer_golden.tsv text eol=lf
