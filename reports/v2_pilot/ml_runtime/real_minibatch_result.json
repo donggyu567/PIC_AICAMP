@@ -1,0 +1,295 @@
+{
+  "status": "PASS_REAL_DATALOADER_NOT_FINAL_TRAINING_APPROVAL",
+  "checks": [
+    {
+      "name": "project_venv_isolated",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "pinned_PR35_code_integrity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "load_16_conversations_136_utterances",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "canonical_structure_text_ids_labels_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "single_review_not_final_train_only",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "adapter_train_scope_and_identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "actual_PR35_safe_builder_136_samples",
+      "passed": true,
+      "detail": {
+        "missing_tuned_text": 0,
+        "missing_label": 0,
+        "matched": 136,
+        "included": 136,
+        "duplicate_key": 0,
+        "excluded_missing_status": 0,
+        "excluded_unreviewed": 0,
+        "invalid_label": 0,
+        "empty_tuned_text": 0
+      }
+    },
+    {
+      "name": "all_136_history_binary_and_8label_targets",
+      "passed": true,
+      "detail": {
+        "max_previous": 5,
+        "label_order": [
+          "institution_impersonation",
+          "money_transfer",
+          "personal_information",
+          "app_installation",
+          "secrecy",
+          "threat_pressure",
+          "loan_fraud",
+          "information_probing"
+        ]
+      }
+    },
+    {
+      "name": "real_pinned_tokenizer_136_inputs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_torch_DataLoader",
+      "passed": true,
+      "detail": {
+        "class": "torch.utils.data.dataloader.DataLoader",
+        "batch_size": 4
+      }
+    },
+    {
+      "name": "real_minibatches_generated",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_shapes_dtypes_padding_and_labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "PR35_training_CLI_validation_only",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "PR35_non_training_tests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "random_base_architecture_forward_no_training",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "protected_files_and_code_unchanged",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "training_executed": false,
+  "optimizer_steps": 0,
+  "backward_calls": 0,
+  "checkpoint_loaded": false,
+  "checkpoint_written": false,
+  "environment": {
+    "executable": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\.venv-v2\\Scripts\\python.exe",
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "venv": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\.venv-v2",
+    "base_prefix": "C:\\Users\\임정윤\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python",
+    "packages": {
+      "torch": "2.6.0+cpu",
+      "transformers": "4.57.6",
+      "tokenizers": "0.22.2",
+      "huggingface_hub": "0.36.2",
+      "numpy": "2.5.4",
+      "safetensors": "0.8.0",
+      "datasets": null
+    },
+    "cpu_execution": true,
+    "cuda_available": false,
+    "cuda_device_count": 0,
+    "torch_cuda_build": null,
+    "datasets_note": "Not installed: the actual loader uses PyTorch Dataset and JSONL; Hugging Face datasets is not imported."
+  },
+  "tokenizer": {
+    "requested_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+    "metadata": {
+      "name": "monologg/koelectra-base-v3-discriminator",
+      "class_name": "transformers.models.electra.tokenization_electra_fast.ElectraTokenizerFast",
+      "vocab_size": 35000,
+      "vocab_sha256": "18bc57707da19ac79655291f5a6b389b84bbef2c772c5ad84f6bcc206a8a330e",
+      "model_max_length": 512,
+      "padding_side": "right",
+      "special_tokens_map": {
+        "unk_token": "[UNK]",
+        "sep_token": "[SEP]",
+        "pad_token": "[PAD]",
+        "cls_token": "[CLS]",
+        "mask_token": "[MASK]"
+      },
+      "cls_token_id": 2,
+      "sep_token_id": 3,
+      "pad_token_id": 0,
+      "resolved_revision": null
+    },
+    "vocabulary_fingerprint_matches_PR35_report": true
+  },
+  "minibatch": {
+    "batch_size": 4,
+    "batches_generated": 34,
+    "dataset_size": 136,
+    "first_batch": {
+      "input_ids": {
+        "shape": [
+          4,
+          83
+        ],
+        "dtype": "torch.int64",
+        "device": "cpu"
+      },
+      "attention_mask": {
+        "shape": [
+          4,
+          83
+        ],
+        "dtype": "torch.int64",
+        "device": "cpu"
+      },
+      "token_type_ids": {
+        "shape": [
+          4,
+          83
+        ],
+        "dtype": "torch.int64",
+        "device": "cpu"
+      },
+      "risk_target": {
+        "shape": [
+          4,
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu"
+      },
+      "type_targets": {
+        "shape": [
+          4,
+          8
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu"
+      }
+    },
+    "token_length_min": 20,
+    "token_length_max": 160,
+    "max_original_history": 5,
+    "history_dropped_for_token_budget": 0,
+    "targets_with_dropped_history": 0,
+    "binary_positive": 34.0,
+    "type_positive_counts": {
+      "institution_impersonation": 10,
+      "money_transfer": 3,
+      "personal_information": 4,
+      "app_installation": 7,
+      "secrecy": 5,
+      "threat_pressure": 3,
+      "loan_fraud": 3,
+      "information_probing": 2
+    }
+  },
+  "training_cli_validation_output": "{\"duplicate_key\": 0, \"empty_tuned_text\": 0, \"excluded_missing_status\": 0, \"excluded_unreviewed\": 0, \"included\": 136, \"invalid_label\": 0, \"matched\": 136, \"missing_label\": 0, \"missing_tuned_text\": 0}\nValidation only; no model was trained or checkpoint written.\n",
+  "source_tests": {
+    "run": 48,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 48,
+    "patterns": [
+      "test_training_data.py",
+      "test_tokenization.py",
+      "test_dataset.py",
+      "test_metrics.py",
+      "test_splits.py"
+    ]
+  },
+  "forward": {
+    "status": "PASS_RANDOM_INITIALIZATION_ONLY",
+    "architecture": "full pinned KoELECTRA base config",
+    "risk_shape": [
+      4,
+      1
+    ],
+    "type_shape": [
+      4,
+      8
+    ],
+    "parameter_count": 112337673,
+    "model_weights_downloaded": false,
+    "v1_checkpoint_validated": false,
+    "gradients_created": false,
+    "accuracy_measured": false
+  },
+  "check_counts": {
+    "passed": 16,
+    "failed": 0
+  },
+  "protected_sha256": {
+    "dataset\\04. processed\\v2_pilot\\pilot_canonical.jsonl": "847504a7178a1a0213b7855ebf9fe29aae9bbac51a04bd90abcd8aeb7c9281cd",
+    "dataset\\04. processed\\v2_pilot\\training_candidate\\pilot_single_review_train_candidate.jsonl": "37295147045ad8ce57e0b2ed2ea3ff8acd71d8cdba70b8bac14a472901daa27e",
+    "dataset\\review\\v2_pilot\\human_review.csv": "a89c70714f44ee8cee1bccba5437bf1efa42eae3c7e94061c9ee481b10642b1d",
+    "dataset\\review\\v2_pilot\\human_review_working.csv": "f6a73c96945a04ac52b766c28f754f6e3b0a321e85abe012d11b0fe9f7261c90",
+    "dataset\\04. processed\\v2_pilot\\approval_a89c70714f44\\pilot_approved.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "dataset\\04. processed\\v2_pilot\\approval_a89c70714f44\\pilot_double_approved_candidates.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\.gitignore": "e06a4c9df0988c3e84953be4b1c84e768d8a7a0611d9ede72627c188edfac388",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\artifacts\\risk_speech_ai\\reports\\metrics.json": "63496c1fd54549a5a1f9a4e2abcaa5aed47eb520c33f22005ba4b9762e048335",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\artifacts\\risk_speech_ai\\reports\\reproducibility.json": "c2564bc676d3a09545f358cf80a571c1788934200f9451f9bd7803ffa7045423",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\requirements-ai.txt": "d0a9b5cfbcb43d698409e3cf847b2c46af8444c701056e1fddd87d5c8d6d7593",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\CHECKPOINT_HANDOFF.md": "85e2bdb260eece8f5e238a56037061c9c683e2e35a10ac27247a385c99fbac6d",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\README.md": "c54ccbfa1e73b6ef09603715c204ac15c379fd565d14a24ca90fb79f99236f86",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\checkpoint.py": "633872d102fcaa8bbd1459e0cc372bd6021ab56dab00fbb6cbdde966b1fbd20f",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\config.py": "e991149c74defa828ddbd5eedc12608086a0be6263c91e97bc2e1ee198b841c5",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\data_review_manifest_20261027.json": "ebe3c67387774bbbfcbf6ca96bf3cbca96f118dbe329319b4b63f853e3a46c51",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\dataset.py": "c86f104f8df60e8f9a508ba4ba64e81c886041ddfcdb653aeee8f74740d37156",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\evaluate_cli.py": "4f6d7ddc814436d2f683ada3ba9e88863e1835a8a292eca49afc63f185ddf579",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\inference.py": "f7d2613352c5ad920055ab4b0fc96244185432e693848dfadd29636648cb7d2b",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\labels.py": "c69afc17bcd3a4895bc7d2f4fdf297b636580291ffa381603237462ec2f2348c",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\metrics.py": "4a4c10e9217a3ff2a21c334774cbb9bf97d8437d47b79ab246b9c8a5cc74b80a",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\model.py": "945466496b24eff750982723c7e31fc325d0cf8a52cc2e7095bef02d99e94fdb",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\prepare_training_inputs.py": "512181b4a96cfebef4f4ed28b98956a23d457a0b0b430b68b3cad89b7f51621e",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\splits.py": "e14424178d9454bda0a2d46dc452d8cd96788b69f75603765ee86d7aff0d75d6",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\tokenization.py": "ea93a473843713545e587cbfd9d7789ac52195332b6b7b8866d170b4819a0cd3",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\train_cli.py": "6a7afd6244183163cb9b1d432ddbd478ce91d13723cdae81b45379dd0468972a",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\training.py": "7adcf627345480a97be93f253eeb3b042ab7b6a981c05682e1ca7d87cc6b529d",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\training_data.py": "9b13b5d55ebce748efa167d99720e6b5688d2aadea87b33a85320db3f9ea2ef9",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\training_log.py": "b0ce173390a04040c08d43a5ca3e433c8098a3bf3bcb58ddb653f46b778260fc",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\type_diagnostics.py": "713a9322fb5079abb5bbeb23dddc92363fa7280fb33e00c125771a13d7f8b92f",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\tests\\test_dataset.py": "36c4895c7ba06c986aba6d691ea9ee074dbf4a1933addd89723559519ee5b952",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\tests\\test_metrics.py": "e0f05ddeac05b4da58d280c348e67c74de0a654ecc5418618fb97e78c66089d7",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\tests\\test_splits.py": "fc6ed35cd18c9f82926e539d272109ee8794cfb7266b23033ebc2a9edf9f998f",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\tests\\test_tokenization.py": "4e70ea5bcc7e567bd78cfd944d9480def75ad9b8d7ea5cd7814812859bb3a1d6",
+    "artifacts\\v1_reference\\pr35_9bab7e383928\\tests\\test_training_data.py": "541edabb2d3dd4cd73af302ea870beb0e311f5f685577d9fc0d92ea5c22e57a7"
+  },
+  "protected_files_unchanged": true
+}

@@ -1,0 +1,1242 @@
+[
+  {
+    "conversation_id": "SYN2-TRAIN-0001",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0001",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0001",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0001",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0001",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0001",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0001",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0001",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0001",
+    "utterance_id": 9,
+    "history_utterance_ids": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0001",
+    "utterance_id": 10,
+    "history_utterance_ids": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0002",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0002",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0002",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0002",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0002",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0002",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0002",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0002",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0002",
+    "utterance_id": 9,
+    "history_utterance_ids": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0002",
+    "utterance_id": 10,
+    "history_utterance_ids": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0003",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0003",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0003",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0003",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0003",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0003",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0003",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0003",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0003",
+    "utterance_id": 9,
+    "history_utterance_ids": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0003",
+    "utterance_id": 10,
+    "history_utterance_ids": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0004",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0004",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0004",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0004",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0004",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0004",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0004",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0004",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0004",
+    "utterance_id": 9,
+    "history_utterance_ids": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0004",
+    "utterance_id": 10,
+    "history_utterance_ids": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0005",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0005",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0005",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0005",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0005",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0005",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0005",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0005",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0006",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0006",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0006",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0006",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0006",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0006",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0006",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0006",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0007",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0007",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0007",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0007",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0007",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0007",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0007",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0007",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0008",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0008",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0008",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0008",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0008",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0008",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0008",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0008",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0009",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0009",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0009",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0009",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0009",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0009",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0009",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0009",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0010",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0010",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0010",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0010",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0010",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0010",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0010",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0010",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0011",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0011",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0011",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0011",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0011",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0011",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0011",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0011",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0012",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0012",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0012",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0012",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0012",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0012",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0012",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0012",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0013",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0013",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0013",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0013",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0013",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0013",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0013",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0013",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0014",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0014",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0014",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0014",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0014",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0014",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0014",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0014",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0015",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0015",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0015",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0015",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0015",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0015",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0015",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0015",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0016",
+    "utterance_id": 1,
+    "history_utterance_ids": []
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0016",
+    "utterance_id": 2,
+    "history_utterance_ids": [
+      1
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0016",
+    "utterance_id": 3,
+    "history_utterance_ids": [
+      1,
+      2
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0016",
+    "utterance_id": 4,
+    "history_utterance_ids": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0016",
+    "utterance_id": 5,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0016",
+    "utterance_id": 6,
+    "history_utterance_ids": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0016",
+    "utterance_id": 7,
+    "history_utterance_ids": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "conversation_id": "SYN2-TRAIN-0016",
+    "utterance_id": 8,
+    "history_utterance_ids": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  }
+]

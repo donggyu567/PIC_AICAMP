@@ -1,0 +1,23 @@
+{
+  "model": "monologg/koelectra-base-v3-discriminator",
+  "revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+  "snapshot": "artifacts\\v2_runtime_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+  "download_scope": "tokenizer_and_config_only_no_model_weights",
+  "files": [
+    {
+      "path": "artifacts\\v2_runtime_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\config.json",
+      "bytes": 467,
+      "sha256": "b0524c98036d679fd7a38a304a678cbf8d71226283c1f2f6ce08408e85eea56e"
+    },
+    {
+      "path": "artifacts\\v2_runtime_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\tokenizer_config.json",
+      "bytes": 61,
+      "sha256": "cd074f01387ed507bc657bebc91c9653874194ba612ceecffe72e6d5c631988c"
+    },
+    {
+      "path": "artifacts\\v2_runtime_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\vocab.txt",
+      "bytes": 263326,
+      "sha256": "9f50b0a44b0272dcf78bfd7a52a0815588f69918bb87ec60b21ca235c5aa0eb4"
+    }
+  ]
+}

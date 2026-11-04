@@ -1,0 +1,73 @@
+{
+  "revision": "958c30e4ac6c43af015b1af75b295bfc1b6dfbcc",
+  "source_ref": "origin/codex/backend-ai-integration",
+  "note": "Exact Git source snapshot; its use in an actual v1 training run is not established by the available artifacts.",
+  "working_branch_unchanged": "60f603febe90a14bd5689e7a7ceba34edfce2cd2",
+  "files": [
+    {
+      "path": "risk_speech_ai/checkpoint.py",
+      "sha256": "633872d102fcaa8bbd1459e0cc372bd6021ab56dab00fbb6cbdde966b1fbd20f",
+      "git_blob": "99911ef6f48afb72bb988c6b0a9ee66d846140ad"
+    },
+    {
+      "path": "risk_speech_ai/config.py",
+      "sha256": "1befab5d93acf36a02a27016ce4b23c0fa0921e1cacb9f0761d6c83e846f7e97",
+      "git_blob": "f61d205e033d1608880ebffd170b467dfc820443"
+    },
+    {
+      "path": "risk_speech_ai/dataset.py",
+      "sha256": "c86f104f8df60e8f9a508ba4ba64e81c886041ddfcdb653aeee8f74740d37156",
+      "git_blob": "e4885652fd4be4e1240adee00edf097230dc995b"
+    },
+    {
+      "path": "risk_speech_ai/inference.py",
+      "sha256": "f7d2613352c5ad920055ab4b0fc96244185432e693848dfadd29636648cb7d2b",
+      "git_blob": "e196f271102e09a99acf8191952d18f93df40852"
+    },
+    {
+      "path": "risk_speech_ai/labels.py",
+      "sha256": "c69afc17bcd3a4895bc7d2f4fdf297b636580291ffa381603237462ec2f2348c",
+      "git_blob": "ede6698d975396b15ce5c2671f860c1c0305aa2c"
+    },
+    {
+      "path": "risk_speech_ai/model.py",
+      "sha256": "945466496b24eff750982723c7e31fc325d0cf8a52cc2e7095bef02d99e94fdb",
+      "git_blob": "8a895fcd2bbec70c4888864a8def17b294e37c19"
+    },
+    {
+      "path": "risk_speech_ai/tokenization.py",
+      "sha256": "ea93a473843713545e587cbfd9d7789ac52195332b6b7b8866d170b4819a0cd3",
+      "git_blob": "dfa95dd1ff85919559b2d15b567f0d7dd7f269f6"
+    },
+    {
+      "path": "risk_speech_ai/training.py",
+      "sha256": "5613b0344b299202cc5189c48cd31332f21d249f40da4261b9c7a47ddec5a87a",
+      "git_blob": "5fbf04b20714b77d6174fe4c070af1558ac00b7f"
+    },
+    {
+      "path": "risk_speech_ai/training_data.py",
+      "sha256": "3fe7ddf9a8e1429290eac531ddca2cbb044f1d1eae8e9f6fb44907e51b9d07de",
+      "git_blob": "2b5ecfd0e65b9abafb194f07778c893674c9f82b"
+    },
+    {
+      "path": "requirements-ai.txt",
+      "sha256": "d0a9b5cfbcb43d698409e3cf847b2c46af8444c701056e1fddd87d5c8d6d7593",
+      "git_blob": "eec12c1f0cb1995002c7de28c06d4c744ebcbf55"
+    },
+    {
+      "path": "tests/test_training_data.py",
+      "sha256": "541edabb2d3dd4cd73af302ea870beb0e311f5f685577d9fc0d92ea5c22e57a7",
+      "git_blob": "229ce796695f3c8967b81f4b7f5b664f2e2a9538"
+    },
+    {
+      "path": "tests/test_tokenization.py",
+      "sha256": "4e70ea5bcc7e567bd78cfd944d9480def75ad9b8d7ea5cd7814812859bb3a1d6",
+      "git_blob": "ef322a247793c0ef69b64ea316c9b8b2396206bc"
+    },
+    {
+      "path": "tests/test_dataset.py",
+      "sha256": "36c4895c7ba06c986aba6d691ea9ee074dbf4a1933addd89723559519ee5b952",
+      "git_blob": "9be29866284f3f6c1116670259e26402e5bffb40"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "entry_verification": "PASS",
+  "reviewer": "임정윤",
+  "authorization": "User explicitly stated they personally reviewed all 136 utterances, found no issues, and requested that all 136 임정윤 results be recorded as 승인.",
+  "recorded_at": "2026-11-05T01:15:23+09:00",
+  "recorded_at_utc": "2026-11-04T16:15:23+00:00",
+  "original_human_reviewed_at": null,
+  "timestamp_policy": "Actual approval-entry time is logged here only. Existing 검수_일시_임정윤 cells are blank and preserved because the earlier human review time is unknown.",
+  "rows": 136,
+  "conversations": 16,
+  "reviewer_results": {
+    "김해린": {
+      "미승인": 136
+    },
+    "임정윤": {
+      "승인": 136
+    }
+  },
+  "final_results": {
+    "미승인": 136
+  },
+  "lim_comments_blank": 136,
+  "lim_review_time_cells_preserved_blank": 136,
+  "priority_rows": 29,
+  "changed_columns": [
+    "검수_결과_임정윤"
+  ],
+  "changed_cells": 136,
+  "utterance_ids_text_labels_and_other_cells_unchanged": true,
+  "source_and_approved_jsonl_unchanged": true,
+  "protected_sha256": {
+    "dataset\\review\\v2_pilot\\human_review.csv": "a89c70714f44ee8cee1bccba5437bf1efa42eae3c7e94061c9ee481b10642b1d",
+    "dataset\\04. processed\\v2_pilot\\pilot_canonical.jsonl": "847504a7178a1a0213b7855ebf9fe29aae9bbac51a04bd90abcd8aeb7c9281cd",
+    "dataset\\review\\v2_pilot\\WORKING_REVIEW_GUIDE.md": "cbb369f1d9fe61c6a12b2e530ba7a6cdc43c93fd19665cdb07aada90119da312",
+    "dataset\\review\\v2_pilot\\README.md": "e62eb9ac9f267bbbdd75f017b3f4c5edfd8d1a23bb3ee54f601eed909fd1a060",
+    "dataset\\04. processed\\v2_pilot\\approval_a89c70714f44\\pilot_approved.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "dataset\\04. processed\\v2_pilot\\approval_a89c70714f44\\pilot_double_approved_candidates.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "backup": "dataset\\review\\v2_pilot\\backups\\human_review_working.before_lim_approval_20261105T011523+0900.csv",
+  "backup_sha256": "a89c70714f44ee8cee1bccba5437bf1efa42eae3c7e94061c9ee481b10642b1d",
+  "working_csv": "dataset\\review\\v2_pilot\\human_review_working.csv",
+  "working_csv_sha256_after": "f6a73c96945a04ac52b766c28f754f6e3b0a321e85abe012d11b0fe9f7261c90",
+  "full_review_validation": {
+    "status": "INCOMPLETE_ACTUAL_REVIEW_TIMES_UNKNOWN",
+    "first_validator_message": "Review date required: SYN2-TRAIN-0001-1/임정윤",
+    "explanation": "The existing full-review validator requires actual review times for approved rows. These were not supplied and were intentionally not invented. The entry audit below independently verifies all 136 approval results and preserved fields."
+  },
+  "remaining_conditions": [
+    "김해린 independent review results and actual review times are not yet recorded.",
+    "The earlier actual review time for 임정윤 remains unknown; do not substitute this entry time without explicitly separating the two timestamp meanings.",
+    "Final agreement stays 미승인 until both independent approvals, required timing provenance, and resolution of any outstanding comments are recorded."
+  ],
+  "training_performed": false,
+  "git_push_performed": false,
+  "approved_jsonl_updated": false
+}

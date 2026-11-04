@@ -1,0 +1,6 @@
+# Preserve exact source/evidence bytes used by SHA-256 audit records.
+/inputs/pilot_sources/** -text whitespace=cr-at-eol,-blank-at-eof
+"/dataset/04. processed/v2_pilot/**" -text whitespace=cr-at-eol,-blank-at-eof
+/dataset/review/v2_pilot/** -text whitespace=cr-at-eol,-blank-at-eof
+/artifacts/v1_reference/** -text whitespace=cr-at-eol,-blank-at-eof
+/reports/v2_pilot/** -text whitespace=cr-at-eol,-blank-at-eof

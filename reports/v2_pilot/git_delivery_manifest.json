@@ -1,0 +1,517 @@
+{
+  "branch": "feat/koelectra-v2-pilot-readiness",
+  "base_commit": "60f603febe90a14bd5689e7a7ceba34edfce2cd2",
+  "purpose": "Commit and push explicitly authorized v2 pilot readiness work; no training, PR or merge",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 413,
+      "sha256": "d2fa9bed3970136c63e99319601cc23abb1129ec53e6337532cac1c59278d557"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 592,
+      "sha256": "1bb1f528c63a822bd85a9ffb002e0f8e31666bdaad48bd7e9becfbd17769e3ac"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/requirements-ai.txt",
+      "bytes": 95,
+      "sha256": "d0a9b5cfbcb43d698409e3cf847b2c46af8444c701056e1fddd87d5c8d6d7593"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/risk_speech_ai/checkpoint.py",
+      "bytes": 12128,
+      "sha256": "633872d102fcaa8bbd1459e0cc372bd6021ab56dab00fbb6cbdde966b1fbd20f"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/risk_speech_ai/config.py",
+      "bytes": 168,
+      "sha256": "1befab5d93acf36a02a27016ce4b23c0fa0921e1cacb9f0761d6c83e846f7e97"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/risk_speech_ai/dataset.py",
+      "bytes": 3620,
+      "sha256": "c86f104f8df60e8f9a508ba4ba64e81c886041ddfcdb653aeee8f74740d37156"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/risk_speech_ai/inference.py",
+      "bytes": 6726,
+      "sha256": "f7d2613352c5ad920055ab4b0fc96244185432e693848dfadd29636648cb7d2b"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/risk_speech_ai/labels.py",
+      "bytes": 1086,
+      "sha256": "c69afc17bcd3a4895bc7d2f4fdf297b636580291ffa381603237462ec2f2348c"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/risk_speech_ai/model.py",
+      "bytes": 2246,
+      "sha256": "945466496b24eff750982723c7e31fc325d0cf8a52cc2e7095bef02d99e94fdb"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/risk_speech_ai/tokenization.py",
+      "bytes": 6159,
+      "sha256": "ea93a473843713545e587cbfd9d7789ac52195332b6b7b8866d170b4819a0cd3"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/risk_speech_ai/training.py",
+      "bytes": 9740,
+      "sha256": "5613b0344b299202cc5189c48cd31332f21d249f40da4261b9c7a47ddec5a87a"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/risk_speech_ai/training_data.py",
+      "bytes": 7020,
+      "sha256": "3fe7ddf9a8e1429290eac531ddca2cbb044f1d1eae8e9f6fb44907e51b9d07de"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/source_manifest.json",
+      "bytes": 3023,
+      "sha256": "f1e028864f08afb5cb586a9859b8ae913fa1c32640709959d1de72e8f75e2e51"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/tests/test_dataset.py",
+      "bytes": 5433,
+      "sha256": "36c4895c7ba06c986aba6d691ea9ee074dbf4a1933addd89723559519ee5b952"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/tests/test_tokenization.py",
+      "bytes": 8315,
+      "sha256": "4e70ea5bcc7e567bd78cfd944d9480def75ad9b8d7ea5cd7814812859bb3a1d6"
+    },
+    {
+      "path": "artifacts/v1_reference/958c30e4ac6c/tests/test_training_data.py",
+      "bytes": 11144,
+      "sha256": "541edabb2d3dd4cd73af302ea870beb0e311f5f685577d9fc0d92ea5c22e57a7"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/.gitignore",
+      "bytes": 310,
+      "sha256": "e06a4c9df0988c3e84953be4b1c84e768d8a7a0611d9ede72627c188edfac388"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/artifacts/risk_speech_ai/reports/metrics.json",
+      "bytes": 12947,
+      "sha256": "63496c1fd54549a5a1f9a4e2abcaa5aed47eb520c33f22005ba4b9762e048335"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/artifacts/risk_speech_ai/reports/reproducibility.json",
+      "bytes": 5350,
+      "sha256": "c2564bc676d3a09545f358cf80a571c1788934200f9451f9bd7803ffa7045423"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/requirements-ai.txt",
+      "bytes": 95,
+      "sha256": "d0a9b5cfbcb43d698409e3cf847b2c46af8444c701056e1fddd87d5c8d6d7593"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/checkpoint.py",
+      "bytes": 12128,
+      "sha256": "633872d102fcaa8bbd1459e0cc372bd6021ab56dab00fbb6cbdde966b1fbd20f"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/CHECKPOINT_HANDOFF.md",
+      "bytes": 8144,
+      "sha256": "85e2bdb260eece8f5e238a56037061c9c683e2e35a10ac27247a385c99fbac6d"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/config.py",
+      "bytes": 234,
+      "sha256": "e991149c74defa828ddbd5eedc12608086a0be6263c91e97bc2e1ee198b841c5"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/data_review_manifest_20261027.json",
+      "bytes": 26178,
+      "sha256": "ebe3c67387774bbbfcbf6ca96bf3cbca96f118dbe329319b4b63f853e3a46c51"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/dataset.py",
+      "bytes": 3620,
+      "sha256": "c86f104f8df60e8f9a508ba4ba64e81c886041ddfcdb653aeee8f74740d37156"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/evaluate_cli.py",
+      "bytes": 24029,
+      "sha256": "4f6d7ddc814436d2f683ada3ba9e88863e1835a8a292eca49afc63f185ddf579"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/inference.py",
+      "bytes": 6726,
+      "sha256": "f7d2613352c5ad920055ab4b0fc96244185432e693848dfadd29636648cb7d2b"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/labels.py",
+      "bytes": 1086,
+      "sha256": "c69afc17bcd3a4895bc7d2f4fdf297b636580291ffa381603237462ec2f2348c"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/metrics.py",
+      "bytes": 6108,
+      "sha256": "4a4c10e9217a3ff2a21c334774cbb9bf97d8437d47b79ab246b9c8a5cc74b80a"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/model.py",
+      "bytes": 2246,
+      "sha256": "945466496b24eff750982723c7e31fc325d0cf8a52cc2e7095bef02d99e94fdb"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/prepare_training_inputs.py",
+      "bytes": 17207,
+      "sha256": "512181b4a96cfebef4f4ed28b98956a23d457a0b0b430b68b3cad89b7f51621e"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/README.md",
+      "bytes": 5924,
+      "sha256": "c54ccbfa1e73b6ef09603715c204ac15c379fd565d14a24ca90fb79f99236f86"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/splits.py",
+      "bytes": 3981,
+      "sha256": "e14424178d9454bda0a2d46dc452d8cd96788b69f75603765ee86d7aff0d75d6"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/tokenization.py",
+      "bytes": 6159,
+      "sha256": "ea93a473843713545e587cbfd9d7789ac52195332b6b7b8866d170b4819a0cd3"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/train_cli.py",
+      "bytes": 3820,
+      "sha256": "6a7afd6244183163cb9b1d432ddbd478ce91d13723cdae81b45379dd0468972a"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/training.py",
+      "bytes": 12350,
+      "sha256": "7adcf627345480a97be93f253eeb3b042ab7b6a981c05682e1ca7d87cc6b529d"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/training_data.py",
+      "bytes": 7072,
+      "sha256": "9b13b5d55ebce748efa167d99720e6b5688d2aadea87b33a85320db3f9ea2ef9"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/training_log.py",
+      "bytes": 3193,
+      "sha256": "b0ce173390a04040c08d43a5ca3e433c8098a3bf3bcb58ddb653f46b778260fc"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/type_diagnostics.py",
+      "bytes": 10350,
+      "sha256": "713a9322fb5079abb5bbeb23dddc92363fa7280fb33e00c125771a13d7f8b92f"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/source_manifest.json",
+      "bytes": 10393,
+      "sha256": "a28ad64311c1f3e8ddad3728b1d4c1ab370d0676f37f7ce3a31a6477d45e5f4f"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/tests/test_dataset.py",
+      "bytes": 5433,
+      "sha256": "36c4895c7ba06c986aba6d691ea9ee074dbf4a1933addd89723559519ee5b952"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/tests/test_metrics.py",
+      "bytes": 1941,
+      "sha256": "e0f05ddeac05b4da58d280c348e67c74de0a654ecc5418618fb97e78c66089d7"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/tests/test_splits.py",
+      "bytes": 1525,
+      "sha256": "fc6ed35cd18c9f82926e539d272109ee8794cfb7266b23033ebc2a9edf9f998f"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/tests/test_tokenization.py",
+      "bytes": 8315,
+      "sha256": "4e70ea5bcc7e567bd78cfd944d9480def75ad9b8d7ea5cd7814812859bb3a1d6"
+    },
+    {
+      "path": "artifacts/v1_reference/pr35_9bab7e383928/tests/test_training_data.py",
+      "bytes": 11144,
+      "sha256": "541edabb2d3dd4cd73af302ea870beb0e311f5f685577d9fc0d92ea5c22e57a7"
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/pilot_canonical.jsonl",
+      "bytes": 54260,
+      "sha256": "847504a7178a1a0213b7855ebf9fe29aae9bbac51a04bd90abcd8aeb7c9281cd"
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/training_candidate/conversation_provenance.jsonl",
+      "bytes": 40427,
+      "sha256": "7415e143aaab36fec166ea1dcb3061f20956fced4c9d9b2149d8e99e2c3a7043"
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/training_candidate/pilot_single_review_train_candidate.jsonl",
+      "bytes": 77736,
+      "sha256": "37295147045ad8ce57e0b2ed2ea3ff8acd71d8cdba70b8bac14a472901daa27e"
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/training_candidate/README.md",
+      "bytes": 1775,
+      "sha256": "74b096950ad19647d7fdaeddf3ece6a98236ecbef8fb2ed432667de7713f489a"
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/training_candidate/v1_adapter_label_candidates.jsonl",
+      "bytes": 59975,
+      "sha256": "4fd548e0a2eca7bb3bcafc27aa611dd14e61a6cf79d5e3ce8da8d6cdb1a4bac4"
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/training_candidate/v1_adapter_sample_candidates.jsonl",
+      "bytes": 92290,
+      "sha256": "0f31ce31f9067c9c517d3b7834a7e0c6a6c776a5acf361cf3f7f151b0f5af100"
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/training_candidate/v1_adapter_text_candidates.jsonl",
+      "bytes": 60632,
+      "sha256": "927797dc1548be7e8c498e22f56c78eceeab8ff5a26dd9932e660768d47256ae"
+    },
+    {
+      "path": "dataset/review/v2_pilot/backups/human_review_working.before_lim_approval_20261105T011523+0900.csv",
+      "bytes": 79964,
+      "sha256": "a89c70714f44ee8cee1bccba5437bf1efa42eae3c7e94061c9ee481b10642b1d"
+    },
+    {
+      "path": "dataset/review/v2_pilot/human_review.csv",
+      "bytes": 79964,
+      "sha256": "a89c70714f44ee8cee1bccba5437bf1efa42eae3c7e94061c9ee481b10642b1d"
+    },
+    {
+      "path": "dataset/review/v2_pilot/human_review_working.csv",
+      "bytes": 79556,
+      "sha256": "f6a73c96945a04ac52b766c28f754f6e3b0a321e85abe012d11b0fe9f7261c90"
+    },
+    {
+      "path": "dataset/review/v2_pilot/README.md",
+      "bytes": 5616,
+      "sha256": "e62eb9ac9f267bbbdd75f017b3f4c5edfd8d1a23bb3ee54f601eed909fd1a060"
+    },
+    {
+      "path": "dataset/review/v2_pilot/WORKING_REVIEW_GUIDE.md",
+      "bytes": 3408,
+      "sha256": "cbb369f1d9fe61c6a12b2e530ba7a6cdc43c93fd19665cdb07aada90119da312"
+    },
+    {
+      "path": "dataset/scripts/audit_v2_commit.py",
+      "bytes": 8568,
+      "sha256": "d3ce58ba444a04f0920ef8e90e3a9c7d1239092b36c6b7159ba9f46b659a39c6"
+    },
+    {
+      "path": "dataset/scripts/cache_v2_tokenizer.py",
+      "bytes": 1606,
+      "sha256": "16ed181363dba4dd7160c138b61e24ba93d4702b5b3f852a5237cd69b04645d5"
+    },
+    {
+      "path": "dataset/scripts/finalize_pilot_review.py",
+      "bytes": 24474,
+      "sha256": "55be242eb41c421e2fae810a4b552dd51a33a43fd55560503a629cdb900e5d93"
+    },
+    {
+      "path": "dataset/scripts/prepare_pilot_review.py",
+      "bytes": 10004,
+      "sha256": "1187c0ba9487f04501e9b594617bd45a1f2e54c33d77df047db4cbbe43f638c8"
+    },
+    {
+      "path": "dataset/scripts/prepare_v2_training_candidate.py",
+      "bytes": 18375,
+      "sha256": "89f1674d4a62a17e4b26cc9b693356df8d1105792b4402994a5259e9e79dceb7"
+    },
+    {
+      "path": "dataset/scripts/report_v2_ml_assets.py",
+      "bytes": 7129,
+      "sha256": "6f7001efedffca6874aae64a3a1165f8a9e919f95b0b8f4c89ab8f2922506086"
+    },
+    {
+      "path": "dataset/scripts/restore_pilot.py",
+      "bytes": 25338,
+      "sha256": "01c0c73d133bf817cae29d5bf90e220210a2d97c267fcd25b2ba929e80c65578"
+    },
+    {
+      "path": "dataset/scripts/smoke_v2_training_candidate.py",
+      "bytes": 5701,
+      "sha256": "03875bd66727e12fc257cc1222111b1f934f340c290eb843f01d59a3a15e6fef"
+    },
+    {
+      "path": "dataset/scripts/validate_v2_real_minibatch.py",
+      "bytes": 14416,
+      "sha256": "daa989ce40a7490e6c94e8237497b9402e61503c376c6e1fefa743e29e8bf0f2"
+    },
+    {
+      "path": "inputs/pilot_sources/붙여넣은 텍스트(1)(2).txt",
+      "bytes": 18218,
+      "sha256": "ebd06d24245c60dcf79295a6505163a936e967f4483a40e8572d08c7af62bba7"
+    },
+    {
+      "path": "inputs/pilot_sources/붙여넣은 텍스트(1)(3).txt",
+      "bytes": 39328,
+      "sha256": "c4e219509536d10aef5059ac8dd16b88ec010dbc4de53eeca07ca5e3e55bd30e"
+    },
+    {
+      "path": "inputs/pilot_sources/붙여넣은 텍스트(1)(4).txt",
+      "bytes": 27304,
+      "sha256": "cb7f5b6155b225c592ade35c3de24b6d90e7d6d81799e9c6faa3a9a89a753141"
+    },
+    {
+      "path": "KOELECTRA_V2_READINESS.md",
+      "bytes": 3537,
+      "sha256": "e87275c4ce3e22128b5f17be6b7aeba19de1f6503a8f18b0f4b07e6779c8f7af"
+    },
+    {
+      "path": "reports/v2_pilot/duplicate_report.json",
+      "bytes": 132853,
+      "sha256": "fcc4f5fa7431e1a3d56ac54a9143d377f896b9add438de9d8981b08b8361c859"
+    },
+    {
+      "path": "reports/v2_pilot/human_review_validation.json",
+      "bytes": 746,
+      "sha256": "c047081b29079b62c6da964049b5427db9c823b3cf59575d6bdfc19db5bd0fca"
+    },
+    {
+      "path": "reports/v2_pilot/ml_runtime/pr35_metadata.json",
+      "bytes": 29830,
+      "sha256": "1a4e170a015a4083ddb701f886058149737082729eb7f4ab2e2443e7ed8f6af6"
+    },
+    {
+      "path": "reports/v2_pilot/ml_runtime/pr35_tree_asset_summary.json",
+      "bytes": 293,
+      "sha256": "62138a002b1431ac1470b920dd36f9ac82a857029393216dabf64577429493c4"
+    },
+    {
+      "path": "reports/v2_pilot/ml_runtime/README.md",
+      "bytes": 10877,
+      "sha256": "5960dee727336f0f7e4cb95cbd1bd36796f53c696bbadaf919266c72bd1eac25"
+    },
+    {
+      "path": "reports/v2_pilot/ml_runtime/real_minibatch_result.json",
+      "bytes": 12089,
+      "sha256": "aa53586dff3c375e24335b5066909bd24831f145084f11f29fca74d8e280e930"
+    },
+    {
+      "path": "reports/v2_pilot/ml_runtime/requirements-lock.txt",
+      "bytes": 455,
+      "sha256": "cfebe88afebe9c9d096e21e3907388d65e0ebd182458f4c658e8dfa03c0f777c"
+    },
+    {
+      "path": "reports/v2_pilot/ml_runtime/tokenizer_cache.json",
+      "bytes": 1255,
+      "sha256": "d27b07f6758132f088a1377e128ee222e47ebaf768d106307de138addf7d5fbc"
+    },
+    {
+      "path": "reports/v2_pilot/ml_runtime/v1_asset_inventory.json",
+      "bytes": 17204,
+      "sha256": "8974d173f0b4b806d4844c97635331cd47872c9662af9d0c4026bf69a9d3f445"
+    },
+    {
+      "path": "reports/v2_pilot/README.md",
+      "bytes": 3815,
+      "sha256": "369516fa664aef928f2050045af376ec67f5f44b551b970a17386eea4baee9c3"
+    },
+    {
+      "path": "reports/v2_pilot/restoration_manifest.json",
+      "bytes": 22177,
+      "sha256": "135589ab2873054d38b11a1c4f2cdf24ad786183c029befe7e1234ff8e2a28b6"
+    },
+    {
+      "path": "reports/v2_pilot/review_entries/lim_approval_20261105T011523+0900.json",
+      "bytes": 3297,
+      "sha256": "78280ee832b28a28e5173fca4a34f88e3c29430a3b6df1a9d25c0be82d09e1b0"
+    },
+    {
+      "path": "reports/v2_pilot/review_entries/lim_approval_20261105T011523+0900.md",
+      "bytes": 1530,
+      "sha256": "4db212ed4117122b3e762f69c0311ae52864c7c34afb18c4fd3df9970e7fe6e0"
+    },
+    {
+      "path": "reports/v2_pilot/training_readiness/actual_v1_duplicate_report.json",
+      "bytes": 577,
+      "sha256": "1c36cad14bba57046ce6cb81d4b7792b706554f87f61b61725b80f8eed1b9573"
+    },
+    {
+      "path": "reports/v2_pilot/training_readiness/context_audit.json",
+      "bytes": 20105,
+      "sha256": "d0cfe42a80250ec699a9dbabd2a1ce370f5c9eda4da2c74e8e931af4dd648801"
+    },
+    {
+      "path": "reports/v2_pilot/training_readiness/execution_result.json",
+      "bytes": 2825,
+      "sha256": "d26906cdf34f93163d6995c4d6b8223a7874303253af9713358d11028596fb78"
+    },
+    {
+      "path": "reports/v2_pilot/training_readiness/preparation_result.json",
+      "bytes": 2939,
+      "sha256": "ca00f76cb4cc7e9d7a6b11c3e63f6578ff8aa04138d94f4dadc368785d5a7625"
+    },
+    {
+      "path": "reports/v2_pilot/training_readiness/README.md",
+      "bytes": 11040,
+      "sha256": "1211feec5e190bd4c5a5d206c7caa0c2f8e08d67ee5db5344a536d82641aa4a0"
+    },
+    {
+      "path": "reports/v2_pilot/training_readiness/reference_duplicate_report.json",
+      "bytes": 133181,
+      "sha256": "46bc993ca73c4ecb9aeaa9e3d7e78596c16758aa29344e3c6fd7bcc6f0773135"
+    },
+    {
+      "path": "reports/v2_pilot/validation_report.json",
+      "bytes": 10136,
+      "sha256": "9c44dcda74aa45544350f313e543e1dad927fe7553fbf600e76fa112779a7f98"
+    },
+    {
+      "path": "reports/v2_pilot/working_review_preparation.json",
+      "bytes": 2348,
+      "sha256": "bb15c3bc86eef87bc851568037639fa3117d20d143844995ffac703225c82a15"
+    },
+    {
+      "path": "tests/test_finalize_pilot_review.py",
+      "bytes": 3365,
+      "sha256": "93e2cceab0a8bf5440663e9d9fe76cefb3b96e13b72ac862d8d9fdc99e095345"
+    },
+    {
+      "path": "tests/test_prepare_pilot_review.py",
+      "bytes": 2913,
+      "sha256": "75adce3e10e5a35cf9b15e672a041f351df2ce020994d277555fc666f04ea214"
+    },
+    {
+      "path": "tests/test_restore_pilot.py",
+      "bytes": 3683,
+      "sha256": "816247d8817c57bc3862ecbbadf14b35af6575d275922b19ed40f9728994b32c"
+    },
+    {
+      "path": "tests/test_v2_training_candidate.py",
+      "bytes": 3418,
+      "sha256": "c1469283cfb8be0dfc7941e468f0cbbb62d106d0bc3d835d198490e304945ce0"
+    }
+  ],
+  "manifest_itself": "reports/v2_pilot/git_delivery_manifest.json",
+  "total_bytes_excluding_manifest": 1568468,
+  "scan": {
+    "scanned_files": 95,
+    "credential_or_PII_pattern_findings": [],
+    "scope": "UTF-8 staged-candidate text; private keys, common tokens, credential URLs, Korean mobile/RRN/email patterns and binary/size checks",
+    "authorized_work_context": "Requested reviewer names and user-provided workspace paths retained as review/provenance evidence; synthetic transcripts only"
+  },
+  "review_status": {
+    "임정윤_승인": 136,
+    "김해린_미승인": 136,
+    "최종합의_미승인": 136,
+    "two_person_final_policy_unchanged": true
+  },
+  "tests": {
+    "project_unit_tests_passed": 22,
+    "PR35_non_training_tests_passed": 48,
+    "real_runtime_checks_passed": 16,
+    "minibatches": 34,
+    "batch_size": 4,
+    "training_executed": false
+  },
+  "excluded": [
+    ".venv-v2/ and other environments",
+    "artifacts/v2_runtime_assets/ tokenizer/model cache",
+    "__pycache__ and temporary files",
+    ".env and credentials",
+    "checkpoint/model binaries",
+    "phishing_candidate_research_jeongyun_202609w4.md (unrelated pre-existing research)",
+    "dataset/04. processed/v2_pilot/approval_*/ empty intermediate exports",
+    "reports/v2_pilot/approval_*/ superseded diagnostics",
+    "reports/v2_pilot/training_readiness/execution_initial_attempt.json (superseded environment-error attempt)"
+  ],
+  "existing_v1_tracked_files_modified": false,
+  "pinned_reference_note": "New isolated source fixtures needed to reproduce v2 adapter/runtime checks; existing v1 originals/checkpoints unchanged"
+}

@@ -1,0 +1,14 @@
+{
+  "status": "NOT_VERIFIED_ACTUAL_INPUTS_MISSING",
+  "actual_files": [],
+  "pilot_matches": [],
+  "cross_split_exact_normalized": [],
+  "cross_split_families": [],
+  "all_three_splits_supplied": false,
+  "required_paths": [
+    "Actual v1 train label/tuned-text input JSONL or its exported sample JSONL",
+    "Actual v1 validation/test sample JSONL and split manifest",
+    "Actual trained v1 checkpoint path and run metadata"
+  ],
+  "note": "No records were deleted or assigned to validation/test. Absence of actual inputs is not a passing duplicate result."
+}

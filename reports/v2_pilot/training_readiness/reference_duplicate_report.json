@@ -1,0 +1,3215 @@
+{
+  "normalization": "NFKC + casefold; remove whitespace/punctuation",
+  "similarity_method": "difflib.SequenceMatcher, autojunk=False, threshold >= 0.90",
+  "local_files_scanned": [
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_001.json",
+      "sha256": "dc21d2a51b1e9e0223fcb7b6faf6e3819945669ed41535cc99d309b5920c7839"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_002.json",
+      "sha256": "05f8f2b467f3848558c969e6a46f247a0ae83a5dac6fc09c79050bcf5b44f4c3"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_003.json",
+      "sha256": "84d062ec7ed1504d43350d6421b87dda06313af0ccd7bbc5f3ce51c1aaec08a3"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_004.json",
+      "sha256": "3ec370cf1500e25cef9d9dce4ee70b927038e8b36a9fe773aa8b13129dba54a6"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_005.json",
+      "sha256": "674baa4fc2900fd80f65bd89c20955b8576be8637537b565befd517058121e9a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_006.json",
+      "sha256": "affaccf663c8b7dcb991b2efce674f3601c7d534ba9d44162ed8b2ecd95ec63b"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_007.json",
+      "sha256": "5b8c6ea03c8e05b69b37a38795b09be927b56292633313614b5dd26301b2b0b4"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_008.json",
+      "sha256": "6c10416445c5836d5a10e0f06278f551859fef1f10535ae7cca99311d0ec61d4"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_009.json",
+      "sha256": "629f47838fae2c13c1f3054f3fcbc4dbd14bb075c096103eb7b02de41fe0f25b"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_010.json",
+      "sha256": "ecc1eba29439c24d918b240db1f2ffd9b397051142b614c5efa158ae187efb95"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_011.json",
+      "sha256": "15405f03e4934cd4f41606a3f4939f1a9602dcb8082693f7bf61646e43f92e26"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_012.json",
+      "sha256": "6ff311dcd74b29827da51571b6fd7ef553de2d3e716efe8092d52f82d7612227"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_013.json",
+      "sha256": "43b2333b3e671d7f1cc68d4db655d5fa1e4eda2837028fe44d4b2d2eab13a42b"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_014.json",
+      "sha256": "0e697d52cd15126a9c32e0e685e2da0ce5137e1579db462a154f21950d7c0086"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_015.json",
+      "sha256": "05ce8d25c4e7d26cce90a3b47150bfa239c70c47e57b575d9c899b3611392322"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_016.json",
+      "sha256": "885db75905b26c0aaf6e681da1a3d297f9d40b0ebad089cb225812c4c5fb8126"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_017.json",
+      "sha256": "59a76fe910e725c564b43e78b1f69e599b8be0f3328f3154c62ca7c6139748d2"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_018.json",
+      "sha256": "f3237684e04db2b475c621f5c1b0851280366feb5ee5a15363d6c6f6f996edb6"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_019.json",
+      "sha256": "2c611a8ec3bcceb782589952a671c18e1b0b134e8f44184608042ea1acda8994"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_020.json",
+      "sha256": "4022f18aee5a101c498d9a2ebd0279955e01f6057e57557f10571e497984bc39"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_021.json",
+      "sha256": "0c4e021c2efc0c9f15f6836443af56b7b7c1d148871526c88de15e01f9c830aa"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_022.json",
+      "sha256": "a5cca150b16843e7fd316ae36e1c67d012152743c71682bfdc88ecdb6d9ffd7a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_023.json",
+      "sha256": "120fdaaab03e3c295642c33192d1e8929dc4626fd9172980c3d0b7a844efa831"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_024.json",
+      "sha256": "5cfcc3d071b3b793d84d42bac6a88de243289b219fc44d6338ef85cc853eaddc"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_025.json",
+      "sha256": "6534066cf810889836e8177500de2ab575632c30dd6f5f8524f405d1e09bf071"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_026.json",
+      "sha256": "5f83073aac2c536f50830511772c80d862e325eeed07ce99eb0d70cf6ededf02"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_027.json",
+      "sha256": "c9fa93207b86d16d75c15ab9782a328c7819fb4e94b440096708983efbec0af1"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_028.json",
+      "sha256": "547fa312a9e6e41a41296c834b3f033099a8e96ad51ad70af7623e936bee251c"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_029.json",
+      "sha256": "9dd2bde1bcbfe33e017713af94e5da6b4cb658c16694b604d65d990fd94aad65"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_030.json",
+      "sha256": "5b56c147473952044ef708b61aefe6a7bb0465b4e5a05ebde94e0ba4854397fb"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_031.json",
+      "sha256": "81de9caf5b3ef7b0f647f6e30d2efe21badfeacd1479c8d771889fa112cf2b7c"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_032.json",
+      "sha256": "e0b4e2e57c160bb0be139207e54cd9d35dcf53d1c03f04c62485f2cb7c530086"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_033.json",
+      "sha256": "05ed05fadae4744118284521e4af801fde3025c910fda3f3a3cbb2012459d105"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_034.json",
+      "sha256": "657e9f49ca9cca0ea0fbcf22e62d10d5fea27aeeec95bf08782b29456916b7aa"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_035.json",
+      "sha256": "33f551f9dff3873df8f8cc61ddf0e2a8521f178e0d7ce14d986f015cc083cb8b"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0001/utterance_036.json",
+      "sha256": "56382354fe5b8f1138dcb0122509f54109955f419c16e075acf612e0ec43c567"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_001.json",
+      "sha256": "307a8efbd71a092a83cdd0935fe2b5e2dbd5627c073606f645aff9e86800dcfa"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_002.json",
+      "sha256": "938a389fdc5f9537703c2e358d002f8ad173af9c58d779c85805b8e6b6279314"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_003.json",
+      "sha256": "62186f7ad33721d52d068f721724ff161ee1d34c829c75596dc0cc6c502d02e2"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_004.json",
+      "sha256": "92eff85837eddb34b050deb50e6f2dbbcf49cdbff530162b89df6fecfe9f2238"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_005.json",
+      "sha256": "53076d0e4e3732c6764e756f8e08341c5c6c136bc68e117020e7c0f026c7ff5c"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_006.json",
+      "sha256": "ff5f59e6b977f034ccc9aee6ac60469024d9b858dc9728b34c057a1d47c6e956"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_007.json",
+      "sha256": "747dac1252127118ca3cf7f5c7210d5ff05606c7b0a3097e947a995a0d0d9f81"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_008.json",
+      "sha256": "529a97ad8f67413f5afc322f8e86c8c8c27512bf8e60eb414cc49a38c09c16ab"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_009.json",
+      "sha256": "eecde166e3a51df444524f6a8f58f653a18a31f4a37d5321685b15db1956641a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_010.json",
+      "sha256": "bb4d538df5a25b61e356ad33901a6c24178402f10441015ba5f2afb8a789c235"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_011.json",
+      "sha256": "76f997b65dd9fafb718a125dc2b5bc2802db0a8674feeadd76873c33ee2d8d52"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_012.json",
+      "sha256": "60ac6ad0dbbc66b6373cef93518c78c1d7e8cdca92dedea2720491f4efe3408d"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_013.json",
+      "sha256": "52b2caeb418d8992374ca8af15bde0aad5ba6551dc8394bc9778f6383b882943"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_014.json",
+      "sha256": "586025a2d4a1695b0165e0ad791d025326185476b74637f9d2897dd880286b41"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_015.json",
+      "sha256": "1e05b37338c76dcaf5a92b7949bd27e7920caaaa96e57810209ef2f4a5cbc7f4"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_016.json",
+      "sha256": "10b45ac2f0d04c751b0e46d69581efafb89f97e03d8277b1629da56b997f9293"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_017.json",
+      "sha256": "47809708622726daa321fcb1d44db8da4568d439a8a8badbc94f3ebad8998792"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_018.json",
+      "sha256": "cb13c79c798f5792e132068ba036092dd21132a7e927b2b359a46800ee274f45"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_019.json",
+      "sha256": "c31eb89fb6d9deec6a4719667a346ee1afaec369ae7e52f04c7b937ec381bbb2"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_020.json",
+      "sha256": "6d17966ac21b9f30611e8ffd7d58c75dbfc22a4a7fe8bd745bc77f5f5dcb5677"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_021.json",
+      "sha256": "2a8365a1f662594fd1ede1e41a6a5584de4b23fda9281b059d87292e3d8dac13"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_022.json",
+      "sha256": "0f99671cee4169c8f5507143922e8b90979be1e94819bc57370a386b91ab5f46"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_023.json",
+      "sha256": "5230483f1f769f27b673ea013135ebec7f0cc791c5620cdf195f5fe81f5456ce"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_024.json",
+      "sha256": "949f0c9e3bd0249ca9f2c9b99f38a1ec1fd7420b56f5ca5ce5992b10616e14ce"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_025.json",
+      "sha256": "9a57fe8ea861805d9965cda91c1142ebac3d31d014d13a8a00b15fe9690d6469"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_026.json",
+      "sha256": "7937ef4e8d9ba0a19729fc12ffb01ea22f19f4755d81715316c3c03a0aa95649"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_027.json",
+      "sha256": "6009c5972f9c4b907949f078fda9ec6344f6e9002c880bb123bc096b256fc63f"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_028.json",
+      "sha256": "462fee5ae4628a6a06cf14f675ba5cc853da420b6fa74a847cc4ce04f25b1978"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_029.json",
+      "sha256": "815cebe3f6f14aa3ee2d72cd46128c4837c3bc0a2f0e3adffd550bc0b484fc91"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_030.json",
+      "sha256": "71d2b559e8f376f76639d0b759b30400664f7dbf7312fb0f976e48249aeefae1"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_031.json",
+      "sha256": "b8045765be2b43b0f2ce0f270114b2820fca0518efeace3f7f072a195ebc7088"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_032.json",
+      "sha256": "6689530890e89421b6b6a2477487ca58545f96499093810ef02d1b29a1f7d80a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_033.json",
+      "sha256": "730f8c27b8134ea87d4a00745702403326cf295d6fe2b6e8a042e5bf99c5198f"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_034.json",
+      "sha256": "b460fde4d294d844c5154f663405c745cd7073bc8c107ace1d8b0e65194c9b2a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_035.json",
+      "sha256": "cdbfc6baeb30e3e5cd168560449d0524f23258c17ce99c01961df5c7bd0d8d7a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_036.json",
+      "sha256": "15d2759e57577599d21f54b4cc1b02b556ebf632a708666290fd97b6de164844"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_037.json",
+      "sha256": "7081b95d9a19df7dd8d3a844a059978ec5f9414394934ef5cfa9c9a06ac02273"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_038.json",
+      "sha256": "317ef93bf026869182a41bb15146fdd60b72e601d6d010da45094afe92c42b96"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_039.json",
+      "sha256": "7c356dee768cffe8da7d1663d302b53c0408ffc0917b4692aed9a31dbfe91c75"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_040.json",
+      "sha256": "29c06b39df42f8379564dcac50850af57b3de4e9d6f547fb1b64532aa54a2db2"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_041.json",
+      "sha256": "80a2914974fa931fa68b540435a371de7771f28afc3f4ed77f42f83d487cccae"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_042.json",
+      "sha256": "b8f2e12a4e5ab2021106911b48418d2b1ff0faf3a7d8119fac71a37cd8aa33e8"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_043.json",
+      "sha256": "4b6993d9da6845efc56932f3003f6ddcc34fff6a908a13f5e7449d29bc8701ce"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_044.json",
+      "sha256": "ec716c1f05653a8d261085f0dbebadfd43903b21d6b2166943d8f81dd7674005"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_045.json",
+      "sha256": "8d5f873252ff0256dbe3fa0f0aef116e8f57e4c51c000ec1e463bc01dce97607"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0002/utterance_046.json",
+      "sha256": "3dbfd03eb7704204a81fe67e02665de2dd46bf17ba291160aafd6911df75c72a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_001.json",
+      "sha256": "95ddae82b88d0e8c5b24b84e54062f92f347db50c2aadfd2d82ddde6fc34ba2a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_002.json",
+      "sha256": "88aa20078abd7cd08904d4cdcd29a22b3c61a8da9865b4d4fb4716a1beee5fdf"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_003.json",
+      "sha256": "540662f0aebc4841b3fe2f1ea2ca781fdcd22fd8346e684d06cbb1c6ba19e434"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_004.json",
+      "sha256": "fe7df0f6bfb651d2a204e40d7490ef514e1e7af11a3b15faf1af408c0b01d71a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_005.json",
+      "sha256": "0f7775b2543d0c2b7dae7e278ec224c47d848168962b8be211451bfce25f4f13"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_006.json",
+      "sha256": "1a1e8e84bd0f08d94bea3edb0be16d2c54581f247635def2d1ca06b943e63a20"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_007.json",
+      "sha256": "82d00177ea777599a6c9644d69c798254f3d5c40bc90f7c3706d7d37c4eb63a3"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_008.json",
+      "sha256": "07b26d979a8fe95fea10ed7615600de17dfc128df5f585801ae0c6d11f5aac33"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_009.json",
+      "sha256": "e6732dff81ba07546fe17910bcbc998e989530814f598a56bc74f06538070d36"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_010.json",
+      "sha256": "c88c534e58440f7b3d38585ac2d811faceb48828c213395b994b9467101d7631"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_011.json",
+      "sha256": "44e4ad2b2d668968dc23ad8d823236487b0b0f366b69f825e3823b1f6272f42c"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_012.json",
+      "sha256": "ae875f069fbd222a2836c74e2bb91cfffd1dbdf5c997f0cb2bc0b503165f805d"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_013.json",
+      "sha256": "d06681c5a9a4fb4bc2b1521254b4b03dc6410a48b23989dd4a6f4558c107f718"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_014.json",
+      "sha256": "aa86e2ec18d3b06388116e7f5bd3d8b5c645673fc6c13dda0bcf0d2cf967ef7c"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_015.json",
+      "sha256": "bd322ac6433365f319bf34b339437abb69917bd7297ebf0e4fec92852bd7987c"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_016.json",
+      "sha256": "87447dadba70c2479a71c69a2661f31a9eb192f196e7d95599d38cd17378f274"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_017.json",
+      "sha256": "3495b071a2fa0021e8626d35bbc3bf76f9246723317e0981e0cf48fe87082ddb"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_018.json",
+      "sha256": "fd5779bb51aaec2cc7cdce2101b24d5fc5acf36f4ba10a23f7ce585523bb9bc3"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_019.json",
+      "sha256": "c5b1cf7c3dbbf6054db93a54e133a613c90d0875f19de7820c0c43c6c89aafa7"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_020.json",
+      "sha256": "ec2b2376da17280e012d40a594370932e2c8f135cb309d6014c725a5818e851c"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_021.json",
+      "sha256": "28604c627351980a8b9453d636dd3b0d235977f2050db9bb225d75272c0557fb"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_022.json",
+      "sha256": "cce8be871633a1d28e75f3f8179bcad26db517b123a84dac48fa8c751bc10d19"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_023.json",
+      "sha256": "4718354bb8b0a5aa95972dacd921bbc17e56bc51a419893ba07d2333613d7481"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_024.json",
+      "sha256": "7de47ec45af3875ea074a695fe812e934b818f47daa930be9fedce8f5e3fa16f"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_025.json",
+      "sha256": "d485f2fc0e9a246767e8d14d33753af1d358cf1a3d75ab50f75356b749ed0cc1"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_026.json",
+      "sha256": "cab8545105a4a80e84ec43ca3836574b8a16084412d9ce855ac77fd982635bc3"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_027.json",
+      "sha256": "896886d50ac191d295fa778851bb3d6e9d5e53b953731d717c75f0673767768d"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_028.json",
+      "sha256": "021c4c1ecbb984c9d2500f760c26e902c585e75c58f08bbdc7acad9de39c37db"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_029.json",
+      "sha256": "4343ccf705f8045429b90601f3caff06522557abae7053f7e28e1368cb9ef4e7"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_030.json",
+      "sha256": "436f9fe2235355e6f52369965b56a8f002e59790b7cf6bfc08bba411ff7a7885"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_031.json",
+      "sha256": "bc1c9ba5f655bd4db2a4073d149214cf1b155f810305ab401fc3287ccd640819"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_032.json",
+      "sha256": "2c338ff8c68e66151ad84f819a4ce8db2d66c6aef465a951cea7ad6d36157f0a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_033.json",
+      "sha256": "9d287604c239cc01e122d94cc0f12378a0d4af65e7d3586ce26e27746050a331"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_034.json",
+      "sha256": "ed87467a63c57e7f3d30f61f2452475f50ccc5d8f5121dfd8b39ffde2fcf8f01"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_035.json",
+      "sha256": "5f5d5477b553417f978d0ba0e685e3543923acc89a417692adedaa6f81bd96e2"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_036.json",
+      "sha256": "787aeef02e501136fc44b170953907fd14079fac63e4b4afba5c4787e71908c4"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_037.json",
+      "sha256": "523cce4f7250343171773df790a0cc973da7684afa4f1d1082a036b68d14a3e8"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_038.json",
+      "sha256": "e313fff43e920a52fa112d5cdf6562e28105a4c4dad5b998dfbe663ab32a2988"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_039.json",
+      "sha256": "8e633c3734292137e9a78e6c694155e379ae6e1487228ccc148e4459e3fbbabe"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_040.json",
+      "sha256": "59abe2c5e71f5b68deed208704c94f24326ae549f09f1b8422cd7177e78a6229"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0003/utterance_041.json",
+      "sha256": "4159c559c90fd95ab7e38e10fb62a37c2e5f3efac24a6d79eba27ad2e4648cf5"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_001.json",
+      "sha256": "5542a6e888bb2494fe2025b38f7e1153572566237763e23dd33bf59adccec7ab"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_002.json",
+      "sha256": "10ba1aa9b338abc7823849adbe2465120f826d78aeb4acba5a595791d5770763"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_003.json",
+      "sha256": "d7224f2b6d33ab8ece5baaa36e020a8d7a0490240f12961e2de07268fd05d7a1"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_004.json",
+      "sha256": "014d942670b4d36ccbe7a23d319100e542afcf9366a475eac370cdf9e1e65b2d"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_005.json",
+      "sha256": "14626ea0ad1cfea4868534ac1f0437043ad6cc2eb2481c8dd51874ded75d8c54"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_006.json",
+      "sha256": "0b222b8529b3eeb525aad44f644fa006c2e32e775fc99320ce6ac5af3d00e3ce"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_007.json",
+      "sha256": "9e75e94324aace15193d7149ba41bad0dcb2d2848c4b5ad8b06ab55d56bf0299"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_008.json",
+      "sha256": "2ee3966a3d64ee8c515cee7303aa8627cecc156daf248b3f24188b6b8d1a2a1d"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_009.json",
+      "sha256": "dc2896140c22201c2d8ee0d198c1a370db1f7a6cff800bfbf0dc52a74d44eb2f"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_010.json",
+      "sha256": "7b7d55ca2482363ebbe6b4c1f8296b266e50573f8920053479bc6527b1a8fb2c"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_011.json",
+      "sha256": "624e9a69e0802a0eeb66b45343de0e3552efd0dd4227cc0c6bc77bdfe807daf3"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_012.json",
+      "sha256": "6f14977fd78c6399870ffd9687aa7284737960fb4cd65ae1717d45cbee5f4f29"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_013.json",
+      "sha256": "f886cd5daa4ad214c07eefba381c9c7caf79a8870f83e26d2bf4a91bd4b2d2b1"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_014.json",
+      "sha256": "cb760e16cb44384b502a378906da2343930b1f4097f70be29d8d9428e5896188"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_015.json",
+      "sha256": "4dba100d9d502a6888ea2305a70a168b22b7f9569d393b5039dce367e34c4795"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_016.json",
+      "sha256": "3c057adc986364f474254f78ae601ffe3f00aa28729a15e78ec9c4bf8768228e"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_017.json",
+      "sha256": "966dbd2da3dca977a24246510eda0c22483fd742687fe891f66ea963902d43b3"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_018.json",
+      "sha256": "310ba6664518d95ccbe1bc4070dc19ab78acd72851603ea82daf9eb713f467d6"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_019.json",
+      "sha256": "29139dbcd73cadfdc476ac160b9dd879f651e3f7e76b57d500cc0281cafdb8c2"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_020.json",
+      "sha256": "04ebde4902d7d774e2bebd52c12064e7ba6bbb3bf4e050f2130e0564e7eda35c"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_021.json",
+      "sha256": "185242b847777903570cb11fd27af24986db082b707007faead689df34cd09e2"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_022.json",
+      "sha256": "ae19e99a55e0517cfbb52053c6bf765c57649227e0ffc8bd84113dcc64d2a284"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_023.json",
+      "sha256": "048082d15f886833e0ffcaeb27239e5fc86b77b848a916720438ade50151695e"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_024.json",
+      "sha256": "79347c2dff610aaa36a37a3b14b912191dc67b494cd253e45c28eefa0a2b1d14"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_025.json",
+      "sha256": "62a0b167598f2b557e94613bada57bfe1398ef6b8f980104255b71ed40ef4879"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0004/utterance_026.json",
+      "sha256": "e7a3b6469d1aa19f5d6a836245c74fbcff8a6927ccbec1e0f76cdba4785ade8c"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_001.json",
+      "sha256": "c573c9a10c797e560f84494b265a04035aad816f6b09ff04da1901b81ac131a9"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_002.json",
+      "sha256": "4c6548b00411a66f6ad81d00705a05641a6cde520f898a9e1d9a5f5031a36627"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_003.json",
+      "sha256": "57cd539033071b54a818a236608b7e5f92cca0dc530f895500761f5ac57202d8"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_004.json",
+      "sha256": "95cec6275c54976b5b98bbeaf4e36f5cf01dff188f031462c696cb3f1fd5b253"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_005.json",
+      "sha256": "587b6e22e98fe97ef164db9694dd794cc1f60d429f8944832c9462d95d52c226"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_006.json",
+      "sha256": "c9fffbffbc28bbb047dc43a4a4318b02ac7b092627ae23a9c596cda1f08ff534"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_007.json",
+      "sha256": "58ee6ab954717373d8e30bf987845921d6ebabb7fed23bdaab04f169edc8bd0e"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_008.json",
+      "sha256": "60ec6898f2bcb9bbe1b3fa2a749f212d556633171eb6c5ea86e985e9db441ed8"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_009.json",
+      "sha256": "d194fa746d0e195b4df2c57e10f962451f940282400aca9169f2914589abfae6"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_010.json",
+      "sha256": "a1faec49a9c979d738e93f6904e83b069e41171d545e7e8681d8851ce4e94f5c"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_011.json",
+      "sha256": "f7e2422324d06f00dd132e0de0fc98a7db34c39ad5c6a5a6a368077fa47bebaf"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_012.json",
+      "sha256": "caf90a22193634de2cd189ec356698e9ea480e1fd298ae213424e6a9efc2c8df"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_013.json",
+      "sha256": "a0c316262a2784e34a88ee05cf6d08f6e7fcc2e21d2c50a7a5f7a98f9e6d8b2e"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_014.json",
+      "sha256": "b61c370c223c2f301fa38d1f14caf58bb3aa4468a5d7ee051cbba3b4286ad9c6"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_015.json",
+      "sha256": "2277eadcce4c407901f9cc890361176a1564ebd4c20a180ab3dbddf6018ccd33"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_016.json",
+      "sha256": "320e04ac7f73be807e54b54d3281a830441833efc8d0daae6ae5c4bf25f27370"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_017.json",
+      "sha256": "6d137e60fc710587314cce63a410b494bcef0b390c11d2750c8c4bfe0fdadf43"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_018.json",
+      "sha256": "f2192c3049e74f41e048ba347489b091e88897fa6e59f6da1ffda13ba08ed1cf"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_019.json",
+      "sha256": "93488437566574141a4794134b258365426fd20e2f2cdff09cf2c5e92260b2d5"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_020.json",
+      "sha256": "c4cb107369b784bdbba9055bcfd575ac570c77d0fb2ce14a73dc537daacb4b68"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_021.json",
+      "sha256": "32144c01db4401c2006507407600251ff19e4471215ce72c9afe43c0c5e4b460"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_022.json",
+      "sha256": "8637704463d833eaaa240958954c349f464a0b08daafda390815f9005beba70e"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_023.json",
+      "sha256": "42f622d1edef77fcc8781fdd57340be63f67d9a649498d97afb3811509a7edd2"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_024.json",
+      "sha256": "c491793dd65c6eef5c7fd8b6cf88a1226aae751bb7cfb11ff5f16039e8462f76"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_025.json",
+      "sha256": "b86c897a996d5c8b2e5b52744f7bbc139d1e4e6d5eef46b841415fce09515249"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_026.json",
+      "sha256": "0c683ff0f71c4ab1d5c090b145a2956440a19fba2ea59ab15864b5bf89502bcb"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_027.json",
+      "sha256": "87406ffef53967a036f3b367da3f96ea7453aa748c5036ce6485b5fb8e77f85d"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_028.json",
+      "sha256": "85ac7f3f316a90243462a0ca9d039ee7d39f6d786b2ba3e4150348aea52807a5"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_029.json",
+      "sha256": "b30b2157db16a312adcacfe3518aafe47f31d3dc7a62991f6ca9b532e63b7542"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_030.json",
+      "sha256": "9b60453cab040a41438637720912f30088cb6145271397c9fb6cb495836e02e7"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_031.json",
+      "sha256": "161f455a3744cf9825caf706f52525b04ac7b8da7b38bc3077613aec1401b400"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_032.json",
+      "sha256": "b49cc3b9ff3e0af226073c0313cf817354542085cf0b0c19a10c3b94c151a4e5"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_033.json",
+      "sha256": "dc9bda7961e711fbb0f01d401e73f79d5f8617d4ec017c659c5222f83612261a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_034.json",
+      "sha256": "5a1109252d881284f16f23e1f83393cfe62337d47034ab7ae7a057012c06c7b8"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_035.json",
+      "sha256": "49b8644daec742418ace42da0d471428417361a23277842396b230a44f292421"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_036.json",
+      "sha256": "f6de92353b5220985c86039fc9bf7b7be630eec7859bc0296a57065a61b59410"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_037.json",
+      "sha256": "f7076780525ad58498097f717d907eb13e8b60ae6f90502f62d11510f687afbc"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_038.json",
+      "sha256": "3916c73ce4c89614c8d7c0611cdb2c1a4bc104f14ee0d002a711b4f93032231f"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_039.json",
+      "sha256": "738c891fbcf6e147f9688f1317f41190c800ba881dcba14b828b7a33fee2c4e0"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_040.json",
+      "sha256": "b4c960b1e31e0eba5e58691540a7d159498679fc1d722d3e8d4e13f4e39877c3"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_041.json",
+      "sha256": "8b651f43552f1c74af87d80ed098b897b4d6c719599661072bc07f01a9ec5126"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_042.json",
+      "sha256": "7a995f70992ff88ed44b99f4c76cd9ba0b8067912787dbc426c9034060fd9151"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_043.json",
+      "sha256": "3cc964d0f5ebe676fd04d0bf3975adc8fdc785132b2c1c05ba5601f867a4947a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_044.json",
+      "sha256": "93d84ab4ab2e0edca0490eb0a45df6f76ece862485b494e0f7e2fe1f401c67f1"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_045.json",
+      "sha256": "ee4931fbde022b1b5b45d5325dd0fb6daa65cad27e893b236c408e00caea07d7"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_046.json",
+      "sha256": "c440e8c00c7b5a38d1232d928703f04a0895fa77bbeed3ade69b92d924fe611e"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_047.json",
+      "sha256": "39616497831fa8653907484a6de3cc85b9ea9566f2370b23dcd8e4a8f8842e4b"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_048.json",
+      "sha256": "febe2c2dc46ed19f9d54510a608358519814c1075108a38f55ed76e2ac990ad3"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0005/utterance_049.json",
+      "sha256": "cce1091a1b8bac8b35bd93d36d37abc8d82cdf48a762d35be0bf71a139aca90f"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_001.json",
+      "sha256": "977ce6413408cc805aef8a5d1c498a27e2a1740f1aaf95e1e2587bfdab7da0f4"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_002.json",
+      "sha256": "586395d65aa407830a186a6f052145c1fb9e896e9da85460024270249489b621"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_003.json",
+      "sha256": "6ac3d4da0999ac9e5440f9f8e734a5abd74bdba8e92080d306ae4072e59675ff"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_004.json",
+      "sha256": "afdaaa38db8efc837f9f997f7337f8876fa593cc65e0394907d6a485660978d8"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_005.json",
+      "sha256": "15e46bbee20fdc9fa2fbb4fdc6fca41594b87957a7173f12fdddcbe6e70ff289"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_006.json",
+      "sha256": "56c56307de4e61784ff55983682d244792c1582308cb64267e8525e02f76f4fb"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_007.json",
+      "sha256": "587861950f3f7e670e097a14d956d8f11b05f13b70d0d1b367a13a9e3a684b98"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_008.json",
+      "sha256": "80b39a31a1c1f34e2ea09a174624fca65f22dbb91d151295250176905af33349"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_009.json",
+      "sha256": "de97fdf6514471f73256eb9592b4c89e13cc320f405ac4a9ed7a322207de7473"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_010.json",
+      "sha256": "13263a43123a4c9879a19b0d51465956e23bd097266919e17cd9880e09db3048"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_011.json",
+      "sha256": "3fd8c1c147f2d2ef7f1eb33c46aaee991436dc295fb319c7d09eb596992eb6d9"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_012.json",
+      "sha256": "5239205700859b30cc53c2e21876cb33b78be9d0eda012c2f4cab76f835668fd"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_013.json",
+      "sha256": "763e5a8f97d93e8c49880b1c8df0e7a1a43edbc0659e73e1a7dcaea0748e7c20"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_014.json",
+      "sha256": "41526f364f401618ff9d3d06464fa9424cc5c4fbfc5f93b9dffb2824a2536b98"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_015.json",
+      "sha256": "c1d12c19c1b1df20c942d07055b71c16ac9b10fcd2aab6533cc0c2912f98ee97"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_016.json",
+      "sha256": "c4467ebf364dcbe4c364ad397edc3497f48b3e5998e3f6fbb15438d851ad9791"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_017.json",
+      "sha256": "2eb60c7694b913a44f09fccafa3a499e5bfe4f2dda905c16810e470fb0c3a517"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_018.json",
+      "sha256": "8e624bec7fe426f4d8dc1cd341f3a1fe32e04d9b1701a5a4fd7de29b35c5527d"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_019.json",
+      "sha256": "d0ee3c65af9c0112d40f437696edd47fd5fad49dd099646e8034b32b48bfdd99"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_020.json",
+      "sha256": "d55bd4eded5bd184b3441760e01534435c3fcc956252c07323a09f069e2a5775"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_021.json",
+      "sha256": "ac552ecae640b43310755894f7f4d0aa1692e9a9517c99c3a51f9ec01b8493db"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_022.json",
+      "sha256": "e1a8c41573b8215a649d6f818f91b934c273ad82d4d272e0a6c72e28f358802e"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_023.json",
+      "sha256": "ee36ce3be851e23c8dc534c8ddb6a9c62ec9f69014e0b799cdcb759a7423d1c2"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_024.json",
+      "sha256": "966a7e8c6ec9c555a48bad7d44aa2250c85ff56e517323bb8e8035ed024e3c31"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_025.json",
+      "sha256": "dd396116f39ca89882205316a444031112e81185b6eef049607c165cbff6d90a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_026.json",
+      "sha256": "f96f4557b30e54d9f153756972a5697189877a9846d94bd64f9f9ac3a93e47d0"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_027.json",
+      "sha256": "2b79757d011385c614c81ec59ace9d8863cc412a267142df9742c528ffc27faa"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_028.json",
+      "sha256": "8e21f5cb90340e458acc5d2424bd4a9838d3ad7499f526f4a00a7d8c85b71987"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_029.json",
+      "sha256": "62e0fafc2319fd0d0456122f29fb921392e34fe5df87239998379799753fa5bf"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_030.json",
+      "sha256": "ee65fec6b9520cfd07ee68f18df2c81b5e8d7436a077b3e5d83e21c0ad1735f0"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_031.json",
+      "sha256": "6a432cc999151a921e1c7573dbb182f993a96be610b3b13f013574a16f169f67"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_032.json",
+      "sha256": "b9bbd04bb3d2ea1635466468463d4c42cc374f8dc654182d3724814365edcd40"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_033.json",
+      "sha256": "8837d5e8cf0c979f35eff8f0214169132cb51d5765bc8e887e17fd782cdc603b"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_034.json",
+      "sha256": "4c012a2a2999b7694fb70475bde5647fecfa3f98109e1c04d33ccf6ee0556e62"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_035.json",
+      "sha256": "e1309143950397c7779367156d0dbc7a86b0b74fe9f0b8a7e258a4b4845d6078"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_036.json",
+      "sha256": "a0983bec0709cbe310037976bd691d0800b09a4403835714cb2e3db9525bc903"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_037.json",
+      "sha256": "5bf1ddb6adca4e2192f5efbc71bbca60259ddf6217ddb4e0bb3fcf255961b6d4"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_038.json",
+      "sha256": "2c2f4b374ffc7b18c0835d4bf8485e12efd087c2993569fb289b7cec86ca6cd1"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_039.json",
+      "sha256": "0e9f3759fb744a17bf9fc8374b865b33a176a49f5d6cc364f192d37e0421f6cd"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_040.json",
+      "sha256": "ed8c1cdee38d6d2d2dd29f53a6ad1dac3606e4a4de812ddb35c25c4fa7db52ce"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_041.json",
+      "sha256": "4d3125fffb581f4ef4e98765968638d7ecbb3dfde7ae67f53cebbc1ebfce3c01"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_042.json",
+      "sha256": "1100e84fc307a27e24aa1f4af7315e2f02230bebb2e33067173a3be3f151dc7a"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_043.json",
+      "sha256": "d49f01c0fa423ec87dee9dcf6c295ec4759449fc9d89b72f869590d514369517"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_044.json",
+      "sha256": "3cb3153415726f8f6be4949cb0299dae362eca0a45f42ba3be9ea4372bf6f19c"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_045.json",
+      "sha256": "89ae85714b27b5758f6fb31b0da4781e32259f9fe0b283cbb07ba48778b9b540"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_046.json",
+      "sha256": "66f9391cb48c2e3e96338ccce8b51ff77eb51e966484b4bcd81641b66af8ae61"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_047.json",
+      "sha256": "a8f55705197a4ea698ccc64654803ea8118740efac9a364a717cb57d2ab27b73"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_048.json",
+      "sha256": "fcc09dffbbe633b24fa54c7d55f41625b7b132c26e014168c8c1fd0e5df896b6"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_049.json",
+      "sha256": "285ad6cc96607cddd41e8c16bb0859b3f2f8c3c129fafe2aee3e3bd3bd6771c4"
+    },
+    {
+      "file": "dataset/01. raw/normal/N0006/utterance_050.json",
+      "sha256": "03d25338bcd731d441a348a2dd830c6eb6e89473f1e6a6bef2df00915fd2729c"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0001/utterance_001.json",
+      "sha256": "c148144b6ae045c73bbf78e0652faef126e40de5f334b2a185f379e8a262df1d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0001/utterance_002.json",
+      "sha256": "3b332231c7758c3e319fc8071a4915139540b3cefff2c4fe306ffdec14c1f5bc"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0001/utterance_003.json",
+      "sha256": "5a480ca5f34e5fc871b8d350e48af9e3be2d30dafb4c70c9a7ca9539dc6dd20a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0001/utterance_004.json",
+      "sha256": "d15d1628d653d9898b996c8a6b1bc8ed1951ead010890470787b680150480bd3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0001/utterance_005.json",
+      "sha256": "ad3ef9e88bb85f5f05a41cf5f1781d8e23fa3de8c2e948af49e5ded7a347d06b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0002/utterance_001.json",
+      "sha256": "a3adf571d98a5fcb228599fe5b63308ed63b37e21467025b68da5c2b045c7180"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0002/utterance_002.json",
+      "sha256": "263c4860efe49271f00e0d432d192e9ff3e45f3d57063e5a48cb9ac316c82e7f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0002/utterance_003.json",
+      "sha256": "52466e120528368ef750750021454bdd7c17c926dd0b07663fa2c8268147de19"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0003/utterance_001.json",
+      "sha256": "5c3e7df37816345f6372a69d5a8c56597638b305c5c6ef2caac051bed2a19884"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0003/utterance_002.json",
+      "sha256": "c620524d84fe4b74e32fb3152ff78089b9400fa34cd890d55b2d597dce584683"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0003/utterance_003.json",
+      "sha256": "de651e4de2cab4ced9c1b6031fb60ba3ad89097f968e66dac6516c86466f1ed8"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0003/utterance_004.json",
+      "sha256": "4217532a941b5f9260a1c8eef084271ece1d94fda96aa0780612bc9d309c3722"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0004/utterance_001.json",
+      "sha256": "8cbb527052ab94201165d7ce1dd9743dc6599a48839ab3b4ee1e83122731920d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0004/utterance_002.json",
+      "sha256": "bbd39288d30badbbd69b3acbd5879ecfa1c10bc5d159a56c2607293c06f5c435"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0004/utterance_003.json",
+      "sha256": "061e8ec1eb670d04a0cd4da124bbe675813c2719a427d08242179d361cdb5a01"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0004/utterance_004.json",
+      "sha256": "8d50d0b64b44575f0579551f40a5db6d5db278e9f17ccb963b54684aa5e1c3c8"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0004/utterance_005.json",
+      "sha256": "c793bfd54125d055b1080ff91a3e975b8c10d0f4af5de2714ba5d23c2f7479cc"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_001.json",
+      "sha256": "4689692ce21b3c33837f861658af95c994578d5d367cb1313ca81609cb862ae6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_002.json",
+      "sha256": "63992157d001bb1e2f55bf02f6e297b2b2eebaad6a3b6f4d137f02efd9c72c2a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_003.json",
+      "sha256": "7e8ee36b9481743b9196b2065885e3dc2ad34c4e2a8e6151596203f067725f2b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_004.json",
+      "sha256": "a17cf35bf0430b23e3f222794cd47ba6d57d40f055ab525e09690cd2a7f7b5fe"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_005.json",
+      "sha256": "97ea9f4481ab715e9457a5dabd8e5dd4278f0d92a7c621763c63b89435542b25"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_006.json",
+      "sha256": "799cdc90114e8aa1111d852e2dbcb3761eedf76a52c2ee5c2f48578b126bcfe6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_007.json",
+      "sha256": "78f062748fb22a140546a408f9e6edc33fcf2d03a243ebf6ad3a785d8b3b5b90"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_008.json",
+      "sha256": "04fdc65379184ad5ca77c249cf733bc9dae54b4acb1487727c5f0bcef99dfe30"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_009.json",
+      "sha256": "968c19c34cd55570c244c93c7c520131cbc63742083bd2a6f9fa3b9d7896099e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_010.json",
+      "sha256": "56280c510c6379a401d684d25d0d8e6bd22c91c6294a8cb34a333245502bf76d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_011.json",
+      "sha256": "d8ca088293d873ed67fe694562777ff34b89afe04c8e317dc63b5e760dd3febb"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_012.json",
+      "sha256": "9a8762e83fd20aa97342b285d9c777093bdd052aa24f47853055fcb94fec0223"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0005/utterance_013.json",
+      "sha256": "0bb4dac667fb9de07b2b980181a937c06903057e53270e28fc89cf10db1c77fe"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_001.json",
+      "sha256": "ff245336dc2d858bf117c1974ca079b6520fcf740c22a62e8ab5701a5fe8dfdd"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_002.json",
+      "sha256": "9ad9bfab476ff134e0aab99bcc5e14a5b5eb9f5f2ac8035ce97eb37a2c11adcd"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_003.json",
+      "sha256": "481954ded9333c859a2488e2cf7f466010991e1a4affac52d80ea28d6c438ca1"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_004.json",
+      "sha256": "aa6eb6617f535c906d1d27e928d43afc0f4aba9df9b54e94c34c3bb742eaafc4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_005.json",
+      "sha256": "fef69958e6576b9eadb3979b43531cf0ed51799312e89be38dbe8d323cdc0814"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_006.json",
+      "sha256": "5d2d3d5d24c2be7e7aa084032bcb4ae98b43261c6eee69c48b7f925b6f0c7ea5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_007.json",
+      "sha256": "3b7fd92e7b7a559e2b95ea0601b5708eefc3cd9c201a4a07dca4653033c1e328"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_008.json",
+      "sha256": "3f2ab152ae752b372e559104073341ac85bf132069a79a04117d02463b69250b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_009.json",
+      "sha256": "7ad7b2a2a2947e1f012b3c970d5bc025951b5639f656538c64bf6ebbbbf6c9ca"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_010.json",
+      "sha256": "388449e29b2c62ac3400365155d070261828e69edd9df7b7150f2a0f6830485d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_011.json",
+      "sha256": "cdbdb417a6671acd35910e005af2c36597b9695851e781500742144f7b414563"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_012.json",
+      "sha256": "0fa593e2f67c9dc7e363994f4a2042bda27d7846645a7c8d52d65a395724802f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_013.json",
+      "sha256": "b0f546ba453cd8cc8da136d54bffc09231fde7bc0a151cb0862c615a750a638a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0006/utterance_014.json",
+      "sha256": "c76b3c007a2152006808c648d6a2547d35c311c9897f04c7b6cb35f0ce4e7c2a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0007/utterance_001.json",
+      "sha256": "ff5e67e7d0c5fb6caf8be8ff05d02b3dc06086b30e593c828b2a490f69a9ad28"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0007/utterance_002.json",
+      "sha256": "214164f66eefffd4d969714e8f3a7e4d06293b4fbea0fa12308d331793d7ad01"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0007/utterance_003.json",
+      "sha256": "d2ef34234b034d4783a3822f5599680d39d328c56670e4aeb20c348ae479b88c"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0007/utterance_004.json",
+      "sha256": "8cded61dd06f8fdcbd2e2ff449ad929ce7bbd01cd543fbea9e4bfad646fdf2b3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0007/utterance_005.json",
+      "sha256": "dd566808549b63658cb4509ec9e3f67d4267354eaba509eb6e265fc8ce7bbc68"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0007/utterance_006.json",
+      "sha256": "351af0c180732bde30e1de2a7f8f85b3f7eb135262512f456ab36cec30746b39"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0007/utterance_007.json",
+      "sha256": "fdd187d01b90b23c6fff7cfca27b7df1b4fc3c2dbb0ae69d13e1fbf9196ee153"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0007/utterance_008.json",
+      "sha256": "d86108e00fff4a6a02592069f26f999127b1a8a79796df3a4a0938b06aab5f5d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0007/utterance_009.json",
+      "sha256": "68abf4269340f2132de31678b5fb54fbc1242ddde7ab38c4e3e0d5e1a54b6141"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0008/utterance_001.json",
+      "sha256": "51044b851625f2077d998bdb35e6c18a4e3f8af713e45e4210e03614ca8ea5b9"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0008/utterance_002.json",
+      "sha256": "f42b9b370c1aaf8228c8fb1cc5f085a1adb22ebf448dab6f23cde5f888bdfa09"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0008/utterance_003.json",
+      "sha256": "c0167458b77129e62ca3ffefd5a4eb8b3eb24b9f112e41faa17455605a01aa3e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0008/utterance_004.json",
+      "sha256": "9bc7d3ff80bb5b9a699fda165baf2fc4cd61444232a77b7ce721be137a1adcf8"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0008/utterance_005.json",
+      "sha256": "fbf86311ea7de3d415fd9f0e028ff002d7fb68c1f16fc89b0da5117cc4b8c18d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0008/utterance_006.json",
+      "sha256": "badc7a8d69fa048b89b86b14a4710b57e41b70c8d77fcffcaddb8585c6423d78"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0008/utterance_007.json",
+      "sha256": "471aa887bc1795adac3a415baa82c37ee7ac95b6a997a85357290c8c929f5d71"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0008/utterance_008.json",
+      "sha256": "bc5c3f9487f5f8d4bdbce71b1f0fc1b8c16c433119a2d8cfd86ad2ee1a14e102"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0008/utterance_009.json",
+      "sha256": "5bf15a5120be894d4f368662c2db9b85070a30537d05ae473ca0f0277d44b189"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0008/utterance_010.json",
+      "sha256": "e4240f812c2d7bb8a3cb8123579e31432d8164ab8ccb3225baa235d935c0a79d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0008/utterance_011.json",
+      "sha256": "789a9b7060a01876b6fd12fee1c4b6802036c2b26200b08a939a7d1b2f1756d5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0008/utterance_012.json",
+      "sha256": "852cbdb7c148960bec55a793cbdc22c1cdeec8eaa4a8dd40887c62dc8d5fff5c"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0009/utterance_001.json",
+      "sha256": "6c9cd85c72a87635c226e58512a22c6b7ef90abf6b2a791b454ad76450696314"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0009/utterance_002.json",
+      "sha256": "133f7ec1e7acb6d045f384fc017510157b554c2be1f1ba585333ef91d323de19"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0009/utterance_003.json",
+      "sha256": "ff1b68c1c972ba2f19b5cf8a162a026bda03441b4d9aafd0dab7e6d3e289f5a3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0009/utterance_004.json",
+      "sha256": "0fcf1b75edf9ceaa0e525e0f5632ba1108ec1b5523600180d3e1fe9a33cbcb90"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0009/utterance_005.json",
+      "sha256": "7d5f78fd949e986194c09b969e211084800c2aee48250e573c1730ddc92e62d6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0009/utterance_006.json",
+      "sha256": "e2d620771afd825c64363d5161a8b7fa89a93cfbe729262d88b62f8a0705d2d0"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0009/utterance_007.json",
+      "sha256": "e973b4cb1861d0d6822dffe4e2fa3bfffa3bdd8bbe6c7363103e4060ec92cc7e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0009/utterance_008.json",
+      "sha256": "f9fc630a494e1cc192a1daa2e1df078974731d0a58c02fb1054ff9620c88af6d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_001.json",
+      "sha256": "a2749d5a35e1e4b61607fd836851ef5402d54ac85e40dc08b7de1d57c57ef7ae"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_002.json",
+      "sha256": "fbaf7a245bccad4b2d586dcc8b8011626199976ae946a95ab165290ce5d49ed6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_003.json",
+      "sha256": "cd47dbd87a042f642058447b098e4e8da03ee3c53cf83e7b1218ae30dfee5fb9"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_004.json",
+      "sha256": "5c1a84fe9feb6c03b11e650f0705fee6bf0199907230e7338b6a1dd0c75abfea"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_005.json",
+      "sha256": "6ffd7cbbfe666494ad4a5d24f76397ae6ed9d3ea62918f73e9b82ced886ad018"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_006.json",
+      "sha256": "82613cc5f33d837f830cdd3b2a576afa0c3ecc7f1d089fda31bf7a7b09f348dd"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_007.json",
+      "sha256": "7c2e932f8b99d3851819007717eb5e78129a8777f0eb13d3d60cdb7041fff9c0"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_008.json",
+      "sha256": "057671d882d8401e8f94c5c8b4493532c0f5bf10d4ba55cae8d2d6c2921ea5d3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_009.json",
+      "sha256": "0c77d11865a08c7759c8cb477fb6b38b639faf554a631895df6397f5e845c148"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_010.json",
+      "sha256": "bcf03568665845776e3157e08933206d32667d8b406d46b27406e8d4d1edc469"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_011.json",
+      "sha256": "139327b03f5507bb2165eb01bc6a1cad4b995bea7d46583576f3d233b03765d7"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_012.json",
+      "sha256": "cf4fa70c09829af9f5d78de50c7c070ee3ba1e47f2372797e45c370a26f975f8"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_013.json",
+      "sha256": "6bd6fe068fd839047964825d0975313871854bcffa0ac845461ac1c9a3b26dfe"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_014.json",
+      "sha256": "20860e722163edeba30f32ded4494a866504d3c4c414a9ee83588dbe6ca90a81"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_015.json",
+      "sha256": "73556b7cb0bab23868c26a110535aaef3b9ec7068b97f1fd9e501e1a224c7087"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_016.json",
+      "sha256": "f58d0aacddcda8fea13f70a7c9800bc51df2de042e97a6f1557da1d2b1beba3d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_017.json",
+      "sha256": "de1050f1b15b02afd6c084226e7103b08523ee9a28558964add0c8a29fe88e8b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_018.json",
+      "sha256": "4321f911ece8658090da08a0017846e6d7a15dc97f3d3e5562a81050a99c80e2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_019.json",
+      "sha256": "2b6dfcb7cd35fda2edca56639cb93117b89d3adedf8657604bbf4f8dd860c7b5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_020.json",
+      "sha256": "17df8dbb29f83f209932322c53dbf327e21d445ee77847b1fef1f0e03d4409a3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_021.json",
+      "sha256": "de599b4a0adc75e0293c6d8f77f5e8fd1affde7920364e32f502f37e1ee5672e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_022.json",
+      "sha256": "7d2785d78c5b539d13e28ce5a76afcccf371a3a4a8cf6311d387f9d59b7deebd"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_023.json",
+      "sha256": "13aa7d4e3fe87c94570b1d1bed0a28a202d7c57b58f720160e8600f76de887de"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_024.json",
+      "sha256": "78e1287b81df0d33477687fa540043c233aaa050147e96cf470418b52b2368f6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_025.json",
+      "sha256": "23999f0bee86c53903cc75e640c6e2e95f36c2a2870c42cc1e0d2a999d16d6b9"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_026.json",
+      "sha256": "4d086e9b101152df04af134dfdaf70c108a1c52907bef226813bdaa990ffd6a1"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_027.json",
+      "sha256": "c212e29ba96f4cf63967025e9c2a3b9b867c23134dac236019f7c274d619d312"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_028.json",
+      "sha256": "d0962f1077b8d6b8093fe7b19fe90a1ea8ffc078edf6a50edf375ad2c030d71e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_029.json",
+      "sha256": "34d4f0958b3da0905692cd3da4917e11ebb8686c252e74d829a4ebe538b342ab"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_030.json",
+      "sha256": "c8b2455b1a3ab31066e8745e67d13de66e437350fb523ce20c1554031346e10e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_031.json",
+      "sha256": "8deed51f55c0e266636d43f3614b86d037fe520fae2ef97c4c461dd93206d9a2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_032.json",
+      "sha256": "ae4d6586bdf0df7bb0ce8c17bcec93b8db1ae60dcc71c1788ffea59c1b1c34c3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_033.json",
+      "sha256": "dc899f176ee35ad520dba49e07a96ae76a47489904285d0f28ca47ae20c066a7"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0010/utterance_034.json",
+      "sha256": "86d5cc2b2224b6dacf32e8c2c04362f8ec4b0a6076ed5845551fa873bb918cd5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_001.json",
+      "sha256": "2f378272df8bee88b755fcd8dead73a3f7b894ca65b924b6408cd42771064737"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_002.json",
+      "sha256": "eb2556d81bf5d2f130324b7ceea199b23f014b5bf901159ae246dd88e179cf33"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_003.json",
+      "sha256": "fec4aed563ffd6aeb2394b8a28f98da2e7250a76a20fc0d57f8529bf3489be17"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_004.json",
+      "sha256": "4640b68a14b3fdddf84791fd0dca531a0444f8ab1a9eda2cda8520c0a85693be"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_005.json",
+      "sha256": "05fe20061685723be21fc6546408d7332ea4b5ed24258717686f9d0314c8883b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_006.json",
+      "sha256": "b716ecddc0035b9d6cee49017bdebcb9a9f6f0398795df7c23045d630da0e735"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_007.json",
+      "sha256": "8ba6cdb66f2a258f67787eb9d8dc09be0ad8e55b0612bf53fd1db430473797a6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_008.json",
+      "sha256": "645210bf0e4e9ac18b539594040eedd8cb870ce2b44aa99676cf923783d01084"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_009.json",
+      "sha256": "7b59067c88fae8dd98f41d41e41c6a05c80a83d322f78e0b052ee8193eee3ec1"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_010.json",
+      "sha256": "7dec54c6e58fa5b31394ae321120df36047a66c99b4a28703241b4af1615b8dd"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_011.json",
+      "sha256": "4d2473bf29ba6132e21a4e672579939b548a4c8989e563c1e92855274aff0572"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_012.json",
+      "sha256": "b81a41bf1c3be950d32daf279127bd26168aa565847f85f43a26e3603553a446"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_013.json",
+      "sha256": "9d7907c70d562a65f2752b8c0b49913d7e8389e01398701572b884b529a38675"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_014.json",
+      "sha256": "a0588166d8770f2ab5ba73e99d4607d8509feea80f811be30977b71a7c1145a2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_015.json",
+      "sha256": "71509134493d21fa53ce80154ca49697552070bd079403733ff8a5272cf8b09d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_016.json",
+      "sha256": "d64b64a1158dcae510914a8c2af15c3918d36a8af75427278723dd5dbb7147fe"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_017.json",
+      "sha256": "56318d1592cd1d6b7abeb32e30874a0361a5db2a7af4d45149401f0f63154270"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_018.json",
+      "sha256": "a7bc3b3f799b33503e629ac1be117e0e9e9cb08f311fe792ecd3a96760dddb03"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_019.json",
+      "sha256": "4a842e4c24d343a8f4f960641b9296e9877d97db0a8a4c1fbf315a7aca23b55a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_020.json",
+      "sha256": "661eb0f8cbd6751b8b7496c234a2c356ddf3b5dfc27c61568da5f92690b5d3a1"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_021.json",
+      "sha256": "e73bf9ce63678a644c6ca64994d493e566a489e1af676a4e7c53642c5fee9540"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_022.json",
+      "sha256": "19f635817b17732c9cc21d08b6c24c6779a31185d2ed28089d8cdbba49d11fae"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_023.json",
+      "sha256": "59fc0eff4b862c4260cc6a5c85ad62ab8c7b976b835de4f6f3e4e0b6a69ba963"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_024.json",
+      "sha256": "cb913af5be6964f3f6cff85844049c038bd0a5c79e046dbd6b4df7d8f2e9f7b0"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_025.json",
+      "sha256": "7e38b244b7ca33da6a31b2888413f79e481bf2515766cb9fbfb07946c86a3111"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_026.json",
+      "sha256": "32a9179b24df8fe45d2fe1bc7d35e485ad5b23532eae9a83d55a254eb08e083b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_027.json",
+      "sha256": "1c4031e4f4a67bef26316f1e79810bbd8e41d04fa466f9dded5bae0cf2229b22"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_028.json",
+      "sha256": "498513840475eec760fd2eafe90afa5843b7a4636b8555216e10a87fa61140e3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_029.json",
+      "sha256": "3465ab4c0ddbeae10d0c860bbc82dd66a93baad9764004dc76694cfa4a4404fe"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_030.json",
+      "sha256": "61ee1eb4b3eed9b387f12c91cff845b897f3faa458057dd03b060ed874e8fc43"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_031.json",
+      "sha256": "396abd19901a24a4ec48455afc35cbd362d22a0d053e487d70bbb3ae9cbe6fae"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_032.json",
+      "sha256": "40a77abde1afcb611f2265889f89963a198ca2a9c39110e511f5fb68cd7c7375"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_033.json",
+      "sha256": "b0641d025d63bafabb1ba359fdcadf7079fc0083cc1d9b59736782d76751c470"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_034.json",
+      "sha256": "b355c4392386d59ba6cfdfc35881e094f41b0013485684078485e05085c97d6d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_035.json",
+      "sha256": "33f740e5500afdd1ccc3dc63c7cc741f372048dea91688ea86654d95dbba980b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_036.json",
+      "sha256": "feca8323a74be9681ee3365aa449a398836c5c3591b8d8dd9c2bad9cb376d7f9"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_037.json",
+      "sha256": "26fd7e9f496767f78470675de6aad25a3e4f1a1450686f9a410fb45d27933d39"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_038.json",
+      "sha256": "d930c738adb4811cff98114e8b2f2aca58d768beea2214fcb3ef4dacd6e5d7d9"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_039.json",
+      "sha256": "867ee0198ba6c6b9e6cbd05802bdfb85ec043bc592d01da35cfa07a54065eaf6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_040.json",
+      "sha256": "07de0d00da907c92fe1dfbf789df3bf4e1351aab02892cbcc03d6faf7ad5b9eb"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_041.json",
+      "sha256": "412c0e9a0b32f0e034495730918ad4f7368d3702c0ce900e629378e472636c1d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_042.json",
+      "sha256": "e209f4ed18b4b2f9217120ecdbff799654821c2e2b1c6fda6a53b0cb54328f5b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_043.json",
+      "sha256": "aefe95822c0df36760e15dc263375c9075694ca809c1dd597e39b2db467b20ca"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_044.json",
+      "sha256": "dd0a762bc6af35f9d5406b4e747367a573143285f7e1fbbf775b81e396017378"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_045.json",
+      "sha256": "f93e02510311c454831527460811512260274ab6aaa8315ec9231ca2b756e028"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_046.json",
+      "sha256": "6871158cc7b8413507f41020fc804fd8d3bfce9b929d6c17ddc7085f09d0bb1e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_047.json",
+      "sha256": "41292106fe8a2996f2741d8057eb1f82ef246912acd34bf6a14718d32d5d8aeb"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_048.json",
+      "sha256": "8900f508a14e2c66695826b421cdf89eef9a91dc7160fa5592193bc73f45f6bc"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_049.json",
+      "sha256": "2d9a96300a8486f5e58f3456afd845924ed3b67294a78f9794dd15b9a7716eb6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0011/utterance_050.json",
+      "sha256": "a45f928da9ce066725d916efc7ba53b4a6c5d00d191377006d20ec4304ecadaf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_001.json",
+      "sha256": "d699981558ae7fcba3ffa2203346ac3d0b4ec80e88a982f4dbd7c533c7a96df7"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_002.json",
+      "sha256": "ed09d0f5a2777aa74f1b923538b10078efec3e9af5c2ea9e3544b543b9577b43"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_003.json",
+      "sha256": "1c56d34f1a3dd818408ac49aa1c5436d9716fa1c7dcc2f9e5e730459bc98a190"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_004.json",
+      "sha256": "f549140ca39256788ca0ae42c0f3a1e6350edc228bcb8d0ce239a5534550f0be"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_005.json",
+      "sha256": "50c970b807ee451ed47e8c965e6a87abc18e35e79ce0f50463faa7ae90d5f6d2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_006.json",
+      "sha256": "a5f50c180b05e603133f3cc37fb34be3129cdf8ad0b34e32ace1566514310d85"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_007.json",
+      "sha256": "ee4ae1903cdcd25999a0af1b8549a99739f9724bd25544bb2d95d1661dc92ea5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_008.json",
+      "sha256": "475d722c1911440269a2ed2453314e4f2f925c4ba82f267b8b4f0262de107142"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_009.json",
+      "sha256": "71e667b15bc8352d04de011fc4bce44dfaae442ca5cc12e193255b4fcd079e4a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_010.json",
+      "sha256": "b99f544134d7bd92671a38c94b4373558fb69516f3e1e608e12188ae87ec274b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_011.json",
+      "sha256": "efe16b4d50309bf10a987763eef7a1776a7a352efdaec6ddc814ae23790f4fad"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_012.json",
+      "sha256": "3f6e0609bf6a758035dfa40d432743205a5bed62a3c08be3f5be493fc4d5bb88"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_013.json",
+      "sha256": "8a68f7de6c8f4a1d36d490047cce2641627e983fe4aa5b26fa52759b943eace6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_014.json",
+      "sha256": "4f58b495f0e269eb0da4891d4d10aa30db0234ba07a79df2ff33005525425c98"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0012/utterance_015.json",
+      "sha256": "c5320d933a665a0efb9312a2e26bf8e4be274e70f0344220059b6dcc1221eed4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_001.json",
+      "sha256": "6033aa43c6d31cfc1103adf997c540f1dcb3d80d2b43af4b07d16f6f50f90924"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_002.json",
+      "sha256": "eab989936a278ef271f5948909f17b6034a441e3d3cf91f1668676fa0d4c7bf4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_003.json",
+      "sha256": "d2a53d546ec42383f59b347b9da45f69b66967c8e0c1fe1f2af87c39a54c0c89"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_004.json",
+      "sha256": "7692302b2d38356e06a6b0acf998980d484cd164c96ad542d714d7eb64889b82"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_005.json",
+      "sha256": "a31cfd57b050162d6abc69e209f36a6dd7640f82eda93112ccc5e5c1c286fc6a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_006.json",
+      "sha256": "5ec4515c37b545e79f86e02cae8059adbe304d894d432baf08159846d8164d3e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_007.json",
+      "sha256": "5f08e3256e3de103d44a9180075cb6ad04f82ea27ea2d44af7c8185d966e96c6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_008.json",
+      "sha256": "4be1de7364feeb00e1d87feecf72a8582ded4bdd76d2b018ab50eea9ac0e6c2f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_009.json",
+      "sha256": "4216a8a6e629297a5fbb4aba0e1c1150d1094b4578faef495365cf30edf4cfb0"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_010.json",
+      "sha256": "0eb89d9ed0a74867f07fd912a28b9a02b2c75a7e10966a2d3bb3b3a5ac0eae47"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_011.json",
+      "sha256": "66100951685c5325f00d09c228ecf4fd233ece5f41a7e6d1c06979b72fe15bc4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_012.json",
+      "sha256": "cff046fb08f6d91cc5244a486f139506332dd413290ea17460dacbb460d9560f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_013.json",
+      "sha256": "cad9892d0b76b8714b0bd9c99fb34883dac328b29925b80eb80f8682d74a8f21"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_014.json",
+      "sha256": "7ed7505719b4ff03a25c27943a8dcab9aa443cc937864cb0030862f364e73b3d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_015.json",
+      "sha256": "7d81f4b216c96f62624a592fb1a4ed2ff8f178c560c060703f077b0492e7ce73"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_016.json",
+      "sha256": "2f4670f72b4a03cc527aa68200c4ae7d0b6c23d2e3283337a89f171800219548"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_017.json",
+      "sha256": "e5b22375edcd8c702571fce33841cc160762b3b2420a82ceebd6f3925811f945"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_018.json",
+      "sha256": "9d6a201c6a4794957aee61c9b66547b91a118aa3bd0aece0d3aa3c6409e324c0"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_019.json",
+      "sha256": "1c5f6a0a0a786dcb279f001fe25d7374c4d1866813d5ea73e2c05db711cfd6d2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0013/utterance_020.json",
+      "sha256": "04340ac9062422ba8977ae1613560b71cd4b026f93c71cd37b5e21b24e857a81"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0014/utterance_001.json",
+      "sha256": "813b9150db3923cc12293a83578c3d95716d0219008f9fca24f1a4f0f8a007a9"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0014/utterance_002.json",
+      "sha256": "cc8d9eca7b5a9e2010882c47465c5bc04c0c7dc94088f68294f2aa605bd3094e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0014/utterance_003.json",
+      "sha256": "5b33839f27b6bf4987ba94a1456da732bad890f4f2bfa5253fd83ce32ff2dacf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0014/utterance_004.json",
+      "sha256": "4d609d22437fa335077020e28aa73db0a8b30fbc91d8bcca554af76ad790dd39"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_001.json",
+      "sha256": "1cd7024f414519558d4723fa4ef02907ef4a3356211d7f03fb03b5c67942f6f2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_002.json",
+      "sha256": "96cba858e8746f5404ac27bf5d347d52cee28122996585f03d8c857ad44d2d8c"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_003.json",
+      "sha256": "c42545b415245468551e63b4a0b298b3baf9a408604de95dbd15cc018a1cf83f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_004.json",
+      "sha256": "552a57159d6922536cef96130df2af8d78bfc91e11dadedf5ab4bd59a30bbcca"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_005.json",
+      "sha256": "30fc1ec2fd2129198d1d245d9c2636af904c556d726eb741f360e9b6e15f2b61"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_006.json",
+      "sha256": "0cf297012c8e369c1e9f41c4f276106235e1d3906fbbcde8131e54fbaff4dee9"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_007.json",
+      "sha256": "946c2439ad4cd18bf4336953cabb8d66941757466d7de01b91dfde41fc381735"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_008.json",
+      "sha256": "6e6d5c406515d54222f5f0e9949e39a806da84098c97a5ce173cdd5c89980a10"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_009.json",
+      "sha256": "d86637fbcc8c65621abbb3430de72deae5ba6250eb317702d46a2edcc4f47bee"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_010.json",
+      "sha256": "8a3ec08296b922a717ab3e56d8e3443e471d7f8bc3ecdfb204628edce0f95e8a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_011.json",
+      "sha256": "90a98f0cf30c62a8668b88279bef74177bced8d35f941627c85cc216aae243a1"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_012.json",
+      "sha256": "9fdf3a368866fe4551004d1323e5b07990417a3118b2eaf8a844efcf70345cdd"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_013.json",
+      "sha256": "e9d2dbe79e729368f8039d72819853ddea846a542b245f76f85ff1189186027e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_014.json",
+      "sha256": "523ba77e5695628c9e13408590b40851a75f613e0827bc1ca178d1ac8d230961"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_015.json",
+      "sha256": "3aa5abaaf6b76e1d47332877138d6f4dc0a07b9a82b57601fd456422ee6c94c2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_016.json",
+      "sha256": "0141e29706860dfd41717f0fc8831dd46098d5229eb4d64ca5beca9b1e075120"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_017.json",
+      "sha256": "cf36b44fb60e3db7c7f8874a0926252ae75f2a4bb93f51f6c9dc001752844dc1"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_018.json",
+      "sha256": "db574011c7010a26af6f5f00509218f3a5c3a9f9866dc98442345699165155f9"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_019.json",
+      "sha256": "2c5e0e5143dd0d7a40fcd7e89b24272435898bad91268cb92e1e6f3e1dae6cad"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_020.json",
+      "sha256": "94bac336cc8f201cab6a87669ebeb789005823a338412f6f97d58efbe9f49803"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_021.json",
+      "sha256": "8347189b5eaa01fbeee3e1baa6231d48dcd7f85fbfcb29a4e94fa34bc836617e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_022.json",
+      "sha256": "a5ce1bb137440520b82179f3bf6f8d307842a779d5b6215dd658f3931ed7108b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_023.json",
+      "sha256": "5bb9389f3a43808a6996bdabeda58d5eb3d5898d7d11bb9cf49421e0fba88664"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_024.json",
+      "sha256": "50880b56d97f4fcef51cfee52ffc6e72d1070d121e736c68c3d0522fc3ceeea9"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_025.json",
+      "sha256": "ddbebf6f317f8ac4c38496587a48ed8add67943ce45d6bf9ce99f7ab92a9c6d2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_026.json",
+      "sha256": "04a9babdcdf291fd3911dd09a0284ce80af6fc111af7a6d529dbb5ef7154b033"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_027.json",
+      "sha256": "036486ae29c52d28c4f3f756a656d6e8536f657039a6aef74785a8cd447de9a4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_028.json",
+      "sha256": "823fe118f041eebd872daa2076381f1780438e5d64803b77abdc8b02a0b2a13f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_029.json",
+      "sha256": "a609761bac7133af43a0dc406401eccb6d2eeb918e015fa093b46eef9fb888e5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_030.json",
+      "sha256": "2ddda31e12e3743b55a2f55399a1f0a1d06dfc27d62fda079387c8c264d2c8c0"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_031.json",
+      "sha256": "2c360c0fc249453128a43ef4aaf48e1595eeca9432ecf94f366fb8f204cd1794"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_032.json",
+      "sha256": "3e96ed74363c7cf3a5c32b34368201321304391e065a0ea71027c0d029341a7d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_033.json",
+      "sha256": "c315fba74b4de228126931840f1ea0a7efbcdface36c9de33353c141e4c182e6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_034.json",
+      "sha256": "5acb52fb4893466aa4adb3169fdfd0a6dc091ad742c109d821ca1aa49dfc2d8b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_035.json",
+      "sha256": "d93021f16d7d6d21d60c5c3029cb1f4187e98174e539d430d9c2b570b54878cf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_036.json",
+      "sha256": "8ca499bb3c071866cb472f618cbdd1071820d5798fb57bafded8d3dda7f4c347"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_037.json",
+      "sha256": "5b4f5407d408cd7f2ad85bde8976f5a71cec04ed958836f676a2dd14b56dbae7"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_038.json",
+      "sha256": "5e0b495bea980f4aec43d1f16d27a75fdec856556dd486fedd464fa5e6f55f93"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_039.json",
+      "sha256": "59dbcb1bb747cffe2d54bd4184cc87a117946a59460f4b51265895885e80c39c"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_040.json",
+      "sha256": "37ea878a8728617ccc32388e1f74b1ff70a86352198dcc7d491304c4ca1f8af7"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_041.json",
+      "sha256": "03326d0cd7e8bac6e187210b0f94c4e4103925c849a78d5d3574c0671b788538"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_042.json",
+      "sha256": "0d1d27f1cd519f80267019b72c3f677dd28e1b3f5b166592772ff7ea0ba81757"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_043.json",
+      "sha256": "6a955631a5d3c278aba131de9c53415f512cc55c8f676760cc69761b4d1fbd02"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_044.json",
+      "sha256": "539f45f71c4f9100ae1065230552929e205a4ed8c49f8b1871735b3c6d6b73bf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_045.json",
+      "sha256": "72afd8a7bf6244547d75b65e0b39ad773ef343404aef5f7315e4b4daf97069b6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0015/utterance_046.json",
+      "sha256": "59422a6a4ff8b1340ed638086ec0be8e041ca8c85c6dcd3a97a7bec80e92cc15"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0016/utterance_001.json",
+      "sha256": "9d42c27c655381acdbfb14df504ecddc42c690b7cbebd47c3a788f15ea42e08d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0016/utterance_002.json",
+      "sha256": "89036ce9927f4b4ca8468274673c62e7ddfe824d732d08ba06250e08a044c4d3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0016/utterance_003.json",
+      "sha256": "2e9b6425f900ec02468febac9cd25d0394767d7c2d016780718a2dc15323dd2a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0016/utterance_004.json",
+      "sha256": "2acac36b48f9d0bad8f3e2a92dee98159cf7fb6ab46b643ea526eddf9d1cc151"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0016/utterance_005.json",
+      "sha256": "abbdb4570c793aecdd8adc77f1db8536a18e41e3196dc6da301da6e42474baea"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0016/utterance_006.json",
+      "sha256": "bb395d95ebd3a47495edda307541b6b1f94c36f0c4a7211b1aadff34442bbad8"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0016/utterance_007.json",
+      "sha256": "0052f1008b6fb53878f6fe83bc4f6ce89674b77fc75aad1c64bbb259909f231b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0017/utterance_001.json",
+      "sha256": "1feacd3bbf40724dd972842a0f25b220ab32cf052386fc09f322b9f0ac83d105"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0017/utterance_002.json",
+      "sha256": "f1f8d571161853e1ebc26fbffb05cb2ff82ce83a5669c864780a0633374164ba"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0017/utterance_003.json",
+      "sha256": "834dbf974e43c0c3b7764306a9e3836d47fe5b965582b1cd5a1bf989f2e8b335"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0017/utterance_004.json",
+      "sha256": "bf904645f3e71088affa9619f74b8fdac0190f3d4a0c4f06c37755a2f0bd2cb4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_001.json",
+      "sha256": "d164186b29d05b7ef83df1a36e2cd57ea862489b37e1f227d336de69b1b2736f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_002.json",
+      "sha256": "e1f75bf02c9009c9fe5847e4c39fb8ac205d89a0132bb33f0a060a75c0e91d7c"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_003.json",
+      "sha256": "f292b98f5662402d2bda92ab2db6987946d2168cdd348446964a9c411dfe886b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_004.json",
+      "sha256": "c8f95df9efd4930e37177f25c206432d954a489a83dd169be69f33cfbb28726e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_005.json",
+      "sha256": "185f1c73e0e3274e22ef7fdcd93e9064c3357410b5af3fe0dd3aabf8901c18da"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_006.json",
+      "sha256": "6d11a1caea19d2cc799a8978caf9346340ffedb61970eb99a7da157ec2398a30"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_007.json",
+      "sha256": "03d9f747bdad00800b18e09859fb478ea5c1c2fb5b1df8a4d2bfaefd8da03e77"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_008.json",
+      "sha256": "4679ae21e9a3c75753e0943cd5cf93ba441f15217cc374e73c8c0750f30d6674"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_009.json",
+      "sha256": "04026832454b11d2e7a13bda7d6f8eedbbc03b28ee86f24fc5e6c2efb53c338d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_010.json",
+      "sha256": "ff4f10ed31f99a36b935a4683107f661758e569462c586ab685fc0651c3dbba8"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_011.json",
+      "sha256": "8d8247927fc5b436f17ff19d9bcc65ea9cbaf1fd09830b29dae599448872b1f5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_012.json",
+      "sha256": "5e500e4c36e74869d90243f2ba1e6ce22c9c6628a296293a9488a963308ec9d4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_013.json",
+      "sha256": "2ce894ef4cff08a67652f3d91492c8e4303e78a2fec32fb71f36abad14830a53"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_014.json",
+      "sha256": "1d963e983b85b157804ebcc7c0c0ed4995699c2f64d82bd094557b38910a83d9"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_015.json",
+      "sha256": "9da435b7e71732e363691c29989f53c21001eb38da9b7aff21c1980dbede168d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_016.json",
+      "sha256": "5a9af1db5ec4836f7e807b5cf525eafb434a0bf40f5bc6f98d58e194e4fd8605"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_017.json",
+      "sha256": "161b7f1dbf5a8348bf89bc742051d8213487c3e307d7282b3fd616f12ba37449"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_018.json",
+      "sha256": "7ee152befc83e96d66740862ffc4133ad4f3ca1e33df580cad22a6c7eab45935"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_019.json",
+      "sha256": "e9f6315181d9ff32a97b7f865e667a2136391172b25ddcf78393d5146ed7cbdf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_020.json",
+      "sha256": "a5b83fdfae1d83cf128c1df811319abcbca71a43e6649646cabd5d27ec102557"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_021.json",
+      "sha256": "9539d8c2bcb475ed8c1ed3f541794068b8af651c3f7d9503165f5e36783c1834"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_022.json",
+      "sha256": "412c123b89ba9c1a448d3b5289b8df3177cd2cf6b27433c6ddc502ee481e1228"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_023.json",
+      "sha256": "f5a073365b60ea8c0454c0a7cfe6eef8b4451e6c3de8d76f6c4a0d788ca693da"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_024.json",
+      "sha256": "2a4deb3a90dbecf563f8bd82a95b1a029c3efab6eda0398435816ecdcae82f72"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_025.json",
+      "sha256": "2f729d07015a0c876758e22bc2ad6017b62427d13479109d97ba98088eb01df7"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_026.json",
+      "sha256": "0c7c4361eed73f37575f312d30e4a32f9e10f5dac6c5c5981031cb3222b69b60"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_027.json",
+      "sha256": "f6ce1227f6f8e7b247bbed3c863c54264b547f77a2a32de4ea99705b75c49274"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_028.json",
+      "sha256": "ebfafdf4bba933ba0cf2e5449ce24850f38c834b1224602d07d08df0c0255341"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_029.json",
+      "sha256": "4dc5129dcfa4902ccc51d35740ec8b66343545c01dddae2ab2453e8e44f711ef"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_030.json",
+      "sha256": "3251ed313167a007984f7e0987a0ce0f78650a862e750f6584ccf38ba0aa1424"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_031.json",
+      "sha256": "aec4ac2576ca467adf1949b5193d3390eb7d0e09b6d6aaf6b431f9ab2afbe8d7"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_032.json",
+      "sha256": "14aec61a6220e2066b4f7c80f66e508e3e93bef51e79f756cb8dae86ccbc4f0f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_033.json",
+      "sha256": "619277e1b95a8611da38f33bb6eabb543c5a30ecb500fd8cfb615208089d6adb"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_034.json",
+      "sha256": "cf301360eb83818fb53b31c9064a2fd96d84bbd7becd8c0341ba37075bba971d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_035.json",
+      "sha256": "e0d186282e417096f9bcdc14765937989d8a06dbbdb20a513ecb251b0a279638"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_036.json",
+      "sha256": "8bf7b23eea0264b0b68f957e5c6f896fe3dec79d37165bcb83a1905de4490560"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0018/utterance_037.json",
+      "sha256": "ce97d68119d23e9627d851e3d02547e7b36299a515c03a08c6090841305d8378"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0019/utterance_001.json",
+      "sha256": "620910847474845dbd0e81c64c1269959c61a8be0d3391c32bccaec821a08ebf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0019/utterance_002.json",
+      "sha256": "efc80060a843691887d61032e29d6c09138ab5c7837634807fcd4678431644df"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0019/utterance_003.json",
+      "sha256": "4cc47ba24d9e7afded3a09f7f18a5c4079aaac8cafd1132a5b53c0acf0bd7ded"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0019/utterance_004.json",
+      "sha256": "3ad739c675ce5b903bd80fc5bc3b7a884117919cc010fbbacf6f3a6c2900f918"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0019/utterance_005.json",
+      "sha256": "08f635ecc4d7bba5a82859b0ed8238002ac4bf527840c8a71547d5ca66da5c7a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0019/utterance_006.json",
+      "sha256": "ab3f01e80042c4b8e13d93fbba15644542a9b8a75074b8c22b6bf75e5d0855f1"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0019/utterance_007.json",
+      "sha256": "74f141908e224b520b5b90d2c4473d0b8ea59d20354cd6bc80a5ed5aa6530d4f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0019/utterance_008.json",
+      "sha256": "f1c1b446932bfab2e9104bd4331a88a77c3a60cae3c24c613bfea2ff92f37577"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0019/utterance_009.json",
+      "sha256": "ee5416a0ae79ab9ee1545418995dba33807607dfa0df2f94217458468bbeeaaf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0019/utterance_010.json",
+      "sha256": "25d817b091c46a7685f5a871ba7dea8051e7ec1d85a76715d473829903729ec7"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0019/utterance_011.json",
+      "sha256": "0c8839460901869bc8cc977ad44217efaaef308be03184c8b18ec43428d67fff"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0019/utterance_012.json",
+      "sha256": "c51e6a090cb3137d62dda744edd7d7042fa0f9e261046bce881ffa513aa06fe3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0020/utterance_001.json",
+      "sha256": "b41c28175b571f9f0845176a48b9e9d07b3c12fe58a5adfd9ed2028a92797c5e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0020/utterance_002.json",
+      "sha256": "7b4ece255c8f837621361e352ffbd7fa8583c5593d171f1f8b3548de7a197a93"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0020/utterance_003.json",
+      "sha256": "4117a3d7c89d79396c00edf98bc31ba35fb5b6b403b01fa2c190c28826697de1"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0020/utterance_004.json",
+      "sha256": "40b6b62f3149dd7d0a588a3940a0e6c4adb2ccd78d192a5673d9d546268c4c8f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0020/utterance_005.json",
+      "sha256": "06cd9b828319a613b68987f791d9b6eef831c1cc59c395bc22b58f43f81ade5e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0020/utterance_006.json",
+      "sha256": "6afa55d12bb9179fac4d666f1cd100b7c2aacaf7bd000b505c9623c71143e4e7"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0020/utterance_007.json",
+      "sha256": "6766ceba672f72d0aaf0656d51cfceadb7201d39e21865ec6af1c6df5ef30b70"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0020/utterance_008.json",
+      "sha256": "1d04bd3f0379e3f015c0430af532d0859ff2f914de864bc54a4adebd44572bd5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0020/utterance_009.json",
+      "sha256": "54281932f2d7689d5dc67029eaa17aed9a7ed00bbee8a38e10b24bd2e7cedbeb"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0021/utterance_001.json",
+      "sha256": "b9274b3aa299b7e28b7d545d939869cabc9eb0f56c5ba3c98f92b9b6d1ce295a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0021/utterance_002.json",
+      "sha256": "2967cc041eed22f851416f72ee4288f3d9a03f1adcfb17091b0fdf75e87c020f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0021/utterance_003.json",
+      "sha256": "f6528a9b7a7d18c668789f680aa96c98c0ffe2677351c053c44c46835bf64b77"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0021/utterance_004.json",
+      "sha256": "ba448b6dc48dc0de97aef1647d196a194ecb3fbf465d822626bfca486e252454"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0021/utterance_005.json",
+      "sha256": "64f44a9543b621636a5a67fc29195cdc390bdec8b5598461d1ebd03ec95f13ac"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0021/utterance_006.json",
+      "sha256": "e4118311e98451a934c08a97a88831d61a4df0ffb0a44ad8e8a7d001d1820509"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0021/utterance_007.json",
+      "sha256": "0afe1ab9c5b79ee9708c639f487cdd2ce3e1c939b03113203cca6a67e0cc0829"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0021/utterance_008.json",
+      "sha256": "713a22c0f3d60606d580473f701a75c17df5880f237cca87fc23fbebe0600cf1"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0021/utterance_009.json",
+      "sha256": "f572cbfd1fbc4fea32cfad0a8273b82c4f499c3aeaf3fa0a633ad72a67c7f36a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0021/utterance_010.json",
+      "sha256": "bfa8369df2c50f50ad446eac15f1c57e5c1c453b8fcf1b9035bc42706cd3e4b1"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0021/utterance_011.json",
+      "sha256": "daaa3ccae18e7f7604b222f74077f16410f23ba8aa7979d9a11f10051564b13b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0021/utterance_012.json",
+      "sha256": "d5fb4e12a34430aff82b057b0e85909d71d6d3b3a3b4acecb90d2f44b83ae1de"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_001.json",
+      "sha256": "35aa3ea38f98fc22972cc7fa429134146a614153404ff804920f29451c50b135"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_002.json",
+      "sha256": "38a65a1856ca3d406d91d886ff84bbf747d7c758412b53d3a50d2c77cc52a33f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_003.json",
+      "sha256": "2be6ef9390c01e1201a24e4b1c68ba46f8fb1aea87a93423e090a7b032e5d8cf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_004.json",
+      "sha256": "2e5a4703a263655a22413ef8fe4229d1f2e2bb6cdefe542859f34527c82bb055"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_005.json",
+      "sha256": "c6792286c4c9713b9b9198e635e52fc2dbe5074988272a8a0847a9292a9cbb37"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_006.json",
+      "sha256": "cffcdb7214e3ccc09feda701fd83c61001dcd97f0a650eb81582f619095f7d9e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_007.json",
+      "sha256": "327e88ba514deca5eb56d1778ed50d0a96c0b9db9527e3ac1a1ac1c047de1ac3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_008.json",
+      "sha256": "77f6203f9771a8751ce73d16630b0fbd4547d1c8f8f782d221f2d9577301ee16"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_009.json",
+      "sha256": "5f2ef7e72a16a8477e64309f1756a078d23084689d5c1f609ecfceb1f207a661"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_010.json",
+      "sha256": "4cf17ff0ccd412528eec74f59874db01fcbbb3fe361f0f0420af897c98c566fe"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_011.json",
+      "sha256": "06750072ac43291a3e9f88bdb098d6dce3333a5acdad888de1168b696f05f6d2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_012.json",
+      "sha256": "17e81b5e6961ae00f8cf666da38015001b3e2c322e29fc667d23e34909a6a057"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_013.json",
+      "sha256": "c5dcbe90117859191c5ec82f41a3b44c289fd0080e5785413a076de4ff3fe093"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_014.json",
+      "sha256": "438182553f15ead9e510415e8189b5d9f63e8591a5beef927734366b0ff97b62"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_015.json",
+      "sha256": "6a4baaa602fe124515cada38e8a3be7e89d2b65c48ecb68e7ca0c5463c3fdaea"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_016.json",
+      "sha256": "a0f486936f090923f5c84922e15c6d847c64d6cc1bce13aa5bdf7e4fa5ae06db"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_017.json",
+      "sha256": "4d364877a20f0927bec6c72eb2aa6a5c028b9006abc491a6c8731589a1c77ec4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_018.json",
+      "sha256": "323c05d0a80f28b8b16135808e0482899f9ce9bca371353df410e3b1f90d7f9f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_019.json",
+      "sha256": "4778f6cfd5378a5a5163cc45946564273616bdaa97c7436d3768460210ffd7cc"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0022/utterance_020.json",
+      "sha256": "7ad467bffe4478c5dfbebfd541c75c18ed64fd306fe459410b9fbee8ec66647b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_001.json",
+      "sha256": "1d9c42bf5ae3694b706b0770af1ed1f9a67f48ada66b36a5ffa17412ef57cca5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_002.json",
+      "sha256": "8e21fa51d42ff16493c8363b40601841eb377f09061360bf2c35db5513550b0a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_003.json",
+      "sha256": "34feb25ce44f06d21bcb62c3d7b04c7013df7eb1bc2fef19cfbd19e5d0f0ba7b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_004.json",
+      "sha256": "f69af0f550c7ce0a2d4c78fb7ec5ed7f4c258b89e9f4963ff5c02438b16bcff8"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_005.json",
+      "sha256": "acd431411202dcad79591b527bc707b9486fd66bc76a4b2192b1a9b939c96c1c"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_006.json",
+      "sha256": "abb80a86a2ca200f15ac7b9409b1c11bb27e7a0987d8feba5660a7c8b531e8b9"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_007.json",
+      "sha256": "c2dbf0bd1dce4beea1f84ea8ba466f94a79c12f33c430f0c4764a701734ff955"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_008.json",
+      "sha256": "01a9b8301c3a0b16605cd247d25d402862d60b706deb91b1bfcbe0d83dc52533"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_009.json",
+      "sha256": "07c9a2cd2a40482084f14f9ae3281208485bd5806c1c2c1c78ad605473c0795a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_010.json",
+      "sha256": "120076678a6732ff6ccaf42cef1f6fcbfa02ab70f663e892d5a9a3d546e9d39c"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_011.json",
+      "sha256": "7810759127b5927e1d7444177c32fd2c46650ff87fe9c71691e4fad36bcb8448"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_012.json",
+      "sha256": "55bd22a7246257aabc76b0d7ae69d230c9f2f404a4ed32fc6ec0bba87da9ed9e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_013.json",
+      "sha256": "b788b96cb8e57c0fa5a469ca86248eb2acad458849b5900cc1437c562af6bfbd"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_014.json",
+      "sha256": "b4e791d6bcbe30c8d67db4c9193e3182ca0569fb8a883c543cc282b71ebf35bf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_015.json",
+      "sha256": "cd1fa21e3cef2508fa1351b20e07c4befbd009f9a3538d0a2b11bc9032b369f4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_016.json",
+      "sha256": "a4846fa956d867aac11d028daa0fc5e763af18cf837cdb81d86ee79fdfab0d06"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_017.json",
+      "sha256": "ea17ad1cde36b1bf07764abe0817b229d7106bb632dff54094eb6a21a036c0bf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_018.json",
+      "sha256": "d0397bd198cd61a98a0b8e937dac026a93504d52fe1fea11bce6e2a26c3cda1e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_019.json",
+      "sha256": "24d51b09737d25c7168a33d763d312f143f9cb77354b3bf75fbdbcd6c17056bf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_020.json",
+      "sha256": "68fdabf65dcce4382873f298583340621f306a056b2e72d120de54c935ded986"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_021.json",
+      "sha256": "4daa7d790f579a4587108fbde62fcc62ddc78ce366752d3b7c72ca852de12eb2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_022.json",
+      "sha256": "061132be4f659399de0165965b8a6c4b548f643de58e5a73f24e592af13bcbf2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_023.json",
+      "sha256": "f2e1d98764ad7f5baf28d22d252ac1a932b4da3d3dc5f1fe2f53036993bce083"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_024.json",
+      "sha256": "013c2fe17deda7d6cb87f468c7c104b1a1abe6419aa4c6c85cbf16b7efda63c0"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_025.json",
+      "sha256": "9df3a57b032426602bcd01fd71deed42367794f64da6b2d56fe498a91634b886"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_026.json",
+      "sha256": "0a5c181d396adbbb9099325cf5d3fe59e24ab8c3ad6aad5fbb034dd4e12762e4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_027.json",
+      "sha256": "f0d331ccd4df224850289229ddaf25bda434b3477aac1e38459943033467114b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_028.json",
+      "sha256": "55a963d2a5538595f8e001a086f2222dfdbc94ceb5e6db2747cfdf8a57aff2c4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_029.json",
+      "sha256": "d3e58089ae699067adf5fb846dd92c6891edac2b9162b6710435f04e6a7edd6c"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_030.json",
+      "sha256": "11e43564132fffe7a8bf8075ec0f5a65b9a14c5abc33a5f5027efa82ef43717a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_031.json",
+      "sha256": "29df00e3590483121898a17fb44686a15f5c478d3c0ede2a55ffb56a03657c9e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_032.json",
+      "sha256": "7e08308abc4d5937d3267374656d45952762b909a676be990830f3e36ea6ec04"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_033.json",
+      "sha256": "0d97c3e06baa431437fa4a5628e4a300a376755e308307683247bd751a0064d4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_034.json",
+      "sha256": "9c7494e5bf34aacc3cca989e784f69b7c04534b0a3c01383b94568a391b5d77e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_035.json",
+      "sha256": "9d4fdce6e6d3bd0fedb1646bb2a8cb3c4bfa2461b12889d9232e1d8d57d3992f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0023/utterance_036.json",
+      "sha256": "933a415bda7311e511877a51b254f5a644b80e1b893e36e260dbad6d0d03aa94"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_001.json",
+      "sha256": "9a6441ed07e9a5efcc71b926734ac35da6517979c5bfeefd1e2b972dcdebbcba"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_002.json",
+      "sha256": "7199d6b2481e880e0155a0a641e5697c6c535cf04263a069e112dee996046511"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_003.json",
+      "sha256": "b717e9789686ba362e6af4fbfbdda2e32df56b16303af2d7d20f6dad88243041"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_004.json",
+      "sha256": "4aedf92d74ebbddc1e4228d41845102997212ec96ddc67860901aa290a94ac98"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_005.json",
+      "sha256": "3a099789303588f42ddb974c9eeb4301b6d4d6ce1ed2884b55f64ddd5837dbfb"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_006.json",
+      "sha256": "9f97286a784211071971260b64f9a1826897b87cf50b4f10e9c30a0027a0515a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_007.json",
+      "sha256": "35097ae1db932f74a160c21b5fc414bc0c115f9bbf13f3639a29a227d1269c89"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_008.json",
+      "sha256": "07ed30465045d9f4cb5529f09b734d3848e9bf22fa9ff50f286cc10531d9c389"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_009.json",
+      "sha256": "4bdfe7609d56d2cd92e1160fa84ff393232ffe769587779499b08d0632b8cb96"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_010.json",
+      "sha256": "b6016f6e5375abcdb4fa6ecc4ccbd5f18f1f87f55f4bbc01088693682466dc9a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_011.json",
+      "sha256": "f87a1139077aa634d6a8de3ccf13ab00b8ba42e0b39ed7e51605cef5216e8377"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_012.json",
+      "sha256": "be92c5cd9aff895b923de585ff994bde78b670914477314ab4831c9c708b96cc"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_013.json",
+      "sha256": "43811e04c7b25d89ebac64da4fe28e62177379111e0a164d78572fd5d375b0e5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_014.json",
+      "sha256": "27c75b04c264004450cfe623f90b1468f8b4624570378646f08f5d4fb4e13530"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_015.json",
+      "sha256": "ee09cd5450884c0173a1754d0478733cc62379eb5d37b0b7f091616543dc5c31"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_016.json",
+      "sha256": "9415e2e25c79ab9912ef26e1da9be05d0c9fb549023fbb04eb96e9c050d5214b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_017.json",
+      "sha256": "254a9570238cd59f79e1d09444709064c1dd8d1e803f19801e8ed5e11b502b8f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_018.json",
+      "sha256": "673fc17202e9872e965af6b6dc15d857aec45e586899f8e289acd38cdf57d990"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_019.json",
+      "sha256": "278462b4001275458ccf81ebacb0496a1d0aeeca74d980f9e397ac097657aaa0"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_020.json",
+      "sha256": "5e09b1a08691e0c1c9aac49e0f6aa9c3d3c1827dd6bdc7af2036f8de52f82c6e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_021.json",
+      "sha256": "2c5fe2221857defd001192d6c221f60b8322f4ca74e95b2151e33bd78150fbe2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_022.json",
+      "sha256": "7ac6966e46dfd20c598f26174e31b1097f31f202b405c85acd870e57b193c374"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_023.json",
+      "sha256": "8d19f3a3eb76173d1d0b12959646bdda71848b8052ddc953384413cfc5399135"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_024.json",
+      "sha256": "55d92d3b72726bdab52e5110d4b5d124d95a1b29dd79b4bfe6324ca4e773c6b0"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_025.json",
+      "sha256": "4bffe416d8045105b019b6707d8b9910b5f6474f5e149576d3c21df20ff59645"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_026.json",
+      "sha256": "13e38de61d3bdc8349d6e0859ea3704c4718ef7938c6547709649cea058109c3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_027.json",
+      "sha256": "69efe686cd8fca5197536a418fdace46ad974325217e774e69634800a12921cb"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_028.json",
+      "sha256": "3e1e4ebea4f48f2b45afb6ab8696a635e67f756b924cd7e28be6790974309086"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0024/utterance_029.json",
+      "sha256": "fecec2f09b1de3a181f6a8f52400fd71cee576e29e9a9c2297a397a39f5f0e80"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_001.json",
+      "sha256": "ebeabfc097e06e53de1a0a469f7f9aa24d03437a1e03faf3d107fb464a5b6f65"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_002.json",
+      "sha256": "4ccfe35d2093668e8fa92279826627b0440194be6de4bdde4ced36c812016184"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_003.json",
+      "sha256": "e094902dc3272eeb7d8f1ebff2e3f758e5a412eef22d753bdc5abeeecaa677dc"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_004.json",
+      "sha256": "bcd10c16797b3a71eee1a04898d16a683553f0c2a1867dfe3346cd9aba5856e5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_005.json",
+      "sha256": "633c479ff860cfc4d5550b5774e1112f12119ca0ffb13e7c608accea7c5d6419"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_006.json",
+      "sha256": "6da6c193427326227b31d353f3de5f00e1fdf8369d56deac32ad9305e93935b3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_007.json",
+      "sha256": "9208d902600d2ec78a6e563db9ef0a3a4e021f74c74c8179b3328c90da56b21a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_008.json",
+      "sha256": "9a972cd948110654f853a87bd901283ca188b9ea14b528f31a598ed4da75424e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_009.json",
+      "sha256": "7d5929ffd2bcc86815cd6a4b5691ff7d4632e403169d524da760a3d75c60eda4"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_010.json",
+      "sha256": "368e5f99ed9f6782d520805861660e40085846ee32aa8c274735e4bc1f56e692"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_011.json",
+      "sha256": "8a877230b50b579d8122c99ce867e239bd8309478b69783727338cb266156f93"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_012.json",
+      "sha256": "eb5d488dd1cde54c851c3bfe26c6f32e1a88df5c6702d3f297041aa5c7a6880a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_013.json",
+      "sha256": "fa9cb126ad808334bc26b94a238b946b82b93b07734ad52a45e520a157f871cf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_014.json",
+      "sha256": "2375866cae094a375f269258e2cf90072b8a9d27b4c3f498f929004388385ef2"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_015.json",
+      "sha256": "9bf71b90eabbcec83297c84b18fedbf23dcec6e1a8e038c2a8abc29144dc8006"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_016.json",
+      "sha256": "ef6ad8b648046923fd9ae7177bb3cde210a3745313b7f6a189a0d7714a51d2f3"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_017.json",
+      "sha256": "a4179ae240eced51fa14fccb167b9589b01f688cefac3f53a478fc103f5ed1e5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_018.json",
+      "sha256": "2c6b607037262448df2ae32faa6de5cd3c61b88c056a29669a92a085934793cf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_019.json",
+      "sha256": "80ed5d29ccb26ac431dcdf94d9a73417bb405335c8d72b11007d9f3b6d8c480e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_020.json",
+      "sha256": "38eaf720178a2fa2581dee9405abec245473902cb571e8bbb3694406a2f9fdf6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0025/utterance_021.json",
+      "sha256": "222f40e5e23c3245ef3298bde8a09fac15b90ac627f7c56f0941bc95390e16a1"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_001.json",
+      "sha256": "190885b9860c5e1cfc042ea68337e8f96bd24e5f1e70cafad9c4f94006692663"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_002.json",
+      "sha256": "e0644ef00a0f8106769a96eca6c0138497441f03c2932c7933203f8f4a089e2b"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_003.json",
+      "sha256": "8678a86c7a1d46289c0d30d3a84fc928eb377d5d0ea64e64d6051f02d1c67be5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_004.json",
+      "sha256": "87f6fdc8342e1f31f5830393d434f0c1534205841623bbcfb9742c7b199bea48"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_005.json",
+      "sha256": "517a6c2a7b1496a7794df64e537acc77991720018949347c93482ce3a913eeb5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_006.json",
+      "sha256": "a4417e6d4e614f43291960e56a4d99ce7e634ff2177e3e9d3a593756cf3ea8fb"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_007.json",
+      "sha256": "cdab4006c9f77ef4baa090cab2243971434d3070be217d4a0b242c5f8dc1d9bc"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_008.json",
+      "sha256": "155a87b2d9076994bb35b618e46635463a7a7fe5d29625cf17807240740a287f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_009.json",
+      "sha256": "e649c50d89d0a4905d0245caac62e6567657dc5b17297298c667dda244000977"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_010.json",
+      "sha256": "18c1a796e16c0906c7cb79d9b6bec4ea48cd38d67c7b010dda8abd8bf99ec13f"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_011.json",
+      "sha256": "4c72510a1338364e7c6bb467a4625ab4c81e4befd66ee78ae0603194697e7600"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_012.json",
+      "sha256": "379839e06c659d42a6220092f01d363362f2fd2645678eb8f7f6b8ab1f532c74"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_013.json",
+      "sha256": "9f77b71ca51ac6b8de4d5006668ff0088122e95caa824f2f8bc2bc9231e5ca98"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_014.json",
+      "sha256": "f3215de12b48ea443017570aaa3a83d08e76bdf6dffb6c80bcc740419402166a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_015.json",
+      "sha256": "fb5117f2184b769f0ddc58113bcecf5c596906ade50fb2228092da8458f84bf5"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_016.json",
+      "sha256": "003b7ccaa9159be9ef1f5d9cf4150955edb361025214fed10effee198c09d13e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_017.json",
+      "sha256": "e00556a9a745d343e454f1b83817a04fa7eb81d325d875d9aaa0f6a7a8609a02"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_018.json",
+      "sha256": "647cc995d134cf0d6f3abf5948f43201d0d32b301aabe94c98a2e38b7e97254e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_019.json",
+      "sha256": "aeaf84cd271b133b7b61d4d64ad0031b939c8898adc98a260007d9c9e7c40dbe"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_020.json",
+      "sha256": "000401b83827821215c949789036ad21e3c09f123d9a648cc786d23bbfc8a4df"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_021.json",
+      "sha256": "6a722b820ffbffea15fccce0e95db2c963b48a14738a61fd5cacb123747073c6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_022.json",
+      "sha256": "cf4c53c706bd7809ebb9388e1f2aa55e1f01ee5441e39054c9704d154bc46baf"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_023.json",
+      "sha256": "fef40e8c566bf4166f083350546aacd65a6529df48c657a69d7e856059eb0581"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_024.json",
+      "sha256": "bca401948d817e25f5f94f649afc460533bacab6f0a409e2726c8354fe0a5000"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_025.json",
+      "sha256": "381fef2605aacecd376259785a78772151ff24d382354fbbba331b8bd6fe8fff"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_026.json",
+      "sha256": "1b22bd527ef71340414470978cea6cd82ba4250574177bc7eb5f2b4d4ec23bdd"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_027.json",
+      "sha256": "8886a838cece37fbc1e65138aa72200ee19801569617f8040e57a41f60fd76c8"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_028.json",
+      "sha256": "6fe2a741da92e7c47ebb4639c17050c635cec4b6feecb4efbc52792844d850d1"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_029.json",
+      "sha256": "76dabc728ca024f01ca623fbf33e553f07b57d64ef1d88cbc08d417029fddc35"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_030.json",
+      "sha256": "b46fcdb601abbb3c5b8f86bc1ebb585877719787cd842b4acf6fc57d43ada873"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_031.json",
+      "sha256": "37dec6a177bd3c112242ca8eca2b450c3306a9c34fc5478ff439f9629bcd3262"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_032.json",
+      "sha256": "fd8021cc8656d10cf5ae6a7434d9276a2eba81efd4d57c75bf9fc0b15a180043"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_033.json",
+      "sha256": "4721ee7b25d2f624b99ce55bad8cbb5ed0a7b216c6df7880f81b4dcba5bf7ed0"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_034.json",
+      "sha256": "94e590d8790a937c53d179ad043de9c462189c308ab54a2b462d9e3b3fde1f4e"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_035.json",
+      "sha256": "a72d2a7a0a53448f9da0955f4a908f6bb7d26603b258245a38ba39bc370612eb"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_036.json",
+      "sha256": "be917e8a6574d12d2890d7dc5b2a591480f04b78163a809b5d41e0b6a62078d6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_037.json",
+      "sha256": "0e5803031f4becc03ec9d018c9d8b6ea032b0eafdc63c16b577ca5888d2cc086"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_038.json",
+      "sha256": "c8a4b848712c35b60d07e8fbd6666011b5f2b1df88e690c60ce3c3186c25acea"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_039.json",
+      "sha256": "b4669128884bab10b3f2b30ddcffea5f672f6e6e4b3aaf88bcf0aeec5892766a"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_040.json",
+      "sha256": "bd9e8ed6820a23cb0952cb565594f398e7b59550ae01296df34c7c297db8fdcd"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_041.json",
+      "sha256": "14f8c43ddabc7b53952141cffc6eb0567b242916b188d6640640144b69c2888c"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_042.json",
+      "sha256": "ec3b96e705797f77db37749f23d4982dac6f27012f89d6089273966dab0fee8d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_043.json",
+      "sha256": "2a954df2fd02ac8cbc5c0c69d5d5fcebffdc9e3c601d01dafeed176a250ea474"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_044.json",
+      "sha256": "c17a8cbecf86ffd8ff10fb8b964269614472848959eca4f9c739da83cc130e14"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_045.json",
+      "sha256": "9f8332b13526a537191153d0e4dda64b00ea92319da05af0814c665455273302"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_046.json",
+      "sha256": "28fb8a2f44369c000f79b6fcf0b070932fee27212b1d9ad157144fa79ff65c21"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_047.json",
+      "sha256": "1e7aa2d1f7cf586610a191991b2806424ac50dd101b9c7ffe91088e2afb4e467"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_048.json",
+      "sha256": "7758341c3d4f9d15bce92ce1220fac82b077d4b47b34df294ad6aae8ec839b13"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_049.json",
+      "sha256": "f9ef12332f5085343fc87430c3dee989ec5cff956d6881262814f39c3a65a0ff"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_050.json",
+      "sha256": "7c3906cb73786dde5ce3013434016e31ead1b2988b75d16fbc822b64002d90a6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_051.json",
+      "sha256": "545a3bcab7d22445493c788a516bddaae27304c3c41a2a9d88c08c4e44800e23"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_052.json",
+      "sha256": "5bf57a03763dfd2a58ef910c93afd8d97f879627d046847136d85b50362f214d"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_053.json",
+      "sha256": "cce8244495b6dbfa6045c8ee847214f2a2ba808bee69816742f17f1415019269"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_054.json",
+      "sha256": "d13a38aabc8fae81734c3bd74018eedca5f2422a70163e54030d77dca18e7f82"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_055.json",
+      "sha256": "3970953201fab2210e72421b9c6a068a6766ef3b57fd92db5814ae51459216d6"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_056.json",
+      "sha256": "05ed7842e0931e49110e52fdd884879d910780d762a4d36bc538a5eed24b9bbd"
+    },
+    {
+      "file": "dataset/01. raw/phishing/P0026/utterance_057.json",
+      "sha256": "9b01ff1e510ea57cb7bf7851363c032528d8ca4e3504f8a8d46b0fca08388c0c"
+    },
+    {
+      "file": "dataset/02. staging/normal_part_김해린.jsonl",
+      "sha256": "92d412e11e58d2643562f78059b3905a41b1468905d32a1f9abe7a00b1cafb70"
+    },
+    {
+      "file": "dataset/02. staging/normal_part_이지은.jsonl",
+      "sha256": "4b7a798158c685663d2e093d8b746077a440b17078db5831b08d7f550a705b2b"
+    },
+    {
+      "file": "dataset/02. staging/normal_part_임정윤.jsonl",
+      "sha256": "8e8fe5dd38b79dcd1ba0b4df89f09766e246a37d6996f927ddd35b2f7d921f8b"
+    },
+    {
+      "file": "dataset/02. staging/phishing_part_김해린.jsonl",
+      "sha256": "67fb59d44a3536279b9dd843fbb68b7ee93e7e7088f458b59b30f5015a25dade"
+    },
+    {
+      "file": "dataset/02. staging/phishing_part_이지은.jsonl",
+      "sha256": "675f0eec14d2f501591e39cddc2cee3527ade53190c6a8dadaa7b8a54557546e"
+    },
+    {
+      "file": "dataset/02. staging/phishing_part_임정윤.jsonl",
+      "sha256": "b8335f9dc64790f129aec83674c64dae5c0ae82e3fd27ccc1f89963b37265a64"
+    },
+    {
+      "file": "dataset/02. staging/pilot_labeled_all.jsonl",
+      "sha256": "d36603fb22ebea2e917fededcf69ed50690069364c6c718b2f79ca9800664017"
+    },
+    {
+      "file": "dataset/02. staging/pilot_labeled_N0001.jsonl",
+      "sha256": "732aa60023c4a6ee27e82d21499ac8356cbf762781aa0b081e46e331b5ef1080"
+    },
+    {
+      "file": "dataset/02. staging/pilot_labeled_P0001_P0004.jsonl",
+      "sha256": "f8992c4d3086b5ea409e3eb548260e54cfc0a8c2336835e3229d41e33bb49717"
+    },
+    {
+      "file": "dataset/02. staging/review_queue_김해린.jsonl",
+      "sha256": "49b1e0c95c0fcb553258b0c3710a7f8f52af43adfed786a71c5649dd103ebf0c"
+    },
+    {
+      "file": "dataset/02. staging/review_queue_임정윤.jsonl",
+      "sha256": "92eb8bc1b7c5dd8d0c17b1aceb526367a7f281816cd33c8652bca3ceeb8c7716"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0002.jsonl",
+      "sha256": "960680af3fbc840829f5aa6a9f1071022ad24569abe13adf5e1470d1c5238755"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0003.jsonl",
+      "sha256": "17fd227cddc9f94482e6fbd93668785ee5dcaebe80fc4475da163261c51cfe0d"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0004.jsonl",
+      "sha256": "459416c3f1a3314c5281e8308a3fa48a479d89aaf004d4893bc872f4b7278ce5"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0005.jsonl",
+      "sha256": "584af0de08baf99122be451ebb69b363ef30e47fc1419be7a9afe3541abd4ae8"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0006.jsonl",
+      "sha256": "aca48ddf1cad6c179773b1cc200eac76b0c93d1d4aa61f11e40be75bd821f363"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0007.jsonl",
+      "sha256": "fa5f4e113a3019935f5942f3c70a6ef1b848f66726d6e4d79b629b5c738b349a"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0008.jsonl",
+      "sha256": "d27b3be6fac9b7d13411bc3910fb515fb87164d54f331a579e706d0daa1ba654"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0009.jsonl",
+      "sha256": "c4b470461aa5031a0743657bed1766ef952718b686a6709a3fe4c1f6d4554efc"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0010.jsonl",
+      "sha256": "146df4c2dd3f839ff3fe6d91c7eea4b112a52f9f5b5be076a809e7b7320a1b10"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0011.jsonl",
+      "sha256": "fc0553c8c507f86d0a9e935a0e7fc0b380e32da6532b5632a3d6edaacebe9e4f"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0012.jsonl",
+      "sha256": "616d3cb3fa5a007786ae2e93a6009f3bceeb6d2bb3d1fc5502e414bbb8943596"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0013.jsonl",
+      "sha256": "28443ff9673d1f19f4614c98c8a816fc9446f2c543e320248c46dc2b878684b7"
+    },
+    {
+      "file": "dataset/03. masked/normal/N0014.jsonl",
+      "sha256": "773712c1621ffa049be4b39931084e126af7f2cff7b81e98c6ea03b155f64727"
+    },
+    {
+      "file": "dataset/03. masked/normal_merged.jsonl",
+      "sha256": "a63f9f09e334efa28e5f07ef4b9b7016d8bf1f4021475c5e2abfc84e6807e64c"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0005.jsonl",
+      "sha256": "48c1861e60a4e10875eb7fd7960fa2bbe0ffbc1bd655e897083986176441eea4"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0006.jsonl",
+      "sha256": "786504de9162e5f054d7768ed0dab983c3fa613145ccea6b1cb8b646c85f2693"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0007.jsonl",
+      "sha256": "3ff2657bd66053d13d17933e94e3259f405623809c6904ae69cd3fd9c9954bbf"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0008.jsonl",
+      "sha256": "f7e7db04e09054d3c8fca1e06663d79290caae80bd3942116e061d267614e631"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0009.jsonl",
+      "sha256": "0bf194a03a7b61c4301bdb68ee5008759a5de44a4d71b0975bc9784460c520f9"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0010.jsonl",
+      "sha256": "8d12911f525b0956b5506d08066d9f7dd833888d13d9ad4b86110e0441bbbaf3"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0011.jsonl",
+      "sha256": "3cc1d49fbabda9f5103ba40efeab1a3d5e17d1e310163bcd8190b6dedab44761"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0012.jsonl",
+      "sha256": "636c36b9c2bc4ef586d8d3a9432b979a8cade4c538f4feaee55bfd683c15ca33"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0013.jsonl",
+      "sha256": "0a0b0a7ae9bc33cd6c0b9aaa4b9f38a7b150ebf3363f45cab7a0d5c86771939f"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0014.jsonl",
+      "sha256": "f49cf8262105d7460c4ea227b67e98db1f18cbd744b9d42a24301c5fe942d23f"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0015.jsonl",
+      "sha256": "4bd61f0fd28e2e33eb2d6b69c87540d43e3b2727c002b74e1a74943c2bf17be5"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0016.jsonl",
+      "sha256": "4608e196ae84203d6c8aa0db5489e4bdf38b75a93c55fd2e0f0990677d51e62a"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0017.jsonl",
+      "sha256": "b771b4a91a94aae5bdda41eebdca900a944cd3c80e7f7ed03131ab5b7fd7d28a"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0018.jsonl",
+      "sha256": "fe1c0146a3ccc775a048a9c758fd26dbfdaf937d1499e3c2252257aa7930cc9e"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0019.jsonl",
+      "sha256": "1bbe419e7673af3ea7e923f5dcc8289b9ebfb458f1fd90769afa56d6e594cb3b"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0020.jsonl",
+      "sha256": "21288772d7a719480c15c5191c19c256bf1caf56f1e6bbe802760edf4b6ebb80"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0021.jsonl",
+      "sha256": "f0eeaf688147c98db87c1ff3e4da51507e37ea7e00cb48c9c5ceffe239cb6303"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0022.jsonl",
+      "sha256": "446f8451b6286c1d2dc9bc3d6149a4f13f214b19bde4f8807fad8cbc83acb6e1"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0023.jsonl",
+      "sha256": "11e3f88c88782fbeea3b237e6221b87cd7fd30afe00ed46916f820c0aa4c20c5"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0024.jsonl",
+      "sha256": "dd34a0dbe37a7713f82343dae8f87d37bc3350aba93129552329a6ac992c2850"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0025.jsonl",
+      "sha256": "6557951ab9c998b8603c88ce157992ba7abae63580555ae4c828fb24de0526db"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0026.jsonl",
+      "sha256": "655f209372bcf022dfa5886d3081bd77ccd572f9da5d8b0b6f36412423069798"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0027.jsonl",
+      "sha256": "d5237b795f5d480bc9ed0f60e69fb152b5a87a9820202e4798c6b1497f5b9824"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0028.jsonl",
+      "sha256": "83d84cce33a5ca9bf41d0b8b26c581acdaf9da17e3cba3aab15682ba8fce6ff7"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0029.jsonl",
+      "sha256": "bff35c41481df42d3910cf31cdfc4302ed34474313bfeb21e43065dd51c05c45"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0040.jsonl",
+      "sha256": "8a76e5b7caa5f6385ff2b0c838c16bbe340341c91d70d3b5fb16423f29a6842c"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0041.jsonl",
+      "sha256": "5a666469d9f5a1627409af1c0630b663a1f173049990e24ae5b0a2a6434f17dc"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0042.jsonl",
+      "sha256": "f9ad66d155f0e3a40c9e5aee4f3668a96693444f22dd23310279ee877735d8f2"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0043.jsonl",
+      "sha256": "e9031247b8ac937345bd1bc0b30c94d906d0713f8cb5313df1b67f9e3038e256"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0044.jsonl",
+      "sha256": "99e80c876f8a819075d667dd05ece29f9393521e86bbe03eefd6b28b5564d3a0"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0045.jsonl",
+      "sha256": "95cddd26542e7a21268f598c62cef4b1cbbc57af38563100ef02c6ed563504d9"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0046.jsonl",
+      "sha256": "1605e592d64d10cd0d72e152d0bcd2276803930975d99a5a23d91c21fbe3b516"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0047.jsonl",
+      "sha256": "ceb77909d383573112e9d00bb92b61f00b7c1a1d9d313ef0c80dcb522443e14e"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0048.jsonl",
+      "sha256": "8123a66ff12f7a7c5c6aef5c83e8c89776ad46bdd8f05a101a09f583dbef6b76"
+    },
+    {
+      "file": "dataset/03. masked/phishing/P0049.jsonl",
+      "sha256": "a2b1168e47bfadbbd5a2ae9f934faea89ef43a06344a248d747af76d76b8e62e"
+    },
+    {
+      "file": "dataset/03. masked/phishing_merged.jsonl",
+      "sha256": "fbe4c916eeb47e7aa43939885eca736e8de6760a5abd697e34f7ad7a7d03c63c"
+    },
+    {
+      "file": "dataset/03. masked/review_queue_김해린.jsonl",
+      "sha256": "9a6a7a970fe8fa268e25668d7e31c96b71f096a349055c7ff9cd29593c8bb149"
+    },
+    {
+      "file": "dataset/03. masked/review_queue_임정윤.jsonl",
+      "sha256": "5906632127c439054b4e87694b7a6ebaf1990385cd68d4aa7e9499cf7d5d1bec"
+    }
+  ],
+  "unique_local_utterance_versions": 1281,
+  "unique_local_conversation_versions": 98,
+  "pilot_exact_utterance_groups": [
+    [
+      "SYN2-TRAIN-0003:4",
+      "SYN2-TRAIN-0006:4"
+    ]
+  ],
+  "pilot_normalized_utterance_groups": [
+    [
+      "SYN2-TRAIN-0003:4",
+      "SYN2-TRAIN-0006:4"
+    ]
+  ],
+  "pilot_similar_conversations": [],
+  "local_v1_utterance_matches": [],
+  "local_v1_similar_conversations": [],
+  "limitation": "Only locally available files were compared; semantic duplication and unavailable v1 data remain unverified. Candidates were preserved, not deleted.",
+  "near_utterance_candidates": [],
+  "scope": "Local reference data only; this is NOT the actual v1 training-input duplicate check.",
+  "scenario_limitation": "Full transcript sequence similarity is screened. No semantic model or actual v1 scenario descriptions were available; semantic scenario equivalence is unverified."
+}

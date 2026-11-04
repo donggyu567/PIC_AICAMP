@@ -1,0 +1,228 @@
+{
+  "pr35": {
+    "url": "https://github.com/donggyu567/PIC_AICAMP/pull/35",
+    "title": "feat(ai): KoELECTRA v1 학습 데이터 연결 및 정량 평가 구현",
+    "state": "open",
+    "merged": false,
+    "head_sha": "9bab7e383928426e2d866de90acae013fe1f7d86"
+  },
+  "assets": [
+    {
+      "asset": "KoELECTRA model definition",
+      "classification": "실제 실행 가능",
+      "actual_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\model.py",
+      "origin": "Git에서 별도 복원 완료",
+      "source_commit": "9bab7e383928426e2d866de90acae013fe1f7d86",
+      "sha256": "945466496b24eff750982723c7e31fc325d0cf8a52cc2e7095bef02d99e94fdb",
+      "verification": "Full base architecture random initialization forward passed; not trained-v1 validation"
+    },
+    {
+      "asset": "Training CLI",
+      "classification": "실제 실행 가능",
+      "actual_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\train_cli.py",
+      "origin": "Git에서 별도 복원 완료",
+      "source_commit": "9bab7e383928426e2d866de90acae013fe1f7d86",
+      "sha256": "6a7afd6244183163cb9b1d432ddbd478ce91d13723cdae81b45379dd0468972a",
+      "verification": "Actual validation-only CLI passed for 136 v2 candidates; no --train"
+    },
+    {
+      "asset": "Training implementation",
+      "classification": "실제 실행 가능",
+      "actual_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\training.py",
+      "origin": "Git에서 별도 복원 완료",
+      "source_commit": "9bab7e383928426e2d866de90acae013fe1f7d86",
+      "sha256": "7adcf627345480a97be93f253eeb3b042ab7b6a981c05682e1ca7d87cc6b529d",
+      "verification": "Imported successfully; train_model never called"
+    },
+    {
+      "asset": "Dataset and collator",
+      "classification": "실제 실행 가능",
+      "actual_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\dataset.py",
+      "origin": "Git에서 별도 복원 완료",
+      "source_commit": "9bab7e383928426e2d866de90acae013fe1f7d86",
+      "sha256": "c86f104f8df60e8f9a508ba4ba64e81c886041ddfcdb653aeee8f74740d37156",
+      "verification": "Real CPU DataLoader generated 34 batches of size 4"
+    },
+    {
+      "asset": "Tokenizer implementation",
+      "classification": "실제 실행 가능",
+      "actual_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\tokenization.py",
+      "origin": "Git에서 별도 복원 완료",
+      "source_commit": "9bab7e383928426e2d866de90acae013fe1f7d86",
+      "sha256": "ea93a473843713545e587cbfd9d7789ac52195332b6b7b8866d170b4819a0cd3",
+      "verification": "Pinned real tokenizer processed all 136 inputs"
+    },
+    {
+      "asset": "Evaluation metrics",
+      "classification": "실제 실행 가능",
+      "actual_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\metrics.py",
+      "origin": "Git에서 별도 복원 완료",
+      "source_commit": "9bab7e383928426e2d866de90acae013fe1f7d86",
+      "sha256": "4a4c10e9217a3ff2a21c334774cbb9bf97d8437d47b79ab246b9c8a5cc74b80a",
+      "verification": "Original metrics unit tests passed; no v1 model performance remeasured"
+    },
+    {
+      "asset": "Evaluation CLI",
+      "classification": "실제 실행 가능",
+      "actual_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\evaluate_cli.py",
+      "origin": "Git에서 별도 복원 완료",
+      "source_commit": "9bab7e383928426e2d866de90acae013fe1f7d86",
+      "sha256": "4f6d7ddc814436d2f683ada3ba9e88863e1835a8a292eca49afc63f185ddf579",
+      "verification": "CLI --help checked below; real checkpoint evaluation not possible without weights"
+    },
+    {
+      "asset": "Actual v1 training input: labels",
+      "classification": "아직 발견하지 못함",
+      "actual_path": null,
+      "expected_project_path_from_PR35": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\risk_speech_ai\\prepared\\labels.jsonl",
+      "exists": false,
+      "expected_sha256_from_PR35": "c205049e1aa2125ad40cc6cea1465b2c2793cc7fedf02b7eab8e1d9f20e9c9e5",
+      "data_commit": "8faa6a7eebfe95c7ac7fe6c6077a49ebf31f958f",
+      "note": "Ignored original prepared artifact; source raw JSONL and manifest do not by themselves establish identical training input bytes."
+    },
+    {
+      "asset": "Actual v1 training input: tuned",
+      "classification": "아직 발견하지 못함",
+      "actual_path": null,
+      "expected_project_path_from_PR35": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\risk_speech_ai\\prepared\\tuned.jsonl",
+      "exists": false,
+      "expected_sha256_from_PR35": "50ea88cc3ee9c3df1477082ab5daf82ef77f83329374b50f312874592462e6f2",
+      "data_commit": "8faa6a7eebfe95c7ac7fe6c6077a49ebf31f958f",
+      "note": "Ignored original prepared artifact; source raw JSONL and manifest do not by themselves establish identical training input bytes."
+    },
+    {
+      "asset": "Actual trained v1 checkpoint",
+      "classification": "아직 발견하지 못함",
+      "actual_path": null,
+      "expected_project_path_from_PR35": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\risk_speech_ai\\koelectra_risk_v1.pt",
+      "exists": false,
+      "expected_sha256_from_PR35": "1131f9dcc665f79073d98ecd6845573109a89e44dbf2917d299a8fea057020a7",
+      "expected_bytes_from_PR35": 1348308730,
+      "note": "PR handoff states weights are not in Git or LFS and external handoff was not completed. This is documentary evidence, not a local checksum verification."
+    },
+    {
+      "asset": "Actual trained v1 checkpoint",
+      "classification": "아직 발견하지 못함",
+      "actual_path": null,
+      "expected_project_path_from_PR35": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\checkpoints\\risk_speech_v1.pt",
+      "exists": false,
+      "expected_sha256_from_PR35": "1131f9dcc665f79073d98ecd6845573109a89e44dbf2917d299a8fea057020a7",
+      "expected_bytes_from_PR35": 1348308730,
+      "note": "PR handoff states weights are not in Git or LFS and external handoff was not completed. This is documentary evidence, not a local checksum verification."
+    },
+    {
+      "asset": "Actual TRAIN/VALIDATION/TEST split",
+      "classification": "아직 발견하지 못함",
+      "actual_path": null,
+      "note": "PR35 reports TRAIN IN-SAMPLE evaluation and no independent validation/test. splits.py provides a future planning function, not the historical split manifest."
+    },
+    {
+      "asset": "Future split planning implementation",
+      "classification": "참고용 코드만 존재",
+      "actual_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\splits.py",
+      "note": "Source tests pass; no new split or synthetic validation/test data was generated."
+    },
+    {
+      "asset": "Historic training-use manifest",
+      "classification": "참고용 자료만 존재",
+      "actual_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\data_review_manifest_20261027.json",
+      "note": "Recovered Git manifest. Original v1 prepared labels/tuned file hashes still require verification."
+    },
+    {
+      "asset": "Older local Git implementation",
+      "classification": "Git에서 복원 가능; 기존 별도 스냅샷 유지",
+      "actual_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\958c30e4ac6c",
+      "note": "This run uses the newer PR35 snapshot, not the older snapshot."
+    },
+    {
+      "asset": "Pinned actual tokenizer/config assets",
+      "classification": "실제 실행 가능",
+      "actual_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_runtime_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+      "revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+      "vocabulary_matches_PR35_report": true,
+      "note": "Public base tokenizer assets only; no trained v1 model weights downloaded."
+    }
+  ],
+  "evaluation_CLI_help": {
+    "command": [
+      "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\.venv-v2\\Scripts\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "-m",
+      "risk_speech_ai.evaluate_cli",
+      "--help"
+    ],
+    "exit_code": 0,
+    "stdout": "usage: evaluate_cli.py [-h] [--checkpoint CHECKPOINT]\n                       [--prepared-dir PREPARED_DIR] [--report-dir REPORT_DIR]\n                       [--batch-size BATCH_SIZE]\n                       [--benchmark-repeats BENCHMARK_REPEATS]\n\nRead-only in-sample evaluation and reproducibility report for a saved\ncheckpoint.\n\noptions:\n  -h, --help            show this help message and exit\n  --checkpoint CHECKPOINT\n  --prepared-dir PREPARED_DIR\n  --report-dir REPORT_DIR\n  --batch-size BATCH_SIZE\n  --benchmark-repeats BENCHMARK_REPEATS\n",
+    "stderr": ""
+  },
+  "git_and_lfs_evidence": {
+    "branch": {
+      "command": [
+        "git",
+        "branch",
+        "-avv"
+      ],
+      "exit_code": 0,
+      "stdout": "* data/dataset-v0.1-202609w4-jeongyun                        60f603f [origin/data/dataset-v0.1-202609w4-jeongyun] data: add 5 normal conversations for 2026-09 W4\n  data/labeling-v0.1                                         788a122 [origin/data/dataset-v0.1: behind 47] feat(dataset): add initial voice phishing dataset pipeline and pilot data\n  feature/task3-risk-speech-ai                               5b466a7 [origin/feature/task3-risk-speech-ai] refactor: adapt task3 to masked transcript input\n  main                                                       6e3d6ed [origin/main: behind 69] 2c\n  remotes/origin/HEAD                                        -> origin/main\n  remotes/origin/codex/backend-ai-integration                958c30e feat(ai): implement KoELECTRA risk detection pipeline\n  remotes/origin/codex/ner-onnx-evaluation                   d887933 modify README\n  remotes/origin/codex/week4-jeongyun-no-raw                 c5f2531 fix(dataset): sync masked conversation IDs\n  remotes/origin/data/dataset-jieun                          141de13 feat(dataset): move jieun raw data to v0.1 layout\n  remotes/origin/data/dataset-v0.1                           aa8a3b9 add count_risk_labels.py\n  remotes/origin/data/dataset-v0.1-202609w4-haerin           aa8a3b9 add count_risk_labels.py\n  remotes/origin/data/dataset-v0.1-202609w4-jeongyun         60f603f data: add 5 normal conversations for 2026-09 W4\n  remotes/origin/data/dataset-v0.1-202609w4-jieun            aa8a3b9 add count_risk_labels.py\n  remotes/origin/data/labeling-jieun                         4a11cad feat(dataset): add jieun labeled data to staging\n  remotes/origin/data/labeling-v0.1                          44f75f9 chore: remove duplicate S005-S007 labeling data\n  remotes/origin/data/masking-haerin                         76e16c0 feat(ai): implement KoELECTRA risk detection pipeline\n  remotes/origin/data/masking-jeongyun-dataset-v0.1          a5c1c8b feat(dataset): add jeongyun masked dataset and new labels\n  remotes/origin/data/masking-jieun                          2a97499 feat(dataset): add jieun masked dataset\n  remotes/origin/feature/android-ner-renderer                3e526ff feat(android): add on-device NER and masking renderer\n  remotes/origin/feature/android-v1.0                        f4beecf feat(android): STT 발화 문맥을 반영한 Regex·Rule 마스킹 연결\n  remotes/origin/feature/android-v1.0_regex                  1d65d9b fix: 한글 숫자 조사 오인식 수정 및 정규식 테스트 추가\n  remotes/origin/feature/android-v1.0_regex-rule-refactor    7ac69fb fix: 오래된 NER 임시 테스트 교체\n  remotes/origin/feature/android-v1.0_stt                    6a3874e feat: change STT models to kangkyu\n  remotes/origin/feature/android-v1.0_stt-upgrade+masking    ae8955b Merge remote-tracking branch 'origin/feature/android-v1.0_stt' into feature/android-v1.0_stt-upgrade+masking\n  remotes/origin/feature/android_v1.0_rule_resolver_jeongyun 7a9e84a docs(android): add rule and resolver handoff guide\n  remotes/origin/feature/backend                             4502ffa feat(ai): 위험감지 학습·추론 모듈을 backend 브랜치에 이식\n  remotes/origin/feature/backend_API-v1.0                    ecea0d9 feat(backend): 발화 분석 API 및 통화별 저장 복구 종료 처리 구현\n  remotes/origin/feature/backend_judgment                    b70871c Draft: 경고 상태·근거 이력·안내 문구 구현 및 Android 표시 구조 준비\n  remotes/origin/feature/mobile-shelter-candidates-v0.1      abf8b05 feat: update mobile shelter candidates\n  remotes/origin/feature/stt-correction-contract             7bc19a6 feat(llm-correction): add strict STT correction data contracts\n  remotes/origin/feature/stt-correction-engine               710129a feat(llm-correction): implement safe provider-independent correction engine\n  remotes/origin/feature/stt-correction-output               cb9b606 feat(llm-correction): persist tuned results safely\n  remotes/origin/feature/stt-correction-provider             7e7cff9 feat(llm-correction): add OpenAI Responses provider\n  remotes/origin/feature/task3-risk-speech-ai                5b466a7 refactor: adapt task3 to masked transcript input\n  remotes/origin/fix/jeongyun-conversation-ids               1e281c1 fix(dataset): resolve Jeongyun conversation ID conflicts\n  remotes/origin/main                                        905c39c Merge pull request #22 from donggyu567/feature/android-v1.0\n",
+      "stderr": ""
+    },
+    "worktrees": {
+      "command": [
+        "git",
+        "worktree",
+        "list",
+        "--porcelain"
+      ],
+      "exit_code": 0,
+      "stdout": "worktree C:/Users/임정윤/OneDrive/Desktop/PIC_AICAMP\nHEAD 60f603febe90a14bd5689e7a7ceba34edfce2cd2\nbranch refs/heads/data/dataset-v0.1-202609w4-jeongyun\n\n",
+      "stderr": ""
+    },
+    "all_lfs_files": {
+      "command": [
+        "git",
+        "lfs",
+        "ls-files",
+        "--all"
+      ],
+      "exit_code": 0,
+      "stdout": "0012d9a28f - android/app/libs/sherpa-onnx-1.13.6.aar\nb29cfb4575 - android/app/src/main/assets/models/sherpa-onnx-streaming-zipformer-korean-2024-06-16/decoder-epoch-99-avg-1.onnx\n8d0b1aa24f - android/app/src/main/assets/models/sherpa-onnx-streaming-zipformer-korean-2024-06-16/encoder-epoch-99-avg-1.int8.onnx\n128b80a66a - android/app/src/main/assets/models/sherpa-onnx-streaming-zipformer-korean-2024-06-16/joiner-epoch-99-avg-1.int8.onnx\n3fde3a21dd - android/app/libs/onnxruntime-java-binding-1.27.1-arm64.aar\nf5dfa6c860 - android/app/src/main/assets/models/icefall-asr-ko-streaming-zipformer-174m/decoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx\ne595e2e37f - android/app/src/main/assets/models/icefall-asr-ko-streaming-zipformer-174m/encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx\n64efd9aeb7 - android/app/src/main/assets/models/icefall-asr-ko-streaming-zipformer-174m/joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx\n7794bdaa2d - android/app/src/main/assets/models/koelectra-ko-pii-ner/model.onnx\n",
+      "stderr": ""
+    },
+    "pr35_commit_in_local_object_database": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "9bab7e383928426e2d866de90acae013fe1f7d86"
+      ],
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: git cat-file: could not get object info\n"
+    },
+    "original_v1_data_commit_in_local_object_database": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "8faa6a7eebfe95c7ac7fe6c6077a49ebf31f958f"
+      ],
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: git cat-file: could not get object info\n"
+    }
+  },
+  "search_scope": [
+    "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP",
+    "all locally cached Git refs/history and LFS listing",
+    "current Git worktree list",
+    "connected GitHub PR35 recursive tree, source and handoff documents",
+    "accessible relevant Downloads, OneDrive documents/Codex, .codex/worktrees, default Hugging Face cache"
+  ],
+  "search_limitation": "Not a scan of every disk or other people's computers. No checkpoint/source files were moved or overwritten. Android NER/STT LFS models are not risk-classification v1 weights.",
+  "v1_checkpoint_loaded": false,
+  "actual_v1_train_input_duplicate_check": "NOT_VERIFIED_ORIGINAL_INPUT_FILES_MISSING",
+  "new_data_generated": false,
+  "training_executed": false
+}

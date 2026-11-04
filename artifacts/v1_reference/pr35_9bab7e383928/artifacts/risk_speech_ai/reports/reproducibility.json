@@ -1,0 +1,174 @@
+{
+  "evaluation_set": "TRAIN (IN-SAMPLE)",
+  "checkpoint": {
+    "path": "artifacts\\risk_speech_ai\\koelectra_risk_v1.pt",
+    "sha256": "1131f9dcc665f79073d98ecd6845573109a89e44dbf2917d299a8fea057020a7",
+    "bytes": 1348308730,
+    "schema_version": "v1"
+  },
+  "data_version": "risk-speech-team_lead_training_use_20261026_27-8faa6a7eebfe",
+  "data_commit": "8faa6a7eebfe95c7ac7fe6c6077a49ebf31f958f",
+  "training_input_files": {
+    "labels": {
+      "path": "artifacts\\risk_speech_ai\\prepared\\labels.jsonl",
+      "sha256": "c205049e1aa2125ad40cc6cea1465b2c2793cc7fedf02b7eab8e1d9f20e9c9e5"
+    },
+    "tuned": {
+      "path": "artifacts\\risk_speech_ai\\prepared\\tuned.jsonl",
+      "sha256": "50ea88cc3ee9c3df1477082ab5daf82ef77f83329374b50f312874592462e6f2"
+    }
+  },
+  "approval_policy": "team_lead_training_use_20261026_27",
+  "approval_basis": "User-reported team-lead decision on 2026-10-26/27 to use management-sheet labeled data for model training",
+  "human_review_claimed": false,
+  "preprocessing": "masked_source_text_no_llm_correction",
+  "backend_inference_preprocessing_difference": "backend may supply LLM-corrected tuned_text; training used validated masked source text without LLM correction",
+  "excluded_utterances": 174,
+  "excluded_by_reason": {
+    "masking_stage_unverified": 53,
+    "unknown_or_unsupported_mask_token": 30,
+    "derivative_use_permission_unconfirmed": 24,
+    "risk_type_unresolved": 67
+  },
+  "conversation_count": 68,
+  "source_id_count": 44,
+  "duplicate_statistics": {
+    "identical_text_groups": 30,
+    "utterances_in_identical_text_groups": 189,
+    "same_conversation_groups": 10,
+    "conflicting_risk_groups": 0,
+    "conflicting_label_groups": 0,
+    "duplicate_utterance_keys": 0
+  },
+  "builder_statistics": {
+    "missing_tuned_text": 0,
+    "missing_label": 0,
+    "matched": 1460,
+    "included": 1460,
+    "duplicate_key": 0,
+    "excluded_missing_status": 0,
+    "excluded_unreviewed": 0,
+    "invalid_label": 0,
+    "empty_tuned_text": 0
+  },
+  "label_order": [
+    "institution_impersonation",
+    "money_transfer",
+    "personal_information",
+    "app_installation",
+    "secrecy",
+    "threat_pressure",
+    "loan_fraud",
+    "information_probing"
+  ],
+  "model_name": "monologg/koelectra-base-v3-discriminator",
+  "requested_model_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+  "resolved_model_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+  "requested_tokenizer_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+  "resolved_tokenizer_revision": null,
+  "tokenizer_vocab_sha256": "18bc57707da19ac79655291f5a6b389b84bbef2c772c5ad84f6bcc206a8a330e",
+  "training_environment": {
+    "python": "3.11.16",
+    "torch": "2.6.0+cpu",
+    "transformers": "4.57.6",
+    "device": "cpu"
+  },
+  "current_code_commit": "76e16c02db5491aa33a55c4a92f532ba069a7c58",
+  "current_worktree_dirty": true,
+  "exact_uncommitted_training_code_snapshot": "not_recorded",
+  "training": {
+    "epoch": 1,
+    "optimizer_steps": 183,
+    "optimizer": "AdamW",
+    "training_config": {
+      "data_version": "risk-speech-team_lead_training_use_20261026_27-8faa6a7eebfe",
+      "learning_rate": 2e-05,
+      "batch_size": 8,
+      "epochs": 1,
+      "lambda_risk": 1.0,
+      "lambda_type": 1.0,
+      "seed": 42,
+      "weight_decay": 0.01,
+      "model_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+      "tokenizer_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc"
+    },
+    "history": {
+      "batch_cumulative_observations": [
+        {
+          "epoch": 1,
+          "batch": 20,
+          "global_step": 20,
+          "running_loss": 1.206237
+        },
+        {
+          "epoch": 1,
+          "batch": 40,
+          "global_step": 40,
+          "running_loss": 1.066086
+        },
+        {
+          "epoch": 1,
+          "batch": 60,
+          "global_step": 60,
+          "running_loss": 1.033363
+        },
+        {
+          "epoch": 1,
+          "batch": 80,
+          "global_step": 80,
+          "running_loss": 0.978194
+        },
+        {
+          "epoch": 1,
+          "batch": 100,
+          "global_step": 100,
+          "running_loss": 0.954237
+        },
+        {
+          "epoch": 1,
+          "batch": 120,
+          "global_step": 120,
+          "running_loss": 0.928737
+        },
+        {
+          "epoch": 1,
+          "batch": 140,
+          "global_step": 140,
+          "running_loss": 0.914273
+        },
+        {
+          "epoch": 1,
+          "batch": 160,
+          "global_step": 160,
+          "running_loss": 0.889928
+        },
+        {
+          "epoch": 1,
+          "batch": 180,
+          "global_step": 180,
+          "running_loss": 0.868748
+        },
+        {
+          "epoch": 1,
+          "batch": 183,
+          "global_step": 183,
+          "running_loss": 0.870836
+        }
+      ],
+      "epoch_losses": [
+        {
+          "epoch": 1,
+          "average_total_loss": 0.8708360910415649,
+          "average_risk_loss": 0.5623519494108957,
+          "average_type_loss": 0.3084841399976652
+        }
+      ],
+      "batch_specific_losses": "not_recorded",
+      "training_started_at": "not_recorded",
+      "training_finished_at": "not_recorded",
+      "training_duration_seconds": "not_recorded"
+    }
+  },
+  "independent_validation_available": false,
+  "independent_test_available": false
+}

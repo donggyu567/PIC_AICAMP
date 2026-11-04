@@ -1,0 +1,378 @@
+{
+  "status": "PASS_WITH_REVIEW_NOTES",
+  "structural_errors": [],
+  "counts": {
+    "conversations": 16,
+    "utterances": 136,
+    "phishing": 34,
+    "normal": 102,
+    "positive_labels": 37,
+    "labels": {
+      "institution_impersonation": 10,
+      "money_transfer": 3,
+      "personal_information": 4,
+      "app_installation": 7,
+      "secrecy": 5,
+      "threat_pressure": 3,
+      "loan_fraud": 3,
+      "information_probing": 2
+    }
+  },
+  "warnings": [
+    {
+      "code": "SOURCE_TABLE_COUNTS",
+      "detail": "Final TXT claims 32 phishing / 104 normal / 35 positive labels; JSON bodies yield 34 / 102 / 37. JSON is preserved."
+    },
+    {
+      "code": "SOURCE_TABLE_LABELS",
+      "detail": "Final TXT claims app_installation=6, secrecy=4; JSON bodies yield 7 and 5."
+    },
+    {
+      "code": "SOURCE_0006_7",
+      "detail": "Final narrative says 0006-7 became normal; final JSON still directly requests secrecy and retains true/[secrecy]. Preserved for human review."
+    },
+    {
+      "code": "HUMAN_REVIEW_PENDING",
+      "detail": "All records remain generated and unapproved. See source review notes, especially 0005-7, 0006, 0007, 0009-5, 0010-5, 0011 and 0015. Generator execution provenance remains unverified."
+    },
+    {
+      "code": "REVISION_HISTORY_MISMATCH",
+      "synthetic_id": "SYN2-TRAIN-0006",
+      "unlisted_changed_ids": [
+        4,
+        6
+      ],
+      "declared_but_unchanged_ids": []
+    },
+    {
+      "code": "REVISION_HISTORY_MISMATCH",
+      "synthetic_id": "SYN2-TRAIN-0007",
+      "unlisted_changed_ids": [
+        5
+      ],
+      "declared_but_unchanged_ids": []
+    },
+    {
+      "code": "REVISION_HISTORY_MISMATCH",
+      "synthetic_id": "SYN2-TRAIN-0015",
+      "unlisted_changed_ids": [
+        7
+      ],
+      "declared_but_unchanged_ids": []
+    }
+  ],
+  "per_conversation": [
+    {
+      "synthetic_id": "SYN2-TRAIN-0001",
+      "conversations": 1,
+      "utterances": 10,
+      "phishing": 4,
+      "normal": 6,
+      "positive_labels": 4,
+      "labels": {
+        "institution_impersonation": 1,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 3,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0002",
+      "conversations": 1,
+      "utterances": 10,
+      "phishing": 4,
+      "normal": 6,
+      "positive_labels": 4,
+      "labels": {
+        "institution_impersonation": 1,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 2,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 1,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0003",
+      "conversations": 1,
+      "utterances": 10,
+      "phishing": 4,
+      "normal": 6,
+      "positive_labels": 5,
+      "labels": {
+        "institution_impersonation": 1,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 3,
+        "threat_pressure": 1,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0004",
+      "conversations": 1,
+      "utterances": 10,
+      "phishing": 0,
+      "normal": 10,
+      "positive_labels": 0,
+      "labels": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0005",
+      "conversations": 1,
+      "utterances": 8,
+      "phishing": 3,
+      "normal": 5,
+      "positive_labels": 3,
+      "labels": {
+        "institution_impersonation": 1,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 2,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0006",
+      "conversations": 1,
+      "utterances": 8,
+      "phishing": 3,
+      "normal": 5,
+      "positive_labels": 3,
+      "labels": {
+        "institution_impersonation": 1,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 2,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0007",
+      "conversations": 1,
+      "utterances": 8,
+      "phishing": 3,
+      "normal": 5,
+      "positive_labels": 3,
+      "labels": {
+        "institution_impersonation": 1,
+        "money_transfer": 0,
+        "personal_information": 2,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0008",
+      "conversations": 1,
+      "utterances": 8,
+      "phishing": 3,
+      "normal": 5,
+      "positive_labels": 3,
+      "labels": {
+        "institution_impersonation": 1,
+        "money_transfer": 0,
+        "personal_information": 2,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0009",
+      "conversations": 1,
+      "utterances": 8,
+      "phishing": 4,
+      "normal": 4,
+      "positive_labels": 5,
+      "labels": {
+        "institution_impersonation": 1,
+        "money_transfer": 2,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 2,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0010",
+      "conversations": 1,
+      "utterances": 8,
+      "phishing": 3,
+      "normal": 5,
+      "positive_labels": 4,
+      "labels": {
+        "institution_impersonation": 1,
+        "money_transfer": 1,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 2,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0011",
+      "conversations": 1,
+      "utterances": 8,
+      "phishing": 3,
+      "normal": 5,
+      "positive_labels": 3,
+      "labels": {
+        "institution_impersonation": 1,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 2
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0012",
+      "conversations": 1,
+      "utterances": 8,
+      "phishing": 0,
+      "normal": 8,
+      "positive_labels": 0,
+      "labels": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0013",
+      "conversations": 1,
+      "utterances": 8,
+      "phishing": 0,
+      "normal": 8,
+      "positive_labels": 0,
+      "labels": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0014",
+      "conversations": 1,
+      "utterances": 8,
+      "phishing": 0,
+      "normal": 8,
+      "positive_labels": 0,
+      "labels": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0015",
+      "conversations": 1,
+      "utterances": 8,
+      "phishing": 0,
+      "normal": 8,
+      "positive_labels": 0,
+      "labels": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0016",
+      "conversations": 1,
+      "utterances": 8,
+      "phishing": 0,
+      "normal": 8,
+      "positive_labels": 0,
+      "labels": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    }
+  ],
+  "canonical_sha256": "847504a7178a1a0213b7855ebf9fe29aae9bbac51a04bd90abcd8aeb7c9281cd",
+  "python_version": "3.12.14",
+  "checks": [
+    "Pinned source SHA-256",
+    "Source precedence and explicit patch",
+    "Strict JSON and duplicate keys",
+    "Schema and ID continuity",
+    "Synthetic/train/generated metadata",
+    "Label types and consistency",
+    "Source equality and preserved model metadata",
+    "Counts from JSON bodies",
+    "Local duplicate candidates"
+  ],
+  "human_approved": false,
+  "training_performed": false,
+  "git_push_performed": false,
+  "duplicate_summary": {
+    "local_files_scanned": 797,
+    "pilot_exact_utterance_groups": 1,
+    "pilot_normalized_utterance_groups": 1,
+    "pilot_similar_conversations": 0,
+    "local_v1_utterance_matches": 0,
+    "local_v1_similar_conversations": 0
+  }
+}

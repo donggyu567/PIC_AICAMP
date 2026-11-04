@@ -1,0 +1,203 @@
+{
+  "pr": 35,
+  "revision": "9bab7e383928426e2d866de90acae013fe1f7d86",
+  "classification": "PR source recovered; binary checkpoint not included",
+  "files": [
+    {
+      "path": ".gitignore",
+      "git_blob": "cc44d7e007cc70b602f036cb55ac46fc05da220f",
+      "sha256": "e06a4c9df0988c3e84953be4b1c84e768d8a7a0611d9ede72627c188edfac388",
+      "bytes": 310,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/.gitignore"
+    },
+    {
+      "path": "artifacts/risk_speech_ai/reports/metrics.json",
+      "git_blob": "ab1d4ee9807977dccc5e718c7743ecc01d4d9d72",
+      "sha256": "63496c1fd54549a5a1f9a4e2abcaa5aed47eb520c33f22005ba4b9762e048335",
+      "bytes": 12947,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/artifacts/risk_speech_ai/reports/metrics.json"
+    },
+    {
+      "path": "artifacts/risk_speech_ai/reports/reproducibility.json",
+      "git_blob": "a7afc65e1adeac4f73b5fec42973ba6432611762",
+      "sha256": "c2564bc676d3a09545f358cf80a571c1788934200f9451f9bd7803ffa7045423",
+      "bytes": 5350,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/artifacts/risk_speech_ai/reports/reproducibility.json"
+    },
+    {
+      "path": "requirements-ai.txt",
+      "git_blob": "eec12c1f0cb1995002c7de28c06d4c744ebcbf55",
+      "sha256": "d0a9b5cfbcb43d698409e3cf847b2c46af8444c701056e1fddd87d5c8d6d7593",
+      "bytes": 95,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/requirements-ai.txt"
+    },
+    {
+      "path": "risk_speech_ai/CHECKPOINT_HANDOFF.md",
+      "git_blob": "8c5820755d203b6d7e6c064b98a0f9de3393c0aa",
+      "sha256": "85e2bdb260eece8f5e238a56037061c9c683e2e35a10ac27247a385c99fbac6d",
+      "bytes": 8144,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/CHECKPOINT_HANDOFF.md"
+    },
+    {
+      "path": "risk_speech_ai/README.md",
+      "git_blob": "3256bfdbc5f63c5d03fe2f554ce732bd1c05c0d9",
+      "sha256": "c54ccbfa1e73b6ef09603715c204ac15c379fd565d14a24ca90fb79f99236f86",
+      "bytes": 5924,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/README.md"
+    },
+    {
+      "path": "risk_speech_ai/checkpoint.py",
+      "git_blob": "99911ef6f48afb72bb988c6b0a9ee66d846140ad",
+      "sha256": "633872d102fcaa8bbd1459e0cc372bd6021ab56dab00fbb6cbdde966b1fbd20f",
+      "bytes": 12128,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/checkpoint.py"
+    },
+    {
+      "path": "risk_speech_ai/config.py",
+      "git_blob": "8acd146533aceeec93732cddd555e87e61370c6c",
+      "sha256": "e991149c74defa828ddbd5eedc12608086a0be6263c91e97bc2e1ee198b841c5",
+      "bytes": 234,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/config.py"
+    },
+    {
+      "path": "risk_speech_ai/data_review_manifest_20261027.json",
+      "git_blob": "d70d25ef030d8ae21975edab7a79e64847228d99",
+      "sha256": "ebe3c67387774bbbfcbf6ca96bf3cbca96f118dbe329319b4b63f853e3a46c51",
+      "bytes": 26178,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/data_review_manifest_20261027.json"
+    },
+    {
+      "path": "risk_speech_ai/dataset.py",
+      "git_blob": "e4885652fd4be4e1240adee00edf097230dc995b",
+      "sha256": "c86f104f8df60e8f9a508ba4ba64e81c886041ddfcdb653aeee8f74740d37156",
+      "bytes": 3620,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/dataset.py"
+    },
+    {
+      "path": "risk_speech_ai/evaluate_cli.py",
+      "git_blob": "ac9d924dcee788e66616cae36a72b2232e3c20d7",
+      "sha256": "4f6d7ddc814436d2f683ada3ba9e88863e1835a8a292eca49afc63f185ddf579",
+      "bytes": 24029,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/evaluate_cli.py"
+    },
+    {
+      "path": "risk_speech_ai/inference.py",
+      "git_blob": "e196f271102e09a99acf8191952d18f93df40852",
+      "sha256": "f7d2613352c5ad920055ab4b0fc96244185432e693848dfadd29636648cb7d2b",
+      "bytes": 6726,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/inference.py"
+    },
+    {
+      "path": "risk_speech_ai/labels.py",
+      "git_blob": "ede6698d975396b15ce5c2671f860c1c0305aa2c",
+      "sha256": "c69afc17bcd3a4895bc7d2f4fdf297b636580291ffa381603237462ec2f2348c",
+      "bytes": 1086,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/labels.py"
+    },
+    {
+      "path": "risk_speech_ai/metrics.py",
+      "git_blob": "b2869592c68a2a1b8908a7a6730f9f0742ca7518",
+      "sha256": "4a4c10e9217a3ff2a21c334774cbb9bf97d8437d47b79ab246b9c8a5cc74b80a",
+      "bytes": 6108,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/metrics.py"
+    },
+    {
+      "path": "risk_speech_ai/model.py",
+      "git_blob": "8a895fcd2bbec70c4888864a8def17b294e37c19",
+      "sha256": "945466496b24eff750982723c7e31fc325d0cf8a52cc2e7095bef02d99e94fdb",
+      "bytes": 2246,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/model.py"
+    },
+    {
+      "path": "risk_speech_ai/prepare_training_inputs.py",
+      "git_blob": "46195f776d36bc433a46e8e6ae2bf147f0d3f471",
+      "sha256": "512181b4a96cfebef4f4ed28b98956a23d457a0b0b430b68b3cad89b7f51621e",
+      "bytes": 17207,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/prepare_training_inputs.py"
+    },
+    {
+      "path": "risk_speech_ai/splits.py",
+      "git_blob": "0b2a7f9b777645003844044b1505792433bec6a2",
+      "sha256": "e14424178d9454bda0a2d46dc452d8cd96788b69f75603765ee86d7aff0d75d6",
+      "bytes": 3981,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/splits.py"
+    },
+    {
+      "path": "risk_speech_ai/tokenization.py",
+      "git_blob": "dfa95dd1ff85919559b2d15b567f0d7dd7f269f6",
+      "sha256": "ea93a473843713545e587cbfd9d7789ac52195332b6b7b8866d170b4819a0cd3",
+      "bytes": 6159,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/tokenization.py"
+    },
+    {
+      "path": "risk_speech_ai/train_cli.py",
+      "git_blob": "c53eadb54e6c53a13c292123475af33c6374aa71",
+      "sha256": "6a7afd6244183163cb9b1d432ddbd478ce91d13723cdae81b45379dd0468972a",
+      "bytes": 3820,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/train_cli.py"
+    },
+    {
+      "path": "risk_speech_ai/training.py",
+      "git_blob": "23b8389a70d29c42d0c89e66e52c71dea23fbc30",
+      "sha256": "7adcf627345480a97be93f253eeb3b042ab7b6a981c05682e1ca7d87cc6b529d",
+      "bytes": 12350,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/training.py"
+    },
+    {
+      "path": "risk_speech_ai/training_data.py",
+      "git_blob": "70513a680ad712ed0058f4cdbe89339e57a7f29f",
+      "sha256": "9b13b5d55ebce748efa167d99720e6b5688d2aadea87b33a85320db3f9ea2ef9",
+      "bytes": 7072,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/training_data.py"
+    },
+    {
+      "path": "risk_speech_ai/training_log.py",
+      "git_blob": "d8af9c207c27f8bab04505d6a71bb851f729d117",
+      "sha256": "b0ce173390a04040c08d43a5ca3e433c8098a3bf3bcb58ddb653f46b778260fc",
+      "bytes": 3193,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/training_log.py"
+    },
+    {
+      "path": "risk_speech_ai/type_diagnostics.py",
+      "git_blob": "b54881f64a334ea85ffb43acd1075933ed64d058",
+      "sha256": "713a9322fb5079abb5bbeb23dddc92363fa7280fb33e00c125771a13d7f8b92f",
+      "bytes": 10350,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/risk_speech_ai/type_diagnostics.py"
+    },
+    {
+      "path": "tests/test_dataset.py",
+      "git_blob": "9be29866284f3f6c1116670259e26402e5bffb40",
+      "sha256": "36c4895c7ba06c986aba6d691ea9ee074dbf4a1933addd89723559519ee5b952",
+      "bytes": 5433,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/tests/test_dataset.py"
+    },
+    {
+      "path": "tests/test_metrics.py",
+      "git_blob": "63c5b29e903694d34b5932005a043d8ebc2290f6",
+      "sha256": "e0f05ddeac05b4da58d280c348e67c74de0a654ecc5418618fb97e78c66089d7",
+      "bytes": 1941,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/tests/test_metrics.py"
+    },
+    {
+      "path": "tests/test_splits.py",
+      "git_blob": "f6d6cf614994eb1aff81e814683bc2aaf4163530",
+      "sha256": "fc6ed35cd18c9f82926e539d272109ee8794cfb7266b23033ebc2a9edf9f998f",
+      "bytes": 1525,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/tests/test_splits.py"
+    },
+    {
+      "path": "tests/test_tokenization.py",
+      "git_blob": "ef322a247793c0ef69b64ea316c9b8b2396206bc",
+      "sha256": "4e70ea5bcc7e567bd78cfd944d9480def75ad9b8d7ea5cd7814812859bb3a1d6",
+      "bytes": 8315,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/tests/test_tokenization.py"
+    },
+    {
+      "path": "tests/test_training_data.py",
+      "git_blob": "229ce796695f3c8967b81f4b7f5b664f2e2a9538",
+      "sha256": "541edabb2d3dd4cd73af302ea870beb0e311f5f685577d9fc0d92ea5c22e57a7",
+      "bytes": 11144,
+      "source_url": "https://github.com/donggyu567/PIC_AICAMP/blob/9bab7e383928426e2d866de90acae013fe1f7d86/tests/test_training_data.py"
+    }
+  ]
+}

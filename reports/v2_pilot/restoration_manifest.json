@@ -1,0 +1,643 @@
+{
+  "source_files": [
+    {
+      "file": "붙여넣은 텍스트(1)(2).txt",
+      "bytes": 18218,
+      "sha256": "ebd06d24245c60dcf79295a6505163a936e967f4483a40e8572d08c7af62bba7",
+      "original_copy_verified": true
+    },
+    {
+      "file": "붙여넣은 텍스트(1)(3).txt",
+      "bytes": 39328,
+      "sha256": "c4e219509536d10aef5059ac8dd16b88ec010dbc4de53eeca07ca5e3e55bd30e",
+      "original_copy_verified": true
+    },
+    {
+      "file": "붙여넣은 텍스트(1)(4).txt",
+      "bytes": 27304,
+      "sha256": "cb7f5b6155b225c592ade35c3de24b6d90e7d6d81799e9c6faa3a9a89a753141",
+      "original_copy_verified": true
+    }
+  ],
+  "policy": "Initial 4 + next 12 + explicit 0003-10 patch + latest 7 full replacements; JSON bodies take precedence over narrative tables.",
+  "human_approved": false,
+  "training_performed": false,
+  "git_push_performed": false,
+  "generation_model_note": "Source metadata preserved verbatim; original execution environments are unverified.",
+  "versions": {
+    "SYN2-TRAIN-0001": [
+      {
+        "file": "붙여넣은 텍스트(1)(2).txt",
+        "line": 6
+      }
+    ],
+    "SYN2-TRAIN-0002": [
+      {
+        "file": "붙여넣은 텍스트(1)(2).txt",
+        "line": 7
+      }
+    ],
+    "SYN2-TRAIN-0003": [
+      {
+        "file": "붙여넣은 텍스트(1)(2).txt",
+        "line": 8
+      }
+    ],
+    "SYN2-TRAIN-0004": [
+      {
+        "file": "붙여넣은 텍스트(1)(2).txt",
+        "line": 9
+      }
+    ],
+    "SYN2-TRAIN-0005": [
+      {
+        "file": "붙여넣은 텍스트(1)(3).txt",
+        "line": 15
+      },
+      {
+        "file": "붙여넣은 텍스트(1)(4).txt",
+        "line": 6
+      }
+    ],
+    "SYN2-TRAIN-0006": [
+      {
+        "file": "붙여넣은 텍스트(1)(3).txt",
+        "line": 16
+      },
+      {
+        "file": "붙여넣은 텍스트(1)(4).txt",
+        "line": 7
+      }
+    ],
+    "SYN2-TRAIN-0007": [
+      {
+        "file": "붙여넣은 텍스트(1)(3).txt",
+        "line": 17
+      },
+      {
+        "file": "붙여넣은 텍스트(1)(4).txt",
+        "line": 8
+      }
+    ],
+    "SYN2-TRAIN-0008": [
+      {
+        "file": "붙여넣은 텍스트(1)(3).txt",
+        "line": 18
+      }
+    ],
+    "SYN2-TRAIN-0009": [
+      {
+        "file": "붙여넣은 텍스트(1)(3).txt",
+        "line": 19
+      },
+      {
+        "file": "붙여넣은 텍스트(1)(4).txt",
+        "line": 9
+      }
+    ],
+    "SYN2-TRAIN-0010": [
+      {
+        "file": "붙여넣은 텍스트(1)(3).txt",
+        "line": 20
+      },
+      {
+        "file": "붙여넣은 텍스트(1)(4).txt",
+        "line": 10
+      }
+    ],
+    "SYN2-TRAIN-0011": [
+      {
+        "file": "붙여넣은 텍스트(1)(3).txt",
+        "line": 21
+      },
+      {
+        "file": "붙여넣은 텍스트(1)(4).txt",
+        "line": 11
+      }
+    ],
+    "SYN2-TRAIN-0012": [
+      {
+        "file": "붙여넣은 텍스트(1)(3).txt",
+        "line": 22
+      }
+    ],
+    "SYN2-TRAIN-0013": [
+      {
+        "file": "붙여넣은 텍스트(1)(3).txt",
+        "line": 23
+      }
+    ],
+    "SYN2-TRAIN-0014": [
+      {
+        "file": "붙여넣은 텍스트(1)(3).txt",
+        "line": 24
+      }
+    ],
+    "SYN2-TRAIN-0015": [
+      {
+        "file": "붙여넣은 텍스트(1)(3).txt",
+        "line": 25
+      },
+      {
+        "file": "붙여넣은 텍스트(1)(4).txt",
+        "line": 12
+      }
+    ],
+    "SYN2-TRAIN-0016": [
+      {
+        "file": "붙여넣은 텍스트(1)(3).txt",
+        "line": 26
+      }
+    ]
+  },
+  "explicit_patch": {
+    "synthetic_id": "SYN2-TRAIN-0003",
+    "utterance_id": 10,
+    "source": {
+      "file": "붙여넣은 텍스트(1)(3).txt",
+      "lines": [
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "before": {
+      "utterance_id": 10,
+      "speaker": "speaker_B",
+      "text": "잘 들립니다. 그래도 이 통화는 여기까지 하겠습니다.",
+      "is_phishing": false,
+      "labels": [],
+      "label_rationale": "수신자가 통화 종료 의사를 밝힌다."
+    },
+    "after": {
+      "utterance_id": 10,
+      "speaker": "speaker_B",
+      "text": "네, 그럼 이만 끊겠습니다.",
+      "is_phishing": false,
+      "labels": [],
+      "label_rationale": "수신자가 통화 종료 의사를 밝힌다."
+    }
+  },
+  "revision_differences": [
+    {
+      "synthetic_id": "SYN2-TRAIN-0005",
+      "declared_changed_ids": [
+        3,
+        5,
+        7
+      ],
+      "actual_changed_ids": [
+        3,
+        5,
+        7
+      ],
+      "unlisted_changed_ids": [],
+      "declared_but_unchanged_ids": [],
+      "changes": [
+        {
+          "utterance_id": 3,
+          "fields": {
+            "label_rationale": {
+              "before": "주문 확인을 명목으로 별도 앱 설치를 유도한다.",
+              "after": "주소 확인을 명목으로 별도 앱 설치를 직접 요구한다."
+            },
+            "text": {
+              "before": "주소 오류 여부를 보려면 별도 배송 확인 앱으로 주문 상태를 조회하셔야 합니다.",
+              "after": "주소 오류를 확인하려면 별도 배송 확인 앱을 설치해 주세요. 그 앱에서 주문 상태를 조회할 수 있습니다."
+            }
+          }
+        },
+        {
+          "utterance_id": 5,
+          "fields": {
+            "is_phishing": {
+              "before": true,
+              "after": false
+            },
+            "label_rationale": {
+              "before": "기존 확인 경로를 부정하며 앱 설치를 요구한다.",
+              "after": "기존 주문 경로 확인을 안내하며 앱 설치나 위험 행동을 요구하지 않는다."
+            },
+            "labels": {
+              "before": [
+                "app_installation"
+              ],
+              "after": []
+            },
+            "text": {
+              "before": "그쪽 화면에는 주소 오류가 바로 반영되지 않습니다. 확인 앱을 설치해 주세요.",
+              "after": "먼저 쇼핑몰 주문 내역을 확인해 보셔도 됩니다. 배송 상태가 이상하면 다시 문의하시면 돼요."
+            }
+          }
+        },
+        {
+          "utterance_id": 7,
+          "fields": {
+            "label_rationale": {
+              "before": "주소 상태 확인을 위해 앱 설치를 다시 유도한다.",
+              "after": "앞서 설치하도록 한 앱을 열어 실행하고 화면을 확인하도록 유도한다."
+            },
+            "text": {
+              "before": "확인하시는 동안 배송 앱을 설치해 두시면 주소 상태를 이어서 볼 수 있습니다.",
+              "after": "조회하려면 설치한 앱을 열어 주문 상태를 확인해 주세요. 화면에 오류 안내가 있는지 보시면 됩니다."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0006",
+      "declared_changed_ids": [
+        1,
+        2,
+        3,
+        5,
+        7
+      ],
+      "actual_changed_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unlisted_changed_ids": [
+        4,
+        6
+      ],
+      "declared_but_unchanged_ids": [],
+      "changes": [
+        {
+          "utterance_id": 1,
+          "fields": {
+            "label_rationale": {
+              "before": "가상 직장 내 정산 담당자를 사칭한다.",
+              "after": "가상의 직장 사내 인사팀 급여 담당자를 사칭한다."
+            },
+            "text": {
+              "before": "해솔빛생활지원센터 내부 정산 확인 담당입니다. 급여 자료에 확인할 내용이 있어 연락드렸어요.",
+              "after": "해솔빛생활지원센터 사내 인사팀 급여 담당입니다. 급여 정산 자료를 확인하다가 문의드릴 게 있어요."
+            }
+          }
+        },
+        {
+          "utterance_id": 2,
+          "fields": {
+            "label_rationale": {
+              "before": "수신자가 자신의 급여 처리 상황을 설명하며 문의한다.",
+              "after": "수신자가 급여 처리 방식과 문의 내용을 묻는다."
+            },
+            "text": {
+              "before": "저는 급여 처리를 외부 업체에 맡기고 있는데요. 어떤 내용인가요?",
+              "after": "급여 처리는 외부 업체가 맡고 있는데, 어떤 자료를 확인하셨나요?"
+            }
+          }
+        },
+        {
+          "utterance_id": 3,
+          "fields": {
+            "label_rationale": {
+              "before": "동료에게 확인 사실을 알리지 말라고 요구한다.",
+              "after": "정산 확인 내용을 동료에게 알리지 말라고 직접 요구한다."
+            },
+            "text": {
+              "before": "이번 확인은 내부적으로만 진행 중입니다. 같이 일하는 분들에게는 아직 알리지 말아 주세요.",
+              "after": "이번 정산 확인은 아직 공유 전입니다. 동료들에게 먼저 이야기하지 말아 주세요."
+            }
+          }
+        },
+        {
+          "utterance_id": 4,
+          "fields": {
+            "label_rationale": {
+              "before": "수신자가 공식 부서 확인을 요청한다.",
+              "after": "수신자가 동석을 원하는 이유를 설명한다."
+            },
+            "text": {
+              "before": "담당 부서에 확인해 보고 답해도 될까요?",
+              "after": "제가 이해를 못 할 수도 있어서 같이 듣자는 건데요."
+            }
+          }
+        },
+        {
+          "utterance_id": 5,
+          "fields": {
+            "is_phishing": {
+              "before": true,
+              "after": false
+            },
+            "label_rationale": {
+              "before": "담당 부서에도 연락 내용을 숨기도록 요구한다.",
+              "after": "정산 항목 확인을 안내하며 비밀 유지나 정보 제공을 요구하지 않는다."
+            },
+            "labels": {
+              "before": [
+                "secrecy"
+              ],
+              "after": []
+            },
+            "text": {
+              "before": "부서에 문의하실 때도 제가 전화한 내용은 말하지 않는 게 좋습니다.",
+              "after": "자료를 대조하고 나면 어떤 항목인지 설명드리겠습니다. 급여 명세서에서 최근 정산 내역을 확인해 주세요."
+            }
+          }
+        },
+        {
+          "utterance_id": 6,
+          "fields": {
+            "label_rationale": {
+              "before": "수신자가 요구의 이유를 되묻는다.",
+              "after": "수신자가 공식 부서 확인을 요청한다."
+            },
+            "text": {
+              "before": "그렇게까지 비밀로 해야 하는 이유를 모르겠어요.",
+              "after": "담당 부서에 확인해 보고 답해도 될까요?"
+            }
+          }
+        },
+        {
+          "utterance_id": 7,
+          "fields": {
+            "label_rationale": {
+              "before": "확인이 끝날 때까지 타인에게 공유하지 말라고 재차 요구한다.",
+              "after": "공식 확인은 허용하면서도 동료에게 알리지 말라고 요구한다."
+            },
+            "text": {
+              "before": "우선 아무에게도 공유하지 말아 주세요. 확인이 끝나면 다시 설명드리겠습니다.",
+              "after": "네, 확인하셔도 됩니다. 다만 동료들에게 먼저 공유하지는 말아 주세요."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0007",
+      "declared_changed_ids": [
+        2
+      ],
+      "actual_changed_ids": [
+        2,
+        5
+      ],
+      "unlisted_changed_ids": [
+        5
+      ],
+      "declared_but_unchanged_ids": [],
+      "changes": [
+        {
+          "utterance_id": 2,
+          "fields": {
+            "label_rationale": {
+              "before": "수신자가 현재 이용 중인 확인 방법과 문의 내용을 말한다.",
+              "after": "수신자가 신청하지 않은 복구 안내에 의문을 제기한다."
+            },
+            "text": {
+              "before": "포인트는 앱에서 확인하고 있는데요. 어떤 내역이 문제인가요?",
+              "after": "저는 포인트 복구 신청을 한 적이 없는데요. 어떤 내역을 말씀하시는 건가요?"
+            }
+          }
+        },
+        {
+          "utterance_id": 5,
+          "fields": {
+            "label_rationale": {
+              "before": "상담 기록을 이유로 개인정보를 추가 확인하겠다고 한다.",
+              "after": "상담 기록을 이유로 이용자의 연락처를 직접 요구한다."
+            },
+            "text": {
+              "before": "네, 상담 기록에 남겨야 해서요. 가입할 때 사용한 연락처도 확인하겠습니다.",
+              "after": "상담 기록에 남기려면 가입할 때 사용한 연락처도 알려 주셔야 합니다."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0009",
+      "declared_changed_ids": [
+        7
+      ],
+      "actual_changed_ids": [
+        7
+      ],
+      "unlisted_changed_ids": [],
+      "declared_but_unchanged_ids": [],
+      "changes": [
+        {
+          "utterance_id": 7,
+          "fields": {
+            "label_rationale": {
+              "before": "선입금을 대출 절차로 꾸며 이체를 재차 요구한다.",
+              "after": "현재 발화는 보증금 이체를 직접 요구하지만, 대출 미끼 조건을 새로 제시하지 않는다."
+            },
+            "labels": {
+              "before": [
+                "loan_fraud",
+                "money_transfer"
+              ],
+              "after": [
+                "money_transfer"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0010",
+      "declared_changed_ids": [
+        2,
+        5
+      ],
+      "actual_changed_ids": [
+        2,
+        5
+      ],
+      "unlisted_changed_ids": [],
+      "declared_but_unchanged_ids": [],
+      "changes": [
+        {
+          "utterance_id": 2,
+          "fields": {
+            "label_rationale": {
+              "before": "수신자가 기억과 다른 납부 내역을 확인하려 한다.",
+              "after": "수신자가 납부 사실과 공식 청구 내역 확인 방법을 묻는다."
+            },
+            "text": {
+              "before": "이번 달 요금은 납부한 걸로 기억하는데요. 어느 내역인가요?",
+              "after": "이번 달 요금은 이미 납부했는데요. 청구 내역은 어디서 확인할 수 있나요?"
+            }
+          }
+        },
+        {
+          "utterance_id": 5,
+          "fields": {
+            "label_rationale": {
+              "before": "기한 초과를 언급하며 즉시 결제를 강요한다.",
+              "after": "기한 초과를 이용해 압박하면서 미납액의 결제를 직접 요구한다."
+            },
+            "labels": {
+              "before": [
+                "threat_pressure"
+              ],
+              "after": [
+                "threat_pressure",
+                "money_transfer"
+              ]
+            },
+            "text": {
+              "before": "문서 확인을 기다리시면 처리 기한을 넘길 수 있습니다. 지금 결제하셔야 합니다.",
+              "after": "문서 확인을 기다리시면 처리 기한을 넘길 수 있습니다. 미납액을 지금 결제하셔야 합니다."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0011",
+      "declared_changed_ids": [
+        1,
+        3
+      ],
+      "actual_changed_ids": [
+        1,
+        3
+      ],
+      "unlisted_changed_ids": [],
+      "declared_but_unchanged_ids": [],
+      "changes": [
+        {
+          "utterance_id": 1,
+          "fields": {
+            "label_rationale": {
+              "before": "가상 기기 지원 조직의 접수팀을 사칭한다.",
+              "after": "가상의 통신서비스 지원 조직 접수팀을 사칭한다."
+            },
+            "text": {
+              "before": "온결기기지원 보상 접수팀입니다. 휴대전화 교체 지원 대상인지 확인하려고 연락드렸습니다.",
+              "after": "온결기기지원 통신서비스 보상 접수팀입니다. 휴대전화 교체 지원 대상인지 확인하려고 연락드렸습니다."
+            }
+          }
+        },
+        {
+          "utterance_id": 3,
+          "fields": {
+            "label_rationale": {
+              "before": "정확한 값을 직접 요구하기보다 이용 통신사를 질문해 정보를 탐색한다.",
+              "after": "이용 통신사를 질문해 상대의 가입 정보를 탐색한다."
+            }
+          }
+        }
+      ]
+    },
+    {
+      "synthetic_id": "SYN2-TRAIN-0015",
+      "declared_changed_ids": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "actual_changed_ids": [
+        1,
+        2,
+        4,
+        7,
+        8
+      ],
+      "unlisted_changed_ids": [
+        7
+      ],
+      "declared_but_unchanged_ids": [],
+      "changes": [
+        {
+          "utterance_id": 1,
+          "fields": {
+            "label_rationale": {
+              "before": "이용자가 스스로 시작한 공공서비스 신청에서 확인 방법을 묻는다.",
+              "after": "이용자가 주소 변경 신청에 필요한 서류를 문의한다."
+            },
+            "text": {
+              "before": "한결시민서비스에 제가 직접 전화했습니다. 주소 변경 신청을 하려는데 본인확인은 어떻게 하나요?",
+              "after": "안녕하세요. 주소 변경 신청을 하려고 하는데, 어떤 서류가 필요한지 문의드려요."
+            }
+          }
+        },
+        {
+          "utterance_id": 2,
+          "fields": {
+            "label_rationale": {
+              "before": "상담원이 공식 신청 화면에 표시된 항목만 입력하라고 안내한다.",
+              "after": "상담원이 주소 변경 신청 절차와 추가 서류 안내 방식을 설명한다."
+            },
+            "text": {
+              "before": "신청 화면에서 필요한 항목만 입력하시면 됩니다. 어떤 정보가 필요한지 화면에 표시됩니다.",
+              "after": "온라인 신청에서는 새 주소를 입력하고 변경 사유를 선택하시면 됩니다. 별도 서류가 필요한 경우 신청 중에 안내가 표시됩니다."
+            }
+          }
+        },
+        {
+          "utterance_id": 4,
+          "fields": {
+            "label_rationale": {
+              "before": "상담원이 전화로 민감정보를 요구하지 않고 공식 절차를 안내한다.",
+              "after": "상담원이 전화로 민감정보를 요구하지 않고 신청 페이지의 확인 절차를 안내한다."
+            },
+            "text": {
+              "before": "아닙니다. 전화로 전체 번호를 말씀하실 필요는 없습니다. 공식 화면에서 안내하는 방식으로 진행해 주세요.",
+              "after": "전화로 전체 번호를 말씀하실 필요는 없습니다. 신청 페이지에 본인 확인 방법이 안내되니 그 절차를 따라 주세요."
+            }
+          }
+        },
+        {
+          "utterance_id": 7,
+          "fields": {
+            "label_rationale": {
+              "before": "이용자가 공식 화면에서 직접 입력하겠다고 한다.",
+              "after": "이용자가 신청 완료 후 접수 상태를 확인하는 방법을 묻는다."
+            },
+            "text": {
+              "before": "필요한 정보가 화면에 나오면 제가 직접 입력하겠습니다.",
+              "after": "신청을 마치면 접수 여부는 어디서 확인할 수 있나요?"
+            }
+          }
+        },
+        {
+          "utterance_id": 8,
+          "fields": {
+            "label_rationale": {
+              "before": "상담원이 신청 완료 확인과 공식 문의 경로를 안내한다.",
+              "after": "상담원이 신청 내역에서 접수 상태와 추가 요청을 확인하는 방법을 안내한다."
+            },
+            "text": {
+              "before": "네, 입력 후 접수 번호가 표시되면 신청이 완료된 것입니다. 추가 문의는 안내 페이지에서 확인하실 수 있습니다.",
+              "after": "신청 내역 메뉴에서 접수 상태와 처리 결과를 확인하실 수 있습니다. 추가 서류가 필요하면 같은 화면에 표시됩니다."
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "before_latest_revision": {
+    "conversations": 16,
+    "utterances": 136,
+    "phishing": 36,
+    "normal": 100,
+    "positive_labels": 39,
+    "labels": {
+      "institution_impersonation": 10,
+      "money_transfer": 2,
+      "personal_information": 4,
+      "app_installation": 8,
+      "secrecy": 6,
+      "threat_pressure": 3,
+      "loan_fraud": 4,
+      "information_probing": 2
+    }
+  },
+  "canonical_file": "dataset/04. processed/v2_pilot/pilot_canonical.jsonl",
+  "canonical_sha256": "847504a7178a1a0213b7855ebf9fe29aae9bbac51a04bd90abcd8aeb7c9281cd"
+}

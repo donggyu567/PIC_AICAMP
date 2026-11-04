@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "rows": 136,
+  "conversations": 16,
+  "source_phishing": 34,
+  "source_normal": 102,
+  "source_positive_labels": 37,
+  "priority_rows": 29,
+  "reviewer_results": {
+    "김해린": {
+      "미승인": 136
+    },
+    "임정윤": {
+      "미승인": 136
+    }
+  },
+  "final_results": {
+    "미승인": 136
+  },
+  "canonical_sha256": "847504a7178a1a0213b7855ebf9fe29aae9bbac51a04bd90abcd8aeb7c9281cd",
+  "csv_sha256": "a89c70714f44ee8cee1bccba5437bf1efa42eae3c7e94061c9ee481b10642b1d",
+  "canonical_unchanged": true,
+  "training_applied": false,
+  "note": "CSV has no formulas or automatic approval/integration. This validator never applies data to training.",
+  "source_file": "dataset\\review\\v2_pilot\\human_review.csv",
+  "working_file": "dataset\\review\\v2_pilot\\human_review_working.csv",
+  "sort_order": [
+    "대화_ID ascending",
+    "발화_번호 numeric ascending"
+  ],
+  "columns_identical_to_original": true,
+  "all_source_cells_and_existing_review_inputs_preserved": true,
+  "automatic_approvals": 0,
+  "generated_review_timestamps": 0,
+  "protected_file_sha256": {
+    "dataset\\review\\v2_pilot\\human_review.csv": "a89c70714f44ee8cee1bccba5437bf1efa42eae3c7e94061c9ee481b10642b1d",
+    "dataset\\04. processed\\v2_pilot\\pilot_canonical.jsonl": "847504a7178a1a0213b7855ebf9fe29aae9bbac51a04bd90abcd8aeb7c9281cd",
+    "dataset\\review\\v2_pilot\\README.md": "e62eb9ac9f267bbbdd75f017b3f4c5edfd8d1a23bb3ee54f601eed909fd1a060",
+    "dataset\\04. processed\\v2_pilot\\approval_a89c70714f44\\pilot_approved.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "dataset\\04. processed\\v2_pilot\\approval_a89c70714f44\\pilot_double_approved_candidates.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "protected_files_unchanged": true,
+  "conversation_rows": {
+    "SYN2-TRAIN-0001": 10,
+    "SYN2-TRAIN-0002": 10,
+    "SYN2-TRAIN-0003": 10,
+    "SYN2-TRAIN-0004": 10,
+    "SYN2-TRAIN-0005": 8,
+    "SYN2-TRAIN-0006": 8,
+    "SYN2-TRAIN-0007": 8,
+    "SYN2-TRAIN-0008": 8,
+    "SYN2-TRAIN-0009": 8,
+    "SYN2-TRAIN-0010": 8,
+    "SYN2-TRAIN-0011": 8,
+    "SYN2-TRAIN-0012": 8,
+    "SYN2-TRAIN-0013": 8,
+    "SYN2-TRAIN-0014": 8,
+    "SYN2-TRAIN-0015": 8,
+    "SYN2-TRAIN-0016": 8
+  }
+}

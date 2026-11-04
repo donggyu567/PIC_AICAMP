@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "rows": 136,
+  "conversations": 16,
+  "source_phishing": 34,
+  "source_normal": 102,
+  "source_positive_labels": 37,
+  "priority_rows": 29,
+  "reviewer_results": {
+    "김해린": {
+      "미승인": 136
+    },
+    "임정윤": {
+      "미승인": 136
+    }
+  },
+  "final_results": {
+    "미승인": 136
+  },
+  "canonical_sha256": "847504a7178a1a0213b7855ebf9fe29aae9bbac51a04bd90abcd8aeb7c9281cd",
+  "csv_sha256": "a89c70714f44ee8cee1bccba5437bf1efa42eae3c7e94061c9ee481b10642b1d",
+  "canonical_unchanged": true,
+  "training_applied": false,
+  "note": "CSV has no formulas or automatic approval/integration. This validator never applies data to training.",
+  "csv_created_this_run": false
+}

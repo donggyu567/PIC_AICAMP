@@ -1,0 +1,74 @@
+{
+  "candidate_status": "SINGLE_REVIEW_COMPLETE_NOT_FINAL_APPROVED",
+  "conversations": 16,
+  "utterances": 136,
+  "phishing": 34,
+  "normal": 102,
+  "positive_labels": 37,
+  "labels": {
+    "institution_impersonation": 10,
+    "money_transfer": 3,
+    "personal_information": 4,
+    "app_installation": 7,
+    "secrecy": 5,
+    "threat_pressure": 3,
+    "loan_fraud": 3,
+    "information_probing": 2
+  },
+  "reviewer_results": {
+    "김해린": {
+      "미승인": 136
+    },
+    "임정윤": {
+      "승인": 136
+    }
+  },
+  "final_results": {
+    "미승인": 136
+  },
+  "reference_revision": "958c30e4ac6c43af015b1af75b295bfc1b6dfbcc",
+  "reference_files": 13,
+  "actual_v1_training_run_provenance": "UNVERIFIED: code recovered from Git, not identified from a v1 run manifest",
+  "actual_v1_sample_builder": {
+    "status": "PASS",
+    "samples": 136,
+    "statistics": {
+      "missing_tuned_text": 0,
+      "missing_label": 0,
+      "matched": 136,
+      "included": 136,
+      "duplicate_key": 0,
+      "excluded_missing_status": 0,
+      "excluded_unreviewed": 0,
+      "invalid_label": 0,
+      "empty_tuned_text": 0
+    }
+  },
+  "context": {
+    "max_previous": 5,
+    "verified_targets": 136,
+    "unapproved_single_review_context_ids": 0,
+    "validation_test_inputs": 0
+  },
+  "actual_v1_duplicates": "NOT_VERIFIED_ACTUAL_INPUTS_MISSING",
+  "reference_near_utterances": 0,
+  "final_approval_policy_changed": false,
+  "training_executed": false,
+  "checkpoint_modified": false,
+  "protected_sha256": {
+    "dataset\\04. processed\\v2_pilot\\pilot_canonical.jsonl": "847504a7178a1a0213b7855ebf9fe29aae9bbac51a04bd90abcd8aeb7c9281cd",
+    "dataset\\review\\v2_pilot\\human_review_working.csv": "f6a73c96945a04ac52b766c28f754f6e3b0a321e85abe012d11b0fe9f7261c90",
+    "dataset\\review\\v2_pilot\\human_review.csv": "a89c70714f44ee8cee1bccba5437bf1efa42eae3c7e94061c9ee481b10642b1d",
+    "dataset\\review\\v2_pilot\\WORKING_REVIEW_GUIDE.md": "cbb369f1d9fe61c6a12b2e530ba7a6cdc43c93fd19665cdb07aada90119da312",
+    "dataset\\04. processed\\v2_pilot\\approval_a89c70714f44\\pilot_approved.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "dataset\\04. processed\\v2_pilot\\approval_a89c70714f44\\pilot_double_approved_candidates.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "protected_files_unchanged": true,
+  "outputs": [
+    "dataset/04. processed/v2_pilot/training_candidate/conversation_provenance.jsonl",
+    "dataset/04. processed/v2_pilot/training_candidate/pilot_single_review_train_candidate.jsonl",
+    "dataset/04. processed/v2_pilot/training_candidate/v1_adapter_label_candidates.jsonl",
+    "dataset/04. processed/v2_pilot/training_candidate/v1_adapter_sample_candidates.jsonl",
+    "dataset/04. processed/v2_pilot/training_candidate/v1_adapter_text_candidates.jsonl"
+  ]
+}

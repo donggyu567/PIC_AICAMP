@@ -1,0 +1,106 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "dependencies": {
+    "torch": null,
+    "transformers": null,
+    "tokenizers": null,
+    "huggingface_hub": null
+  },
+  "recovered_source_contract_tests": {
+    "tests": 39,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1,
+    "success": true
+  },
+  "new_adapter_tests": {
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "success": true
+  },
+  "actual_minibatch": {
+    "status": "BLOCKED_RUNTIME_OR_CACHED_ASSETS",
+    "mock_tokenizer_used_for_actual_batch": false,
+    "exception": "ModuleNotFoundError",
+    "message": "No module named 'torch'"
+  },
+  "source_api_inventory": {
+    "checkpoint.py": [
+      "CheckpointCompatibilityError",
+      "input_contract",
+      "tokenizer_metadata",
+      "tokenizer_behavior",
+      "encoder_config",
+      "read_checkpoint",
+      "_required",
+      "validate_checkpoint_metadata",
+      "validate_model_config",
+      "validate_tokenizer",
+      "load_training_checkpoint"
+    ],
+    "config.py": [],
+    "dataset.py": [
+      "RiskSpeechDataset",
+      "DynamicPaddingCollator",
+      "make_training_dataloader"
+    ],
+    "inference.py": [
+      "ThresholdConfig",
+      "InferenceInput",
+      "InferenceOutput",
+      "logits_to_outputs",
+      "infer_batch",
+      "CheckpointInference",
+      "load_checkpoint_inference"
+    ],
+    "labels.py": [
+      "to_multi_hot"
+    ],
+    "model.py": [
+      "ModelOutput",
+      "RiskSpeechClassifier"
+    ],
+    "tokenization.py": [
+      "InputTooLongError",
+      "TokenizerContractError",
+      "TokenizedInput",
+      "load_koelectra_tokenizer",
+      "_encode_pair",
+      "build_model_input"
+    ],
+    "training.py": [
+      "TrainingConfig",
+      "LossOutput",
+      "EpochLoss",
+      "TrainingResult",
+      "set_training_seed",
+      "create_training_model",
+      "compute_losses",
+      "_metadata",
+      "train_model"
+    ],
+    "training_data.py": [
+      "TrainingSample",
+      "BuildResult",
+      "_key",
+      "_order",
+      "_index",
+      "_targets",
+      "build_training_samples"
+    ]
+  },
+  "dependency_index_probe": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "ERROR: No matching distribution found for torch\n",
+    "installed_packages": false
+  },
+  "training_called": false,
+  "optimizer_steps": 0,
+  "model_forward_executed": false,
+  "checkpoint_written": false,
+  "test_scope": "Recovered training_data/tokenization contract tests use their original test tokenizers. They do not establish real KoELECTRA tokenization. Original model/training tests that execute backward/optimizer steps were intentionally not run."
+}
