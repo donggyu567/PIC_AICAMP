@@ -1,0 +1,12 @@
+{
+  "human_review_utterances": 132,
+  "new_train_multilabel_cases": 3,
+  "new_normal_conversations": 4,
+  "validation_normal_conversations": 8,
+  "normal_utterance_coverage": 96,
+  "semantic_scenario_pairs": 9,
+  "v1_conversation_index": 68,
+  "asset_records": 23,
+  "status": "NEEDS_HUMAN_REVIEW",
+  "human_approval_assigned": false
+}

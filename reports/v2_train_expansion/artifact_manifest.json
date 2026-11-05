@@ -1,0 +1,43 @@
+{
+  "status": "PASS_AUTOMATION_HUMAN_REVIEW_PENDING",
+  "checks": {
+    "passed": 1580,
+    "failed": 0
+  },
+  "unit_tests": {
+    "status": "PASS",
+    "tests_run": 16,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "protected_files_unchanged": 940,
+  "tracked_diff": false,
+  "staged_diff": false,
+  "new_data_frozen_after_validation_comparison": true,
+  "human_approval_assigned": false,
+  "training_executed": false,
+  "files": {
+    "dataset/04. processed/v2_train_expansion/context_audit.jsonl": "a1c88543a80ea140207599d3b3d3cfb6be3ca825fa23b104acc2e30e9154534e",
+    "dataset/04. processed/v2_train_expansion/cpu_dry_run_label_candidates.jsonl": "44b591abce8db8c13073cc70b375dddf47c1304cffff281e373898f9ce79c36c",
+    "dataset/04. processed/v2_train_expansion/cpu_dry_run_text_candidates.jsonl": "914b4dbd201e4d17bc0773d21792ba9fb9a01cdb2648de6d2d5bcae15c60c6b5",
+    "dataset/04. processed/v2_train_expansion/generation_and_scenarios.json": "758f6cc97e52d9280b64dcd6c3dcbfb3f08ca84d2add6696a4d85ad949c165dc",
+    "dataset/04. processed/v2_train_expansion/README.md": "4c974fb6367592a09ed7620911dc1e51c1c8bcc0f2b9915f86538df3cd111d80",
+    "dataset/04. processed/v2_train_expansion/train_0017_0024_generated.jsonl": "ebd30a751727e9a12303ba49f3ae70fdf06b8eb83f9745a9e6e4390b680c4406",
+    "dataset/04. processed/v2_train_expansion/train_24_mixed_review_candidate.jsonl": "e6fd1c0c603c1d177bf40803fbbed548a6288532a6b3933653d1984c408a5819",
+    "dataset/review/v2_train_expansion/human_review_new8.csv": "842652b4e11eaf13c1e98652fbfacd012c42f636c3e32f15c3007dbc14215f64",
+    "dataset/review/v2_train_expansion/README.md": "52bdff45aafebdf6ab636e0e593fac8ea71375f1bf5c152ebc62d452c76948bc",
+    "dataset/scripts/prepare_v2_train_expansion.py": "445b2306b913693acb0ecc2b55347554d0e3b788c080578a60f8bc6bf78dee76",
+    "dataset/scripts/validate_v2_train_expansion.py": "bf30da8de8e2e0d675343283fe8ac79555113f2fdb5d759844f4f7a295e7d383",
+    "reports/v2_train_expansion/duplicate_report.json": "39b4f7f470454d5d3f62de3ca7fe839c154e83546858e88da8e8ce9ad92ade47",
+    "reports/v2_train_expansion/execution_initial_attempt.json": "f87df1a14be9aef2adad59349dafa66567686fc2fb1236d8190d7024434980b5",
+    "reports/v2_train_expansion/expansion_unit_tests.json": "557b8f3797162d609f1ec33b00e6e81e480ea02fb439c1fda3f8858cb63e0b81",
+    "reports/v2_train_expansion/protected_baseline.json": "4bd367728b50c76e259914fdb32432bf17e003d89f8500e02fcf8fee90d25595",
+    "reports/v2_train_expansion/README.md": "1f6309832b05f76d5ec76548805998a46bdddf19bad6719c61d3eaf2c36b845d",
+    "reports/v2_train_expansion/scenario_design.md": "44356d90855e02422cc364f80cb934161aa18947ac914a9873445321379a08b2",
+    "reports/v2_train_expansion/scenario_independence_review.md": "bbb74992fba659407a8d13005587acd00035a8cfa1d4394d7c75e82cf19f183e",
+    "reports/v2_train_expansion/validation_result.json": "9216ed0a8cf3252d28531a0f8b06da77570623d05ffbee77eef231bbb1c65da4",
+    "tests/test_v2_train_expansion.py": "53703bf778d9c8541c595ad18dc98d91a4ae3b32e0f5bd970d6f81ff190b73ca"
+  },
+  "note": "Self excluded; inspection and test results recorded before any human CSV edits. Semantic independence awaits human review."
+}

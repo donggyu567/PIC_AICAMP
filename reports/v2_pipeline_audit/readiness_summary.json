@@ -1,0 +1,28 @@
+{
+  "client_date": "2026-11-06",
+  "overall": "AUDIT_COMPLETE_ACTUAL_TRAINING_BLOCKED",
+  "v1_training_inputs": "READY_EXACT_HASH_RECOVERY",
+  "v1_checkpoint": "NOT_FOUND",
+  "v1_model_load": "BLOCKED_FILE_MISSING",
+  "v1_independent_historical_split": "NOT_FOUND_DOCUMENTED_NO_INDEPENDENT_HOLDOUT",
+  "pinned_PR35_source_and_documentary_config": "READY_SOURCE_ONLY",
+  "v2_cpu_preflight": "READY",
+  "v2_normal_training": "BLOCKED_APPROVAL_AND_FUTURE_ENTRYPOINT_INTEGRATION",
+  "v2_lexical_split_check": "READY_NO_CANDIDATES",
+  "semantic_independence": "BLOCKED_HUMAN_REVIEW_REQUIRED",
+  "tests": {
+    "status": "PASS",
+    "count": 93
+  },
+  "preexisting_files_preserved": 961,
+  "train_samples": 208,
+  "validation_samples": 192,
+  "total_batches": 100,
+  "human_review_cases": 132,
+  "semantic_pairs": 9,
+  "new_synthetic_data_generated": false,
+  "training_executed": false,
+  "threshold_optimization": false,
+  "git_commit_push_pr": false,
+  "checkpoint_written": false
+}

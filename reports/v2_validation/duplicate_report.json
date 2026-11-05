@@ -1,0 +1,97 @@
+{
+  "normalization": "NFKC + casefold; remove whitespace and Unicode punctuation",
+  "similarity": "difflib.SequenceMatcher(autojunk=False); high >= 0.90; extra screen >= 0.80",
+  "train_source_sha256": "847504a7178a1a0213b7855ebf9fe29aae9bbac51a04bd90abcd8aeb7c9281cd",
+  "candidate_source_sha256": "37295147045ad8ce57e0b2ed2ea3ff8acd71d8cdba70b8bac14a472901daa27e",
+  "train_utterance_pairs": 26112,
+  "within_validation_pairs": 18336,
+  "train_utterances": {
+    "exact": [],
+    "normalized_only": [],
+    "near_at_090": [],
+    "screening_at_080": [],
+    "highest_similarity_pair": {
+      "left": "SYN2-VALIDATION-0002-7",
+      "right": "SYN2-TRAIN-0003-3",
+      "similarity": 0.507042,
+      "left_text": "운영진에게 이 당첨 연락을 공유하지 마세요. 지급팀하고만 이야기하셔야 합니다.",
+      "right_text": "가족에게도 이 연락을 받았다는 사실을 말씀하지 마세요. 이번 확인은 혼자 진행하셔야 합니다."
+    }
+  },
+  "within_validation": {
+    "exact": [],
+    "normalized_only": [],
+    "near_at_090": [],
+    "screening_at_080": [],
+    "highest_similarity_pair": {
+      "left": "SYN2-VALIDATION-0002-7",
+      "right": "SYN2-VALIDATION-0005-4",
+      "similarity": 0.5625,
+      "left_text": "운영진에게 이 당첨 연락을 공유하지 마세요. 지급팀하고만 이야기하셔야 합니다.",
+      "right_text": "합주실이나 다른 가족에게는 연락하지 마세요. 저하고만 수습하셔야 합니다."
+    }
+  },
+  "train_full_transcripts": {
+    "exact": [],
+    "normalized_only": [],
+    "near_at_090": [],
+    "screening_at_080": [],
+    "highest_similarity_pair": {
+      "left": "SYN2-VALIDATION-0023",
+      "right": "SYN2-TRAIN-0008",
+      "similarity": 0.252212,
+      "left_text": "예약하신 눈꽃바구니 냉장 배송 기사입니다. 공동현관 인계 요청이 있어 도착 전에 연락했습니다.\n아직 밖이라서 옆집에 맡기려고 했는데 전화번호를 알려 드릴까요?\n동의받지 않은 이웃 전화번호는 받지 않겠습니다. 냉장 보관함 인계도 선택하실 수 있어요.\n보관함으로 부탁합니다. 가족에게 찾으라고 말해도 되나요?\n가족과 수령 방법을 함께 확인하셔도 됩니다. 보관 위치는 주문 앱에 남기겠습니다.\n공동현관 비밀번호도 통화로 불러야 하나요?\n기사에게 비밀번호를 말씀하실 필요는 없습니다. 건물의 방문 호출로 들어가겠습니다.\n그 방식이면 괜찮아요. 보관함에 도착하면 주문 내역을 확인하겠습니다.",
+      "right_text": "은하담보상보험 청구 심사 담당자입니다. 접수하신 서류에 보완할 점이 있어 연락드렸습니다.\n어떤 서류가 부족한지 알려 주시겠어요?\n본인 확인을 위해 주민등록번호 전체를 말씀해 주시겠어요?\n그 정보는 전화로 알려 드리고 싶지 않습니다. 다른 확인 방법이 있나요?\n그럼 문자로 도착한 인증번호만 확인해 주시면 서류 보완을 처리하겠습니다.\n인증번호도 말씀드리지 않을게요. 보완 안내를 서면으로 보내 주세요.\n알겠습니다. 전화로는 더 확인하지 않고 안내를 남기겠습니다.\n네, 안내를 확인한 뒤 필요한 서류를 제출하겠습니다."
+    }
+  },
+  "id_collisions": [],
+  "family_collisions": [],
+  "scenario_collisions": [],
+  "existing_processed_files_scanned": [
+    {
+      "path": "dataset/04. processed/v2_pilot/approval_a89c70714f44/pilot_approved.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rows": 0
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/approval_a89c70714f44/pilot_double_approved_candidates.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rows": 0
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/pilot_canonical.jsonl",
+      "sha256": "847504a7178a1a0213b7855ebf9fe29aae9bbac51a04bd90abcd8aeb7c9281cd",
+      "rows": 16
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/training_candidate/conversation_provenance.jsonl",
+      "sha256": "7415e143aaab36fec166ea1dcb3061f20956fced4c9d9b2149d8e99e2c3a7043",
+      "rows": 16
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/training_candidate/pilot_single_review_train_candidate.jsonl",
+      "sha256": "37295147045ad8ce57e0b2ed2ea3ff8acd71d8cdba70b8bac14a472901daa27e",
+      "rows": 16
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/training_candidate/v1_adapter_label_candidates.jsonl",
+      "sha256": "4fd548e0a2eca7bb3bcafc27aa611dd14e61a6cf79d5e3ce8da8d6cdb1a4bac4",
+      "rows": 136
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/training_candidate/v1_adapter_sample_candidates.jsonl",
+      "sha256": "0f31ce31f9067c9c517d3b7834a7e0c6a6c776a5acf361cf3f7f151b0f5af100",
+      "rows": 136
+    },
+    {
+      "path": "dataset/04. processed/v2_pilot/training_candidate/v1_adapter_text_candidates.jsonl",
+      "sha256": "927797dc1548be7e8c498e22f56c78eceeab8ff5a26dd9932e660768d47256ae",
+      "rows": 136
+    }
+  ],
+  "local_test_files_found": [],
+  "test_status": "NO_INDEPENDENT_TEST_INPUT_SUPPLIED",
+  "actual_v1_training_duplicate_status": "NOT_VERIFIED_INPUTS_UNAVAILABLE",
+  "semantic_independence": "GENERATOR_DESIGN_COMPARISON_ONLY_HUMAN_REVIEW_PENDING",
+  "semantic_limitation": "Lexical similarity cannot prove absence of paraphrases or equivalent fraud scripts. See scenario_design.md and review all 24 against TRAIN."
+}

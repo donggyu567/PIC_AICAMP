@@ -1,0 +1,80 @@
+{
+  "model": "monologg/koelectra-base-v3-discriminator",
+  "revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+  "public_pretrained_encoder_only": true,
+  "original_v1_checkpoint_restored": false,
+  "training_executed": false,
+  "remote_files": [
+    {
+      "name": ".gitattributes",
+      "size": 345,
+      "blob_id": "dc08351d4dc0732d9c8af04070ced089b201ce2f",
+      "lfs": null
+    },
+    {
+      "name": "README.md",
+      "size": 1841,
+      "blob_id": "bf1679b58eab1f1070daee9aa1e55ad9746b62fe",
+      "lfs": null
+    },
+    {
+      "name": "config.json",
+      "size": 467,
+      "blob_id": "ef331411bf23a3a333aefc6dbf95c67ad222fe05",
+      "lfs": null
+    },
+    {
+      "name": "pytorch_model.bin",
+      "size": 451741507,
+      "blob_id": "bbaae31e2fe0c944e99ed9b63eeaaf196a9f3f2e",
+      "lfs": {
+        "size": 451741507,
+        "sha256": "f3f249cc07826bc2964a2c0dbbd0d239df4fe55efc03ba33e1bd1584cf56c566",
+        "pointer_size": 134
+      }
+    },
+    {
+      "name": "tokenizer_config.json",
+      "size": 61,
+      "blob_id": "18ccce5ca61739f097261d5c2008339c00f8e285",
+      "lfs": null
+    },
+    {
+      "name": "vocab.txt",
+      "size": 263326,
+      "blob_id": "7842ecfa1975af77bae575314998f42c6feecdd6",
+      "lfs": null
+    }
+  ],
+  "files": [
+    {
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_experiment_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\config.json",
+      "name": "config.json",
+      "bytes": 467,
+      "sha256": "b0524c98036d679fd7a38a304a678cbf8d71226283c1f2f6ce08408e85eea56e",
+      "matches_remote_git_blob": true
+    },
+    {
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_experiment_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\tokenizer_config.json",
+      "name": "tokenizer_config.json",
+      "bytes": 61,
+      "sha256": "cd074f01387ed507bc657bebc91c9653874194ba612ceecffe72e6d5c631988c",
+      "matches_remote_git_blob": true
+    },
+    {
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_experiment_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\vocab.txt",
+      "name": "vocab.txt",
+      "bytes": 263326,
+      "sha256": "9f50b0a44b0272dcf78bfd7a52a0815588f69918bb87ec60b21ca235c5aa0eb4",
+      "matches_remote_git_blob": true
+    },
+    {
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_experiment_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\pytorch_model.bin",
+      "name": "pytorch_model.bin",
+      "bytes": 451741507,
+      "sha256": "f3f249cc07826bc2964a2c0dbbd0d239df4fe55efc03ba33e1bd1584cf56c566",
+      "matches_remote_lfs_sha256": true
+    }
+  ],
+  "status": "READY_PUBLIC_BASE_ASSETS"
+}

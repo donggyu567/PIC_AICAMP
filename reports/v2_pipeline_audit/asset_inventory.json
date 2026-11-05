@@ -1,0 +1,228 @@
+{
+  "assets": [
+    {
+      "asset": "actual_v1_labels",
+      "status": "READY_EXACT_HASH_RECOVERY",
+      "expected_sha256": "c205049e1aa2125ad40cc6cea1465b2c2793cc7fedf02b7eab8e1d9f20e9c9e5",
+      "actual_sha256": "c205049e1aa2125ad40cc6cea1465b2c2793cc7fedf02b7eab8e1d9f20e9c9e5",
+      "bytes": 800984,
+      "exact_match": true,
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\prepared\\labels.jsonl"
+    },
+    {
+      "asset": "actual_v1_tuned",
+      "status": "READY_EXACT_HASH_RECOVERY",
+      "expected_sha256": "50ea88cc3ee9c3df1477082ab5daf82ef77f83329374b50f312874592462e6f2",
+      "actual_sha256": "50ea88cc3ee9c3df1477082ab5daf82ef77f83329374b50f312874592462e6f2",
+      "bytes": 499774,
+      "exact_match": true,
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\prepared\\tuned.jsonl"
+    },
+    {
+      "asset": "trained_v1_checkpoint",
+      "status": "NOT_FOUND",
+      "expected_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\risk_speech_ai\\koelectra_risk_v1.pt",
+      "actual_path": null,
+      "actual_sha256": null,
+      "expected_sha256": "1131f9dcc665f79073d98ecd6845573109a89e44dbf2917d299a8fea057020a7",
+      "expected_bytes": 1348308730,
+      "load_status": "BLOCKED_FILE_MISSING"
+    },
+    {
+      "asset": "trained_v1_checkpoint",
+      "status": "NOT_FOUND",
+      "expected_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\checkpoints\\risk_speech_v1.pt",
+      "actual_path": null,
+      "actual_sha256": null,
+      "expected_sha256": "1131f9dcc665f79073d98ecd6845573109a89e44dbf2917d299a8fea057020a7",
+      "expected_bytes": 1348308730,
+      "load_status": "BLOCKED_FILE_MISSING"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\checkpoint.py",
+      "bytes": 12128,
+      "sha256": "633872d102fcaa8bbd1459e0cc372bd6021ab56dab00fbb6cbdde966b1fbd20f"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\config.py",
+      "bytes": 234,
+      "sha256": "e991149c74defa828ddbd5eedc12608086a0be6263c91e97bc2e1ee198b841c5"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\dataset.py",
+      "bytes": 3620,
+      "sha256": "c86f104f8df60e8f9a508ba4ba64e81c886041ddfcdb653aeee8f74740d37156"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\evaluate_cli.py",
+      "bytes": 24029,
+      "sha256": "4f6d7ddc814436d2f683ada3ba9e88863e1835a8a292eca49afc63f185ddf579"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\inference.py",
+      "bytes": 6726,
+      "sha256": "f7d2613352c5ad920055ab4b0fc96244185432e693848dfadd29636648cb7d2b"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\labels.py",
+      "bytes": 1086,
+      "sha256": "c69afc17bcd3a4895bc7d2f4fdf297b636580291ffa381603237462ec2f2348c"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\metrics.py",
+      "bytes": 6108,
+      "sha256": "4a4c10e9217a3ff2a21c334774cbb9bf97d8437d47b79ab246b9c8a5cc74b80a"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\model.py",
+      "bytes": 2246,
+      "sha256": "945466496b24eff750982723c7e31fc325d0cf8a52cc2e7095bef02d99e94fdb"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\prepare_training_inputs.py",
+      "bytes": 17207,
+      "sha256": "512181b4a96cfebef4f4ed28b98956a23d457a0b0b430b68b3cad89b7f51621e"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\splits.py",
+      "bytes": 3981,
+      "sha256": "e14424178d9454bda0a2d46dc452d8cd96788b69f75603765ee86d7aff0d75d6"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\tokenization.py",
+      "bytes": 6159,
+      "sha256": "ea93a473843713545e587cbfd9d7789ac52195332b6b7b8866d170b4819a0cd3"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\train_cli.py",
+      "bytes": 3820,
+      "sha256": "6a7afd6244183163cb9b1d432ddbd478ce91d13723cdae81b45379dd0468972a"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\training.py",
+      "bytes": 12350,
+      "sha256": "7adcf627345480a97be93f253eeb3b042ab7b6a981c05682e1ca7d87cc6b529d"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\training_data.py",
+      "bytes": 7072,
+      "sha256": "9b13b5d55ebce748efa167d99720e6b5688d2aadea87b33a85320db3f9ea2ef9"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\training_log.py",
+      "bytes": 3193,
+      "sha256": "b0ce173390a04040c08d43a5ca3e433c8098a3bf3bcb58ddb653f46b778260fc"
+    },
+    {
+      "asset": "PR35_source_code",
+      "status": "READY_SOURCE_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\risk_speech_ai\\type_diagnostics.py",
+      "bytes": 10350,
+      "sha256": "713a9322fb5079abb5bbeb23dddc92363fa7280fb33e00c125771a13d7f8b92f"
+    },
+    {
+      "asset": "historical_documentary_execution_record",
+      "status": "READY_DOCUMENTARY_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\artifacts\\risk_speech_ai\\reports\\metrics.json",
+      "bytes": 12947,
+      "sha256": "63496c1fd54549a5a1f9a4e2abcaa5aed47eb520c33f22005ba4b9762e048335"
+    },
+    {
+      "asset": "historical_documentary_execution_record",
+      "status": "READY_DOCUMENTARY_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_reference\\pr35_9bab7e383928\\artifacts\\risk_speech_ai\\reports\\reproducibility.json",
+      "bytes": 5350,
+      "sha256": "c2564bc676d3a09545f358cf80a571c1788934200f9451f9bd7803ffa7045423"
+    },
+    {
+      "asset": "base_encoder_config_not_checkpoint_metadata",
+      "status": "READY_BASE_CONFIG_ONLY",
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_runtime_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\config.json",
+      "bytes": 467,
+      "sha256": "b0524c98036d679fd7a38a304a678cbf8d71226283c1f2f6ce08408e85eea56e",
+      "config": {
+        "model_type": "electra",
+        "hidden_size": 768,
+        "embedding_size": 768,
+        "num_hidden_layers": 12,
+        "num_attention_heads": 12,
+        "intermediate_size": 3072,
+        "vocab_size": 35000,
+        "max_position_embeddings": 512,
+        "type_vocab_size": 2
+      }
+    }
+  ],
+  "source_commit": "9bab7e383928426e2d866de90acae013fe1f7d86",
+  "historical_model_training_config": {
+    "status": "DOCUMENTED_NOT_CHECKPOINT_VERIFIED",
+    "data_version": "risk-speech-team_lead_training_use_20261026_27-8faa6a7eebfe",
+    "learning_rate": 2e-05,
+    "batch_size": 8,
+    "epochs": 1,
+    "lambda_risk": 1.0,
+    "lambda_type": 1.0,
+    "seed": 42,
+    "weight_decay": 0.01,
+    "model_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+    "tokenizer_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc"
+  },
+  "historical_input_contract": {
+    "max_history": 5,
+    "max_sequence_length": 512,
+    "label_order": [
+      "institution_impersonation",
+      "money_transfer",
+      "personal_information",
+      "app_installation",
+      "secrecy",
+      "threat_pressure",
+      "loan_fraud",
+      "information_probing"
+    ]
+  },
+  "independent_v1_split": {
+    "status": "NOT_FOUND",
+    "documented_independent_validation_available": false,
+    "documented_independent_test_available": false,
+    "evaluation_set": "TRAIN (IN-SAMPLE)",
+    "note": "No historical held-out split to recover; splits.py is future planning code."
+  },
+  "exact_training_code_snapshot": {
+    "status": "NOT_FOUND",
+    "documentary_state": "not_recorded",
+    "head_during_training": "76e16c02db5491aa33a55c4a92f532ba069a7c58"
+  },
+  "checkpoint_model_loading": "BLOCKED_FILE_MISSING",
+  "human_approval_assigned": false
+}

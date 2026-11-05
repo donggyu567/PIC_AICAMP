@@ -1,0 +1,13 @@
+[
+  {
+    "left": "SYN2-TRAIN-0011-2",
+    "right": "P0005-5",
+    "left_text": "저는 교체 신청을 한 적이 없는데요.",
+    "right_text": "저는 카드 신청한 적이 없는데요.",
+    "similarity": 0.814815,
+    "kind": "similar_at_080",
+    "v1_candidate_split": "train",
+    "priority": "P0_INVESTIGATE_NOT_CONFIRMED_LEAKAGE",
+    "note": "현재 분할 후보에서는 v1 원문이 TRAIN에 있음. 문장 유사성은 확정된 시나리오 중복이 아니며 의미적 검토는 유지."
+  }
+]

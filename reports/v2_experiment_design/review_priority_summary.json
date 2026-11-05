@@ -1,0 +1,16 @@
+{
+  "existing_utterance_cases": 132,
+  "priority_counts": {
+    "P0": 11,
+    "P1": 119,
+    "P2": 2
+  },
+  "existing_semantic_scenario_pairs": 9,
+  "existing_v1_similar_turn_pairs": 1,
+  "new_holdout_gold_QA_rows": 517,
+  "short_normal_cross_split_exception_edges": 128,
+  "approved_synthetic": 0,
+  "existing_sources_unchanged": true,
+  "approvals_assigned": false,
+  "note": "Different files overlap in subjects; counts are tasks/edges, not distinct independent data points."
+}

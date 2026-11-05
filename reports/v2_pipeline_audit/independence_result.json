@@ -1,0 +1,40 @@
+{
+  "normalization": "NFKC + casefold; whitespace and Unicode punctuation removed",
+  "threshold": 0.8,
+  "metric": "SequenceMatcher(autojunk=False); exact upper bounds prune below threshold only",
+  "train_vs_validation": {
+    "pairs_checked": 39936,
+    "ratios_computed_after_bounds": 0,
+    "candidate_count": 0,
+    "kinds": {},
+    "candidates": []
+  },
+  "v2_train_vs_actual_v1": {
+    "pairs_checked": 303680,
+    "ratios_computed_after_bounds": 1,
+    "candidate_count": 1,
+    "kinds": {
+      "similar_at_080": 1
+    },
+    "candidates": [
+      {
+        "left": "SYN2-TRAIN-0011-2",
+        "right": "P0005-5",
+        "left_text": "저는 교체 신청을 한 적이 없는데요.",
+        "right_text": "저는 카드 신청한 적이 없는데요.",
+        "similarity": 0.814815,
+        "kind": "similar_at_080"
+      }
+    ]
+  },
+  "v2_validation_vs_actual_v1": {
+    "pairs_checked": 280320,
+    "ratios_computed_after_bounds": 0,
+    "candidate_count": 0,
+    "kinds": {},
+    "candidates": []
+  },
+  "actual_v1_source_identity": "RECOVERED_EXACT_SHA256",
+  "semantic_status": "HUMAN_REVIEW_REQUIRED_LEXICAL_SCREEN_IS_NOT_SEMANTIC_PROOF",
+  "semantic_limit": "No original v1 family manifest exists; do not infer semantic family independence from disjoint IDs or no >=0.80 text candidates."
+}

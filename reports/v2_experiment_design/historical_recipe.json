@@ -1,0 +1,37 @@
+{
+  "verified_from_PR35": {
+    "model": "monologg/koelectra-base-v3-discriminator",
+    "revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+    "epochs": 1,
+    "batch_size": 8,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "seed": 42,
+    "optimizer": "AdamW",
+    "lambda_risk": 1.0,
+    "lambda_type": 1.0,
+    "loss": "unweighted mean BCE for each head, summed",
+    "history": 5,
+    "max_tokens": 512,
+    "thresholds": 0.5,
+    "checkpoint": "last_epoch",
+    "historical_steps": 183,
+    "historical_samples": 1460,
+    "evaluation": "TRAIN IN-SAMPLE only; sample_count/data_version bound by old evaluate_cli"
+  },
+  "not_verified_or_not_recorded": [
+    "actual v1 checkpoint metadata/weights",
+    "exact uncommitted training code snapshot",
+    "historical optimizer betas/eps explicit values",
+    "exact device/thread settings beyond recorded CPU",
+    "per-batch loss and total duration",
+    "resolved tokenizer revision; vocabulary fingerprint is recorded"
+  ],
+  "planned_differences": [
+    "new A identity v1_retrained_baseline; never recovered original weights",
+    "fair comparison A/B train only common proposed TRAIN subset, not all1460",
+    "optional full1460 recipe replay is separate in-sample-only exercise and cannot be scored on internal holdouts",
+    "current Python3.12.14 differs from historical3.11.16; exact bitwise replication not promised"
+  ],
+  "original_input_quality": "Historical team training-use permission is not independent utterance-level gold review"
+}

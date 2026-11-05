@@ -1,0 +1,37 @@
+{
+  "automation_status": "PASS_AUTOMATION_HUMAN_REVIEW_PENDING",
+  "checks": {
+    "passed": 2678,
+    "failed": 0
+  },
+  "unit_tests": {
+    "command": ".venv-v2/Scripts/python.exe -B -X utf8 -m unittest discover -s tests -p test_v2_validation.py -v",
+    "tests_run": 13,
+    "failures": 0,
+    "errors": 0,
+    "status": "PASS",
+    "scope": "In-memory corruption rejection and unreviewed training exclusion; no source file mutations"
+  },
+  "tracked_worktree_diff": false,
+  "staged_diff": false,
+  "protected_files_unchanged": 923,
+  "files": {
+    "dataset/04. processed/v2_validation/context_audit.jsonl": "b60fbebd63c8e425206fed9098bf55ced63bbe37106761f8b83ae37437fd7e73",
+    "dataset/04. processed/v2_validation/evaluation_label_candidates.jsonl": "568eb47c2746b0f52ba820c469f372abfd6d519353388efa9d6360eac6737d4c",
+    "dataset/04. processed/v2_validation/evaluation_text_candidates.jsonl": "2d98e593388549ce6fcb6e8ec923a57f20ade3fd64bf578cbc8bb9fb1de9a3bb",
+    "dataset/04. processed/v2_validation/README.md": "0d6b6fbfcf9e729ad1bb3dd2fa068018e6f99a9d0294b25fa63b11a6d60a5393",
+    "dataset/04. processed/v2_validation/scenario_registry.json": "356c2b77afe060b0ab0591e8da81abdea428b89b429655d1da1a11a3bb068107",
+    "dataset/04. processed/v2_validation/validation_24_generated.jsonl": "e2cfe8ff687dd8670f4d77ce53c85e9353866bae9502df09cdbd3540b98d4087",
+    "dataset/review/v2_validation/human_review.csv": "c809c96124e4fd5604e1e4219caa6170858796e91ad1e001d92e2de6c4b64126",
+    "dataset/review/v2_validation/README.md": "e9442653d687c34de496d83d95cd81a409ded86aa9641370ae54aef204248a96",
+    "dataset/scripts/generate_v2_validation.py": "76cbb34f127f8c1792eb9e6b2aa9872fc4c7d83007f04d62c526c5deae3211cb",
+    "dataset/scripts/validate_v2_validation.py": "ef35bc23faed32f9a6f0800290fe1c672be5d46259d194e16933c8692d892195",
+    "reports/v2_validation/duplicate_report.json": "873945ee9a5f9ed6b1f4138f4f2b9fc1fa390406991b9b8f55f10a425e41edb8",
+    "reports/v2_validation/protected_baseline.json": "d15ef2f731bd6d3426ad898024c833f368459761f5c0a2bf01af64366a0ac8db",
+    "reports/v2_validation/README.md": "638a0c2c7662afe84776796d174a12febafed3c9fec2706e5da9fa503b976131",
+    "reports/v2_validation/scenario_design.md": "c93d76250e150e8f9f9bb33bdf9b02254f1fd27f4bc268392bde4527aefa8c29",
+    "reports/v2_validation/validation_result.json": "481349a6401f4ad936fbe8300f0c6d16745640d6985803820ca2d788be425ef1",
+    "tests/test_v2_validation.py": "0b8ea91349acff1e97501cd5622a83bd3abf439bbef9545e6ecf5b8b4606ab03"
+  },
+  "note": "Manifest excludes itself. Review CSV remains unapproved; hashes will intentionally differ after actual human review."
+}

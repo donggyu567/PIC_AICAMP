@@ -1,0 +1,177 @@
+{
+  "experiment_id": "B_v2_loss_balanced",
+  "training_executed": false,
+  "optimizer_created": false,
+  "checkpoint_written": false,
+  "actual_model_performance_computed": false,
+  "eval_gold_verified": false,
+  "test_predictions_generated": false,
+  "split_plan_status": "DRAFT_NOT_APPROVED_NOT_EVALUATION_GOLD",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.6.0+cpu",
+    "transformers": "4.57.6"
+  },
+  "partitions": {
+    "train": {
+      "status": "PASS_TECHNICAL_PREFLIGHT_NOT_GOLD_EVALUATION",
+      "samples": 943,
+      "batches": 118,
+      "first_batch": {
+        "input_ids": {
+          "shape": [
+            8,
+            473
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu"
+        },
+        "attention_mask": {
+          "shape": [
+            8,
+            473
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu"
+        },
+        "token_type_ids": {
+          "shape": [
+            8,
+            473
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu"
+        },
+        "risk_target": {
+          "shape": [
+            8,
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu"
+        },
+        "type_targets": {
+          "shape": [
+            8,
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu"
+        }
+      },
+      "max_history": 5,
+      "min_tokens": 5,
+      "max_tokens": 497,
+      "dropped_history": 0
+    },
+    "validation": {
+      "status": "PASS_TECHNICAL_PREFLIGHT_NOT_GOLD_EVALUATION",
+      "samples": 330,
+      "batches": 42,
+      "first_batch": {
+        "input_ids": {
+          "shape": [
+            8,
+            109
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu"
+        },
+        "attention_mask": {
+          "shape": [
+            8,
+            109
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu"
+        },
+        "token_type_ids": {
+          "shape": [
+            8,
+            109
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu"
+        },
+        "risk_target": {
+          "shape": [
+            8,
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu"
+        },
+        "type_targets": {
+          "shape": [
+            8,
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu"
+        }
+      },
+      "max_history": 5,
+      "min_tokens": 4,
+      "max_tokens": 285,
+      "dropped_history": 0
+    },
+    "test": {
+      "status": "PASS_TECHNICAL_PREFLIGHT_NOT_GOLD_EVALUATION",
+      "samples": 187,
+      "batches": 24,
+      "first_batch": {
+        "input_ids": {
+          "shape": [
+            8,
+            203
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu"
+        },
+        "attention_mask": {
+          "shape": [
+            8,
+            203
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu"
+        },
+        "token_type_ids": {
+          "shape": [
+            8,
+            203
+          ],
+          "dtype": "torch.int64",
+          "device": "cpu"
+        },
+        "risk_target": {
+          "shape": [
+            8,
+            1
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu"
+        },
+        "type_targets": {
+          "shape": [
+            8,
+            8
+          ],
+          "dtype": "torch.float32",
+          "device": "cpu"
+        }
+      },
+      "max_history": 5,
+      "min_tokens": 6,
+      "max_tokens": 338,
+      "dropped_history": 0
+    }
+  },
+  "output_paths": {
+    "42": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_comparison_runs\\B_v2_loss_balanced\\seed_42\\preflight-20261106",
+    "43": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_comparison_runs\\B_v2_loss_balanced\\seed_43\\preflight-20261106",
+    "44": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_comparison_runs\\B_v2_loss_balanced\\seed_44\\preflight-20261106"
+  },
+  "status": "PASS_PREFLIGHT_TRAINING_BLOCKED_PENDING_REVIEW"
+}

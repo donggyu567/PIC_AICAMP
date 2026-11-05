@@ -1,0 +1,569 @@
+{
+  "plan_version": "v1-source-content-review-candidate-20261106",
+  "status": "DRAFT_NOT_APPROVED_NOT_EVALUATION_GOLD",
+  "seed": 20261106,
+  "requested_conversation_ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "training_authorized": false,
+  "model_selection_performed": false,
+  "source_sha256": {
+    "labels.jsonl": "c205049e1aa2125ad40cc6cea1465b2c2793cc7fedf02b7eab8e1d9f20e9c9e5",
+    "tuned.jsonl": "50ea88cc3ee9c3df1477082ab5daf82ef77f83329374b50f312874592462e6f2"
+  },
+  "grouping_policy": "same source/scoped item + all risky lexical duplicates + normal turns with >=20 normalized characters + whole-dialogue >=0.80; short normal turn exemptions PROPOSED ONLY",
+  "semantic_family_metadata": "NOT_AVAILABLE; sources and lexical components are conservative proxies; human semantic review pending",
+  "component_count": 42,
+  "groups": {
+    "R001": [
+      "P0005",
+      "P0006",
+      "P0007",
+      "P0008",
+      "P0009",
+      "P0010",
+      "P0011",
+      "P0012",
+      "P0013",
+      "P0014",
+      "P0015",
+      "P0016",
+      "P0017",
+      "P0018",
+      "P0019",
+      "P0020"
+    ],
+    "R002": [
+      "P0031",
+      "P0032",
+      "P0033",
+      "P0034",
+      "P0035"
+    ],
+    "R003": [
+      "N0005",
+      "N0006"
+    ],
+    "R004": [
+      "N0007",
+      "N0009"
+    ],
+    "R005": [
+      "P0036",
+      "P0037"
+    ],
+    "R006": [
+      "P0038",
+      "P0039"
+    ],
+    "R007": [
+      "P0041",
+      "P0042"
+    ],
+    "R008": [
+      "P0044",
+      "P0045"
+    ],
+    "R009": [
+      "P0046",
+      "P0047"
+    ],
+    "R010": [
+      "N0002"
+    ],
+    "R011": [
+      "N0003"
+    ],
+    "R012": [
+      "N0004"
+    ],
+    "R013": [
+      "N0008"
+    ],
+    "R014": [
+      "N0010"
+    ],
+    "R015": [
+      "N0011"
+    ],
+    "R016": [
+      "N0012"
+    ],
+    "R017": [
+      "N0013"
+    ],
+    "R018": [
+      "N0014"
+    ],
+    "R019": [
+      "P0021"
+    ],
+    "R020": [
+      "P0022"
+    ],
+    "R021": [
+      "P0023"
+    ],
+    "R022": [
+      "P0024"
+    ],
+    "R023": [
+      "P0025"
+    ],
+    "R024": [
+      "P0026"
+    ],
+    "R025": [
+      "P0027"
+    ],
+    "R026": [
+      "P0028"
+    ],
+    "R027": [
+      "P0029"
+    ],
+    "R028": [
+      "P0030"
+    ],
+    "R029": [
+      "P0040"
+    ],
+    "R030": [
+      "P0043"
+    ],
+    "R031": [
+      "P0048"
+    ],
+    "R032": [
+      "P0049"
+    ],
+    "R033": [
+      "P0050"
+    ],
+    "R034": [
+      "P0051"
+    ],
+    "R035": [
+      "P0052"
+    ],
+    "R036": [
+      "P0053"
+    ],
+    "R037": [
+      "P0054"
+    ],
+    "R038": [
+      "P0055"
+    ],
+    "R039": [
+      "P0056"
+    ],
+    "R040": [
+      "P0057"
+    ],
+    "R041": [
+      "P0058"
+    ],
+    "R042": [
+      "P0059"
+    ]
+  },
+  "group_to_split": {
+    "R001": "train",
+    "R024": "validation",
+    "R020": "test",
+    "R014": "validation",
+    "R015": "test",
+    "R002": "train",
+    "R003": "train",
+    "R008": "train",
+    "R005": "train",
+    "R007": "train",
+    "R009": "train",
+    "R006": "train",
+    "R004": "train",
+    "R025": "train",
+    "R034": "train",
+    "R022": "train",
+    "R023": "train",
+    "R031": "train",
+    "R035": "validation",
+    "R032": "test",
+    "R012": "train",
+    "R030": "validation",
+    "R028": "test",
+    "R013": "train",
+    "R038": "validation",
+    "R036": "test",
+    "R017": "train",
+    "R033": "validation",
+    "R011": "test",
+    "R027": "train",
+    "R019": "validation",
+    "R010": "test",
+    "R040": "train",
+    "R039": "validation",
+    "R041": "test",
+    "R029": "train",
+    "R037": "validation",
+    "R018": "test",
+    "R026": "train",
+    "R021": "validation",
+    "R016": "test",
+    "R042": "train"
+  },
+  "conversation_to_split": {
+    "P0005": "train",
+    "P0006": "train",
+    "P0007": "train",
+    "P0008": "train",
+    "P0009": "train",
+    "P0010": "train",
+    "P0011": "train",
+    "P0012": "train",
+    "P0013": "train",
+    "P0014": "train",
+    "P0015": "train",
+    "P0016": "train",
+    "P0017": "train",
+    "P0018": "train",
+    "P0019": "train",
+    "P0020": "train",
+    "P0031": "train",
+    "P0032": "train",
+    "P0033": "train",
+    "P0034": "train",
+    "P0035": "train",
+    "N0005": "train",
+    "N0006": "train",
+    "N0007": "train",
+    "N0009": "train",
+    "P0036": "train",
+    "P0037": "train",
+    "P0038": "train",
+    "P0039": "train",
+    "P0041": "train",
+    "P0042": "train",
+    "P0044": "train",
+    "P0045": "train",
+    "P0046": "train",
+    "P0047": "train",
+    "N0002": "test",
+    "N0003": "test",
+    "N0004": "train",
+    "N0008": "train",
+    "N0010": "validation",
+    "N0011": "test",
+    "N0012": "test",
+    "N0013": "train",
+    "N0014": "test",
+    "P0021": "validation",
+    "P0022": "test",
+    "P0023": "validation",
+    "P0024": "train",
+    "P0025": "train",
+    "P0026": "validation",
+    "P0027": "train",
+    "P0028": "train",
+    "P0029": "train",
+    "P0030": "test",
+    "P0040": "train",
+    "P0043": "validation",
+    "P0048": "train",
+    "P0049": "test",
+    "P0050": "validation",
+    "P0051": "train",
+    "P0052": "validation",
+    "P0053": "test",
+    "P0054": "validation",
+    "P0055": "validation",
+    "P0056": "validation",
+    "P0057": "train",
+    "P0058": "test",
+    "P0059": "train"
+  },
+  "distribution": {
+    "train": {
+      "conversations": 48,
+      "utterances": 943,
+      "phishing": 277,
+      "entirely_normal_conversations": 8,
+      "normal": 666,
+      "labels": {
+        "institution_impersonation": 103,
+        "money_transfer": 52,
+        "personal_information": 26,
+        "app_installation": 6,
+        "secrecy": 18,
+        "threat_pressure": 62,
+        "loan_fraud": 20,
+        "information_probing": 71
+      },
+      "label_conversations": {
+        "institution_impersonation": 26,
+        "money_transfer": 18,
+        "personal_information": 10,
+        "app_installation": 5,
+        "secrecy": 10,
+        "threat_pressure": 23,
+        "loan_fraud": 7,
+        "information_probing": 20
+      }
+    },
+    "validation": {
+      "conversations": 10,
+      "utterances": 330,
+      "phishing": 146,
+      "entirely_normal_conversations": 1,
+      "normal": 184,
+      "labels": {
+        "institution_impersonation": 61,
+        "money_transfer": 33,
+        "personal_information": 4,
+        "app_installation": 0,
+        "secrecy": 3,
+        "threat_pressure": 18,
+        "loan_fraud": 37,
+        "information_probing": 25
+      },
+      "label_conversations": {
+        "institution_impersonation": 9,
+        "money_transfer": 5,
+        "personal_information": 3,
+        "app_installation": 0,
+        "secrecy": 2,
+        "threat_pressure": 5,
+        "loan_fraud": 6,
+        "information_probing": 6
+      }
+    },
+    "test": {
+      "conversations": 10,
+      "utterances": 187,
+      "phishing": 25,
+      "entirely_normal_conversations": 5,
+      "normal": 162,
+      "labels": {
+        "institution_impersonation": 12,
+        "money_transfer": 5,
+        "personal_information": 2,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 1,
+        "loan_fraud": 8,
+        "information_probing": 4
+      },
+      "label_conversations": {
+        "institution_impersonation": 4,
+        "money_transfer": 2,
+        "personal_information": 2,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 1,
+        "loan_fraud": 3,
+        "information_probing": 1
+      }
+    }
+  },
+  "rare_label_feasibility": {
+    "institution_impersonation": {
+      "positive_utterances": 176,
+      "independent_components": [
+        "R001",
+        "R005",
+        "R007",
+        "R008",
+        "R009",
+        "R019",
+        "R020",
+        "R021",
+        "R022",
+        "R023",
+        "R024",
+        "R025",
+        "R026",
+        "R027",
+        "R029",
+        "R030",
+        "R032",
+        "R033",
+        "R034",
+        "R035",
+        "R036",
+        "R037",
+        "R038",
+        "R039",
+        "R040",
+        "R041",
+        "R042"
+      ],
+      "holdout_support": {
+        "validation": 61,
+        "test": 12
+      }
+    },
+    "money_transfer": {
+      "positive_utterances": 90,
+      "independent_components": [
+        "R001",
+        "R002",
+        "R006",
+        "R023",
+        "R024",
+        "R026",
+        "R031",
+        "R032",
+        "R033",
+        "R034",
+        "R035",
+        "R036",
+        "R037",
+        "R038",
+        "R042"
+      ],
+      "holdout_support": {
+        "validation": 33,
+        "test": 5
+      }
+    },
+    "personal_information": {
+      "positive_utterances": 32,
+      "independent_components": [
+        "R001",
+        "R020",
+        "R024",
+        "R025",
+        "R026",
+        "R027",
+        "R029",
+        "R033",
+        "R039",
+        "R040",
+        "R041",
+        "R042"
+      ],
+      "holdout_support": {
+        "validation": 4,
+        "test": 2
+      }
+    },
+    "app_installation": {
+      "positive_utterances": 6,
+      "independent_components": [
+        "R001"
+      ],
+      "holdout_support": {
+        "validation": 0,
+        "test": 0
+      }
+    },
+    "secrecy": {
+      "positive_utterances": 21,
+      "independent_components": [
+        "R001",
+        "R002",
+        "R019",
+        "R022",
+        "R037",
+        "R042"
+      ],
+      "holdout_support": {
+        "validation": 3,
+        "test": 0
+      }
+    },
+    "threat_pressure": {
+      "positive_utterances": 81,
+      "independent_components": [
+        "R001",
+        "R002",
+        "R006",
+        "R019",
+        "R021",
+        "R022",
+        "R025",
+        "R026",
+        "R027",
+        "R028",
+        "R031",
+        "R033",
+        "R034",
+        "R035",
+        "R037",
+        "R040"
+      ],
+      "holdout_support": {
+        "validation": 18,
+        "test": 1
+      }
+    },
+    "loan_fraud": {
+      "positive_utterances": 65,
+      "independent_components": [
+        "R001",
+        "R008",
+        "R020",
+        "R023",
+        "R024",
+        "R026",
+        "R030",
+        "R032",
+        "R033",
+        "R036",
+        "R037",
+        "R038",
+        "R039",
+        "R040",
+        "R042"
+      ],
+      "holdout_support": {
+        "validation": 37,
+        "test": 8
+      }
+    },
+    "information_probing": {
+      "positive_utterances": 100,
+      "independent_components": [
+        "R001",
+        "R002",
+        "R005",
+        "R006",
+        "R007",
+        "R008",
+        "R009",
+        "R019",
+        "R020",
+        "R021",
+        "R022",
+        "R025",
+        "R026",
+        "R027",
+        "R029",
+        "R030",
+        "R031",
+        "R033",
+        "R034",
+        "R037",
+        "R039",
+        "R040"
+      ],
+      "holdout_support": {
+        "validation": 25,
+        "test": 4
+      }
+    }
+  },
+  "metric_feasibility_blockers": [
+    "validation:app_installation: no positives; not estimable",
+    "test:app_installation: no positives; not estimable",
+    "test:secrecy: no positives; not estimable"
+  ],
+  "test_sealing": "Planning statistics only, not model predictions; after human review freeze hashes and seal test. Source/test membership never enters optimizer or threshold selection.",
+  "evaluation_labels_human_verified": false,
+  "old_checkpoint_scope": "No old checkpoint restored; candidate holdouts could be unseen only for freshly initialized retrained models using this plan.",
+  "short_turn_exception_policy_human_approved": false,
+  "short_normal_edge_exception_count": 128,
+  "required_human_decisions": "Approve or reject every deferred crossing short-normal edge; resolve semantic families and verify held-out labels before freezing."
+}

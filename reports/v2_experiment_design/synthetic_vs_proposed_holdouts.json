@@ -1,0 +1,10 @@
+{
+  "status": "LEXICAL_SCREEN_ONLY_SEMANTIC_REVIEW_PENDING",
+  "pairs_checked": 107536,
+  "ratios_computed_after_bounds": 0,
+  "candidate_count": 0,
+  "kinds": {},
+  "candidates": [],
+  "current_approved_synthetic": 0,
+  "synthetic_TEST_created": false
+}

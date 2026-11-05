@@ -1,0 +1,39 @@
+{
+  "policy": "sqrt_negative_positive_capped_5_training_only",
+  "label_order": [
+    "institution_impersonation",
+    "money_transfer",
+    "personal_information",
+    "app_installation",
+    "secrecy",
+    "threat_pressure",
+    "loan_fraud",
+    "information_probing"
+  ],
+  "values": [
+    2.8557555577859324,
+    4.139397949535099,
+    5.0,
+    5.0,
+    5.0,
+    3.7695725778070432,
+    5.0,
+    3.504524238872528
+  ],
+  "positives": [
+    103,
+    52,
+    26,
+    6,
+    18,
+    62,
+    20,
+    71
+  ],
+  "train_utterances": 943,
+  "source_sha256": "c205049e1aa2125ad40cc6cea1465b2c2793cc7fedf02b7eab8e1d9f20e9c9e5",
+  "split_candidate_sha256": "f3398df3a3a76fe17c78e9072ea2314a5a0622f37c7cd25021d347ecd5517a66",
+  "computed_from": "original v1 TRAIN partition only; C reuses B values without recomputation",
+  "zero_positive_policy": "weight=1; mark label unlearnable/unreliable; never infer from validation/test",
+  "status": "PROVISIONAL_UNTIL_SPLIT_AND_LABEL_REVIEW_FREEZE"
+}

@@ -1,0 +1,24 @@
+{
+  "experiment_id": "C_v2_approved_synthetic",
+  "training_executed": false,
+  "optimizer_created": false,
+  "checkpoint_written": false,
+  "actual_model_performance_computed": false,
+  "eval_gold_verified": false,
+  "test_predictions_generated": false,
+  "split_plan_status": "DRAFT_NOT_APPROVED_NOT_EVALUATION_GOLD",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.6.0+cpu",
+    "transformers": "4.57.6"
+  },
+  "partitions": {},
+  "output_paths": {
+    "42": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_comparison_runs\\C_v2_approved_synthetic\\seed_42\\preflight-20261106",
+    "43": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_comparison_runs\\C_v2_approved_synthetic\\seed_43\\preflight-20261106",
+    "44": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_comparison_runs\\C_v2_approved_synthetic\\seed_44\\preflight-20261106"
+  },
+  "status": "BLOCKED_EXPECTED_NO_APPROVED_SYNTHETIC",
+  "reason": "C BLOCKED: final-approved synthetic=0; do not silently omit or promote candidates"
+}

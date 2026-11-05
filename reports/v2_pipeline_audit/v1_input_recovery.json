@@ -1,0 +1,612 @@
+{
+  "status": "RECOVERED_EXACT_SHA256",
+  "source_commit": "8faa6a7eebfe95c7ac7fe6c6077a49ebf31f958f",
+  "source_tree_truncated": false,
+  "source_files": [
+    {
+      "source_path": "dataset/02. staging/pilot_labeled_N0001.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\02. staging\\pilot_labeled_N0001.jsonl",
+      "git_blob": "2c88e80718180fe39ede0438a0a88b7fbeede40a",
+      "sha256": "09d198fd9498bcded323b2952a01ddb062dad33b0adb1d46f5eb0c39cafde49d",
+      "bytes": 10482,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/02. staging/pilot_labeled_P0001_P0004.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\02. staging\\pilot_labeled_P0001_P0004.jsonl",
+      "git_blob": "8c621153c05c097ae9947fa5d48e3b225f741506",
+      "sha256": "961fff1fb6e464b46ce2fb11fb5137c5d7743aeec2b4b02b441e46ec582f41ce",
+      "bytes": 5643,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0002.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0002.jsonl",
+      "git_blob": "24627377259faffbfeb05f9867a59cbccac5c8b0",
+      "sha256": "18dae2197046b5b5211f5cb0650ea4112a7dccd0bdfbd2ed0738dd47c3cf3277",
+      "bytes": 30222,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0003.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0003.jsonl",
+      "git_blob": "dfb704138fc4bbb4293c8df174ec937c1b1bce44",
+      "sha256": "5625b2efd2eaf8eb9303570c5f89b9efcba7084302a4fede9fe43ac1fa9e00f2",
+      "bytes": 25569,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0004.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0004.jsonl",
+      "git_blob": "443fe005fb573632f7413282165a9abdeb442a15",
+      "sha256": "f4345dd29078eab3ab3f1484a7134a5112945031cddfd65e9b5eecd96c18d60b",
+      "bytes": 22711,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0005.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0005.jsonl",
+      "git_blob": "8008ef4a2a0e8dd59fd3130483f8b64e27011dcc",
+      "sha256": "a0c0a1c54e0d9eb3b2ec04aad13b65e93d964ece105dc206908387e6ab999586",
+      "bytes": 12366,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0006.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0006.jsonl",
+      "git_blob": "1a47338b24e547b9789455b96bbdd0f6c1c0c918",
+      "sha256": "4b5c6ec2ced7bc9cebfb2794d0ab66cb0e6d0327a3a55c61be9efce16bacefb1",
+      "bytes": 12712,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0007.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0007.jsonl",
+      "git_blob": "451dcd21fd443d70022c6d01554ff2c09a4968cf",
+      "sha256": "9a2a3585b1b06ceb5ff368c41a2ce414ff01d182427cefdebc4ff02ba558564c",
+      "bytes": 9661,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0008.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0008.jsonl",
+      "git_blob": "735be459769fd0fd2f127e336ea42a824e589424",
+      "sha256": "e8868c44f426952cf1766c889fa0ab74d57a8c39765bd11e65b45a0ddfbc7af8",
+      "bytes": 9581,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0009.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0009.jsonl",
+      "git_blob": "9c1f9964acb142687de4c74463bf7786427487ba",
+      "sha256": "24bcc465ca7b531867ba4c8634176d7c5ea959d88d54a58cc73fa1c4bebf69ac",
+      "bytes": 9269,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0010.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0010.jsonl",
+      "git_blob": "b9971ea319715067dae09dec3917843361facb32",
+      "sha256": "146df4c2dd3f839ff3fe6d91c7eea4b112a52f9f5b5be076a809e7b7320a1b10",
+      "bytes": 4622,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0011.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0011.jsonl",
+      "git_blob": "d3f2e8a3687f27f397209a880dc9c7b0cc1f35c7",
+      "sha256": "fc0553c8c507f86d0a9e935a0e7fc0b380e32da6532b5632a3d6edaacebe9e4f",
+      "bytes": 4071,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0012.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0012.jsonl",
+      "git_blob": "30c928e1fe46b1e4de237233985daba98c9c0706",
+      "sha256": "616d3cb3fa5a007786ae2e93a6009f3bceeb6d2bb3d1fc5502e414bbb8943596",
+      "bytes": 3902,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0013.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0013.jsonl",
+      "git_blob": "9c1de0a0c5c01f241b7744f36e168650fc322af1",
+      "sha256": "28443ff9673d1f19f4614c98c8a816fc9446f2c543e320248c46dc2b878684b7",
+      "bytes": 5659,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/normal/N0014.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\normal\\N0014.jsonl",
+      "git_blob": "b5781b1fa1c8dfe2faf90ad56aca3aa28b6638b9",
+      "sha256": "773712c1621ffa049be4b39931084e126af7f2cff7b81e98c6ea03b155f64727",
+      "bytes": 4236,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0005.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0005.jsonl",
+      "git_blob": "dc7ca5f81569b99569689afec120ae48f3edb016",
+      "sha256": "f35c5114a0e10e46f0fc7b4b0479302805a1895483ae53ad50035657bc4f7352",
+      "bytes": 5337,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0006.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0006.jsonl",
+      "git_blob": "a5742247e8123ece6c14359f5a1aaf7638e1b741",
+      "sha256": "6328b331edc97b590bdfe540e9e769a8813a4eafa5736036966c6d9ab7566645",
+      "bytes": 8936,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0007.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0007.jsonl",
+      "git_blob": "0e53fb445625a375117c56f46f63214777d99133",
+      "sha256": "ad466fa7206f29e785489cfc04ca7bf48cad34518450b31c01204d9f36b7bf8a",
+      "bytes": 4569,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0008.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0008.jsonl",
+      "git_blob": "ebd72717cd2c84e958455ce3fa376cc7e47cf69a",
+      "sha256": "9f96032af7342b29256435851a68969e10894cd58935257b23affe88f3fb1647",
+      "bytes": 6639,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0009.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0009.jsonl",
+      "git_blob": "d2e7d320ea5eb950924bcd9344b568cb8a856336",
+      "sha256": "734c633f9209949cd70d99227c4450fe7afd917504168c7a3ddefbacdd2f5f5a",
+      "bytes": 3003,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0010.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0010.jsonl",
+      "git_blob": "7c84fd22a9bb8cb9f64fada1efaf1b89a23e1eda",
+      "sha256": "0d14aa2b8662e5e99440485e77ff34d5319bd7aa7347c5270a76226fb5740b73",
+      "bytes": 17490,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0011.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0011.jsonl",
+      "git_blob": "f07914cb1536e270fe9688f5a9cc1226c9539704",
+      "sha256": "10bf8a4542e56937187078b64c3437fcc0cf0016a5f20824799f2997efcfb92c",
+      "bytes": 25546,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0012.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0012.jsonl",
+      "git_blob": "18ee9d531e4466fef7dfa215c88c717b01a9b4b6",
+      "sha256": "4958ee90f7323b5e4a13999acd71da3fc1972b97009acd99a5b3994ca5296911",
+      "bytes": 7495,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0013.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0013.jsonl",
+      "git_blob": "b140e4f995d804cd79ceb278ecf13623ec129f20",
+      "sha256": "4f942635496076491970d4c15a1b8ea6f171249d41e08058ea526213e769ea2a",
+      "bytes": 9313,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0014.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0014.jsonl",
+      "git_blob": "5094605f1a511b149261941cbebc9b63cc27e633",
+      "sha256": "d0ce280c378a68c9586f918e9cd78d97dbd899209a2870ed1293f4e647183bce",
+      "bytes": 1651,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0015.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0015.jsonl",
+      "git_blob": "2033c833574d020a69e45c52a12eae8e3cb77a85",
+      "sha256": "2032e26be3bd74315c504936fce2f5be6b6025e9582a200bf98bf4f33ab5c8e4",
+      "bytes": 23908,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0016.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0016.jsonl",
+      "git_blob": "d1b31a8c53b23b23bb2797f5b1725552420a8d1b",
+      "sha256": "2b965cc93eee59ae335297c923a48bd04f95133e4c90ae1ccd1a50d0ba6351a5",
+      "bytes": 3187,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0017.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0017.jsonl",
+      "git_blob": "327536eb8558c8c0a083aa1675c77599344011b0",
+      "sha256": "c4410923ca3f7d6519c1f9e265d3ea2b21125e52c7210431d4d9268df5638529",
+      "bytes": 3074,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0018.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0018.jsonl",
+      "git_blob": "f361479454276b2aa32f3e8e9f31b26af60bc644",
+      "sha256": "d43b00a829203a837aeae4c6adc080cf2a6660792caa6652a38093254081d750",
+      "bytes": 24401,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0019.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0019.jsonl",
+      "git_blob": "d009f11c3dfc9990c6a30265e13ef53a45bd43ec",
+      "sha256": "bd5865f74feea222a524e1c1f78b7fa267247f45e4f2fee26318ac3539e4ab75",
+      "bytes": 5606,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0020.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0020.jsonl",
+      "git_blob": "4def91e233aad34fb8b3f9b6823a62a5625e7c8b",
+      "sha256": "2f6528ba5c3043dc4124e2fe86c494c24aeadcbc658d7476a8f4f9aa43eae9ba",
+      "bytes": 4060,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0021.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0021.jsonl",
+      "git_blob": "8f4a982496f03af8696aa2037750e968a7208aff",
+      "sha256": "183c986d7326e5b228655c5525f27edce302737f27ec0553362a231248e8cdfa",
+      "bytes": 4803,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0022.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0022.jsonl",
+      "git_blob": "3be8e8d56559b6a9848b25d47cda916ef9a56ec6",
+      "sha256": "40c3ed414598aaaeb07d8d5632b97a60cd2a9826bdd4b33f74542ec4881b9c28",
+      "bytes": 6080,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0023.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0023.jsonl",
+      "git_blob": "2a382310d1b7a3c5f097b89253bb9facd10d3f16",
+      "sha256": "adfff06af774964a065d206ff70bfe4466159cede50d3e9dd0377b02a37edd01",
+      "bytes": 12264,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0024.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0024.jsonl",
+      "git_blob": "56981cdda2c9ac94dd4d3db875aa62ec7a792438",
+      "sha256": "25a1345df3de8e7f07f1bacd4b4c4d5c10d30a553b61d8418313fcf7a2f511a7",
+      "bytes": 10575,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0025.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0025.jsonl",
+      "git_blob": "05fc4b9dc240672297b8f3b53131e2a737a26ba7",
+      "sha256": "ed121bf13a2e5e54f6e2d0a104b040fad590d8f3a93ad5ad49de0c6b1a98ff63",
+      "bytes": 6574,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0026.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0026.jsonl",
+      "git_blob": "9c9522558f937808b8a89c3982e62146368a9ffe",
+      "sha256": "38870c9fc730b507db7fb48335486de9a167ea2766bbc43a717158dc3f316d52",
+      "bytes": 21652,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0027.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0027.jsonl",
+      "git_blob": "0a14a5c99255cfb34595b3aaf4031aa007eb15dd",
+      "sha256": "4364e12084e1e4cf723fe02e2259fc05710506bd617e31e77223c630f47a0b37",
+      "bytes": 7802,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0028.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0028.jsonl",
+      "git_blob": "5cd6d316eee199629e7466e5790b941275e1ca87",
+      "sha256": "74a75c9de166c904696c7b3cb2103ebc102413e0fa9fedefcbd1442dfc7efb76",
+      "bytes": 54265,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0029.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0029.jsonl",
+      "git_blob": "9e8c36096a87c406f3f534697f2a54069a8f5161",
+      "sha256": "43f5ded2a96cf8d1fd7d14ae474cc188f47cc71da4a1e9f7e20434815a4bfce2",
+      "bytes": 32966,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0030.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0030.jsonl",
+      "git_blob": "f1c5d9e4505cb34120c09a736d83a06ed5563761",
+      "sha256": "d33b4677822b897991f3ff485566ac503f2388817d1e894af213cc364eafa328",
+      "bytes": 856,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0031.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0031.jsonl",
+      "git_blob": "3646882a30299860b939a5ef18af910d424a196c",
+      "sha256": "0aa8a86b24e5da13f2437c93bb7adb7ddafab1df3327170631a5af00f0cf39cb",
+      "bytes": 2584,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0032.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0032.jsonl",
+      "git_blob": "fdd23508a9403b20c9747678592ad78f863d6511",
+      "sha256": "3bcaefef387cfc487cdd14b652574d8207efbc32ed02a3ece635922c00ad9440",
+      "bytes": 3278,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0033.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0033.jsonl",
+      "git_blob": "ca606979a8dae990995554a9d9438a372bfac82f",
+      "sha256": "2a433cac33d09d5e8474308cc2ccaba25126dc90352fcbbebd7916eebae87e8a",
+      "bytes": 1853,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0034.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0034.jsonl",
+      "git_blob": "7c8a6a92865d9caa1be3a82433be032a51e91806",
+      "sha256": "8d0ed539893f6177c69e56c20eb3086ce5228d42e4dc8f2eab05451e5a40e051",
+      "bytes": 3000,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0035.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0035.jsonl",
+      "git_blob": "2174f76d28ef485b9901e34ddfe08d97e80d51f2",
+      "sha256": "f5b7d55e9c773f24c1980915d8dc4a8adf42f8851c9e71fad036434148edbc34",
+      "bytes": 1256,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0036.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0036.jsonl",
+      "git_blob": "b374121f82e1e199bb08211060dd8a873b50c513",
+      "sha256": "5b774e3c5a5f9180d459306e567648e9f561d95971b348b4137b5454bd0f0159",
+      "bytes": 6976,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0037.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0037.jsonl",
+      "git_blob": "85e4cefe91412877bbfcfa311e2898b4609f31fb",
+      "sha256": "b8f3b351d92db1526d1b50915e161cc5afcafb5a0b1a8253ae4f5e061ba13eb2",
+      "bytes": 4948,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0038.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0038.jsonl",
+      "git_blob": "f26e9464f4f3313f1f8833a22d3523b6e2c42f57",
+      "sha256": "2b33ddce5668f2724087ca1eae42cc9ef7ff18bd6ec9bde307ac3d5df4e8957a",
+      "bytes": 3320,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0039.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0039.jsonl",
+      "git_blob": "c1c9f17e5dc8243c9cbac691cc6280b1c708894a",
+      "sha256": "088d38d53d481c3c16467078f5578644f1702c267361df5e8c4ccdedb40b23e0",
+      "bytes": 3224,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0040.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0040.jsonl",
+      "git_blob": "56eb3204346d0295db5f2985bd3a7f5bcc42bfc7",
+      "sha256": "8a76e5b7caa5f6385ff2b0c838c16bbe340341c91d70d3b5fb16423f29a6842c",
+      "bytes": 3510,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0041.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0041.jsonl",
+      "git_blob": "8de2f10b7a55480810ccaa354e75c0e23352d57a",
+      "sha256": "5a666469d9f5a1627409af1c0630b663a1f173049990e24ae5b0a2a6434f17dc",
+      "bytes": 2481,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0042.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0042.jsonl",
+      "git_blob": "c8abad2a8c46715a11d268bc9118a1f9041340c9",
+      "sha256": "f9ad66d155f0e3a40c9e5aee4f3668a96693444f22dd23310279ee877735d8f2",
+      "bytes": 3864,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0043.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0043.jsonl",
+      "git_blob": "78482eebcad27d6a591debb8c09c00b442db1433",
+      "sha256": "e9031247b8ac937345bd1bc0b30c94d906d0713f8cb5313df1b67f9e3038e256",
+      "bytes": 4024,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0044.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0044.jsonl",
+      "git_blob": "6feb33b898daebc51701c4453a694ffdca7457fa",
+      "sha256": "99e80c876f8a819075d667dd05ece29f9393521e86bbe03eefd6b28b5564d3a0",
+      "bytes": 3025,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0045.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0045.jsonl",
+      "git_blob": "f9fa9ec519308cfcb58c29b425f28a25055d0302",
+      "sha256": "95cddd26542e7a21268f598c62cef4b1cbbc57af38563100ef02c6ed563504d9",
+      "bytes": 2723,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0046.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0046.jsonl",
+      "git_blob": "7031cf4dcfce310513a2d8ffaf5235df79aa5a83",
+      "sha256": "1605e592d64d10cd0d72e152d0bcd2276803930975d99a5a23d91c21fbe3b516",
+      "bytes": 3105,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0047.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0047.jsonl",
+      "git_blob": "65d07def8eb3f6a4ab51e28190db06672623442c",
+      "sha256": "ceb77909d383573112e9d00bb92b61f00b7c1a1d9d313ef0c80dcb522443e14e",
+      "bytes": 1827,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0048.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0048.jsonl",
+      "git_blob": "dd6f28c83a38c3a607a0417873f81921c8faf880",
+      "sha256": "8123a66ff12f7a7c5c6aef5c83e8c89776ad46bdd8f05a101a09f583dbef6b76",
+      "bytes": 4924,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0049.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0049.jsonl",
+      "git_blob": "4d0b94416045ef32babcf479271bd452bd1a48b8",
+      "sha256": "a2b1168e47bfadbbd5a2ae9f934faea89ef43a06344a248d747af76d76b8e62e",
+      "bytes": 3739,
+      "origin": "existing_local_exact_git_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0050.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0050.jsonl",
+      "git_blob": "2f1111bb8efddb968d62f6134765b4c7e4e706e4",
+      "sha256": "f257752f18f54f4cca4a619e469423dedf4a726ffc644f4baaf427b607d308b3",
+      "bytes": 12640,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0051.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0051.jsonl",
+      "git_blob": "a8fb3d293ca59a0b101b3622f825ddff4dcc6bb4",
+      "sha256": "0241af9cdc1505d8a3b83bcc681b4d0055c5dd0dd59556e51958ce4b7271b30a",
+      "bytes": 5774,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0052.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0052.jsonl",
+      "git_blob": "3ac4d8a10b0881126aec9c9daf678df32437dfc1",
+      "sha256": "be1a936098fd6e6692c07493e53f203b7df6c5a191a87f242cd76f13d2ee2706",
+      "bytes": 9566,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0053.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0053.jsonl",
+      "git_blob": "b7bd268439cc9e204562f3e82a948a9036a53aed",
+      "sha256": "079ec28230e1a0b02619e9dc92e251ff1234a8435be0954d8a1ca166441d0d29",
+      "bytes": 4737,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0054.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0054.jsonl",
+      "git_blob": "06286133fdef04497816248a21b774e645847619",
+      "sha256": "a16b012ce5c48f08eee62474d8ae70939f20e23151bf07eba1a99ae2daedeb48",
+      "bytes": 13420,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0055.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0055.jsonl",
+      "git_blob": "d8765b29447a9b45037b4dd196eb07c8e2cc7404",
+      "sha256": "ebf1f14539d0f331634b7acb2c0406faf297694720a41abd9d03f55241af729e",
+      "bytes": 11178,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0056.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0056.jsonl",
+      "git_blob": "a2afa52fcb6f03321ecb81f13447babee95249e6",
+      "sha256": "be88e8f72b506b40b14a5061830b84001e6c052e45585561fbf1f34fe8d6a803",
+      "bytes": 13467,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0057.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0057.jsonl",
+      "git_blob": "d3dbac3c71c6bdded4e4e639e7f0ec36a8eee53c",
+      "sha256": "868ea143596aaa5c6915a22ab9de0d37b29968d93d969fec7117a82854c2c1f2",
+      "bytes": 11243,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0058.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0058.jsonl",
+      "git_blob": "de20b7ff83eaaaba5adbe06130407c6da5812ce7",
+      "sha256": "a5402af3a71be68ffeaf17be79ee0b88468483c76893348d32c943b8db5485d0",
+      "bytes": 3513,
+      "origin": "GitHub_original_commit_blob"
+    },
+    {
+      "source_path": "dataset/03. masked/phishing/P0059.jsonl",
+      "restored_path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\source_snapshot\\dataset\\03. masked\\phishing\\P0059.jsonl",
+      "git_blob": "6793c7945b984b8fc54270e10569940bf7340cb9",
+      "sha256": "92e4a6583871bf0a59eb2e0129cf9c15151fec416431b3159d2954d441c90a59",
+      "bytes": 5162,
+      "origin": "GitHub_original_commit_blob"
+    }
+  ],
+  "preparation_code_sha256": "512181b4a96cfebef4f4ed28b98956a23d457a0b0b430b68b3cad89b7f51621e",
+  "manifest_sha256": "ebe3c67387774bbbfcbf6ca96bf3cbca96f118dbe329319b4b63f853e3a46c51",
+  "output": {
+    "labels": {
+      "expected_sha256": "c205049e1aa2125ad40cc6cea1465b2c2793cc7fedf02b7eab8e1d9f20e9c9e5",
+      "actual_sha256": "c205049e1aa2125ad40cc6cea1465b2c2793cc7fedf02b7eab8e1d9f20e9c9e5",
+      "bytes": 800984,
+      "exact_match": true,
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\prepared\\labels.jsonl"
+    },
+    "tuned": {
+      "expected_sha256": "50ea88cc3ee9c3df1477082ab5daf82ef77f83329374b50f312874592462e6f2",
+      "actual_sha256": "50ea88cc3ee9c3df1477082ab5daf82ef77f83329374b50f312874592462e6f2",
+      "bytes": 499774,
+      "exact_match": true,
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v1_recovered_8faa6a7eebfe\\prepared\\tuned.jsonl"
+    }
+  },
+  "rows": 1460,
+  "conversations": 68,
+  "pending_reasons": {
+    "derivative_use_permission_unconfirmed": 24,
+    "risk_type_unresolved": 67,
+    "unknown_or_unsupported_mask_token": 30,
+    "masking_stage_unverified": 53
+  },
+  "serialization": {
+    "encoding": "utf-8",
+    "newline": "'\\r\\n'",
+    "json_ensure_ascii": false
+  },
+  "human_approval_assigned": false,
+  "new_synthetic_data_generated": false,
+  "note": "Historical status fields are reconstructed, not new approval; exact original bytes claimed only when both published hashes match. Runtime source retrieval was replaced in memory only; existing repository files are unchanged.",
+  "builder_statistics": {
+    "missing_tuned_text": 0,
+    "missing_label": 0,
+    "matched": 1460,
+    "included": 1460,
+    "duplicate_key": 0,
+    "excluded_missing_status": 0,
+    "excluded_unreviewed": 0,
+    "invalid_label": 0,
+    "empty_tuned_text": 0
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "total_tests": 93,
+  "suites": [
+    {
+      "suite": "test_v2_pipeline_gate.py",
+      "status": "PASS",
+      "tests_run": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0,
+      "evidence": "Executed with python -m unittest discover -s tests -p test_v2_pipeline_gate.py -v; console result recorded for this run."
+    },
+    {
+      "suite": "test_v2_train_expansion.py",
+      "status": "PASS",
+      "tests_run": 16,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\.venv-v2\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_v2_train_expansion.py",
+        "-v"
+      ],
+      "stdout": "",
+      "stderr": "test_boolean_utterance_id_rejected (test_v2_train_expansion.TrainExpansionTests.test_boolean_utterance_id_rejected) ... ok\ntest_dry_run_refuses_validation_mix (test_v2_train_expansion.TrainExpansionTests.test_dry_run_refuses_validation_mix) ... ok\ntest_duplicate_json_keys_rejected (test_v2_train_expansion.TrainExpansionTests.test_duplicate_json_keys_rejected) ... ok\ntest_empty_rationale_rejected (test_v2_train_expansion.TrainExpansionTests.test_empty_rationale_rejected) ... ok\ntest_existing_file_never_overwritten (test_v2_train_expansion.TrainExpansionTests.test_existing_file_never_overwritten) ... ok\ntest_id_collision_rejected (test_v2_train_expansion.TrainExpansionTests.test_id_collision_rejected) ... ok\ntest_literal_phone_rejected (test_v2_train_expansion.TrainExpansionTests.test_literal_phone_rejected) ... ok\ntest_mixed_safe_builder_two_stage_statistics_and_context (test_v2_train_expansion.TrainExpansionTests.test_mixed_safe_builder_two_stage_statistics_and_context) ... ok\ntest_new_human_approval_rejected (test_v2_train_expansion.TrainExpansionTests.test_new_human_approval_rejected) ... ok\ntest_normal_with_positive_label_rejected (test_v2_train_expansion.TrainExpansionTests.test_normal_with_positive_label_rejected) ... ok\ntest_old_review_edit_rejected (test_v2_train_expansion.TrainExpansionTests.test_old_review_edit_rejected) ... ok\ntest_schema_and_mixed_review_pass (test_v2_train_expansion.TrainExpansionTests.test_schema_and_mixed_review_pass) ... ok\ntest_unknown_label_rejected (test_v2_train_expansion.TrainExpansionTests.test_unknown_label_rejected) ... ok\ntest_unknown_mask_rejected (test_v2_train_expansion.TrainExpansionTests.test_unknown_mask_rejected) ... ok\ntest_utterance_order_rejected (test_v2_train_expansion.TrainExpansionTests.test_utterance_order_rejected) ... ok\ntest_wrong_split_rejected (test_v2_train_expansion.TrainExpansionTests.test_wrong_split_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 5.651s\n\nOK\n"
+    },
+    {
+      "suite": "test_v2_validation.py",
+      "status": "PASS",
+      "tests_run": 13,
+      "exit_code": 0,
+      "command": [
+        "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\.venv-v2\\Scripts\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_v2_validation.py",
+        "-v"
+      ],
+      "stdout": "",
+      "stderr": "test_duplicate_conversation_rejected (test_v2_validation.ValidationAuditTests.test_duplicate_conversation_rejected) ... ok\ntest_duplicate_json_keys_rejected (test_v2_validation.ValidationAuditTests.test_duplicate_json_keys_rejected) ... ok\ntest_duplicate_utterance_order_rejected (test_v2_validation.ValidationAuditTests.test_duplicate_utterance_order_rejected) ... ok\ntest_empty_rationale_rejected (test_v2_validation.ValidationAuditTests.test_empty_rationale_rejected) ... ok\ntest_evaluation_adapter_refuses_train (test_v2_validation.ValidationAuditTests.test_evaluation_adapter_refuses_train) ... ok\ntest_evaluation_adapter_retains_unreviewed_and_training_excludes (test_v2_validation.ValidationAuditTests.test_evaluation_adapter_retains_unreviewed_and_training_excludes) ... ok\ntest_fake_human_approval_rejected (test_v2_validation.ValidationAuditTests.test_fake_human_approval_rejected) ... ok\ntest_generated_schema_passes (test_v2_validation.ValidationAuditTests.test_generated_schema_passes) ... ok\ntest_literal_identifier_rejected (test_v2_validation.ValidationAuditTests.test_literal_identifier_rejected) ... ok\ntest_normal_positive_contradiction_rejected (test_v2_validation.ValidationAuditTests.test_normal_positive_contradiction_rejected) ... ok\ntest_unapproved_mask_token_rejected (test_v2_validation.ValidationAuditTests.test_unapproved_mask_token_rejected) ... ok\ntest_unknown_label_rejected (test_v2_validation.ValidationAuditTests.test_unknown_label_rejected) ... ok\ntest_wrong_split_rejected (test_v2_validation.ValidationAuditTests.test_wrong_split_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.038s\n\nOK\n"
+    },
+    {
+      "suite": "pinned_PR35_non_training_tests",
+      "status": "PASS",
+      "exit_code": 0,
+      "tests_run": 48,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "output": "................................................\n----------------------------------------------------------------------\nRan 48 tests in 3.926s\n\nOK\n"
+    }
+  ],
+  "training_tests_executed": false,
+  "optimizer_executed": false
+}

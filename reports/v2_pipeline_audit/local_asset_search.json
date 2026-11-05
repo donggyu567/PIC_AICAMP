@@ -1,0 +1,149 @@
+{
+  "scope": [
+    {
+      "root": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP",
+      "directories_scanned": 106,
+      "files_seen": 1049,
+      "candidates": 0,
+      "errors": [],
+      "status": "SCANNED"
+    },
+    {
+      "root": "C:\\Users\\임정윤\\Downloads",
+      "directories_scanned": 8,
+      "files_seen": 302,
+      "candidates": 12,
+      "errors": [],
+      "status": "SCANNED"
+    },
+    {
+      "root": "C:\\Users\\임정윤\\Documents",
+      "directories_scanned": 14,
+      "files_seen": 25,
+      "candidates": 0,
+      "errors": [
+        {
+          "path": "C:\\Users\\임정윤\\Documents\\My Music",
+          "error": "[WinError 5] 액세스가 거부되었습니다: 'C:\\\\Users\\\\임정윤\\\\Documents\\\\My Music'"
+        },
+        {
+          "path": "C:\\Users\\임정윤\\Documents\\My Pictures",
+          "error": "[WinError 5] 액세스가 거부되었습니다: 'C:\\\\Users\\\\임정윤\\\\Documents\\\\My Pictures'"
+        },
+        {
+          "path": "C:\\Users\\임정윤\\Documents\\My Videos",
+          "error": "[WinError 5] 액세스가 거부되었습니다: 'C:\\\\Users\\\\임정윤\\\\Documents\\\\My Videos'"
+        }
+      ],
+      "status": "SCANNED_WITH_ERRORS"
+    },
+    {
+      "root": "C:\\Users\\임정윤\\OneDrive\\문서",
+      "directories_scanned": 12,
+      "files_seen": 105,
+      "candidates": 0,
+      "errors": [],
+      "status": "SCANNED"
+    },
+    {
+      "root": "C:\\Users\\임정윤\\.codex\\worktrees",
+      "directories_scanned": 1,
+      "files_seen": 0,
+      "candidates": 0,
+      "errors": [],
+      "status": "SCANNED"
+    },
+    {
+      "root": "C:\\Users\\임정윤\\OneDrive\\Desktop\\김해린",
+      "directories_scanned": 1,
+      "files_seen": 11,
+      "candidates": 0,
+      "errors": [],
+      "status": "SCANNED"
+    },
+    {
+      "root": "C:\\Users\\임정윤\\.cache\\huggingface",
+      "directories_scanned": 14,
+      "files_seen": 10,
+      "candidates": 0,
+      "errors": [],
+      "status": "SCANNED"
+    }
+  ],
+  "candidates": [
+    {
+      "path": "C:\\Users\\임정윤\\Downloads\\PIC_AICAMP_v2_pilot_sources (1).zip",
+      "bytes": 20271,
+      "kind": "archive_or_other_weights",
+      "matching_zip_members": []
+    },
+    {
+      "path": "C:\\Users\\임정윤\\Downloads\\PIC_AICAMP_v2_pilot_sources (10).zip",
+      "bytes": 20271,
+      "kind": "archive_or_other_weights",
+      "matching_zip_members": []
+    },
+    {
+      "path": "C:\\Users\\임정윤\\Downloads\\PIC_AICAMP_v2_pilot_sources (11).zip",
+      "bytes": 20271,
+      "kind": "archive_or_other_weights",
+      "matching_zip_members": []
+    },
+    {
+      "path": "C:\\Users\\임정윤\\Downloads\\PIC_AICAMP_v2_pilot_sources (2).zip",
+      "bytes": 20271,
+      "kind": "archive_or_other_weights",
+      "matching_zip_members": []
+    },
+    {
+      "path": "C:\\Users\\임정윤\\Downloads\\PIC_AICAMP_v2_pilot_sources (3).zip",
+      "bytes": 20271,
+      "kind": "archive_or_other_weights",
+      "matching_zip_members": []
+    },
+    {
+      "path": "C:\\Users\\임정윤\\Downloads\\PIC_AICAMP_v2_pilot_sources (4).zip",
+      "bytes": 20271,
+      "kind": "archive_or_other_weights",
+      "matching_zip_members": []
+    },
+    {
+      "path": "C:\\Users\\임정윤\\Downloads\\PIC_AICAMP_v2_pilot_sources (5).zip",
+      "bytes": 20271,
+      "kind": "archive_or_other_weights",
+      "matching_zip_members": []
+    },
+    {
+      "path": "C:\\Users\\임정윤\\Downloads\\PIC_AICAMP_v2_pilot_sources (6).zip",
+      "bytes": 20271,
+      "kind": "archive_or_other_weights",
+      "matching_zip_members": []
+    },
+    {
+      "path": "C:\\Users\\임정윤\\Downloads\\PIC_AICAMP_v2_pilot_sources (7).zip",
+      "bytes": 20271,
+      "kind": "archive_or_other_weights",
+      "matching_zip_members": []
+    },
+    {
+      "path": "C:\\Users\\임정윤\\Downloads\\PIC_AICAMP_v2_pilot_sources (8).zip",
+      "bytes": 20271,
+      "kind": "archive_or_other_weights",
+      "matching_zip_members": []
+    },
+    {
+      "path": "C:\\Users\\임정윤\\Downloads\\PIC_AICAMP_v2_pilot_sources (9).zip",
+      "bytes": 20271,
+      "kind": "archive_or_other_weights",
+      "matching_zip_members": []
+    },
+    {
+      "path": "C:\\Users\\임정윤\\Downloads\\PIC_AICAMP_v2_pilot_sources.zip",
+      "bytes": 20271,
+      "kind": "archive_or_other_weights",
+      "matching_zip_members": []
+    }
+  ],
+  "trained_v1_checkpoint_status": "NOT_FOUND",
+  "limitation": "Targeted related folders only. Access errors are not absence evidence. No claim about every disk, inaccessible folders, or other people's computers."
+}

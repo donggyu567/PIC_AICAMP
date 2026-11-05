@@ -4,3 +4,30 @@
 /dataset/review/v2_pilot/** -text whitespace=cr-at-eol,-blank-at-eof
 /artifacts/v1_reference/** -text whitespace=cr-at-eol,-blank-at-eof
 /reports/v2_pilot/** -text whitespace=cr-at-eol,-blank-at-eof
+
+# Preserve the recovered CRLF input hashes and all v2 audit evidence on clone.
+/artifacts/v1_recovered_8faa6a7eebfe/** -text whitespace=cr-at-eol,-blank-at-eof
+"/dataset/04. processed/v2_validation/**" -text whitespace=cr-at-eol,-blank-at-eof
+"/dataset/04. processed/v2_train_expansion/**" -text whitespace=cr-at-eol,-blank-at-eof
+/dataset/review/v2_validation/** -text whitespace=cr-at-eol,-blank-at-eof
+/dataset/review/v2_train_expansion/** -text whitespace=cr-at-eol,-blank-at-eof
+/reports/v2_validation/** -text whitespace=cr-at-eol,-blank-at-eof
+/reports/v2_train_expansion/** -text whitespace=cr-at-eol,-blank-at-eof
+/reports/v2_pipeline_audit/** -text whitespace=cr-at-eol,-blank-at-eof
+/reports/v2_experiment_design/** -text whitespace=cr-at-eol,-blank-at-eof
+/reports/v2_publish/** -text whitespace=cr-at-eol,-blank-at-eof
+/experiments/koelectra_v2/** -text whitespace=cr-at-eol,-blank-at-eof
+/dataset/scripts/audit_v2_pipeline.py -text
+/dataset/scripts/audit_v2_publish.py -text
+/dataset/scripts/generate_v2_validation.py -text
+/dataset/scripts/prepare_v2_train_expansion.py -text
+/dataset/scripts/recover_v1_inputs_audit.py -text
+/dataset/scripts/search_v1_assets_audit.py -text
+/dataset/scripts/v2_pipeline_gate.py -text
+/dataset/scripts/validate_v2_train_expansion.py -text
+/dataset/scripts/validate_v2_validation.py -text
+/dataset/scripts/write_v2_pipeline_review_queue.py -text
+/tests/test_koelectra_experiment_design.py -text
+/tests/test_v2_pipeline_gate.py -text
+/tests/test_v2_train_expansion.py -text
+/tests/test_v2_validation.py -text

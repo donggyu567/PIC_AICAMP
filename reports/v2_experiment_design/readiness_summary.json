@@ -1,0 +1,57 @@
+{
+  "client_date": "2026-11-06",
+  "status": "DESIGN_AND_TECHNICAL_PREFLIGHT_READY_ACTUAL_TRAINING_BLOCKED",
+  "public_base": "READY_HASH_VERIFIED_AND_LOADED",
+  "old_v1_checkpoint_restored": false,
+  "conditional_split": {
+    "conversations": [
+      48,
+      10,
+      10
+    ],
+    "utterances": [
+      943,
+      330,
+      187
+    ],
+    "seed": 20261106,
+    "status": "DRAFT_NOT_GOLD",
+    "unapproved_short_normal_edges": 128
+  },
+  "strict_split": {
+    "conversations": [
+      61,
+      4,
+      3
+    ],
+    "suitable_for_complete8label_evaluation": false
+  },
+  "train_seeds": [
+    42,
+    43,
+    44
+  ],
+  "A_B_preflight": {
+    "samples_each": 1460,
+    "cpu_batches_each": 184,
+    "roles": [
+      "train",
+      "validation",
+      "test"
+    ]
+  },
+  "C": "BLOCKED_NO_APPROVED_SYNTHETIC",
+  "tests": {
+    "status": "PASS",
+    "count": 22
+  },
+  "human_review_existing": 132,
+  "human_scenario_pairs": 9,
+  "human_proposed_holdout_rows": 517,
+  "actual_model_training": false,
+  "test_predictions": false,
+  "threshold_optimization": false,
+  "checkpoint_written": false,
+  "preexisting_files_unchanged": 1073,
+  "git_commit_push_pr": false
+}

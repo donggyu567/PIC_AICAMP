@@ -27,3 +27,16 @@ pytorch_model*.bin
 /dataset/04. processed/v2_pilot/approval_*/
 /reports/v2_pilot/approval_*/
 /reports/v2_pilot/training_readiness/execution_initial_attempt.json
+
+# Recovered raw evidence can retain identifiers; publish masked prepared inputs only.
+/artifacts/v1_recovered_8faa6a7eebfe/source_snapshot/
+/reports/v2_pipeline_audit/recovered_source_payloads.json
+/reports/v2_pipeline_audit/audit_*.json
+/reports/v2_pipeline_audit/drive_checkpoint_search*.json
+
+# Local publication audit scratch files.
+/reports/v2_publish/*.nul
+/reports/v2_publish/initial_scan.json
+
+# Personal research note explicitly excluded from this delivery.
+/phishing_candidate_research_jeongyun_202609w4.md

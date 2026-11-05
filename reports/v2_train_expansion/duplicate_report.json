@@ -1,0 +1,157 @@
+{
+  "normalization": "NFKC + casefold; remove whitespace and Unicode punctuation",
+  "metric": "SequenceMatcher(autojunk=False), report all candidates >=0.80 including exact/normalized",
+  "validation_usage": "Post-generation comparisons only; no VALIDATION label statistics or design feedback",
+  "validation_sha256": "e2cfe8ff687dd8670f4d77ce53c85e9353866bae9502df09cdbd3540b98d4087",
+  "collisions": {
+    "synthetic_id": [],
+    "scenario_family_id": [],
+    "scenario_id": []
+  },
+  "new_vs_existing_train": {
+    "pairs_checked": 9792,
+    "candidate_count": 0,
+    "kinds": {},
+    "candidates": [],
+    "highest_similarity_pair": {
+      "left": "SYN2-TRAIN-0018-9",
+      "right": "SYN2-TRAIN-0008-3",
+      "similarity": 0.54902,
+      "left_text": "그럼 등록 중복 여부만 보게 주민등록번호 전체를 불러 주시겠어요?",
+      "right_text": "본인 확인을 위해 주민등록번호 전체를 말씀해 주시겠어요?"
+    }
+  },
+  "new_internal": {
+    "pairs_checked": 2556,
+    "candidate_count": 0,
+    "kinds": {},
+    "candidates": [],
+    "highest_similarity_pair": {
+      "left": "SYN2-TRAIN-0022-7",
+      "right": "SYN2-TRAIN-0023-7",
+      "similarity": 0.439024,
+      "left_text": "안내문을 가족과 같이 읽어 보고 제가 갈지 정하겠습니다.",
+      "right_text": "동네 모임에도 그 안내문을 공유하겠습니다."
+    }
+  },
+  "existing_train_internal": {
+    "pairs_checked": 9180,
+    "candidate_count": 1,
+    "kinds": {
+      "exact": 1
+    },
+    "candidates": [
+      {
+        "left": "SYN2-TRAIN-0003-4",
+        "right": "SYN2-TRAIN-0006-4",
+        "similarity": 1.0,
+        "left_text": "제가 이해를 못 할 수도 있어서 같이 듣자는 건데요.",
+        "right_text": "제가 이해를 못 할 수도 있어서 같이 듣자는 건데요.",
+        "kind": "exact"
+      }
+    ],
+    "highest_similarity_pair": {
+      "left": "SYN2-TRAIN-0003-4",
+      "right": "SYN2-TRAIN-0006-4",
+      "similarity": 1.0,
+      "left_text": "제가 이해를 못 할 수도 있어서 같이 듣자는 건데요.",
+      "right_text": "제가 이해를 못 할 수도 있어서 같이 듣자는 건데요.",
+      "kind": "exact"
+    }
+  },
+  "merged_train_internal": {
+    "pairs_checked": 21528,
+    "candidate_count": 1,
+    "kinds": {
+      "exact": 1
+    },
+    "candidates": [
+      {
+        "left": "SYN2-TRAIN-0003-4",
+        "right": "SYN2-TRAIN-0006-4",
+        "similarity": 1.0,
+        "left_text": "제가 이해를 못 할 수도 있어서 같이 듣자는 건데요.",
+        "right_text": "제가 이해를 못 할 수도 있어서 같이 듣자는 건데요.",
+        "kind": "exact"
+      }
+    ],
+    "highest_similarity_pair": {
+      "left": "SYN2-TRAIN-0003-4",
+      "right": "SYN2-TRAIN-0006-4",
+      "similarity": 1.0,
+      "left_text": "제가 이해를 못 할 수도 있어서 같이 듣자는 건데요.",
+      "right_text": "제가 이해를 못 할 수도 있어서 같이 듣자는 건데요.",
+      "kind": "exact"
+    }
+  },
+  "new_vs_validation": {
+    "pairs_checked": 13824,
+    "candidate_count": 0,
+    "kinds": {},
+    "candidates": [],
+    "highest_similarity_pair": {
+      "left": "SYN2-TRAIN-0022-7",
+      "right": "SYN2-VALIDATION-0024-7",
+      "similarity": 0.638298,
+      "left_text": "안내문을 가족과 같이 읽어 보고 제가 갈지 정하겠습니다.",
+      "right_text": "서류 내용을 같이 읽어 보고 지점 방문 날짜를 정하겠습니다."
+    }
+  },
+  "merged_vs_validation": {
+    "pairs_checked": 39936,
+    "candidate_count": 0,
+    "kinds": {},
+    "candidates": [],
+    "highest_similarity_pair": {
+      "left": "SYN2-TRAIN-0022-7",
+      "right": "SYN2-VALIDATION-0024-7",
+      "similarity": 0.638298,
+      "left_text": "안내문을 가족과 같이 읽어 보고 제가 갈지 정하겠습니다.",
+      "right_text": "서류 내용을 같이 읽어 보고 지점 방문 날짜를 정하겠습니다."
+    }
+  },
+  "new_full_transcript_vs_existing": {
+    "pairs_checked": 128,
+    "candidate_count": 0,
+    "kinds": {},
+    "candidates": [],
+    "highest_similarity_pair": {
+      "left": "SYN2-TRAIN-0024",
+      "right": "SYN2-TRAIN-0004",
+      "similarity": 0.230241,
+      "left_text": "대여 계약서의 다락책상 고객센터로 문의합니다. 노트북 반납 전에 자료를 지워도 되나요?\n개인 파일을 먼저 백업하신 뒤 기기 기본 설정의 초기화 안내를 확인하시면 됩니다.\n지우려는 파일 이름이나 로그인 비밀번호를 여기서 알려 드릴까요?\n파일 목록이나 비밀번호는 말씀하지 마세요. 상담원이 개인 자료를 받아 대신 지우지 않습니다.\n초기화하다가 어려우면 화면을 보내야 하나요?\n내용이 보이는 화면을 보낼 필요는 없습니다. 어려운 단계의 메뉴 이름만 설명해 주셔도 됩니다.\n초기화를 마친 상태로 반납하면 직원이 자료를 다시 읽어보지는 않겠죠?\n반납 검수는 기기 작동과 외관을 확인합니다. 개인 자료를 복원해 제출하실 필요는 없습니다.",
+      "right_text": "안녕하세요. 이용 명세서에 나온 고객센터 번호로 전화했어요. 휴대전화를 바꿔서 앱을 다시 설치하려고요.\n네, 설치 안내 도와드리겠습니다. 휴대전화의 공식 앱스토어에서 저희 앱을 찾아 설치하시면 됩니다.\n비슷한 이름이 여러 개 보여서요. 어떤 걸 골라야 할까요?\n명세서에 적힌 서비스 이름과 앱의 제공자 정보를 확인해 주세요. 일치하는지 확신이 안 서면 설치하지 않으셔도 됩니다.\n확인해서 설치했어요. 이제 실행하면 되나요?\n네, 실행하신 뒤 로그인하시면 됩니다. 비밀번호나 인증번호는 저에게 말씀하지 마시고 본인이 앱에서 직접 입력해 주세요.\n알겠습니다. 알림 권한도 꼭 켜야 하나요?\n알림은 선택하실 수 있습니다. 원치 않으시면 허용하지 않고 이용하셔도 됩니다.\n로그인이 됐네요. 이용 내역도 여기서 볼 수 있죠?\n네, 이용 내역 메뉴에서 확인하실 수 있습니다. 추가로 궁금하신 점이 있으면 다시 문의해 주세요."
+    }
+  },
+  "new_full_transcript_vs_validation": {
+    "pairs_checked": 192,
+    "candidate_count": 0,
+    "kinds": {},
+    "candidates": [],
+    "highest_similarity_pair": {
+      "left": "SYN2-TRAIN-0022",
+      "right": "SYN2-VALIDATION-0021",
+      "similarity": 0.253906,
+      "left_text": "별언덕의원 안내문의 문서 창구로 전화했어요. 제가 요청한 진료확인서를 언제 찾을 수 있나요?\n본인 신청 건을 찾도록 성함과 생년월일을 여쭙겠습니다. 주민번호 전체는 말씀하지 않으셔도 됩니다.\n성함은 [PERSON], 생년월일은 [BIRTH]로 접수돼 있을 거예요.\n발급 준비가 끝난 문서가 있습니다. 본인이 오시면 접수 창구에서 수령 확인을 진행합니다.\n가족이 대신 가는 경우에 제 전화 인증번호를 전해 줘야 하나요?\n인증번호를 전달하실 필요는 없습니다. 대리 수령에 필요한 서면 동의 목록을 안내문에서 확인해 주세요.\n안내문을 가족과 같이 읽어 보고 제가 갈지 정하겠습니다.\n그렇게 결정하셔도 됩니다. 가족 관계나 진료 내용을 여기서 더 설명하지 않으셔도 됩니다.",
+      "right_text": "예약 확인서의 바위별숙소 고객센터로 전화했습니다. 체크인을 하루 늦출 수 있을까요?\n예약 조회용으로 예약자 성함과 확인서를 받은 이메일을 알려 주시겠어요? 비밀번호는 필요 없습니다.\n예약자는 [PERSON]이고 확인 메일은 [EMAIL]로 받았습니다.\n같은 객실은 다음 날에도 비어 있습니다. 변경 내용을 기존 이메일로 보내 드릴 수 있어요.\n추가 요금이 있으면 확정 전에 읽어보고 싶어요.\n변경 견적만 보내고 확정은 보류하겠습니다. 메일 내용을 보시고 답해 주세요.\n같이 가는 친구에게도 견적을 보여 주고 결정하겠습니다.\n함께 확인하셔도 됩니다. 예약 확정 전까지 결제 정보를 새로 받지 않겠습니다."
+    }
+  },
+  "new_full_transcript_internal": {
+    "pairs_checked": 28,
+    "candidate_count": 0,
+    "kinds": {},
+    "candidates": [],
+    "highest_similarity_pair": {
+      "left": "SYN2-TRAIN-0020",
+      "right": "SYN2-TRAIN-0024",
+      "similarity": 0.1777,
+      "left_text": "가상 기관 유리물결자산회수실 조사 담당입니다. 투자 피해 자산을 찾아 연락했습니다.\n손실 상담은 남긴 적 있지만 회수를 맡긴 적은 없는데요. 무슨 자산인가요?\n예전 투자는 거래소 계정으로 하셨죠? 개인 지갑만 쓰신 건 아니고요?\n보유 방식부터 알려 드리지는 않겠습니다. 회수 근거 자료를 보여 주세요.\n지갑에 설정한 복구 비밀번호 전체를 말씀해 주시면 회수 내역을 연결하겠습니다.\n복구 비밀번호를 넘기는 방식은 받지 않겠습니다. 출금된다는 잔액은 뭔가요?\n회수 잔액을 출금하려면 보유한 가상자산 일부를 저희가 지정하는 다른 지갑으로 먼저 보내세요.\n제 자산을 추가로 보낼 수는 없습니다. 서면 위임 계약도 없어요.\n10분 안에 출금 해제금을 보내지 않으면 회수 잔액이 소멸하니 바로 송금하세요.\n회수 잔액 화면도 신뢰하지 않겠습니다. 접수했던 피해 상담 창구에 이 연락을 확인할게요.",
+      "right_text": "대여 계약서의 다락책상 고객센터로 문의합니다. 노트북 반납 전에 자료를 지워도 되나요?\n개인 파일을 먼저 백업하신 뒤 기기 기본 설정의 초기화 안내를 확인하시면 됩니다.\n지우려는 파일 이름이나 로그인 비밀번호를 여기서 알려 드릴까요?\n파일 목록이나 비밀번호는 말씀하지 마세요. 상담원이 개인 자료를 받아 대신 지우지 않습니다.\n초기화하다가 어려우면 화면을 보내야 하나요?\n내용이 보이는 화면을 보낼 필요는 없습니다. 어려운 단계의 메뉴 이름만 설명해 주셔도 됩니다.\n초기화를 마친 상태로 반납하면 직원이 자료를 다시 읽어보지는 않겠죠?\n반납 검수는 기기 작동과 외관을 확인합니다. 개인 자료를 복원해 제출하실 필요는 없습니다."
+    }
+  },
+  "actual_v1_overlap": "NOT_VERIFIED_INPUTS_UNAVAILABLE",
+  "test_overlap": "TEST_NOT_CREATED",
+  "semantic_status": "AUTHOR_SCENARIO_COMPARISON_ONLY_HUMAN_REVIEW_PENDING",
+  "semantic_limitation": "Lexical comparisons do not establish paraphrase or plot independence. Review scenario_design.md and scenario_independence_review.md.",
+  "deletion_policy": "All candidates retained and reported; preexisting duplicate text and labels are unchanged"
+}

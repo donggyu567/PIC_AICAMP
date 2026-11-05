@@ -1,0 +1,80 @@
+{
+  "status": "PASS_PRESERVATION_AND_ARTIFACT_CHECK",
+  "preexisting_files": 1073,
+  "changed": [],
+  "links_valid": true,
+  "candidate_split_exemptions_not_approved": 128,
+  "test_suite_passed": 22,
+  "public_base_file_records": [
+    {
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_experiment_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\config.json",
+      "name": "config.json",
+      "bytes": 467,
+      "sha256": "b0524c98036d679fd7a38a304a678cbf8d71226283c1f2f6ce08408e85eea56e",
+      "matches_remote_git_blob": true
+    },
+    {
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_experiment_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\tokenizer_config.json",
+      "name": "tokenizer_config.json",
+      "bytes": 61,
+      "sha256": "cd074f01387ed507bc657bebc91c9653874194ba612ceecffe72e6d5c631988c",
+      "matches_remote_git_blob": true
+    },
+    {
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_experiment_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\vocab.txt",
+      "name": "vocab.txt",
+      "bytes": 263326,
+      "sha256": "9f50b0a44b0272dcf78bfd7a52a0815588f69918bb87ec60b21ca235c5aa0eb4",
+      "matches_remote_git_blob": true
+    },
+    {
+      "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_experiment_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\pytorch_model.bin",
+      "name": "pytorch_model.bin",
+      "bytes": 451741507,
+      "sha256": "f3f249cc07826bc2964a2c0dbbd0d239df4fe55efc03ba33e1bd1584cf56c566",
+      "matches_remote_lfs_sha256": true
+    }
+  ],
+  "files": {
+    "artifacts/v2_experiment_assets/.gitignore": "240a3e0d37d2e86b614063f5347eb02d4f99ca6c254de6b82871ff8d95532a7d",
+    "experiments/koelectra_v2/configs/A.json": "6d9d3f80de17830dd31a414bb8652d29d1619d210b2f1c6f76cd40f9213755b2",
+    "experiments/koelectra_v2/configs/B.json": "c2677adf1eb79a8c332ee9ba9a818e09878b00a902f6909dd1e92d50e074e989",
+    "experiments/koelectra_v2/configs/C.json": "f8feb93eba564b90dcd0e9f40fdb4e6cb8cc476c6e0fe4003d922b7eb3048f6b",
+    "experiments/koelectra_v2/experiment_runtime.py": "798598c82794251c3ac0bca712de1f86bb91de4d3f16266990340bbace2aab6d",
+    "experiments/koelectra_v2/plan_splits.py": "564f49e2be318eb5b6f7d6dcf9e72a33467e61a7a5d1451f469e0e991e781047",
+    "experiments/koelectra_v2/prepare_public_base.py": "79e6477aba2d9f24ef361821d25703592a76c55a6b22d140a53902bdbc250d54",
+    "experiments/koelectra_v2/prioritize_reviews.py": "8fd85e0d7772fc3c614f5be0509cd17be1d74b4e8968531f5e877656ffb5f4b5",
+    "experiments/koelectra_v2/README.md": "f208eea69084742f199052293de78e982f1cc85ac7982fd31a5410076edb4ab4",
+    "experiments/koelectra_v2/split_candidate.json": "0c601fe97ab8bf51b0501dcab66761cc5184329dd8d90b5e69c5fa1958f6aeaa",
+    "experiments/koelectra_v2/split_review_candidate.json": "f3398df3a3a76fe17c78e9072ea2314a5a0622f37c7cd25021d347ecd5517a66",
+    "experiments/koelectra_v2/type_loss_weight_plan.json": "16e66e328e65af87fa799a54840a7da26616e96572e834a6637642b382eb33f7",
+    "experiments/koelectra_v2/write_configs.py": "1c871e49b4ca371dbcb477253437be3b3c7768c3af4606c27634325be2a29069",
+    "reports/v2_experiment_design/automatic_tests.json": "ce380ebe80cd49e1f1bef51974c33dca861ba57d82fea3c1ce186afce77e9b3c",
+    "reports/v2_experiment_design/comparison_protocol.md": "c3631ef9f200d8ff76384eeecb62d5ff16305c32830da3fa874f64180f6f0c94",
+    "reports/v2_experiment_design/grouping_evidence.json": "747b2dae3bb518ee78687d25fdfe36c0a3cf66d7a065083a867d73c730952dc3",
+    "reports/v2_experiment_design/historical_recipe.json": "337df8de8eb95d93a4c9dbb77f39565eae2647b676774a70c6be710e352ece20",
+    "reports/v2_experiment_design/preflight_A.json": "953ab5a0b4272882779ae338c001b6fd11e5ce6ae84173e8afcc1b07e4d69de0",
+    "reports/v2_experiment_design/preflight_A_console.txt": "a89ebb418b152b290a30d195c405a0486c4c565425b1221e0abd5cc1e7e273d0",
+    "reports/v2_experiment_design/preflight_B.json": "8233f754c5d8425b76f9c257ebc31a86e4a6088737a647e194b9c9cb70254f9e",
+    "reports/v2_experiment_design/preflight_B_console.txt": "8c03a64d351081ff717c145fe713bf66715cd90099b2ed65aa16c6e3385ce569",
+    "reports/v2_experiment_design/preflight_C.json": "35659620ef6255bb0db25fd1120dee358af675a90c3ef55abbdc3dac7b0d79be",
+    "reports/v2_experiment_design/preflight_C_console.txt": "8880079151c7782229d6db4ba80bf12136171e332e8879b3669dd344f9f60fb6",
+    "reports/v2_experiment_design/prioritized_existing_132.csv": "6a7cab144efd3ece446e9a6d333058ef504a12e99f9f1afd1349b3b42c57cd1e",
+    "reports/v2_experiment_design/protected_baseline.json": "92df62dac14b92e4b2fb196e0129d84da3e3f28d96a2583034f2a060025dfd4a",
+    "reports/v2_experiment_design/public_base_assets.json": "86649f0db4c1e69475956e73ad30fdd45f99c0739fa9eb88265b9d76b499df89",
+    "reports/v2_experiment_design/readiness_summary.json": "0cfe24bd9dc67e1e879a52f9b0360b070e31b98113686514867901808884be04",
+    "reports/v2_experiment_design/README.md": "b4f8ec2516b512e17b7a92ddb6331053ef6efc393764eeeb8def11ba63e77557",
+    "reports/v2_experiment_design/requirements-lock.txt": "28f80758748f51b54cf30a37f135bfd346f8695f6dd38bf4169d459190ffda4b",
+    "reports/v2_experiment_design/review_priority_summary.json": "67ea3ff0055ec7a2f0851bcd0d54c6a171cc76b1458a7140b66ab24b0a00ef69",
+    "reports/v2_experiment_design/short_normal_exception_review.csv": "5880eeab40ddfa4147e416d3a1a7651f4cc055c20753a0c7aeafc3bbd47d3532",
+    "reports/v2_experiment_design/short_normal_exceptions_pending.json": "b868a6aed85fc073bcf688f244a7ca4ea1a8584f73657924a6dd01f16e3a3f52",
+    "reports/v2_experiment_design/split_and_leakage_plan.md": "01299d59277a2d63fbe4fae19c77f17071a856da3272ce0ce162be7a36ca828b",
+    "reports/v2_experiment_design/split_generation_console.txt": "2b278cd023d3cca53750e32060a4e09bfdd8d0f93b47752c602405545d59ce7d",
+    "reports/v2_experiment_design/synthetic_vs_proposed_holdouts.json": "862d51d718a9807679506c99fc49e357b666d77e418b4d38600663512d95fb9e",
+    "reports/v2_experiment_design/v1_proposed_holdout_gold_review.csv": "d648022de6b0c078b7cda79f1f0c15a95c2b263f59f26b32a79fdbf4f098ce7c",
+    "reports/v2_experiment_design/v1_retraining_plan.md": "47432b8ae50a15d7f9247e94208f093c2aa4fb88ecd08c4c063238acd32414ca",
+    "reports/v2_experiment_design/v1_similarity_candidate_mapping.json": "fcbee6fa47b088c7f94188fc339fcb7b3fcbdd4f2d71c075cea9c46e24ad242d",
+    "tests/test_koelectra_experiment_design.py": "ead6514796ff518f9eb39d14188a25dbdd2c0d6fd8228f78db46953a6691f565"
+  },
+  "note": "Self excluded. Public cache weights are listed by verified asset records; original v1/task weights are never created or replaced."
+}

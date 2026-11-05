@@ -1,0 +1,8207 @@
+{
+  "status": "PASS_AUTOMATION_HUMAN_REVIEW_PENDING",
+  "checked_at": "2026-11-05T17:30:20.988577+09:00",
+  "checks": [
+    {
+      "name": "preexisting_files_unchanged",
+      "passed": true,
+      "detail": {
+        "files": 940,
+        "changed": []
+      }
+    },
+    {
+      "name": "git_branch_head_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_blank_jsonl:train_0017_0024_generated.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "json_objects:train_0017_0024_generated.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_blank_jsonl:pilot_single_review_train_candidate.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "json_objects:pilot_single_review_train_candidate.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_blank_jsonl:train_24_mixed_review_candidate.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "json_objects:train_24_mixed_review_candidate.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "manifest_not_approved_for_training",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "generation_input_hashes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "scenario_design_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "8_new_16_old_24_merged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "merged_records_equal_old_plus_new",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "old_16_candidate_bytes_and_review_history_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_blank_jsonl:pilot_canonical.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "json_objects:pilot_canonical.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "old16_canonical_text_labels_ids_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "old16_single_review_not_final_state_retained",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "train_0001_to_0024_no_validation_mix",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unique_merged:synthetic_id",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unique_merged:scenario_family_id",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unique_merged:scenario_id",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0001",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0001-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0001-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0001-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0001-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0001-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0001-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0001-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0001-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0001-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0001-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0001-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0001-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0001-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0001-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0001-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0001-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0001-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0001-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0001-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0001-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0001-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0001-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0001-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0001-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0001-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0001-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0001-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0001-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0001-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0001-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0001-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0001-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0001-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0001-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0001-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0001-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0001-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0001-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0001-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0001-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0002",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0002-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0002-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0002-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0002-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0002-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0002-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0002-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0002-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0002-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0002-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0002-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0002-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0002-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0002-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0002-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0002-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0002-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0002-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0002-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0002-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0002-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0002-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0002-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0002-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0002-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0002-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0002-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0002-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0002-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0002-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0002-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0002-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0002-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0002-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0002-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0002-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0002-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0002-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0002-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0002-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0003",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0003-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0003-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0003-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0003-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0003-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0003-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0003-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0003-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0003-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0003-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0003-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0003-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0003-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0003-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0003-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0003-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0003-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0003-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0003-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0003-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0003-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0003-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0003-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0003-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0003-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0003-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0003-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0003-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0003-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0003-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0003-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0003-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0003-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0003-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0003-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0003-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0003-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0003-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0003-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0003-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0004",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0004-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0004-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0004-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0004-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0004-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0004-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0004-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0004-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0004-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0004-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0004-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0004-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0004-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0004-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0004-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0004-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0004-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0004-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0004-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0004-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0004-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0004-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0004-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0004-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0004-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0004-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0004-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0004-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0004-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0004-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0004-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0004-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0004-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0004-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0004-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0004-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0004-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0004-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0004-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0004-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0005",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0005-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0005-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0005-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0005-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0005-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0005-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0005-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0005-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0005-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0005-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0005-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0005-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0005-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0005-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0005-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0005-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0005-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0005-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0005-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0005-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0005-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0005-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0005-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0005-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0005-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0005-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0005-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0005-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0005-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0005-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0005-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0005-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0006",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0006-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0006-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0006-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0006-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0006-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0006-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0006-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0006-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0006-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0006-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0006-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0006-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0006-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0006-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0006-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0006-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0006-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0006-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0006-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0006-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0006-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0006-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0006-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0006-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0006-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0006-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0006-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0006-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0006-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0006-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0006-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0006-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0007",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0007-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0007-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0007-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0007-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0007-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0007-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0007-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0007-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0007-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0007-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0007-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0007-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0007-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0007-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0007-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0007-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0007-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0007-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0007-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0007-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0007-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0007-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0007-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0007-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0007-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0007-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0007-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0007-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0007-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0007-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0007-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0007-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0008",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0008-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0008-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0008-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0008-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0008-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0008-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0008-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0008-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0008-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0008-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0008-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0008-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0008-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0008-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0008-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0008-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0008-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0008-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0008-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0008-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0008-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0008-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0008-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0008-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0008-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0008-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0008-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0008-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0008-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0008-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0008-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0008-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0009",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0009-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0009-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0009-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0009-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0009-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0009-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0009-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0009-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0009-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0009-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0009-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0009-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0009-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0009-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0009-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0009-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0009-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0009-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0009-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0009-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0009-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0009-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0009-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0009-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0009-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0009-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0009-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0009-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0009-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0009-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0009-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0009-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0010",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0010",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0010-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0010-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0010-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0010-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0010-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0010-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0010-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0010-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0010-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0010-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0010-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0010-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0010-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0010-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0010-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0010-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0010-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0010-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0010-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0010-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0010-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0010-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0010-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0010-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0010-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0010-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0010-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0010-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0010-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0010-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0010-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0010-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0011",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0011",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0011-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0011-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0011-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0011-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0011-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0011-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0011-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0011-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0011-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0011-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0011-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0011-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0011-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0011-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0011-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0011-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0011-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0011-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0011-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0011-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0011-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0011-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0011-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0011-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0011-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0011-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0011-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0011-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0011-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0011-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0011-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0011-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0012",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0012",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0012-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0012-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0012-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0012-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0012-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0012-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0012-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0012-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0012-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0012-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0012-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0012-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0012-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0012-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0012-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0012-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0012-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0012-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0012-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0012-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0012-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0012-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0012-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0012-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0012-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0012-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0012-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0012-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0012-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0012-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0012-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0012-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0013",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0013",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0013-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0013-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0013-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0013-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0013-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0013-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0013-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0013-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0013-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0013-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0013-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0013-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0013-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0013-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0013-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0013-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0013-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0013-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0013-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0013-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0013-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0013-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0013-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0013-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0013-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0013-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0013-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0013-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0013-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0013-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0013-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0013-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0014",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0014",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0014-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0014-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0014-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0014-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0014-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0014-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0014-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0014-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0014-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0014-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0014-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0014-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0014-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0014-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0014-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0014-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0014-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0014-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0014-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0014-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0014-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0014-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0014-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0014-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0014-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0014-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0014-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0014-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0014-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0014-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0014-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0014-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0015",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0015",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0015-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0015-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0015-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0015-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0015-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0015-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0015-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0015-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0015-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0015-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0015-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0015-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0015-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0015-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0015-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0015-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0015-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0015-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0015-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0015-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0015-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0015-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0015-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0015-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0015-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0015-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0015-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0015-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0015-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0015-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0015-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0015-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0016",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0016",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0016-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0016-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0016-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0016-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0016-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0016-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0016-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0016-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0016-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0016-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0016-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0016-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0016-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0016-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0016-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0016-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0016-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0016-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0016-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0016-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0016-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0016-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0016-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0016-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0016-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0016-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0016-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0016-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0016-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0016-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0016-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0016-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0017",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0017",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0017-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0017-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0017-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0017-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0017-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0017-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0017-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0017-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0017-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0017-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0017-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0017-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0017-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0017-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0017-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0017-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0017-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0017-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0017-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0017-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0017-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0017-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0017-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0017-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0017-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0017-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0017-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0017-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0017-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0017-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0017-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0017-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0017-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0017-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0017-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0017-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0017-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0017-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0017-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0017-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0018",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0018",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0018-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0018-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0018-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0018-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0018-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0018-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0018-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0018-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0018-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0018-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0018-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0018-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0018-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0018-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0018-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0018-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0018-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0018-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0018-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0018-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0018-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0018-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0018-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0018-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0018-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0018-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0018-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0018-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0018-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0018-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0018-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0018-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0018-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0018-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0018-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0018-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0018-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0018-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0018-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0018-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0019",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0019",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0019-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0019-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0019-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0019-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0019-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0019-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0019-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0019-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0019-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0019-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0019-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0019-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0019-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0019-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0019-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0019-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0019-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0019-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0019-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0019-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0019-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0019-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0019-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0019-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0019-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0019-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0019-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0019-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0019-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0019-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0019-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0019-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0019-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0019-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0019-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0019-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0019-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0019-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0019-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0019-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0020",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0020",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0020-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0020-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0020-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0020-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0020-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0020-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0020-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0020-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0020-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0020-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0020-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0020-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0020-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0020-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0020-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0020-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0020-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0020-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0020-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0020-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0020-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0020-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0020-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0020-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0020-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0020-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0020-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0020-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0020-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0020-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0020-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0020-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0020-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0020-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0020-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0020-9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0020-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0020-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0020-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0020-10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0021",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0021",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0021-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0021-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0021-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0021-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0021-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0021-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0021-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0021-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0021-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0021-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0021-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0021-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0021-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0021-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0021-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0021-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0021-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0021-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0021-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0021-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0021-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0021-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0021-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0021-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0021-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0021-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0021-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0021-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0021-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0021-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0021-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0021-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0022",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0022",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0022-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0022-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0022-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0022-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0022-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0022-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0022-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0022-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0022-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0022-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0022-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0022-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0022-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0022-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0022-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0022-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0022-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0022-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0022-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0022-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0022-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0022-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0022-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0022-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0022-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0022-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0022-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0022-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0022-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0022-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0022-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0022-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0023",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0023",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0023-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0023-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0023-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0023-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0023-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0023-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0023-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0023-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0023-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0023-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0023-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0023-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0023-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0023-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0023-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0023-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0023-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0023-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0023-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0023-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0023-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0023-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0023-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0023-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0023-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0023-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0023-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0023-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0023-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0023-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0023-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0023-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "synthetic_train_generated:SYN2-TRAIN-0024",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "utterance_count:SYN2-TRAIN-0024",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0024-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0024-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0024-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0024-1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0024-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0024-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0024-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0024-2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0024-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0024-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0024-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0024-3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0024-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0024-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0024-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0024-4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0024-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0024-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0024-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0024-5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0024-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0024-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0024-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0024-6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0024-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0024-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0024-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0024-7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fields_order_speaker:SYN2-TRAIN-0024-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "text_rationale:SYN2-TRAIN-0024-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "labels_consistent:SYN2-TRAIN-0024-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "masking_and_no_literal_identifiers:SYN2-TRAIN-0024-8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unique_composite_utterance_ids",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_actual_canonical_fields:17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_generation_metadata:17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_no_human_approval:17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "primary_type:17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_actual_canonical_fields:18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_generation_metadata:18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_no_human_approval:18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "primary_type:18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_actual_canonical_fields:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_generation_metadata:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_no_human_approval:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "primary_type:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_actual_canonical_fields:20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_generation_metadata:20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_no_human_approval:20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "primary_type:20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_actual_canonical_fields:21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_generation_metadata:21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_no_human_approval:21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "primary_type:21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_actual_canonical_fields:22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_generation_metadata:22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_no_human_approval:22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "primary_type:22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_actual_canonical_fields:23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_generation_metadata:23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_no_human_approval:23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "primary_type:23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_actual_canonical_fields:24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_generation_metadata:24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_no_human_approval:24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "primary_type:24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "review_csv_utf8_bom",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reuse_train_review_columns",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_csv_all_source_rows_and_all_unapproved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "new_train_frozen_before_validation_text_access",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_blank_jsonl:validation_24_generated.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "json_objects:validation_24_generated.jsonl",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "validation_read_for_post_generation_overlap_only",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "validation_registry_matches_ids",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_train_validation_id_family_scenario_collision",
+      "passed": true,
+      "detail": {
+        "synthetic_id": [],
+        "scenario_family_id": [],
+        "scenario_id": []
+      }
+    },
+    {
+      "name": "no_train_edit_after_validation_comparison",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "pinned_runtime_code_hashes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reuse_venv_v2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "eight_label_order_matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "normal_safe_builder_keeps136_and_rejects72_unreviewed",
+      "passed": true,
+      "detail": {
+        "initial": {
+          "missing_tuned_text": 0,
+          "missing_label": 0,
+          "matched": 208,
+          "excluded_unreviewed": 72,
+          "included": 136,
+          "duplicate_key": 0,
+          "excluded_missing_status": 0,
+          "invalid_label": 0,
+          "empty_tuned_text": 0
+        },
+        "safe": {
+          "missing_tuned_text": 72,
+          "missing_label": 0,
+          "matched": 136,
+          "included": 136,
+          "duplicate_key": 0,
+          "excluded_missing_status": 0,
+          "excluded_unreviewed": 0,
+          "invalid_label": 0,
+          "empty_tuned_text": 0
+        }
+      }
+    },
+    {
+      "name": "dry_run_is_not_training_approval",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "pinned_tokenizer_vocab_fingerprint",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_pytorch_DataLoader",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:0",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:1",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:2",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:3",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:5",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:6",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:7",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:25",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:25",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:26",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:26",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:27",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:27",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:8",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:28",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:28",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:29",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:29",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:30",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:30",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:31",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:31",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:9",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:32",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:32",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:33",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:33",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:34",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:34",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:35",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:35",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:10",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:36",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:36",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:37",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:37",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:38",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:38",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:39",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:39",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:11",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:40",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:40",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:41",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:41",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:42",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:42",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:43",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:43",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:12",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:44",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:44",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:45",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:45",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:46",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:46",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:47",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:47",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:13",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:48",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:48",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:49",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:49",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:51",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:51",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:14",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:52",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:52",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:53",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:53",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:54",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:54",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:55",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:55",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:15",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:56",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:56",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:57",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:57",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:58",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:58",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:59",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:59",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:16",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:60",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:60",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:61",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:61",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:62",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:62",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:63",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:63",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:17",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:64",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:64",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:65",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:65",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:66",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:66",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:67",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:67",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:18",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:68",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:68",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:69",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:69",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:70",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:70",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:71",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:71",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:19",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:72",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:72",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:73",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:73",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:74",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:74",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:75",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:75",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:20",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:76",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:76",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:77",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:77",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:78",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:78",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:79",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:79",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:21",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:80",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:80",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:81",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:81",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:82",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:82",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:83",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:83",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:22",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:84",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:84",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:85",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:85",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:86",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:86",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:87",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:87",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:23",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:88",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:88",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:89",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:89",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:90",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:90",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:91",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:91",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:24",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:92",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:92",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:93",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:93",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:94",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:94",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:95",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:95",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:25",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:25",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:25",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:25",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:96",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:96",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:97",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:97",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:98",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:98",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:99",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:99",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:26",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:26",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:26",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:26",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:100",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:100",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:101",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:101",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:102",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:102",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:103",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:103",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:27",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:27",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:27",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:27",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:104",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:104",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:105",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:105",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:106",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:106",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:107",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:107",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:28",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:28",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:28",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:28",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:108",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:108",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:109",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:109",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:110",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:110",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:111",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:111",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:29",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:29",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:29",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:29",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:112",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:112",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:113",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:113",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:114",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:114",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:115",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:115",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:30",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:30",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:30",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:30",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:116",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:116",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:117",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:117",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:118",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:118",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:119",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:119",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:31",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:31",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:31",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:31",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:120",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:120",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:121",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:121",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:122",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:122",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:123",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:123",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:32",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:32",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:32",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:32",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:124",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:124",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:125",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:125",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:126",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:126",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:127",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:127",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:33",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:33",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:33",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:33",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:128",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:128",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:129",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:129",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:130",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:130",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:131",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:131",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:34",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:34",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:34",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:34",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:132",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:132",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:133",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:133",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:134",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:134",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:135",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:135",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:35",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:35",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:35",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:35",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:136",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:136",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:137",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:137",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:138",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:138",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:139",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:139",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:36",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:36",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:36",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:36",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:140",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:140",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:141",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:141",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:142",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:142",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:143",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:143",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:37",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:37",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:37",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:37",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:144",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:144",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:145",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:145",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:146",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:146",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:147",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:147",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:38",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:38",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:38",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:38",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:148",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:148",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:149",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:149",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:150",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:150",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:151",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:151",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:39",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:39",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:39",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:39",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:152",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:152",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:153",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:153",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:154",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:154",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:155",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:155",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:40",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:40",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:40",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:40",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:156",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:156",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:157",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:157",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:158",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:158",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:159",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:159",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:41",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:41",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:41",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:41",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:160",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:160",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:161",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:161",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:162",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:162",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:163",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:163",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:42",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:42",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:42",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:42",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:164",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:164",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:165",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:165",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:166",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:166",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:167",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:167",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:43",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:43",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:43",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:43",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:168",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:168",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:169",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:169",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:170",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:170",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:171",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:171",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:44",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:44",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:44",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:44",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:172",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:172",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:173",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:173",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:174",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:174",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:175",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:175",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:45",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:45",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:45",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:45",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:176",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:176",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:177",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:177",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:178",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:178",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:179",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:179",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:46",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:46",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:46",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:46",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:180",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:180",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:181",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:181",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:182",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:182",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:183",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:183",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:47",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:47",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:47",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:47",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:184",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:184",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:185",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:185",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:186",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:186",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:187",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:187",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:48",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:48",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:48",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:48",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:188",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:188",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:189",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:189",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:190",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:190",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:191",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:191",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:49",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:49",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:49",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:49",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:192",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:192",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:193",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:193",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:194",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:194",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:195",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:195",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:50",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:196",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:196",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:197",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:197",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:198",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:198",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:199",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:199",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:51",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:51",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:51",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:51",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:200",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:201",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:201",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:202",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:202",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:203",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:203",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cpu_batch_length:52",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "input_shape_dtype:52",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_shapes_dtype:52",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_batch_targets:52",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:204",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:204",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:205",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:205",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:206",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:206",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "source_history_and_targets:207",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tokens_masks_padding:207",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all208_samples_all52_batches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "preexisting_files_unchanged",
+      "passed": true,
+      "detail": {
+        "files": 940,
+        "changed": []
+      }
+    },
+    {
+      "name": "git_branch_head_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "frozen_new_and_merged_unchanged_after_all_audits",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "training_executed": false,
+  "model_loaded": false,
+  "checkpoint_changed": false,
+  "threshold_optimized": false,
+  "human_approval_assigned": false,
+  "training_readiness": "NOT_READY_NEW8_UNREVIEWED_OLD16_SINGLE_REVIEW_ONLY",
+  "actual_v1_overlap": "NOT_VERIFIED_INPUTS_UNAVAILABLE",
+  "preservation_before": {
+    "files": 940,
+    "changed": [],
+    "head": "d8c9fb2834f64ff2027b0a0a43a490563f91c80c",
+    "branch": "feat/koelectra-v2-pilot-readiness"
+  },
+  "statistics": {
+    "existing16": {
+      "conversations": 16,
+      "utterances": 136,
+      "phishing": 34,
+      "normal": 102,
+      "entirely_normal_conversations": 6,
+      "labels": {
+        "institution_impersonation": 10,
+        "money_transfer": 3,
+        "personal_information": 4,
+        "app_installation": 7,
+        "secrecy": 5,
+        "threat_pressure": 3,
+        "loan_fraud": 3,
+        "information_probing": 2
+      },
+      "multi_label_utterances": 3
+    },
+    "new8": {
+      "conversations": 8,
+      "utterances": 72,
+      "phishing": 19,
+      "normal": 53,
+      "entirely_normal_conversations": 4,
+      "labels": {
+        "institution_impersonation": 4,
+        "money_transfer": 4,
+        "personal_information": 5,
+        "app_installation": 0,
+        "secrecy": 1,
+        "threat_pressure": 1,
+        "loan_fraud": 3,
+        "information_probing": 4
+      },
+      "multi_label_utterances": 3
+    },
+    "merged24": {
+      "conversations": 24,
+      "utterances": 208,
+      "phishing": 53,
+      "normal": 155,
+      "entirely_normal_conversations": 10,
+      "labels": {
+        "institution_impersonation": 14,
+        "money_transfer": 7,
+        "personal_information": 9,
+        "app_installation": 7,
+        "secrecy": 6,
+        "threat_pressure": 4,
+        "loan_fraud": 6,
+        "information_probing": 6
+      },
+      "multi_label_utterances": 6
+    }
+  },
+  "review_csv": {
+    "rows": 72,
+    "reviewers": {
+      "김해린": {
+        "미승인": 72
+      },
+      "임정윤": {
+        "미승인": 72
+      }
+    },
+    "final_agreement": {
+      "미승인": 72
+    },
+    "training_applied": false
+  },
+  "duplicates": {
+    "new_vs_existing_train": {
+      "candidate_count": 0,
+      "kinds": {},
+      "pairs_checked": 9792
+    },
+    "new_internal": {
+      "candidate_count": 0,
+      "kinds": {},
+      "pairs_checked": 2556
+    },
+    "existing_train_internal": {
+      "candidate_count": 1,
+      "kinds": {
+        "exact": 1
+      },
+      "pairs_checked": 9180
+    },
+    "merged_train_internal": {
+      "candidate_count": 1,
+      "kinds": {
+        "exact": 1
+      },
+      "pairs_checked": 21528
+    },
+    "new_vs_validation": {
+      "candidate_count": 0,
+      "kinds": {},
+      "pairs_checked": 13824
+    },
+    "merged_vs_validation": {
+      "candidate_count": 0,
+      "kinds": {},
+      "pairs_checked": 39936
+    },
+    "new_full_transcript_vs_existing": {
+      "candidate_count": 0,
+      "kinds": {},
+      "pairs_checked": 128
+    },
+    "new_full_transcript_vs_validation": {
+      "candidate_count": 0,
+      "kinds": {},
+      "pairs_checked": 192
+    },
+    "new_full_transcript_internal": {
+      "candidate_count": 0,
+      "kinds": {},
+      "pairs_checked": 28
+    }
+  },
+  "id_collisions": {
+    "synthetic_id": [],
+    "scenario_family_id": [],
+    "scenario_id": []
+  },
+  "new_overlap_review_required": false,
+  "minibatch": {
+    "status": "PASS_CPU_DATALOADER_DRY_RUN_ONLY",
+    "conversations": 24,
+    "samples": 208,
+    "batches": 52,
+    "batch_size": 4,
+    "first_batch": {
+      "input_ids": {
+        "shape": [
+          4,
+          83
+        ],
+        "dtype": "torch.int64",
+        "device": "cpu"
+      },
+      "attention_mask": {
+        "shape": [
+          4,
+          83
+        ],
+        "dtype": "torch.int64",
+        "device": "cpu"
+      },
+      "token_type_ids": {
+        "shape": [
+          4,
+          83
+        ],
+        "dtype": "torch.int64",
+        "device": "cpu"
+      },
+      "risk_target": {
+        "shape": [
+          4,
+          1
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu"
+      },
+      "type_targets": {
+        "shape": [
+          4,
+          8
+        ],
+        "dtype": "torch.float32",
+        "device": "cpu"
+      }
+    },
+    "label_order": [
+      "institution_impersonation",
+      "money_transfer",
+      "personal_information",
+      "app_installation",
+      "secrecy",
+      "threat_pressure",
+      "loan_fraud",
+      "information_probing"
+    ],
+    "max_history": 5,
+    "history_verified_targets": 208,
+    "token_length_min": 20,
+    "token_length_max": 163,
+    "dropped_history": 0,
+    "tokenizer_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+    "tokenizer": {
+      "name": "monologg/koelectra-base-v3-discriminator",
+      "class_name": "transformers.models.electra.tokenization_electra_fast.ElectraTokenizerFast",
+      "vocab_size": 35000,
+      "vocab_sha256": "18bc57707da19ac79655291f5a6b389b84bbef2c772c5ad84f6bcc206a8a330e",
+      "model_max_length": 512,
+      "padding_side": "right",
+      "special_tokens_map": {
+        "unk_token": "[UNK]",
+        "sep_token": "[SEP]",
+        "pad_token": "[PAD]",
+        "cls_token": "[CLS]",
+        "mask_token": "[MASK]"
+      },
+      "cls_token_id": 2,
+      "sep_token_id": 3,
+      "pad_token_id": 0,
+      "resolved_revision": null
+    },
+    "runtime_revision": "9bab7e383928426e2d866de90acae013fe1f7d86",
+    "regular_safe_builder": {
+      "samples": 136,
+      "statistics": {
+        "missing_tuned_text": 72,
+        "missing_label": 0,
+        "matched": 136,
+        "included": 136,
+        "duplicate_key": 0,
+        "excluded_missing_status": 0,
+        "excluded_unreviewed": 0,
+        "invalid_label": 0,
+        "empty_tuned_text": 0
+      },
+      "initial": {
+        "missing_tuned_text": 0,
+        "missing_label": 0,
+        "matched": 208,
+        "excluded_unreviewed": 72,
+        "included": 136,
+        "duplicate_key": 0,
+        "excluded_missing_status": 0,
+        "invalid_label": 0,
+        "empty_tuned_text": 0
+      }
+    },
+    "adapter_policy": "All208 typed samples for execution checks only; preserve existing one-review labels, leave new72 unreviewed; never call training CLI",
+    "environment": {
+      "executable": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\.venv-v2\\Scripts\\python.exe",
+      "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+      "torch": "2.6.0+cpu",
+      "transformers": "4.57.6"
+    }
+  },
+  "preservation_after": {
+    "files": 940,
+    "changed": [],
+    "head": "d8c9fb2834f64ff2027b0a0a43a490563f91c80c",
+    "branch": "feat/koelectra-v2-pilot-readiness"
+  },
+  "check_counts": {
+    "passed": 1580,
+    "failed": 0
+  }
+}

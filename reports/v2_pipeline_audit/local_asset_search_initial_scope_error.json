@@ -1,0 +1,164 @@
+{
+  "scope": [
+    {
+      "root": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP",
+      "directories_scanned": 99,
+      "files_seen": 975,
+      "candidates": 0,
+      "errors": [],
+      "status": "SCANNED"
+    },
+    {
+      "root": "C:\\Users\\Downloads",
+      "directories_scanned": 0,
+      "files_seen": 0,
+      "candidates": 0,
+      "errors": [
+        {
+          "path": "C:\\Users\\Downloads",
+          "error": "[WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\\\Users\\\\Downloads'"
+        }
+      ],
+      "status": "SCANNED_WITH_ERRORS"
+    },
+    {
+      "root": "C:\\Users\\Documents",
+      "directories_scanned": 0,
+      "files_seen": 0,
+      "candidates": 0,
+      "errors": [
+        {
+          "path": "C:\\Users\\Documents",
+          "error": "[WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\\\Users\\\\Documents'"
+        }
+      ],
+      "status": "SCANNED_WITH_ERRORS"
+    },
+    {
+      "root": "C:\\Users\\OneDrive\\??",
+      "directories_scanned": 0,
+      "files_seen": 0,
+      "candidates": 0,
+      "errors": [
+        {
+          "path": "C:\\Users\\OneDrive\\??",
+          "error": "[WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\\\Users\\\\OneDrive\\\\??'"
+        }
+      ],
+      "status": "SCANNED_WITH_ERRORS"
+    },
+    {
+      "root": "C:\\Users\\.codex\\worktrees",
+      "directories_scanned": 0,
+      "files_seen": 0,
+      "candidates": 0,
+      "errors": [
+        {
+          "path": "C:\\Users\\.codex\\worktrees",
+          "error": "[WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\\\Users\\\\.codex\\\\worktrees'"
+        }
+      ],
+      "status": "SCANNED_WITH_ERRORS"
+    },
+    {
+      "root": "C:\\Users\\OneDrive\\Desktop\\???",
+      "directories_scanned": 0,
+      "files_seen": 0,
+      "candidates": 0,
+      "errors": [
+        {
+          "path": "C:\\Users\\OneDrive\\Desktop\\???",
+          "error": "[WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\\\Users\\\\OneDrive\\\\Desktop\\\\???'"
+        }
+      ],
+      "status": "SCANNED_WITH_ERRORS"
+    },
+    {
+      "root": "C:\\Users\\.cache\\huggingface",
+      "directories_scanned": 0,
+      "files_seen": 0,
+      "candidates": 0,
+      "errors": [
+        {
+          "path": "C:\\Users\\.cache\\huggingface",
+          "error": "[WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\\\Users\\\\.cache\\\\huggingface'"
+        }
+      ],
+      "status": "SCANNED_WITH_ERRORS"
+    }
+  ],
+  "candidates": [],
+  "git": {
+    "refs": {
+      "command": [
+        "git",
+        "branch",
+        "-avv"
+      ],
+      "exit_code": 0,
+      "stdout": "  data/dataset-v0.1-202609w4-jeongyun                        60f603f [origin/data/dataset-v0.1-202609w4-jeongyun] data: add 5 normal conversations for 2026-09 W4\n  data/labeling-v0.1                                         788a122 [origin/data/dataset-v0.1: behind 47] feat(dataset): add initial voice phishing dataset pipeline and pilot data\n* feat/koelectra-v2-pilot-readiness                          d8c9fb2 [origin/feat/koelectra-v2-pilot-readiness] feat(risk-ai): prepare v2 pilot data and validate CPU dataloader\n  feature/task3-risk-speech-ai                               5b466a7 [origin/feature/task3-risk-speech-ai] refactor: adapt task3 to masked transcript input\n  main                                                       6e3d6ed [origin/main: behind 69] 2c\n  remotes/origin/HEAD                                        -> origin/main\n  remotes/origin/codex/backend-ai-integration                958c30e feat(ai): implement KoELECTRA risk detection pipeline\n  remotes/origin/codex/ner-onnx-evaluation                   d887933 modify README\n  remotes/origin/codex/week4-jeongyun-no-raw                 c5f2531 fix(dataset): sync masked conversation IDs\n  remotes/origin/data/dataset-jieun                          141de13 feat(dataset): move jieun raw data to v0.1 layout\n  remotes/origin/data/dataset-v0.1                           aa8a3b9 add count_risk_labels.py\n  remotes/origin/data/dataset-v0.1-202609w4-haerin           aa8a3b9 add count_risk_labels.py\n  remotes/origin/data/dataset-v0.1-202609w4-jeongyun         60f603f data: add 5 normal conversations for 2026-09 W4\n  remotes/origin/data/dataset-v0.1-202609w4-jieun            aa8a3b9 add count_risk_labels.py\n  remotes/origin/data/labeling-jieun                         4a11cad feat(dataset): add jieun labeled data to staging\n  remotes/origin/data/labeling-v0.1                          44f75f9 chore: remove duplicate S005-S007 labeling data\n  remotes/origin/data/masking-haerin                         76e16c0 feat(ai): implement KoELECTRA risk detection pipeline\n  remotes/origin/data/masking-jeongyun-dataset-v0.1          a5c1c8b feat(dataset): add jeongyun masked dataset and new labels\n  remotes/origin/data/masking-jieun                          2a97499 feat(dataset): add jieun masked dataset\n  remotes/origin/feat/koelectra-v2-pilot-readiness           d8c9fb2 feat(risk-ai): prepare v2 pilot data and validate CPU dataloader\n  remotes/origin/feature/android-ner-renderer                3e526ff feat(android): add on-device NER and masking renderer\n  remotes/origin/feature/android-v1.0                        f4beecf feat(android): STT 발화 문맥을 반영한 Regex·Rule 마스킹 연결\n  remotes/origin/feature/android-v1.0_regex                  1d65d9b fix: 한글 숫자 조사 오인식 수정 및 정규식 테스트 추가\n  remotes/origin/feature/android-v1.0_regex-rule-refactor    7ac69fb fix: 오래된 NER 임시 테스트 교체\n  remotes/origin/feature/android-v1.0_stt                    6a3874e feat: change STT models to kangkyu\n  remotes/origin/feature/android-v1.0_stt-upgrade+masking    ae8955b Merge remote-tracking branch 'origin/feature/android-v1.0_stt' into feature/android-v1.0_stt-upgrade+masking\n  remotes/origin/feature/android_v1.0_rule_resolver_jeongyun 7a9e84a docs(android): add rule and resolver handoff guide\n  remotes/origin/feature/backend                             4502ffa feat(ai): 위험감지 학습·추론 모듈을 backend 브랜치에 이식\n  remotes/origin/feature/backend_API-v1.0                    ecea0d9 feat(backend): 발화 분석 API 및 통화별 저장 복구 종료 처리 구현\n  remotes/origin/feature/backend_judgment                    b70871c Draft: 경고 상태·근거 이력·안내 문구 구현 및 Android 표시 구조 준비\n  remotes/origin/feature/mobile-shelter-candidates-v0.1      abf8b05 feat: update mobile shelter candidates\n  remotes/origin/feature/stt-correction-contract             7bc19a6 feat(llm-correction): add strict STT correction data contracts\n  remotes/origin/feature/stt-correction-engine               710129a feat(llm-correction): implement safe provider-independent correction engine\n  remotes/origin/feature/stt-correction-output               cb9b606 feat(llm-correction): persist tuned results safely\n  remotes/origin/feature/stt-correction-provider             7e7cff9 feat(llm-correction): add OpenAI Responses provider\n  remotes/origin/feature/task3-risk-speech-ai                5b466a7 refactor: adapt task3 to masked transcript input\n  remotes/origin/fix/jeongyun-conversation-ids               1e281c1 fix(dataset): resolve Jeongyun conversation ID conflicts\n  remotes/origin/main                                        905c39c Merge pull request #22 from donggyu567/feature/android-v1.0\n",
+      "stderr": ""
+    },
+    "worktrees": {
+      "command": [
+        "git",
+        "worktree",
+        "list",
+        "--porcelain"
+      ],
+      "exit_code": 0,
+      "stdout": "worktree C:/Users/임정윤/OneDrive/Desktop/PIC_AICAMP\nHEAD d8c9fb2834f64ff2027b0a0a43a490563f91c80c\nbranch refs/heads/feat/koelectra-v2-pilot-readiness\n\n",
+      "stderr": ""
+    },
+    "lfs": {
+      "command": [
+        "git",
+        "lfs",
+        "ls-files",
+        "--all"
+      ],
+      "exit_code": 0,
+      "stdout": "0012d9a28f - android/app/libs/sherpa-onnx-1.13.6.aar\nb29cfb4575 - android/app/src/main/assets/models/sherpa-onnx-streaming-zipformer-korean-2024-06-16/decoder-epoch-99-avg-1.onnx\n8d0b1aa24f - android/app/src/main/assets/models/sherpa-onnx-streaming-zipformer-korean-2024-06-16/encoder-epoch-99-avg-1.int8.onnx\n128b80a66a - android/app/src/main/assets/models/sherpa-onnx-streaming-zipformer-korean-2024-06-16/joiner-epoch-99-avg-1.int8.onnx\n3fde3a21dd - android/app/libs/onnxruntime-java-binding-1.27.1-arm64.aar\nf5dfa6c860 - android/app/src/main/assets/models/icefall-asr-ko-streaming-zipformer-174m/decoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx\ne595e2e37f - android/app/src/main/assets/models/icefall-asr-ko-streaming-zipformer-174m/encoder-epoch-99-avg-1-chunk-16-left-128.int8.onnx\n64efd9aeb7 - android/app/src/main/assets/models/icefall-asr-ko-streaming-zipformer-174m/joiner-epoch-99-avg-1-chunk-16-left-128.int8.onnx\n7794bdaa2d - android/app/src/main/assets/models/koelectra-ko-pii-ner/model.onnx\n",
+      "stderr": ""
+    },
+    "named_history": {
+      "command": [
+        "git",
+        "log",
+        "--all",
+        "--format=%H %s",
+        "--",
+        "*koelectra_risk_v1.pt",
+        "*risk_speech_v1.pt",
+        "*/prepared/labels.jsonl",
+        "*/prepared/tuned.jsonl"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "all_object_paths": {
+      "command": [
+        "git",
+        "rev-list",
+        "--objects",
+        "--all"
+      ],
+      "exit_code": 0,
+      "stdout": "99911ef6f48afb72bb988c6b0a9ee66d846140ad artifacts/v1_reference/958c30e4ac6c/risk_speech_ai/checkpoint.py\na7afc65e1adeac4f73b5fec42973ba6432611762 artifacts/v1_reference/pr35_9bab7e383928/artifacts/risk_speech_ai/reports/reproducibility.json\n8c5820755d203b6d7e6c064b98a0f9de3393c0aa artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/CHECKPOINT_HANDOFF.md\n0b2a7f9b777645003844044b1505792433bec6a2 artifacts/v1_reference/pr35_9bab7e383928/risk_speech_ai/splits.py\nf6d6cf614994eb1aff81e814683bc2aaf4163530 artifacts/v1_reference/pr35_9bab7e383928/tests/test_splits.py\ndf40b6b40202a0884679f3c3dbf6a33de536659a tests/test_checkpoint_compatibility.py",
+      "stderr": ""
+    },
+    "data_commit": {
+      "command": [
+        "git",
+        "cat-file",
+        "-t",
+        "8faa6a7eebfe95c7ac7fe6c6077a49ebf31f958f"
+      ],
+      "exit_code": 128,
+      "stdout": "",
+      "stderr": "fatal: git cat-file: could not get object info\n"
+    }
+  },
+  "limitation": "Targeted project/backup/cache metadata search; access errors are recorded and are not negative evidence; other computers and every disk were not searched."
+}
