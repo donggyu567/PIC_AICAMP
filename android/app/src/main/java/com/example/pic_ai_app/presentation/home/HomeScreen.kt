@@ -19,10 +19,11 @@ fun HomeScreen(
     scenario: Scenario, canStart: Boolean, deletionPending: Boolean,
     onStart: () -> Unit, onData: () -> Unit, onSettings: () -> Unit, onDeletion: () -> Unit,
     consentSaveFailed: Boolean = false, onRetryConsent: () -> Unit = {},
+    liveMode: Boolean = false, serverUrl: String = "", onServerUrlChange: (String) -> Unit = {},
 ) {
     PicPage(
         title = stringResource(R.string.app_name),
-        actions = { if (BuildConfig.DEBUG) TextButton(onClick = onSettings) { Text(stringResource(R.string.preview_settings)) } },
+        actions = { if (BuildConfig.DEBUG && !liveMode) TextButton(onClick = onSettings) { Text(stringResource(R.string.preview_settings)) } },
     ) {
         SectionHeading(stringResource(R.string.home_title))
         BodyText(stringResource(R.string.home_description))
@@ -34,13 +35,20 @@ fun HomeScreen(
             BodyText(stringResource(R.string.consent_save_error_body))
             LinkAction(stringResource(R.string.retry_consent_save), onRetryConsent)
         }
+        if (liveMode && BuildConfig.DEBUG) {
+            OutlinedTextField(
+                value = serverUrl, onValueChange = onServerUrlChange,
+                label = { Text(stringResource(R.string.server_address)) },
+                singleLine = true, modifier = Modifier.fillMaxWidth(),
+            )
+        }
         PrimaryAction(stringResource(R.string.start_analysis), onStart, enabled = canStart)
         if (deletionPending) {
             BodyText(stringResource(R.string.deletion_before_restart))
             LinkAction(stringResource(R.string.view_deletion_status), onDeletion)
         }
         LinkAction(stringResource(R.string.data_guide_title), onData)
-        if (BuildConfig.DEBUG) BodyText(stringResource(R.string.selected_preview, stringResource(scenarioTitle(scenario))), muted = true)
-        else BodyText(stringResource(R.string.analysis_unavailable), muted = true)
+        if (BuildConfig.DEBUG && !liveMode) BodyText(stringResource(R.string.selected_preview, stringResource(scenarioTitle(scenario))), muted = true)
+        else if (!liveMode) BodyText(stringResource(R.string.analysis_unavailable), muted = true)
     }
 }

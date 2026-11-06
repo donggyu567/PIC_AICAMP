@@ -22,7 +22,7 @@
     </string-array>
     <string name="back">뒤로</string>
     <string name="home">홈으로</string>
-    <string name="preview_banner">화면 미리보기 · 실제 녹음·전송 없음</string>
+    <string name="preview_banner">개발 버전 · 음성 인식 연결</string>
     <string name="welcome_title">보이스피싱 위험 실시간 분석</string>
     <string name="consent_needed">데이터 전송 동의가 필요합니다</string>
     <string name="consent_declined">동의하지 않아 마이크 입력과 분석을 시작하지 않았습니다.</string>
@@ -37,7 +37,7 @@
     <string name="permission_title">마이크 접근 권한</string>
     <string name="permission_description">보이스피싱 위험 분석에는 마이크 접근 권한이 필요합니다. 권한이 없으면 음성을 수집하지 않습니다.</string>
     <string name="permission_preview_title">Android 마이크 권한</string>
-    <string name="permission_preview_body">다음 버튼을 누르면 Android 시스템에서 마이크 권한을 요청합니다. 현재 빌드는 권한만 확인하며 실제 녹음·전송은 아직 수행하지 않습니다.</string>
+    <string name="permission_preview_body">다음 버튼을 누르면 Android 시스템에서 마이크 권한을 요청합니다. 동의와 권한을 확인한 뒤 음성을 서버로 전송합니다.</string>
     <string name="permission_required">마이크 권한이 필요합니다</string>
     <string name="permission_denied_body">마이크 권한이 허용되지 않았습니다. 다시 요청하거나 앱 설정에서 마이크 권한을 허용해 주세요. 권한 없이 분석을 시작하지 않습니다.</string>
 
@@ -83,7 +83,7 @@
     <string name="consent_again">동의 다시 하기</string>
     <string name="deletion_before_restart">기록 삭제 상태를 먼저 확인해 주세요.</string>
     <string name="development_notice_title">개발 모드 · 예시 응답</string>
-    <string name="development_notice_body">화면 확인을 위한 예시 응답입니다. 실제 녹음·분석을 수행하지 않으며, 실제 보이스피싱 탐지 성능의 증거가 아닙니다.</string>
+    <string name="development_notice_body">음성 인식 연결을 확인하는 개발 버전입니다. 위험 분석 결과는 아직 연결되지 않았습니다.</string>
     <string name="last_success_score">마지막 성공 위험도</string>
     <string name="final_risk_score">최종 누적 위험도</string>
     <string name="current_risk_score">현재 누적 위험도</string>
@@ -147,4 +147,8 @@
     <string name="permission_requesting">Android 권한 선택을 기다리고 있습니다.</string>
     <string name="open_app_settings">앱 설정에서 권한 확인</string>
     <string name="permission_revoked">마이크 권한이 없어 분석을 중단했습니다. 마지막 성공 결과만 표시합니다. 새 분석을 시작하려면 권한을 다시 허용해 주세요.</string>
+    <string name="server_address">STT 서버 WebSocket 주소</string>
+    <string name="stt_idle">음성 인식 준비 중</string>
+    <string name="stt_finished">음성 인식이 종료되었습니다. 위험 분석 연결은 준비 중입니다.</string>
+    <string name="stt_privacy_notice">인식된 원문은 마스킹 연결 전까지 화면에 표시하거나 저장하지 않습니다.</string>
 </resources>

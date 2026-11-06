@@ -85,7 +85,7 @@ fun PicApp(session: SessionViewModel) {
     val back: () -> Unit = {
         if (!access.savingConsent) {
             when (state.screen) {
-                Screen.ANALYSIS -> if (state.phase != Phase.FINALIZING) stopDialog = true
+                Screen.ANALYSIS -> if (access.stt.phase in listOf(com.example.pic_ai_app.data.stt.SttPhase.STOPPED, com.example.pic_ai_app.data.stt.SttPhase.ERROR)) session.leaveStt() else session.finish()
                 Screen.WITHDRAWAL -> session.showHome()
                 else -> session.back()
             }
@@ -123,16 +123,17 @@ fun PicApp(session: SessionViewModel) {
         )
         Screen.HOME -> HomeScreen(
             scenario = state.scenario,
-            canStart = BuildConfig.DEBUG && !access.savingConsent && access.pendingConsent == null &&
+            canStart = !access.savingConsent && access.pendingConsent == null &&
                 state.deletion !in listOf(Deletion.DELETING, Deletion.PENDING),
             deletionPending = state.deletion in listOf(Deletion.DELETING, Deletion.PENDING),
             onStart = session::start, onData = session::openData,
             onSettings = { settingsDialog = true }, onDeletion = session::showDeletion,
             consentSaveFailed = access.consentError, onRetryConsent = session::retryConsent,
+            liveMode = true, serverUrl = access.serverUrl, onServerUrlChange = session::updateServerUrl,
         )
-        Screen.ANALYSIS, Screen.DETAILS -> AnalysisScreen(
-            state, state.screen == Screen.DETAILS, onBack = back,
-            onStop = { stopDialog = true }, onDetails = session::toggleDetails, onData = session::openData,
+        Screen.ANALYSIS, Screen.DETAILS -> LiveSttScreen(
+            state = access.stt, onStop = { session.finish() },
+            onHome = session::leaveStt, onData = session::openData,
         )
         Screen.FINAL -> FinalScreen(
             state, onHome = session::showHome, onNew = session::start, onData = session::openData,

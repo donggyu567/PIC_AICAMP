@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.pic_ai_app.BuildConfig
 import com.example.pic_ai_app.data.consent.*
+import com.example.pic_ai_app.data.stt.*
 import com.example.pic_ai_app.presentation.preview.*
 import java.io.IOException
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -26,15 +27,19 @@ data class SessionUiState(
     val permissionRequestPending: Boolean = false,
     val permissionDenied: Boolean = false,
     val declined: Boolean = false,
+    val stt: SttState = SttState(),
+    val serverUrl: String = "ws://10.0.2.2:8000/api/v1/stt",
 )
 
 class SessionViewModel(
     private val consentStore: ConsentStore,
     private val hasMicrophonePermission: () -> Boolean,
     private val previewEnabled: Boolean,
+    private val liveEnabled: Boolean = false,
 ) : ViewModel() {
     private val mutableUi = MutableStateFlow(SessionUiState())
     val ui = mutableUi.asStateFlow()
+    private val sttSession by lazy { SttSession(viewModelScope, hasMicrophonePermission) { state -> mutableUi.update { it.copy(stt = state) } } }
 
     init { loadConsent() }
 
@@ -59,6 +64,7 @@ class SessionViewModel(
 
     fun refreshPermission() {
         val granted = hasMicrophonePermission()
+        if (!granted && liveEnabled && ui.value.flow.hasOpenAnalysis) sttSession.abort()
         mutableUi.update { current ->
             val flow = SessionAccess.permissionChanged(current.flow, granted)
             current.copy(
@@ -90,6 +96,7 @@ class SessionViewModel(
 
     fun withdraw() {
         if (!ui.value.ready || ui.value.savingConsent) return
+        if (liveEnabled) sttSession.abort()
         // Block callbacks immediately, before the durable write finishes.
         mutableUi.update { it.copy(consent = ConsentStatus.WITHDRAWN, flow = PreviewFlow.withdraw(it.flow)) }
         persistConsent(ConsentStatus.WITHDRAWN)
@@ -154,8 +161,12 @@ class SessionViewModel(
     fun start() {
         refreshPermission()
         val current = ui.value
-        if (!previewEnabled || !current.ready || current.savingConsent || current.pendingConsent != null) return
-        changeFlow(PreviewFlow::start)
+        if ((!previewEnabled && !liveEnabled) || !current.ready || current.savingConsent || current.pendingConsent != null) return
+        val next = PreviewFlow.start(current.flow)
+        changeFlow { next }
+        if (liveEnabled && next.phase == Phase.CONNECTING && !current.flow.hasOpenAnalysis) {
+            sttSession.start(current.serverUrl)
+        }
     }
 
     fun openConsent() {
@@ -172,7 +183,22 @@ class SessionViewModel(
     fun showDeletion() = changeFlow { it.copy(screen = Screen.WITHDRAWAL) }
     fun toggleDetails() = changeFlow { it.copy(screen = if (it.screen == Screen.DETAILS) Screen.ANALYSIS else Screen.DETAILS) }
     fun back() { if (!ui.value.savingConsent) changeFlow(PreviewFlow::back) }
-    fun finish() = changeFlow(PreviewFlow::finish)
+    fun finish() {
+        if (liveEnabled) {
+            sttSession.stop()
+        } else {
+            changeFlow(PreviewFlow::finish)
+        }
+    }
+
+    fun updateServerUrl(value: String) {
+        if (!ui.value.flow.hasOpenAnalysis) mutableUi.update { it.copy(serverUrl = value) }
+    }
+
+    fun leaveStt() {
+        if (liveEnabled) sttSession.abort()
+        changeFlow { it.copy(screen = Screen.HOME, phase = Phase.IDLE, error = null, sampleCount = 0) }
+    }
 
     fun selectScenario(scenario: Scenario) {
         if (!ui.value.flow.hasOpenAnalysis) changeFlow { it.copy(scenario = scenario) }
@@ -183,11 +209,16 @@ class SessionViewModel(
     }
 
     fun tick(runId: Long, phase: Phase) {
-        if (previewEnabled && ui.value.pendingConsent == null) changeFlow { PreviewFlow.tick(it, runId, phase) }
+        if (previewEnabled && !liveEnabled && ui.value.pendingConsent == null) changeFlow { PreviewFlow.tick(it, runId, phase) }
     }
 
     fun completeDeletion(runId: Long) {
         if (previewEnabled && ui.value.pendingConsent == null) changeFlow { PreviewFlow.completeDeletion(it, runId) }
+    }
+
+    override fun onCleared() {
+        if (liveEnabled) sttSession.abort()
+        super.onCleared()
     }
 
     companion object {
@@ -201,6 +232,7 @@ class SessionViewModel(
                         DataStoreConsentStore(application),
                         { ContextCompat.checkSelfPermission(application, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED },
                         BuildConfig.DEBUG,
+                        liveEnabled = true,
                     ) as T
                 }
             }

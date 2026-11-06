@@ -1,8 +1,8 @@
 # 앱 ↔ 새 서버 연결 계약
 
-갱신: 2026-10-29. 대상은 `server.main:app`이며 기존 `backend.main:app`과 구분한다.
+갱신: 2026-10-30. 대상은 `server.main:app`이며 기존 `backend.main:app`과 구분한다.
 
-현재 구현 범위는 **STT WebSocket 중계와 마스킹 발화 분석·AI 재시도 HTTP API**다. 대체 객체로 확인했으며 실제 외부 API·모델·Android 연결은 검증하지 않았다. 사용자 요청으로 STT 실연결·앱 작업은 보류하고 서버 작업을 진행한다. 전체 세션 종료·철회·삭제 API는 새 서버에 아직 없다.
+현재 구현 범위는 **STT 중계, 마스킹 발화 분석·AI 재시도, 문맥 판단 저장·응답, 결과 조회·알림 조회/수신확인·통화 종료 API**다. API 흐름은 대체 객체로 확인했다. 임시 체크포인트의 CPU 로딩·샘플 추론은 별도로 확인했지만 실제 외부 API·모델·Android를 결합한 전체 흐름은 미검증이다. 사용자 요청으로 STT 실연결·앱 작업은 보류하고 서버 작업을 진행한다. 철회·삭제 API는 아직 없다.
 
 ## 1. 연결 주소와 기본 규칙
 
@@ -94,7 +94,7 @@ ElevenLabs의 `session_started`를 확인한 뒤 전송한다. 앱은 이 ID를 
 - `last_utterance_id`: 마지막으로 전달한 번호. 텍스트가 없으면 0.
 - 일반 종료 시에는 마지막 확정 응답을 처리한 뒤 `stopped`, 이후 WebSocket close 1000을 보낸다.
 - 600초는 `ready` 이후 서버 음성 수신 구간의 시간 제한이다. 진행 중인 확정 요청·마지막 결과 대기는 추가 시간이 걸릴 수 있다. 앱도 10분에 수집을 중단해야 하며, 서버 제한 이후 도착한 음성은 처리하지 않는다.
-- **STT 종료이지 전체 분석 완료가 아니다.** 앱은 이미 받은 발화의 마스킹·분석 응답까지 반영한 뒤 최종 화면을 확정한다. 전체 분석 종료 API는 이후 연결한다.
+- **STT 종료이지 전체 분석 완료가 아니다.** 앱은 이미 받은 발화의 마스킹·분석 응답을 확인한 뒤 9절의 HTTP 종료 API로 종료를 확정한다.
 
 ### 오류
 
@@ -125,7 +125,7 @@ ElevenLabs의 `session_started`를 확인한 뒤 전송한다. 앱은 이 ID를 
  → 같은 ID로 서버 위험 분석 요청
  → 종료 버튼: 수집 중단 → 마지막 청크 → stop
  → 마지막 transcript → stopped
- → [이후 연결] 처리 중인 위험 분석까지 반영 → 전체 세션 종료
+ → 처리 중인 위험 분석까지 반영 → HTTP 통화 종료 → 최종 화면 확정
 ```
 
 일반 종료와 동의 철회는 다르다. 철회 시에는 수집·전송을 중단하고 STT 연결을 닫아 후속 원문을 받지 않는다. 기록 삭제와 철회 상태 저장 API는 이후 단계에서 연결한다.
@@ -150,7 +150,7 @@ ElevenLabs의 `session_started`를 확인한 뒤 전송한다. 앱은 이 ID를 
 - `masked_types`는 문장 안의 `[PERSON]`, `[PHONE_NUMBER]`, `[ACCOUNT_NUMBER]`, `[RRN]`, `[OTP]`, `[ADDRESS]`와 일치해야 한다. 원문 필드는 전송하지 않는다.
 - `utterance_id`는 1부터 연속이며 한 세션은 요청 순서대로 처리한다. 앱은 앞선 결과를 확인하고 다음 요청을 보낸다. 서버는 마스킹 성공 선언과 토큰 계약을 확인하지만 남은 개인정보를 직접 탐지하지 않는다.
 - STT와 분석은 현재 ID로 연결하는 별도 API다. 서버는 이 ID가 실제 STT에서 발급됐는지까지 검사하지 않으며 앱 소유권 인증도 아직 없다.
-- 보정 → 현재+이전 최대 5개 문맥 → AI → 최근 20개 누적 계산 → 경고·근거 → 저장 후 응답한다.
+- 전체 세션 문맥으로 OpenAI 보정·문맥 판단 한 번 호출 → 보정 문장+이전 최대 5개로 AI 분석 → 최근 20개 누적 계산·기존 경고 → 함께 저장 후 응답한다. `PIC_CONTEXT_MODEL` 미설정이면 LLM을 생략하고 마스킹 입력으로 AI를 실행한다.
 - 보정 실패 시 검증된 `masked_text`를 사용한다. 응답·저장 기록의 `correction_status`는 성공 시 `ok`, 대체 입력 사용 시 `fallback`이다. 과거 기록이나 보정 없이 만든 결과는 null일 수 있다.
 
 응답의 주요 필드:
@@ -165,8 +165,9 @@ ElevenLabs의 `session_started`를 확인한 뒤 전송한다. 앱은 이 ID를 
 | `type_scores`, `detected_types` | 유형별 0~100 점수·감지 유형 |
 | `calculation` | 계산 설정·최근 창 발화 ID·계산 상세 |
 | `warning`, `evidence` | 기존 경고 모듈의 상태·근거 |
+| `context_judgment` | 별도 문맥 판단의 실행 상태·모델·설명·근거 ID |
 
-전체 응답 스키마는 새 서버 `/docs`의 `CalculationPreviewResponse`에 공개한다. 별도 LLM 문맥 판단 결과는 아직 포함하지 않는다. `PIC_AI_MODE=development`의 점수는 연결 확인용이며 성능 근거로 사용할 수 없다.
+전체 응답 스키마는 새 서버 `/docs`의 `CalculationPreviewResponse`에 공개한다. `PIC_AI_MODE=development`의 점수는 연결 확인용이며 성능 근거로 사용할 수 없다.
 
 ### 실패와 재시도
 
@@ -174,8 +175,9 @@ ElevenLabs의 `session_started`를 확인한 뒤 전송한다. 앱은 이 ID를 
 - 409: 발화 중복·순서 충돌·이전 AI 실패 미복구·종료된 통화 등. 무조건 다음 번호로 진행하지 않는다.
 - 503: AI 미설정 또는 경고·저장 실패. 실제 모델을 준비한 후 사용한다. 서버 기본 AI 모드는 disabled다.
 - AI 실행 실패는 HTTP 200이어도 `analysis_status="error"`이고 현재·누적 점수, 유형 및 계산 필드는 null이다. 기존 마지막 성공 점수를 0점으로 덮어쓰지 않는다.
+- 통합 LLM 실패 시 `correction_status="fallback"`, `context_judgment.status="error"`이며 검증된 마스킹 입력으로 AI를 실행한다. AI 성공이면 HTTP 200, `analysis_status="ok"`로 다음 발화를 처리할 수 있다. LLM 성공 후 AI만 실패하면 문맥 판단은 `ok`로 보존되며 AI 점수는 null이다.
 
-AI 실패 기록은 다음 API로 복구한다. 보정을 다시 호출하지 않으며 기존 `correction_status`를 유지한다.
+AI 실패 기록은 다음 API로 복구한다. OpenAI를 다시 호출하지 않으며 같은 발화의 보정 문장·`correction_status`·`context_judgment`를 그대로 유지한다. 통합 LLM만 실패한 경우의 별도 재시도 API는 없다.
 
 `POST /api/v1/utterances/analyze/retry`
 
@@ -183,15 +185,104 @@ AI 실패 기록은 다음 API로 복구한다. 보정을 다시 호출하지 �
 {"conversation_id":"ready에서 받은 ID","utterance_id":1}
 ```
 
-통화의 마지막 실패 발화만 가능하며 성공 응답 후 다음 번호를 전송한다. 기록이 없으면 404다. 응답을 못 받았다고 발화 번호를 올리지 않는다. 네트워크 실패 후 처리 여부 확인을 위한 결과 조회 API는 후속 작업으로 남아 있다.
+통화의 마지막 실패 발화만 가능하며 성공 응답 후 다음 번호를 전송한다. 기록이 없으면 404다. 응답을 못 받았다고 발화 번호를 올리지 않는다. 먼저 7절의 결과 조회로 저장 여부를 확인한다.
 
-## 6. 문맥 판단 응답 — 연결 예정
+## 6. 문맥 판단 응답
 
-[문맥 판단 계약](CONTEXT_RISK_CONTRACT.md)에 별도 `context_judgment` 필드의 예정 형식을 정리했다. 현재는 내부 타입·응답 파서만 있으며 실제 분석 HTTP 응답에는 추가하지 않았다.
+[문맥 판단 계약](CONTEXT_RISK_CONTRACT.md)에 입력 범위·판단 기준·서버 설정을 정리했다. 앱은 기존 분석 요청을 보내면 되며 응답에서 다음 객체를 읽는다.
 
-연결 후 앱은 기존 점수·경고를 유지하고 문맥 판단의 설명·근거를 추가 안내로 사용한다. `no_clear_risk`는 안전 보증이 아니며, 문맥 판단 실패를 위험도 0점으로 표시하지 않는다. LLM의 의심 판단만으로 기존 경고 알림 이벤트가 생성되는 것은 아니다.
+```json
+{
+  "context_judgment": {
+    "status": "ok",
+    "model": "서버에서 설정한 모델 이름",
+    "result": {
+      "assessment": "suspicious",
+      "reason": "기관 사칭 이후 이체 요구가 이어집니다.",
+      "evidence_utterance_ids": [1, 2],
+      "risk_types": ["institution_impersonation", "money_transfer"]
+    }
+  }
+}
+```
 
-## 7. 구현·검증 범위와 남은 확인
+| status | 의미와 앱 처리 |
+|---|---|
+| `ok` | `result`의 문맥 설명·근거를 추가 안내로 사용 |
+| `error` | 호출·응답 실패. `result=null`. 기존 AI 점수·경고를 유지하고 문맥 판단 불가로 구분 |
+| `not_run` | 서버 통합 LLM 모델 미설정 또는 해당 필드가 없는 과거 기록. `result=null`, 모델 미설정이면 `model=null` |
+
+`result.assessment`는 `suspicious`, `no_clear_risk`, `insufficient_context` 중 하나다. 근거 번호는 해당 통화의 마스킹된 발화를 참조한다. 과거 LLM 결과를 현재 성공 결과로 대신 표시하지 않는다.
+
+앱은 기존 점수·경고를 유지하고 문맥 판단의 설명·근거를 추가 안내로 사용한다. `no_clear_risk`는 안전 보증이 아니며, 문맥 판단 실패를 위험도 0점으로 표시하지 않는다. LLM의 의심 판단만으로 기존 경고 알림 이벤트가 생성되는 것은 아니다. 문맥 응답 수신·표시까지의 Android 연결은 아직 미검증이다.
+
+## 7. 저장 결과 조회
+
+`GET /api/v1/utterances/results?conversation_id=세션ID`
+
+- `utterance_id`를 생략하면 최신 결과, `&utterance_id=1`처럼 전달하면 해당 발화 결과다.
+- 분석 API와 같은 `CalculationPreviewResponse`를 반환하며 `context_judgment`도 그대로 포함한다. AI·LLM을 다시 호출하지 않는다.
+- 종료 후에도 조회할 수 있다. 조회 응답은 `Cache-Control: no-store`다.
+- 통화 또는 해당 발화가 없으면 404, 잘못된 쿼리는 422, 저장소 오류는 503이다.
+- 분석 응답을 잃었으면 해당 번호로 조회한다. 저장된 실패는 AI 재시도 API로 복구하고, 성공은 그대로 반영한다. 404가 곧 요청이 절대 처리되지 않았다는 보장은 아니므로 번호를 증가시키지 않는다. 같은 요청을 재전송해 중복 409를 받으면 다시 조회한다.
+
+## 8. 경고 알림 조회·수신확인
+
+`GET /api/v1/notifications?conversation_id=세션ID`
+
+응답에는 `conversation_id`, `conversation_status`(`active`/`ended`), `notifications` 배열이 있다. 배열의 각 항목은 `event_id`, `conversation_id`, `created_at`, 발생 당시의 `warning`·`evidence`, `status`, `acknowledged_at`, `expired_at`을 포함한다. 조회는 `pending` 알림만 제공하며 종료된 통화는 빈 배열이다. 조회 응답은 `Cache-Control: no-store`다.
+
+조회만으로 확인 처리하지 않는다. 앱은 `(conversation_id, event_id)`로 중복 표시를 막고 알림을 처리한 뒤 다음 요청을 보낸다. 이 API는 앱 화면용이며 푸시 알림 전송이 아니다.
+
+`POST /api/v1/notifications/ack`
+
+```json
+{"conversation_id":"세션ID","event_id":"조회에서 받은 이벤트 ID"}
+```
+
+- 해당 알림 객체를 반환한다. 처음 확인하면 `status="acknowledged"`와 확인 시각을 저장한다.
+- 반복 요청은 최초 확인 결과를 유지한다. 종료로 만료된 알림은 `status="expired"`로 반환하며 앱에서 다시 표시하지 않는다.
+- 없는 통화·이벤트는 404, 잘못된 입력은 422, 저장소 오류는 503이다. 저장 실패 시 확인 완료로 처리하지 않는다.
+- 별도 LLM 문맥 판단만으로 이 알림 이벤트를 생성하지 않는다.
+
+## 9. 통화 종료 확정
+
+앱의 정상 종료 순서:
+
+```text
+마이크 중단 → 마지막 음성 뒤 STT stop
+ → 마지막 transcript와 stopped 수신
+ → 받은 발화의 마스킹·분석을 순서대로 마무리
+ → 마지막 분석 응답 확인 → HTTP 종료 → 최종 화면 표시
+```
+
+`POST /api/v1/conversations/end`
+
+```json
+{"conversation_id":"세션ID","last_utterance_id":3}
+```
+
+`last_utterance_id`는 STT `stopped.last_utterance_id`이며 1 이상의 정수다. 서버에 저장된 마지막 번호와 같아야 한다. STT 기록과의 대조는 아직 없으므로 앱이 실제 마지막 번호를 보내야 한다. 일반 종료는 마이크나 STT를 직접 끄지 않는다.
+
+| 응답 필드 | 의미 |
+|---|---|
+| `conversation_id`, `conversation_status` | 해당 통화, `ended` |
+| `ended_at` | 최초 종료 시각 |
+| `warning`, `evidence` | 종료 시점의 경고 안내·근거 |
+| `last_analysis` | 마지막 저장 분석 응답 전체. 점수·보정 상태·문맥 판단 포함 |
+
+- 이미 잠금을 잡고 처리 중인 분석은 저장이 끝난 뒤 종료한다. 아직 도착하지 않은 발화는 기다릴 수 없으며 마지막 번호가 다르면 409를 반환하고 통화를 유지한다.
+- 마지막 AI 분석이 실패했더라도 기록을 보존하고 종료할 수 있다. 이때 `last_analysis.analysis_status="error"`이므로 마지막 성공 결과와 분석 미완료를 표시한다. `ended`는 통화 처리 종료이며 모든 분석 성공을 뜻하지 않는다. 복구가 필요하면 종료 전에 재시도한다.
+- 종료하면 활성 경고를 마무리하고 미확인 알림을 만료한다. 새 분석·AI 재시도는 409로 차단하고 저장 결과 조회는 유지한다.
+- 같은 마지막 번호로 반복 종료하면 최초 종료 시각과 같은 결과를 반환한다. 최상위 경고는 종료 상태, `last_analysis.warning`은 분석 당시 상태이므로 구분해서 사용한다.
+- 저장된 통화가 없으면 404, 필수 필드·형식 오류는 422, 마지막 번호 불일치는 409, 경고·저장 오류는 503이다. 503이면 종료 성공으로 표시하지 말고 같은 요청으로 재시도한다.
+- 발화가 전혀 없어 `stopped.last_utterance_id=0`이면 저장할 분석 기록이 없다. 앱은 HTTP 종료를 호출하지 않고 STT 종료 후 '분석할 발화 없음'으로 끝낸다. 서버에 빈 통화 기록을 만들지 않는다.
+- STT 오류나 마스킹 실패로 마지막 발화까지 처리하지 못했다면 전체 완료로 표시하지 않는다. 일반 종료는 기록 삭제나 동의 철회가 아니며 철회·삭제 API는 후속 작업이다.
+
+## 10. 구현·검증 범위와 남은 확인
+
+- 결과 조회·알림·종료 연결: `analysis/router.py`, `analysis/lifecycle_router.py`. 기존 서비스·파일 저장·통화 잠금을 재사용한다.
+- 새 연결 테스트 4개와 기존 종료 호환성 1개, 총 5개 통과. 진행 중 분석 반영 후 종료, 반복 종료·수신확인, 알림 만료, 마지막 번호 불일치, 저장 실패 시 기록 보존을 확인했다. 외부 API·실제 모델은 이 테스트에서 호출하지 않았다.
 
 - `stt/router.py`: 앱 순서 관리·중계·타임아웃·자원 정리.
 - `stt/elevenlabs.py`: 접속·인증 헤더·Base64 변환·확정 요청·공급자 응답 검증.
