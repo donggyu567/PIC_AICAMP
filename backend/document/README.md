@@ -73,6 +73,8 @@ AI 리소스 없이 서버 계산·저장만 확인하려면 `PIC_AI_MODE="disab
 
 보정 전용 `POST /api/v1/utterances`는 제거했다. 발화 입력은 통합 분석 API를 사용한다. 개발용 결과 입력 API는 서버 계산 검증용이며 앱의 실제 AI 판정을 대신하는 경로가 아니다.
 
+새 서버 연결 과정에서 공유 종료 응답에 `last_analysis`(마지막 저장 분석 응답)가 추가됐다. 기존 backend의 종료 요청은 `conversation_id`만 받는 계약을 유지한다. 새 `server.main:app`의 종료 요청은 마지막 번호 확인을 위해 `last_utterance_id`도 필수이며 [새 서버 앱 계약](../../server/document/APP_SERVER_CONTRACT.md)을 따른다.
+
 ## AI 설정과 현재 구현 상태
 
 | 환경 변수 | 용도 |

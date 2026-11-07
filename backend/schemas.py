@@ -33,14 +33,6 @@ class ConversationEndRequest(BaseModel):
     conversation_id: str = Field(min_length=1, max_length=120, pattern=r"\S")
 
 
-class ConversationEndResponse(BaseModel):
-    conversation_id: str
-    conversation_status: Literal["ended"] = "ended"
-    ended_at: AwareDatetime
-    warning: WarningPayload | None = None
-    evidence: EvidencePayload | None = None
-
-
 class NotificationAckRequest(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True)
 
@@ -153,6 +145,27 @@ class CalculationDetails(BaseModel):
     policy_version: str
 
 
+class ContextRiskJudgment(BaseModel):
+    """별도 LLM의 문맥 판단. 기존 점수·경고 상태는 변경하지 않는다."""
+
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+    assessment: Literal["suspicious", "no_clear_risk", "insufficient_context"]
+    reason: str = Field(min_length=1, max_length=500, repr=False)
+    evidence_utterance_ids: list[Annotated[int, Field(ge=1)]]
+    risk_types: list[RiskType]
+
+
+class ContextJudgmentResult(BaseModel):
+    """저장·API 응답에서 공유하는 문맥 판단 실행 상태."""
+
+    model_config = ConfigDict(extra="forbid", strict=True)
+
+    status: Literal["ok", "error", "not_run"] = "not_run"
+    model: str | None = None
+    result: ContextRiskJudgment | None = None
+
+
 class CalculationPreviewResponse(BaseModel):
     """표시 점수는 0~100. 경고 구현체 미연결 시 warning/evidence는 None."""
 
@@ -161,6 +174,7 @@ class CalculationPreviewResponse(BaseModel):
     revision: int
     sequence: int
     analysis_status: Literal["ok", "error"]
+    correction_status: Literal["ok", "fallback"] | None = None
     current_text: str
     current_risk_score: DisplayScore | None
     cumulative_risk_score: DisplayScore | None
@@ -169,9 +183,19 @@ class CalculationPreviewResponse(BaseModel):
     calculation: CalculationDetails | None
     warning: WarningPayload | None = None
     evidence: EvidencePayload | None = None
+    context_judgment: ContextJudgmentResult = Field(default_factory=ContextJudgmentResult)
 
     @model_validator(mode="after")
     def validate_warning_pair(self) -> Self:
         if (self.warning is None) != (self.evidence is None):
             raise ValueError("warning과 evidence는 함께 제공하거나 함께 null이어야 합니다.")
         return self
+
+
+class ConversationEndResponse(BaseModel):
+    conversation_id: str
+    conversation_status: Literal["ended"] = "ended"
+    ended_at: AwareDatetime
+    warning: WarningPayload | None = None
+    evidence: EvidencePayload | None = None
+    last_analysis: CalculationPreviewResponse | None = None

@@ -1,10 +1,14 @@
 """분석 결과의 파일 저장·누적 계산·실패 복구·경고 연동을 조율한다."""
 
 from datetime import datetime, timezone
+from collections.abc import Callable
 from pathlib import Path
+from time import perf_counter
+from typing import Literal
 
 from backend.schemas import (
-    CalculationPreviewResponse, ConversationEndResponse, ModelResultRequest,
+    CalculationPreviewResponse, ContextJudgmentResult, ConversationEndResponse,
+    ModelResultRequest,
 )
 from backend.services.analysis_response import build_analysis_response
 from backend.services.notification_service import create_notification, expire_notifications
@@ -44,6 +48,17 @@ WINDOW_SIZE = 20
 RHO = 0.95
 B = 0.1
 POLICY_VERSION = "risk-policy-v1"
+
+
+def withdraw_conversation(conversation_id: str) -> None:
+    """철회를 먼저 표시한 뒤 진행 중 작업이 끝나면 저장 기록을 삭제한다."""
+    analysis_store.mark_withdrawn(conversation_id)
+    with conversation_locks.hold(conversation_id):
+        analysis_store.delete_withdrawn(conversation_id)
+
+ContextJudge = Callable[
+    [list[ModelResultRequest], CalculationPreviewResponse], ContextJudgmentResult
+]
 
 def ensure_conversation_active(
     snapshot: ConversationSnapshot | None,
@@ -127,8 +142,14 @@ def _process_model_result_locked(
     snapshot: ConversationSnapshot | None,
     warning_manager: WarningManager | None,
     warning_config: WarningConfig | None,
+    *, correction_status: Literal["ok", "fallback"] | None = None,
+    context_judge: ContextJudge | None = None,
+    timings: dict[str, float] | None = None,
+    context_result: ContextJudgmentResult | None = None,
 ) -> CalculationPreviewResponse:
     """계산·경고 처리·저장. 호출자는 통화 잠금과 경고 설정을 준비해야 한다."""
+    timings = timings if timings is not None else {}
+    started = perf_counter()
     current = payload.to_model_result()
 
     records = snapshot.records if snapshot is not None else []
@@ -159,7 +180,19 @@ def _process_model_result_locked(
     response = build_analysis_response(
         current, calculation, warning_result,
     )
+    response.correction_status = correction_status
+    timings["calculation_warning"] = (perf_counter() - started) * 1000
+    started = perf_counter()
+    if context_result is not None:
+        response.context_judgment = context_result
+    elif context_judge is not None:
+        response.context_judgment = context_judge(
+            [record.model_result for record in records] + [payload], response,
+        )
+    if context_judge is not None and context_result is None:
+        timings["context_judgment"] = (perf_counter() - started) * 1000
 
+    started = perf_counter()
     updated = ConversationSnapshot(
         conversation_id=current.conversation_id,
         conversation_status=(
@@ -174,8 +207,9 @@ def _process_model_result_locked(
         **warning_fields,
     )
 
-    # 계산·경고 처리가 끝난 결과를 저장하고, 저장 성공 후 반환한다.
+    # 계산·경고·선택적 문맥 판단을 함께 저장하고, 저장 성공 후 반환한다.
     analysis_store.save(updated)
+    timings["save"] = (perf_counter() - started) * 1000
     return response
 
 
@@ -214,6 +248,7 @@ def _retry_model_result_locked(
     snapshot: ConversationSnapshot,
     warning_manager: WarningManager | None,
     warning_config: WarningConfig | None,
+    *, context_judge: ContextJudge | None = None,
 ) -> CalculationPreviewResponse:
     """실패 이력 보존·재계산. 호출자는 통화 잠금과 경고 설정을 준비해야 한다."""
     current = payload.to_model_result()
@@ -236,6 +271,14 @@ def _retry_model_result_locked(
         snapshot, warning_manager, current, calculation, warning_config,
     )
     response = build_analysis_response(current, calculation, warning_result)
+    response.correction_status = failed.response.correction_status
+    # AI만 재시도하므로 같은 발화의 사전 LLM 판단을 보존한다.
+    response.context_judgment = failed.response.context_judgment
+    if context_judge is not None:
+        response.context_judgment = context_judge(
+            [record.model_result for record in snapshot.records[:-1]] + [payload],
+            response,
+        )
 
     replacement = StoredAnalysis(
         model_result=payload,
@@ -261,12 +304,17 @@ def _retry_model_result_locked(
 
 def end_conversation(
     conversation_id: str, warning_manager: WarningManager | None = None,
+    *, expected_last_utterance_id: int | None = None,
 ) -> ConversationEndResponse:
     """경고 종료·알림 만료·통화 종료를 함께 저장하고 같은 최종 결과를 반환한다."""
     with conversation_locks.hold(conversation_id):
         snapshot = analysis_store.load(conversation_id)
         if snapshot is None:
             raise AnalysisNotFoundError("종료할 통화 기록이 없습니다.")
+
+        if (expected_last_utterance_id is not None
+                and snapshot.records[-1].model_result.utterance_id != expected_last_utterance_id):
+            raise AnalysisConflictError("마지막 발화의 분석 결과를 확인한 뒤 종료해 주세요.")
 
         # 이전 버전이 종료 상태만 저장한 통화도 최초 한 번 경고를 마무리한다.
         needs_warning_end = (
@@ -306,6 +354,7 @@ def end_conversation(
             ended_at=snapshot.ended_at,
             warning=final_result["warning"] if final_result is not None else None,
             evidence=final_result["evidence"] if final_result is not None else None,
+            last_analysis=snapshot.records[-1].response,
         )
 
 

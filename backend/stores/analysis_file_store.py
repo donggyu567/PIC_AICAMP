@@ -8,6 +8,7 @@ import os
 import tempfile
 from copy import deepcopy
 from pathlib import Path
+from threading import RLock
 from typing import Literal, Self
 
 from pydantic import (
@@ -18,7 +19,7 @@ from pydantic import (
     model_validator
 )
 from backend.schemas import CalculationPreviewResponse, ModelResultRequest, NotificationRecord
-from backend.stores.analysis_store import validate_new_result
+from backend.stores.analysis_store import AnalysisConflictError, validate_new_result
 from models.warning_manager.contracts import (
     ConversationWarningState, ModelRiskResult, WarningConfig, WarningResult,
 )
@@ -253,6 +254,9 @@ class ConversationSnapshot(BaseModel):
 
 
 class AnalysisFileStore:
+    # 단일 프로세스에서 철회 표시와 최종 파일 교체가 서로 겹치지 않도록 한다.
+    _withdrawal_lock = RLock()
+
     def __init__(self, root: Path) -> None:
         self.root = Path(root).resolve()
 
@@ -261,7 +265,32 @@ class AnalysisFileStore:
         digest = hashlib.sha256(conversation_id.encode("utf-8")).hexdigest()
         return self.root / f"{digest}.json"
 
+    def withdrawal_path_for(self, conversation_id: str) -> Path:
+        return self.root / "withdrawn" / self.path_for(conversation_id).name
+
+    def ensure_not_withdrawn(self, conversation_id: str) -> None:
+        if self.withdrawal_path_for(conversation_id).exists():
+            raise AnalysisConflictError("철회된 통화는 처리할 수 없습니다.")
+
+    def mark_withdrawn(self, conversation_id: str) -> None:
+        try:
+            with self._withdrawal_lock:
+                marker = self.withdrawal_path_for(conversation_id)
+                marker.parent.mkdir(parents=True, exist_ok=True)
+                with marker.open("a", encoding="utf-8") as file:
+                    file.flush()
+                    os.fsync(file.fileno())
+        except OSError as error:
+            raise AnalysisStorageError("철회 상태를 저장할 수 없습니다.") from error
+
+    def delete_withdrawn(self, conversation_id: str) -> None:
+        try:
+            self.path_for(conversation_id).unlink(missing_ok=True)
+        except OSError as error:
+            raise AnalysisStorageError("분석 기록을 삭제할 수 없습니다.") from error
+
     def load(self, conversation_id: str) -> ConversationSnapshot | None:
+        self.ensure_not_withdrawn(conversation_id)
         try:
             text = self.path_for(conversation_id).read_text(encoding="utf-8")
         except FileNotFoundError:
@@ -290,7 +319,11 @@ class AnalysisFileStore:
                 temporary.write(serialized)
                 temporary.flush()
                 os.fsync(temporary.fileno())
-            os.replace(temporary_path, self.path_for(snapshot.conversation_id))
+            with self._withdrawal_lock:
+                self.ensure_not_withdrawn(snapshot.conversation_id)
+                os.replace(temporary_path, self.path_for(snapshot.conversation_id))
+        except AnalysisConflictError:
+            raise
         except (OSError, ValueError) as error:
             raise AnalysisStorageError("분석 기록을 저장할 수 없습니다.") from error
         finally:
