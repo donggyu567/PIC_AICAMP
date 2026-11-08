@@ -3,6 +3,7 @@ package com.example.pic_ai_app.data.stt
 import android.annotation.SuppressLint
 import com.example.pic_ai_app.audio.AndroidPcmAudioRecorder
 import com.example.pic_ai_app.audio.Microphone
+import com.example.pic_ai_app.domain.model.MaskedTranscript
 import kotlinx.coroutines.*
 import okhttp3.*
 import okio.ByteString.Companion.toByteString
@@ -15,6 +16,12 @@ data class SttState(
     val phase: SttPhase = SttPhase.IDLE,
     val count: Int = 0,
     val error: String? = null,
+    val maskedTexts: List<String> = emptyList(),
+    val masking: Boolean = false,
+    val analyzing: Boolean = false,
+    val risk: RiskResult? = null,
+    val canRetryFinish: Boolean = false,
+    val canRetryAnalysis: Boolean = false,
 )
 
 /** Socket callbacks are serialized onto the supplied main scope. */
@@ -22,9 +29,14 @@ class SttSession(
     private val scope: CoroutineScope,
     private val hasPermission: () -> Boolean,
     private val microphoneFactory: () -> Microphone = { AndroidPcmAudioRecorder() },
+    private val mask: suspend (String, String, Int) -> MaskedTranscript = { _, _, _ -> error("Masker unavailable") },
+    private val analyze: (suspend (String, MaskedTranscript) -> RiskResult)? = null,
+    private val finalize: (suspend (String, String, Int) -> RiskResult)? = null,
+    private val recover: (suspend (String, MaskedTranscript) -> RiskResult)? = null,
+    private val tokenForServer: (String) -> String? = { null },
     private val publish: (SttState) -> Unit,
 ) {
-    private val client = OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS).build()
+    private val client = OkHttpClient.Builder().connectTimeout(10, TimeUnit.SECONDS).followRedirects(false).followSslRedirects(false).build()
     private var recorder = microphoneFactory()
     @Volatile private var socket: WebSocket? = null
     private var capture: Job? = null
@@ -32,6 +44,12 @@ class SttSession(
     @Volatile private var session = 0L
     @Volatile private var state = SttState()
     private var conversationId: String? = null
+    private var maskingJob: Job? = null
+    private var finishingJob: Job? = null
+    private var pendingMasks = 0
+    private var receivedStop = false
+    private var serverUrl = ""
+    private var recoverySignal: CompletableDeferred<Unit>? = null
 
     private fun update(next: SttState) {
         state = next
@@ -40,13 +58,18 @@ class SttSession(
 
     fun start(url: String) {
         if (state.phase in listOf(SttPhase.CONNECTING, SttPhase.LISTENING, SttPhase.FINALIZING)) return
-        val request = try { Request.Builder().url(url).build() } catch (_: IllegalArgumentException) {
-            update(SttState(phase = SttPhase.ERROR, error = "서버 주소를 확인해 주세요."))
+        val request = try {
+            Request.Builder().url(url).apply { tokenForServer(url)?.let { header("Authorization", "Bearer $it") } }.build()
+        } catch (_: Exception) {
+            update(SttState(phase = SttPhase.ERROR, error = "서버 주소와 기기 인증 정보를 확인해 주세요."))
             return
         }
         recorder = microphoneFactory()
+        serverUrl = url
         val id = ++session
         conversationId = null
+        pendingMasks = 0
+        receivedStop = false
         update(SttState(phase = SttPhase.CONNECTING))
         socket = client.newWebSocket(request, object : WebSocketListener() {
             override fun onOpen(webSocket: WebSocket, response: Response) {
@@ -64,11 +87,11 @@ class SttSession(
                 scope.launch { receive(id, text) }
             }
             override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) {
-                scope.launch { fail(id, "음성 인식 연결이 끊겼습니다.") }
+                scope.launch { if (!receivedStop) fail(id, "음성 인식 연결이 끊겼습니다.") }
             }
             override fun onClosed(webSocket: WebSocket, code: Int, reason: String) {
                 scope.launch {
-                    if (id == session && state.phase != SttPhase.STOPPED) fail(id, "음성 인식 연결이 종료되었습니다.")
+                    if (id == session && !receivedStop && state.phase != SttPhase.STOPPED) fail(id, "음성 인식 연결이 종료되었습니다.")
                 }
             }
         })
@@ -116,8 +139,54 @@ class SttSession(
                     json.optInt("utterance_id", -1) != state.count + 1) {
                     return fail(id, "서버 발화 순서를 확인하지 못했습니다.")
                 }
-                // Do not retain, display, or log the unmasked text.
-                update(state.copy(count = state.count + 1))
+                val rawText = json.optString("text")
+                if (rawText.isBlank()) return fail(id, "서버 발화 내용이 비어 있습니다.")
+                val utterance = state.count + 1
+                val conversation = conversationId ?: return fail(id, "서버 세션을 확인하지 못했습니다.")
+                update(state.copy(count = utterance, masking = true))
+                pendingMasks++
+                val previous = maskingJob
+                maskingJob = scope.launch {
+                    try {
+                        previous?.join()
+                        if (id != session) return@launch
+                        val masked = mask(rawText, conversation, utterance)
+                        if (id != session) return@launch
+                        update(state.copy(maskedTexts = state.maskedTexts + masked.maskedText, analyzing = analyze != null))
+                        val result = if (analyze == null) null else try {
+                            analyze.invoke(serverUrl, masked)
+                        } catch (cancelled: CancellationException) {
+                            throw cancelled
+                        } catch (failure: Exception) {
+                            val recovery = recover ?: throw failure
+                            if (state.phase == SttPhase.LISTENING) stop()
+                            var recovered: RiskResult? = null
+                            while (recovered == null) {
+                                val signal = CompletableDeferred<Unit>()
+                                recoverySignal = signal
+                                update(state.copy(canRetryAnalysis = true, analyzing = false,
+                                    error = "분석 결과를 확인하지 못했습니다. 다시 확인해 주세요."))
+                                signal.await()
+                                recoverySignal = null
+                                update(state.copy(canRetryAnalysis = false, analyzing = true, error = null))
+                                try { recovered = recovery(serverUrl, masked) }
+                                catch (cancelled: CancellationException) { throw cancelled }
+                                catch (_: Exception) { }
+                            }
+                            recovered
+                        }
+                        if (id != session) return@launch
+                        pendingMasks--
+                        update(state.copy(risk = result ?: state.risk, analyzing = false, masking = pendingMasks > 0))
+                        if (receivedStop && pendingMasks == 0) completeStop()
+                    } catch (cancelled: CancellationException) {
+                        throw cancelled
+                    } catch (_: Exception) {
+                        fail(id, "마스킹 또는 위험 분석에 실패했습니다. 다시 시작해 주세요.")
+                    } catch (_: LinkageError) {
+                        fail(id, "개인정보 마스킹을 초기화하지 못했습니다. 앱 설정을 확인해 주세요.")
+                    }
+                }
             }
             "status" -> {
                 if (json.optString("conversation_id") != conversationId) fail(id, "서버 세션이 일치하지 않습니다.")
@@ -131,12 +200,47 @@ class SttSession(
                 recorder.stop()
                 capture?.cancel()
                 timeout?.cancel()
-                update(state.copy(phase = SttPhase.STOPPED))
-                socket?.close(1000, null)
-                socket = null
+                receivedStop = true
+                if (pendingMasks == 0) completeStop()
             }
             "error" -> fail(id, "음성 인식 처리에 실패했습니다. 다시 시도해 주세요.")
             else -> fail(id, "알 수 없는 서버 응답입니다.")
+        }
+    }
+
+    private fun completeStop() {
+        socket?.close(1000, null)
+        socket = null
+        if (state.count == 0 || finalize == null) {
+            update(state.copy(phase = SttPhase.STOPPED, masking = false))
+            return
+        }
+        finishConversation()
+    }
+
+    fun retryAnalysis() { recoverySignal?.complete(Unit) }
+
+    fun retryFinish() {
+        if (state.canRetryFinish) finishConversation()
+    }
+
+    private fun finishConversation() {
+        val action = finalize ?: return
+        val conversation = conversationId ?: return
+        val id = session
+        val last = state.count
+        update(state.copy(phase = SttPhase.FINALIZING, canRetryFinish = false, error = null))
+        finishingJob = scope.launch {
+            try {
+                val finalResult = action(serverUrl, conversation, last)
+                if (id != session) return@launch
+                update(state.copy(phase = SttPhase.STOPPED, risk = finalResult, masking = false))
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (_: Exception) {
+                if (id == session) update(state.copy(phase = SttPhase.ERROR, canRetryFinish = true,
+                    error = "서버 종료 확인에 실패했습니다. 마지막 결과를 유지하고 다시 시도해 주세요."))
+            }
         }
     }
 
@@ -166,9 +270,17 @@ class SttSession(
 
     fun abort() {
         ++session
+        recoverySignal?.cancel()
+        recoverySignal = null
         timeout?.cancel()
         recorder.stop()
         capture?.cancel()
+        maskingJob?.cancel()
+        finishingJob?.cancel()
+        finishingJob = null
+        maskingJob = null
+        pendingMasks = 0
+        receivedStop = false
         socket?.cancel()
         socket = null
         conversationId = null
@@ -178,11 +290,19 @@ class SttSession(
     private fun fail(id: Long, message: String) {
         if (id != session || state.phase in listOf(SttPhase.STOPPED, SttPhase.ERROR, SttPhase.IDLE)) return
         ++session
+        recoverySignal?.cancel()
+        recoverySignal = null
         timeout?.cancel()
         recorder.stop()
         capture?.cancel()
+        maskingJob?.cancel()
+        finishingJob?.cancel()
+        finishingJob = null
+        maskingJob = null
+        pendingMasks = 0
+        receivedStop = false
         socket?.cancel()
         socket = null
-        update(state.copy(phase = SttPhase.ERROR, error = message))
+        update(state.copy(phase = SttPhase.ERROR, error = message, masking = false, analyzing = false))
     }
 }

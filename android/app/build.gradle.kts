@@ -15,7 +15,10 @@ android {
         targetSdk = 37
         versionCode = 4
         versionName = "2.0.3"
+        ndk { abiFilters += "arm64-v8a" }
     }
+
+    androidResources { noCompress += "onnx" }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -29,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation(files("libs/onnxruntime-java-binding-1.27.1-arm64.aar"))
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)

@@ -130,10 +130,11 @@ fun PicApp(session: SessionViewModel) {
             onSettings = { settingsDialog = true }, onDeletion = session::showDeletion,
             consentSaveFailed = access.consentError, onRetryConsent = session::retryConsent,
             liveMode = true, serverUrl = access.serverUrl, onServerUrlChange = session::updateServerUrl,
+            tokenMessage = access.tokenMessage, onSaveToken = session::saveDeviceToken,
         )
         Screen.ANALYSIS, Screen.DETAILS -> LiveSttScreen(
             state = access.stt, onStop = { session.finish() },
-            onHome = session::leaveStt, onData = session::openData,
+            onHome = session::leaveStt, onData = session::openData, onRetryFinish = session::retryFinish, onRetryAnalysis = session::retryAnalysis,
         )
         Screen.FINAL -> FinalScreen(
             state, onHome = session::showHome, onNew = session::start, onData = session::openData,
@@ -146,7 +147,7 @@ fun PicApp(session: SessionViewModel) {
             state, onHome = session::showHome, onConsent = session::openConsent,
             onRetry = session::retryDeletion, onData = session::openData,
             savingConsent = access.savingConsent, consentFailed = access.consentError,
-            onRetryConsent = session::retryConsent,
+            onRetryConsent = session::retryConsent, deletionRetryAvailable = session.deletionRetryAvailable,
         )
     }
 

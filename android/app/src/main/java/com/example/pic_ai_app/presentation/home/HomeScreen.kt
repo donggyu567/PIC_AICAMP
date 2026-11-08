@@ -3,6 +3,11 @@ package com.example.pic_ai_app.presentation.home
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
@@ -20,7 +25,9 @@ fun HomeScreen(
     onStart: () -> Unit, onData: () -> Unit, onSettings: () -> Unit, onDeletion: () -> Unit,
     consentSaveFailed: Boolean = false, onRetryConsent: () -> Unit = {},
     liveMode: Boolean = false, serverUrl: String = "", onServerUrlChange: (String) -> Unit = {},
+    tokenMessage: String? = null, onSaveToken: (String) -> Unit = {},
 ) {
+    var tokenInput by remember { mutableStateOf("") }
     PicPage(
         title = stringResource(R.string.app_name),
         actions = { if (BuildConfig.DEBUG && !liveMode) TextButton(onClick = onSettings) { Text(stringResource(R.string.preview_settings)) } },
@@ -41,6 +48,15 @@ fun HomeScreen(
                 label = { Text(stringResource(R.string.server_address)) },
                 singleLine = true, modifier = Modifier.fillMaxWidth(),
             )
+        }
+        if (liveMode && BuildConfig.DEBUG) {
+            OutlinedTextField(value = tokenInput, onValueChange = { tokenInput = it },
+                label = { Text("기기 인증 정보") }, singleLine = true,
+                visualTransformation = PasswordVisualTransformation(), modifier = Modifier.fillMaxWidth())
+            TextButton(onClick = { onSaveToken(tokenInput); tokenInput = "" }, enabled = tokenInput.isNotBlank()) {
+                Text("인증 정보 저장")
+            }
+            tokenMessage?.let { BodyText(it) }
         }
         PrimaryAction(stringResource(R.string.start_analysis), onStart, enabled = canStart)
         if (deletionPending) {

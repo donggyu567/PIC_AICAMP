@@ -178,6 +178,7 @@ fun DataScreen(state: PreviewState, onBack: () -> Unit, onWithdraw: () -> Unit, 
 fun WithdrawalScreen(
     state: PreviewState, onHome: () -> Unit, onConsent: () -> Unit, onRetry: () -> Unit, onData: () -> Unit,
     savingConsent: Boolean = false, consentFailed: Boolean = false, onRetryConsent: () -> Unit = {},
+    deletionRetryAvailable: Boolean = true,
 ) {
     val title = when (state.deletion) {
         Deletion.DELETING -> R.string.deletion_processing
@@ -206,7 +207,7 @@ fun WithdrawalScreen(
             }
             BodyText(stringResource(R.string.withdrawal_collection_stopped))
             when (state.deletion) {
-                Deletion.PENDING -> PrimaryAction(stringResource(R.string.retry_deletion), onRetry)
+                Deletion.PENDING -> if (deletionRetryAvailable) PrimaryAction(stringResource(R.string.retry_deletion), onRetry) else BodyText("서버 기록 삭제 연결은 준비 중입니다.")
                 Deletion.DONE -> PrimaryAction(stringResource(R.string.consent_again), onConsent)
                 else -> Unit
             }

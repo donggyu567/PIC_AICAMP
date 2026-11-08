@@ -77,7 +77,7 @@
     <string name="withdrawal_title">동의 철회</string>
     <string name="deletion_processing_body">대상 분석의 기록 삭제 완료를 기다립니다.</string>
     <string name="deletion_pending_body">삭제 완료 응답을 확인하지 못했습니다. 연결이 복구되면 삭제를 다시 요청할 수 있습니다. 완료 응답 전에는 삭제 대기 상태를 유지합니다.</string>
-    <string name="withdrawal_complete_body">동의가 철회되어 분석을 중단했습니다. 로컬 기록과 PIC 서버의 대상 분석 기록을 삭제한 상태입니다. 외부 서비스의 삭제 완료를 뜻하지 않습니다.</string>
+    <string name="withdrawal_complete_body">동의가 철회되어 분석을 중단했습니다. 로컬 기록과 앱이 삭제 대상으로 보관한 PIC 서버의 분석 기록을 삭제했습니다. 이전 앱 버전에서 보관하지 않은 세션은 포함되지 않습니다. 외부 서비스의 삭제 완료를 뜻하지 않습니다.</string>
     <string name="withdrawal_collection_stopped">철회 이후의 늦은 분석 결과는 표시하지 않습니다. 다시 사용하려면 동의가 필요합니다.</string>
     <string name="retry_deletion">삭제 다시 시도</string>
     <string name="consent_again">동의 다시 하기</string>

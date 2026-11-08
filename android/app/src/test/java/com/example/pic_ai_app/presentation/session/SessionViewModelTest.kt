@@ -21,6 +21,10 @@ class SessionViewModelTest {
     @After fun teardown() { Dispatchers.resetMain() }
 
     private class Store(var stored: ConsentStatus = ConsentStatus.NOT_DECIDED) : ConsentStore {
+        val targets = mutableSetOf<DeletionTarget>()
+        override suspend fun register(target: DeletionTarget) { targets.add(target) }
+        override suspend fun deletionTargets(): Set<DeletionTarget> = targets.toSet()
+        override suspend fun removeTarget(target: DeletionTarget) { targets.remove(target) }
         var readFails = false
         var writeFails = false
         var writeGate: CompletableDeferred<Unit>? = null
@@ -237,4 +241,33 @@ class SessionViewModelTest {
         vm.start()
         assertEquals(Phase.IDLE, vm.ui.value.flow.phase)
     }
+    @Test fun liveWithdrawalKeepsFailedTargetsAcrossRestartAndRetries() = runTest(dispatcher) {
+        val store = Store(ConsentStatus.GRANTED)
+        val first = DeletionTarget("ws://example.test/api/v1/stt", "first")
+        val second = DeletionTarget("ws://example.test/api/v1/stt", "second")
+        store.targets.addAll(listOf(first, second))
+        var failSecond = true
+        val deleted = mutableListOf<String>()
+        val delete: suspend (String, String) -> Unit = { _, id ->
+            if (id == "second" && failSecond) throw IOException("network")
+            deleted.add(id)
+        }
+        val vm = SessionViewModel(store, { true }, false, liveEnabled = true, deleteFromServer = delete)
+        advanceUntilIdle()
+        vm.withdraw()
+        advanceUntilIdle()
+        assertEquals(ConsentStatus.WITHDRAWN, store.stored)
+        assertEquals(Deletion.PENDING, vm.ui.value.flow.deletion)
+        assertTrue(store.targets.contains(second))
+        val restarted = SessionViewModel(store, { true }, false, liveEnabled = true, deleteFromServer = delete)
+        advanceUntilIdle()
+        assertEquals(Deletion.PENDING, restarted.ui.value.flow.deletion)
+        failSecond = false
+        restarted.retryDeletion()
+        advanceUntilIdle()
+        assertEquals(Deletion.DONE, restarted.ui.value.flow.deletion)
+        assertTrue(store.targets.isEmpty())
+        assertTrue(deleted.containsAll(listOf("first", "second")))
+    }
+
 }
