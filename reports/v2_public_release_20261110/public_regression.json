@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "run_at": "2026-11-09T17:15:38.879168+00:00",
+  "tests": 142,
+  "skipped": 16,
+  "suites": [
+    {
+      "suite": "tests/test_expanded_guards.py",
+      "tests": 14,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    {
+      "suite": "tests/test_expanded_pipeline.py",
+      "tests": 40,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    {
+      "suite": "tests/test_stage3_data.py",
+      "tests": 13,
+      "skipped": 13,
+      "exit_code": 0
+    },
+    {
+      "suite": "tests/test_stage4_exploratory.py",
+      "tests": 10,
+      "skipped": 3,
+      "exit_code": 0
+    },
+    {
+      "suite": "tests/test_stage5_handoff.py",
+      "tests": 17,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    {
+      "suite": "artifacts/v1_reference/pr35_9bab7e383928/tests/test_dataset.py",
+      "tests": 4,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    {
+      "suite": "artifacts/v1_reference/pr35_9bab7e383928/tests/test_metrics.py",
+      "tests": 3,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    {
+      "suite": "artifacts/v1_reference/pr35_9bab7e383928/tests/test_splits.py",
+      "tests": 2,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    {
+      "suite": "artifacts/v1_reference/pr35_9bab7e383928/tests/test_tokenization.py",
+      "tests": 14,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    {
+      "suite": "artifacts/v1_reference/pr35_9bab7e383928/tests/test_training_data.py",
+      "tests": 25,
+      "skipped": 0,
+      "exit_code": 0
+    }
+  ],
+  "scope": "Selected public AI suites; not full repository tests",
+  "real_model_training": false,
+  "optimizer_updates": "Temporary tiny unit fixtures only",
+  "test_body_access": false,
+  "skip_reason": "Private TRAIN/VALIDATION/manifest-dependent checks intentionally unavailable in public checkout",
+  "passed": 126
+}

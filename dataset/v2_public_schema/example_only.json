@@ -1,0 +1,70 @@
+{
+  "conversation_id": "EXAMPLE_ONLY_01",
+  "scenario_family_id": "EXAMPLE_ONLY_FAMILY",
+  "split": "train",
+  "source_kind": "llm_synthetic",
+  "data_purpose": "internal_experiment",
+  "label_status": "provisional",
+  "human_review_complete": false,
+  "deployment_approved": false,
+  "example_only": true,
+  "used_for_training": false,
+  "utterances": [
+    {
+      "utterance_id": 1,
+      "speaker": "speaker_A",
+      "text": "안내 문서를 확인하려고 합니다.",
+      "is_phishing": false,
+      "labels": []
+    },
+    {
+      "utterance_id": 2,
+      "speaker": "speaker_B",
+      "text": "공식 창구에서 내용을 살펴보세요.",
+      "is_phishing": false,
+      "labels": []
+    },
+    {
+      "utterance_id": 3,
+      "speaker": "speaker_A",
+      "text": "개인정보는 입력하지 않겠습니다.",
+      "is_phishing": false,
+      "labels": []
+    },
+    {
+      "utterance_id": 4,
+      "speaker": "speaker_B",
+      "text": "필요하지 않은 정보는 제공하지 마세요.",
+      "is_phishing": false,
+      "labels": []
+    },
+    {
+      "utterance_id": 5,
+      "speaker": "speaker_A",
+      "text": "설치는 제가 공식 경로에서 확인하겠습니다.",
+      "is_phishing": false,
+      "labels": []
+    },
+    {
+      "utterance_id": 6,
+      "speaker": "speaker_B",
+      "text": "설치 여부는 직접 결정하시면 됩니다.",
+      "is_phishing": false,
+      "labels": []
+    },
+    {
+      "utterance_id": 7,
+      "speaker": "speaker_A",
+      "text": "설명을 읽고 나중에 문의하겠습니다.",
+      "is_phishing": false,
+      "labels": []
+    },
+    {
+      "utterance_id": 8,
+      "speaker": "speaker_B",
+      "text": "네, 확인 후 연락해 주세요.",
+      "is_phishing": false,
+      "labels": []
+    }
+  ]
+}

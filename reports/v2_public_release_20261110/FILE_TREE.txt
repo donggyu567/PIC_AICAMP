@@ -1,0 +1,142 @@
+PIC_AICAMP/
+├── .gitattributes
+├── .gitignore
+├── artifacts/
+│   ├── v1_reference/
+│   │   └── pr35_9bab7e383928/
+│   │       ├── risk_speech_ai/
+│   │       │   ├── checkpoint.py
+│   │       │   ├── config.py
+│   │       │   ├── dataset.py
+│   │       │   ├── evaluate_cli.py
+│   │       │   ├── inference.py
+│   │       │   ├── labels.py
+│   │       │   ├── metrics.py
+│   │       │   ├── model.py
+│   │       │   ├── prepare_training_inputs.py
+│   │       │   ├── splits.py
+│   │       │   ├── tokenization.py
+│   │       │   ├── train_cli.py
+│   │       │   ├── training.py
+│   │       │   ├── training_data.py
+│   │       │   ├── training_log.py
+│   │       │   └── type_diagnostics.py
+│   │       └── tests/
+│   │           ├── test_dataset.py
+│   │           ├── test_metrics.py
+│   │           ├── test_splits.py
+│   │           ├── test_tokenization.py
+│   │           └── test_training_data.py
+│   └── v2_research_handoff/
+│       └── stage5_final_20261110_v1/
+│           ├── CHECKPOINTS.json
+│           ├── DATA_CARD.md
+│           ├── DRIVE_DELIVERY.md
+│           ├── MODEL_CARD.md
+│           ├── SERVER_HANDOFF.md
+│           ├── TEST_COMPARISON.md
+│           ├── VALIDATION_COMPARISON.md
+│           ├── bundle_manifest.json
+│           ├── requirements-tested.txt
+│           ├── stage5_runtime.py
+│           ├── tokenizer/
+│           │   ├── special_tokens_map.json
+│           │   ├── tokenizer.json
+│           │   ├── tokenizer_config.json
+│           │   └── vocab.txt
+│           └── vendor/
+│               └── risk_speech_ai/
+│                   ├── checkpoint.py
+│                   ├── config.py
+│                   ├── dataset.py
+│                   ├── evaluate_cli.py
+│                   ├── inference.py
+│                   ├── labels.py
+│                   ├── metrics.py
+│                   ├── model.py
+│                   ├── prepare_training_inputs.py
+│                   ├── splits.py
+│                   ├── tokenization.py
+│                   ├── train_cli.py
+│                   ├── training.py
+│                   ├── training_data.py
+│                   ├── training_log.py
+│                   └── type_diagnostics.py
+├── dataset/
+│   ├── scripts/
+│   │   ├── prepare_pilot_review.py
+│   │   ├── restore_pilot.py
+│   │   └── v2_pipeline_gate.py
+│   └── v2_public_schema/
+│       ├── README.md
+│       └── example_only.json
+├── experiments/
+│   └── koelectra_v2/
+│       ├── README.md
+│       ├── audit_stage1.py
+│       ├── check_public_release.py
+│       ├── check_stage1_suites.py
+│       ├── check_stage2_suites.py
+│       ├── configs/
+│       │   ├── A.json
+│       │   ├── B.json
+│       │   └── C.json
+│       ├── expanded_assets.py
+│       ├── expanded_checkpoint.py
+│       ├── expanded_cli.py
+│       ├── expanded_common.py
+│       ├── expanded_data.py
+│       ├── expanded_evaluation.py
+│       ├── expanded_selection.py
+│       ├── expanded_training.py
+│       ├── experiment_runtime.py
+│       ├── plan_splits.py
+│       ├── prepare_public_base.py
+│       ├── prioritize_reviews.py
+│       ├── protocol_20261109_v1.json
+│       ├── stage3_checks.py
+│       ├── stage3_data.py
+│       ├── stage3_finalize.py
+│       ├── stage3_research.py
+│       ├── stage3_scenario_audit.py
+│       ├── stage3_seal.py
+│       ├── stage4_checks.py
+│       ├── stage4_exploratory.py
+│       ├── stage5_checks.py
+│       ├── stage5_custody.py
+│       ├── stage5_prepare.py
+│       ├── stage5_runtime.py
+│       ├── stage5_smoke.py
+│       ├── validate_stage1.py
+│       ├── verify_stage2_assets.py
+│       └── write_configs.py
+├── reports/
+│   └── v2_public_release_20261110/
+│       ├── DATA_AND_TRAINING.md
+│       ├── FILE_TREE.txt
+│       ├── FINAL_REPORT.md
+│       ├── FUNCTION_GUIDE.md
+│       ├── PUBLICATION_AUDIT.json
+│       ├── README.md
+│       ├── SOURCE_MANIFEST.json
+│       ├── checkpoint_verification.public.json
+│       ├── comparison_summary.public.json
+│       ├── data_statistics.json
+│       ├── drive_delivery.json
+│       ├── execution_complete.public.json
+│       ├── function_index.json
+│       ├── original_regression.json
+│       ├── public_regression.json
+│       ├── server_smoke.public.json
+│       ├── test_results.public.json
+│       ├── training_comparison.public.json
+│       ├── training_histories.json
+│       ├── v2_1_followup.md
+│       └── validation_smoke.public.json
+└── tests/
+    ├── expanded_fixtures.py
+    ├── test_expanded_guards.py
+    ├── test_expanded_pipeline.py
+    ├── test_stage3_data.py
+    ├── test_stage4_exploratory.py
+    └── test_stage5_handoff.py

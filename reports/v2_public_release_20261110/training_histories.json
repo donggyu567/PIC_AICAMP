@@ -1,0 +1,524 @@
+[
+  {
+    "arm": "A_epoch",
+    "seed": 42,
+    "data": {
+      "arm": "A_epoch",
+      "best_epoch": 3,
+      "elapsed_seconds": 3709.0470000000205,
+      "history": [
+        {
+          "elapsed_seconds": 1618.594000000041,
+          "epoch": 1,
+          "optimizer_steps": 82,
+          "risk_loss": 0.5661876412426553,
+          "train_loss": 0.9303326148812364,
+          "type_loss": 0.364144974002024,
+          "validation_binary_f1": 0.0
+        },
+        {
+          "elapsed_seconds": 1132.5470000000205,
+          "epoch": 2,
+          "optimizer_steps": 164,
+          "risk_loss": 0.4911774271508543,
+          "train_loss": 0.6998767434823804,
+          "type_loss": 0.20869931687669055,
+          "validation_binary_f1": 0.5818181818181818
+        },
+        {
+          "elapsed_seconds": 920.7810000001919,
+          "epoch": 3,
+          "optimizer_steps": 246,
+          "risk_loss": 0.33658107897130457,
+          "train_loss": 0.5287565705252857,
+          "type_loss": 0.19217549037279152,
+          "validation_binary_f1": 0.8181818181818182
+        }
+      ],
+      "initial_heads_sha256": "cea974e40e86a0e3cb8f46ea2db64053259e1afec06823e24c21c9ecc57318bf",
+      "last_epoch": 3,
+      "optimizer_steps": 246,
+      "policy": {
+        "authorization_basis": "Explicit user phase-4 instruction permits internally generated synthetic research inputs; this is not human label review",
+        "deployment_approved": false,
+        "differences_from_formal_protocol": [
+          "TRAIN80 synthetic research set instead of rights-unverified original v1 TRAIN",
+          "Validation32 is unreviewed synthetic: exploratory evaluation only",
+          "Separate research checkpoint/selection schema; no fabricated approval hashes",
+          "CPU FP32 with encoder gradient checkpointing for memory; batch8 and original optimizer/hyperparameters",
+          "A0 is the actual first-epoch snapshot of the same unweighted fresh-public trajectory, not a separately retrained copy"
+        ],
+        "human_approved": false,
+        "human_review_complete": false,
+        "label_status": "provisional",
+        "mode": "exploratory_training",
+        "original_protocol_sha256": "a98c283b0b133fb35473bf1e9b1f8fc3516472fc1c3ac606b2fe888dfae35497",
+        "production_training_authorized": false,
+        "purpose": "internal_experiment",
+        "schema": "exploratory-training-policy/1",
+        "source_kind": "llm_synthetic"
+      },
+      "references": [
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_42\\epoch_001.pt",
+          "sha256": "50516484c0174a16c27fbe5fa0bdba002093084b444b44b9c5eaf6b3b42970d2"
+        },
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_42\\epoch_002.pt",
+          "sha256": "63d0f18bceb4517a1d9a25ed0f413f45cbb004821574e55de4885779e041bf4b"
+        },
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_42\\epoch_003.pt",
+          "sha256": "102475e5a1d26f8e508ba31d3ec21bd66c60ede827a818933297247ced23be40"
+        }
+      ],
+      "seed": 42,
+      "status": "COMPLETE",
+      "weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "arm": "A_epoch",
+    "seed": 43,
+    "data": {
+      "arm": "A_epoch",
+      "best_epoch": 3,
+      "elapsed_seconds": 3135.90699999989,
+      "history": [
+        {
+          "elapsed_seconds": 944.7970000000205,
+          "epoch": 1,
+          "optimizer_steps": 82,
+          "risk_loss": 0.5791005354102065,
+          "train_loss": 0.9496841009070234,
+          "type_loss": 0.37058356131722286,
+          "validation_binary_f1": 0.0
+        },
+        {
+          "elapsed_seconds": 944.8589999999385,
+          "epoch": 2,
+          "optimizer_steps": 164,
+          "risk_loss": 0.5077109375014538,
+          "train_loss": 0.7166885915325909,
+          "type_loss": 0.20897765657523784,
+          "validation_binary_f1": 0.07894736842105263
+        },
+        {
+          "elapsed_seconds": 1191.7659999998286,
+          "epoch": 3,
+          "optimizer_steps": 246,
+          "risk_loss": 0.42420860943270894,
+          "train_loss": 0.6122314184904099,
+          "type_loss": 0.18802280996630832,
+          "validation_binary_f1": 0.8251748251748252
+        }
+      ],
+      "initial_heads_sha256": "e1c5fe3e26e1d13e80cebfddac78a89e2eec305f303919224656675123a9d8e0",
+      "last_epoch": 3,
+      "optimizer_steps": 246,
+      "policy": {
+        "authorization_basis": "Explicit user phase-4 instruction permits internally generated synthetic research inputs; this is not human label review",
+        "deployment_approved": false,
+        "differences_from_formal_protocol": [
+          "TRAIN80 synthetic research set instead of rights-unverified original v1 TRAIN",
+          "Validation32 is unreviewed synthetic: exploratory evaluation only",
+          "Separate research checkpoint/selection schema; no fabricated approval hashes",
+          "CPU FP32 with encoder gradient checkpointing for memory; batch8 and original optimizer/hyperparameters",
+          "A0 is the actual first-epoch snapshot of the same unweighted fresh-public trajectory, not a separately retrained copy"
+        ],
+        "human_approved": false,
+        "human_review_complete": false,
+        "label_status": "provisional",
+        "mode": "exploratory_training",
+        "original_protocol_sha256": "a98c283b0b133fb35473bf1e9b1f8fc3516472fc1c3ac606b2fe888dfae35497",
+        "production_training_authorized": false,
+        "purpose": "internal_experiment",
+        "schema": "exploratory-training-policy/1",
+        "source_kind": "llm_synthetic"
+      },
+      "references": [
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_43\\epoch_001.pt",
+          "sha256": "73f9ad7abe7122ea156659b6578cce71faaac8d41d698890dc716d4c44fb8453"
+        },
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_43\\epoch_002.pt",
+          "sha256": "ba4ee81093040a5b813122c74d11d7f544cf8387097f5223109e867afcf429cd"
+        },
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_43\\epoch_003.pt",
+          "sha256": "adedf321552742bab612fd81e5405605eb6be42a7b114a680bc70adb5b178fc4"
+        }
+      ],
+      "seed": 43,
+      "status": "COMPLETE",
+      "weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "arm": "A_epoch",
+    "seed": 44,
+    "data": {
+      "arm": "A_epoch",
+      "best_epoch": 3,
+      "elapsed_seconds": 3269.687999999849,
+      "history": [
+        {
+          "elapsed_seconds": 1017.1879999998491,
+          "epoch": 1,
+          "optimizer_steps": 82,
+          "risk_loss": 0.5861538595906118,
+          "train_loss": 0.9340635207368106,
+          "type_loss": 0.3479096631451351,
+          "validation_binary_f1": 0.0
+        },
+        {
+          "elapsed_seconds": 1033.6720000000205,
+          "epoch": 2,
+          "optimizer_steps": 164,
+          "risk_loss": 0.4891230342228238,
+          "train_loss": 0.696217558005961,
+          "type_loss": 0.20709452287452976,
+          "validation_binary_f1": 0.5
+        },
+        {
+          "elapsed_seconds": 1163.2970000000205,
+          "epoch": 3,
+          "optimizer_steps": 246,
+          "risk_loss": 0.2948919054029918,
+          "train_loss": 0.48722544784952954,
+          "type_loss": 0.19233354235567698,
+          "validation_binary_f1": 0.9281045751633987
+        }
+      ],
+      "initial_heads_sha256": "16b5bbfe04dc65d93cc063a311310c20e1edd631d2f11b15f79e5bd30c6d383d",
+      "last_epoch": 3,
+      "optimizer_steps": 246,
+      "policy": {
+        "authorization_basis": "Explicit user phase-4 instruction permits internally generated synthetic research inputs; this is not human label review",
+        "deployment_approved": false,
+        "differences_from_formal_protocol": [
+          "TRAIN80 synthetic research set instead of rights-unverified original v1 TRAIN",
+          "Validation32 is unreviewed synthetic: exploratory evaluation only",
+          "Separate research checkpoint/selection schema; no fabricated approval hashes",
+          "CPU FP32 with encoder gradient checkpointing for memory; batch8 and original optimizer/hyperparameters",
+          "A0 is the actual first-epoch snapshot of the same unweighted fresh-public trajectory, not a separately retrained copy"
+        ],
+        "human_approved": false,
+        "human_review_complete": false,
+        "label_status": "provisional",
+        "mode": "exploratory_training",
+        "original_protocol_sha256": "a98c283b0b133fb35473bf1e9b1f8fc3516472fc1c3ac606b2fe888dfae35497",
+        "production_training_authorized": false,
+        "purpose": "internal_experiment",
+        "schema": "exploratory-training-policy/1",
+        "source_kind": "llm_synthetic"
+      },
+      "references": [
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_44\\epoch_001.pt",
+          "sha256": "74d6642a0b94e8fc5e0d73aee899196214abdc4e49bcce4b1ab13db1c5f7abb4"
+        },
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_44\\epoch_002.pt",
+          "sha256": "08dcdd37976a9ee50b41f1e593fe8a84c92a0baf6f6c10b979baffa691452d6e"
+        },
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_44\\epoch_003.pt",
+          "sha256": "8a742de02e46cde9790d0a60a3f6f7ab12fd5b150c6083a94b728ad0c3955b24"
+        }
+      ],
+      "seed": 44,
+      "status": "COMPLETE",
+      "weights": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  {
+    "arm": "B_ratio",
+    "seed": 42,
+    "data": {
+      "arm": "B_ratio",
+      "best_epoch": 3,
+      "elapsed_seconds": 2916.2970000000205,
+      "history": [
+        {
+          "elapsed_seconds": 950.4060000001919,
+          "epoch": 1,
+          "optimizer_steps": 82,
+          "risk_loss": 0.5754749654996686,
+          "train_loss": 1.3604636766561649,
+          "type_loss": 0.7849887107930532,
+          "validation_binary_f1": 0.0
+        },
+        {
+          "elapsed_seconds": 970.3120000001509,
+          "epoch": 2,
+          "optimizer_steps": 164,
+          "risk_loss": 0.5181326953376212,
+          "train_loss": 1.205918690053428,
+          "type_loss": 0.6877859885372767,
+          "validation_binary_f1": 0.3111111111111111
+        },
+        {
+          "elapsed_seconds": 954.8120000001509,
+          "epoch": 3,
+          "optimizer_steps": 246,
+          "risk_loss": 0.3532273424107854,
+          "train_loss": 0.9145738547895013,
+          "type_loss": 0.561346510924944,
+          "validation_binary_f1": 0.8689655172413793
+        }
+      ],
+      "initial_heads_sha256": "cea974e40e86a0e3cb8f46ea2db64053259e1afec06823e24c21c9ecc57318bf",
+      "last_epoch": 3,
+      "optimizer_steps": 246,
+      "policy": {
+        "authorization_basis": "Explicit user phase-4 instruction permits internally generated synthetic research inputs; this is not human label review",
+        "deployment_approved": false,
+        "differences_from_formal_protocol": [
+          "TRAIN80 synthetic research set instead of rights-unverified original v1 TRAIN",
+          "Validation32 is unreviewed synthetic: exploratory evaluation only",
+          "Separate research checkpoint/selection schema; no fabricated approval hashes",
+          "CPU FP32 with encoder gradient checkpointing for memory; batch8 and original optimizer/hyperparameters",
+          "A0 is the actual first-epoch snapshot of the same unweighted fresh-public trajectory, not a separately retrained copy"
+        ],
+        "human_approved": false,
+        "human_review_complete": false,
+        "label_status": "provisional",
+        "mode": "exploratory_training",
+        "original_protocol_sha256": "a98c283b0b133fb35473bf1e9b1f8fc3516472fc1c3ac606b2fe888dfae35497",
+        "production_training_authorized": false,
+        "purpose": "internal_experiment",
+        "schema": "exploratory-training-policy/1",
+        "source_kind": "llm_synthetic"
+      },
+      "references": [
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_42\\epoch_001.pt",
+          "sha256": "f10adc20dee5bec548a6b83f1ffbebba62e0d7ee950a8f1c20a1da273de0ba8d"
+        },
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_42\\epoch_002.pt",
+          "sha256": "971b6e9cc8921c9280f9144e99d4e52d042575f2088714c0f0421b98950e018e"
+        },
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_42\\epoch_003.pt",
+          "sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee"
+        }
+      ],
+      "seed": 42,
+      "status": "COMPLETE",
+      "weights": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ]
+    }
+  },
+  {
+    "arm": "B_ratio",
+    "seed": 43,
+    "data": {
+      "arm": "B_ratio",
+      "best_epoch": 3,
+      "elapsed_seconds": 3212.344000000041,
+      "history": [
+        {
+          "elapsed_seconds": 1032.1410000000615,
+          "epoch": 1,
+          "optimizer_steps": 82,
+          "risk_loss": 0.5789218112462904,
+          "train_loss": 1.3630014752469413,
+          "type_loss": 0.7840796650909796,
+          "validation_binary_f1": 0.0
+        },
+        {
+          "elapsed_seconds": 1117.9539999999106,
+          "epoch": 2,
+          "optimizer_steps": 164,
+          "risk_loss": 0.4998082442254555,
+          "train_loss": 1.1575197864596436,
+          "type_loss": 0.657711542961074,
+          "validation_binary_f1": 0.28888888888888886
+        },
+        {
+          "elapsed_seconds": 1020.7180000001099,
+          "epoch": 3,
+          "optimizer_steps": 246,
+          "risk_loss": 0.4267904972884713,
+          "train_loss": 0.9692981010530053,
+          "type_loss": 0.5425076023107622,
+          "validation_binary_f1": 0.7721518987341772
+        }
+      ],
+      "initial_heads_sha256": "e1c5fe3e26e1d13e80cebfddac78a89e2eec305f303919224656675123a9d8e0",
+      "last_epoch": 3,
+      "optimizer_steps": 246,
+      "policy": {
+        "authorization_basis": "Explicit user phase-4 instruction permits internally generated synthetic research inputs; this is not human label review",
+        "deployment_approved": false,
+        "differences_from_formal_protocol": [
+          "TRAIN80 synthetic research set instead of rights-unverified original v1 TRAIN",
+          "Validation32 is unreviewed synthetic: exploratory evaluation only",
+          "Separate research checkpoint/selection schema; no fabricated approval hashes",
+          "CPU FP32 with encoder gradient checkpointing for memory; batch8 and original optimizer/hyperparameters",
+          "A0 is the actual first-epoch snapshot of the same unweighted fresh-public trajectory, not a separately retrained copy"
+        ],
+        "human_approved": false,
+        "human_review_complete": false,
+        "label_status": "provisional",
+        "mode": "exploratory_training",
+        "original_protocol_sha256": "a98c283b0b133fb35473bf1e9b1f8fc3516472fc1c3ac606b2fe888dfae35497",
+        "production_training_authorized": false,
+        "purpose": "internal_experiment",
+        "schema": "exploratory-training-policy/1",
+        "source_kind": "llm_synthetic"
+      },
+      "references": [
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_43\\epoch_001.pt",
+          "sha256": "0776304da96f4ae68a43c130010e6fbcc6b01621d5183ae0a5d81dd55837ba1c"
+        },
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_43\\epoch_002.pt",
+          "sha256": "3602db7f814569deff9c68a79241b2a91b37005cac4b631b0b8baec0a10fc0c4"
+        },
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_43\\epoch_003.pt",
+          "sha256": "612a27419bff738b7661552b152ee37eb8b463e14dcbaaed8200b44796703fae"
+        }
+      ],
+      "seed": 43,
+      "status": "COMPLETE",
+      "weights": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ]
+    }
+  },
+  {
+    "arm": "B_ratio",
+    "seed": 44,
+    "data": {
+      "arm": "B_ratio",
+      "best_epoch": 3,
+      "elapsed_seconds": 3493.25,
+      "history": [
+        {
+          "elapsed_seconds": 1036.0470000000205,
+          "epoch": 1,
+          "optimizer_steps": 82,
+          "risk_loss": 0.5817110818333742,
+          "train_loss": 1.3761718556648348,
+          "type_loss": 0.7944607709239169,
+          "validation_binary_f1": 0.0
+        },
+        {
+          "elapsed_seconds": 980.813000000082,
+          "epoch": 2,
+          "optimizer_steps": 164,
+          "risk_loss": 0.5100006174023558,
+          "train_loss": 1.198371055649548,
+          "type_loss": 0.6883704389740781,
+          "validation_binary_f1": 0.1282051282051282
+        },
+        {
+          "elapsed_seconds": 1416.6560000001919,
+          "epoch": 3,
+          "optimizer_steps": 246,
+          "risk_loss": 0.39116683311578704,
+          "train_loss": 0.9713485571669369,
+          "type_loss": 0.5801817262318076,
+          "validation_binary_f1": 0.8759124087591241
+        }
+      ],
+      "initial_heads_sha256": "16b5bbfe04dc65d93cc063a311310c20e1edd631d2f11b15f79e5bd30c6d383d",
+      "last_epoch": 3,
+      "optimizer_steps": 246,
+      "policy": {
+        "authorization_basis": "Explicit user phase-4 instruction permits internally generated synthetic research inputs; this is not human label review",
+        "deployment_approved": false,
+        "differences_from_formal_protocol": [
+          "TRAIN80 synthetic research set instead of rights-unverified original v1 TRAIN",
+          "Validation32 is unreviewed synthetic: exploratory evaluation only",
+          "Separate research checkpoint/selection schema; no fabricated approval hashes",
+          "CPU FP32 with encoder gradient checkpointing for memory; batch8 and original optimizer/hyperparameters",
+          "A0 is the actual first-epoch snapshot of the same unweighted fresh-public trajectory, not a separately retrained copy"
+        ],
+        "human_approved": false,
+        "human_review_complete": false,
+        "label_status": "provisional",
+        "mode": "exploratory_training",
+        "original_protocol_sha256": "a98c283b0b133fb35473bf1e9b1f8fc3516472fc1c3ac606b2fe888dfae35497",
+        "production_training_authorized": false,
+        "purpose": "internal_experiment",
+        "schema": "exploratory-training-policy/1",
+        "source_kind": "llm_synthetic"
+      },
+      "references": [
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_44\\epoch_001.pt",
+          "sha256": "ed7ccf93aab7d1875de4a07b24b5445bbd5a92f9553d7c77733535680560a4ac"
+        },
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_44\\epoch_002.pt",
+          "sha256": "8a09799c218d2fa694e207998c8897638b0e7580a4f6139763731db53ce7862a"
+        },
+        {
+          "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_44\\epoch_003.pt",
+          "sha256": "92970156e78ad1aa4b10e17e0386124b1fdc0f67c2b2ab194fc6bde27b7bc409"
+        }
+      ],
+      "seed": 44,
+      "status": "COMPLETE",
+      "weights": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ]
+    }
+  }
+]

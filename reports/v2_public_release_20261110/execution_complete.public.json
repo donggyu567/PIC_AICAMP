@@ -1,0 +1,40 @@
+{
+  "public_copy": true,
+  "source_sha256": "c160566ee64ab28de9a9f1397cff11e03dd00c5c280af45fd61c271423cb4d70",
+  "redaction": "Custodian/release/claim identity evidence and environment paths omitted; original remains local",
+  "data": {
+    "actual_cpu_server_smoke": "PASS",
+    "deployment_approved": false,
+    "epoch": 3,
+    "evaluation_performed": true,
+    "handoff_receipt_sha256": "9de8a4143612fd421f9c39c4464041f2eb708f353f3fec7f7eb1d71e03726d32",
+    "human_label_review_complete": false,
+    "model_selection_changed": false,
+    "models_evaluated": 7,
+    "plan_sha256": "2735f1879489da64149811277de40da3669e5341eec0d37a1f47afb59dab845c",
+    "preservation": "PASS",
+    "regression_tests": 240,
+    "retrained": false,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "server_transfer_performed": false,
+    "status": "ACTUAL_FINAL_TEST_EVALUATION_COMPLETE_EXPLORATORY",
+    "test_conversations": 40,
+    "test_results_sha256": "878c72bd2bb6267d3f2a993cead4ce1c76b461c0ab67e613779720fb0f72b689",
+    "test_utterances": 320,
+    "thresholds": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ]
+  }
+}

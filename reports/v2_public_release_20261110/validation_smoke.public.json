@@ -1,0 +1,219 @@
+{
+  "approval_state": "research_only_unreviewed",
+  "model_training": false,
+  "portable_bundle": {
+    "invalid_request": {
+      "error": {
+        "code": "INVALID_REQUEST"
+      },
+      "http_status": 400,
+      "ok": false,
+      "result": null,
+      "status": "error"
+    },
+    "overlong_current": {
+      "error": {
+        "code": "INPUT_TOO_LONG"
+      },
+      "http_status": 422,
+      "ok": false,
+      "result": null,
+      "status": "error"
+    },
+    "success": {
+      "error": null,
+      "http_status": 200,
+      "ok": true,
+      "result": {
+        "checkpoint_sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee",
+        "deployment_approved": false,
+        "detected_types": [],
+        "human_approved": false,
+        "is_phishing": false,
+        "purpose": "internal_experiment",
+        "risk_probability": 0.038170010499097476,
+        "risk_score": 3.8170010499097478,
+        "seed": 42,
+        "threshold_version": "exploratory-validation-grid-v1",
+        "thresholds": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "type_probabilities": {
+          "app_installation": 0.16659508299088852,
+          "information_probing": 0.18572761750266792,
+          "institution_impersonation": 0.17162977195191495,
+          "loan_fraud": 0.10835250367308849,
+          "money_transfer": 0.13996386264691793,
+          "personal_information": 0.22799909376506347,
+          "secrecy": 0.18972229987522388,
+          "threat_pressure": 0.1410247843475382
+        }
+      },
+      "status": "success"
+    },
+    "vendor_path": "[RESEARCH_WORKTREE]\\artifacts\\v2_research_handoff\\stage5_20261110_v1\\vendor\\risk_speech_ai\\model.py"
+  },
+  "selected_checkpoints": [
+    {
+      "arm": "B_ratio",
+      "checkpoint": {
+        "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_42\\epoch_003.pt",
+        "sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee"
+      },
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "max_logit_delta": 0.0,
+      "samples": 8,
+      "seed": 42
+    },
+    {
+      "arm": "B_ratio",
+      "checkpoint": {
+        "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_43\\epoch_003.pt",
+        "sha256": "612a27419bff738b7661552b152ee37eb8b463e14dcbaaed8200b44796703fae"
+      },
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "max_logit_delta": 0.0,
+      "samples": 8,
+      "seed": 43
+    },
+    {
+      "arm": "B_ratio",
+      "checkpoint": {
+        "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_44\\epoch_003.pt",
+        "sha256": "92970156e78ad1aa4b10e17e0386124b1fdc0f67c2b2ab194fc6bde27b7bc409"
+      },
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "max_logit_delta": 0.0,
+      "samples": 8,
+      "seed": 44
+    },
+    {
+      "arm": "A_epoch",
+      "checkpoint": {
+        "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_42\\epoch_003.pt",
+        "sha256": "102475e5a1d26f8e508ba31d3ec21bd66c60ede827a818933297247ced23be40"
+      },
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "max_logit_delta": 0.0,
+      "samples": 8,
+      "seed": 42
+    },
+    {
+      "arm": "A_epoch",
+      "checkpoint": {
+        "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_43\\epoch_003.pt",
+        "sha256": "adedf321552742bab612fd81e5405605eb6be42a7b114a680bc70adb5b178fc4"
+      },
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "max_logit_delta": 0.0,
+      "samples": 8,
+      "seed": 43
+    },
+    {
+      "arm": "A_epoch",
+      "checkpoint": {
+        "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_44\\epoch_003.pt",
+        "sha256": "8a742de02e46cde9790d0a60a3f6f7ab12fd5b150c6083a94b728ad0c3955b24"
+      },
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "max_logit_delta": 0.0,
+      "samples": 8,
+      "seed": 44
+    }
+  ],
+  "status": "PASS",
+  "test_access": false,
+  "v1": {
+    "checkpoint": {
+      "path": "[LOCAL_ENVIRONMENT_PATH]",
+      "sha256": "1131f9dcc665f79073d98ecd6845573109a89e44dbf2917d299a8fea057020a7"
+    },
+    "comparison_thresholds": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "input_contract": {
+      "history_separator": "\n",
+      "max_history_utterances": 5,
+      "max_sequence_length": 512,
+      "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+      "padding_side": "right",
+      "sequence_format": "[CLS] history [SEP] current [SEP]",
+      "version": "v1"
+    },
+    "logits_shape": [
+      8,
+      9
+    ],
+    "model_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+    "note": "Same pinned pair preprocessing and tokenizer content/probes; single historical checkpoint, not three independent v1 seeds",
+    "samples": 8,
+    "status": "COMPATIBLE",
+    "tokenizer_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc"
+  },
+  "source_sha256": "91f93ef8e676ce6057bb01e5cfd32dc21cc4b2effc44dbb89ad721c09910f198",
+  "redaction": "Personal environment paths omitted"
+}

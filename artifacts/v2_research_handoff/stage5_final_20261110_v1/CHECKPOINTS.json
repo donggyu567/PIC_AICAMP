@@ -1,0 +1,47 @@
+{
+  "models": [
+    {
+      "seed": 42,
+      "epoch": 3,
+      "arm": "B_ratio",
+      "path": "artifacts/v2_research_handoff/stage5_final_20261110_v1/models/B_ratio/seed_42.pt",
+      "bytes": 1348303914,
+      "sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee",
+      "drive_upload_performed": false,
+      "drive_file_url": null
+    },
+    {
+      "seed": 43,
+      "epoch": 3,
+      "arm": "B_ratio",
+      "path": "artifacts/v2_research_handoff/stage5_final_20261110_v1/models/B_ratio/seed_43.pt",
+      "bytes": 1348303914,
+      "sha256": "612a27419bff738b7661552b152ee37eb8b463e14dcbaaed8200b44796703fae",
+      "drive_upload_performed": false,
+      "drive_file_url": null
+    },
+    {
+      "seed": 44,
+      "epoch": 3,
+      "arm": "B_ratio",
+      "path": "artifacts/v2_research_handoff/stage5_final_20261110_v1/models/B_ratio/seed_44.pt",
+      "bytes": 1348303914,
+      "sha256": "92970156e78ad1aa4b10e17e0386124b1fdc0f67c2b2ab194fc6bde27b7bc409",
+      "drive_upload_performed": false,
+      "drive_file_url": null
+    }
+  ],
+  "model_version": "KoELECTRA-v2-exploratory-20261110",
+  "checkpoint_schema": "v1 + exploratory-checkpoint/1",
+  "thresholds": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+  ]
+}

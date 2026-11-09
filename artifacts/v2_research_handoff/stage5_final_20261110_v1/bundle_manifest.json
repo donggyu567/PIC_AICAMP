@@ -1,0 +1,152 @@
+{
+  "bindings": {
+    "data_manifest_sha256": "2954dd4970b2f6b2405ab16076df0e73230cef86ac717dfb8bb410cfbb31e058",
+    "generation_history_sha256": "2ca0ab93d9a064ef8cc1f8a279abcc602df7efded1f7ae6ea29f50e43cb4dd8a",
+    "split_sha256": "380550a565d532f148310e4977921d5952967861a253b5b60dcccc5ce1d97418",
+    "stage3_quality_sha256": "dd5ec3eb2ffb95c98123dc2644471eaedb07dceaaad3146f8a184ee0b6652143",
+    "test_receipt_sha256": "349a37b9ce44cc1956bb29483a323c74758e8515d3d941bb60813f3c72a1cbc6",
+    "train_sha256": "0b3174b7ca4517ec0dd00decda41f902afde7184f4fd97aedf4c167b98859bb2",
+    "validation_sha256": "be3d7dd3b2090ec33a272e47f4cbb997f36ea72ce1093e1659fefb3ab1c247e8"
+  },
+  "candidate_arm": "B_ratio",
+  "default_seed": 42,
+  "default_seed_basis": "Existing stage2 CLI default 42 / lowest registered seed; not chosen by validation ranking",
+  "deployment_approved": false,
+  "epoch": 3,
+  "evaluation_plan_sha256": "2735f1879489da64149811277de40da3669e5341eec0d37a1f47afb59dab845c",
+  "final_test_aggregate_sha256": "878c72bd2bb6267d3f2a993cead4ce1c76b461c0ab67e613779720fb0f72b689",
+  "final_test_evaluation_performed": true,
+  "human_approved": false,
+  "label_order": [
+    "institution_impersonation",
+    "money_transfer",
+    "personal_information",
+    "app_installation",
+    "secrecy",
+    "threat_pressure",
+    "loan_fraud",
+    "information_probing"
+  ],
+  "label_status": "provisional",
+  "model_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+  "models": {
+    "42": {
+      "path": "models/B_ratio/seed_42.pt",
+      "sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee"
+    },
+    "43": {
+      "path": "models/B_ratio/seed_43.pt",
+      "sha256": "612a27419bff738b7661552b152ee37eb8b463e14dcbaaed8200b44796703fae"
+    },
+    "44": {
+      "path": "models/B_ratio/seed_44.pt",
+      "sha256": "92970156e78ad1aa4b10e17e0386124b1fdc0f67c2b2ab194fc6bde27b7bc409"
+    }
+  },
+  "note": "Checkpoint hard links preserve exact original bytes including optimizer state; transport by file copy into a new location",
+  "original_selection_sha256": "ec576ee1c79807a3b0a962bdef061dc32e40870262fcaa7cba128af3b2b5db9f",
+  "parent_bundle_manifest_sha256": "812612cf3bc0987123e6c6ffb7f896ecd93b596b468f21a92adf51cb32445112",
+  "public_model": "monologg/koelectra-base-v3-discriminator",
+  "purpose": "internal_experiment",
+  "schema": "research-server-bundle/1",
+  "source_kind": "llm_synthetic",
+  "support_files": [
+    {
+      "path": "stage5_runtime.py",
+      "sha256": "a7cf96ce08ca6df897031ad8d59471b64831073b2d7d5f711c32b8f17695fb47"
+    },
+    {
+      "path": "tokenizer/special_tokens_map.json",
+      "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6"
+    },
+    {
+      "path": "tokenizer/tokenizer.json",
+      "sha256": "d5c7a9a8996aca4fee55a3664381b012bd7dbb3e190061b2591c02502b7171b6"
+    },
+    {
+      "path": "tokenizer/tokenizer_config.json",
+      "sha256": "bf65cec9f778d67388090a0b07fc1a055111f1ee93aedd1d29fd38d4854508ec"
+    },
+    {
+      "path": "tokenizer/vocab.txt",
+      "sha256": "6e886927dfcecd22029b1ba80c10a1374740259c1067fc3a28d964b7ae2d55a7"
+    },
+    {
+      "path": "vendor/risk_speech_ai/checkpoint.py",
+      "sha256": "633872d102fcaa8bbd1459e0cc372bd6021ab56dab00fbb6cbdde966b1fbd20f"
+    },
+    {
+      "path": "vendor/risk_speech_ai/config.py",
+      "sha256": "e991149c74defa828ddbd5eedc12608086a0be6263c91e97bc2e1ee198b841c5"
+    },
+    {
+      "path": "vendor/risk_speech_ai/dataset.py",
+      "sha256": "c86f104f8df60e8f9a508ba4ba64e81c886041ddfcdb653aeee8f74740d37156"
+    },
+    {
+      "path": "vendor/risk_speech_ai/evaluate_cli.py",
+      "sha256": "4f6d7ddc814436d2f683ada3ba9e88863e1835a8a292eca49afc63f185ddf579"
+    },
+    {
+      "path": "vendor/risk_speech_ai/inference.py",
+      "sha256": "f7d2613352c5ad920055ab4b0fc96244185432e693848dfadd29636648cb7d2b"
+    },
+    {
+      "path": "vendor/risk_speech_ai/labels.py",
+      "sha256": "c69afc17bcd3a4895bc7d2f4fdf297b636580291ffa381603237462ec2f2348c"
+    },
+    {
+      "path": "vendor/risk_speech_ai/metrics.py",
+      "sha256": "4a4c10e9217a3ff2a21c334774cbb9bf97d8437d47b79ab246b9c8a5cc74b80a"
+    },
+    {
+      "path": "vendor/risk_speech_ai/model.py",
+      "sha256": "945466496b24eff750982723c7e31fc325d0cf8a52cc2e7095bef02d99e94fdb"
+    },
+    {
+      "path": "vendor/risk_speech_ai/prepare_training_inputs.py",
+      "sha256": "512181b4a96cfebef4f4ed28b98956a23d457a0b0b430b68b3cad89b7f51621e"
+    },
+    {
+      "path": "vendor/risk_speech_ai/splits.py",
+      "sha256": "e14424178d9454bda0a2d46dc452d8cd96788b69f75603765ee86d7aff0d75d6"
+    },
+    {
+      "path": "vendor/risk_speech_ai/tokenization.py",
+      "sha256": "ea93a473843713545e587cbfd9d7789ac52195332b6b7b8866d170b4819a0cd3"
+    },
+    {
+      "path": "vendor/risk_speech_ai/train_cli.py",
+      "sha256": "6a7afd6244183163cb9b1d432ddbd478ce91d13723cdae81b45379dd0468972a"
+    },
+    {
+      "path": "vendor/risk_speech_ai/training.py",
+      "sha256": "7adcf627345480a97be93f253eeb3b042ab7b6a981c05682e1ca7d87cc6b529d"
+    },
+    {
+      "path": "vendor/risk_speech_ai/training_data.py",
+      "sha256": "9b13b5d55ebce748efa167d99720e6b5688d2aadea87b33a85320db3f9ea2ef9"
+    },
+    {
+      "path": "vendor/risk_speech_ai/training_log.py",
+      "sha256": "b0ce173390a04040c08d43a5ca3e433c8098a3bf3bcb58ddb653f46b778260fc"
+    },
+    {
+      "path": "vendor/risk_speech_ai/type_diagnostics.py",
+      "sha256": "713a9322fb5079abb5bbeb23dddc92363fa7280fb33e00c125771a13d7f8b92f"
+    }
+  ],
+  "threshold_version": "exploratory-validation-grid-v1",
+  "thresholds": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "tokenizer_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc"
+}

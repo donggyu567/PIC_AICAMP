@@ -1,0 +1,9 @@
+# 최종 데이터 카드
+
+TRAIN 80대화·656발화, VALIDATION 32대화·256발화로 학습/선택했다. 별도 봉인된 합성 TEST 40대화·320발화는 승인 후 최종 1회 평가에만 사용했다. TEST 지원은 {'conversations': 40, 'entirely_normal_conversations': 8, 'label_accuracy': 'PROVISIONAL_NOT_HUMAN_VERIFIED', 'multilabel_utterances': 0, 'normal': 224, 'phishing': 96, 'positive_families': {'app_installation': 4, 'information_probing': 4, 'institution_impersonation': 4, 'loan_fraud': 4, 'money_transfer': 4, 'personal_information': 4, 'secrecy': 4, 'threat_pressure': 4}, 'positive_labels': {'app_installation': 12, 'information_probing': 12, 'institution_impersonation': 12, 'loan_fraud': 12, 'money_transfer': 12, 'personal_information': 12, 'secrecy': 12, 'threat_pressure': 12}, 'semantic_independence': 'NOT_HUMAN_VERIFIED', 'utterances': 320}다.
+
+모든 생성 라벨은 잠정이며 인간 검수 미완료다. 생성 이력은 원본 데이터 manifest/registry에 보존됐다. 등록 분할 ID/가족 분리는 확인했지만 의미적 독립성이나 실제 라벨 정확성을 인증한 것은 아니다. 원래 3차 문장 유사도 후보와 공통 생성 스타일의 한계가 유지된다. 기존 v1 입력 68대화·1,460발화와 보조 VALIDATION은 새 학습에 섞지 않았다.
+
+동결된 데이터 바인딩: {'data_manifest_sha256': '2954dd4970b2f6b2405ab16076df0e73230cef86ac717dfb8bb410cfbb31e058', 'generation_history_sha256': '2ca0ab93d9a064ef8cc1f8a279abcc602df7efded1f7ae6ea29f50e43cb4dd8a', 'split_sha256': '380550a565d532f148310e4977921d5952967861a253b5b60dcccc5ce1d97418', 'stage3_quality_sha256': 'dd5ec3eb2ffb95c98123dc2644471eaedb07dceaaad3146f8a184ee0b6652143', 'test_receipt_sha256': '349a37b9ce44cc1956bb29483a323c74758e8515d3d941bb60813f3c72a1cbc6', 'train_sha256': '0b3174b7ca4517ec0dd00decda41f902afde7184f4fd97aedf4c167b98859bb2', 'validation_sha256': 'be3d7dd3b2090ec33a272e47f4cbb997f36ea72ce1093e1659fefb3ab1c247e8'}.
+
+평가 승인과 운영 배포/사람 검수 승인은 별개다. 평가 계획 SHA 2735f1879489da64149811277de40da3669e5341eec0d37a1f47afb59dab845c, aggregate SHA 878c72bd2bb6267d3f2a993cead4ce1c76b461c0ab67e613779720fb0f72b689에 연결된다. 개별 TEST 본문·정답·오류 발화 목록은 인계 패키지에 넣지 않았다.

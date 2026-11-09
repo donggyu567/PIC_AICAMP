@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "read_all_changed_files": true,
+  "files": 122,
+  "utf8_bytes": 2549990,
+  "python_ast_parsed": 79,
+  "forbidden_files": [],
+  "sensitive_patterns": [],
+  "raw_train_validation_published": false,
+  "test_ciphertext_or_plaintext_published": false,
+  "approval_release_or_private_sid_published": false,
+  "model_binary_published": false,
+  "original_files_preserved": 1337,
+  "original_stage4_weights_preserved": 18,
+  "original_v1_and_public_weights_preserved": 3,
+  "original_handoff_preserved": true,
+  "original_head_unchanged": true,
+  "git_scope": "Separate main-based public-only branch; no original v2 commits rewritten"
+}
