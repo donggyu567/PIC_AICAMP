@@ -1,0 +1,18 @@
+{
+  "training_executed": false,
+  "test_evaluated": false,
+  "checkpoint_loaded": false,
+  "tokenizer_vocab_sha256": "9f50b0a44b0272dcf78bfd7a52a0815588f69918bb87ec60b21ca235c5aa0eb4",
+  "partitions": {
+    "train": {
+      "samples": 208,
+      "batches": 52,
+      "training_allowed": false
+    },
+    "validation": {
+      "samples": 192,
+      "batches": 48,
+      "training_allowed": false
+    }
+  }
+}

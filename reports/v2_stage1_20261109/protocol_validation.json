@@ -1,0 +1,28 @@
+{
+  "status": "PASS_DESIGN_VALIDATION_EXECUTION_BLOCKED",
+  "missing_inputs": [
+    {
+      "role": "train",
+      "path": "dataset/04. processed/v2_expansion_v1/eligible_v1_train_manifest.json",
+      "reason": "NOT_YET_SUPPLIED_NOT_APPROVED"
+    },
+    {
+      "role": "synthetic_train",
+      "path": "dataset/04. processed/v2_expansion_v1/approved_train_80_manifest.json",
+      "reason": "NOT_YET_SUPPLIED_NOT_APPROVED"
+    },
+    {
+      "role": "validation",
+      "path": "dataset/04. processed/v2_expansion_v1/independent_validation_32_manifest.json",
+      "reason": "NOT_YET_SUPPLIED_NOT_APPROVED"
+    },
+    {
+      "role": "test_metadata_only",
+      "path": "dataset/05. metadata/v2_sealed_test_40_receipt.json",
+      "reason": "NOT_YET_SUPPLIED_NOT_APPROVED"
+    }
+  ],
+  "training_authorized": false,
+  "test_evaluated": false,
+  "config_sha256": "a98c283b0b133fb35473bf1e9b1f8fc3516472fc1c3ac606b2fe888dfae35497"
+}

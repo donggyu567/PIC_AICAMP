@@ -1,0 +1,287 @@
+{
+  "v1": {
+    "path": "artifacts/v1_recovered_8faa6a7eebfe/prepared/labels.jsonl",
+    "sha256": "c205049e1aa2125ad40cc6cea1465b2c2793cc7fedf02b7eab8e1d9f20e9c9e5",
+    "conversations": 68,
+    "utterances": 1460,
+    "positives": {
+      "institution_impersonation": 176,
+      "money_transfer": 90,
+      "personal_information": 32,
+      "app_installation": 6,
+      "secrecy": 21,
+      "threat_pressure": 81,
+      "loan_fraud": 65,
+      "information_probing": 100
+    }
+  },
+  "train": {
+    "path": "dataset/04. processed/v2_train_expansion/train_24_mixed_review_candidate.jsonl",
+    "sha256": "e6fd1c0c603c1d177bf40803fbbed548a6288532a6b3933653d1984c408a5819",
+    "conversations": 24,
+    "utterances": 208,
+    "positives": {
+      "institution_impersonation": 14,
+      "money_transfer": 7,
+      "personal_information": 9,
+      "app_installation": 7,
+      "secrecy": 6,
+      "threat_pressure": 4,
+      "loan_fraud": 6,
+      "information_probing": 6
+    },
+    "families": [
+      "FAM2-TRAIN-0001",
+      "FAM2-TRAIN-0002",
+      "FAM2-TRAIN-0003",
+      "FAM2-TRAIN-0004",
+      "FAM2-TRAIN-0005",
+      "FAM2-TRAIN-0006",
+      "FAM2-TRAIN-0007",
+      "FAM2-TRAIN-0008",
+      "FAM2-TRAIN-0009",
+      "FAM2-TRAIN-0010",
+      "FAM2-TRAIN-0011",
+      "FAM2-TRAIN-0012",
+      "FAM2-TRAIN-0013",
+      "FAM2-TRAIN-0014",
+      "FAM2-TRAIN-0015",
+      "FAM2-TRAIN-0016",
+      "FAM2-TRAIN-0017",
+      "FAM2-TRAIN-0018",
+      "FAM2-TRAIN-0019",
+      "FAM2-TRAIN-0020",
+      "FAM2-TRAIN-0021",
+      "FAM2-TRAIN-0022",
+      "FAM2-TRAIN-0023",
+      "FAM2-TRAIN-0024"
+    ],
+    "source_kinds": {
+      "llm_simulation": 24
+    }
+  },
+  "aux_validation": {
+    "path": "dataset/04. processed/v2_validation/validation_24_generated.jsonl",
+    "sha256": "e2cfe8ff687dd8670f4d77ce53c85e9353866bae9502df09cdbd3540b98d4087",
+    "conversations": 24,
+    "utterances": 192,
+    "positives": {
+      "institution_impersonation": 14,
+      "money_transfer": 8,
+      "personal_information": 10,
+      "app_installation": 5,
+      "secrecy": 7,
+      "threat_pressure": 6,
+      "loan_fraud": 4,
+      "information_probing": 7
+    },
+    "families": [
+      "FAM2-VALIDATION-AIR-REFUND-CARD",
+      "FAM2-VALIDATION-CAMERA-CODEC",
+      "FAM2-VALIDATION-CLOUD-WORKSPACE-TAKEOVER",
+      "FAM2-VALIDATION-DONATION-MATCH",
+      "FAM2-VALIDATION-ESCROW-RECHARGE",
+      "FAM2-VALIDATION-GIG-SETTLEMENT-MULE",
+      "FAM2-VALIDATION-GOODS-LOAN-CASHOUT",
+      "FAM2-VALIDATION-GUARANTOR-LOAN-HARVEST",
+      "FAM2-VALIDATION-JURY-FINE",
+      "FAM2-VALIDATION-NORMAL-CARD-FREEZE",
+      "FAM2-VALIDATION-NORMAL-COD-REFUSAL",
+      "FAM2-VALIDATION-NORMAL-COLDPARCEL-HANDOVER",
+      "FAM2-VALIDATION-NORMAL-CONSENTED-REMOTE",
+      "FAM2-VALIDATION-NORMAL-HOTEL-CHECK",
+      "FAM2-VALIDATION-NORMAL-JOINT-ACCOUNT-PRIVACY",
+      "FAM2-VALIDATION-NORMAL-LOAN-QUOTE",
+      "FAM2-VALIDATION-NORMAL-RETURN-FEE",
+      "FAM2-VALIDATION-ORCHESTRA-EMERGENCY",
+      "FAM2-VALIDATION-PARCEL-REWARD-MAPPING",
+      "FAM2-VALIDATION-SHAREHOLDER-VOTE",
+      "FAM2-VALIDATION-TAX-SCREEN-SHARE",
+      "FAM2-VALIDATION-TENANCY-OWNER-MAP",
+      "FAM2-VALIDATION-THESIS-COPYRIGHT",
+      "FAM2-VALIDATION-TOURNAMENT-ACCOUNT"
+    ],
+    "source_kinds": {
+      "llm_simulation": 24
+    }
+  },
+  "review_tables": {
+    "dataset/review/v2_pilot/backups/human_review_working.before_lim_approval_20261105T011523+0900.csv": {
+      "sha256": "a89c70714f44ee8cee1bccba5437bf1efa42eae3c7e94061c9ee481b10642b1d",
+      "rows": 136,
+      "decisions": {
+        "검수_결과_김해린": {
+          "미승인": 136
+        },
+        "검수_결과_임정윤": {
+          "미승인": 136
+        },
+        "최종_합의_결과": {
+          "미승인": 136
+        }
+      }
+    },
+    "dataset/review/v2_pilot/human_review.csv": {
+      "sha256": "a89c70714f44ee8cee1bccba5437bf1efa42eae3c7e94061c9ee481b10642b1d",
+      "rows": 136,
+      "decisions": {
+        "검수_결과_김해린": {
+          "미승인": 136
+        },
+        "검수_결과_임정윤": {
+          "미승인": 136
+        },
+        "최종_합의_결과": {
+          "미승인": 136
+        }
+      }
+    },
+    "dataset/review/v2_pilot/human_review_working.csv": {
+      "sha256": "f6a73c96945a04ac52b766c28f754f6e3b0a321e85abe012d11b0fe9f7261c90",
+      "rows": 136,
+      "decisions": {
+        "검수_결과_김해린": {
+          "미승인": 136
+        },
+        "검수_결과_임정윤": {
+          "승인": 136
+        },
+        "최종_합의_결과": {
+          "미승인": 136
+        }
+      }
+    },
+    "dataset/review/v2_train_expansion/human_review_new8.csv": {
+      "sha256": "842652b4e11eaf13c1e98652fbfacd012c42f636c3e32f15c3007dbc14215f64",
+      "rows": 72,
+      "decisions": {
+        "검수_결과_김해린": {
+          "미승인": 72
+        },
+        "검수_결과_임정윤": {
+          "미승인": 72
+        },
+        "최종_합의_결과": {
+          "미승인": 72
+        }
+      }
+    },
+    "dataset/review/v2_validation/human_review.csv": {
+      "sha256": "c809c96124e4fd5604e1e4219caa6170858796e91ad1e001d92e2de6c4b64126",
+      "rows": 192,
+      "decisions": {
+        "검수_결과_김해린": {
+          "미승인": 192
+        },
+        "검수_결과_임정윤": {
+          "미승인": 192
+        },
+        "최종_합의_결과": {
+          "미승인": 192
+        }
+      }
+    }
+  },
+  "historical_public_assets": {
+    "model": "monologg/koelectra-base-v3-discriminator",
+    "revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+    "public_pretrained_encoder_only": true,
+    "original_v1_checkpoint_restored": false,
+    "training_executed": false,
+    "remote_files": [
+      {
+        "name": ".gitattributes",
+        "size": 345,
+        "blob_id": "dc08351d4dc0732d9c8af04070ced089b201ce2f",
+        "lfs": null
+      },
+      {
+        "name": "README.md",
+        "size": 1841,
+        "blob_id": "bf1679b58eab1f1070daee9aa1e55ad9746b62fe",
+        "lfs": null
+      },
+      {
+        "name": "config.json",
+        "size": 467,
+        "blob_id": "ef331411bf23a3a333aefc6dbf95c67ad222fe05",
+        "lfs": null
+      },
+      {
+        "name": "pytorch_model.bin",
+        "size": 451741507,
+        "blob_id": "bbaae31e2fe0c944e99ed9b63eeaaf196a9f3f2e",
+        "lfs": {
+          "size": 451741507,
+          "sha256": "f3f249cc07826bc2964a2c0dbbd0d239df4fe55efc03ba33e1bd1584cf56c566",
+          "pointer_size": 134
+        }
+      },
+      {
+        "name": "tokenizer_config.json",
+        "size": 61,
+        "blob_id": "18ccce5ca61739f097261d5c2008339c00f8e285",
+        "lfs": null
+      },
+      {
+        "name": "vocab.txt",
+        "size": 263326,
+        "blob_id": "7842ecfa1975af77bae575314998f42c6feecdd6",
+        "lfs": null
+      }
+    ],
+    "files": [
+      {
+        "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_experiment_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\config.json",
+        "name": "config.json",
+        "bytes": 467,
+        "sha256": "b0524c98036d679fd7a38a304a678cbf8d71226283c1f2f6ce08408e85eea56e",
+        "matches_remote_git_blob": true
+      },
+      {
+        "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_experiment_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\tokenizer_config.json",
+        "name": "tokenizer_config.json",
+        "bytes": 61,
+        "sha256": "cd074f01387ed507bc657bebc91c9653874194ba612ceecffe72e6d5c631988c",
+        "matches_remote_git_blob": true
+      },
+      {
+        "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_experiment_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\vocab.txt",
+        "name": "vocab.txt",
+        "bytes": 263326,
+        "sha256": "9f50b0a44b0272dcf78bfd7a52a0815588f69918bb87ec60b21ca235c5aa0eb4",
+        "matches_remote_git_blob": true
+      },
+      {
+        "path": "C:\\Users\\임정윤\\OneDrive\\Desktop\\PIC_AICAMP\\artifacts\\v2_experiment_assets\\hf\\hub\\models--monologg--koelectra-base-v3-discriminator\\snapshots\\68b30cd259f34a4b5aa8786392612ba2a2617fcc\\pytorch_model.bin",
+        "name": "pytorch_model.bin",
+        "bytes": 451741507,
+        "sha256": "f3f249cc07826bc2964a2c0dbbd0d239df4fe55efc03ba33e1bd1584cf56c566",
+        "matches_remote_lfs_sha256": true
+      }
+    ],
+    "status": "READY_PUBLIC_BASE_ASSETS"
+  },
+  "local_weight_inventory": [
+    {
+      "root": "artifacts",
+      "path": "risk_speech_ai/koelectra_risk_v1.pt",
+      "bytes": 1348308730,
+      "sha256": "1131f9dcc665f79073d98ecd6845573109a89e44dbf2917d299a8fea057020a7"
+    },
+    {
+      "root": "checkpoints",
+      "path": "risk_speech_v1.pt",
+      "bytes": 1348308730,
+      "sha256": "1131f9dcc665f79073d98ecd6845573109a89e44dbf2917d299a8fea057020a7"
+    },
+    {
+      "root": ".venv-ai/hf-cache",
+      "path": "hub/models--monologg--koelectra-base-v3-discriminator/snapshots/68b30cd259f34a4b5aa8786392612ba2a2617fcc/pytorch_model.bin",
+      "bytes": 451741507,
+      "sha256": "f3f249cc07826bc2964a2c0dbbd0d239df4fe55efc03ba33e1bd1584cf56c566"
+    }
+  ],
+  "scan_scope": "worktree artifacts; primary workspace artifacts/checkpoints/models/.venv-ai/hf-cache only",
+  "local_revision": "01323989dad907a38e5fcca9fce0537adc070e32"
+}
