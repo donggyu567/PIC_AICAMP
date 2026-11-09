@@ -1,0 +1,1286 @@
+{
+  "public_copy": true,
+  "source_sha256": "b593a88da5d0c9b7dee376543ab6e2190dfcb8e10b62dc1a2392ec84432456b4",
+  "redaction": "Custodian/release/claim identity evidence and environment paths omitted; original remains local",
+  "data": {
+    "B_minus_v1": {
+      "average_precision": 0.37555845581297,
+      "f1": 0.44753466201723624,
+      "precision": 0.31329007913087203,
+      "recall": 0.5590277777777778,
+      "roc_auc": 0.21054997519841268
+    },
+    "deployment_approved": false,
+    "evaluation_unit": "current utterance; conversation false alerts separately",
+    "human_label_review_complete": false,
+    "label_status": "provisional",
+    "schema": "final-fixed-test-comparison/1",
+    "source_kind": "llm_synthetic",
+    "source_sha256": "878c72bd2bb6267d3f2a993cead4ce1c76b461c0ab67e613779720fb0f72b689",
+    "summaries": {
+      "A_epoch": {
+        "binary": {
+          "average_precision": {
+            "mean": 0.9758216580229195,
+            "std_sample": 0.018510414708172072,
+            "values": [
+              0.9850768137946608,
+              0.9545089963374657,
+              0.9878791639366322
+            ]
+          },
+          "f1": {
+            "mean": 0.9077915620894772,
+            "std_sample": 0.04933224936055686,
+            "values": [
+              0.9365853658536586,
+              0.850828729281768,
+              0.9359605911330049
+            ]
+          },
+          "precision": {
+            "mean": 0.8914889217283415,
+            "std_sample": 0.012963000003749144,
+            "values": [
+              0.8807339449541285,
+              0.9058823529411765,
+              0.8878504672897196
+            ]
+          },
+          "recall": {
+            "mean": 0.9305555555555556,
+            "std_sample": 0.11138204814128777,
+            "values": [
+              1.0,
+              0.8020833333333334,
+              0.9895833333333334
+            ]
+          },
+          "roc_auc": {
+            "mean": 0.9897073412698413,
+            "std_sample": 0.008444143195901687,
+            "values": [
+              0.9946521577380952,
+              0.9799572172619048,
+              0.9945126488095238
+            ]
+          }
+        },
+        "normal_false_alert_rate": {
+          "mean": 0.2916666666666667,
+          "std_sample": 0.3145764348029479,
+          "values": [
+            0.25,
+            0.0,
+            0.625
+          ]
+        },
+        "per_type": {
+          "app_installation": {
+            "average_precision": {
+              "mean": 0.16849126885864008,
+              "std_sample": 0.0592802317230043,
+              "values": [
+                0.21023170518265125,
+                0.10063756578178422,
+                0.19460453561148472
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "information_probing": {
+            "average_precision": {
+              "mean": 0.05998064335947528,
+              "std_sample": 0.0302411709403268,
+              "values": [
+                0.08393238736000942,
+                0.025998774691442312,
+                0.0700107680269741
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "institution_impersonation": {
+            "average_precision": {
+              "mean": 0.2570071609096261,
+              "std_sample": 0.02656240041325977,
+              "values": [
+                0.2460918316224321,
+                0.28728825814479747,
+                0.23764139296164874
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "loan_fraud": {
+            "average_precision": {
+              "mean": 0.1724513973833592,
+              "std_sample": 0.054625748437692336,
+              "values": [
+                0.20554605673121978,
+                0.2024070787341448,
+                0.10940105668471306
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "money_transfer": {
+            "average_precision": {
+              "mean": 0.2673963137071646,
+              "std_sample": 0.08086644440828676,
+              "values": [
+                0.2869301672019342,
+                0.17855218887479332,
+                0.3367065850447663
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "personal_information": {
+            "average_precision": {
+              "mean": 0.08767673797390273,
+              "std_sample": 0.05577667998981308,
+              "values": [
+                0.13905896316335756,
+                0.028356200293082473,
+                0.09561505046526815
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "secrecy": {
+            "average_precision": {
+              "mean": 0.12694259412111653,
+              "std_sample": 0.024640808243931434,
+              "values": [
+                0.13353836524016238,
+                0.14761429936792714,
+                0.09967511775526004
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "threat_pressure": {
+            "average_precision": {
+              "mean": 0.21197399810545858,
+              "std_sample": 0.12527755602024768,
+              "values": [
+                0.3385237149991006,
+                0.08800858925735529,
+                0.2093896900599198
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          }
+        },
+        "risky_miss_rate": {
+          "mean": 0.010416666666666666,
+          "std_sample": 0.018042195912175804,
+          "values": [
+            0.0,
+            0.03125,
+            0.0
+          ]
+        }
+      },
+      "B_ratio": {
+        "binary": {
+          "average_precision": {
+            "mean": 0.948696445873012,
+            "std_sample": 0.04258297443398066,
+            "values": [
+              0.9694395219691085,
+              0.8997165757294341,
+              0.9769332399204936
+            ]
+          },
+          "f1": {
+            "mean": 0.9231444181147972,
+            "std_sample": 0.03626741792506048,
+            "values": [
+              0.94,
+              0.8815165876777251,
+              0.9479166666666666
+            ]
+          },
+          "precision": {
+            "mean": 0.8868194908955779,
+            "std_sample": 0.0711551344424439,
+            "values": [
+              0.9038461538461539,
+              0.808695652173913,
+              0.9479166666666666
+            ]
+          },
+          "recall": {
+            "mean": 0.9652777777777778,
+            "std_sample": 0.015911721163041116,
+            "values": [
+              0.9791666666666666,
+              0.96875,
+              0.9479166666666666
+            ]
+          },
+          "roc_auc": {
+            "mean": 0.9815228174603174,
+            "std_sample": 0.014578837550366578,
+            "values": [
+              0.9905598958333334,
+              0.9647042410714286,
+              0.9893043154761905
+            ]
+          }
+        },
+        "normal_false_alert_rate": {
+          "mean": 0.25,
+          "std_sample": 0.125,
+          "values": [
+            0.375,
+            0.25,
+            0.125
+          ]
+        },
+        "per_type": {
+          "app_installation": {
+            "average_precision": {
+              "mean": 0.6087792302685919,
+              "std_sample": 0.17398438123709378,
+              "values": [
+                0.5687400800831652,
+                0.7992928367928367,
+                0.45830477392977387
+              ]
+            },
+            "f1": {
+              "mean": 0.44814814814814813,
+              "std_sample": 0.05010277503136548,
+              "values": [
+                0.4444444444444444,
+                0.5,
+                0.4
+              ]
+            },
+            "precision": {
+              "mean": 0.4615384615384615,
+              "std_sample": 0.17948717948717946,
+              "values": [
+                0.6666666666666666,
+                0.3333333333333333,
+                0.38461538461538464
+              ]
+            },
+            "recall": {
+              "mean": 0.5833333333333334,
+              "std_sample": 0.36324157862838946,
+              "values": [
+                0.3333333333333333,
+                1.0,
+                0.4166666666666667
+              ]
+            }
+          },
+          "information_probing": {
+            "average_precision": {
+              "mean": 0.1350972812031292,
+              "std_sample": 0.09282783919292928,
+              "values": [
+                0.1749854634992242,
+                0.028992251027797067,
+                0.2013141290823663
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": 0.0,
+              "values": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            }
+          },
+          "institution_impersonation": {
+            "average_precision": {
+              "mean": 0.6993946278222268,
+              "std_sample": 0.03312877707443189,
+              "values": [
+                0.7200680732666027,
+                0.6611836811549455,
+                0.7169321290451321
+              ]
+            },
+            "f1": {
+              "mean": 0.5327777777777778,
+              "std_sample": 0.13954622226398017,
+              "values": [
+                0.5833333333333334,
+                0.64,
+                0.375
+              ]
+            },
+            "precision": {
+              "mean": 0.6495726495726496,
+              "std_sample": 0.08843676105373877,
+              "values": [
+                0.5833333333333334,
+                0.6153846153846154,
+                0.75
+              ]
+            },
+            "recall": {
+              "mean": 0.5,
+              "std_sample": 0.22047927592204922,
+              "values": [
+                0.5833333333333334,
+                0.6666666666666666,
+                0.25
+              ]
+            }
+          },
+          "loan_fraud": {
+            "average_precision": {
+              "mean": 0.7410986776562738,
+              "std_sample": 0.08319504554729788,
+              "values": [
+                0.6731778290286867,
+                0.7162247213334169,
+                0.8338934826067178
+              ]
+            },
+            "f1": {
+              "mean": 0.5068906115417744,
+              "std_sample": 0.045611687958054495,
+              "values": [
+                0.46511627906976744,
+                0.5,
+                0.5555555555555556
+              ]
+            },
+            "precision": {
+              "mean": 0.496415770609319,
+              "std_sample": 0.2918286965492751,
+              "values": [
+                0.3225806451612903,
+                0.3333333333333333,
+                0.8333333333333334
+              ]
+            },
+            "recall": {
+              "mean": 0.75,
+              "std_sample": 0.3004626062886658,
+              "values": [
+                0.8333333333333334,
+                1.0,
+                0.4166666666666667
+              ]
+            }
+          },
+          "money_transfer": {
+            "average_precision": {
+              "mean": 0.8150900809898278,
+              "std_sample": 0.1176822385289953,
+              "values": [
+                0.9269272394272394,
+                0.6923250601329966,
+                0.8260179434092476
+              ]
+            },
+            "f1": {
+              "mean": 0.4925925925925926,
+              "std_sample": 0.0449050209369709,
+              "values": [
+                0.5,
+                0.4444444444444444,
+                0.5333333333333333
+              ]
+            },
+            "precision": {
+              "mean": 0.32756132756132755,
+              "std_sample": 0.039280397081720646,
+              "values": [
+                0.3333333333333333,
+                0.2857142857142857,
+                0.36363636363636365
+              ]
+            },
+            "recall": {
+              "mean": 1.0,
+              "std_sample": 0.0,
+              "values": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          },
+          "personal_information": {
+            "average_precision": {
+              "mean": 0.7222123287899953,
+              "std_sample": 0.27661800062229114,
+              "values": [
+                0.7324113944238058,
+                0.9935897435897436,
+                0.4406358483564366
+              ]
+            },
+            "f1": {
+              "mean": 0.29451780712284914,
+              "std_sample": 0.05455694907452347,
+              "values": [
+                0.24489795918367346,
+                0.2857142857142857,
+                0.35294117647058826
+              ]
+            },
+            "precision": {
+              "mean": 0.57984496124031,
+              "std_sample": 0.4305864875653226,
+              "values": [
+                0.13953488372093023,
+                1.0,
+                0.6
+              ]
+            },
+            "recall": {
+              "mean": 0.4722222222222222,
+              "std_sample": 0.4589642122738418,
+              "values": [
+                1.0,
+                0.16666666666666666,
+                0.25
+              ]
+            }
+          },
+          "secrecy": {
+            "average_precision": {
+              "mean": 0.8775539583872917,
+              "std_sample": 0.06022869980947854,
+              "values": [
+                0.8215033577533577,
+                0.9412337662337662,
+                0.869924751174751
+              ]
+            },
+            "f1": {
+              "mean": 0.5514584181250848,
+              "std_sample": 0.3503403647630015,
+              "values": [
+                0.8148148148148148,
+                0.6857142857142857,
+                0.15384615384615385
+              ]
+            },
+            "precision": {
+              "mean": 0.7516908212560386,
+              "std_sample": 0.2396583252496013,
+              "values": [
+                0.7333333333333333,
+                0.5217391304347826,
+                1.0
+              ]
+            },
+            "recall": {
+              "mean": 0.6666666666666666,
+              "std_sample": 0.5068968775248517,
+              "values": [
+                0.9166666666666666,
+                1.0,
+                0.08333333333333333
+              ]
+            }
+          },
+          "threat_pressure": {
+            "average_precision": {
+              "mean": 0.8634541974002758,
+              "std_sample": 0.1264002136567321,
+              "values": [
+                0.750533263033263,
+                0.8398293291675645,
+                1.0
+              ]
+            },
+            "f1": {
+              "mean": 0.8016863016863017,
+              "std_sample": 0.1399245168312946,
+              "values": [
+                0.8333333333333334,
+                0.6486486486486487,
+                0.9230769230769231
+              ]
+            },
+            "precision": {
+              "mean": 0.7234920634920635,
+              "std_sample": 0.2112060891492629,
+              "values": [
+                0.8333333333333334,
+                0.48,
+                0.8571428571428571
+              ]
+            },
+            "recall": {
+              "mean": 0.9444444444444444,
+              "std_sample": 0.0962250448649376,
+              "values": [
+                0.8333333333333334,
+                1.0,
+                1.0
+              ]
+            }
+          }
+        },
+        "risky_miss_rate": {
+          "mean": 0.0,
+          "std_sample": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "v1": {
+        "binary": {
+          "average_precision": {
+            "mean": 0.5731379900600421,
+            "std_sample": null,
+            "values": [
+              0.5731379900600421
+            ]
+          },
+          "f1": {
+            "mean": 0.47560975609756095,
+            "std_sample": null,
+            "values": [
+              0.47560975609756095
+            ]
+          },
+          "precision": {
+            "mean": 0.5735294117647058,
+            "std_sample": null,
+            "values": [
+              0.5735294117647058
+            ]
+          },
+          "recall": {
+            "mean": 0.40625,
+            "std_sample": null,
+            "values": [
+              0.40625
+            ]
+          },
+          "roc_auc": {
+            "mean": 0.7709728422619048,
+            "std_sample": null,
+            "values": [
+              0.7709728422619048
+            ]
+          }
+        },
+        "normal_false_alert_rate": {
+          "mean": 0.5,
+          "std_sample": null,
+          "values": [
+            0.5
+          ]
+        },
+        "per_type": {
+          "app_installation": {
+            "average_precision": {
+              "mean": 0.029986850471485145,
+              "std_sample": null,
+              "values": [
+                0.029986850471485145
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            }
+          },
+          "information_probing": {
+            "average_precision": {
+              "mean": 0.04823692304863021,
+              "std_sample": null,
+              "values": [
+                0.04823692304863021
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            }
+          },
+          "institution_impersonation": {
+            "average_precision": {
+              "mean": 0.6187566295629996,
+              "std_sample": null,
+              "values": [
+                0.6187566295629996
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            }
+          },
+          "loan_fraud": {
+            "average_precision": {
+              "mean": 0.1091770246634822,
+              "std_sample": null,
+              "values": [
+                0.1091770246634822
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            }
+          },
+          "money_transfer": {
+            "average_precision": {
+              "mean": 0.07823175658770848,
+              "std_sample": null,
+              "values": [
+                0.07823175658770848
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            }
+          },
+          "personal_information": {
+            "average_precision": {
+              "mean": 0.053474104436958075,
+              "std_sample": null,
+              "values": [
+                0.053474104436958075
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            }
+          },
+          "secrecy": {
+            "average_precision": {
+              "mean": 0.036111949385700615,
+              "std_sample": null,
+              "values": [
+                0.036111949385700615
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            }
+          },
+          "threat_pressure": {
+            "average_precision": {
+              "mean": 0.12604305738869861,
+              "std_sample": null,
+              "values": [
+                0.12604305738869861
+              ]
+            },
+            "f1": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "precision": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            },
+            "recall": {
+              "mean": 0.0,
+              "std_sample": null,
+              "values": [
+                0.0
+              ]
+            }
+          }
+        },
+        "risky_miss_rate": {
+          "mean": 0.375,
+          "std_sample": null,
+          "values": [
+            0.375
+          ]
+        }
+      }
+    },
+    "uncertainty": {
+      "by_arm": {
+        "A_epoch": {
+          "app_installation": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1973
+          },
+          "information_probing": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1961
+          },
+          "institution_impersonation": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1961
+          },
+          "loan_fraud": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1975
+          },
+          "money_transfer": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1966
+          },
+          "personal_information": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1960
+          },
+          "risk": {
+            "ci95": [
+              0.871243600651501,
+              0.9371310856198276
+            ],
+            "valid_repetitions": 2000
+          },
+          "secrecy": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1967
+          },
+          "threat_pressure": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1981
+          }
+        },
+        "B_ratio": {
+          "app_installation": {
+            "ci95": [
+              0.12135642135642136,
+              0.6674444444444444
+            ],
+            "valid_repetitions": 1973
+          },
+          "information_probing": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1961
+          },
+          "institution_impersonation": {
+            "ci95": [
+              0.3333333333333333,
+              0.6126984126984127
+            ],
+            "valid_repetitions": 1961
+          },
+          "loan_fraud": {
+            "ci95": [
+              0.2763086155191418,
+              0.6534699938604602
+            ],
+            "valid_repetitions": 1975
+          },
+          "money_transfer": {
+            "ci95": [
+              0.18787258855154965,
+              0.6929868486811592
+            ],
+            "valid_repetitions": 1966
+          },
+          "personal_information": {
+            "ci95": [
+              0.08842857142857144,
+              0.45176122123490503
+            ],
+            "valid_repetitions": 1960
+          },
+          "risk": {
+            "ci95": [
+              0.8935219823352378,
+              0.9484760095841479
+            ],
+            "valid_repetitions": 2000
+          },
+          "secrecy": {
+            "ci95": [
+              0.3446759259259259,
+              0.6555486813500416
+            ],
+            "valid_repetitions": 1967
+          },
+          "threat_pressure": {
+            "ci95": [
+              0.6714200831847891,
+              0.9019607843137255
+            ],
+            "valid_repetitions": 1981
+          }
+        },
+        "v1": {
+          "app_installation": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1973
+          },
+          "information_probing": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1961
+          },
+          "institution_impersonation": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1961
+          },
+          "loan_fraud": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1975
+          },
+          "money_transfer": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1966
+          },
+          "personal_information": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1960
+          },
+          "risk": {
+            "ci95": [
+              0.35210985915492954,
+              0.5681877990430623
+            ],
+            "valid_repetitions": 2000
+          },
+          "secrecy": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1967
+          },
+          "threat_pressure": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "valid_repetitions": 1981
+          }
+        }
+      },
+      "families": 40,
+      "missing_positive_support_policy": "skip resample for that output",
+      "note": "Registered families equal conversations in this corpus; semantic independence unverified. Seed-mean metrics, not probability ensembling.",
+      "paired_binary_f1_delta_B_minus_comparator": {
+        "A_epoch": {
+          "ci95": [
+            -0.011389928860227204,
+            0.047740935957274216
+          ],
+          "valid_repetitions": 2000
+        },
+        "v1": {
+          "ci95": [
+            0.353448728326841,
+            0.5683547264623591
+          ],
+          "valid_repetitions": 2000
+        }
+      },
+      "repetitions": 2000,
+      "seed": 20261110,
+      "unit": "scenario_family_id"
+    },
+    "v1_seed_policy": "Single historical checkpoint; standard deviation is null, never fabricated three-seed v1"
+  }
+}

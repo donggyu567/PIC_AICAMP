@@ -1,0 +1,79 @@
+{
+  "schema": "koelectra-expansion-design/1",
+  "protocol_id": "koelectra-expansion-20261109-v1",
+  "status": "DESIGN_ONLY_IMPLEMENTATION_AND_HUMAN_DECISIONS_PENDING",
+  "baseline_commit": "01323989dad907a38e5fcca9fce0537adc070e32",
+  "execution": {"training_enabled": false, "test_prediction_enabled": false, "approval_write_enabled": false},
+  "legacy_configs": ["experiments/koelectra_v2/configs/A.json", "experiments/koelectra_v2/configs/B.json", "experiments/koelectra_v2/configs/C.json"],
+  "model": {
+    "name": "monologg/koelectra-base-v3-discriminator",
+    "revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+    "shared_encoder": true, "risk_outputs": 1, "type_outputs": 8,
+    "original_v1_checkpoint_restored": false
+  },
+  "input": {
+    "max_history_utterances": 5, "max_sequence_length": 512, "label_target": "current_utterance",
+    "label_order": ["institution_impersonation", "money_transfer", "personal_information", "app_installation", "secrecy", "threat_pressure", "loan_fraud", "information_probing"]
+  },
+  "existing_inputs": {
+    "v1_labels": {"path": "artifacts/v1_recovered_8faa6a7eebfe/prepared/labels.jsonl", "sha256": "c205049e1aa2125ad40cc6cea1465b2c2793cc7fedf02b7eab8e1d9f20e9c9e5"},
+    "v1_text": {"path": "artifacts/v1_recovered_8faa6a7eebfe/prepared/tuned.jsonl", "sha256": "50ea88cc3ee9c3df1477082ab5daf82ef77f83329374b50f312874592462e6f2"},
+    "synthetic_train_candidate": {"path": "dataset/04. processed/v2_train_expansion/train_24_mixed_review_candidate.jsonl", "sha256": "e6fd1c0c603c1d177bf40803fbbed548a6288532a6b3933653d1984c408a5819"},
+    "aux_validation_candidate": {"path": "dataset/04. processed/v2_validation/validation_24_generated.jsonl", "sha256": "e2cfe8ff687dd8670f4d77ce53c85e9353866bae9502df09cdbd3540b98d4087"}
+  },
+  "data": {
+    "strategy": "eligible_existing_v1_train_plus_new_independent_holdouts",
+    "legacy_48_10_10_use": "archived_diagnostic_only_never_merge_with_new_holdouts",
+    "synthetic_train_target_conversations": 80,
+    "existing_train_candidate_conversations": 24,
+    "additional_train_conversations": 56,
+    "independent_validation_target_conversations": 32,
+    "sealed_test_target_conversations": 40,
+    "aux_llm_validation_conversations": 24,
+    "final_approved_synthetic_train_conversations": 0,
+    "future_required": [
+      {"role": "train", "path": "dataset/04. processed/v2_expansion_v1/eligible_v1_train_manifest.json", "available": false},
+      {"role": "synthetic_train", "path": "dataset/04. processed/v2_expansion_v1/approved_train_80_manifest.json", "available": false},
+      {"role": "validation", "path": "dataset/04. processed/v2_expansion_v1/independent_validation_32_manifest.json", "available": false},
+      {"role": "test_metadata_only", "path": "dataset/05. metadata/v2_sealed_test_40_receipt.json", "available": false}
+    ],
+    "test_content_access_from_development": false,
+    "require_disjoint_conversation_source_family_author_groups": true,
+    "require_rights_and_two_person_final_review": true
+  },
+  "training_plan": {
+    "seeds": [42, 43, 44], "batch_size": 8, "learning_rate": 0.00002,
+    "weight_decay": 0.01, "optimizer": "AdamW", "precision": "float32",
+    "epoch_candidates": [1, 2, 3], "risk_loss": "unweighted_BCEWithLogitsLoss_mean",
+    "type_loss": "BCEWithLogitsLoss_mean", "loss_coefficients": [1, 1],
+    "weight_policy": {
+      "primary": "min(10,max(1,N_negative/N_positive))",
+      "source": "eligible_original_TRAIN_only",
+      "zero_positive": "weight_1_flag_unsupported_no_detection_claim",
+      "freeze_B_weights_for_C": true,
+      "optional_legacy_ablation": "min(5,sqrt(N_negative/N_positive)); never primary-equivalent"
+    }
+  },
+  "arms": [
+    {"id": "A0", "legacy": "A", "epochs": [1], "weights": "none", "threshold": "fixed_0.5", "data": "eligible_original_TRAIN"},
+    {"id": "A_epoch", "legacy": "A", "epochs": [1, 2, 3], "weights": "none", "threshold": "fixed_0.5", "data": "eligible_original_TRAIN"},
+    {"id": "B_ratio", "legacy": "B", "epochs": [1, 2, 3], "weights": "primary", "threshold": "fixed_0.5", "data": "eligible_original_TRAIN"},
+    {"id": "B_threshold", "legacy": "B", "epochs": "validation_selected_B_ratio", "weights": "primary", "threshold": "validation_only", "data": "eligible_original_TRAIN"},
+    {"id": "C_approved", "legacy": "C", "epochs": "same_selected_B", "weights": "frozen_B", "threshold": "same_frozen_B", "data": "original_plus_final_approved_synthetic_TRAIN"},
+    {"id": "B_step_matched", "legacy": "B", "epochs": "steps_equal_C", "weights": "primary", "threshold": "same_frozen_B", "data": "eligible_original_TRAIN"}
+  ],
+  "selection": {
+    "source": "independent_validation_only",
+    "epoch_objective": "mean_seed_binary_F1_at_0.5; ties_lower_epoch",
+    "threshold_grid": [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9],
+    "threshold_objective": "mean_seed_F1_per_output; ties_nearest_0.5_then_higher",
+    "minimum_positive_and_negative_each": 10,
+    "minimum_positive_conversations": 3,
+    "unsupported_threshold": 0.5,
+    "freeze_same_thresholds_across_seeds_and_B_C": true,
+    "test_selection_allowed": false,
+    "full8_macro_requires_all8_defined": true,
+    "report_fixed_and_selected_thresholds_separately": true
+  },
+  "output_plan": {"root": "artifacts/v2_comparison_runs", "namespace": "expansion_20261109_v1", "overwrite": false, "metadata_requires": ["protocol_sha256", "data_sha256", "split_sha256", "approval_evidence_sha256", "weight_vector", "threshold_vector", "epoch", "seed", "optimizer_steps"]}
+}

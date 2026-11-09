@@ -8,3 +8,20 @@ __pycache__/
 venv/
 outputs/
 backend/data/
+
+# KoELECTRA research: local-only weights, sealed data and credentials
+*.pt
+*.pth
+*.safetensors
+pytorch_model*.bin
+**/__pycache__/
+*.py[cod]
+.venv*/
+hf-cache/
+.sealed/
+.env
+.env.*
+!.env.example
+artifacts/v2_exploratory_runs/
+dataset/04. processed/v2_internal_*/
+reports/v2_delivery_*/

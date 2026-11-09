@@ -1,0 +1,11 @@
+{
+  "support_zip_only": true,
+  "remote_download_bytes": 436469,
+  "remote_sha256": "1a063cda2d92b84d566bef59b0d01a62db733f77839b7ff9be20659b8bf23c72",
+  "local_sha256": "1a063cda2d92b84d566bef59b0d01a62db733f77839b7ff9be20659b8bf23c72",
+  "integrity": "MATCH",
+  "model_pt_upload_performed": false,
+  "file_id": "1bhgPOuqkHhWZTxPMDsEoEM3n7nJbmonm",
+  "url": "https://drive.google.com/file/d/1bhgPOuqkHhWZTxPMDsEoEM3n7nJbmonm/view?usp=drivesdk",
+  "sharing": "Existing inherited anyone/writer; no permission changes"
+}

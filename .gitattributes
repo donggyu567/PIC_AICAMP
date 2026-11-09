@@ -1,2 +1,6 @@
 android/app/src/main/assets/models/**/*.onnx filter=lfs diff=lfs merge=lfs -text
 android/app/libs/*.aar filter=lfs diff=lfs merge=lfs -text
+
+/experiments/koelectra_v2/** -text whitespace=cr-at-eol,-blank-at-eof
+/artifacts/v1_reference/** -text whitespace=cr-at-eol,-blank-at-eof
+/artifacts/v2_research_handoff/** -text whitespace=cr-at-eol,-blank-at-eof

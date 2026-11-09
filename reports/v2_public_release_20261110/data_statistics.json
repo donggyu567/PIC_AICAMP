@@ -1,0 +1,215 @@
+{
+  "train": {
+    "conversations": 80,
+    "entirely_normal_conversations": 26,
+    "label_accuracy": "PROVISIONAL_NOT_HUMAN_VERIFIED",
+    "multilabel_utterances": 6,
+    "normal": 483,
+    "phishing": 173,
+    "positive_families": {
+      "app_installation": 8,
+      "information_probing": 9,
+      "institution_impersonation": 19,
+      "loan_fraud": 8,
+      "money_transfer": 9,
+      "personal_information": 11,
+      "secrecy": 8,
+      "threat_pressure": 8
+    },
+    "positive_labels": {
+      "app_installation": 22,
+      "information_probing": 21,
+      "institution_impersonation": 29,
+      "loan_fraud": 21,
+      "money_transfer": 22,
+      "personal_information": 24,
+      "secrecy": 21,
+      "threat_pressure": 19
+    },
+    "semantic_independence": "NOT_HUMAN_VERIFIED",
+    "utterances": 656
+  },
+  "validation": {
+    "conversations": 32,
+    "entirely_normal_conversations": 8,
+    "label_accuracy": "PROVISIONAL_NOT_HUMAN_VERIFIED",
+    "multilabel_utterances": 0,
+    "normal": 184,
+    "phishing": 72,
+    "positive_families": {
+      "app_installation": 3,
+      "information_probing": 3,
+      "institution_impersonation": 3,
+      "loan_fraud": 3,
+      "money_transfer": 3,
+      "personal_information": 3,
+      "secrecy": 3,
+      "threat_pressure": 3
+    },
+    "positive_labels": {
+      "app_installation": 9,
+      "information_probing": 9,
+      "institution_impersonation": 9,
+      "loan_fraud": 9,
+      "money_transfer": 9,
+      "personal_information": 9,
+      "secrecy": 9,
+      "threat_pressure": 9
+    },
+    "semantic_independence": "NOT_HUMAN_VERIFIED",
+    "utterances": 256
+  },
+  "test": {
+    "conversations": 40,
+    "entirely_normal_conversations": 8,
+    "label_accuracy": "PROVISIONAL_NOT_HUMAN_VERIFIED",
+    "multilabel_utterances": 0,
+    "normal": 224,
+    "phishing": 96,
+    "positive_families": {
+      "app_installation": 4,
+      "information_probing": 4,
+      "institution_impersonation": 4,
+      "loan_fraud": 4,
+      "money_transfer": 4,
+      "personal_information": 4,
+      "secrecy": 4,
+      "threat_pressure": 4
+    },
+    "positive_labels": {
+      "app_installation": 12,
+      "information_probing": 12,
+      "institution_impersonation": 12,
+      "loan_fraud": 12,
+      "money_transfer": 12,
+      "personal_information": 12,
+      "secrecy": 12,
+      "threat_pressure": 12
+    },
+    "semantic_independence": "NOT_HUMAN_VERIFIED",
+    "utterances": 320
+  },
+  "coverage": {
+    "app_installation": {
+      "combined_train_positive_utterances": 22,
+      "new_train_families": 5,
+      "new_train_positive_utterances": 15,
+      "registered_train_families": 8,
+      "test_families": 4,
+      "v1_positive_utterances": 6,
+      "validation_families": 3
+    },
+    "information_probing": {
+      "combined_train_positive_utterances": 21,
+      "new_train_families": 5,
+      "new_train_positive_utterances": 15,
+      "registered_train_families": 9,
+      "test_families": 4,
+      "v1_positive_utterances": 100,
+      "validation_families": 3
+    },
+    "institution_impersonation": {
+      "combined_train_positive_utterances": 29,
+      "new_train_families": 5,
+      "new_train_positive_utterances": 15,
+      "registered_train_families": 19,
+      "test_families": 4,
+      "v1_positive_utterances": 176,
+      "validation_families": 3
+    },
+    "loan_fraud": {
+      "combined_train_positive_utterances": 21,
+      "new_train_families": 5,
+      "new_train_positive_utterances": 15,
+      "registered_train_families": 8,
+      "test_families": 4,
+      "v1_positive_utterances": 65,
+      "validation_families": 3
+    },
+    "money_transfer": {
+      "combined_train_positive_utterances": 22,
+      "new_train_families": 5,
+      "new_train_positive_utterances": 15,
+      "registered_train_families": 9,
+      "test_families": 4,
+      "v1_positive_utterances": 90,
+      "validation_families": 3
+    },
+    "personal_information": {
+      "combined_train_positive_utterances": 24,
+      "new_train_families": 5,
+      "new_train_positive_utterances": 15,
+      "registered_train_families": 11,
+      "test_families": 4,
+      "v1_positive_utterances": 32,
+      "validation_families": 3
+    },
+    "secrecy": {
+      "combined_train_positive_utterances": 21,
+      "new_train_families": 5,
+      "new_train_positive_utterances": 15,
+      "registered_train_families": 8,
+      "test_families": 4,
+      "v1_positive_utterances": 21,
+      "validation_families": 3
+    },
+    "threat_pressure": {
+      "combined_train_positive_utterances": 19,
+      "new_train_families": 5,
+      "new_train_positive_utterances": 15,
+      "registered_train_families": 8,
+      "test_families": 4,
+      "v1_positive_utterances": 81,
+      "validation_families": 3
+    }
+  },
+  "duplicates": {
+    "train_internal": {
+      "candidate_count": 1,
+      "limit": "Lexical screen only, not semantic independence proof",
+      "pairs": 214840,
+      "threshold": 0.8
+    },
+    "train_vs_aux": {
+      "candidate_count": 0,
+      "limit": "Lexical screen only, not semantic independence proof",
+      "pairs": 125952,
+      "threshold": 0.8
+    },
+    "train_vs_v1": {
+      "candidate_count": 1,
+      "limit": "Lexical screen only, not semantic independence proof",
+      "pairs": 957760,
+      "threshold": 0.8
+    },
+    "train_vs_validation": {
+      "candidate_count": 0,
+      "limit": "Lexical screen only, not semantic independence proof",
+      "pairs": 167936,
+      "threshold": 0.8
+    },
+    "validation_internal": {
+      "candidate_count": 1,
+      "limit": "Lexical screen only, not semantic independence proof",
+      "pairs": 32640,
+      "threshold": 0.8
+    },
+    "validation_vs_aux": {
+      "candidate_count": 0,
+      "limit": "Lexical screen only, not semantic independence proof",
+      "pairs": 49152,
+      "threshold": 0.8
+    },
+    "validation_vs_v1": {
+      "candidate_count": 0,
+      "limit": "Lexical screen only, not semantic independence proof",
+      "pairs": 373760,
+      "threshold": 0.8
+    }
+  },
+  "semantic_independence": "NOT_HUMAN_VERIFIED",
+  "label_accuracy": "PROVISIONAL_NOT_HUMAN_VERIFIED",
+  "human_approved": false,
+  "production_training_authorized": false,
+  "original_v1_reused_in_training": false
+}

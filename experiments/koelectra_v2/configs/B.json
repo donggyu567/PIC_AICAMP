@@ -1,0 +1,143 @@
+{
+  "config_schema_version": 1,
+  "status": "DESIGN_ONLY_TRAINING_NOT_AUTHORIZED",
+  "execution": {
+    "allowed_mode": "preflight",
+    "training_enabled": false,
+    "test_prediction_enabled": false
+  },
+  "model": {
+    "name": "monologg/koelectra-base-v3-discriminator",
+    "revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+    "tokenizer_revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+    "init": "pinned_public_pretrained_encoder_fresh_seeded_heads",
+    "original_v1_checkpoint_required": false,
+    "original_v1_checkpoint_restored": false,
+    "risk_head": 1,
+    "type_head": 8,
+    "activation": "raw logits; sigmoid once at inference"
+  },
+  "data": {
+    "labels_path": "artifacts/v1_recovered_8faa6a7eebfe/prepared/labels.jsonl",
+    "labels_sha256": "c205049e1aa2125ad40cc6cea1465b2c2793cc7fedf02b7eab8e1d9f20e9c9e5",
+    "text_path": "artifacts/v1_recovered_8faa6a7eebfe/prepared/tuned.jsonl",
+    "text_sha256": "50ea88cc3ee9c3df1477082ab5daf82ef77f83329374b50f312874592462e6f2",
+    "split_manifest": "experiments/koelectra_v2/split_review_candidate.json",
+    "split_sha256": "f3398df3a3a76fe17c78e9072ea2314a5a0622f37c7cd25021d347ecd5517a66",
+    "synthetic_train": null,
+    "synthetic_validation_role": "supplementary_diagnostic_only_after_human_review_never_TEST"
+  },
+  "input": {
+    "preprocessing": "masked_source_text_no_llm_correction_identity",
+    "max_history_utterances": 5,
+    "max_sequence_length": 512,
+    "sequence_format": "[CLS] history [SEP] current [SEP]",
+    "history_separator": "\n",
+    "padding_side": "right",
+    "overflow": "drop_oldest_whole_history_then_fail_current_only",
+    "label_order": [
+      "institution_impersonation",
+      "money_transfer",
+      "personal_information",
+      "app_installation",
+      "secrecy",
+      "threat_pressure",
+      "loan_fraud",
+      "information_probing"
+    ]
+  },
+  "training": {
+    "epochs": 1,
+    "batch_size": 8,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "optimizer": "AdamW",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "device": "cpu",
+    "torch_threads": 2,
+    "num_workers": 0,
+    "shuffle": true,
+    "checkpoint_rule": "last_epoch",
+    "early_stopping": false,
+    "trainable": "encoder_and_both_heads",
+    "deterministic_algorithms_planned": true,
+    "precision": "float32",
+    "scheduler": null,
+    "historical_optimizer_betas_eps": "NOT_RECORDED; current pinned AdamW defaults are a future explicit choice"
+  },
+  "loss": {
+    "binary": "BCEWithLogitsLoss_mean",
+    "types": "BCEWithLogitsLoss_mean",
+    "lambda_risk": 1.0,
+    "lambda_type": 1.0,
+    "type_pos_weight": {
+      "manifest": "experiments/koelectra_v2/type_loss_weight_plan.json",
+      "sha256": "16e66e328e65af87fa799a54840a7da26616e96572e834a6637642b382eb33f7",
+      "reuse_for_C_without_recompute": true
+    }
+  },
+  "evaluation": {
+    "common_roles": [
+      "validation",
+      "test"
+    ],
+    "gold_labels_verified": false,
+    "split_frozen": false,
+    "risk_threshold": 0.5,
+    "type_thresholds": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "threshold_policy": "fixed_primary_no_tuning",
+    "type_decision": "independent_thresholds_not_gated_by_binary_prediction",
+    "metrics": [
+      "binary_precision",
+      "binary_recall",
+      "binary_f1",
+      "binary_roc_auc",
+      "confusion_matrix",
+      "per_type_precision_recall_f1",
+      "micro_f1",
+      "macro_defined_labels_f1",
+      "defined_label_count"
+    ],
+    "undefined": "null_with_reason; no-positive recall/F1/AUC undefined; full8_macro_not_estimable_if_any_undefined",
+    "test_policy": "seal after human split/QA review; no model/threshold selection; one final registered evaluation batch for all arms/seeds",
+    "bootstrap": {
+      "unit": "independent_component",
+      "paired": true,
+      "repetitions": 2000,
+      "seed": 20261107,
+      "confidence": 0.95
+    },
+    "model_selection": "single preregistered recipe, last epoch; no selection on TEST",
+    "error_analysis": "FP/FN by conversation/source/type after final test, no same-test retuning"
+  },
+  "output": {
+    "root": "artifacts/v2_comparison_runs",
+    "checkpoint_name": "model.pt",
+    "overwrite": false,
+    "run_directory_rule": "{experiment_id}/seed_{seed}/{run_id}",
+    "run_id_required": true,
+    "experiment_id": "B_v2_loss_balanced"
+  },
+  "budget": {
+    "primary": "epoch_matched; report samples/steps/time per arm",
+    "base_train_samples": 943,
+    "base_steps_per_epoch": 118,
+    "confound": "C adds optimizer updates at equal epochs; not isolated data-quality causation",
+    "control": "After approved C size known, additional B_step_matched cycles original TRAIN for exactly C steps; same LR/loss/seed; never choose budget from TEST"
+  },
+  "experiment_id": "B_v2_loss_balanced",
+  "arm": "B"
+}

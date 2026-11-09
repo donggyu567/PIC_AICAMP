@@ -1,0 +1,330 @@
+{
+  "checkpoints": [
+    {
+      "arm": "A_epoch",
+      "bytes": 1348303722,
+      "epoch": 1,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 82,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_42\\epoch_001.pt",
+      "seed": 42,
+      "sha256": "50516484c0174a16c27fbe5fa0bdba002093084b444b44b9c5eaf6b3b42970d2"
+    },
+    {
+      "arm": "A_epoch",
+      "bytes": 1348303722,
+      "epoch": 1,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 82,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_43\\epoch_001.pt",
+      "seed": 43,
+      "sha256": "73f9ad7abe7122ea156659b6578cce71faaac8d41d698890dc716d4c44fb8453"
+    },
+    {
+      "arm": "A_epoch",
+      "bytes": 1348303722,
+      "epoch": 1,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 82,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_44\\epoch_001.pt",
+      "seed": 44,
+      "sha256": "74d6642a0b94e8fc5e0d73aee899196214abdc4e49bcce4b1ab13db1c5f7abb4"
+    },
+    {
+      "arm": "A_epoch",
+      "bytes": 1348303786,
+      "epoch": 2,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 164,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_42\\epoch_002.pt",
+      "seed": 42,
+      "sha256": "63d0f18bceb4517a1d9a25ed0f413f45cbb004821574e55de4885779e041bf4b"
+    },
+    {
+      "arm": "A_epoch",
+      "bytes": 1348303786,
+      "epoch": 2,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 164,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_43\\epoch_002.pt",
+      "seed": 43,
+      "sha256": "ba4ee81093040a5b813122c74d11d7f544cf8387097f5223109e867afcf429cd"
+    },
+    {
+      "arm": "A_epoch",
+      "bytes": 1348303786,
+      "epoch": 2,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 164,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_44\\epoch_002.pt",
+      "seed": 44,
+      "sha256": "08dcdd37976a9ee50b41f1e593fe8a84c92a0baf6f6c10b979baffa691452d6e"
+    },
+    {
+      "arm": "A_epoch",
+      "bytes": 1348303914,
+      "epoch": 3,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 246,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_42\\epoch_003.pt",
+      "seed": 42,
+      "sha256": "102475e5a1d26f8e508ba31d3ec21bd66c60ede827a818933297247ced23be40"
+    },
+    {
+      "arm": "A_epoch",
+      "bytes": 1348303914,
+      "epoch": 3,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 246,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_43\\epoch_003.pt",
+      "seed": 43,
+      "sha256": "adedf321552742bab612fd81e5405605eb6be42a7b114a680bc70adb5b178fc4"
+    },
+    {
+      "arm": "A_epoch",
+      "bytes": 1348303914,
+      "epoch": 3,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 246,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\A_epoch\\seed_44\\epoch_003.pt",
+      "seed": 44,
+      "sha256": "8a742de02e46cde9790d0a60a3f6f7ab12fd5b150c6083a94b728ad0c3955b24"
+    },
+    {
+      "arm": "B_ratio",
+      "bytes": 1348303722,
+      "epoch": 1,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 82,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_42\\epoch_001.pt",
+      "seed": 42,
+      "sha256": "f10adc20dee5bec548a6b83f1ffbebba62e0d7ee950a8f1c20a1da273de0ba8d"
+    },
+    {
+      "arm": "B_ratio",
+      "bytes": 1348303722,
+      "epoch": 1,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 82,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_43\\epoch_001.pt",
+      "seed": 43,
+      "sha256": "0776304da96f4ae68a43c130010e6fbcc6b01621d5183ae0a5d81dd55837ba1c"
+    },
+    {
+      "arm": "B_ratio",
+      "bytes": 1348303722,
+      "epoch": 1,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 82,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_44\\epoch_001.pt",
+      "seed": 44,
+      "sha256": "ed7ccf93aab7d1875de4a07b24b5445bbd5a92f9553d7c77733535680560a4ac"
+    },
+    {
+      "arm": "B_ratio",
+      "bytes": 1348303786,
+      "epoch": 2,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 164,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_42\\epoch_002.pt",
+      "seed": 42,
+      "sha256": "971b6e9cc8921c9280f9144e99d4e52d042575f2088714c0f0421b98950e018e"
+    },
+    {
+      "arm": "B_ratio",
+      "bytes": 1348303786,
+      "epoch": 2,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 164,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_43\\epoch_002.pt",
+      "seed": 43,
+      "sha256": "3602db7f814569deff9c68a79241b2a91b37005cac4b631b0b8baec0a10fc0c4"
+    },
+    {
+      "arm": "B_ratio",
+      "bytes": 1348303786,
+      "epoch": 2,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 164,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_44\\epoch_002.pt",
+      "seed": 44,
+      "sha256": "8a09799c218d2fa694e207998c8897638b0e7580a4f6139763731db53ce7862a"
+    },
+    {
+      "arm": "B_ratio",
+      "bytes": 1348303914,
+      "epoch": 3,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 246,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_42\\epoch_003.pt",
+      "seed": 42,
+      "sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee"
+    },
+    {
+      "arm": "B_ratio",
+      "bytes": 1348303914,
+      "epoch": 3,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 246,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_43\\epoch_003.pt",
+      "seed": 43,
+      "sha256": "612a27419bff738b7661552b152ee37eb8b463e14dcbaaed8200b44796703fae"
+    },
+    {
+      "arm": "B_ratio",
+      "bytes": 1348303914,
+      "epoch": 3,
+      "input_contract": {
+        "history_separator": "\n",
+        "max_history_utterances": 5,
+        "max_sequence_length": 512,
+        "overflow_rule": "drop_oldest_whole_history_then_fail_current_only",
+        "padding_side": "right",
+        "sequence_format": "[CLS] history [SEP] current [SEP]",
+        "version": "v1"
+      },
+      "optimizer_steps": 246,
+      "path": "[RESEARCH_WORKTREE]\\artifacts\\v2_exploratory_runs\\stage4_20261109_v1\\B_ratio\\seed_44\\epoch_003.pt",
+      "seed": 44,
+      "sha256": "92970156e78ad1aa4b10e17e0386124b1fdc0f67c2b2ab194fc6bde27b7bc409"
+    }
+  ],
+  "count": 18,
+  "verification_source_sha256": "b19dd9aacc5670522441f537347db5710dc3461f2fb046c5a93b61fdd5247da0"
+}

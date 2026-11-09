@@ -1,0 +1,83 @@
+{
+  "public_copy": true,
+  "source_sha256": "dcf93d19d7c679ebe781da92a686b7c4d3ed6606e0771460dff994ed2ef70978",
+  "redaction": "Custodian/release/claim identity evidence and environment paths omitted; original remains local",
+  "data": {
+    "actual_cpu_inference": true,
+    "bundle_manifest_sha256": "fd452646aee020276888aea89f80667ac76b43234d634d1b600a744f9e99adc9",
+    "model_sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee",
+    "outside_repository_cwd": true,
+    "responses": {
+      "invalid": {
+        "error": {
+          "code": "INVALID_REQUEST"
+        },
+        "http_status": 400,
+        "ok": false,
+        "result": null,
+        "status": "error"
+      },
+      "normal": {
+        "error": null,
+        "http_status": 200,
+        "ok": true,
+        "result": {
+          "checkpoint_sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee",
+          "deployment_approved": false,
+          "detected_types": [],
+          "human_approved": false,
+          "is_phishing": false,
+          "purpose": "internal_experiment",
+          "risk_probability": 0.038170010499097476,
+          "risk_score": 3.8170010499097478,
+          "seed": 42,
+          "threshold_version": "exploratory-validation-grid-v1",
+          "thresholds": [
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ],
+          "type_probabilities": {
+            "app_installation": 0.16659508299088852,
+            "information_probing": 0.18572761750266792,
+            "institution_impersonation": 0.17162977195191495,
+            "loan_fraud": 0.10835250367308849,
+            "money_transfer": 0.13996386264691793,
+            "personal_information": 0.22799909376506347,
+            "secrecy": 0.18972229987522388,
+            "threat_pressure": 0.1410247843475382
+          }
+        },
+        "status": "success"
+      },
+      "not_ready": {
+        "error": {
+          "code": "NOT_READY"
+        },
+        "http_status": 503,
+        "ok": false,
+        "result": null,
+        "status": "error"
+      },
+      "overlong": {
+        "error": {
+          "code": "INPUT_TOO_LONG"
+        },
+        "http_status": 422,
+        "ok": false,
+        "result": null,
+        "status": "error"
+      }
+    },
+    "seed": 42,
+    "status": "PASS",
+    "stderr": "You're using a ElectraTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.\nToken indices sequence length is longer than the specified maximum sequence length for this model (1803 > 512). Running this sequence through the model will result in indexing errors\n",
+    "test_input_used": false
+  }
+}
