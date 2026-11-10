@@ -12,6 +12,7 @@ from starlette.websockets import WebSocketDisconnect
 from server.main import app
 from server.security import access
 from server.security.device_store import DeviceStore
+from server.security.limits import WindowLimiter
 from tests.api_helpers import StubRiskAnalyzer, utterance
 
 
@@ -54,6 +55,15 @@ class DeviceAccessTests(unittest.TestCase):
                 self.assertEqual(404, send(self.other_token).status_code)
                 # 소유자 요청은 인증 경계를 통과해 데이터 없음 등의 서비스 응답에 도달한다.
                 self.assertNotIn(send(self.token).status_code, (401, 403))
+
+    def test_device_registration_issues_usable_token_and_limits_requests(self):
+        with patch("server.security.limits.device_registrations", WindowLimiter(1, 60)), \
+             patch("server.security.limits.total_device_registrations", WindowLimiter(10, 60)):
+            response = self.client.post("/api/v1/devices/register")
+            self.assertEqual(201, response.status_code)
+            self.assertEqual("no-store", response.headers["cache-control"])
+            self.assertIsNotNone(self.store.authenticate(response.json()["token"]))
+            self.assertEqual(429, self.client.post("/api/v1/devices/register").status_code)
 
     def test_analysis_and_retry_reject_other_devices(self):
         calls = [

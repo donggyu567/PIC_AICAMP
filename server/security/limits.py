@@ -75,5 +75,7 @@ class SessionLimiter:
 
 # 시연 환경의 임시 기본값. 실제 사용량에 맞춰 조정해야 한다.
 invalid_auth_attempts = WindowLimiter(limit=30, window_seconds=60)
+device_registrations = WindowLimiter(limit=5, window_seconds=3600)
+total_device_registrations = WindowLimiter(limit=100, window_seconds=3600)
 analysis_requests = WindowLimiter(limit=30, window_seconds=60)
 stt_sessions = SessionLimiter(per_device=2, total=20)

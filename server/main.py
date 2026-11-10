@@ -13,10 +13,12 @@ from server.lifespan import lifespan
 from server.analysis.router import router as analysis_router
 from server.analysis.lifecycle_router import router as lifecycle_router
 from server.stt.router import router as stt_router
+from server.security.router import router as device_router
 
 
 app = FastAPI(title="PIC Server", version="2.0.0", lifespan=lifespan)
 app.include_router(stt_router)
+app.include_router(device_router)
 app.include_router(analysis_router)
 app.include_router(lifecycle_router)
 

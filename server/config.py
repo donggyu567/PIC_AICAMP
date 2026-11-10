@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 SAMPLE_RATE = 16_000
 MAX_AUDIO_CHUNK_BYTES = SAMPLE_RATE * 2  # 모노 16비트 PCM 최대 1초
 MAX_SESSION_SECONDS = 600
-COMMIT_AUDIO_BYTES = SAMPLE_RATE * 2 * 5  # 최대 5초마다 발화 확정
+COMMIT_AUDIO_BYTES = SAMPLE_RATE * 2 * 9 // 2  # 오디오 4.5초마다 발화 확정 요청
 START_TIMEOUT_SECONDS = 10
 PROVIDER_TIMEOUT_SECONDS = 10
 
