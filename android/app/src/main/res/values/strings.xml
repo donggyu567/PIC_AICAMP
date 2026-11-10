@@ -24,6 +24,18 @@
     <string name="home">홈으로</string>
     <string name="preview_banner">개발 버전 · 음성 인식 연결</string>
     <string name="welcome_title">보이스피싱 위험 실시간 분석</string>
+    <string name="welcome_suffix">으로</string>
+    <string name="welcome_message">보이스피싱 예방하세요.</string>
+    <string name="welcome_touch_hint">화면을 터치해주세요.</string>
+    <string name="onboarding_consent_title">시작하기 전에</string>
+    <string name="onboarding_consent_intro">PIC 서비스 이용을 위해\n동의가 필요해요.</string>
+    <string name="onboarding_alert_notice"><![CDATA[<b>보이스피싱 위험</b><br><b>알림</b>을 받을 수 있습니다.]]></string>
+    <string name="onboarding_mic_notice"><![CDATA[<b>보이스피싱 분석</b>에<br><b>마이크 권한</b>이 필요합니다.]]></string>
+    <string name="onboarding_transfer_notice"><![CDATA[<b>분석 기능</b>을 <b>사용</b>하기 위해<br><b>음성이 외부 서버로 전송</b>됩니다.]]></string>
+    <string name="consent_details_hint">*자세한 내용을 확인 후 동의해주세요.</string>
+    <string name="consent_start_pic">동의하러 가기</string>
+    <string name="onboarding_permission_denied">거절하면 서비스를 이용할 수 없어요.</string>
+    <string name="onboarding_permissions_granted">권한 설정이 완료됐어요.</string>
     <string name="consent_needed">데이터 전송 동의가 필요합니다</string>
     <string name="consent_declined">동의하지 않아 마이크 입력과 분석을 시작하지 않았습니다.</string>
     <string name="view_consent">데이터 전송 안내 보기</string>
@@ -33,7 +45,7 @@
     <string name="data_principles">데이터 처리 원칙</string>
     <string name="data_principles_body">앱과 PIC 서버는 음성·인식 원문을 저장하지 않고 처리 직후 폐기합니다. 외부 서비스의 보관 정책은 별도로 적용됩니다.</string>
     <string name="agree_continue">동의하고 계속</string>
-    <string name="decline">동의하지 않음</string>
+    <string name="decline">동의하지 않으시면 PIC서비스를 이용할 수 없습니다.</string>
     <string name="permission_title">마이크 접근 권한</string>
     <string name="permission_description">보이스피싱 위험 분석에는 마이크 접근 권한이 필요합니다. 권한이 없으면 음성을 수집하지 않습니다.</string>
     <string name="permission_preview_title">Android 마이크 권한</string>

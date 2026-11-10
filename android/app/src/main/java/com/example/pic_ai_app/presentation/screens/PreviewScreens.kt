@@ -10,6 +10,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.pic_ai_app.R
 import com.example.pic_ai_app.presentation.components.*
+import com.example.pic_ai_app.presentation.onboarding.WelcomeIntro
 import com.example.pic_ai_app.presentation.preview.*
 
 @Composable
@@ -26,36 +27,18 @@ fun FlowExplanation() {
 
 @Composable
 fun WelcomeScreen(onContinue: () -> Unit, onData: () -> Unit, declined: Boolean, withdrawn: Boolean = false) {
+    if (!declined && !withdrawn) {
+        WelcomeIntro(onContinue = onContinue)
+        return
+    }
     PicPage(title = stringResource(R.string.app_name)) {
         SectionHeading(stringResource(R.string.welcome_title))
         BodyText(stringResource(R.string.home_description))
-        if (declined || withdrawn) InfoCard(stringResource(R.string.consent_needed)) { BodyText(stringResource(if (withdrawn) R.string.consent_withdrawn else R.string.consent_declined)) }
+        InfoCard(stringResource(R.string.consent_needed)) { BodyText(stringResource(if (withdrawn) R.string.consent_withdrawn else R.string.consent_declined)) }
         FlowExplanation()
         DevelopmentNotice()
         PrimaryAction(stringResource(R.string.view_consent), onContinue)
         LinkAction(stringResource(R.string.data_guide_title), onData)
-    }
-}
-
-@Composable
-fun ConsentScreen(
-    onAgree: () -> Unit, onDecline: () -> Unit, onBack: () -> Unit,
-    saving: Boolean = false, failed: Boolean = false,
-) {
-    PicPage(title = stringResource(R.string.consent_title), onBack = onBack) {
-        SectionHeading(stringResource(R.string.consent_heading))
-        BodyText(stringResource(R.string.consent_intro))
-        FlowExplanation()
-        InfoCard(stringResource(R.string.data_principles)) { BodyText(stringResource(R.string.data_principles_body)) }
-        if (saving) {
-            CircularProgressIndicator(Modifier.size(24.dp))
-            BodyText(stringResource(R.string.saving_consent))
-        }
-        if (failed) InfoCard(stringResource(R.string.consent_save_error_title), error = true) {
-            BodyText(stringResource(R.string.consent_save_error_body))
-        }
-        PrimaryAction(stringResource(R.string.agree_continue), onAgree, enabled = !saving)
-        SecondaryAction(stringResource(R.string.decline), onDecline, enabled = !saving)
     }
 }
 

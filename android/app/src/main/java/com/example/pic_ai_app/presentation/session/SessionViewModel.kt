@@ -35,6 +35,7 @@ data class SessionUiState(
     val savingConsent: Boolean = false,
     val pendingConsent: ConsentStatus? = null,
     val consentError: Boolean = false,
+    val showOnboardingComplete: Boolean = false,
     val permissionRequestPending: Boolean = false,
     val permissionDenied: Boolean = false,
     val declined: Boolean = false,
@@ -150,6 +151,7 @@ class SessionViewModel(
                     } else current.flow.copy(consented = false, permissionGranted = granted)
                     current.copy(
                         flow = flow, consent = choice, savingConsent = false,
+                        showOnboardingComplete = choice == ConsentStatus.GRANTED,
                         pendingConsent = null, consentError = false,
                         declined = if (choice == ConsentStatus.GRANTED) false else current.declined,
                     )
@@ -173,6 +175,10 @@ class SessionViewModel(
         } catch (_: Exception) {
             changeFlow { it.copy(deletion = Deletion.PENDING) }
         }
+    }
+
+    fun dismissOnboardingComplete() {
+        mutableUi.update { it.copy(showOnboardingComplete = false) }
     }
 
     fun retryConsent() {

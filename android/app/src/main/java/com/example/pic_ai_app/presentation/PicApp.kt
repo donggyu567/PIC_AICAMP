@@ -29,6 +29,7 @@ import com.example.pic_ai_app.R
 import com.example.pic_ai_app.data.consent.ConsentStatus
 import com.example.pic_ai_app.presentation.components.*
 import com.example.pic_ai_app.presentation.home.HomeScreen
+import com.example.pic_ai_app.presentation.onboarding.OnboardingPermissions
 import com.example.pic_ai_app.presentation.preview.*
 import com.example.pic_ai_app.presentation.screens.*
 import com.example.pic_ai_app.presentation.session.SessionViewModel
@@ -106,10 +107,7 @@ fun PicApp(session: SessionViewModel) {
             session::openConsent, session::openData, access.declined,
             withdrawn = access.consent == ConsentStatus.WITHDRAWN,
         )
-        Screen.CONSENT -> ConsentScreen(
-            onAgree = session::agree, onDecline = session::decline, onBack = back,
-            saving = access.savingConsent, failed = access.consentError,
-        )
+        Screen.CONSENT -> OnboardingPermissions(access.savingConsent, session::agree)
         Screen.PERMISSION -> PermissionScreen(
             onAllow = {
                 if (session.requestPermission()) permissionLauncher.launch(Manifest.permission.RECORD_AUDIO)
@@ -121,17 +119,28 @@ fun PicApp(session: SessionViewModel) {
                     ("package:" + context.packageName).toUri()))
             },
         )
-        Screen.HOME -> HomeScreen(
-            scenario = state.scenario,
-            canStart = !access.savingConsent && access.pendingConsent == null &&
-                state.deletion !in listOf(Deletion.DELETING, Deletion.PENDING),
-            deletionPending = state.deletion in listOf(Deletion.DELETING, Deletion.PENDING),
-            onStart = session::start, onData = session::openData,
-            onSettings = { settingsDialog = true }, onDeletion = session::showDeletion,
-            consentSaveFailed = access.consentError, onRetryConsent = session::retryConsent,
-            liveMode = true, serverUrl = access.serverUrl, onServerUrlChange = session::updateServerUrl,
-            tokenMessage = access.tokenMessage, onSaveToken = session::saveDeviceToken,
-        )
+        Screen.HOME -> Box(Modifier.fillMaxSize()) {
+            val messages = remember { SnackbarHostState() }
+            val completionText = stringResource(R.string.onboarding_permissions_granted)
+            LaunchedEffect(Unit) {
+                if (access.showOnboardingComplete) {
+                    session.dismissOnboardingComplete()
+                    messages.showSnackbar(completionText)
+                }
+            }
+            HomeScreen(
+                scenario = state.scenario,
+                canStart = !access.savingConsent && access.pendingConsent == null &&
+                    state.deletion !in listOf(Deletion.DELETING, Deletion.PENDING),
+                deletionPending = state.deletion in listOf(Deletion.DELETING, Deletion.PENDING),
+                onStart = session::start, onData = session::openData,
+                onSettings = { settingsDialog = true }, onDeletion = session::showDeletion,
+                consentSaveFailed = access.consentError, onRetryConsent = session::retryConsent,
+                liveMode = true, serverUrl = access.serverUrl, onServerUrlChange = session::updateServerUrl,
+                tokenMessage = access.tokenMessage, onSaveToken = session::saveDeviceToken,
+            )
+            SnackbarHost(messages, Modifier.statusBarsPadding().padding(horizontal = 16.dp))
+        }
         Screen.ANALYSIS, Screen.DETAILS -> LiveSttScreen(
             state = access.stt, onStop = { session.finish() },
             onHome = session::leaveStt, onData = session::openData, onRetryFinish = session::retryFinish, onRetryAnalysis = session::retryAnalysis,
