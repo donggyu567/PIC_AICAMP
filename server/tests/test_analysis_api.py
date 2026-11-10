@@ -83,7 +83,8 @@ class AnalysisApiTests(unittest.TestCase):
         self.complete.assert_called_once()
         self.legacy_correction.assert_not_called()
         self.assertIn("llm_preparation;dur=", result.headers["server-timing"])
-        self.assertEqual(self.store.load("pipeline-test").records[0].response.model_dump(mode="json"), data)
+        self.assertTrue(data["display"]["context_attention"])
+        self.assertEqual(self.store.load("pipeline-test").records[0].response.model_dump(mode="json"), {k: v for k, v in data.items() if k != "display"})
         self.assertEqual(self.post().status_code, 409)
         self.complete.assert_called_once()
 
@@ -104,7 +105,7 @@ class AnalysisApiTests(unittest.TestCase):
         self.assertEqual(self.analyzer.inputs[0].current_text, self.analyzer.inputs[1].current_text)
         self.complete.assert_called_once()
         record = self.store.load("pipeline-test").records[0]
-        self.assertEqual(record.response.model_dump(mode="json"), retried.json())
+        self.assertEqual(record.response.model_dump(mode="json"), {k: v for k, v in retried.json().items() if k != "display"})
         self.assertEqual(record.previous_attempts[0].response.analysis_status, "error")
 
     def test_masking_failure_and_token_mismatch_never_reach_llm(self):
@@ -142,7 +143,7 @@ class AnalysisApiTests(unittest.TestCase):
         self.assertEqual(request["reasoning"], {"effort": "low"})
         self.assertEqual(request["service_tier"], "fast")
         self.assertEqual(request["max_output_tokens"], 2048)
-        self.assertEqual(self.store.load("pipeline-test").records[-1].response.model_dump(mode="json"), data)
+        self.assertEqual(self.store.load("pipeline-test").records[-1].response.model_dump(mode="json"), {k: v for k, v in data.items() if k != "display"})
 
     def test_provider_failure_falls_back_without_stale_judgment(self):
         self.complete.side_effect = [completion(), OpenAIError("private provider detail")]

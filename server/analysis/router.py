@@ -5,7 +5,7 @@ from typing import Annotated, Literal
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Request, Response
 
-from backend.schemas import CalculationPreviewResponse, UtteranceAnalysisRetryRequest, UtteranceRequest
+from backend.schemas import UtteranceAnalysisRetryRequest, UtteranceRequest
 from backend.services.analysis_service import AnalysisNotFoundError, get_analysis_result
 from backend.services.notification_service import NotificationNotFoundError
 from backend.services.pipeline_service import analyze_utterance, retry_utterance_analysis
@@ -14,6 +14,7 @@ from backend.stores.analysis_file_store import AnalysisStorageError
 from backend.stores.analysis_store import AnalysisConflictError
 from models.llm_correction import ContractError
 from server.analysis.context_service import prepare_utterance
+from server.analysis.risk_display import AnalysisWithDisplay, add_risk_display
 from server.security.access import authenticated_device, require_conversation_owner
 from server.security import limits
 
@@ -47,7 +48,7 @@ def run_analysis(operation, *args, **kwargs):
         raise HTTPException(503, "분석 기록 저장 또는 경고 처리에 실패했습니다.") from None
 
 
-@router.post("/analyze", response_model=CalculationPreviewResponse)
+@router.post("/analyze", response_model=AnalysisWithDisplay)
 def analyze(
     payload: MaskedUtteranceRequest, request: Request, response: Response,
     owner: Annotated[str, Depends(authenticated_device)],
@@ -73,10 +74,10 @@ def analyze(
         timing_header = ", ".join(f"{name};dur={ms:.2f}" for name, ms in timings.items())
         logging.getLogger("uvicorn.error").info("ANALYSIS_TIMING %s", timing_header)
     response.headers["Server-Timing"] = timing_header
-    return result
+    return add_risk_display(result)
 
 
-@router.post("/analyze/retry", response_model=CalculationPreviewResponse)
+@router.post("/analyze/retry", response_model=AnalysisWithDisplay)
 def retry(
     payload: UtteranceAnalysisRetryRequest, request: Request,
     owner: Annotated[str, Depends(authenticated_device)],
@@ -85,13 +86,13 @@ def retry(
     require_conversation_owner(owner, payload.conversation_id)
     if not limits.analysis_requests.allow(owner):
         raise HTTPException(429, "분석 요청이 너무 많습니다.", headers={"Retry-After": "60"})
-    return run_analysis(
+    return add_risk_display(run_analysis(
         retry_utterance_analysis, payload.conversation_id, payload.utterance_id,
         analyzer, request.app.state.warning_manager,
-    )
+    ))
 
 
-@router.get("/results", response_model=CalculationPreviewResponse)
+@router.get("/results", response_model=AnalysisWithDisplay)
 def read_result(
     conversation_id: Annotated[str, Query(min_length=1, max_length=120, pattern=r"\S")],
     response: Response,
@@ -104,4 +105,4 @@ def read_result(
     result = run_analysis(get_analysis_result, conversation_id, utterance_id)
     if result is None:
         raise HTTPException(404, "저장된 분석 결과를 찾을 수 없습니다.")
-    return result
+    return add_risk_display(result)

@@ -45,7 +45,7 @@ class LifecycleApiTests(unittest.TestCase):
         })
 
     def test_result_lookup_end_and_repeated_end_preserve_final_analysis(self):
-        saved = self.seed()
+        saved = self.seed() | {"display": {"level": "danger", "context_attention": None}}
         for extra in ({}, {"utterance_id": 1}):
             fetched = self.client.get("/api/v1/utterances/results", params={"conversation_id": "call", **extra})
             self.assertEqual(fetched.status_code, 200)
