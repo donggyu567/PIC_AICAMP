@@ -27,13 +27,14 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.pic_ai_app.BuildConfig
 import com.example.pic_ai_app.R
 import com.example.pic_ai_app.data.consent.ConsentStatus
+import com.example.pic_ai_app.data.stt.SttPhase
 import com.example.pic_ai_app.presentation.components.*
 import com.example.pic_ai_app.presentation.home.HomeScreen
 import com.example.pic_ai_app.presentation.onboarding.OnboardingPermissions
 import com.example.pic_ai_app.presentation.preview.*
 import com.example.pic_ai_app.presentation.screens.*
 import com.example.pic_ai_app.presentation.session.SessionViewModel
-import com.example.pic_ai_app.ui.theme.PicTheme
+import com.example.pic_ai_app.ui.theme.PicScreenTheme
 import kotlinx.coroutines.delay
 
 @Composable
@@ -42,7 +43,6 @@ fun PicApp(session: SessionViewModel) {
     val state = access.flow
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
-    var stopDialog by rememberSaveable { mutableStateOf(false) }
     var withdrawDialog by rememberSaveable { mutableStateOf(false) }
     var settingsDialog by rememberSaveable { mutableStateOf(false) }
     var consentErrorDismissed by rememberSaveable { mutableStateOf(false) }
@@ -60,8 +60,7 @@ fun PicApp(session: SessionViewModel) {
 
     // State lives in a ViewModel across rotation. Process restarts reload only consent,
     // never a permission grant or an in-flight analysis from a saved UI bundle.
-    LaunchedEffect(state.hasOpenAnalysis, state.consented) {
-        if (!state.hasOpenAnalysis) stopDialog = false
+    LaunchedEffect(state.consented) {
         if (!state.consented) withdrawDialog = false
     }
     LaunchedEffect(access.consentError) {
@@ -86,8 +85,7 @@ fun PicApp(session: SessionViewModel) {
     val back: () -> Unit = {
         if (!access.savingConsent) {
             when (state.screen) {
-                Screen.ANALYSIS -> if (access.stt.phase in listOf(com.example.pic_ai_app.data.stt.SttPhase.STOPPED, com.example.pic_ai_app.data.stt.SttPhase.ERROR)) session.leaveStt() else session.finish()
-                Screen.WITHDRAWAL -> session.showHome()
+                Screen.ANALYSIS, Screen.DETAILS, Screen.FINAL, Screen.WITHDRAWAL -> session.showHome()
                 else -> session.back()
             }
         }
@@ -102,6 +100,8 @@ fun PicApp(session: SessionViewModel) {
         return
     }
 
+    // While capturing, the home tab shows the running session. The analysis tab opens its details.
+    val capturingOrConnecting = access.stt.phase == SttPhase.CONNECTING || access.stt.phase == SttPhase.LISTENING
     when (state.screen) {
         Screen.WELCOME -> WelcomeScreen(
             session::openConsent, session::openData, access.declined,
@@ -130,7 +130,7 @@ fun PicApp(session: SessionViewModel) {
             }
             HomeScreen(
                 scenario = state.scenario,
-                canStart = !access.savingConsent && access.pendingConsent == null &&
+                canStart = !state.hasOpenAnalysis && !access.savingConsent && access.pendingConsent == null &&
                     state.deletion !in listOf(Deletion.DELETING, Deletion.PENDING),
                 deletionPending = state.deletion in listOf(Deletion.DELETING, Deletion.PENDING),
                 onStart = session::start, onData = session::openData,
@@ -138,16 +138,24 @@ fun PicApp(session: SessionViewModel) {
                 consentSaveFailed = access.consentError, onRetryConsent = session::retryConsent,
                 liveMode = true, serverUrl = access.serverUrl, onServerUrlChange = session::updateServerUrl,
                 tokenMessage = access.tokenMessage, onSaveToken = session::saveDeviceToken,
+                activeSession = access.stt.takeIf { capturingOrConnecting },
+                analysisAvailable = access.stt.phase != SttPhase.IDLE,
+                onStop = session::finishAndOpenResult,
+                onAnalysis = if (capturingOrConnecting) session::openAnalysis else session::openResult,
             )
             SnackbarHost(messages, Modifier.statusBarsPadding().padding(horizontal = 16.dp))
         }
-        Screen.ANALYSIS, Screen.DETAILS -> LiveSttScreen(
-            state = access.stt, onStop = { session.finish() },
-            onHome = session::leaveStt, onData = session::openData, onRetryFinish = session::retryFinish, onRetryAnalysis = session::retryAnalysis,
-        )
-        Screen.FINAL -> FinalScreen(
-            state, onHome = session::showHome, onNew = session::start, onData = session::openData,
-        )
+        Screen.ANALYSIS, Screen.DETAILS, Screen.FINAL -> {
+            if (state.screen == Screen.FINAL && access.stt.phase == SttPhase.IDLE) {
+                FinalScreen(state, onHome = session::showHome, onNew = session::start, onData = session::openData)
+            } else {
+                LiveSttScreen(
+                    state = access.stt, onStop = session::finishAndOpenResult,
+                    onHome = session::showHome, onData = session::openData,
+                    onRetryFinish = session::retryFinish, onRetryAnalysis = session::retryAnalysis,
+                )
+            }
+        }
         Screen.DATA -> DataScreen(
             state, onBack = back, onWithdraw = { withdrawDialog = true },
             onConsent = session::openConsent, onDeletion = session::showDeletion,
@@ -160,17 +168,6 @@ fun PicApp(session: SessionViewModel) {
         )
     }
 
-    if (stopDialog) {
-        AlertDialog(
-            onDismissRequest = { stopDialog = false },
-            title = { Text(stringResource(R.string.stop_analysis)) },
-            text = { Text(stringResource(R.string.stop_confirmation)) },
-            confirmButton = {
-                TextButton(onClick = { stopDialog = false; session.finish() }) { Text(stringResource(R.string.confirm_stop)) }
-            },
-            dismissButton = { TextButton(onClick = { stopDialog = false }) { Text(stringResource(R.string.cancel)) } },
-        )
-    }
     if (withdrawDialog) {
         AlertDialog(
             onDismissRequest = { withdrawDialog = false },
@@ -223,7 +220,7 @@ fun PicApp(session: SessionViewModel) {
 @Preview(showBackground = true, widthDp = 390, heightDp = 844)
 @Composable
 private fun PicAppPreview() {
-    PicTheme {
+    PicScreenTheme {
         HomeScreen(Scenario.NORMAL, canStart = false, deletionPending = false,
             onStart = {}, onData = {}, onSettings = {}, onDeletion = {})
     }

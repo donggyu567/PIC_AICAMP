@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tab_home">홈</string>
+    <string name="tab_analysis">분석</string>
+    <string name="tab_history">기록</string>
+    <string name="tab_report">신고</string>
+    <string name="home_settings">설정</string>
+    <string name="home_start_action">분석 시작</string>
+    <string name="home_listening">음성을 듣고 있어요</string>
+    <string name="home_step_start">1. 분석을 시작해요</string>
+    <string name="home_step_start_body"><![CDATA[마이크 사용과 음성 전송에 동의한 뒤, <b>‘분석 시작’</b>을 눌러주세요.]]></string>
+    <string name="home_step_analyze">2. 음성을 분석해요</string>
+    <string name="home_step_analyze_body"><![CDATA[마이크로 입력한 음성을 글로 바꾸고, <b>개인정보를 가리는 처리</b>를 거쳐 위험 신호를 살펴봐요.]]></string>
+    <string name="home_step_result">3. 결과를 확인해요</string>
+    <string name="home_step_result_body"><![CDATA[위험도와 주의할 내용을 확인하세요. <b>원할 때 분석을 종료</b>할 수 있어요.]]></string>
+    <string name="home_device_token">기기 인증 정보</string>
+    <string name="home_save_token">인증 정보 저장</string>
+</resources>

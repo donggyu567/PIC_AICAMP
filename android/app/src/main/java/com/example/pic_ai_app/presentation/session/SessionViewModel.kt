@@ -67,7 +67,26 @@ class SessionViewModel(
             consentStore.register(DeletionTarget(url, utterance.conversationId))
             riskClient.analyze(url, utterance)
         }, finalize = riskClient::finish, recover = riskClient::recover,
-            tokenForServer = { url -> if (liveEnabled) checkNotNull(tokenStore).forServer(url) else null }) { state -> mutableUi.update { it.copy(stt = state) } }
+            tokenForServer = { url -> if (liveEnabled) checkNotNull(tokenStore).forServer(url) else null },
+            publish = ::publishLiveState)
+    }
+
+    private fun publishLiveState(stt: SttState) {
+        mutableUi.update { current ->
+            val phase = when (stt.phase) {
+                SttPhase.IDLE -> current.flow.phase // abort's caller handles withdrawal or permission loss
+                SttPhase.CONNECTING -> Phase.CONNECTING
+                SttPhase.LISTENING -> Phase.LISTENING
+                SttPhase.FINALIZING -> Phase.FINALIZING
+                SttPhase.STOPPED -> Phase.COMPLETED
+                SttPhase.ERROR -> if (stt.canRetryFinish) Phase.FINALIZING else Phase.INCOMPLETE
+            }
+            val ending = phase in listOf(Phase.FINALIZING, Phase.COMPLETED, Phase.INCOMPLETE)
+            fun destination(screen: Screen) =
+                if (ending && screen in listOf(Screen.ANALYSIS, Screen.DETAILS)) Screen.FINAL else screen
+            current.copy(stt = stt, flow = current.flow.copy(phase = phase,
+                screen = destination(current.flow.screen), returnScreen = destination(current.flow.returnScreen)))
+        }
     }
 
     init { loadConsent() }
@@ -97,7 +116,10 @@ class SessionViewModel(
 
     fun refreshPermission() {
         val granted = hasMicrophonePermission()
-        if (!granted && liveEnabled && ui.value.flow.hasOpenAnalysis) sttSession.abort()
+        if (!granted && liveEnabled && ui.value.flow.hasOpenAnalysis && ui.value.flow.phase != Phase.FINALIZING) {
+            registrationJob?.cancel()
+            sttSession.abort()
+        }
         mutableUi.update { current ->
             val flow = SessionAccess.permissionChanged(current.flow, granted)
             current.copy(
@@ -240,7 +262,7 @@ class SessionViewModel(
                     throw cancelled
                 } catch (_: Exception) {
                     if (ui.value.flow.runId == next.runId && ui.value.consent == ConsentStatus.GRANTED)
-                        mutableUi.update { it.copy(stt = SttState(phase = SttPhase.ERROR, error = "기기 등록에 실패했습니다. 연결 상태와 기존 기록을 확인해 주세요.")) }
+                        publishLiveState(SttState(phase = SttPhase.ERROR, error = "기기 등록에 실패했습니다. 연결 상태와 기존 기록을 확인해 주세요."))
                 }
             }
         }
@@ -258,19 +280,25 @@ class SessionViewModel(
     fun openData() = changeFlow(PreviewFlow::openData)
     fun showHome() = changeFlow { it.copy(screen = Screen.HOME) }
     fun showDeletion() = changeFlow { it.copy(screen = Screen.WITHDRAWAL) }
-    fun toggleDetails() = changeFlow { it.copy(screen = if (it.screen == Screen.DETAILS) Screen.ANALYSIS else Screen.DETAILS) }
+    fun openAnalysis() = changeFlow { it.copy(screen = Screen.ANALYSIS) }
+    fun openResult() = changeFlow { it.copy(screen = Screen.FINAL) }
     fun back() { if (!ui.value.savingConsent) changeFlow(PreviewFlow::back) }
     fun finish() {
         if (liveEnabled) {
             if (registrationJob?.isActive == true) {
                 registrationJob?.cancel()
-                mutableUi.update { it.copy(stt = SttState(phase = SttPhase.STOPPED)) }
+                publishLiveState(SttState(phase = SttPhase.STOPPED))
                 return
             }
             sttSession.stop()
         } else {
             changeFlow(PreviewFlow::finish)
         }
+    }
+
+    fun finishAndOpenResult() {
+        finish()
+        openResult()
     }
 
     fun updateServerUrl(value: String) {
@@ -299,12 +327,6 @@ class SessionViewModel(
     fun retryAnalysis() { if (liveEnabled) sttSession.retryAnalysis() }
 
     fun retryFinish() { if (liveEnabled) sttSession.retryFinish() }
-
-    fun leaveStt() {
-        registrationJob?.cancel()
-        if (liveEnabled) sttSession.abort()
-        changeFlow { it.copy(screen = Screen.HOME, phase = Phase.IDLE, error = null, sampleCount = 0) }
-    }
 
     fun selectScenario(scenario: Scenario) {
         if (!ui.value.flow.hasOpenAnalysis) changeFlow { it.copy(scenario = scenario) }

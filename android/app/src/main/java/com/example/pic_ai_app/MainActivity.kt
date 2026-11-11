@@ -9,7 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.ViewModelProvider
 import com.example.pic_ai_app.presentation.session.SessionViewModel
 import com.example.pic_ai_app.presentation.PicApp
-import com.example.pic_ai_app.ui.theme.PicTheme
+import com.example.pic_ai_app.ui.theme.PicScreenTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         )
         val session = ViewModelProvider(this, SessionViewModel.factory(this))[SessionViewModel::class.java]
         setContent {
-            PicTheme {
+            PicScreenTheme {
                 PicApp(session)
             }
         }

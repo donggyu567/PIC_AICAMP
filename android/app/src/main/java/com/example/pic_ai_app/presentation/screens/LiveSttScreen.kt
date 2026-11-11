@@ -15,7 +15,7 @@ import com.example.pic_ai_app.presentation.components.*
 @Composable
 fun LiveSttScreen(state: SttState, onStop: () -> Unit, onHome: () -> Unit, onData: () -> Unit, onRetryFinish: () -> Unit, onRetryAnalysis: () -> Unit) {
     val active = state.phase in listOf(SttPhase.CONNECTING, SttPhase.LISTENING, SttPhase.FINALIZING)
-    PicPage(title = stringResource(R.string.analysis_title), onBack = if (active) onStop else onHome) {
+    PicPage(title = stringResource(R.string.analysis_title), onBack = onHome) {
         SectionHeading(stringResource(R.string.analysis_title))
         if (state.phase == SttPhase.STOPPED && state.count > 0) {
             InfoCard("최종 분석 결과") {

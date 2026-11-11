@@ -3,6 +3,7 @@ package com.example.pic_ai_app.data.stt
 import android.annotation.SuppressLint
 import com.example.pic_ai_app.audio.AndroidPcmAudioRecorder
 import com.example.pic_ai_app.audio.Microphone
+import com.example.pic_ai_app.audio.pcm16Level
 import com.example.pic_ai_app.domain.model.MaskedTranscript
 import kotlinx.coroutines.*
 import okhttp3.*
@@ -11,6 +12,8 @@ import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 
 enum class SttPhase { IDLE, CONNECTING, LISTENING, FINALIZING, STOPPED, ERROR }
+
+internal const val AUDIO_LEVEL_BARS = 17
 
 data class SttState(
     val phase: SttPhase = SttPhase.IDLE,
@@ -22,6 +25,7 @@ data class SttState(
     val risk: RiskResult? = null,
     val canRetryFinish: Boolean = false,
     val canRetryAnalysis: Boolean = false,
+    val audioLevels: List<Float> = emptyList(),
 )
 
 /** Socket callbacks are serialized onto the supplied main scope. */
@@ -52,8 +56,9 @@ class SttSession(
     private var recoverySignal: CompletableDeferred<Unit>? = null
 
     private fun update(next: SttState) {
-        state = next
-        publish(next)
+        state = if (next.phase != SttPhase.LISTENING && next.audioLevels.isNotEmpty())
+            next.copy(audioLevels = emptyList()) else next
+        publish(state)
     }
 
     fun start(url: String) {
@@ -125,10 +130,16 @@ class SttSession(
                             if (activeSocket.queueSize() > 320_000 || !activeSocket.send(bytes.toByteString())) {
                                 throw IllegalStateException()
                             }
+                            val level = pcm16Level(bytes)
+                            scope.launch {
+                                if (id == session && state.phase == SttPhase.LISTENING) {
+                                    update(state.copy(audioLevels = (state.audioLevels + level).takeLast(AUDIO_LEVEL_BARS)))
+                                }
+                            }
                         }
                     } catch (_: CancellationException) {
                     } catch (_: Exception) {
-                        fail(id, "마이크 입력 또는 음성 전송에 실패했습니다.")
+                        if (state.phase == SttPhase.LISTENING) fail(id, "마이크 입력 또는 음성 전송에 실패했습니다.")
                     }
                 }
                 timeout = scope.launch { delay(600_000); if (id == session) stop() }
@@ -201,6 +212,7 @@ class SttSession(
                 capture?.cancel()
                 timeout?.cancel()
                 receivedStop = true
+                if (state.phase == SttPhase.LISTENING) update(state.copy(phase = SttPhase.FINALIZING))
                 if (pendingMasks == 0) completeStop()
             }
             "error" -> fail(id, "음성 인식 처리에 실패했습니다. 다시 시도해 주세요.")
@@ -246,7 +258,8 @@ class SttSession(
 
     fun stop(sendStop: Boolean = true) {
         if (state.phase == SttPhase.CONNECTING) {
-            fail(session, "연결을 중단했습니다.")
+            abort()
+            update(SttState(phase = SttPhase.STOPPED))
             return
         }
         if (state.phase != SttPhase.LISTENING) return
@@ -256,7 +269,7 @@ class SttSession(
         recorder.stop()
         scope.launch {
             capture?.join()
-            if (id != session) return@launch
+            if (id != session || receivedStop) return@launch
             if (sendStop && socket?.send("""{"type":"stop"}""") != true) {
                 fail(id, "종료 요청을 보내지 못했습니다.")
                 return@launch
@@ -303,6 +316,7 @@ class SttSession(
         receivedStop = false
         socket?.cancel()
         socket = null
-        update(state.copy(phase = SttPhase.ERROR, error = message, masking = false, analyzing = false))
+        update(state.copy(phase = SttPhase.ERROR, error = message, masking = false, analyzing = false,
+            canRetryAnalysis = false, canRetryFinish = false))
     }
 }
