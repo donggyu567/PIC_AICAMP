@@ -25,8 +25,8 @@ import com.example.pic_ai_app.ui.theme.PicTheme
 import com.example.pic_ai_app.ui.theme.PicWhite
 
 @Composable
-internal fun HomeActiveScreen(viewport: Dp, state: SttState, onStop: () -> Unit, onSettings: () -> Unit) {
-    HomeGuide(viewport, onSettings, cardGapReduction = 18.dp)
+internal fun HomeActiveScreen(viewport: Dp, state: SttState, onStop: () -> Unit) {
+    HomeGuide(viewport, cardGapReduction = 18.dp)
     Spacer(Modifier.height((viewport * .036f).coerceIn(16.dp, 30.dp)))
     AudioLevelBars(state.audioLevels)
     Spacer(Modifier.height(8.dp))
@@ -74,7 +74,6 @@ private fun HomeActivePreview() {
                     .2f, .55f, .9f, .4f, .8f, .3f, .65f, 1f, .55f, .2f, .4f, .8f, .3f, .65f, .9f, .55f, .2f,
                 )),
                 onStop = {},
-                onSettings = {},
             )
         }
     }

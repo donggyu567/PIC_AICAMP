@@ -12,12 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shadow
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.fromHtml
 import androidx.compose.ui.tooling.preview.Preview
@@ -25,33 +22,19 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pic_ai_app.R
-import com.example.pic_ai_app.presentation.components.SettingsButton
 import com.example.pic_ai_app.ui.theme.PicHomeBlue
 import com.example.pic_ai_app.ui.theme.PicTheme
 import com.example.pic_ai_app.ui.theme.PicWhite
 
 @Composable
-internal fun HomeStartScreen(viewport: Dp, canStart: Boolean, onStart: () -> Unit, onSettings: () -> Unit) {
-    HomeGuide(viewport, onSettings)
+internal fun HomeStartScreen(viewport: Dp, canStart: Boolean, onStart: () -> Unit) {
+    HomeGuide(viewport)
     Spacer(Modifier.height((viewport * .055f).coerceIn(20.dp, 45.dp)))
     HomeAnalysisButton(R.string.home_start_action, canStart, onStart)
 }
 
 @Composable
-internal fun HomeGuide(viewport: Dp, onSettings: () -> Unit, cardGapReduction: Dp = 0.dp) {
-    Spacer(Modifier.height(20.dp))
-    Row(
-        Modifier.fillMaxWidth().padding(horizontal = 12.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Text(
-            stringResource(R.string.app_name), color = Color.Black,
-            style = TextStyle(fontSize = 40.sp, fontWeight = FontWeight.Bold,
-                shadow = Shadow(Color.Black.copy(alpha = .25f), Offset(0f, 4f), 4f)),
-        )
-        SettingsButton(onClick = onSettings)
-    }
+internal fun HomeGuide(viewport: Dp, cardGapReduction: Dp = 0.dp) {
     val cardTopGap = (viewport * .10f).coerceIn(20.dp, 84.dp) - cardGapReduction
     Spacer(Modifier.height(cardTopGap))
     Surface(
@@ -111,7 +94,6 @@ private fun HomeStartContentPreview() {
                 viewport = 820.dp,
                 canStart = true,
                 onStart = {},
-                onSettings = {},
             )
         }
     }

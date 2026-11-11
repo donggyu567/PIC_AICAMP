@@ -28,6 +28,7 @@ import com.example.pic_ai_app.BuildConfig
 import com.example.pic_ai_app.R
 import com.example.pic_ai_app.data.consent.ConsentStatus
 import com.example.pic_ai_app.data.stt.SttPhase
+import com.example.pic_ai_app.presentation.analysis.AnalysisIdleScreen
 import com.example.pic_ai_app.presentation.components.*
 import com.example.pic_ai_app.presentation.home.HomeScreen
 import com.example.pic_ai_app.presentation.onboarding.OnboardingPermissions
@@ -100,8 +101,10 @@ fun PicApp(session: SessionViewModel) {
         return
     }
 
-    // While capturing, the home tab shows the running session. The analysis tab opens its details.
     val capturingOrConnecting = access.stt.phase == SttPhase.CONNECTING || access.stt.phase == SttPhase.LISTENING
+    val resultPending = access.stt.phase == SttPhase.FINALIZING || access.stt.canRetryFinish || access.stt.canRetryAnalysis
+    val deletionPending = state.deletion in listOf(Deletion.DELETING, Deletion.PENDING)
+    val canStart = !state.hasOpenAnalysis && !access.savingConsent && access.pendingConsent == null && !deletionPending
     when (state.screen) {
         Screen.WELCOME -> WelcomeScreen(
             session::openConsent, session::openData, access.declined,
@@ -130,24 +133,36 @@ fun PicApp(session: SessionViewModel) {
             }
             HomeScreen(
                 scenario = state.scenario,
-                canStart = !state.hasOpenAnalysis && !access.savingConsent && access.pendingConsent == null &&
-                    state.deletion !in listOf(Deletion.DELETING, Deletion.PENDING),
-                deletionPending = state.deletion in listOf(Deletion.DELETING, Deletion.PENDING),
+                canStart = canStart, deletionPending = deletionPending,
                 onStart = session::start, onData = session::openData,
                 onSettings = { settingsDialog = true }, onDeletion = session::showDeletion,
                 consentSaveFailed = access.consentError, onRetryConsent = session::retryConsent,
                 liveMode = true, serverUrl = access.serverUrl, onServerUrlChange = session::updateServerUrl,
                 tokenMessage = access.tokenMessage, onSaveToken = session::saveDeviceToken,
                 activeSession = access.stt.takeIf { capturingOrConnecting },
-                analysisAvailable = access.stt.phase != SttPhase.IDLE,
                 onStop = session::finishAndOpenResult,
-                onAnalysis = if (capturingOrConnecting) session::openAnalysis else session::openResult,
+                onAnalysis = if (resultPending) session::openResult else session::openAnalysis,
             )
             SnackbarHost(messages, Modifier.statusBarsPadding().padding(horizontal = 16.dp))
         }
         Screen.ANALYSIS, Screen.DETAILS, Screen.FINAL -> {
             if (state.screen == Screen.FINAL && access.stt.phase == SttPhase.IDLE) {
                 FinalScreen(state, onHome = session::showHome, onNew = session::start, onData = session::openData)
+            } else if (state.screen != Screen.FINAL && !capturingOrConnecting) {
+                var showSettings by rememberSaveable { mutableStateOf(false) }
+                AnalysisIdleScreen(
+                    riskCount = null, canStart = canStart,
+                    onStart = session::start, onHome = session::showHome,
+                    onSettings = { showSettings = true },
+                )
+                if (showSettings) {
+                    PicSettingsDialog(
+                        onDismiss = { showSettings = false }, onData = session::openData,
+                        liveMode = true, serverUrl = access.serverUrl, onServerUrlChange = session::updateServerUrl,
+                        tokenMessage = access.tokenMessage, onSaveToken = session::saveDeviceToken,
+                        scenario = state.scenario, onSettings = { settingsDialog = true },
+                    )
+                }
             } else {
                 LiveSttScreen(
                     state = access.stt, onStop = session::finishAndOpenResult,
