@@ -38,7 +38,7 @@ internal fun HomeStartScreen(viewport: Dp, canStart: Boolean, onStart: () -> Uni
 }
 
 @Composable
-internal fun HomeGuide(viewport: Dp, onSettings: () -> Unit) {
+internal fun HomeGuide(viewport: Dp, onSettings: () -> Unit, cardGapReduction: Dp = 0.dp) {
     Spacer(Modifier.height(20.dp))
     Row(
         Modifier.fillMaxWidth().padding(horizontal = 12.dp),
@@ -52,7 +52,8 @@ internal fun HomeGuide(viewport: Dp, onSettings: () -> Unit) {
         )
         SettingsButton(onClick = onSettings)
     }
-    Spacer(Modifier.height((viewport * .10f).coerceIn(20.dp, 84.dp)))
+    val cardTopGap = (viewport * .10f).coerceIn(20.dp, 84.dp) - cardGapReduction
+    Spacer(Modifier.height(cardTopGap))
     Surface(
         modifier = Modifier.widthIn(max = 318.dp).fillMaxWidth(),
         shape = RoundedCornerShape(30.dp), color = Color(0xFFF2F7FC), shadowElevation = 4.dp,

@@ -20,13 +20,13 @@ import com.example.pic_ai_app.R
 import com.example.pic_ai_app.data.stt.AUDIO_LEVEL_BARS
 import com.example.pic_ai_app.data.stt.SttPhase
 import com.example.pic_ai_app.data.stt.SttState
-import com.example.pic_ai_app.presentation.preview.Scenario
-import com.example.pic_ai_app.ui.theme.PicScreenTheme
+import com.example.pic_ai_app.ui.theme.PicHomeBlue
+import com.example.pic_ai_app.ui.theme.PicTheme
 import com.example.pic_ai_app.ui.theme.PicWhite
 
 @Composable
 internal fun HomeActiveScreen(viewport: Dp, state: SttState, onStop: () -> Unit, onSettings: () -> Unit) {
-    HomeGuide(viewport, onSettings)
+    HomeGuide(viewport, onSettings, cardGapReduction = 18.dp)
     Spacer(Modifier.height((viewport * .036f).coerceIn(16.dp, 30.dp)))
     AudioLevelBars(state.audioLevels)
     Spacer(Modifier.height(8.dp))
@@ -60,14 +60,22 @@ private fun AudioLevelBars(levels: List<Float>) {
     }
 }
 
-@Preview(name = "메인화면(분석종료)", showBackground = true, widthDp = 412, heightDp = 917)
+@Preview(name = "홈 · 분석 중 본문", showBackground = true, widthDp = 412, heightDp = 820)
 @Composable
 private fun HomeActivePreview() {
-    PicScreenTheme {
-        HomeScreen(Scenario.NORMAL, canStart = false, deletionPending = false,
-            onStart = {}, onData = {}, onSettings = {}, onDeletion = {},
-            activeSession = SttState(phase = SttPhase.LISTENING, audioLevels = listOf(
-                .2f, .55f, .9f, .4f, .8f, .3f, .65f, 1f, .55f, .2f, .4f, .8f, .3f, .65f, .9f, .55f, .2f,
-            )))
+    PicTheme {
+        Column(
+            modifier = Modifier.fillMaxSize().background(PicHomeBlue).padding(horizontal = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            HomeActiveScreen(
+                viewport = 820.dp,
+                state = SttState(phase = SttPhase.LISTENING, audioLevels = listOf(
+                    .2f, .55f, .9f, .4f, .8f, .3f, .65f, 1f, .55f, .2f, .4f, .8f, .3f, .65f, .9f, .55f, .2f,
+                )),
+                onStop = {},
+                onSettings = {},
+            )
+        }
     }
 }
