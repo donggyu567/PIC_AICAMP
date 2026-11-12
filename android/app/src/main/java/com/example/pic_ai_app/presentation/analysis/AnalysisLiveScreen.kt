@@ -88,11 +88,8 @@ internal fun AnalysisLiveScreen(state: SttState, onStop: () -> Unit, onHome: () 
             LazyColumn(
                 Modifier.weight(1f).fillMaxWidth().padding(horizontal = 33.dp),
                 state = warningsScroll,
-                reverseLayout = warnings.isNotEmpty(),
                 contentPadding = PaddingValues(vertical = 12.dp),
-                verticalArrangement = Arrangement.spacedBy(
-                    10.dp, if (warnings.isEmpty()) Alignment.Top else Alignment.Bottom,
-                ),
+                verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.Top),
             ) {
                 if (warnings.isEmpty()) item {
                     Text(stringResource(R.string.no_warning_yet), color = PicMuted, fontSize = 15.sp)
