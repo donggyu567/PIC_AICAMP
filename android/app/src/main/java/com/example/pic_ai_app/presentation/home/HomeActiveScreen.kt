@@ -1,13 +1,9 @@
 package com.example.pic_ai_app.presentation.home
 
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -17,9 +13,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pic_ai_app.R
-import com.example.pic_ai_app.data.stt.AUDIO_LEVEL_BARS
 import com.example.pic_ai_app.data.stt.SttPhase
 import com.example.pic_ai_app.data.stt.SttState
+import com.example.pic_ai_app.presentation.components.AudioLevelBars
 import com.example.pic_ai_app.ui.theme.PicHomeBlue
 import com.example.pic_ai_app.ui.theme.PicTheme
 import com.example.pic_ai_app.ui.theme.PicWhite
@@ -39,25 +35,6 @@ internal fun HomeActiveScreen(viewport: Dp, state: SttState, onStop: () -> Unit)
         fontSize = 12.sp, lineHeight = 16.sp, fontWeight = FontWeight.Medium)
     Spacer(Modifier.height((viewport * .04f).coerceIn(16.dp, 33.dp)))
     HomeAnalysisButton(R.string.stop_analysis, enabled = true, onClick = onStop)
-}
-
-@Composable
-private fun AudioLevelBars(levels: List<Float>) {
-    Row(Modifier.height(40.dp), horizontalArrangement = Arrangement.spacedBy(4.dp),
-        verticalAlignment = Alignment.CenterVertically) {
-        repeat(AUDIO_LEVEL_BARS) { slot ->
-            // Right-align new samples even before the history fills up.
-            val level = levels.getOrNull(slot + levels.size - AUDIO_LEVEL_BARS) ?: 0f
-            val displayLevel = ((level - 0.2f) / 0.6f).coerceIn(0f, 1f)
-            val height by animateDpAsState(
-                targetValue = (2 + displayLevel * 36).dp,
-                animationSpec = tween(60),
-                label = "음성 막대 높이",
-            )
-            val opacity = .35f + .65f * slot / (AUDIO_LEVEL_BARS - 1)
-            Spacer(Modifier.width(4.dp).height(height).background(PicWhite.copy(alpha = opacity), RoundedCornerShape(2.dp)))
-        }
-    }
 }
 
 @Preview(name = "홈 · 분석 중 본문", showBackground = true, widthDp = 412, heightDp = 820)

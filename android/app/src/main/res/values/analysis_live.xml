@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="live_risk_title">현재 발화 누적 위험도</string>
+    <string name="live_progress">발화 진행 상황</string>
+    <string name="live_recognition">음성인식 상태 상세</string>
+    <string name="live_context_error">문맥 판단을 완료하지 못했습니다.</string>
+    <string name="live_correction_fallback">발화 보정 없이 분석했습니다.</string>
+    <string name="live_points">%1$d점</string>
+    <string name="live_waiting_score">분석 중</string>
+    <string name="live_normal">정상</string>
+    <string name="live_suspect">의심</string>
+    <string name="live_caution">주의</string>
+    <string name="live_danger">위험</string>
+</resources>

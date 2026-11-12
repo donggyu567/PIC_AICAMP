@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="detail_no_transfer">송금하지 마세요</string>
+    <string name="detail_verify">통화를 끊고 해당 기관의 공식 번호로 직접 확인하세요</string>
+</resources>

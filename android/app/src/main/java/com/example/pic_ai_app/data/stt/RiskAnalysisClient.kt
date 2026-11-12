@@ -24,6 +24,8 @@ data class RiskResult(
     val contextStatus: String,
     val contextReason: String?,
     val correctionStatus: String?,
+    val riskTypes: List<String> = emptyList(),
+    val evidenceIds: List<Int> = emptyList(),
 )
 
 class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { null }) {
@@ -116,11 +118,17 @@ class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { nul
             return value
         }
         val context = data.optJSONObject("context_judgment")
+        val judgment = context?.takeIf { it.optString("status") == "ok" }?.optJSONObject("result")
+        val types = judgment?.optJSONArray("risk_types")
+        val evidence = judgment?.optJSONArray("evidence_utterance_ids")
         return RiskResult(score("current_risk_score"), score("cumulative_risk_score"),
             data.optJSONObject("warning")?.optString("message")?.takeIf { it.isNotBlank() },
             context?.optString("status") ?: "not_run",
-            context?.optJSONObject("result")?.optString("reason")?.takeIf { it.isNotBlank() },
-            if (data.isNull("correction_status")) null else data.optString("correction_status"))
+            judgment?.optString("reason")?.takeIf { it.isNotBlank() },
+            if (data.isNull("correction_status")) null else data.optString("correction_status"),
+            riskTypes = types?.let { List(it.length()) { index -> it.optString(index) } }.orEmpty(),
+            evidenceIds = evidence?.let { List(it.length()) { index -> it.optInt(index) } }.orEmpty(),
+        )
     }
 
     private fun endpoint(websocketUrl: String, path: String): String {

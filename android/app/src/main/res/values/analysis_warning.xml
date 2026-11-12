@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analysis_warning_detection">실시간 위험 감지</string>
+    <string name="analysis_warning_action">대응 행동</string>
+    <string name="analysis_warning_utterance">인식된 발화</string>
+    <string name="analysis_warning_evidence">감지 근거</string>
+</resources>

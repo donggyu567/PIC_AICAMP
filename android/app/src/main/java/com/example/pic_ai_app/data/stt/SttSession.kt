@@ -15,6 +15,8 @@ enum class SttPhase { IDLE, CONNECTING, LISTENING, FINALIZING, STOPPED, ERROR }
 
 internal const val AUDIO_LEVEL_BARS = 17
 
+data class DetectedWarning(val utteranceId: Int, val detectedAtMillis: Long, val result: RiskResult)
+
 data class SttState(
     val phase: SttPhase = SttPhase.IDLE,
     val count: Int = 0,
@@ -26,6 +28,7 @@ data class SttState(
     val canRetryFinish: Boolean = false,
     val canRetryAnalysis: Boolean = false,
     val audioLevels: List<Float> = emptyList(),
+    val warnings: List<DetectedWarning> = emptyList(),
 )
 
 /** Socket callbacks are serialized onto the supplied main scope. */
@@ -188,7 +191,11 @@ class SttSession(
                         }
                         if (id != session) return@launch
                         pendingMasks--
-                        update(state.copy(risk = result ?: state.risk, analyzing = false, masking = pendingMasks > 0))
+                        val warnings = if (result != null && !result.warningMessage.isNullOrBlank()) {
+                            state.warnings + DetectedWarning(utterance, System.currentTimeMillis(), result)
+                        } else state.warnings
+                        update(state.copy(risk = result ?: state.risk, warnings = warnings,
+                            analyzing = false, masking = pendingMasks > 0))
                         if (receivedStop && pendingMasks == 0) completeStop()
                     } catch (cancelled: CancellationException) {
                         throw cancelled

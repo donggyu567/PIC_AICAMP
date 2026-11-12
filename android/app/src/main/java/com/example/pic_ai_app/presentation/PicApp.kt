@@ -29,6 +29,7 @@ import com.example.pic_ai_app.R
 import com.example.pic_ai_app.data.consent.ConsentStatus
 import com.example.pic_ai_app.data.stt.SttPhase
 import com.example.pic_ai_app.presentation.analysis.AnalysisIdleScreen
+import com.example.pic_ai_app.presentation.analysis.AnalysisLiveScreen
 import com.example.pic_ai_app.presentation.components.*
 import com.example.pic_ai_app.presentation.home.HomeScreen
 import com.example.pic_ai_app.presentation.onboarding.OnboardingPermissions
@@ -163,6 +164,11 @@ fun PicApp(session: SessionViewModel) {
                         scenario = state.scenario, onSettings = { settingsDialog = true },
                     )
                 }
+            } else if (state.screen != Screen.FINAL) {
+                AnalysisLiveScreen(
+                    state = access.stt, onStop = session::finishAndOpenResult,
+                    onHome = session::showHome, onData = session::openData,
+                )
             } else {
                 LiveSttScreen(
                     state = access.stt, onStop = session::finishAndOpenResult,
