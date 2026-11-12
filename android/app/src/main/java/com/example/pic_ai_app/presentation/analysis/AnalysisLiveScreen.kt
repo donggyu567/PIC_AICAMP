@@ -1,19 +1,20 @@
 package com.example.pic_ai_app.presentation.analysis
 
+import androidx.activity.compose.BackHandler
+
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
@@ -26,7 +27,6 @@ import com.example.pic_ai_app.data.stt.DetectedWarning
 import com.example.pic_ai_app.data.stt.RiskResult
 import com.example.pic_ai_app.data.stt.SttPhase
 import com.example.pic_ai_app.data.stt.SttState
-import com.example.pic_ai_app.presentation.components.AudioLevelBars
 import com.example.pic_ai_app.presentation.components.analysis.AnalysisWarningCard
 import com.example.pic_ai_app.presentation.components.analysis.AnalysisWarningUi
 import com.example.pic_ai_app.presentation.components.analysis.WarningEvidence
@@ -37,20 +37,26 @@ private enum class LiveDetail(val title: Int) {
 }
 
 @Composable
-internal fun AnalysisLiveScreen(state: SttState, onStop: () -> Unit, onHome: () -> Unit, onData: () -> Unit) {
+internal fun AnalysisLiveScreen(state: SttState, onStop: () -> Unit, onHome: () -> Unit) {
     var detail by rememberSaveable { mutableStateOf<LiveDetail?>(null) }
+    val warningsScroll = rememberLazyListState()
+    var lastScrolledWarningId by rememberSaveable { mutableStateOf<Int?>(null) }
+    val closeDetail = { detail = null }
+    BackHandler(enabled = detail != null, onBack = closeDetail)
+    when (detail) {
+        LiveDetail.Progress -> {
+            UtteranceProgressScreen(state.maskedTexts, state.audioLevels, closeDetail)
+            return
+        }
+        LiveDetail.Recognition -> {
+            RecognitionStatusScreen(state, closeDetail)
+            return
+        }
+        null -> Unit
+    }
     Surface(Modifier.fillMaxSize(), color = PicWhite, contentColor = PicInk) {
         Column(Modifier.safeDrawingPadding(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Row(Modifier.fillMaxWidth().padding(start = 14.dp, top = 8.dp, bottom = 4.dp),
-                verticalAlignment = Alignment.CenterVertically) {
-                IconButton(onClick = onHome) {
-                    Icon(painterResource(R.drawable.result_back), stringResource(R.string.back), Modifier.rotate(180f))
-                }
-                Text(stringResource(R.string.analysis_in_progress), fontSize = 28.sp, fontWeight = FontWeight.ExtraBold)
-                Spacer(Modifier.width(10.dp))
-                AudioLevelBars(state.audioLevels, Modifier.size(44.dp), barCount = 9, barWidth = 3.dp,
-                    gap = 2.dp, maxBarHeight = 20.dp, color = PicHomeBlue)
-            }
+            AnalysisHeader(stringResource(R.string.analysis_in_progress), state.audioLevels, onHome)
             Surface(
                 Modifier.fillMaxWidth().padding(horizontal = 20.dp), shape = RoundedCornerShape(20.dp),
                 color = PicWhite, border = BorderStroke(1.dp, Color(0xFFD2E2F2)),
@@ -72,11 +78,21 @@ internal fun AnalysisLiveScreen(state: SttState, onStop: () -> Unit, onHome: () 
                 }
             }
             val warnings = state.warnings
+            val latestWarningId = warnings.lastOrNull()?.utteranceId
+            LaunchedEffect(latestWarningId) {
+                if (latestWarningId != null && latestWarningId != lastScrolledWarningId) {
+                    warningsScroll.animateScrollToItem(0)
+                }
+                lastScrolledWarningId = latestWarningId
+            }
             LazyColumn(
                 Modifier.weight(1f).fillMaxWidth().padding(horizontal = 33.dp),
+                state = warningsScroll,
                 reverseLayout = warnings.isNotEmpty(),
                 contentPadding = PaddingValues(vertical = 12.dp),
-                verticalArrangement = Arrangement.spacedBy(10.dp),
+                verticalArrangement = Arrangement.spacedBy(
+                    10.dp, if (warnings.isEmpty()) Alignment.Top else Alignment.Bottom,
+                ),
             ) {
                 if (warnings.isEmpty()) item {
                     Text(stringResource(R.string.no_warning_yet), color = PicMuted, fontSize = 15.sp)
@@ -102,38 +118,6 @@ internal fun AnalysisLiveScreen(state: SttState, onStop: () -> Unit, onHome: () 
             }
         }
     }
-    detail?.let { selected ->
-        LiveDetailDialog(selected, state, onClose = { detail = null }, onData = { detail = null; onData() })
-    }
-}
-
-@Composable
-private fun LiveDetailDialog(detail: LiveDetail, state: SttState, onClose: () -> Unit, onData: () -> Unit) {
-    AlertDialog(onDismissRequest = onClose, title = { Text(stringResource(detail.title)) },
-        text = {
-            LazyColumn(Modifier.heightIn(max = 400.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                item { Text(stringResource(R.string.confirmed_utterances, state.count)) }
-                if (detail == LiveDetail.Progress) {
-                    items(state.maskedTexts) { Text(it) }
-                } else {
-                    item {
-                        val status = when {
-                            state.phase == SttPhase.CONNECTING -> R.string.state_connecting
-                            state.analyzing -> R.string.state_analyzing
-                            state.masking -> R.string.state_masking
-                            else -> R.string.state_recognizing
-                        }
-                        Text(stringResource(status))
-                    }
-                    state.error?.let { item { Text(it) } }
-                    state.risk?.contextReason?.let { item { Text(it) } }
-                    if (state.risk?.contextStatus == "error") item { Text(stringResource(R.string.live_context_error)) }
-                    if (state.risk?.correctionStatus == "fallback") item { Text(stringResource(R.string.live_correction_fallback)) }
-                }
-            }
-        },
-        dismissButton = { TextButton(onClick = onData) { Text(stringResource(R.string.data_guide_short)) } },
-        confirmButton = { TextButton(onClick = onClose) { Text(stringResource(R.string.close)) } })
 }
 
 @Preview(name = "실시간 분석 · 경고 감지", widthDp = 412, heightDp = 917, showBackground = true)
@@ -146,6 +130,6 @@ private fun AnalysisLivePreview() {
             maskedTexts = listOf("안전계좌로 돈을 이체해 주세요."),
             warnings = listOf(DetectedWarning(1, 1_794_461_520_000L, risk)),
             audioLevels = listOf(.3f, .5f, .8f, .45f, .7f, .55f, .4f, .8f, .6f)),
-            onStop = {}, onHome = {}, onData = {})
+            onStop = {}, onHome = {})
     }
 }

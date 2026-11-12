@@ -167,7 +167,7 @@ fun PicApp(session: SessionViewModel) {
             } else if (state.screen != Screen.FINAL) {
                 AnalysisLiveScreen(
                     state = access.stt, onStop = session::finishAndOpenResult,
-                    onHome = session::showHome, onData = session::openData,
+                    onHome = session::showHome,
                 )
             } else {
                 LiveSttScreen(
