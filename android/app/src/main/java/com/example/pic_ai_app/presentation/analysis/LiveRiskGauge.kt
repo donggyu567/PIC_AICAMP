@@ -27,14 +27,14 @@ import kotlin.math.cos
 import kotlin.math.roundToInt
 import kotlin.math.sin
 
-private enum class RiskBand(val label: Int, val arc: Color, val ink: Color = arc) {
+internal enum class RiskBand(val label: Int, val arc: Color, val ink: Color = arc) {
     Normal(R.string.live_normal, Color(0xFF248357)),
     Suspect(R.string.live_suspect, Color(0xFFA3BD38), Color(0xFF5A691A)),
     Caution(R.string.live_caution, Color(0xFFF3C735), Color(0xFF796000)),
     Danger(R.string.live_danger, Color(0xFFC33138)),
 }
 
-private fun bandFor(points: Int) = when (points) {
+internal fun bandFor(points: Int) = when (points) {
     in 0..30 -> RiskBand.Normal
     in 31..50 -> RiskBand.Suspect
     in 51..70 -> RiskBand.Caution

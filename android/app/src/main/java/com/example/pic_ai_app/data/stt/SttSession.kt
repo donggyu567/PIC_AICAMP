@@ -253,7 +253,9 @@ class SttSession(
             try {
                 val finalResult = action(serverUrl, conversation, last)
                 if (id != session) return@launch
-                update(state.copy(phase = SttPhase.STOPPED, risk = finalResult, masking = false))
+                val displayedResult = if (finalResult.analysisIncomplete)
+                    finalResult.copy(cumulativeScore = state.risk?.cumulativeScore) else finalResult
+                update(state.copy(phase = SttPhase.STOPPED, risk = displayedResult, masking = false))
             } catch (cancelled: CancellationException) {
                 throw cancelled
             } catch (_: Exception) {

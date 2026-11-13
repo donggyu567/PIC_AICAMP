@@ -24,8 +24,12 @@ data class RiskResult(
     val contextStatus: String,
     val contextReason: String?,
     val correctionStatus: String?,
+    val endedAt: String? = null,
     val riskTypes: List<String> = emptyList(),
+    val assessment: String? = null,
     val evidenceIds: List<Int> = emptyList(),
+    val analysisIncomplete: Boolean = false,
+    val analysisWarning: String? = null,
 )
 
 class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { null }) {
@@ -111,6 +115,10 @@ class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { nul
         if (data == null || data.optString("conversation_id") != conversation ||
             data.optInt("utterance_id", -1) != utterance || data.optString("analysis_status") != "ok")
             throw IOException("analysis result unavailable")
+        return readRisk(data)
+    }
+
+    private fun readRisk(data: JSONObject): RiskResult {
         fun score(name: String): Double? {
             if (data.isNull(name)) return null
             val value = data.getDouble(name)
@@ -127,8 +135,9 @@ class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { nul
             judgment?.optString("reason")?.takeIf { it.isNotBlank() },
             if (data.isNull("correction_status")) null else data.optString("correction_status"),
             riskTypes = types?.let { List(it.length()) { index -> it.optString(index) } }.orEmpty(),
+            assessment = judgment?.optString("assessment"),
             evidenceIds = evidence?.let { List(it.length()) { index -> it.optInt(index) } }.orEmpty(),
-        )
+            analysisIncomplete = data.optString("analysis_status") == "error")
     }
 
     private fun endpoint(websocketUrl: String, path: String): String {
@@ -152,47 +161,19 @@ class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { nul
             .put("last_utterance_id", lastUtteranceId)
         val request = Request.Builder().url(endpoint(websocketUrl, "/api/v1/conversations/end"))
             .post(body.toString().toRequestBody("application/json; charset=utf-8".toMediaType())).build()
-        return suspendCancellableCoroutine { continuation ->
-            val call = client.newCall(authenticated(request))
-            continuation.invokeOnCancellation { call.cancel() }
-            call.enqueue(object : Callback {
-                override fun onFailure(call: Call, e: IOException) {
-                    if (continuation.isActive) continuation.resumeWithException(IOException("finish unavailable"))
-                }
-                override fun onResponse(call: Call, response: Response) {
-                    response.use {
-                        try {
-                            if (!response.isSuccessful) throw IOException("finish failed")
-                            val data = JSONObject(response.body?.string() ?: throw IOException("empty response"))
-                            val last = data.getJSONObject("last_analysis")
-                            require(data.getString("conversation_id") == conversationId &&
-                                data.getString("conversation_status") == "ended" &&
-                                last.getString("conversation_id") == conversationId &&
-                                last.getInt("utterance_id") == lastUtteranceId &&
-                                last.getString("analysis_status") == "ok")
-                            fun score(name: String): Double? {
-                                if (last.isNull(name)) return null
-                                val value = last.getDouble(name)
-                                require(value.isFinite() && value in 0.0..100.0)
-                                return value
-                            }
-                            val context = last.optJSONObject("context_judgment")
-                            val result = RiskResult(
-                                score("current_risk_score"), score("cumulative_risk_score"),
-                                data.optJSONObject("warning")?.optString("message")?.takeIf { it.isNotBlank() }
-                                    ?: last.optJSONObject("warning")?.optString("message")?.takeIf { it.isNotBlank() },
-                                context?.optString("status") ?: "not_run",
-                                context?.optJSONObject("result")?.optString("reason")?.takeIf { it.isNotBlank() },
-                                if (last.isNull("correction_status")) null else last.optString("correction_status"),
-                            )
-                            if (continuation.isActive) continuation.resume(result)
-                        } catch (_: Exception) {
-                            if (continuation.isActive) continuation.resumeWithException(IOException("finish result unavailable"))
-                        }
-                    }
-                }
-            })
-        }
+        val (status, data) = execute(request)
+        if (status != 200 || data == null) throw IOException("finish unavailable")
+        val last = data.getJSONObject("last_analysis")
+        require(data.getString("conversation_id") == conversationId &&
+            data.getString("conversation_status") == "ended" &&
+            last.getString("conversation_id") == conversationId &&
+            last.getInt("utterance_id") == lastUtteranceId &&
+            last.getString("analysis_status") in setOf("ok", "error"))
+        val risk = readRisk(last)
+        return risk.copy(
+            endedAt = data.optString("ended_at").takeIf { !data.isNull("ended_at") && it.isNotBlank() },
+            analysisWarning = risk.warningMessage,
+            warningMessage = data.optJSONObject("warning")?.optString("message")?.takeIf { it.isNotBlank() } ?: risk.warningMessage,
+        )
     }
-
 }

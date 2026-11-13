@@ -146,10 +146,13 @@ fun PicApp(session: SessionViewModel) {
             )
             SnackbarHost(messages, Modifier.statusBarsPadding().padding(horizontal = 16.dp))
         }
-        Screen.ANALYSIS, Screen.DETAILS, Screen.FINAL -> {
-            if (state.screen == Screen.FINAL && access.stt.phase == SttPhase.IDLE) {
-                FinalScreen(state, onHome = session::showHome, onNew = session::start, onData = session::openData)
-            } else if (state.screen != Screen.FINAL && !capturingOrConnecting) {
+        Screen.ANALYSIS, Screen.DETAILS -> {
+            if (capturingOrConnecting) {
+                AnalysisLiveScreen(
+                    state = access.stt, onStop = session::finishAndOpenResult,
+                    onHome = session::showHome,
+                )
+            } else {
                 var showSettings by rememberSaveable { mutableStateOf(false) }
                 AnalysisIdleScreen(
                     riskCount = null, canStart = canStart,
@@ -164,19 +167,12 @@ fun PicApp(session: SessionViewModel) {
                         scenario = state.scenario, onSettings = { settingsDialog = true },
                     )
                 }
-            } else if (state.screen != Screen.FINAL) {
-                AnalysisLiveScreen(
-                    state = access.stt, onStop = session::finishAndOpenResult,
-                    onHome = session::showHome,
-                )
-            } else {
-                LiveSttScreen(
-                    state = access.stt, onStop = session::finishAndOpenResult,
-                    onHome = session::showHome, onData = session::openData,
-                    onRetryFinish = session::retryFinish, onRetryAnalysis = session::retryAnalysis,
-                )
             }
         }
+        Screen.FINAL -> AnalysisResultDetailScreen(
+            state = access.stt, permissionLost = state.error == PreviewError.PERMISSION,
+            onBack = session::showHome, onRetryFinish = session::retryFinish, onRetryAnalysis = session::retryAnalysis,
+        )
         Screen.DATA -> DataScreen(
             state, onBack = back, onWithdraw = { withdrawDialog = true },
             onConsent = session::openConsent, onDeletion = session::showDeletion,

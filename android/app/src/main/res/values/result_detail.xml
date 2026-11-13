@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="detail_score">최종 누적 점수</string>
+    <string name="detail_points">%1$s점</string>
+    <string name="detail_date">일자</string>
+    <string name="detail_summary">결과 요약</string>
+    <string name="detail_warning">종합 경고</string>
+    <string name="detail_more">자세히 보기</string>
+    <string name="detail_actions">대응 행동</string>
     <string name="detail_no_transfer">송금하지 마세요</string>
     <string name="detail_verify">통화를 끊고 해당 기관의 공식 번호로 직접 확인하세요</string>
+    <string name="detail_chat">대화 내용</string>
+    <string name="detail_expand">크게 보기</string>
+    <string name="detail_institution">기관 사칭</string>
+    <string name="detail_transfer">계좌 이체 요구</string>
+    <string name="detail_suspicious">위험 의심</string>
+    <string name="detail_no_context">문맥 요약이 제공되지 않았습니다.</string>
+    <string name="detail_empty_chat">확정된 대화 내용이 없습니다.</string>
+    <string name="detail_retry_finish">서버 종료 다시 시도</string>
+    <string name="detail_retry_analysis">분석 결과 다시 확인</string>
+    <string name="detail_permission">마이크 권한이 해제되어 분석이 중단되었습니다.</string>
+    <string name="detail_evidence_line">발화 %1$d · %2$s</string>
 </resources>
