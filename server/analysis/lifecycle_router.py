@@ -2,7 +2,7 @@
 
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Query, Request, Response
+from fastapi import APIRouter, Depends, HTTPException, Query, Request, Response
 from pydantic import Field
 
 from backend.schemas import (
@@ -13,6 +13,8 @@ from backend.services import analysis_service
 from backend.services.notification_service import NotificationService
 from server.analysis.router import run_analysis
 from server.analysis.risk_display import ConversationEndWithDisplay, add_final_risk_display
+from server.analysis.summary_service import ConversationSummary, SummaryUnavailableError, summarize_conversation
+from server.security import limits
 from server.security.access import authenticated_device, require_conversation_owner
 
 
@@ -22,6 +24,19 @@ router = APIRouter(prefix="/api/v1", tags=["통화·알림"])
 class FinalizeConversationRequest(ConversationEndRequest):
     # STT stopped의 마지막 번호. 분석 완료를 기다린 뒤 최종 종료를 요청한다.
     last_utterance_id: int = Field(ge=1)
+
+
+@router.post("/conversations/summary", response_model=ConversationSummary)
+def summarize(payload: ConversationEndRequest, request: Request, response: Response,
+              owner: Annotated[str, Depends(authenticated_device)]):
+    require_conversation_owner(owner, payload.conversation_id)
+    if not limits.analysis_requests.allow(owner):
+        raise HTTPException(429, "요약 요청이 너무 많습니다.", headers={"Retry-After": "60"})
+    response.headers["Cache-Control"] = "no-store"
+    try:
+        return run_analysis(summarize_conversation, payload.conversation_id, request.app.state.llm_client)
+    except SummaryUnavailableError:
+        raise HTTPException(503, "통화 요약을 생성하지 못했습니다.") from None
 
 
 @router.post("/conversations/withdraw")
