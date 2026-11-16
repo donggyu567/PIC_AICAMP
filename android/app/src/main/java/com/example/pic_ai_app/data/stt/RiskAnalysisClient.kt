@@ -30,6 +30,8 @@ data class RiskResult(
     val evidenceIds: List<Int> = emptyList(),
     val analysisIncomplete: Boolean = false,
     val analysisWarning: String? = null,
+    // null when the response does not identify the warning state.
+    val warningActive: Boolean? = null,
 )
 
 class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { null }) {
@@ -129,15 +131,21 @@ class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { nul
         val judgment = context?.takeIf { it.optString("status") == "ok" }?.optJSONObject("result")
         val types = judgment?.optJSONArray("risk_types")
         val evidence = judgment?.optJSONArray("evidence_utterance_ids")
+        val warning = data.optJSONObject("warning")
         return RiskResult(score("current_risk_score"), score("cumulative_risk_score"),
-            data.optJSONObject("warning")?.optString("message")?.takeIf { it.isNotBlank() },
+            warning?.optString("message")?.takeIf { !warning.isNull("message") && it.isNotBlank() },
             context?.optString("status") ?: "not_run",
             judgment?.optString("reason")?.takeIf { it.isNotBlank() },
             if (data.isNull("correction_status")) null else data.optString("correction_status"),
             riskTypes = types?.let { List(it.length()) { index -> it.optString(index) } }.orEmpty(),
             assessment = judgment?.optString("assessment"),
             evidenceIds = evidence?.let { List(it.length()) { index -> it.optInt(index) } }.orEmpty(),
-            analysisIncomplete = data.optString("analysis_status") == "error")
+            analysisIncomplete = data.optString("analysis_status") == "error",
+            warningActive = when (warning?.optString("status")) {
+                "active" -> true
+                "none", "previous_warning" -> false
+                else -> null
+            })
     }
 
     private fun endpoint(websocketUrl: String, path: String): String {

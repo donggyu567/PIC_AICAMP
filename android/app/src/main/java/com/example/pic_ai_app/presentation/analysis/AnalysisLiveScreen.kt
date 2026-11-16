@@ -24,12 +24,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pic_ai_app.R
 import com.example.pic_ai_app.data.stt.DetectedWarning
+import com.example.pic_ai_app.data.stt.AnalysisNotice
+import com.example.pic_ai_app.data.stt.AnalysisStatus
 import com.example.pic_ai_app.data.stt.RiskResult
 import com.example.pic_ai_app.data.stt.SttPhase
 import com.example.pic_ai_app.data.stt.SttState
-import com.example.pic_ai_app.presentation.components.analysis.AnalysisWarningCard
-import com.example.pic_ai_app.presentation.components.analysis.AnalysisWarningUi
-import com.example.pic_ai_app.presentation.components.analysis.WarningEvidence
 import com.example.pic_ai_app.ui.theme.*
 
 private enum class LiveDetail(val title: Int) {
@@ -40,7 +39,7 @@ private enum class LiveDetail(val title: Int) {
 internal fun AnalysisLiveScreen(state: SttState, onStop: () -> Unit, onHome: () -> Unit) {
     var detail by rememberSaveable { mutableStateOf<LiveDetail?>(null) }
     val warningsScroll = rememberLazyListState()
-    var lastScrolledWarningId by rememberSaveable { mutableStateOf<Int?>(null) }
+    var lastScrolledNotice by rememberSaveable { mutableStateOf<String?>(null) }
     val closeDetail = { detail = null }
     BackHandler(enabled = detail != null, onBack = closeDetail)
     when (detail) {
@@ -77,13 +76,13 @@ internal fun AnalysisLiveScreen(state: SttState, onStop: () -> Unit, onHome: () 
                     LiveRiskGauge(state.risk?.cumulativeScore)
                 }
             }
-            val warnings = state.warnings
-            val latestWarningId = warnings.lastOrNull()?.utteranceId
-            LaunchedEffect(latestWarningId) {
-                if (latestWarningId != null && latestWarningId != lastScrolledWarningId) {
+            val notices = state.notices
+            val latestKey = notices.lastOrNull()?.let(::noticeKey)
+            LaunchedEffect(latestKey) {
+                if (latestKey != null && latestKey != lastScrolledNotice) {
                     warningsScroll.animateScrollToItem(0)
                 }
-                lastScrolledWarningId = latestWarningId
+                lastScrolledNotice = latestKey
             }
             LazyColumn(
                 Modifier.weight(1f).fillMaxWidth().padding(horizontal = 33.dp),
@@ -91,20 +90,22 @@ internal fun AnalysisLiveScreen(state: SttState, onStop: () -> Unit, onHome: () 
                 contentPadding = PaddingValues(vertical = 12.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.Top),
             ) {
-                if (warnings.isEmpty()) item {
-                    Text(stringResource(R.string.no_warning_yet), color = PicMuted, fontSize = 15.sp)
-                }
-                items(warnings.asReversed(), key = { it.utteranceId }) { warning ->
-                    val result = warning.result
-                    AnalysisWarningCard(AnalysisWarningUi(
-                        title = result.warningMessage.orEmpty(),
-                        actionTitle = if ("money_transfer" in result.riskTypes) stringResource(R.string.detail_no_transfer) else "",
-                        actionDescription = stringResource(R.string.detail_verify),
-                        detectedAtMillis = warning.detectedAtMillis,
-                        evidence = result.evidenceIds.distinct().mapNotNull { id ->
-                            state.maskedTexts.getOrNull(id - 1)?.let { WarningEvidence(it) }
-                        },
-                    ), Modifier.fillMaxWidth())
+                items(notices.asReversed(), key = ::noticeKey) { notice ->
+                    when (notice) {
+                        is AnalysisStatus -> AnalysisStatusCard(notice.checkedAtMillis, Modifier.fillMaxWidth())
+                        is DetectedWarning -> {
+                            val result = notice.result
+                            AnalysisWarningCard(AnalysisWarningUi(
+                                title = result.warningMessage ?: stringResource(R.string.analysis_warning_detection),
+                                actionTitle = if ("money_transfer" in result.riskTypes) stringResource(R.string.detail_no_transfer) else "",
+                                actionDescription = stringResource(R.string.detail_verify),
+                                detectedAtMillis = notice.detectedAtMillis,
+                                evidence = result.evidenceIds.distinct().mapNotNull { id ->
+                                    state.maskedTexts.getOrNull(id - 1)?.let { WarningEvidence(it) }
+                                },
+                            ), Modifier.fillMaxWidth())
+                        }
+                    }
                 }
             }
             Button(
@@ -117,7 +118,13 @@ internal fun AnalysisLiveScreen(state: SttState, onStop: () -> Unit, onHome: () 
     }
 }
 
-@Preview(name = "실시간 분석 · 경고 감지", widthDp = 412, heightDp = 917, showBackground = true)
+private fun noticeKey(notice: AnalysisNotice): String = when (notice) {
+    is AnalysisStatus -> "status"
+    is DetectedWarning -> "warning-${notice.utteranceId}"
+}
+
+@Preview(name = "실시간 분석 · 경고와 안내", widthDp = 412, heightDp = 917, showBackground = true)
+@Preview(name = "실시간 분석 · 두 카드 전체", widthDp = 412, heightDp = 1300, showBackground = true)
 @Composable
 private fun AnalysisLivePreview() {
     val risk = RiskResult(83.0, 76.0, "위험 · 송금 유도 의심", "ok", null, "ok",
@@ -125,7 +132,7 @@ private fun AnalysisLivePreview() {
     PicScreenTheme {
         AnalysisLiveScreen(SttState(phase = SttPhase.LISTENING, count = 1, risk = risk,
             maskedTexts = listOf("안전계좌로 돈을 이체해 주세요."),
-            warnings = listOf(DetectedWarning(1, 1_794_461_520_000L, risk)),
+            notices = listOf(AnalysisStatus(1_794_461_520_000L), DetectedWarning(1, 1_794_461_580_000L, risk)),
             audioLevels = listOf(.3f, .5f, .8f, .45f, .7f, .55f, .4f, .8f, .6f)),
             onStop = {}, onHome = {})
     }

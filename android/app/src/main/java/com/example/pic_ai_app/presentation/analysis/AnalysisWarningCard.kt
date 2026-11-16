@@ -1,25 +1,20 @@
-package com.example.pic_ai_app.presentation.components.analysis
+package com.example.pic_ai_app.presentation.analysis
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextRange
@@ -29,14 +24,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pic_ai_app.R
+import com.example.pic_ai_app.presentation.components.analysis.AnalysisCardHeader
 import com.example.pic_ai_app.ui.theme.PicHomeBlue
 import com.example.pic_ai_app.ui.theme.PicNavigationSelected
 import com.example.pic_ai_app.ui.theme.PicTheme
 import com.example.pic_ai_app.ui.theme.PicWhite
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
-import java.util.TimeZone
 
 internal data class AnalysisWarningUi(
     val title: String,
@@ -67,30 +59,11 @@ internal fun AnalysisWarningCard(warning: AnalysisWarningUi, modifier: Modifier 
     ) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(10.dp),
-                ) {
-                    Box(
-                        Modifier.size(32.dp).background(PicHomeBlue, CircleShape),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        Icon(painterResource(R.drawable.ic_analysis_warning), contentDescription = null, tint = PicWhite)
-                    }
-                    Text(
-                        stringResource(R.string.analysis_warning_detection),
-                        Modifier.weight(1f),
-                        color = PicHomeBlue, fontWeight = FontWeight.Bold, fontSize = 15.sp,
-                    )
-                    warning.detectedAtMillis?.let { millis ->
-                        val time = remember(millis) {
-                            SimpleDateFormat("HH:mm", Locale.KOREA).apply {
-                                timeZone = TimeZone.getTimeZone("Asia/Seoul")
-                            }.format(Date(millis))
-                        }
-                        Text(time, color = PicHomeBlue, fontWeight = FontWeight.Bold, fontSize = 15.sp)
-                    }
-                }
+                AnalysisCardHeader(
+                    iconRes = R.drawable.ic_analysis_warning,
+                    title = stringResource(R.string.analysis_warning_detection),
+                    timeMillis = warning.detectedAtMillis,
+                )
                 Text(warning.title, fontWeight = FontWeight.Bold, fontSize = 22.sp, lineHeight = 26.sp)
             }
             if (warning.actionTitle.isNotBlank() || warning.actionDescription.isNotBlank()) {

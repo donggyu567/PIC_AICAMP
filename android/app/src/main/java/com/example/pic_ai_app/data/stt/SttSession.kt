@@ -15,7 +15,11 @@ enum class SttPhase { IDLE, CONNECTING, LISTENING, FINALIZING, STOPPED, ERROR }
 
 internal const val AUDIO_LEVEL_BARS = 17
 
-data class DetectedWarning(val utteranceId: Int, val detectedAtMillis: Long, val result: RiskResult)
+private const val STATUS_INTERVAL_MS = 30_000L
+
+sealed interface AnalysisNotice
+data class DetectedWarning(val utteranceId: Int, val detectedAtMillis: Long, val result: RiskResult) : AnalysisNotice
+data class AnalysisStatus(val checkedAtMillis: Long) : AnalysisNotice
 
 data class SttState(
     val phase: SttPhase = SttPhase.IDLE,
@@ -28,7 +32,7 @@ data class SttState(
     val canRetryFinish: Boolean = false,
     val canRetryAnalysis: Boolean = false,
     val audioLevels: List<Float> = emptyList(),
-    val warnings: List<DetectedWarning> = emptyList(),
+    val notices: List<AnalysisNotice> = emptyList(),
 )
 
 /** Socket callbacks are serialized onto the supplied main scope. */
@@ -57,11 +61,32 @@ class SttSession(
     private var receivedStop = false
     private var serverUrl = ""
     private var recoverySignal: CompletableDeferred<Unit>? = null
+    private var statusTimer: Job? = null
+    private var hasQuietResult = false
 
     private fun update(next: SttState) {
+        if (state.phase == SttPhase.LISTENING && next.phase != SttPhase.LISTENING) {
+            statusTimer?.cancel()
+            hasQuietResult = false
+        }
         state = if (next.phase != SttPhase.LISTENING && next.audioLevels.isNotEmpty())
             next.copy(audioLevels = emptyList()) else next
         publish(state)
+    }
+
+    private fun restartStatusTimer(id: Long) {
+        statusTimer?.cancel()
+        hasQuietResult = false
+        statusTimer = scope.launch {
+            while (id == session && state.phase == SttPhase.LISTENING) {
+                delay(STATUS_INTERVAL_MS)
+                if (hasQuietResult && id == session && state.phase == SttPhase.LISTENING) {
+                    val warnings = state.notices.filterIsInstance<DetectedWarning>()
+                    update(state.copy(notices = warnings + AnalysisStatus(System.currentTimeMillis())))
+                }
+                hasQuietResult = false
+            }
+        }
     }
 
     fun start(url: String) {
@@ -125,6 +150,7 @@ class SttSession(
                 conversationId = conversation
                 timeout?.cancel()
                 update(state.copy(phase = SttPhase.LISTENING))
+                restartStatusTimer(id)
                 capture = scope.launch {
                     try {
                         recorder.capture { bytes ->
@@ -191,10 +217,14 @@ class SttSession(
                         }
                         if (id != session) return@launch
                         pendingMasks--
-                        val warnings = if (result != null && !result.warningMessage.isNullOrBlank()) {
-                            state.warnings + DetectedWarning(utterance, System.currentTimeMillis(), result)
-                        } else state.warnings
-                        update(state.copy(risk = result ?: state.risk, warnings = warnings,
+                        val notices = if (result != null && result.warningActive == true) {
+                            if (state.phase == SttPhase.LISTENING) restartStatusTimer(id)
+                            state.notices + DetectedWarning(utterance, System.currentTimeMillis(), result)
+                        } else {
+                            hasQuietResult = result?.warningActive == false && result.contextStatus != "error"
+                            state.notices
+                        }
+                        update(state.copy(risk = result ?: state.risk, notices = notices,
                             analyzing = false, masking = pendingMasks > 0))
                         if (receivedStop && pendingMasks == 0) completeStop()
                     } catch (cancelled: CancellationException) {
