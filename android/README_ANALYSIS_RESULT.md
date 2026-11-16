@@ -6,13 +6,20 @@ Android에서 `분석 종료`를 누르면 결과 디테일 화면이 열리고,
 
 | 화면 항목 | 현재 데이터와 표시 방식 | 데이터가 없을 때 |
 | --- | --- | --- |
-| 상단 제목 | 마지막 분석의 문맥 판단이 성공하면 `context_judgment.result.risk_types`에서 앱이 지원하는 유형을 읽는다. 예를 들어 `institution_impersonation`과 `money_transfer`는 ‘기관 사칭 · 계좌 이체 요구’로 표시한다. | 표시할 유형이 없으면 ‘최종 분석 결과’를 사용한다. |
+| 상단 제목 | 기록 카드와 상세 화면이 같은 통화 결과의 `title`을 표시한다. 서버에서 제목을 읽는 부분은 계약 확정 후 연결한다. | 값이 없거나 공백이면 두 화면 모두 ‘최종 분석 결과’를 표시한다. |
 | 결과 요약 | 마지막 분석의 `context_judgment.result.reason`을 표시한다. 이 문장은 해당 문맥 판단의 근거다. | 분석 결과는 있지만 근거가 없으면 ‘문맥 요약이 제공되지 않았습니다.’를 표시한다. 분석 결과 자체가 없으면 요약 카드를 표시하지 않는다. |
 
 종료 응답에서 마지막 분석은 `last_analysis`에 들어 있다. ‘종합 경고’는 별도 항목이며, 분석 당시 경고를 우선 표시한다. 결과 점수가 없으면 화면에는 0점만 표시하고, 서버가 실제로 0점을 반환하면 ‘0점 · 정상’으로 표시한다.
 
+## 백엔드에 전달할 기록 제목 요구사항
+
+- 통화 한 건의 마스킹된 대화 내용을 바탕으로 LLM이 짧은 제목을 생성한다. 예를 들어 “안전계좌로 돈을 옮기라는 전화를 받았어요”처럼 대화에서 실제로 다룬 내용을 요약한다. 위험 유형 목록은 경고·대응 안내에 사용한다.
+- Android 기록 카드가 받을 인자 이름은 `title`이다. 서버에도 통화 단위 필드 `title`(문자열)을 제안한다. 생성 전·실패 시 빈 값 처리와 최종 필드 위치는 백엔드와 합의해 계약에 반영한다.
+- 생성한 제목은 `conversation_id`에 연결해 한 번 저장한다. 통화 종료 결과와 향후 기록 목록·상세 조회에서 같은 통화에는 같은 제목을 반환한다. 사용자가 기록 카드를 열면 디테일 상단에도 같은 값이 보이도록 한다.
+- 제목과 본문 요약은 따로 제공한다. 기존 기록에도 제목이 없을 수 있다.
+
 ## 백엔드 개발 후 연결할 부분
 
 1. 백엔드 담당자는 통화 단위 제목과 요약이 어느 응답에 포함되는지, 필드 이름과 타입, 생성 중이거나 생성에 실패했을 때의 값을 앱·서버 계약에 명시한다. 현재 저장소의 종료 응답 계약에는 두 생성 필드가 정의돼 있지 않다. [앱·서버 계약](../server/document/APP_SERVER_CONTRACT.md)
-2. Android 담당자는 확정된 필드를 결과 모델에 추가하고 서버 응답에서 읽는다. [RiskAnalysisClient.kt](app/src/main/java/com/example/pic_ai_app/data/stt/RiskAnalysisClient.kt)
-3. 결과 디테일 화면에서 서버가 제공한 제목과 요약을 각각 우선 표시한다. 한쪽 값만 오거나 기존 응답처럼 두 값이 모두 없을 때는 해당 항목에 위 표의 표시 방식을 적용한다. [AnalysisResultDetailScreen.kt](app/src/main/java/com/example/pic_ai_app/presentation/screens/AnalysisResultDetailScreen.kt)
+2. Android 담당자는 확정된 종료 응답 위치에서 제목을 읽어 `RiskResult.title`에 전달하고, 본문 요약도 합의된 필드에서 읽는다. [RiskAnalysisClient.kt](app/src/main/java/com/example/pic_ai_app/data/stt/RiskAnalysisClient.kt)
+3. 기록 카드와 결과 디테일의 제목은 위 요구사항에 맞춰 연결한다. 본문 요약이 없는 응답은 기존 문맥 근거와 빈 상태 처리를 사용한다. [AnalysisResultDetailScreen.kt](app/src/main/java/com/example/pic_ai_app/presentation/screens/AnalysisResultDetailScreen.kt)

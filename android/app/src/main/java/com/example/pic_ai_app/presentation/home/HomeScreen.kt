@@ -16,6 +16,7 @@ import com.example.pic_ai_app.data.stt.SttState
 import com.example.pic_ai_app.presentation.components.*
 import com.example.pic_ai_app.presentation.components.navigation.PicNavigationBar
 import com.example.pic_ai_app.presentation.components.navigation.PicTab
+import com.example.pic_ai_app.presentation.components.navigation.mainTabs
 import com.example.pic_ai_app.presentation.preview.Scenario
 import com.example.pic_ai_app.ui.theme.PicHomeBlue
 import com.example.pic_ai_app.ui.theme.PicScreenTheme
@@ -29,6 +30,7 @@ fun HomeScreen(
     liveMode: Boolean = false, serverUrl: String = "", onServerUrlChange: (String) -> Unit = {},
     tokenMessage: String? = null, onSaveToken: (String) -> Unit = {},
     activeSession: SttState? = null, onStop: () -> Unit = {}, onAnalysis: () -> Unit = {},
+    onHistory: () -> Unit = {},
 ) {
     var showSettings by rememberSaveable { mutableStateOf(false) }
     val scroll = rememberScrollState()
@@ -38,9 +40,14 @@ fun HomeScreen(
         bottomBar = {
             PicNavigationBar(
                 selectedTab = PicTab.Home,
-                availableTabs = setOf(PicTab.Home, PicTab.Analysis),
+                availableTabs = mainTabs,
                 onTabSelected = { tab ->
-                    if (tab == PicTab.Analysis) onAnalysis() else scope.launch { scroll.animateScrollTo(0) }
+                    when (tab) {
+                        PicTab.Home -> { scope.launch { scroll.animateScrollTo(0) } }
+                        PicTab.Analysis -> onAnalysis()
+                        PicTab.History -> onHistory()
+                        PicTab.Report -> Unit
+                    }
                 },
             )
         },

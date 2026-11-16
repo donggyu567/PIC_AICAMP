@@ -8,6 +8,7 @@ import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.verticalScroll
@@ -32,6 +33,8 @@ import com.example.pic_ai_app.presentation.analysis.AnalysisIdleScreen
 import com.example.pic_ai_app.presentation.analysis.AnalysisLiveScreen
 import com.example.pic_ai_app.presentation.components.*
 import com.example.pic_ai_app.presentation.home.HomeScreen
+import com.example.pic_ai_app.presentation.history.HistoryScreen
+import com.example.pic_ai_app.presentation.components.navigation.PicTab
 import com.example.pic_ai_app.presentation.onboarding.OnboardingPermissions
 import com.example.pic_ai_app.presentation.preview.*
 import com.example.pic_ai_app.presentation.screens.*
@@ -143,6 +146,7 @@ fun PicApp(session: SessionViewModel) {
                 activeSession = access.stt.takeIf { capturingOrConnecting },
                 onStop = session::finishAndOpenResult,
                 onAnalysis = if (resultPending) session::openResult else session::openAnalysis,
+                onHistory = session::openHistory,
             )
             SnackbarHost(messages, Modifier.statusBarsPadding().padding(horizontal = 16.dp))
         }
@@ -158,6 +162,7 @@ fun PicApp(session: SessionViewModel) {
                     riskCount = null, canStart = canStart,
                     onStart = session::start, onHome = session::showHome,
                     onSettings = { showSettings = true },
+                    onHistory = session::openHistory,
                 )
                 if (showSettings) {
                     PicSettingsDialog(
@@ -167,6 +172,28 @@ fun PicApp(session: SessionViewModel) {
                         scenario = state.scenario, onSettings = { settingsDialog = true },
                     )
                 }
+            }
+        }
+        Screen.HISTORY -> {
+            var selectedId by rememberSaveable { mutableStateOf<String?>(null) }
+            val listState = rememberLazyListState()
+            val record = selectedId?.let { id -> access.records.find { it.id == id } }
+            if (record == null) {
+                HistoryScreen(
+                    records = access.records, storageError = access.historyStorageError, listState = listState,
+                    onOpenRecord = { selectedId = it }, onDeleteRecord = session::deleteRecord,
+                    onTabSelected = { tab ->
+                        when (tab) {
+                            PicTab.Home -> session.showHome()
+                            PicTab.Analysis -> if (resultPending) session.openResult() else session.openAnalysis()
+                            else -> Unit
+                        }
+                    },
+                )
+            } else {
+                val close = { selectedId = null }
+                BackHandler(onBack = close)
+                AnalysisResultDetailScreen(record.result, onBack = close, onRetryFinish = {}, onRetryAnalysis = {})
             }
         }
         Screen.FINAL -> AnalysisResultDetailScreen(

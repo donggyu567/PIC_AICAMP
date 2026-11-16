@@ -21,6 +21,7 @@ import com.example.pic_ai_app.R
 import com.example.pic_ai_app.presentation.components.PicHeader
 import com.example.pic_ai_app.presentation.components.navigation.PicNavigationBar
 import com.example.pic_ai_app.presentation.components.navigation.PicTab
+import com.example.pic_ai_app.presentation.components.navigation.mainTabs
 import com.example.pic_ai_app.ui.theme.PicHomeBlue
 import com.example.pic_ai_app.ui.theme.PicNavigationSelected
 import com.example.pic_ai_app.ui.theme.PicScreenTheme
@@ -31,14 +32,21 @@ private val cardColor = Color(0xFFF2F7FC)
 @Composable
 internal fun AnalysisIdleScreen(
     riskCount: Int?, canStart: Boolean, onStart: () -> Unit, onHome: () -> Unit, onSettings: () -> Unit,
+    onHistory: () -> Unit = {},
 ) {
     Scaffold(
         containerColor = PicHomeBlue,
         bottomBar = {
             PicNavigationBar(
                 selectedTab = PicTab.Analysis,
-                availableTabs = setOf(PicTab.Home, PicTab.Analysis),
-                onTabSelected = { if (it == PicTab.Home) onHome() },
+                availableTabs = mainTabs,
+                onTabSelected = { tab ->
+                    when (tab) {
+                        PicTab.Home -> onHome()
+                        PicTab.History -> onHistory()
+                        else -> Unit
+                    }
+                },
             )
         },
     ) { padding ->

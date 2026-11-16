@@ -1,6 +1,6 @@
 package com.example.pic_ai_app.presentation.preview
 
-enum class Screen { WELCOME, CONSENT, PERMISSION, HOME, ANALYSIS, DETAILS, FINAL, DATA, WITHDRAWAL }
+enum class Screen { WELCOME, CONSENT, PERMISSION, HOME, ANALYSIS, DETAILS, FINAL, DATA, WITHDRAWAL, HISTORY }
 enum class Phase { IDLE, CONNECTING, RECOGNIZING, MASKING, ANALYZING, LISTENING, FINALIZING, COMPLETED, INCOMPLETE, ERROR }
 enum class Scenario { NORMAL, EMPTY, CONNECTION_ERROR, STT_ERROR, MASKING_ERROR, ANALYSIS_ERROR, FINISH_ERROR, DELETE_ERROR }
 enum class PreviewError { CONNECTION, STT, MASKING, ANALYSIS, PERMISSION }
@@ -69,6 +69,7 @@ object PreviewFlow {
         Screen.DATA -> state.returnScreen
         Screen.DETAILS -> Screen.ANALYSIS
         Screen.FINAL -> Screen.HOME
+        Screen.HISTORY -> Screen.HOME
         Screen.CONSENT -> Screen.WELCOME
         Screen.PERMISSION -> Screen.CONSENT
         else -> state.screen

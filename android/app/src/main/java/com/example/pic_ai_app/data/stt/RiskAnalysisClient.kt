@@ -32,6 +32,7 @@ data class RiskResult(
     val analysisWarning: String? = null,
     // null when the response does not identify the warning state.
     val warningActive: Boolean? = null,
+    val title: String? = null,
 )
 
 class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { null }) {

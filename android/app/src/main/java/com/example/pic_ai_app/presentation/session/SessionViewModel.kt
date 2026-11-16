@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.pic_ai_app.BuildConfig
 import com.example.pic_ai_app.data.consent.*
+import com.example.pic_ai_app.data.history.AnalysisRecord
 import com.example.pic_ai_app.data.stt.*
 import com.example.pic_ai_app.data.security.DeviceTokenStore
 import com.example.pic_ai_app.domain.model.UtteranceTranscript
@@ -42,6 +43,8 @@ data class SessionUiState(
     val stt: SttState = SttState(),
     val serverUrl: String = "wss://picaicamp.duckdns.org/api/v1/stt",
     val tokenMessage: String? = null,
+    val records: List<AnalysisRecord> = emptyList(),
+    val historyStorageError: Boolean = false,
 )
 
 class SessionViewModel(
@@ -72,6 +75,9 @@ class SessionViewModel(
     }
 
     private fun publishLiveState(stt: SttState) {
+        val previous = mutableUi.value
+        val record = if (stt.phase == SttPhase.STOPPED && previous.stt.phase != SttPhase.STOPPED &&
+            previous.consent == ConsentStatus.GRANTED) AnalysisRecord.completed(stt) else null
         mutableUi.update { current ->
             val phase = when (stt.phase) {
                 SttPhase.IDLE -> current.flow.phase // abort's caller handles withdrawal or permission loss
@@ -84,8 +90,21 @@ class SessionViewModel(
             val ending = phase in listOf(Phase.FINALIZING, Phase.COMPLETED, Phase.INCOMPLETE)
             fun destination(screen: Screen) =
                 if (ending && screen in listOf(Screen.ANALYSIS, Screen.DETAILS)) Screen.FINAL else screen
-            current.copy(stt = stt, flow = current.flow.copy(phase = phase,
+            val records = if (record == null) current.records else
+                (listOf(record) + current.records.filterNot { it.id == record.id }).sortedByDescending { it.endedAtMillis }
+            current.copy(stt = stt, records = records, flow = current.flow.copy(phase = phase,
                 screen = destination(current.flow.screen), returnScreen = destination(current.flow.returnScreen)))
+        }
+        if (record != null) updateHistoryStorage { consentStore.saveRecord(record) }
+    }
+
+    private fun updateHistoryStorage(action: suspend () -> Unit) {
+        viewModelScope.launch {
+            try {
+                action()
+            } catch (_: IOException) {
+                mutableUi.update { it.copy(historyStorageError = true) }
+            }
         }
     }
 
@@ -97,12 +116,16 @@ class SessionViewModel(
             try {
                 val consent = consentStore.read()
                 val pending = liveEnabled && consent == ConsentStatus.WITHDRAWN && consentStore.deletionTargets().isNotEmpty()
+                val records = if (consent == ConsentStatus.GRANTED) try {
+                    consentStore.records()
+                } catch (_: org.json.JSONException) { null }
+                catch (_: IOException) { null } else emptyList()
                 mutableUi.value = SessionUiState(
                     flow = SessionAccess.initial(consent, hasMicrophonePermission()).let { flow ->
                         if (liveEnabled && consent == ConsentStatus.WITHDRAWN)
                             flow.copy(deletion = if (pending) Deletion.PENDING else Deletion.DONE) else flow
                     },
-                    ready = true, consent = consent,
+                    ready = true, consent = consent, records = records.orEmpty(), historyStorageError = records == null,
                 )
             } catch (_: IOException) {
                 mutableUi.value = SessionUiState(ready = true, consentError = true)
@@ -142,7 +165,7 @@ class SessionViewModel(
         if (!ui.value.ready || ui.value.savingConsent) return
         mutableUi.update {
             it.copy(
-                consent = ConsentStatus.NOT_DECIDED, declined = true,
+                consent = ConsentStatus.NOT_DECIDED, declined = true, records = emptyList(),
                 flow = SessionAccess.initial(ConsentStatus.NOT_DECIDED, hasMicrophonePermission())
                     .copy(runId = it.flow.runId + 1),
             )
@@ -155,7 +178,8 @@ class SessionViewModel(
         registrationJob?.cancel()
         if (liveEnabled) sttSession.abort()
         // Block callbacks immediately, before the durable write finishes.
-        mutableUi.update { it.copy(consent = ConsentStatus.WITHDRAWN, flow = PreviewFlow.withdraw(it.flow).let { flow ->
+        mutableUi.update { it.copy(consent = ConsentStatus.WITHDRAWN, records = emptyList(), historyStorageError = false,
+            flow = PreviewFlow.withdraw(it.flow).let { flow ->
             if (liveEnabled) flow.copy(deletion = Deletion.DELETING) else flow
         }) }
         persistConsent(ConsentStatus.WITHDRAWN)
@@ -281,6 +305,11 @@ class SessionViewModel(
     fun showHome() = changeFlow { it.copy(screen = Screen.HOME) }
     fun showDeletion() = changeFlow { it.copy(screen = Screen.WITHDRAWAL) }
     fun openAnalysis() = changeFlow { it.copy(screen = Screen.ANALYSIS) }
+    fun openHistory() = changeFlow { it.copy(screen = Screen.HISTORY) }
+    fun deleteRecord(id: String) = updateHistoryStorage {
+        consentStore.deleteRecord(id)
+        mutableUi.update { current -> current.copy(records = current.records.filterNot { it.id == id }) }
+    }
     fun openResult() = changeFlow { it.copy(screen = Screen.FINAL) }
     fun back() { if (!ui.value.savingConsent) changeFlow(PreviewFlow::back) }
     fun finish() {

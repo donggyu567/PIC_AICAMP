@@ -33,6 +33,7 @@ data class SttState(
     val canRetryAnalysis: Boolean = false,
     val audioLevels: List<Float> = emptyList(),
     val notices: List<AnalysisNotice> = emptyList(),
+    val conversationId: String? = null,
 )
 
 /** Socket callbacks are serialized onto the supplied main scope. */
@@ -149,7 +150,7 @@ class SttSession(
                 if (!hasPermission()) return fail(id, "마이크 권한이 필요합니다.")
                 conversationId = conversation
                 timeout?.cancel()
-                update(state.copy(phase = SttPhase.LISTENING))
+                update(state.copy(phase = SttPhase.LISTENING, conversationId = conversation))
                 restartStatusTimer(id)
                 capture = scope.launch {
                     try {

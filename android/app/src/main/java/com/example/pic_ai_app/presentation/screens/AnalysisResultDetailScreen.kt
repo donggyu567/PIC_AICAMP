@@ -53,13 +53,7 @@ fun AnalysisResultDetailScreen(
     val warningReason = risk?.contextReason?.takeIf { warningMessage != null && it.isNotBlank() }
     val finished = state.phase == SttPhase.STOPPED
     val waiting = state.phase == SttPhase.FINALIZING && state.error == null
-    val title = risk?.riskTypes.orEmpty().distinct().mapNotNull { type ->
-        when (type) {
-            "institution_impersonation" -> stringResource(R.string.detail_institution)
-            "money_transfer" -> stringResource(R.string.detail_transfer)
-            else -> null
-        }
-    }.joinToString(" · ").ifEmpty { stringResource(R.string.final_title) }
+    val title = risk?.title?.takeIf { it.isNotBlank() } ?: stringResource(R.string.final_title)
     var showWarning by rememberSaveable { mutableStateOf(false) }
     var showChat by rememberSaveable { mutableStateOf(false) }
     Surface(color = Color.White, contentColor = PicInk, modifier = Modifier.fillMaxSize()) {
