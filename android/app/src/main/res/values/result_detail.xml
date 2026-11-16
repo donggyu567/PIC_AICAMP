@@ -10,6 +10,7 @@
     <string name="detail_no_transfer">송금하지 마세요</string>
     <string name="detail_verify">통화를 끊고 해당 기관의 공식 번호로 직접 확인하세요</string>
     <string name="detail_chat">대화 내용</string>
+    <string name="detail_conversation_title">대화 상세 내용</string>
     <string name="detail_expand">크게 보기</string>
     <string name="detail_institution">기관 사칭</string>
     <string name="detail_transfer">계좌 이체 요구</string>

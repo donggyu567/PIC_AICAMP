@@ -38,6 +38,7 @@ import com.example.pic_ai_app.presentation.components.navigation.PicTab
 import com.example.pic_ai_app.presentation.onboarding.OnboardingPermissions
 import com.example.pic_ai_app.presentation.preview.*
 import com.example.pic_ai_app.presentation.screens.*
+import com.example.pic_ai_app.presentation.result.AnalysisResultDetailScreen
 import com.example.pic_ai_app.presentation.session.SessionViewModel
 import com.example.pic_ai_app.ui.theme.PicScreenTheme
 import kotlinx.coroutines.delay
@@ -193,7 +194,8 @@ fun PicApp(session: SessionViewModel) {
             } else {
                 val close = { selectedId = null }
                 BackHandler(onBack = close)
-                AnalysisResultDetailScreen(record.result, onBack = close, onRetryFinish = {}, onRetryAnalysis = {})
+                AnalysisResultDetailScreen(record.result, onBack = close, onRetryFinish = {}, onRetryAnalysis = {},
+                    hasWarningHistory = record.hasWarningHistory)
             }
         }
         Screen.FINAL -> AnalysisResultDetailScreen(

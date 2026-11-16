@@ -22,4 +22,4 @@ Android에서 `분석 종료`를 누르면 결과 디테일 화면이 열리고,
 
 1. 백엔드 담당자는 통화 단위 제목과 요약이 어느 응답에 포함되는지, 필드 이름과 타입, 생성 중이거나 생성에 실패했을 때의 값을 앱·서버 계약에 명시한다. 현재 저장소의 종료 응답 계약에는 두 생성 필드가 정의돼 있지 않다. [앱·서버 계약](../server/document/APP_SERVER_CONTRACT.md)
 2. Android 담당자는 확정된 종료 응답 위치에서 제목을 읽어 `RiskResult.title`에 전달하고, 본문 요약도 합의된 필드에서 읽는다. [RiskAnalysisClient.kt](app/src/main/java/com/example/pic_ai_app/data/stt/RiskAnalysisClient.kt)
-3. 기록 카드와 결과 디테일의 제목은 위 요구사항에 맞춰 연결한다. 본문 요약이 없는 응답은 기존 문맥 근거와 빈 상태 처리를 사용한다. [AnalysisResultDetailScreen.kt](app/src/main/java/com/example/pic_ai_app/presentation/screens/AnalysisResultDetailScreen.kt)
+3. 기록 카드와 결과 디테일의 제목은 위 요구사항에 맞춰 연결한다. 본문 요약이 없는 응답은 기존 문맥 근거와 빈 상태 처리를 사용한다. [AnalysisResultDetailScreen.kt](app/src/main/java/com/example/pic_ai_app/presentation/result/AnalysisResultDetailScreen.kt)

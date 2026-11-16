@@ -1,5 +1,6 @@
-package com.example.pic_ai_app.presentation.screens
+package com.example.pic_ai_app.presentation.result
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -20,6 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pic_ai_app.R
@@ -39,10 +41,13 @@ private val edge = Color(0xFFE2E8F0)
 private val secondary = Color(0xFF64748B)
 private val danger = Color(0xFF991B1B)
 
+private enum class ResultPage { Overview, Conversation, Warnings }
+
 @Composable
 fun AnalysisResultDetailScreen(
     state: SttState, onBack: () -> Unit, onRetryFinish: () -> Unit, onRetryAnalysis: () -> Unit,
     permissionLost: Boolean = false,
+    hasWarningHistory: Boolean = true,
 ) {
     val risk = state.risk
     val points = risk?.cumulativeScore?.roundToInt()
@@ -54,19 +59,26 @@ fun AnalysisResultDetailScreen(
     val finished = state.phase == SttPhase.STOPPED
     val waiting = state.phase == SttPhase.FINALIZING && state.error == null
     val title = risk?.title?.takeIf { it.isNotBlank() } ?: stringResource(R.string.final_title)
-    var showWarning by rememberSaveable { mutableStateOf(false) }
-    var showChat by rememberSaveable { mutableStateOf(false) }
+    var page by rememberSaveable { mutableStateOf(ResultPage.Overview) }
+    val detailScroll = rememberScrollState()
+    val backToResult = { page = ResultPage.Overview }
+    BackHandler(enabled = page != ResultPage.Overview, onBack = backToResult)
+    when (page) {
+        ResultPage.Conversation -> {
+            ConversationDetailScreen(state.maskedTexts, onBack = backToResult)
+            return
+        }
+        ResultPage.Warnings -> {
+            WarningHistoryScreen(state, hasWarningHistory, onBack = backToResult)
+            return
+        }
+        ResultPage.Overview -> Unit
+    }
     Surface(color = Color.White, contentColor = PicInk, modifier = Modifier.fillMaxSize()) {
         Column(Modifier.safeDrawingPadding(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Row(Modifier.widthIn(max = 480.dp).fillMaxWidth().padding(horizontal = 12.dp, vertical = 8.dp),
-                verticalAlignment = Alignment.CenterVertically) {
-                IconButton(onClick = onBack) {
-                    Icon(painterResource(R.drawable.result_back), stringResource(R.string.back), Modifier.rotate(180f))
-                }
-                Text(title, fontSize = 25.sp, fontWeight = FontWeight.ExtraBold)
-            }
+            ResultDetailHeader(title, onBack)
             Column(
-                Modifier.widthIn(max = 480.dp).fillMaxWidth().verticalScroll(rememberScrollState())
+                Modifier.widthIn(max = 480.dp).fillMaxWidth().verticalScroll(detailScroll)
                     .padding(horizontal = 24.dp, vertical = 12.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
@@ -113,12 +125,14 @@ fun AnalysisResultDetailScreen(
                         Text(stringResource(R.string.detail_summary), color = secondary)
                         Text(risk.contextReason ?: stringResource(R.string.detail_no_context), lineHeight = 24.sp)
                     }
+                }
+                if (risk != null || finished) {
                     ResultPanel {
-                        SectionAction(R.string.detail_warning, R.string.detail_more) { showWarning = true }
+                        SectionAction(R.string.detail_warning, R.string.detail_more) { page = ResultPage.Warnings }
                         Text(warningTitle,
-                            fontWeight = FontWeight.Bold, color = if (risk.assessment == "suspicious") danger else PicInk)
+                            fontWeight = FontWeight.Bold, color = if (risk?.assessment == "suspicious") danger else PicInk)
                         warningReason?.let { Text(it, color = secondary, lineHeight = 22.sp) }
-                        if (risk.assessment == "suspicious") {
+                        if (risk?.assessment == "suspicious") {
                             val steps = listOfNotNull(
                                 R.string.detail_no_transfer.takeIf { "money_transfer" in risk.riskTypes },
                                 R.string.detail_verify.takeIf { "institution_impersonation" in risk.riskTypes },
@@ -137,27 +151,23 @@ fun AnalysisResultDetailScreen(
                         }
                     }
                 }
-                SectionAction(R.string.detail_chat, R.string.detail_expand) { showChat = true }
+                SectionAction(R.string.detail_chat, R.string.detail_expand) { page = ResultPage.Conversation }
                 Surface(shape = RoundedCornerShape(20.dp), color = Color.White, border = BorderStroke(1.dp, edge)) {
-                    Transcript(state.maskedTexts, enlarged = false)
+                    Transcript(state.maskedTexts)
                 }
             }
         }
     }
-    if (showChat || showWarning) {
-        val close = { showChat = false; showWarning = false }
-        AlertDialog(onDismissRequest = close, title = {
-            Text(stringResource(if (showChat) R.string.detail_chat else R.string.detail_warning))
-        }, text = {
-            if (showChat) Transcript(state.maskedTexts, enlarged = true)
-            else Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Text(warningTitle)
-                warningReason?.let { Text(it) }
-                risk?.evidenceIds.orEmpty().distinct().forEach { id ->
-                    state.maskedTexts.getOrNull(id - 1)?.let { Text(stringResource(R.string.detail_evidence_line, id, it)) }
-                }
-            }
-        }, confirmButton = { TextButton(onClick = close) { Text(stringResource(R.string.close)) } })
+}
+
+@Composable
+internal fun ResultDetailHeader(title: String, onBack: () -> Unit, fontSize: TextUnit = 25.sp) {
+    Row(Modifier.widthIn(max = 480.dp).fillMaxWidth().padding(horizontal = 12.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically) {
+        IconButton(onClick = onBack) {
+            Icon(painterResource(R.drawable.result_back), stringResource(R.string.back), Modifier.rotate(180f))
+        }
+        Text(title, fontSize = fontSize, fontWeight = FontWeight.ExtraBold)
     }
 }
 
@@ -180,16 +190,15 @@ private fun SectionAction(title: Int, action: Int, onClick: () -> Unit) {
 }
 
 @Composable
-private fun Transcript(lines: List<String>, enlarged: Boolean) {
-    LazyColumn(Modifier.fillMaxWidth().heightIn(max = if (enlarged) 480.dp else 200.dp),
+private fun Transcript(lines: List<String>) {
+    LazyColumn(Modifier.fillMaxWidth().heightIn(max = 200.dp),
         contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
         if (lines.isEmpty()) item { Text(stringResource(R.string.detail_empty_chat), color = secondary) }
         items(lines) { line ->
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 Image(painterResource(R.drawable.result_speaker), null, Modifier.size(28.dp))
                 Surface(shape = RoundedCornerShape(16.dp, 16.dp, 16.dp, 4.dp), color = panel) {
-                    Text(line, Modifier.padding(12.dp), fontSize = if (enlarged) 19.sp else 14.sp,
-                        lineHeight = if (enlarged) 28.sp else 21.sp)
+                    Text(line, Modifier.padding(12.dp), fontSize = 14.sp, lineHeight = 21.sp)
                 }
             }
         }

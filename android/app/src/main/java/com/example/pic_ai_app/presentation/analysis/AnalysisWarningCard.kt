@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pic_ai_app.R
+import com.example.pic_ai_app.data.stt.DetectedWarning
 import com.example.pic_ai_app.presentation.components.analysis.AnalysisCardHeader
 import com.example.pic_ai_app.ui.theme.PicHomeBlue
 import com.example.pic_ai_app.ui.theme.PicNavigationSelected
@@ -46,6 +47,17 @@ internal data class WarningEvidence(
 
 private val cardBorder = BorderStroke(1.dp, Color(0xFFD7E3EE))
 private val sectionShape = RoundedCornerShape(14.dp)
+
+@Composable
+internal fun DetectedWarning.toWarningUi(maskedTexts: List<String>) = AnalysisWarningUi(
+    title = result.warningMessage ?: stringResource(R.string.analysis_warning_detection),
+    actionTitle = if ("money_transfer" in result.riskTypes) stringResource(R.string.detail_no_transfer) else "",
+    actionDescription = stringResource(R.string.detail_verify),
+    detectedAtMillis = detectedAtMillis,
+    evidence = result.evidenceIds.distinct().mapNotNull { id ->
+        maskedTexts.getOrNull(id - 1)?.let { WarningEvidence(it) }
+    },
+)
 
 @Composable
 internal fun AnalysisWarningCard(warning: AnalysisWarningUi, modifier: Modifier = Modifier) {

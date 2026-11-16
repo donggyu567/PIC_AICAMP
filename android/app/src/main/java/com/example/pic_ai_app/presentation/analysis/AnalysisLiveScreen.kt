@@ -93,18 +93,7 @@ internal fun AnalysisLiveScreen(state: SttState, onStop: () -> Unit, onHome: () 
                 items(notices.asReversed(), key = ::noticeKey) { notice ->
                     when (notice) {
                         is AnalysisStatus -> AnalysisStatusCard(notice.checkedAtMillis, Modifier.fillMaxWidth())
-                        is DetectedWarning -> {
-                            val result = notice.result
-                            AnalysisWarningCard(AnalysisWarningUi(
-                                title = result.warningMessage ?: stringResource(R.string.analysis_warning_detection),
-                                actionTitle = if ("money_transfer" in result.riskTypes) stringResource(R.string.detail_no_transfer) else "",
-                                actionDescription = stringResource(R.string.detail_verify),
-                                detectedAtMillis = notice.detectedAtMillis,
-                                evidence = result.evidenceIds.distinct().mapNotNull { id ->
-                                    state.maskedTexts.getOrNull(id - 1)?.let { WarningEvidence(it) }
-                                },
-                            ), Modifier.fillMaxWidth())
-                        }
+                        is DetectedWarning -> AnalysisWarningCard(notice.toWarningUi(state.maskedTexts), Modifier.fillMaxWidth())
                     }
                 }
             }
