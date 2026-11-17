@@ -1,0 +1,2187 @@
+{
+  "schema": "v3-research-validation-comparison/1",
+  "evaluation_scope": "unreviewed_synthetic_selection_validation_not_TEST",
+  "human_reviewed": false,
+  "independent_final_test_available": false,
+  "baseline": {
+    "binary": {
+      "n": 256,
+      "positive": 60,
+      "negative": 196,
+      "threshold": 0.5,
+      "tp": 45,
+      "tn": 182,
+      "fp": 14,
+      "fn": 15,
+      "confusion_matrix": [
+        [
+          182,
+          14
+        ],
+        [
+          15,
+          45
+        ]
+      ],
+      "accuracy": 0.88671875,
+      "precision": 0.7627118644067796,
+      "recall": 0.75,
+      "f1": 0.7563025210084033,
+      "roc_auc": 0.9125,
+      "average_precision": 0.7580890672518219,
+      "brier_score": 0.09042226216534077,
+      "probability": {
+        "mean": 0.24286840981932328,
+        "median": 0.07872696225332255,
+        "std_population": 0.28490894705882247
+      },
+      "probability_by_actual": {
+        "positive": {
+          "n": 60,
+          "mean": 0.6061032755989182,
+          "median": 0.7357293453642646,
+          "std_population": 0.26626656082492456,
+          "min": 0.048476523088072515,
+          "max": 0.8824810624502627
+        },
+        "negative": {
+          "n": 196,
+          "mean": 0.13167406315210034,
+          "median": 0.06360063093647478,
+          "std_population": 0.17766468235897748,
+          "min": 0.038023064845996456,
+          "max": 0.8466064601937764
+        }
+      },
+      "undefined_reasons": {},
+      "fpr": 0.07142857142857142,
+      "fnr": 0.25
+    },
+    "per_type": {
+      "institution_impersonation": {
+        "n": 256,
+        "positive": 5,
+        "negative": 251,
+        "threshold": 0.5,
+        "tp": 4,
+        "tn": 247,
+        "fp": 4,
+        "fn": 1,
+        "confusion_matrix": [
+          [
+            247,
+            4
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "accuracy": 0.98046875,
+        "precision": 0.5,
+        "recall": 0.8,
+        "f1": 0.6153846153846154,
+        "roc_auc": 0.9537848605577689,
+        "average_precision": 0.6515270935960592,
+        "brier_score": 0.047932906785969856,
+        "probability": {
+          "mean": 0.20051819564152928,
+          "median": 0.1792982976452635,
+          "std_population": 0.10190631142046387
+        },
+        "probability_by_actual": {
+          "positive": {
+            "n": 5,
+            "mean": 0.5680841294000467,
+            "median": 0.5884146046533851,
+            "std_population": 0.19465893286456742,
+            "min": 0.2262777261657668,
+            "max": 0.7869685152366481
+          },
+          "negative": {
+            "n": 251,
+            "mean": 0.19319616508857076,
+            "median": 0.1771194883612142,
+            "std_population": 0.08421403036927526,
+            "min": 0.07254157607531762,
+            "max": 0.702695226031012
+          }
+        },
+        "undefined_reasons": {},
+        "fpr": 0.01593625498007968,
+        "fnr": 0.2,
+        "families": 32,
+        "positive_families": 3,
+        "positive_conversations": 3
+      },
+      "money_transfer": {
+        "n": 256,
+        "positive": 3,
+        "negative": 253,
+        "threshold": 0.5,
+        "tp": 3,
+        "tn": 247,
+        "fp": 6,
+        "fn": 0,
+        "confusion_matrix": [
+          [
+            247,
+            6
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "accuracy": 0.9765625,
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "f1": 0.5,
+        "roc_auc": 0.9986824769433466,
+        "average_precision": 0.9166666666666666,
+        "brier_score": 0.06137842877194431,
+        "probability": {
+          "mean": 0.21993699468108358,
+          "median": 0.16219818951221554,
+          "std_population": 0.12389668244205246
+        },
+        "probability_by_actual": {
+          "positive": {
+            "n": 3,
+            "mean": 0.6000209398421105,
+            "median": 0.5964413311309078,
+            "std_population": 0.03481091642314046,
+            "min": 0.5592891067123759,
+            "max": 0.6443323816830475
+          },
+          "negative": {
+            "n": 253,
+            "mean": 0.21543007043016232,
+            "median": 0.16126260265908107,
+            "std_population": 0.11740833550234195,
+            "min": 0.11226555794721156,
+            "max": 0.5605411596732257
+          }
+        },
+        "undefined_reasons": {},
+        "fpr": 0.023715415019762844,
+        "fnr": 0.0,
+        "families": 32,
+        "positive_families": 1,
+        "positive_conversations": 1
+      },
+      "personal_information": {
+        "n": 256,
+        "positive": 18,
+        "negative": 238,
+        "threshold": 0.5,
+        "tp": 14,
+        "tn": 206,
+        "fp": 32,
+        "fn": 4,
+        "confusion_matrix": [
+          [
+            206,
+            32
+          ],
+          [
+            4,
+            14
+          ]
+        ],
+        "accuracy": 0.859375,
+        "precision": 0.30434782608695654,
+        "recall": 0.7777777777777778,
+        "f1": 0.4375,
+        "roc_auc": 0.930672268907563,
+        "average_precision": 0.5754132185106862,
+        "brier_score": 0.11149493931884533,
+        "probability": {
+          "mean": 0.3168811974750402,
+          "median": 0.24655262518061274,
+          "std_population": 0.13457792779804528
+        },
+        "probability_by_actual": {
+          "positive": {
+            "n": 18,
+            "mean": 0.5499909165851445,
+            "median": 0.5829847596354989,
+            "std_population": 0.10865390709136472,
+            "min": 0.25698358102039565,
+            "max": 0.6496549332320127
+          },
+          "negative": {
+            "n": 238,
+            "mean": 0.2992510506515868,
+            "median": 0.24200229195232487,
+            "std_population": 0.11902742590743962,
+            "min": 0.194297913169203,
+            "max": 0.6303556750514994
+          }
+        },
+        "undefined_reasons": {},
+        "fpr": 0.13445378151260504,
+        "fnr": 0.2222222222222222,
+        "families": 32,
+        "positive_families": 6,
+        "positive_conversations": 6
+      },
+      "app_installation": {
+        "n": 256,
+        "positive": 6,
+        "negative": 250,
+        "threshold": 0.5,
+        "tp": 0,
+        "tn": 250,
+        "fp": 0,
+        "fn": 6,
+        "confusion_matrix": [
+          [
+            250,
+            0
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "accuracy": 0.9765625,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "roc_auc": 0.978,
+        "average_precision": 0.6098901098901098,
+        "brier_score": 0.06363774101895972,
+        "probability": {
+          "mean": 0.22889340572135108,
+          "median": 0.1828733143954816,
+          "std_population": 0.09690117133695263
+        },
+        "probability_by_actual": {
+          "positive": {
+            "n": 6,
+            "mean": 0.46041145963163266,
+            "median": 0.4604902112691508,
+            "std_population": 0.025922375318001505,
+            "min": 0.41099920564504766,
+            "max": 0.49099436760071824
+          },
+          "negative": {
+            "n": 250,
+            "mean": 0.22333697242750433,
+            "median": 0.18127670204642854,
+            "std_population": 0.09100427051405385,
+            "min": 0.13127081493319767,
+            "max": 0.47798699429923086
+          }
+        },
+        "undefined_reasons": {},
+        "fpr": 0.0,
+        "fnr": 1.0,
+        "families": 32,
+        "positive_families": 2,
+        "positive_conversations": 2
+      },
+      "secrecy": {
+        "n": 256,
+        "positive": 3,
+        "negative": 253,
+        "threshold": 0.5,
+        "tp": 1,
+        "tn": 253,
+        "fp": 0,
+        "fn": 2,
+        "confusion_matrix": [
+          [
+            253,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "accuracy": 0.9921875,
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5,
+        "roc_auc": 0.9986824769433466,
+        "average_precision": 0.9166666666666666,
+        "brier_score": 0.0563719995918381,
+        "probability": {
+          "mean": 0.21994548126227534,
+          "median": 0.1778513291970918,
+          "std_population": 0.08954358294017371
+        },
+        "probability_by_actual": {
+          "positive": {
+            "n": 3,
+            "mean": 0.5009415842824355,
+            "median": 0.49604931267177715,
+            "std_population": 0.03552630756968206,
+            "min": 0.46008382819374277,
+            "max": 0.5466916119817865
+          },
+          "negative": {
+            "n": 253,
+            "mean": 0.21661351166124576,
+            "median": 0.17766922649718347,
+            "std_population": 0.08456234770210394,
+            "min": 0.13246203721534897,
+            "max": 0.4629685496526709
+          }
+        },
+        "undefined_reasons": {},
+        "fpr": 0.0,
+        "fnr": 0.6666666666666666,
+        "families": 32,
+        "positive_families": 1,
+        "positive_conversations": 1
+      },
+      "threat_pressure": {
+        "n": 256,
+        "positive": 3,
+        "negative": 253,
+        "threshold": 0.5,
+        "tp": 2,
+        "tn": 252,
+        "fp": 1,
+        "fn": 1,
+        "confusion_matrix": [
+          [
+            252,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "accuracy": 0.9921875,
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666,
+        "f1": 0.6666666666666666,
+        "roc_auc": 0.9986824769433466,
+        "average_precision": 0.9166666666666666,
+        "brier_score": 0.04418383669776225,
+        "probability": {
+          "mean": 0.1945312419150465,
+          "median": 0.1637900413927954,
+          "std_population": 0.08598992061994336
+        },
+        "probability_by_actual": {
+          "positive": {
+            "n": 3,
+            "mean": 0.5449209101428162,
+            "median": 0.5652666662776945,
+            "std_population": 0.042566317306310414,
+            "min": 0.4856830271430701,
+            "max": 0.5838130370076838
+          },
+          "negative": {
+            "n": 253,
+            "mean": 0.1903764237147172,
+            "median": 0.16188430549017638,
+            "std_population": 0.0773782445787311,
+            "min": 0.10519933715908805,
+            "max": 0.5061510529215895
+          }
+        },
+        "undefined_reasons": {},
+        "fpr": 0.003952569169960474,
+        "fnr": 0.3333333333333333,
+        "families": 32,
+        "positive_families": 1,
+        "positive_conversations": 1
+      },
+      "loan_fraud": {
+        "n": 256,
+        "positive": 6,
+        "negative": 250,
+        "threshold": 0.5,
+        "tp": 4,
+        "tn": 246,
+        "fp": 4,
+        "fn": 2,
+        "confusion_matrix": [
+          [
+            246,
+            4
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "accuracy": 0.9765625,
+        "precision": 0.5,
+        "recall": 0.6666666666666666,
+        "f1": 0.5714285714285714,
+        "roc_auc": 0.9793333333333333,
+        "average_precision": 0.7895622895622895,
+        "brier_score": 0.05301611911379735,
+        "probability": {
+          "mean": 0.19764201194764197,
+          "median": 0.13217812441275523,
+          "std_population": 0.12625013801211868
+        },
+        "probability_by_actual": {
+          "positive": {
+            "n": 6,
+            "mean": 0.5423539865811954,
+            "median": 0.5703833912930416,
+            "std_population": 0.07785300810150307,
+            "min": 0.3931416926868166,
+            "max": 0.6176525252193182
+          },
+          "negative": {
+            "n": 250,
+            "mean": 0.1893689245564367,
+            "median": 0.13112722648746306,
+            "std_population": 0.11513424007488478,
+            "min": 0.09503080695560158,
+            "max": 0.5400100786676131
+          }
+        },
+        "undefined_reasons": {},
+        "fpr": 0.016,
+        "fnr": 0.3333333333333333,
+        "families": 32,
+        "positive_families": 2,
+        "positive_conversations": 2
+      },
+      "information_probing": {
+        "n": 256,
+        "positive": 18,
+        "negative": 238,
+        "threshold": 0.5,
+        "tp": 0,
+        "tn": 238,
+        "fp": 0,
+        "fn": 18,
+        "confusion_matrix": [
+          [
+            238,
+            0
+          ],
+          [
+            18,
+            0
+          ]
+        ],
+        "accuracy": 0.9296875,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "roc_auc": 0.8795518207282913,
+        "average_precision": 0.3138091903637824,
+        "brier_score": 0.07879317850719994,
+        "probability": {
+          "mean": 0.21566433728578838,
+          "median": 0.19573430393363545,
+          "std_population": 0.05684882014671938
+        },
+        "probability_by_actual": {
+          "positive": {
+            "n": 18,
+            "mean": 0.293420204243857,
+            "median": 0.30076728222357285,
+            "std_population": 0.04597729830017027,
+            "min": 0.20312037400989233,
+            "max": 0.36925649444949743
+          },
+          "negative": {
+            "n": 238,
+            "mean": 0.20978364146543024,
+            "median": 0.19223346238360606,
+            "std_population": 0.05314595412955626,
+            "min": 0.13386447459544734,
+            "max": 0.4400705029575977
+          }
+        },
+        "undefined_reasons": {},
+        "fpr": 0.0,
+        "fnr": 1.0,
+        "families": 32,
+        "positive_families": 6,
+        "positive_conversations": 6
+      }
+    },
+    "macro": {
+      "f1": 0.41137248168498164,
+      "defined_labels": 8,
+      "full8_f1": 0.41137248168498164
+    },
+    "micro": {
+      "precision": 0.37333333333333335,
+      "recall": 0.45161290322580644,
+      "f1": 0.40875912408759124,
+      "tp": 28,
+      "fp": 47,
+      "fn": 34
+    },
+    "conversations": {
+      "normal": 12,
+      "normal_false_alerts": 6,
+      "normal_false_alert_rate": 0.5,
+      "risky": 20,
+      "risky_missed": 0,
+      "risky_miss_rate": 0.0
+    },
+    "hard_negative": {
+      "n": 96,
+      "fp": 10,
+      "fpr": 0.10416666666666667
+    },
+    "normal_categories": {
+      "app": {
+        "n": 16,
+        "risk_fp": 2,
+        "type_fp": {
+          "institution_impersonation": 0,
+          "money_transfer": 0,
+          "personal_information": 1,
+          "app_installation": 0,
+          "secrecy": 0,
+          "threat_pressure": 0,
+          "loan_fraud": 0,
+          "information_probing": 0
+        }
+      },
+      "financial": {
+        "n": 24,
+        "risk_fp": 1,
+        "type_fp": {
+          "institution_impersonation": 0,
+          "money_transfer": 0,
+          "personal_information": 1,
+          "app_installation": 0,
+          "secrecy": 0,
+          "threat_pressure": 0,
+          "loan_fraud": 0,
+          "information_probing": 0
+        }
+      },
+      "identity": {
+        "n": 24,
+        "risk_fp": 3,
+        "type_fp": {
+          "institution_impersonation": 0,
+          "money_transfer": 0,
+          "personal_information": 2,
+          "app_installation": 0,
+          "secrecy": 0,
+          "threat_pressure": 0,
+          "loan_fraud": 0,
+          "information_probing": 0
+        }
+      },
+      "official": {
+        "n": 16,
+        "risk_fp": 4,
+        "type_fp": {
+          "institution_impersonation": 0,
+          "money_transfer": 0,
+          "personal_information": 4,
+          "app_installation": 0,
+          "secrecy": 0,
+          "threat_pressure": 0,
+          "loan_fraud": 1,
+          "information_probing": 0
+        }
+      },
+      "quotation": {
+        "n": 16,
+        "risk_fp": 0,
+        "type_fp": {
+          "institution_impersonation": 0,
+          "money_transfer": 0,
+          "personal_information": 0,
+          "app_installation": 0,
+          "secrecy": 0,
+          "threat_pressure": 0,
+          "loan_fraud": 0,
+          "information_probing": 0
+        }
+      }
+    },
+    "probability_distributions": {
+      "risk": {
+        "positive": {
+          "n": 60,
+          "mean": 0.6061032755989182,
+          "min": 0.048476523088072515,
+          "max": 0.8824810624502627
+        },
+        "negative": {
+          "n": 196,
+          "mean": 0.13167406315210034,
+          "min": 0.038023064845996456,
+          "max": 0.8466064601937764
+        }
+      },
+      "institution_impersonation": {
+        "positive": {
+          "n": 5,
+          "mean": 0.5680841294000467,
+          "min": 0.2262777261657668,
+          "max": 0.7869685152366481
+        },
+        "negative": {
+          "n": 251,
+          "mean": 0.19319616508857076,
+          "min": 0.07254157607531762,
+          "max": 0.702695226031012
+        }
+      },
+      "money_transfer": {
+        "positive": {
+          "n": 3,
+          "mean": 0.6000209398421105,
+          "min": 0.5592891067123759,
+          "max": 0.6443323816830475
+        },
+        "negative": {
+          "n": 253,
+          "mean": 0.21543007043016232,
+          "min": 0.11226555794721156,
+          "max": 0.5605411596732257
+        }
+      },
+      "personal_information": {
+        "positive": {
+          "n": 18,
+          "mean": 0.5499909165851445,
+          "min": 0.25698358102039565,
+          "max": 0.6496549332320127
+        },
+        "negative": {
+          "n": 238,
+          "mean": 0.2992510506515868,
+          "min": 0.194297913169203,
+          "max": 0.6303556750514994
+        }
+      },
+      "app_installation": {
+        "positive": {
+          "n": 6,
+          "mean": 0.46041145963163266,
+          "min": 0.41099920564504766,
+          "max": 0.49099436760071824
+        },
+        "negative": {
+          "n": 250,
+          "mean": 0.22333697242750433,
+          "min": 0.13127081493319767,
+          "max": 0.47798699429923086
+        }
+      },
+      "secrecy": {
+        "positive": {
+          "n": 3,
+          "mean": 0.5009415842824355,
+          "min": 0.46008382819374277,
+          "max": 0.5466916119817865
+        },
+        "negative": {
+          "n": 253,
+          "mean": 0.21661351166124576,
+          "min": 0.13246203721534897,
+          "max": 0.4629685496526709
+        }
+      },
+      "threat_pressure": {
+        "positive": {
+          "n": 3,
+          "mean": 0.5449209101428162,
+          "min": 0.4856830271430701,
+          "max": 0.5838130370076838
+        },
+        "negative": {
+          "n": 253,
+          "mean": 0.1903764237147172,
+          "min": 0.10519933715908805,
+          "max": 0.5061510529215895
+        }
+      },
+      "loan_fraud": {
+        "positive": {
+          "n": 6,
+          "mean": 0.5423539865811954,
+          "min": 0.3931416926868166,
+          "max": 0.6176525252193182
+        },
+        "negative": {
+          "n": 250,
+          "mean": 0.1893689245564367,
+          "min": 0.09503080695560158,
+          "max": 0.5400100786676131
+        }
+      },
+      "information_probing": {
+        "positive": {
+          "n": 18,
+          "mean": 0.293420204243857,
+          "min": 0.20312037400989233,
+          "max": 0.36925649444949743
+        },
+        "negative": {
+          "n": 238,
+          "mean": 0.20978364146543024,
+          "min": 0.13386447459544734,
+          "max": 0.4400705029575977
+        }
+      }
+    }
+  },
+  "epochs": {
+    "1": {
+      "metrics": {
+        "binary": {
+          "n": 256,
+          "positive": 60,
+          "negative": 196,
+          "threshold": 0.5,
+          "tp": 48,
+          "tn": 188,
+          "fp": 8,
+          "fn": 12,
+          "confusion_matrix": [
+            [
+              188,
+              8
+            ],
+            [
+              12,
+              48
+            ]
+          ],
+          "accuracy": 0.921875,
+          "precision": 0.8571428571428571,
+          "recall": 0.8,
+          "f1": 0.8275862068965517,
+          "roc_auc": 0.939795918367347,
+          "average_precision": 0.837078851268602,
+          "brier_score": 0.06789109898173595,
+          "probability": {
+            "mean": 0.22257726351096307,
+            "median": 0.046382692999909866,
+            "std_population": 0.3087125543415294
+          },
+          "probability_by_actual": {
+            "positive": {
+              "n": 60,
+              "mean": 0.6641663583111775,
+              "median": 0.7762846516162758,
+              "std_population": 0.26944796715988595,
+              "min": 0.03271605962425557,
+              "max": 0.938087343119417
+            },
+            "negative": {
+              "n": 196,
+              "mean": 0.08739692836804029,
+              "median": 0.03876834253039511,
+              "std_population": 0.15583617608495545,
+              "min": 0.025946267848846755,
+              "max": 0.9022249067023304
+            }
+          },
+          "undefined_reasons": {},
+          "fpr": 0.04081632653061224,
+          "fnr": 0.2
+        },
+        "per_type": {
+          "institution_impersonation": {
+            "n": 256,
+            "positive": 5,
+            "negative": 251,
+            "threshold": 0.5,
+            "tp": 4,
+            "tn": 248,
+            "fp": 3,
+            "fn": 1,
+            "confusion_matrix": [
+              [
+                248,
+                3
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "accuracy": 0.984375,
+            "precision": 0.5714285714285714,
+            "recall": 0.8,
+            "f1": 0.6666666666666666,
+            "roc_auc": 0.9474103585657371,
+            "average_precision": 0.6792110874200428,
+            "brier_score": 0.03586800543308691,
+            "probability": {
+              "mean": 0.16873410468683459,
+              "median": 0.14297448652529393,
+              "std_population": 0.10147585954239068
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 5,
+                "mean": 0.5742538936639422,
+                "median": 0.6173968072296934,
+                "std_population": 0.219798140888775,
+                "min": 0.1756032113202301,
+                "max": 0.8008109320889392
+              },
+              "negative": {
+                "n": 251,
+                "mean": 0.16065602124107545,
+                "median": 0.14213596221769104,
+                "std_population": 0.07873387761261898,
+                "min": 0.06273493380628517,
+                "max": 0.7028602795052596
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.01195219123505976,
+            "fnr": 0.2,
+            "families": 32,
+            "positive_families": 3,
+            "positive_conversations": 3
+          },
+          "money_transfer": {
+            "n": 256,
+            "positive": 3,
+            "negative": 253,
+            "threshold": 0.5,
+            "tp": 3,
+            "tn": 248,
+            "fp": 5,
+            "fn": 0,
+            "confusion_matrix": [
+              [
+                248,
+                5
+              ],
+              [
+                0,
+                3
+              ]
+            ],
+            "accuracy": 0.98046875,
+            "precision": 0.375,
+            "recall": 1.0,
+            "f1": 0.5454545454545454,
+            "roc_auc": 1.0,
+            "average_precision": 1.0,
+            "brier_score": 0.05033204991536498,
+            "probability": {
+              "mean": 0.19187835317683133,
+              "median": 0.1297923792839258,
+              "std_population": 0.12849233840835217
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 3,
+                "mean": 0.6278094307043981,
+                "median": 0.620006960757165,
+                "std_population": 0.03402853261971274,
+                "min": 0.5905858234847834,
+                "max": 0.6728355078712459
+              },
+              "negative": {
+                "n": 253,
+                "mean": 0.186709209965042,
+                "median": 0.12946199559659313,
+                "std_population": 0.12005088244229714,
+                "min": 0.09165000163966398,
+                "max": 0.5853017161883312
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.019762845849802372,
+            "fnr": 0.0,
+            "families": 32,
+            "positive_families": 1,
+            "positive_conversations": 1
+          },
+          "personal_information": {
+            "n": 256,
+            "positive": 18,
+            "negative": 238,
+            "threshold": 0.5,
+            "tp": 12,
+            "tn": 211,
+            "fp": 27,
+            "fn": 6,
+            "confusion_matrix": [
+              [
+                211,
+                27
+              ],
+              [
+                6,
+                12
+              ]
+            ],
+            "accuracy": 0.87109375,
+            "precision": 0.3076923076923077,
+            "recall": 0.6666666666666666,
+            "f1": 0.42105263157894735,
+            "roc_auc": 0.9117647058823529,
+            "average_precision": 0.4790220701656585,
+            "brier_score": 0.09110271426088347,
+            "probability": {
+              "mean": 0.2668017246483513,
+              "median": 0.18881837101309717,
+              "std_population": 0.15179075253317212
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 18,
+                "mean": 0.5221929142687138,
+                "median": 0.5974604386940083,
+                "std_population": 0.14369144218836152,
+                "min": 0.18944233043929956,
+                "max": 0.661910737812172
+              },
+              "negative": {
+                "n": 238,
+                "mean": 0.24748642459302975,
+                "median": 0.1873933422269961,
+                "std_population": 0.13384839464735432,
+                "min": 0.14566340304885006,
+                "max": 0.6610685857282887
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.1134453781512605,
+            "fnr": 0.3333333333333333,
+            "families": 32,
+            "positive_families": 6,
+            "positive_conversations": 6
+          },
+          "app_installation": {
+            "n": 256,
+            "positive": 6,
+            "negative": 250,
+            "threshold": 0.5,
+            "tp": 3,
+            "tn": 244,
+            "fp": 6,
+            "fn": 3,
+            "confusion_matrix": [
+              [
+                244,
+                6
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            "accuracy": 0.96484375,
+            "precision": 0.3333333333333333,
+            "recall": 0.5,
+            "f1": 0.4,
+            "roc_auc": 0.9646666666666667,
+            "average_precision": 0.4297619047619048,
+            "brier_score": 0.060051037717438735,
+            "probability": {
+              "mean": 0.2163258381884572,
+              "median": 0.16359283852365294,
+              "std_population": 0.11370459097579372
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 6,
+                "mean": 0.49305737726874393,
+                "median": 0.492605226622722,
+                "std_population": 0.04039387571549229,
+                "min": 0.4246818536285096,
+                "max": 0.5541535903881691
+              },
+              "negative": {
+                "n": 250,
+                "mean": 0.2096842812505303,
+                "median": 0.16244950260734864,
+                "std_population": 0.10638526734759214,
+                "min": 0.11401724223474906,
+                "max": 0.5291128903235977
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.024,
+            "fnr": 0.5,
+            "families": 32,
+            "positive_families": 2,
+            "positive_conversations": 2
+          },
+          "secrecy": {
+            "n": 256,
+            "positive": 3,
+            "negative": 253,
+            "threshold": 0.5,
+            "tp": 2,
+            "tn": 253,
+            "fp": 0,
+            "fn": 1,
+            "confusion_matrix": [
+              [
+                253,
+                0
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "accuracy": 0.99609375,
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "roc_auc": 0.9920948616600791,
+            "average_precision": 0.7777777777777777,
+            "brier_score": 0.05023344308624214,
+            "probability": {
+              "mean": 0.20482258740423,
+              "median": 0.16191483850692082,
+              "std_population": 0.09370859952165227
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 3,
+                "mean": 0.5213397695586434,
+                "median": 0.5272218481754057,
+                "std_population": 0.05534642621463231,
+                "min": 0.4508051565508544,
+                "max": 0.5859923039496701
+              },
+              "negative": {
+                "n": 253,
+                "mean": 0.2010694192363911,
+                "median": 0.16151314755331028,
+                "std_population": 0.08744756370557326,
+                "min": 0.12568253356364417,
+                "max": 0.4774119071490386
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.0,
+            "fnr": 0.3333333333333333,
+            "families": 32,
+            "positive_families": 1,
+            "positive_conversations": 1
+          },
+          "threat_pressure": {
+            "n": 256,
+            "positive": 3,
+            "negative": 253,
+            "threshold": 0.5,
+            "tp": 2,
+            "tn": 253,
+            "fp": 0,
+            "fn": 1,
+            "confusion_matrix": [
+              [
+                253,
+                0
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "accuracy": 0.99609375,
+            "precision": 1.0,
+            "recall": 0.6666666666666666,
+            "f1": 0.8,
+            "roc_auc": 1.0,
+            "average_precision": 1.0,
+            "brier_score": 0.028178325406217116,
+            "probability": {
+              "mean": 0.1495008380453562,
+              "median": 0.11561988684928381,
+              "std_population": 0.08430552175294816
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 3,
+                "mean": 0.5545961031715637,
+                "median": 0.592295000134649,
+                "std_population": 0.08425321426324266,
+                "min": 0.4378589585972187,
+                "max": 0.6336343507828233
+              },
+              "negative": {
+                "n": 253,
+                "mean": 0.14469733687785177,
+                "median": 0.11549460966065792,
+                "std_population": 0.07168386389991893,
+                "min": 0.06920134891021253,
+                "max": 0.4272188518579393
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.0,
+            "fnr": 0.3333333333333333,
+            "families": 32,
+            "positive_families": 1,
+            "positive_conversations": 1
+          },
+          "loan_fraud": {
+            "n": 256,
+            "positive": 6,
+            "negative": 250,
+            "threshold": 0.5,
+            "tp": 5,
+            "tn": 238,
+            "fp": 12,
+            "fn": 1,
+            "confusion_matrix": [
+              [
+                238,
+                12
+              ],
+              [
+                1,
+                5
+              ]
+            ],
+            "accuracy": 0.94921875,
+            "precision": 0.29411764705882354,
+            "recall": 0.8333333333333334,
+            "f1": 0.43478260869565216,
+            "roc_auc": 0.9846666666666667,
+            "average_precision": 0.8412698412698413,
+            "brier_score": 0.047620277063041574,
+            "probability": {
+              "mean": 0.18195817700162828,
+              "median": 0.11333683570449071,
+              "std_population": 0.13835517419857318
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 6,
+                "mean": 0.5987873139676126,
+                "median": 0.6380501161130225,
+                "std_population": 0.0839746868311947,
+                "min": 0.4271864287604457,
+                "max": 0.6644213927474794
+              },
+              "negative": {
+                "n": 250,
+                "mean": 0.17195427771444463,
+                "median": 0.11290430974284228,
+                "std_population": 0.12313541029767566,
+                "min": 0.08665957717617306,
+                "max": 0.5747203404582985
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.048,
+            "fnr": 0.16666666666666666,
+            "families": 32,
+            "positive_families": 2,
+            "positive_conversations": 2
+          },
+          "information_probing": {
+            "n": 256,
+            "positive": 18,
+            "negative": 238,
+            "threshold": 0.5,
+            "tp": 5,
+            "tn": 237,
+            "fp": 1,
+            "fn": 13,
+            "confusion_matrix": [
+              [
+                237,
+                1
+              ],
+              [
+                13,
+                5
+              ]
+            ],
+            "accuracy": 0.9453125,
+            "precision": 0.8333333333333334,
+            "recall": 0.2777777777777778,
+            "f1": 0.4166666666666667,
+            "roc_auc": 0.9390756302521008,
+            "average_precision": 0.6625624996612122,
+            "brier_score": 0.0812557941183725,
+            "probability": {
+              "mean": 0.2537431208555685,
+              "median": 0.21603729979774955,
+              "std_population": 0.09123569736064381
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 18,
+                "mean": 0.4392265225673538,
+                "median": 0.46219103856453386,
+                "std_population": 0.09192996998379534,
+                "min": 0.23128014292577934,
+                "max": 0.550710584470921
+              },
+              "negative": {
+                "n": 238,
+                "mean": 0.2397149644235847,
+                "median": 0.20785280794423833,
+                "std_population": 0.07426678571149316,
+                "min": 0.15284549587590424,
+                "max": 0.52493739390721
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.004201680672268907,
+            "fnr": 0.7222222222222222,
+            "families": 32,
+            "positive_families": 6,
+            "positive_conversations": 6
+          }
+        },
+        "macro": {
+          "f1": 0.5605778898828098,
+          "defined_labels": 8,
+          "full8_f1": 0.5605778898828098
+        },
+        "micro": {
+          "precision": 0.4,
+          "recall": 0.5806451612903226,
+          "f1": 0.47368421052631576,
+          "tp": 36,
+          "fp": 54,
+          "fn": 26
+        },
+        "conversations": {
+          "normal": 12,
+          "normal_false_alerts": 3,
+          "normal_false_alert_rate": 0.25,
+          "risky": 20,
+          "risky_missed": 0,
+          "risky_miss_rate": 0.0
+        },
+        "hard_negative": {
+          "n": 96,
+          "fp": 6,
+          "fpr": 0.0625
+        },
+        "normal_categories": {
+          "app": {
+            "n": 16,
+            "risk_fp": 0,
+            "type_fp": {
+              "institution_impersonation": 0,
+              "money_transfer": 0,
+              "personal_information": 0,
+              "app_installation": 0,
+              "secrecy": 0,
+              "threat_pressure": 0,
+              "loan_fraud": 0,
+              "information_probing": 0
+            }
+          },
+          "financial": {
+            "n": 24,
+            "risk_fp": 1,
+            "type_fp": {
+              "institution_impersonation": 0,
+              "money_transfer": 0,
+              "personal_information": 0,
+              "app_installation": 0,
+              "secrecy": 0,
+              "threat_pressure": 0,
+              "loan_fraud": 0,
+              "information_probing": 0
+            }
+          },
+          "identity": {
+            "n": 24,
+            "risk_fp": 1,
+            "type_fp": {
+              "institution_impersonation": 0,
+              "money_transfer": 0,
+              "personal_information": 1,
+              "app_installation": 0,
+              "secrecy": 0,
+              "threat_pressure": 0,
+              "loan_fraud": 0,
+              "information_probing": 0
+            }
+          },
+          "official": {
+            "n": 16,
+            "risk_fp": 4,
+            "type_fp": {
+              "institution_impersonation": 0,
+              "money_transfer": 0,
+              "personal_information": 4,
+              "app_installation": 0,
+              "secrecy": 0,
+              "threat_pressure": 0,
+              "loan_fraud": 3,
+              "information_probing": 0
+            }
+          },
+          "quotation": {
+            "n": 16,
+            "risk_fp": 0,
+            "type_fp": {
+              "institution_impersonation": 0,
+              "money_transfer": 0,
+              "personal_information": 0,
+              "app_installation": 0,
+              "secrecy": 0,
+              "threat_pressure": 0,
+              "loan_fraud": 0,
+              "information_probing": 0
+            }
+          }
+        },
+        "probability_distributions": {
+          "risk": {
+            "positive": {
+              "n": 60,
+              "mean": 0.6641663583111775,
+              "min": 0.03271605962425557,
+              "max": 0.938087343119417
+            },
+            "negative": {
+              "n": 196,
+              "mean": 0.08739692836804029,
+              "min": 0.025946267848846755,
+              "max": 0.9022249067023304
+            }
+          },
+          "institution_impersonation": {
+            "positive": {
+              "n": 5,
+              "mean": 0.5742538936639422,
+              "min": 0.1756032113202301,
+              "max": 0.8008109320889392
+            },
+            "negative": {
+              "n": 251,
+              "mean": 0.16065602124107545,
+              "min": 0.06273493380628517,
+              "max": 0.7028602795052596
+            }
+          },
+          "money_transfer": {
+            "positive": {
+              "n": 3,
+              "mean": 0.6278094307043981,
+              "min": 0.5905858234847834,
+              "max": 0.6728355078712459
+            },
+            "negative": {
+              "n": 253,
+              "mean": 0.186709209965042,
+              "min": 0.09165000163966398,
+              "max": 0.5853017161883312
+            }
+          },
+          "personal_information": {
+            "positive": {
+              "n": 18,
+              "mean": 0.5221929142687138,
+              "min": 0.18944233043929956,
+              "max": 0.661910737812172
+            },
+            "negative": {
+              "n": 238,
+              "mean": 0.24748642459302975,
+              "min": 0.14566340304885006,
+              "max": 0.6610685857282887
+            }
+          },
+          "app_installation": {
+            "positive": {
+              "n": 6,
+              "mean": 0.49305737726874393,
+              "min": 0.4246818536285096,
+              "max": 0.5541535903881691
+            },
+            "negative": {
+              "n": 250,
+              "mean": 0.2096842812505303,
+              "min": 0.11401724223474906,
+              "max": 0.5291128903235977
+            }
+          },
+          "secrecy": {
+            "positive": {
+              "n": 3,
+              "mean": 0.5213397695586434,
+              "min": 0.4508051565508544,
+              "max": 0.5859923039496701
+            },
+            "negative": {
+              "n": 253,
+              "mean": 0.2010694192363911,
+              "min": 0.12568253356364417,
+              "max": 0.4774119071490386
+            }
+          },
+          "threat_pressure": {
+            "positive": {
+              "n": 3,
+              "mean": 0.5545961031715637,
+              "min": 0.4378589585972187,
+              "max": 0.6336343507828233
+            },
+            "negative": {
+              "n": 253,
+              "mean": 0.14469733687785177,
+              "min": 0.06920134891021253,
+              "max": 0.4272188518579393
+            }
+          },
+          "loan_fraud": {
+            "positive": {
+              "n": 6,
+              "mean": 0.5987873139676126,
+              "min": 0.4271864287604457,
+              "max": 0.6644213927474794
+            },
+            "negative": {
+              "n": 250,
+              "mean": 0.17195427771444463,
+              "min": 0.08665957717617306,
+              "max": 0.5747203404582985
+            }
+          },
+          "information_probing": {
+            "positive": {
+              "n": 18,
+              "mean": 0.4392265225673538,
+              "min": 0.23128014292577934,
+              "max": 0.550710584470921
+            },
+            "negative": {
+              "n": 238,
+              "mean": 0.2397149644235847,
+              "min": 0.15284549587590424,
+              "max": 0.52493739390721
+            }
+          }
+        }
+      },
+      "old_validation_metrics": {
+        "binary": {
+          "n": 256,
+          "positive": 72,
+          "negative": 184,
+          "threshold": 0.5,
+          "tp": 68,
+          "tn": 176,
+          "fp": 8,
+          "fn": 4,
+          "confusion_matrix": [
+            [
+              176,
+              8
+            ],
+            [
+              4,
+              68
+            ]
+          ],
+          "accuracy": 0.953125,
+          "precision": 0.8947368421052632,
+          "recall": 0.9444444444444444,
+          "f1": 0.918918918918919,
+          "roc_auc": 0.9893568840579711,
+          "average_precision": 0.9707728476627696,
+          "brier_score": 0.03871519043562894,
+          "probability": {
+            "mean": 0.2897272716124655,
+            "median": 0.05252596194974764,
+            "std_population": 0.3583535805865908
+          },
+          "probability_by_actual": {
+            "positive": {
+              "n": 72,
+              "mean": 0.8087004270215191,
+              "median": 0.8624048093331789,
+              "std_population": 0.15855074878559824,
+              "min": 0.1533162282164712,
+              "max": 0.9289047310474826
+            },
+            "negative": {
+              "n": 184,
+              "mean": 0.08665081949587919,
+              "median": 0.03829195939054899,
+              "std_population": 0.14899502631559453,
+              "min": 0.023386535353173903,
+              "max": 0.8685309457310711
+            }
+          },
+          "undefined_reasons": {},
+          "fpr": 0.043478260869565216,
+          "fnr": 0.05555555555555555
+        },
+        "per_type": {
+          "institution_impersonation": {
+            "n": 256,
+            "positive": 9,
+            "negative": 247,
+            "threshold": 0.5,
+            "tp": 8,
+            "tn": 242,
+            "fp": 5,
+            "fn": 1,
+            "confusion_matrix": [
+              [
+                242,
+                5
+              ],
+              [
+                1,
+                8
+              ]
+            ],
+            "accuracy": 0.9765625,
+            "precision": 0.6153846153846154,
+            "recall": 0.8888888888888888,
+            "f1": 0.7272727272727273,
+            "roc_auc": 0.9946018893387314,
+            "average_precision": 0.8671075837742505,
+            "brier_score": 0.05166811721177891,
+            "probability": {
+              "mean": 0.21749566705502468,
+              "median": 0.16751208450833596,
+              "std_population": 0.1491914231018394
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 9,
+                "mean": 0.7544971193327401,
+                "median": 0.8307569787005094,
+                "std_population": 0.12704530538747316,
+                "min": 0.48803529234666054,
+                "max": 0.8618409272792563
+              },
+              "negative": {
+                "n": 247,
+                "mean": 0.19792881251858968,
+                "median": 0.16480273558265307,
+                "std_population": 0.10766009974610749,
+                "min": 0.07065049374545662,
+                "max": 0.8345530511607527
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.020242914979757085,
+            "fnr": 0.1111111111111111,
+            "families": 32,
+            "positive_families": 3,
+            "positive_conversations": 3
+          },
+          "money_transfer": {
+            "n": 256,
+            "positive": 9,
+            "negative": 247,
+            "threshold": 0.5,
+            "tp": 8,
+            "tn": 223,
+            "fp": 24,
+            "fn": 1,
+            "confusion_matrix": [
+              [
+                223,
+                24
+              ],
+              [
+                1,
+                8
+              ]
+            ],
+            "accuracy": 0.90234375,
+            "precision": 0.25,
+            "recall": 0.8888888888888888,
+            "f1": 0.3902439024390244,
+            "roc_auc": 0.9779577147998201,
+            "average_precision": 0.7963369963369964,
+            "brier_score": 0.07041916353397919,
+            "probability": {
+              "mean": 0.22824776658383744,
+              "median": 0.13612079028794444,
+              "std_population": 0.16270074639082563
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 9,
+                "mean": 0.6159027526067555,
+                "median": 0.6480487142038238,
+                "std_population": 0.07394066122437612,
+                "min": 0.45206517809515295,
+                "max": 0.6943096670469616
+              },
+              "negative": {
+                "n": 247,
+                "mean": 0.2141226861214639,
+                "median": 0.13463459133991268,
+                "std_population": 0.14683901523113552,
+                "min": 0.09838388946661053,
+                "max": 0.6073347077965771
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.09716599190283401,
+            "fnr": 0.1111111111111111,
+            "families": 32,
+            "positive_families": 3,
+            "positive_conversations": 3
+          },
+          "personal_information": {
+            "n": 256,
+            "positive": 9,
+            "negative": 247,
+            "threshold": 0.5,
+            "tp": 9,
+            "tn": 204,
+            "fp": 43,
+            "fn": 0,
+            "confusion_matrix": [
+              [
+                204,
+                43
+              ],
+              [
+                0,
+                9
+              ]
+            ],
+            "accuracy": 0.83203125,
+            "precision": 0.17307692307692307,
+            "recall": 1.0,
+            "f1": 0.29508196721311475,
+            "roc_auc": 0.9824561403508771,
+            "average_precision": 0.6270156314273961,
+            "brier_score": 0.10350640396438107,
+            "probability": {
+              "mean": 0.29282745769611007,
+              "median": 0.1924700362225712,
+              "std_population": 0.17059059953870165
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 9,
+                "mean": 0.6613179543802278,
+                "median": 0.6730559490024992,
+                "std_population": 0.025101133954584073,
+                "min": 0.6101116229954258,
+                "max": 0.6896278062386938
+              },
+              "negative": {
+                "n": 247,
+                "mean": 0.27940067846470495,
+                "median": 0.19096527067467262,
+                "std_population": 0.158147531389159,
+                "min": 0.15430419962860192,
+                "max": 0.6889137192711761
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.17408906882591094,
+            "fnr": 0.0,
+            "families": 32,
+            "positive_families": 3,
+            "positive_conversations": 3
+          },
+          "app_installation": {
+            "n": 256,
+            "positive": 9,
+            "negative": 247,
+            "threshold": 0.5,
+            "tp": 6,
+            "tn": 234,
+            "fp": 13,
+            "fn": 3,
+            "confusion_matrix": [
+              [
+                234,
+                13
+              ],
+              [
+                3,
+                6
+              ]
+            ],
+            "accuracy": 0.9375,
+            "precision": 0.3157894736842105,
+            "recall": 0.6666666666666666,
+            "f1": 0.42857142857142855,
+            "roc_auc": 0.9509671614934773,
+            "average_precision": 0.6538813303099017,
+            "brier_score": 0.07474057550576305,
+            "probability": {
+              "mean": 0.24122628523969394,
+              "median": 0.16557536611617124,
+              "std_population": 0.13731713663002923
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 9,
+                "mean": 0.5327899192469225,
+                "median": 0.5477992534233025,
+                "std_population": 0.0790042794986494,
+                "min": 0.40523679942623947,
+                "max": 0.613626397305104
+              },
+              "negative": {
+                "n": 247,
+                "mean": 0.23060250910177868,
+                "median": 0.1644787307687271,
+                "std_population": 0.126906484082691,
+                "min": 0.1146703004526486,
+                "max": 0.5773895161931656
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.05263157894736842,
+            "fnr": 0.3333333333333333,
+            "families": 32,
+            "positive_families": 3,
+            "positive_conversations": 3
+          },
+          "secrecy": {
+            "n": 256,
+            "positive": 9,
+            "negative": 247,
+            "threshold": 0.5,
+            "tp": 6,
+            "tn": 241,
+            "fp": 6,
+            "fn": 3,
+            "confusion_matrix": [
+              [
+                241,
+                6
+              ],
+              [
+                3,
+                6
+              ]
+            ],
+            "accuracy": 0.96484375,
+            "precision": 0.5,
+            "recall": 0.6666666666666666,
+            "f1": 0.5714285714285714,
+            "roc_auc": 0.9743589743589743,
+            "average_precision": 0.7296066964797615,
+            "brier_score": 0.07497806376738132,
+            "probability": {
+              "mean": 0.24884306987420002,
+              "median": 0.17788353722549907,
+              "std_population": 0.12347633327338829
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 9,
+                "mean": 0.5311639400629411,
+                "median": 0.5642525478538009,
+                "std_population": 0.05635930980517628,
+                "min": 0.44171588128519407,
+                "max": 0.5997877405585389
+              },
+              "negative": {
+                "n": 247,
+                "mean": 0.23855607460416495,
+                "median": 0.17704723923146726,
+                "std_population": 0.11258840049833575,
+                "min": 0.12111534097248979,
+                "max": 0.5557174489746702
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.024291497975708502,
+            "fnr": 0.3333333333333333,
+            "families": 32,
+            "positive_families": 3,
+            "positive_conversations": 3
+          },
+          "threat_pressure": {
+            "n": 256,
+            "positive": 9,
+            "negative": 247,
+            "threshold": 0.5,
+            "tp": 9,
+            "tn": 247,
+            "fp": 0,
+            "fn": 0,
+            "confusion_matrix": [
+              [
+                247,
+                0
+              ],
+              [
+                0,
+                9
+              ]
+            ],
+            "accuracy": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "roc_auc": 1.0,
+            "average_precision": 1.0000000000000002,
+            "brier_score": 0.04460844282122281,
+            "probability": {
+              "mean": 0.19152266003930046,
+              "median": 0.13378094990338946,
+              "std_population": 0.1227088908406659
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 9,
+                "mean": 0.6014038524963998,
+                "median": 0.6046041974589176,
+                "std_population": 0.031230634010143726,
+                "min": 0.5566541958696369,
+                "max": 0.6506539154833638
+              },
+              "negative": {
+                "n": 247,
+                "mean": 0.17658771780402158,
+                "median": 0.1297041404127934,
+                "std_population": 0.0960519709381831,
+                "min": 0.07769334091236704,
+                "max": 0.470630986474034
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.0,
+            "fnr": 0.0,
+            "families": 32,
+            "positive_families": 3,
+            "positive_conversations": 3
+          },
+          "loan_fraud": {
+            "n": 256,
+            "positive": 9,
+            "negative": 247,
+            "threshold": 0.5,
+            "tp": 9,
+            "tn": 224,
+            "fp": 23,
+            "fn": 0,
+            "confusion_matrix": [
+              [
+                224,
+                23
+              ],
+              [
+                0,
+                9
+              ]
+            ],
+            "accuracy": 0.91015625,
+            "precision": 0.28125,
+            "recall": 1.0,
+            "f1": 0.43902439024390244,
+            "roc_auc": 1.0,
+            "average_precision": 1.0000000000000002,
+            "brier_score": 0.06809124901473704,
+            "probability": {
+              "mean": 0.22340233943711268,
+              "median": 0.12529207542228848,
+              "std_population": 0.17153420348604786
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 9,
+                "mean": 0.6598768244171483,
+                "median": 0.659608511940779,
+                "std_population": 0.022785517630363836,
+                "min": 0.6287894568582094,
+                "max": 0.6956778415760083
+              },
+              "negative": {
+                "n": 247,
+                "mean": 0.20749841083460127,
+                "median": 0.12441375062792595,
+                "std_population": 0.15258637037932954,
+                "min": 0.08404754922673048,
+                "max": 0.5946606741425369
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.0931174089068826,
+            "fnr": 0.0,
+            "families": 32,
+            "positive_families": 3,
+            "positive_conversations": 3
+          },
+          "information_probing": {
+            "n": 256,
+            "positive": 9,
+            "negative": 247,
+            "threshold": 0.5,
+            "tp": 9,
+            "tn": 245,
+            "fp": 2,
+            "fn": 0,
+            "confusion_matrix": [
+              [
+                245,
+                2
+              ],
+              [
+                0,
+                9
+              ]
+            ],
+            "accuracy": 0.9921875,
+            "precision": 0.8181818181818182,
+            "recall": 1.0,
+            "f1": 0.9,
+            "roc_auc": 0.9991003148897886,
+            "average_precision": 0.9765432098765433,
+            "brier_score": 0.07291688347320174,
+            "probability": {
+              "mean": 0.2677141340211565,
+              "median": 0.21223214532509316,
+              "std_population": 0.1254578930615347
+            },
+            "probability_by_actual": {
+              "positive": {
+                "n": 9,
+                "mean": 0.7061320108506384,
+                "median": 0.7322540809523778,
+                "std_population": 0.08446649290067924,
+                "min": 0.5216457303873429,
+                "max": 0.7986280999189289
+              },
+              "negative": {
+                "n": 247,
+                "mean": 0.2517393935698799,
+                "median": 0.21014333742789718,
+                "std_population": 0.09377859436542031,
+                "min": 0.13288336965217887,
+                "max": 0.619270999685649
+              }
+            },
+            "undefined_reasons": {},
+            "fpr": 0.008097165991902834,
+            "fnr": 0.0,
+            "families": 32,
+            "positive_families": 3,
+            "positive_conversations": 3
+          }
+        },
+        "macro": {
+          "f1": 0.5939528733960961,
+          "defined_labels": 8,
+          "full8_f1": 0.5939528733960961
+        },
+        "micro": {
+          "precision": 0.35555555555555557,
+          "recall": 0.8888888888888888,
+          "f1": 0.5079365079365079,
+          "tp": 64,
+          "fp": 116,
+          "fn": 8
+        },
+        "conversations": {
+          "normal": 8,
+          "normal_false_alerts": 0,
+          "normal_false_alert_rate": 0.0,
+          "risky": 24,
+          "risky_missed": 0,
+          "risky_miss_rate": 0.0
+        },
+        "hard_negative": {
+          "n": 64,
+          "fp": 0,
+          "fpr": 0.0
+        },
+        "normal_categories": {
+          "legacy": {
+            "n": 64,
+            "risk_fp": 0,
+            "type_fp": {
+              "institution_impersonation": 0,
+              "money_transfer": 0,
+              "personal_information": 0,
+              "app_installation": 0,
+              "secrecy": 0,
+              "threat_pressure": 0,
+              "loan_fraud": 0,
+              "information_probing": 0
+            }
+          }
+        },
+        "probability_distributions": {
+          "risk": {
+            "positive": {
+              "n": 72,
+              "mean": 0.8087004270215191,
+              "min": 0.1533162282164712,
+              "max": 0.9289047310474826
+            },
+            "negative": {
+              "n": 184,
+              "mean": 0.08665081949587919,
+              "min": 0.023386535353173903,
+              "max": 0.8685309457310711
+            }
+          },
+          "institution_impersonation": {
+            "positive": {
+              "n": 9,
+              "mean": 0.7544971193327401,
+              "min": 0.48803529234666054,
+              "max": 0.8618409272792563
+            },
+            "negative": {
+              "n": 247,
+              "mean": 0.19792881251858968,
+              "min": 0.07065049374545662,
+              "max": 0.8345530511607527
+            }
+          },
+          "money_transfer": {
+            "positive": {
+              "n": 9,
+              "mean": 0.6159027526067555,
+              "min": 0.45206517809515295,
+              "max": 0.6943096670469616
+            },
+            "negative": {
+              "n": 247,
+              "mean": 0.2141226861214639,
+              "min": 0.09838388946661053,
+              "max": 0.6073347077965771
+            }
+          },
+          "personal_information": {
+            "positive": {
+              "n": 9,
+              "mean": 0.6613179543802278,
+              "min": 0.6101116229954258,
+              "max": 0.6896278062386938
+            },
+            "negative": {
+              "n": 247,
+              "mean": 0.27940067846470495,
+              "min": 0.15430419962860192,
+              "max": 0.6889137192711761
+            }
+          },
+          "app_installation": {
+            "positive": {
+              "n": 9,
+              "mean": 0.5327899192469225,
+              "min": 0.40523679942623947,
+              "max": 0.613626397305104
+            },
+            "negative": {
+              "n": 247,
+              "mean": 0.23060250910177868,
+              "min": 0.1146703004526486,
+              "max": 0.5773895161931656
+            }
+          },
+          "secrecy": {
+            "positive": {
+              "n": 9,
+              "mean": 0.5311639400629411,
+              "min": 0.44171588128519407,
+              "max": 0.5997877405585389
+            },
+            "negative": {
+              "n": 247,
+              "mean": 0.23855607460416495,
+              "min": 0.12111534097248979,
+              "max": 0.5557174489746702
+            }
+          },
+          "threat_pressure": {
+            "positive": {
+              "n": 9,
+              "mean": 0.6014038524963998,
+              "min": 0.5566541958696369,
+              "max": 0.6506539154833638
+            },
+            "negative": {
+              "n": 247,
+              "mean": 0.17658771780402158,
+              "min": 0.07769334091236704,
+              "max": 0.470630986474034
+            }
+          },
+          "loan_fraud": {
+            "positive": {
+              "n": 9,
+              "mean": 0.6598768244171483,
+              "min": 0.6287894568582094,
+              "max": 0.6956778415760083
+            },
+            "negative": {
+              "n": 247,
+              "mean": 0.20749841083460127,
+              "min": 0.08404754922673048,
+              "max": 0.5946606741425369
+            }
+          },
+          "information_probing": {
+            "positive": {
+              "n": 9,
+              "mean": 0.7061320108506384,
+              "min": 0.5216457303873429,
+              "max": 0.7986280999189289
+            },
+            "negative": {
+              "n": 247,
+              "mean": 0.2517393935698799,
+              "min": 0.13288336965217887,
+              "max": 0.619270999685649
+            }
+          }
+        }
+      },
+      "gates": {
+        "epoch": 1,
+        "safe": true,
+        "safety_failures": [],
+        "targets_passed": false,
+        "adopt": false,
+        "allow_epoch2": false,
+        "normal_fp_outcome": "compare_counts",
+        "final_generalization_claim": false
+      },
+      "uncertainty": {
+        "unit": "scenario_family_id",
+        "families": 32,
+        "repetitions": 1000,
+        "seed": 42,
+        "delta_f1": {
+          "risk": {
+            "valid": 1000,
+            "ci95": [
+              0.017557080568375582,
+              0.133352490421456
+            ]
+          },
+          "information_probing": {
+            "valid": 996,
+            "ci95": [
+              0.0,
+              0.6666666666666666
+            ]
+          },
+          "personal_information": {
+            "valid": 999,
+            "ci95": [
+              -0.08681357345773928,
+              0.04079520697167752
+            ]
+          }
+        },
+        "limitation": "Small selection set; intervals do not establish final TEST improvement"
+      }
+    }
+  }
+}

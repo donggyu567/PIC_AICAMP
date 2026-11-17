@@ -1,0 +1,134 @@
+{
+  "schema": "v3-lite-inference-bundle/1",
+  "purpose": "internal_experiment",
+  "source_kind": "llm_synthetic",
+  "human_reviewed": false,
+  "approved_for_production": false,
+  "deployment_allowed": false,
+  "parent_sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee",
+  "label_order": [
+    "institution_impersonation",
+    "money_transfer",
+    "personal_information",
+    "app_installation",
+    "secrecy",
+    "threat_pressure",
+    "loan_fraud",
+    "information_probing"
+  ],
+  "thresholds": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "seed": 42,
+  "epoch": 1,
+  "optimizer_steps": 106,
+  "validation_adopted": false,
+  "model": {
+    "path": "models/v3_seed42_inference.pt",
+    "sha256": "35dae5286fb4f39f23821989da6e3afcee5d9827197969e6ec88d09e47d083c2",
+    "bytes": 449438496
+  },
+  "support_files": [
+    {
+      "path": "core_runtime.py",
+      "sha256": "a7cf96ce08ca6df897031ad8d59471b64831073b2d7d5f711c32b8f17695fb47"
+    },
+    {
+      "path": "requirements-tested.txt",
+      "sha256": "415a13afa9acd3cea9c89370b7d28cc496a0904cbebe0a6c86d9c9604e30971f"
+    },
+    {
+      "path": "runtime.py",
+      "sha256": "cbd7f01b82ad33123d5e8dac8c65ebd46d3f07a3500f0d1a60ab18bb92734c8d"
+    },
+    {
+      "path": "tokenizer/special_tokens_map.json",
+      "sha256": "3c3507f36dff57bce437223db3b3081d1e2b52ec3e56ee55438193ecb2c94dd6"
+    },
+    {
+      "path": "tokenizer/tokenizer.json",
+      "sha256": "d5c7a9a8996aca4fee55a3664381b012bd7dbb3e190061b2591c02502b7171b6"
+    },
+    {
+      "path": "tokenizer/tokenizer_config.json",
+      "sha256": "bf65cec9f778d67388090a0b07fc1a055111f1ee93aedd1d29fd38d4854508ec"
+    },
+    {
+      "path": "tokenizer/vocab.txt",
+      "sha256": "6e886927dfcecd22029b1ba80c10a1374740259c1067fc3a28d964b7ae2d55a7"
+    },
+    {
+      "path": "vendor/risk_speech_ai/checkpoint.py",
+      "sha256": "633872d102fcaa8bbd1459e0cc372bd6021ab56dab00fbb6cbdde966b1fbd20f"
+    },
+    {
+      "path": "vendor/risk_speech_ai/config.py",
+      "sha256": "e991149c74defa828ddbd5eedc12608086a0be6263c91e97bc2e1ee198b841c5"
+    },
+    {
+      "path": "vendor/risk_speech_ai/dataset.py",
+      "sha256": "c86f104f8df60e8f9a508ba4ba64e81c886041ddfcdb653aeee8f74740d37156"
+    },
+    {
+      "path": "vendor/risk_speech_ai/evaluate_cli.py",
+      "sha256": "4f6d7ddc814436d2f683ada3ba9e88863e1835a8a292eca49afc63f185ddf579"
+    },
+    {
+      "path": "vendor/risk_speech_ai/inference.py",
+      "sha256": "f7d2613352c5ad920055ab4b0fc96244185432e693848dfadd29636648cb7d2b"
+    },
+    {
+      "path": "vendor/risk_speech_ai/labels.py",
+      "sha256": "c69afc17bcd3a4895bc7d2f4fdf297b636580291ffa381603237462ec2f2348c"
+    },
+    {
+      "path": "vendor/risk_speech_ai/metrics.py",
+      "sha256": "4a4c10e9217a3ff2a21c334774cbb9bf97d8437d47b79ab246b9c8a5cc74b80a"
+    },
+    {
+      "path": "vendor/risk_speech_ai/model.py",
+      "sha256": "945466496b24eff750982723c7e31fc325d0cf8a52cc2e7095bef02d99e94fdb"
+    },
+    {
+      "path": "vendor/risk_speech_ai/prepare_training_inputs.py",
+      "sha256": "512181b4a96cfebef4f4ed28b98956a23d457a0b0b430b68b3cad89b7f51621e"
+    },
+    {
+      "path": "vendor/risk_speech_ai/splits.py",
+      "sha256": "e14424178d9454bda0a2d46dc452d8cd96788b69f75603765ee86d7aff0d75d6"
+    },
+    {
+      "path": "vendor/risk_speech_ai/tokenization.py",
+      "sha256": "ea93a473843713545e587cbfd9d7789ac52195332b6b7b8866d170b4819a0cd3"
+    },
+    {
+      "path": "vendor/risk_speech_ai/train_cli.py",
+      "sha256": "6a7afd6244183163cb9b1d432ddbd478ce91d13723cdae81b45379dd0468972a"
+    },
+    {
+      "path": "vendor/risk_speech_ai/training.py",
+      "sha256": "7adcf627345480a97be93f253eeb3b042ab7b6a981c05682e1ca7d87cc6b529d"
+    },
+    {
+      "path": "vendor/risk_speech_ai/training_data.py",
+      "sha256": "9b13b5d55ebce748efa167d99720e6b5688d2aadea87b33a85320db3f9ea2ef9"
+    },
+    {
+      "path": "vendor/risk_speech_ai/training_log.py",
+      "sha256": "b0ce173390a04040c08d43a5ca3e433c8098a3bf3bcb58ddb653f46b778260fc"
+    },
+    {
+      "path": "vendor/risk_speech_ai/type_diagnostics.py",
+      "sha256": "713a9322fb5079abb5bbeb23dddc92363fa7280fb33e00c125771a13d7f8b92f"
+    }
+  ],
+  "revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc"
+}

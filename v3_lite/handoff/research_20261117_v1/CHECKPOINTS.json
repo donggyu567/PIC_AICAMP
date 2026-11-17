@@ -1,0 +1,1308 @@
+{
+  "training_checkpoints": [
+    {
+      "path": "v3_lite/runs/research_synthetic_seed42_20261117_v2/epoch_001.pt",
+      "sha256": "607005ca8ce0e5a1352b4624eb49eab44f66015af58487396fe5b815cc9bfda9",
+      "bytes": 1348303402,
+      "artifact_kind": "research_model",
+      "epoch": 1
+    }
+  ],
+  "inference": {
+    "path": "models/v3_seed42_inference.pt",
+    "sha256": "35dae5286fb4f39f23821989da6e3afcee5d9827197969e6ec88d09e47d083c2",
+    "bytes": 449438496
+  },
+  "inference_optimizer_buffers_excluded": true,
+  "training_bytes": 1348303402,
+  "inference_bytes": 449438496,
+  "tensor_count": 201,
+  "tensor_contract": {
+    "encoder.embeddings.word_embeddings.weight": {
+      "shape": [
+        35000,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.embeddings.position_embeddings.weight": {
+      "shape": [
+        512,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.embeddings.token_type_embeddings.weight": {
+      "shape": [
+        2,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.embeddings.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.embeddings.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.attention.self.query.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.attention.self.query.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.attention.self.key.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.attention.self.key.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.attention.self.value.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.attention.self.value.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.attention.output.dense.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.attention.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.attention.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.attention.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.intermediate.dense.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.intermediate.dense.bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.output.dense.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.0.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.attention.self.query.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.attention.self.query.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.attention.self.key.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.attention.self.key.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.attention.self.value.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.attention.self.value.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.attention.output.dense.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.attention.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.attention.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.attention.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.intermediate.dense.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.intermediate.dense.bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.output.dense.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.1.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.attention.self.query.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.attention.self.query.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.attention.self.key.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.attention.self.key.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.attention.self.value.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.attention.self.value.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.attention.output.dense.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.attention.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.attention.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.attention.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.intermediate.dense.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.intermediate.dense.bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.output.dense.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.2.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.attention.self.query.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.attention.self.query.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.attention.self.key.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.attention.self.key.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.attention.self.value.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.attention.self.value.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.attention.output.dense.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.attention.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.attention.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.attention.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.intermediate.dense.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.intermediate.dense.bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.output.dense.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.3.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.attention.self.query.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.attention.self.query.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.attention.self.key.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.attention.self.key.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.attention.self.value.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.attention.self.value.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.attention.output.dense.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.attention.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.attention.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.attention.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.intermediate.dense.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.intermediate.dense.bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.output.dense.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.4.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.attention.self.query.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.attention.self.query.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.attention.self.key.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.attention.self.key.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.attention.self.value.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.attention.self.value.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.attention.output.dense.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.attention.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.attention.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.attention.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.intermediate.dense.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.intermediate.dense.bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.output.dense.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.5.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.attention.self.query.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.attention.self.query.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.attention.self.key.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.attention.self.key.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.attention.self.value.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.attention.self.value.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.attention.output.dense.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.attention.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.attention.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.attention.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.intermediate.dense.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.intermediate.dense.bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.output.dense.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.6.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.attention.self.query.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.attention.self.query.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.attention.self.key.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.attention.self.key.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.attention.self.value.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.attention.self.value.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.attention.output.dense.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.attention.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.attention.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.attention.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.intermediate.dense.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.intermediate.dense.bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.output.dense.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.7.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.attention.self.query.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.attention.self.query.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.attention.self.key.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.attention.self.key.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.attention.self.value.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.attention.self.value.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.attention.output.dense.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.attention.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.attention.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.attention.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.intermediate.dense.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.intermediate.dense.bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.output.dense.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.8.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.attention.self.query.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.attention.self.query.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.attention.self.key.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.attention.self.key.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.attention.self.value.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.attention.self.value.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.attention.output.dense.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.attention.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.attention.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.attention.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.intermediate.dense.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.intermediate.dense.bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.output.dense.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.9.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.attention.self.query.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.attention.self.query.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.attention.self.key.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.attention.self.key.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.attention.self.value.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.attention.self.value.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.attention.output.dense.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.attention.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.attention.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.attention.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.intermediate.dense.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.intermediate.dense.bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.output.dense.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.10.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.attention.self.query.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.attention.self.query.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.attention.self.key.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.attention.self.key.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.attention.self.value.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.attention.self.value.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.attention.output.dense.weight": {
+      "shape": [
+        768,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.attention.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.attention.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.attention.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.intermediate.dense.weight": {
+      "shape": [
+        3072,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.intermediate.dense.bias": {
+      "shape": [
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.output.dense.weight": {
+      "shape": [
+        768,
+        3072
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.output.dense.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.output.LayerNorm.weight": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "encoder.encoder.layer.11.output.LayerNorm.bias": {
+      "shape": [
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "risk_classifier.weight": {
+      "shape": [
+        1,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "risk_classifier.bias": {
+      "shape": [
+        1
+      ],
+      "dtype": "torch.float32"
+    },
+    "type_classifier.weight": {
+      "shape": [
+        8,
+        768
+      ],
+      "dtype": "torch.float32"
+    },
+    "type_classifier.bias": {
+      "shape": [
+        8
+      ],
+      "dtype": "torch.float32"
+    }
+  },
+  "actual_trained": true,
+  "validation_adopted": false,
+  "bundle_manifest_sha256": "a19714bd1d23b2e61bc855cdcc4752c3776b86cf47d5bd1b189eb53bb3c74751"
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "koelectra-v3-lite-config/1",
+  "purpose": "internal_experiment",
+  "seed": 42,
+  "batch_size": 8,
+  "learning_rate": 0.000005,
+  "weight_decay": 0.01,
+  "type_pos_weight": [10, 10, 10, 10, 10, 10, 10, 10],
+  "thresholds": [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
+  "epochs_default": 1,
+  "epochs_max": 2,
+  "optimizer_steps_per_epoch": 106,
+  "max_optimizer_steps": 212,
+  "cpu_threads": 2,
+  "gradient_checkpointing": true,
+  "optimizer_reset": true,
+  "precision": "float32",
+  "parent_sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee",
+  "revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+  "label_order": ["institution_impersonation", "money_transfer", "personal_information", "app_installation", "secrecy", "threat_pressure", "loan_fraud", "information_probing"],
+  "gates": {
+    "binary_recall_drop_max": 0.02,
+    "binary_f1_drop_max": 0.01,
+    "other_macro_f1_drop_max": 0.02,
+    "other_type_recall_drop_max": 0.1,
+    "focus_f1_gain_min": 0.05,
+    "focus_ap_drop_max": 0.02,
+    "normal_false_alert_increase_max": 0
+  }
+}

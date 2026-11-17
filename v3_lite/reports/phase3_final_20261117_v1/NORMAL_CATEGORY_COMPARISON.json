@@ -1,0 +1,172 @@
+{
+  "financial": {
+    "conversations": 3,
+    "utterances": 24,
+    "v2": {
+      "conversation_fp": 1,
+      "conversation_fpr": 0.3333333333333333,
+      "utterance_fp": 1,
+      "type_fp": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 1,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    "v3": {
+      "conversation_fp": 1,
+      "conversation_fpr": 0.3333333333333333,
+      "utterance_fp": 1,
+      "type_fp": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    }
+  },
+  "official": {
+    "conversations": 2,
+    "utterances": 16,
+    "v2": {
+      "conversation_fp": 1,
+      "conversation_fpr": 0.5,
+      "utterance_fp": 4,
+      "type_fp": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 4,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 1,
+        "information_probing": 0
+      }
+    },
+    "v3": {
+      "conversation_fp": 1,
+      "conversation_fpr": 0.5,
+      "utterance_fp": 4,
+      "type_fp": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 4,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 3,
+        "information_probing": 0
+      }
+    }
+  },
+  "identity": {
+    "conversations": 3,
+    "utterances": 24,
+    "v2": {
+      "conversation_fp": 2,
+      "conversation_fpr": 0.6666666666666666,
+      "utterance_fp": 3,
+      "type_fp": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 2,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    "v3": {
+      "conversation_fp": 1,
+      "conversation_fpr": 0.3333333333333333,
+      "utterance_fp": 1,
+      "type_fp": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 1,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    }
+  },
+  "app": {
+    "conversations": 2,
+    "utterances": 16,
+    "v2": {
+      "conversation_fp": 2,
+      "conversation_fpr": 1.0,
+      "utterance_fp": 2,
+      "type_fp": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 1,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    "v3": {
+      "conversation_fp": 0,
+      "conversation_fpr": 0.0,
+      "utterance_fp": 0,
+      "type_fp": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    }
+  },
+  "quotation": {
+    "conversations": 2,
+    "utterances": 16,
+    "v2": {
+      "conversation_fp": 0,
+      "conversation_fpr": 0.0,
+      "utterance_fp": 0,
+      "type_fp": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    },
+    "v3": {
+      "conversation_fp": 0,
+      "conversation_fpr": 0.0,
+      "utterance_fp": 0,
+      "type_fp": {
+        "institution_impersonation": 0,
+        "money_transfer": 0,
+        "personal_information": 0,
+        "app_installation": 0,
+        "secrecy": 0,
+        "threat_pressure": 0,
+        "loan_fraud": 0,
+        "information_probing": 0
+      }
+    }
+  }
+}
