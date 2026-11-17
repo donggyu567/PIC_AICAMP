@@ -1,6 +1,6 @@
 package com.example.pic_ai_app.presentation.preview
 
-enum class Screen { WELCOME, CONSENT, PERMISSION, HOME, ANALYSIS, DETAILS, FINAL, DATA, WITHDRAWAL, HISTORY, REPORT }
+enum class Screen { WELCOME, CONSENT, PERMISSION, HOME, ANALYSIS, DETAILS, FINAL, DATA, WITHDRAWAL, HISTORY, REPORT, SETTINGS, VOICE_RECONSENT }
 enum class Phase { IDLE, CONNECTING, RECOGNIZING, MASKING, ANALYZING, LISTENING, FINALIZING, COMPLETED, INCOMPLETE, ERROR }
 enum class Scenario { NORMAL, EMPTY, CONNECTION_ERROR, STT_ERROR, MASKING_ERROR, ANALYSIS_ERROR, FINISH_ERROR, DELETE_ERROR }
 enum class PreviewError { CONNECTION, STT, MASKING, ANALYSIS, PERMISSION }
@@ -37,6 +37,7 @@ data class PreviewState(
     val pendingFinalSample: Boolean = false,
     val deletion: Deletion = Deletion.NONE,
     val deletionAttempts: Int = 0,
+    val settingsOrigin: Screen = Screen.HOME,
 ) {
     val result: PreviewResult? get() = previewResults.getOrNull(sampleCount - 1)
     val samples: List<PreviewResult> get() = previewResults.take(sampleCount)
@@ -67,6 +68,7 @@ object PreviewFlow {
 
     fun back(state: PreviewState) = state.copy(screen = when (state.screen) {
         Screen.DATA -> state.returnScreen
+        Screen.SETTINGS -> state.settingsOrigin
         Screen.DETAILS -> Screen.ANALYSIS
         Screen.FINAL -> Screen.HOME
         Screen.HISTORY, Screen.REPORT -> Screen.HOME
@@ -85,7 +87,7 @@ object PreviewFlow {
     }
 
     fun withdraw(state: PreviewState) = state.copy(
-        screen = Screen.WITHDRAWAL, returnScreen = Screen.WITHDRAWAL,
+        screen = Screen.VOICE_RECONSENT, returnScreen = Screen.VOICE_RECONSENT,
         consented = false, phase = Phase.IDLE, runId = state.runId + 1,
         sampleCount = 0, error = null, pendingFinalSample = false,
         deletion = Deletion.DELETING, deletionAttempts = 1,

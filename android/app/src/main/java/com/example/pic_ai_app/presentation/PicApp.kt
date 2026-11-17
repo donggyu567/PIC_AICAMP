@@ -1,9 +1,6 @@
 package com.example.pic_ai_app.presentation
 
 import android.Manifest
-import android.content.Intent
-import androidx.core.net.toUri
-import android.provider.Settings
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -37,6 +34,7 @@ import com.example.pic_ai_app.presentation.home.HomeScreen
 import com.example.pic_ai_app.presentation.history.HistoryScreen
 import com.example.pic_ai_app.presentation.components.navigation.PicTab
 import com.example.pic_ai_app.presentation.onboarding.OnboardingPermissions
+import com.example.pic_ai_app.presentation.onboarding.VoiceReconsentScreen
 import com.example.pic_ai_app.presentation.preview.*
 import com.example.pic_ai_app.presentation.screens.*
 import com.example.pic_ai_app.presentation.result.AnalysisResultDetailScreen
@@ -46,6 +44,9 @@ import com.example.pic_ai_app.presentation.report.ReportSituation
 import com.example.pic_ai_app.presentation.report.ReportSituationScreen
 import com.example.pic_ai_app.presentation.report.ReportTipPreparationScreen
 import com.example.pic_ai_app.presentation.session.SessionViewModel
+import com.example.pic_ai_app.presentation.settings.SettingsScreen
+import com.example.pic_ai_app.presentation.settings.openPicSystemSettings
+import com.example.pic_ai_app.presentation.settings.rememberNotificationsEnabled
 import com.example.pic_ai_app.ui.theme.PicScreenTheme
 import kotlinx.coroutines.delay
 
@@ -102,7 +103,10 @@ fun PicApp(session: SessionViewModel) {
             }
         }
     }
-    BackHandler(enabled = access.ready && state.screen !in listOf(Screen.WELCOME, Screen.HOME), onBack = back)
+    val needsMicrophone = state.consented && !state.permissionGranted
+    val screen = if (needsMicrophone) Screen.PERMISSION else state.screen
+    BackHandler(enabled = access.ready && screen !in listOf(Screen.WELCOME, Screen.HOME, Screen.PERMISSION) &&
+        (screen != Screen.VOICE_RECONSENT || access.savingConsent), onBack = back)
 
     if (!access.ready) {
         PicPage(title = stringResource(R.string.app_name)) {
@@ -124,22 +128,23 @@ fun PicApp(session: SessionViewModel) {
             PicTab.Report -> session.openReport()
         }
     }
-    when (state.screen) {
+    when (screen) {
         Screen.WELCOME -> WelcomeScreen(
             session::openConsent, session::openData, access.declined,
             withdrawn = access.consent == ConsentStatus.WITHDRAWN,
         )
         Screen.CONSENT -> OnboardingPermissions(access.savingConsent, session::agree)
+        Screen.VOICE_RECONSENT -> VoiceReconsentScreen(
+            deletion = state.deletion, savingConsent = access.savingConsent, consentError = access.consentError,
+            notificationsOff = !rememberNotificationsEnabled(), onAgree = session::agree,
+            onRetryDeletion = session::retryDeletion, onRetryConsent = session::retryConsent,
+        )
         Screen.PERMISSION -> PermissionScreen(
             onAllow = {
                 if (session.requestPermission()) permissionLauncher.launch(Manifest.permission.RECORD_AUDIO)
             },
-            onDeny = session::deferPermission, onBack = back,
             denied = access.permissionDenied, requesting = access.permissionRequestPending,
-            onSettings = {
-                context.startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                    ("package:" + context.packageName).toUri()))
-            },
+            onSettings = { context.openPicSystemSettings() },
         )
         Screen.HOME -> Box(Modifier.fillMaxSize()) {
             val messages = remember { SnackbarHostState() }
@@ -151,13 +156,9 @@ fun PicApp(session: SessionViewModel) {
                 }
             }
             HomeScreen(
-                scenario = state.scenario,
                 canStart = canStart, deletionPending = deletionPending,
-                onStart = session::start, onData = session::openData,
-                onSettings = { settingsDialog = true }, onDeletion = session::showDeletion,
+                onStart = session::start, onSettings = session::openSettings, onDeletion = session::showDeletion,
                 consentSaveFailed = access.consentError, onRetryConsent = session::retryConsent,
-                liveMode = true, serverUrl = access.serverUrl, onServerUrlChange = session::updateServerUrl,
-                tokenMessage = access.tokenMessage, onSaveToken = session::saveDeviceToken,
                 activeSession = access.stt.takeIf { capturingOrConnecting },
                 onStop = session::finishAndOpenResult,
                 onAnalysis = if (resultPending) session::openResult else session::openAnalysis,
@@ -173,22 +174,31 @@ fun PicApp(session: SessionViewModel) {
                     onHome = session::showHome,
                 )
             } else {
-                var showSettings by rememberSaveable { mutableStateOf(false) }
                 AnalysisIdleScreen(
                     riskCount = null, canStart = canStart,
                     onStart = session::start, onHome = session::showHome,
-                    onSettings = { showSettings = true },
+                    onSettings = session::openSettings,
                     onHistory = session::openHistory,
                     onReport = session::openReport,
                 )
-                if (showSettings) {
-                    PicSettingsDialog(
-                        onDismiss = { showSettings = false }, onData = session::openData,
-                        liveMode = true, serverUrl = access.serverUrl, onServerUrlChange = session::updateServerUrl,
-                        tokenMessage = access.tokenMessage, onSaveToken = session::saveDeviceToken,
-                        scenario = state.scenario, onSettings = { settingsDialog = true },
-                    )
-                }
+            }
+        }
+        Screen.SETTINGS -> {
+            var developerSettings by rememberSaveable { mutableStateOf(false) }
+            SettingsScreen(
+                microphoneAllowed = state.permissionGranted, notificationsAllowed = rememberNotificationsEnabled(),
+                onBack = back, onMicrophone = { context.openPicSystemSettings() },
+                onNotifications = { context.openPicSystemSettings(notifications = true) },
+                onData = session::openData,
+                onDeveloper = if (BuildConfig.DEBUG) ({ developerSettings = true }) else null,
+            )
+            if (developerSettings && BuildConfig.DEBUG) {
+                PicSettingsDialog(
+                    onDismiss = { developerSettings = false }, onData = session::openData,
+                    liveMode = true, serverUrl = access.serverUrl, onServerUrlChange = session::updateServerUrl,
+                    tokenMessage = access.tokenMessage, onSaveToken = session::saveDeviceToken,
+                    scenario = state.scenario, onSettings = { settingsDialog = true },
+                )
             }
         }
         Screen.HISTORY -> {
@@ -256,7 +266,7 @@ fun PicApp(session: SessionViewModel) {
         )
     }
 
-    if (withdrawDialog) {
+    if (withdrawDialog && !needsMicrophone) {
         AlertDialog(
             onDismissRequest = { withdrawDialog = false },
             title = { Text(stringResource(R.string.withdrawal_confirm_title)) },
@@ -280,7 +290,7 @@ fun PicApp(session: SessionViewModel) {
             },
         )
     }
-    if (settingsDialog && BuildConfig.DEBUG) {
+    if (settingsDialog && screen == Screen.SETTINGS && BuildConfig.DEBUG) {
         AlertDialog(
             onDismissRequest = { settingsDialog = false },
             title = { Text(stringResource(R.string.preview_settings)) },
@@ -309,7 +319,6 @@ fun PicApp(session: SessionViewModel) {
 @Composable
 private fun PicAppPreview() {
     PicScreenTheme {
-        HomeScreen(Scenario.NORMAL, canStart = false, deletionPending = false,
-            onStart = {}, onData = {}, onSettings = {}, onDeletion = {})
+        HomeScreen(canStart = false, deletionPending = false, onStart = {}, onSettings = {}, onDeletion = {})
     }
 }

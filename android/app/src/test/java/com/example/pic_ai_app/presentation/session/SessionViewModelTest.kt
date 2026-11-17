@@ -125,7 +125,7 @@ class SessionViewModelTest {
         assertEquals(ConsentStatus.WITHDRAWN, store.stored)
         val restarted = session(store)
         advanceUntilIdle()
-        assertEquals(Screen.WELCOME, restarted.ui.value.flow.screen)
+        assertEquals(Screen.VOICE_RECONSENT, restarted.ui.value.flow.screen)
         assertFalse(restarted.ui.value.flow.consented)
     }
 
@@ -163,7 +163,7 @@ class SessionViewModelTest {
         assertEquals(ConsentStatus.WITHDRAWN, vm.ui.value.consent)
         assertFalse(vm.ui.value.flow.consented)
         assertFalse(vm.ui.value.flow.hasOpenAnalysis)
-        assertEquals(Screen.WITHDRAWAL, vm.ui.value.flow.screen)
+        assertEquals(Screen.VOICE_RECONSENT, vm.ui.value.flow.screen)
     }
 
     @Test fun permissionLossPreservesResultAndInvalidatesOldCallbacks() = runTest(dispatcher) {
@@ -262,12 +262,20 @@ class SessionViewModelTest {
         val restarted = SessionViewModel(store, { true }, false, liveEnabled = true, deleteFromServer = delete)
         advanceUntilIdle()
         assertEquals(Deletion.PENDING, restarted.ui.value.flow.deletion)
+        assertEquals(Screen.VOICE_RECONSENT, restarted.ui.value.flow.screen)
+        restarted.agree()
+        advanceUntilIdle()
+        assertEquals(ConsentStatus.WITHDRAWN, store.stored)
         failSecond = false
         restarted.retryDeletion()
         advanceUntilIdle()
         assertEquals(Deletion.DONE, restarted.ui.value.flow.deletion)
         assertTrue(store.targets.isEmpty())
         assertTrue(deleted.containsAll(listOf("first", "second")))
+        restarted.agree()
+        advanceUntilIdle()
+        assertEquals(ConsentStatus.GRANTED, store.stored)
+        assertEquals(Screen.HOME, restarted.ui.value.flow.screen)
     }
 
 }

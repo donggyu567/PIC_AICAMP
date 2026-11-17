@@ -44,10 +44,10 @@ fun WelcomeScreen(onContinue: () -> Unit, onData: () -> Unit, declined: Boolean,
 
 @Composable
 fun PermissionScreen(
-    onAllow: () -> Unit, onDeny: () -> Unit, onBack: () -> Unit, denied: Boolean,
+    onAllow: () -> Unit, denied: Boolean,
     requesting: Boolean = false, onSettings: () -> Unit = {},
 ) {
-    PicPage(title = stringResource(R.string.permission_title), onBack = onBack) {
+    PicPage(title = stringResource(R.string.permission_title)) {
         SectionHeading(stringResource(R.string.permission_title))
         BodyText(stringResource(R.string.permission_description))
         InfoCard(stringResource(R.string.permission_preview_title)) { BodyText(stringResource(R.string.permission_preview_body)) }
@@ -58,7 +58,6 @@ fun PermissionScreen(
         }
         PrimaryAction(stringResource(R.string.request_microphone_permission), onAllow, enabled = !requesting)
         if (denied) LinkAction(stringResource(R.string.open_app_settings), onSettings)
-        SecondaryAction(stringResource(R.string.later), onDeny, enabled = !requesting)
     }
 }
 

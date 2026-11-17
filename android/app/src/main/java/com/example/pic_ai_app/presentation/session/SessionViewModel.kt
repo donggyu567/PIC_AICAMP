@@ -22,6 +22,7 @@ import com.example.pic_ai_app.masking.resolver.DefaultCandidateConflictResolver
 import com.example.pic_ai_app.masking.rule.DefaultNumberMaskingRuleEngine
 import com.example.pic_ai_app.presentation.preview.*
 import java.io.IOException
+import kotlin.math.roundToInt
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -76,8 +77,9 @@ class SessionViewModel(
 
     private fun publishLiveState(stt: SttState) {
         val previous = mutableUi.value
+        val historyPoints = stt.risk?.cumulativeScore?.takeIf { it.isFinite() }?.roundToInt() ?: 0
         val record = if (stt.phase == SttPhase.STOPPED && previous.stt.phase != SttPhase.STOPPED &&
-            previous.consent == ConsentStatus.GRANTED) AnalysisRecord.completed(stt) else null
+            previous.consent == ConsentStatus.GRANTED && historyPoints > 0) AnalysisRecord.completed(stt) else null
         mutableUi.update { current ->
             val phase = when (stt.phase) {
                 SttPhase.IDLE -> current.flow.phase // abort's caller handles withdrawal or permission loss
@@ -146,10 +148,12 @@ class SessionViewModel(
         mutableUi.update { current ->
             val flow = SessionAccess.permissionChanged(current.flow, granted)
             current.copy(
-                flow = if (granted && current.consent == ConsentStatus.GRANTED &&
-                    current.pendingConsent == null && flow.screen == Screen.PERMISSION) {
-                    PreviewFlow.allowPermission(flow)
-                } else flow,
+                flow = when {
+                    current.consent != ConsentStatus.GRANTED || current.pendingConsent != null -> flow
+                    !granted -> flow.copy(screen = Screen.PERMISSION)
+                    flow.screen == Screen.PERMISSION || !current.flow.permissionGranted -> PreviewFlow.allowPermission(flow)
+                    else -> flow
+                },
                 permissionDenied = if (granted) false else current.permissionDenied,
             )
         }
@@ -294,15 +298,22 @@ class SessionViewModel(
 
     fun openConsent() {
         if (ui.value.savingConsent) return
-        mutableUi.update { it.copy(declined = false, flow = it.flow.copy(screen = Screen.CONSENT)) }
+        mutableUi.update {
+            val screen = if (it.consent == ConsentStatus.WITHDRAWN) Screen.VOICE_RECONSENT else Screen.CONSENT
+            it.copy(declined = false, flow = it.flow.copy(screen = screen))
+        }
     }
 
-    fun deferPermission() {
-        if (!ui.value.permissionRequestPending) changeFlow { it.copy(screen = Screen.HOME) }
-    }
+    fun openSettings() = changeFlow { it.copy(screen = Screen.SETTINGS, settingsOrigin = it.screen) }
 
     fun openData() = changeFlow(PreviewFlow::openData)
-    fun showHome() = changeFlow { it.copy(screen = Screen.HOME) }
+    fun showHome() = changeFlow { state ->
+        state.copy(screen = when {
+            !state.consented -> Screen.WELCOME
+            !state.permissionGranted -> Screen.PERMISSION
+            else -> Screen.HOME
+        })
+    }
     fun showDeletion() = changeFlow { it.copy(screen = Screen.WITHDRAWAL) }
     fun openAnalysis() = changeFlow { it.copy(screen = Screen.ANALYSIS) }
     fun openHistory() = changeFlow { it.copy(screen = Screen.HISTORY) }

@@ -8,6 +8,7 @@ object SessionAccess {
         consented = consent == ConsentStatus.GRANTED,
         permissionGranted = permission,
         screen = when {
+            consent == ConsentStatus.WITHDRAWN -> Screen.VOICE_RECONSENT
             consent != ConsentStatus.GRANTED -> Screen.WELCOME
             !permission -> Screen.PERMISSION
             else -> Screen.HOME

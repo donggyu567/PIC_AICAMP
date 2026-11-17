@@ -24,7 +24,7 @@ internal fun PicSettingsDialog(
     var tokenInput by remember { mutableStateOf("") }
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text(stringResource(R.string.home_settings)) },
+        title = { Text(stringResource(R.string.settings_developer)) },
         text = {
             Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 LinkAction(stringResource(R.string.data_guide_title), onClick = { onDismiss(); onData() })

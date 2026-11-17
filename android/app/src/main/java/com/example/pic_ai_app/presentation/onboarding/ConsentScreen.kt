@@ -7,6 +7,7 @@ import android.os.Build
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
@@ -38,7 +39,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import com.example.pic_ai_app.R
-import com.example.pic_ai_app.ui.theme.PicTheme
+import com.example.pic_ai_app.presentation.settings.picAppSettingsIntent
+import com.example.pic_ai_app.presentation.settings.rememberNotificationsEnabled
+import com.example.pic_ai_app.ui.theme.PicScreenTheme
 import kotlinx.coroutines.launch
 
 @Composable
@@ -48,6 +51,8 @@ internal fun OnboardingPermissions(savingConsent: Boolean, onAgree: () -> Unit) 
     val scope = rememberCoroutineScope()
     var requesting by rememberSaveable { mutableStateOf(false) }
     var showVoiceDataConsent by rememberSaveable { mutableStateOf(false) }
+    var askedNotifications by rememberSaveable { mutableStateOf(false) }
+    var microphoneDenied by rememberSaveable { mutableStateOf(false) }
 
     fun hasPermission(permission: String) =
         ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED
@@ -56,6 +61,7 @@ internal fun OnboardingPermissions(savingConsent: Boolean, onAgree: () -> Unit) 
         requesting = false
         messages.currentSnackbarData?.dismiss()
         showVoiceDataConsent = granted
+        microphoneDenied = !granted
         if (granted) return
         scope.launch {
             messages.showSnackbar(context.getString(R.string.onboarding_permission_denied))
@@ -63,18 +69,20 @@ internal fun OnboardingPermissions(savingConsent: Boolean, onAgree: () -> Unit) 
     }
 
     val microphone = rememberLauncherForActivityResult(RequestPermission(), ::finishRequest)
+    val appSettings = rememberLauncherForActivityResult(StartActivityForResult()) {
+        finishRequest(hasPermission(RECORD_AUDIO))
+    }
     fun requestMicrophone() {
         if (hasPermission(RECORD_AUDIO)) finishRequest(true) else microphone.launch(RECORD_AUDIO)
     }
-    val notifications = rememberLauncherForActivityResult(RequestPermission()) { granted ->
-        if (granted) requestMicrophone() else finishRequest(false)
+    val notifications = rememberLauncherForActivityResult(RequestPermission()) {
+        requestMicrophone()
     }
 
     if (showVoiceDataConsent) {
         BackHandler { if (!savingConsent) showVoiceDataConsent = false }
-        VoiceDataConsentScreen(savingConsent = savingConsent, onAgree = {
-            val notificationsAllowed = Build.VERSION.SDK_INT < 33 || hasPermission(POST_NOTIFICATIONS)
-            if (notificationsAllowed && hasPermission(RECORD_AUDIO)) onAgree() else finishRequest(false)
+        VoiceDataConsentScreen(savingConsent = savingConsent, notificationsOff = !rememberNotificationsEnabled(), onAgree = {
+            if (hasPermission(RECORD_AUDIO)) onAgree() else finishRequest(false)
         })
         return
     }
@@ -83,7 +91,8 @@ internal fun OnboardingPermissions(savingConsent: Boolean, onAgree: () -> Unit) 
         onRequestPermissions = {
             if (!requesting) {
                 requesting = true
-                if (Build.VERSION.SDK_INT >= 33 && !hasPermission(POST_NOTIFICATIONS)) {
+                if (!askedNotifications && Build.VERSION.SDK_INT >= 33 && !hasPermission(POST_NOTIFICATIONS)) {
+                    askedNotifications = true
                     notifications.launch(POST_NOTIFICATIONS)
                 } else {
                     requestMicrophone()
@@ -91,6 +100,7 @@ internal fun OnboardingPermissions(savingConsent: Boolean, onAgree: () -> Unit) 
             }
         },
         requesting = requesting,
+        onOpenSettings = if (microphoneDenied) ({ appSettings.launch(context.picAppSettingsIntent()) }) else null,
         statusBanner = { SnackbarHost(messages, Modifier.padding(horizontal = 16.dp)) },
     )
 }
@@ -99,14 +109,15 @@ internal fun OnboardingPermissions(savingConsent: Boolean, onAgree: () -> Unit) 
 internal fun ConsentScreen(
     onRequestPermissions: () -> Unit,
     requesting: Boolean = false,
+    onOpenSettings: (() -> Unit)? = null,
     statusBanner: @Composable () -> Unit = {},
 ) {
     BoxWithConstraints(
         Modifier.fillMaxSize().background(Color.White).safeDrawingPadding(),
         contentAlignment = Alignment.TopCenter,
     ) {
-        val topSpace = (maxHeight * 0.16f).coerceAtMost(150.dp)
-        val sectionSpace = (maxHeight * 0.04f).coerceIn(16.dp, 40.dp)
+        val topSpace = (maxHeight * 0.07f).coerceAtMost(64.dp)
+        val sectionSpace = (maxHeight * 0.025f).coerceIn(10.dp, 24.dp)
         Column(
             modifier = Modifier.widthIn(max = 412.dp).fillMaxSize().padding(horizontal = 30.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -138,11 +149,11 @@ internal fun ConsentScreen(
                     color = Color.DarkGray,
                 )
             }
+            Spacer(Modifier.height(8.dp))
             Button(
                 onClick = onRequestPermissions, enabled = !requesting,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .offset(y = (-20).dp)
                     .heightIn(min = 63.dp),
                 shape = RoundedCornerShape(15.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4C6681)),
@@ -153,8 +164,12 @@ internal fun ConsentScreen(
                     color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.ExtraBold,
                 )
             }
+            Spacer(Modifier.height(20.dp))
+            if (onOpenSettings != null) {
+                TextButton(onClick = onOpenSettings) { Text(stringResource(R.string.open_app_settings)) }
+            }
             Text(
-                text = stringResource(R.string.decline),
+                text = stringResource(R.string.decline), textAlign = TextAlign.Center,
                 color = Color.DarkGray,
                 fontSize = 15.sp,
             )
@@ -177,7 +192,7 @@ private fun ConsentNotice(@DrawableRes icon: Int, @StringRes message: Int) {
 @Preview(name = "온보딩 권한동의", showBackground = true, widthDp = 412, heightDp = 917)
 @Composable
 private fun ConsentScreenPreview() {
-    PicTheme {
+    PicScreenTheme {
         ConsentScreen(onRequestPermissions = {})
     }
 }

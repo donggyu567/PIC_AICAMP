@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_permissions">앱 권한</string>
+    <string name="settings_microphone">마이크 권한 (필수)</string>
+    <string name="settings_notifications">위험 알림 (선택)</string>
+    <string name="settings_notifications_off">휴대폰으로 위험 알림을 받을 수 없어요. 나중에 설정에서 켤 수 있어요.</string>
+    <string name="settings_allowed">허용됨</string>
+    <string name="settings_off">꺼짐</string>
+    <string name="settings_privacy">개인정보 및 동의</string>
+    <string name="settings_transfer">음성데이터 전송 안내</string>
+    <string name="settings_app_info">앱 정보</string>
+    <string name="settings_version">앱 버전</string>
+    <string name="settings_developer">개발자 설정</string>
+</resources>
