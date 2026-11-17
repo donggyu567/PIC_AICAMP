@@ -5,7 +5,104 @@
     <string name="report_call_privacy">통화 내용은 자료 준비에만 사용돼요. 외부 기관에는 직접 확인한 후 제출해 주세요.</string>
     <string name="report_call_empty">선택할 통화 기록이 없어요. 분석을 마치면 이곳에 표시돼요.</string>
     <string name="report_next">다음</string>
-    <string name="report_situation_pending">상황 확인 화면은 준비 중이에요.</string>
+    <string name="report_situation_title">어떤 일이 있었나요?</string>
+    <string name="report_situation_description">상황에 맞는 신고 방법을 안내해 드릴게요.</string>
+    <string name="report_situation_call_only">의심 전화만 받았어요</string>
+    <string name="report_situation_shared">돈을 보냈거나 정보를 전달했어요</string>
+    <string name="report_loss_question">돈이 나갔나요?</string>
+    <string name="report_loss_yes">예</string>
+    <string name="report_loss_no">아니요</string>
+    <string name="report_loss_unsure">잘 모르겠어요</string>
+    <string name="report_loss_notice_title">송금·출금이 의심되면 먼저 대응하세요</string>
+    <string name="report_loss_notice_body">금융회사 공식 고객센터에 지급정지를 요청하고, 긴급한 경우 112로 연락하세요.</string>
+    <string name="report_tip_title">제보 내용을 확인해 주세요</string>
+    <string name="report_tip_description">통화 분석을 바탕으로 준비한 초안이에요.</string>
+    <string name="report_phone">발신번호</string>
+    <string name="report_phone_hint">통화내역에서 확인해 입력</string>
+    <string name="report_received_time">수신 시간(발생 시각)</string>
+    <string name="report_choose_date">날짜 선택</string>
+    <string name="report_am">오전</string>
+    <string name="report_pm">오후</string>
+    <string name="report_hour">시</string>
+    <string name="report_minute">분</string>
+    <string name="report_time_incomplete">시간을 표시하려면 시(1~12)와 분(0~59)을 모두 입력해 주세요.</string>
+    <string name="report_category">제보 분류</string>
+    <string name="report_choose_category">선택</string>
+    <string name="report_category_level">제보 분류 %1$d단계</string>
+    <string name="report_category_impersonation">기관사칭</string>
+    <string name="report_category_spoofing">변작의심</string>
+    <string name="report_category_loan">대출</string>
+    <string name="report_category_advertising">광고</string>
+    <string name="report_category_other">기타</string>
+    <string name="report_category_public">정부 • 공공</string>
+    <string name="report_category_finance">금융</string>
+    <string name="report_category_unreachable">발신불가</string>
+    <string name="report_category_unassigned">결번</string>
+    <string name="report_category_lender">대부업체</string>
+    <string name="report_category_capital">캐피탈</string>
+    <string name="report_category_adult_ad">성인광고</string>
+    <string name="report_category_gambling">불법도박</string>
+    <string name="report_category_other_ad">기타광고</string>
+    <string name="report_category_prosecution">검찰</string>
+    <string name="report_category_police">경찰</string>
+    <string name="report_category_fss">금감원</string>
+    <string name="report_category_fsc">금융위</string>
+    <string name="report_category_bank">은행</string>
+    <string name="report_category_savings_bank">저축은행</string>
+    <string name="report_category_card_company">카드사</string>
+    <string name="report_category_insurer">보험사</string>
+    <string name="report_category_securities">증권사</string>
+    <string name="report_tip_body">제보 내용</string>
+    <string name="report_editable">%1$s · 수정 가능</string>
+    <string name="report_masked_tip">개인정보가 가려진 음성 인식 내용을 사용했어요.</string>
+    <string name="report_copy">제보 내용 복사</string>
+    <string name="report_copied">제보 내용을 복사했어요.</string>
+    <string name="report_damage_title">피해 경위를 확인해 주세요</string>
+    <string name="report_damage_description">빠진 내용을 채우고 실제 상황에 맞게 수정하세요.</string>
+    <string name="report_party">상대방 정보</string>
+    <string name="report_party_hint">상대가 밝힌 소속이나 관계 입력</string>
+    <string name="report_when_where">피해 일시·장소</string>
+    <string name="report_when_where_hint">실제 시각과 장소 입력</string>
+    <string name="report_damage">피해 내용</string>
+    <string name="report_damage_hint">이체 시각·금액·금융회사 또는 노출 정보</string>
+    <string name="report_narrative">피해 과정·신고 경위</string>
+    <string name="report_narrative_hint">실제 통화 내용과 이후 상황을 입력해 주세요.</string>
+    <string name="report_masked_damage">참고 발화는 개인정보가 가려진 문장으로 표시돼요.</string>
+    <string name="report_pdf_preview">PDF 미리보기</string>
+    <string name="report_pdf_save">PDF 저장</string>
+    <string name="report_pdf_title">피해 경위서</string>
+    <string name="report_pdf_filename">PIC_피해경위서.pdf</string>
+    <string name="report_pdf_page">%1$d / %2$d</string>
+    <string name="report_pdf_saved">피해 경위서를 저장했어요.</string>
+    <string name="report_pdf_error">PDF를 저장하지 못했어요. 저장 위치를 확인해 주세요.</string>
+    <string name="report_tip_guidance_title">피싱안심SOS에서 제보하기</string>
+    <string name="report_tip_guidance_description">준비한 자료를 공식 사이트에 옮겨 제출해 주세요.</string>
+    <string-array name="report_tip_instructions">
+        <item>공식 사이트에서 전화 유형을 고르세요.</item>
+        <item>발신번호·수신 시간(발생 시각)·제보 분류를 각 입력란에 적으세요.</item>
+        <item>복사한 초안을 제보 내용에 붙여넣으세요.</item>
+        <item>통화내역 캡처나 녹음이 있다면 해당 칸에 첨부하세요.</item>
+    </string-array>
+    <string name="report_tip_items">옮겨 적을 항목</string>
+    <string name="report_not_entered">미입력</string>
+    <string name="report_tip_submission_notice">공식 사이트에서 본인인증 후 제출해 주세요.\nPIC에서는 신고가 자동 접수되지 않아요.</string>
+    <string name="report_external_site">외부 사이트로 이동해요</string>
+    <string name="report_open_tip_site">피싱안심SOS 열기 ↗</string>
+    <string name="report_damage_guidance_title">금전 피해 신고 준비하기</string>
+    <string name="report_damage_guidance_description">자료를 챙겨 공식 신고 절차를 진행해 주세요.</string>
+    <string-array name="report_damage_instructions">
+        <item>복사한 피해 경위를 신고서에 옮기세요.</item>
+        <item>신분증, 이체확인서, 관련 메시지 등 갖고 있는 증빙을 준비하세요.</item>
+        <item>온라인 접수 후 경찰서 방문 안내를 확인하세요.</item>
+    </string-array>
+    <string name="report_info_only">정보만 전달한 경우</string>
+    <string name="report_info_only_description">개인정보 노출 대응 안내를 확인하고 필요한 조치를 상담받으세요.</string>
+    <string name="report_open_dialer">1394 전화 열기 ↗</string>
+    <string name="report_damage_submission_notice">ECRM에서 본인인증 후 접수해 주세요.\nPIC에서는 신고가 자동 접수되지 않아요.</string>
+    <string name="report_copy_damage">피해 경위 복사</string>
+    <string name="report_damage_copied">피해 경위를 복사했어요.</string>
+    <string name="report_open_ecrm">ECRM 열기 ↗</string>
+    <string name="report_no_external_app">이 작업을 열 수 있는 앱이 없어요.</string>
     <string name="report_step_call_selection">통화 선택</string>
     <string name="report_step_situation_check">상황 확인</string>
     <string name="report_step_prepare_materials">자료 준비</string>

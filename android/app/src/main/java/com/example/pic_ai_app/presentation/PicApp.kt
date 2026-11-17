@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.Intent
 import androidx.core.net.toUri
 import android.provider.Settings
-import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -16,6 +15,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.saveable.rememberSaveableStateHolder
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -41,6 +41,10 @@ import com.example.pic_ai_app.presentation.preview.*
 import com.example.pic_ai_app.presentation.screens.*
 import com.example.pic_ai_app.presentation.result.AnalysisResultDetailScreen
 import com.example.pic_ai_app.presentation.report.ReportCallSelectionScreen
+import com.example.pic_ai_app.presentation.report.ReportDamagePreparationScreen
+import com.example.pic_ai_app.presentation.report.ReportSituation
+import com.example.pic_ai_app.presentation.report.ReportSituationScreen
+import com.example.pic_ai_app.presentation.report.ReportTipPreparationScreen
 import com.example.pic_ai_app.presentation.session.SessionViewModel
 import com.example.pic_ai_app.ui.theme.PicScreenTheme
 import kotlinx.coroutines.delay
@@ -204,10 +208,38 @@ fun PicApp(session: SessionViewModel) {
                     hasWarningHistory = record.hasWarningHistory)
             }
         }
-        Screen.REPORT -> ReportCallSelectionScreen(
-            records = access.records, storageError = access.historyStorageError, onTabSelected = openTab,
-            onNext = { Toast.makeText(context, R.string.report_situation_pending, Toast.LENGTH_SHORT).show() },
-        )
+        Screen.REPORT -> {
+            val callSelectionState = rememberSaveableStateHolder()
+            var situationCallId by rememberSaveable { mutableStateOf<String?>(null) }
+            val call = situationCallId?.let { id -> access.records.find { it.id == id } }
+            BackHandler(enabled = call != null) { situationCallId = null }
+            if (call == null) {
+                callSelectionState.SaveableStateProvider("call-selection") {
+                    ReportCallSelectionScreen(
+                        records = access.records, storageError = access.historyStorageError, onTabSelected = openTab,
+                        onNext = { situationCallId = it },
+                    )
+                }
+            } else {
+                val stepState = rememberSaveableStateHolder()
+                var preparationFor by rememberSaveable(call.id) { mutableStateOf<ReportSituation?>(null) }
+                BackHandler(enabled = preparationFor != null) { preparationFor = null }
+                when (preparationFor) {
+                    null -> stepState.SaveableStateProvider("situation") {
+                        ReportSituationScreen(
+                            callId = call.id, onTabSelected = openTab,
+                            onNext = { _, situation, _ -> preparationFor = situation },
+                        )
+                    }
+                    ReportSituation.SuspiciousCallOnly -> stepState.SaveableStateProvider("tip") {
+                        ReportTipPreparationScreen(call, openTab)
+                    }
+                    ReportSituation.MoneyOrInfoShared -> stepState.SaveableStateProvider("damage") {
+                        ReportDamagePreparationScreen(call, openTab)
+                    }
+                }
+            }
+        }
         Screen.FINAL -> AnalysisResultDetailScreen(
             state = access.stt, permissionLost = state.error == PreviewError.PERMISSION,
             onBack = session::showHome, onRetryFinish = session::retryFinish, onRetryAnalysis = session::retryAnalysis,
