@@ -14,7 +14,7 @@ class RiskAnalysisClientTest {
 
     @Test fun sendsMaskedContractAndParsesSuccessfulResponse() = runBlocking {
         val server = MockWebServer()
-        server.enqueue(MockResponse().setBody("""{"conversation_id":"call","utterance_id":1,"analysis_status":"ok","correction_status":"ok","current_risk_score":30.0,"cumulative_risk_score":45.0,"warning":{"message":"주의"},"context_judgment":{"status":"ok","result":{"reason":"의심 맥락"}}}"""))
+        server.enqueue(MockResponse().setBody("""{"conversation_id":"call","utterance_id":1,"analysis_status":"ok","correction_status":"ok","current_risk_score":30.0,"cumulative_risk_score":45.0,"display":{"level":"normal","context_attention":true},"warning":{"message":"주의"},"context_judgment":{"status":"ok","result":{"reason":"의심 맥락"}}}"""))
         server.start()
         try {
             val result = RiskAnalysisClient().analyze(server.url("/api/v1/stt").toString().replaceFirst("http", "ws"), utterance())
@@ -27,6 +27,8 @@ class RiskAnalysisClientTest {
             assertFalse(body.has("raw_text"))
             assertEquals(45.0, result.cumulativeScore!!, 0.001)
             assertEquals("의심 맥락", result.contextReason)
+            assertEquals("normal", result.riskLevel)
+            assertTrue(result.contextAttention)
         } finally { server.shutdown() }
     }
 
@@ -55,6 +57,34 @@ class RiskAnalysisClientTest {
             assertEquals(45.0, result.cumulativeScore!!, 0.001)
             assertEquals("종료", result.warningMessage)
         } finally { server.shutdown() }
+    }
+
+    @Test fun readsStoredSummaryOrAllowsSeparateAuthenticatedRequest() = runBlocking {
+        MockWebServer().use { server ->
+            server.start()
+            val url = server.url("/api/v1/stt").toString().replaceFirst("http", "ws")
+            val client = RiskAnalysisClient { "test-device-token" }
+            val ended = JSONObject("""{"conversation_id":"call","conversation_status":"ended","ended_at":"2026-11-17T00:00:00Z","last_analysis":{"conversation_id":"call","utterance_id":1,"analysis_status":"ok","cumulative_risk_score":0}}""")
+            server.enqueue(MockResponse().setBody(ended.toString()))
+            val pending = client.finish(url, "call", 1)
+            assertEquals(0.0, pending.cumulativeScore!!, 0.001)
+            assertNull(pending.title)
+            assertNull(pending.summary)
+            assertEquals("/api/v1/conversations/end", server.takeRequest().path)
+
+            server.enqueue(MockResponse().setBody("""{"title":"통화 제목","summary":"통화 전체 요약"}"""))
+            val summary = client.summarize(url, "call")
+            assertEquals(ConversationSummary("통화 제목", "통화 전체 요약"), summary)
+            val request = server.takeRequest()
+            assertEquals("/api/v1/conversations/summary", request.path)
+            assertEquals("Bearer test-device-token", request.getHeader("Authorization"))
+            assertEquals("call", JSONObject(request.body.readUtf8()).getString("conversation_id"))
+
+            server.enqueue(MockResponse().setBody(ended.put("title", summary.title).put("summary", summary.summary).toString()))
+            val saved = client.finish(url, "call", 1)
+            assertEquals(summary.title, saved.title)
+            assertEquals(summary.summary, saved.summary)
+        }
     }
 
     @Test fun recoveryUsesSavedResultOrRetriesStoredAiFailure() = runBlocking {

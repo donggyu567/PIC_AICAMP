@@ -1,5 +1,6 @@
 package com.example.pic_ai_app.data.history
 
+import com.example.pic_ai_app.data.stt.LiveAnalysisCards
 import com.example.pic_ai_app.data.stt.RiskResult
 import com.example.pic_ai_app.data.stt.SttPhase
 import com.example.pic_ai_app.data.stt.SttState
@@ -22,7 +23,7 @@ data class AnalysisRecord(
                 stamp?.let { SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.US).parse(it)?.time }
             } catch (_: ParseException) { null }
             return AnalysisRecord(state.conversationId ?: UUID.randomUUID().toString(),
-                endTime ?: System.currentTimeMillis(), state.copy(notices = emptyList(), audioLevels = emptyList()))
+                endTime ?: System.currentTimeMillis(), state.copy(liveCards = LiveAnalysisCards(), audioLevels = emptyList()))
         }
     }
 }
@@ -36,6 +37,7 @@ internal fun AnalysisRecord.encode(): String = JSONObject().apply {
     result.risk?.let { risk ->
         put("risk", JSONObject().apply {
             put("title", risk.title)
+            put("summary", risk.summary)
             put("score", risk.cumulativeScore)
             put("endedAt", risk.endedAt)
             put("warning", risk.warningMessage)
@@ -65,6 +67,7 @@ internal fun decodeAnalysisRecord(raw: String): AnalysisRecord {
                 List(ids.length()) { index -> ids.getInt(index) }
             }, analysisIncomplete = it.optBoolean("incomplete"), analysisWarning = it.text("analysisWarning"),
             title = it.text("title"),
+            summary = it.text("summary"),
         )
     }
     return AnalysisRecord(json.getString("id"), json.getLong("endedAtMillis"),

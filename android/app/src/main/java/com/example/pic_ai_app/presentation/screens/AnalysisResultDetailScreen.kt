@@ -111,7 +111,7 @@ fun AnalysisResultDetailScreen(
                 if (risk != null) {
                     ResultPanel {
                         Text(stringResource(R.string.detail_summary), color = secondary)
-                        Text(risk.contextReason ?: stringResource(R.string.detail_no_context), lineHeight = 24.sp)
+                        Text(risk.summary ?: risk.contextReason ?: stringResource(R.string.detail_no_context), lineHeight = 24.sp)
                     }
                     ResultPanel {
                         SectionAction(R.string.detail_warning, R.string.detail_more) { showWarning = true }

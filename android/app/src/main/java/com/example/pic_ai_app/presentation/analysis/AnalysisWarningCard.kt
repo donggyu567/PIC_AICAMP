@@ -36,6 +36,8 @@ internal data class AnalysisWarningUi(
     val actionDescription: String,
     val detectedAtMillis: Long? = null,
     val evidence: List<WarningEvidence> = emptyList(),
+    val scoreDetail: String? = null,
+    val heading: String? = null,
 )
 
 internal data class WarningEvidence(
@@ -61,10 +63,11 @@ internal fun AnalysisWarningCard(warning: AnalysisWarningUi, modifier: Modifier 
             Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                 AnalysisCardHeader(
                     iconRes = R.drawable.ic_analysis_warning,
-                    title = stringResource(R.string.analysis_warning_detection),
+                    title = warning.heading ?: stringResource(R.string.analysis_warning_detection),
                     timeMillis = warning.detectedAtMillis,
                 )
                 Text(warning.title, fontWeight = FontWeight.Bold, fontSize = 22.sp, lineHeight = 26.sp)
+                warning.scoreDetail?.let { Text(it, color = PicHomeBlue, fontSize = 16.sp) }
             }
             if (warning.actionTitle.isNotBlank() || warning.actionDescription.isNotBlank()) {
                 Column(

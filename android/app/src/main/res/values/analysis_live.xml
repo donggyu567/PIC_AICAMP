@@ -25,6 +25,7 @@
     <string name="live_waiting_score">분석 중</string>
     <string name="live_normal">정상</string>
     <string name="live_suspect">의심</string>
+    <string name="live_context_attention">의심되는 대화 맥락이 감지됐어요.</string>
     <string name="live_caution">주의</string>
     <string name="live_danger">위험</string>
 </resources>

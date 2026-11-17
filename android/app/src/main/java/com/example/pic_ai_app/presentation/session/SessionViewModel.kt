@@ -28,6 +28,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancelChildren
 
 data class SessionUiState(
     val flow: PreviewState = PreviewState(),
@@ -60,6 +62,7 @@ class SessionViewModel(
     private val mutableUi = MutableStateFlow(SessionUiState())
     val ui = mutableUi.asStateFlow()
     private var registrationJob: Job? = null
+    private val completedRecordJobs = SupervisorJob(viewModelScope.coroutineContext[Job])
     val deletionRetryAvailable get() = true
     private val riskClient = RiskAnalysisClient { url -> if (liveEnabled) checkNotNull(tokenStore).forServer(url) else null }
     private val sttSession by lazy {
@@ -95,15 +98,46 @@ class SessionViewModel(
             current.copy(stt = stt, records = records, flow = current.flow.copy(phase = phase,
                 screen = destination(current.flow.screen), returnScreen = destination(current.flow.returnScreen)))
         }
-        if (record != null) updateHistoryStorage { consentStore.saveRecord(record) }
+        if (record != null) saveCompletedRecord(record, previous.serverUrl)
+    }
+
+    private fun saveCompletedRecord(record: AnalysisRecord, serverUrl: String) {
+        viewModelScope.launch(completedRecordJobs) {
+            writeHistory { consentStore.saveRecord(record) }
+            val risk = record.result.risk ?: return@launch
+            val conversationId = record.result.conversationId ?: return@launch
+            if (risk.endedAt == null || (risk.title != null && risk.summary != null)) return@launch
+            val summary = try {
+                riskClient.summarize(serverUrl, conversationId)
+            } catch (_: IOException) {
+                return@launch
+            }
+
+            val current = mutableUi.value
+            if (current.consent != ConsentStatus.GRANTED || current.records.none { it.id == record.id }) return@launch
+            val updatedRisk = risk.copy(title = summary.title, summary = summary.summary)
+            val updatedRecord = record.copy(result = record.result.copy(risk = updatedRisk))
+            mutableUi.update {
+                val stt = if (it.stt.conversationId == conversationId && it.stt.phase == SttPhase.STOPPED)
+                    it.stt.copy(risk = updatedRisk) else it.stt
+                it.copy(stt = stt, records = it.records.map { saved ->
+                    if (saved.id == updatedRecord.id) updatedRecord else saved
+                })
+            }
+            writeHistory { consentStore.saveRecord(updatedRecord, onlyIfPresent = true) }
+        }
     }
 
     private fun updateHistoryStorage(action: suspend () -> Unit) {
-        viewModelScope.launch {
-            try {
-                action()
-            } catch (_: IOException) {
-                mutableUi.update { it.copy(historyStorageError = true) }
+        viewModelScope.launch { writeHistory(action) }
+    }
+
+    private suspend fun writeHistory(action: suspend () -> Unit) {
+        try {
+            action()
+        } catch (_: IOException) {
+            mutableUi.update {
+                if (it.consent == ConsentStatus.GRANTED) it.copy(historyStorageError = true) else it
             }
         }
     }
@@ -163,6 +197,7 @@ class SessionViewModel(
 
     fun decline() {
         if (!ui.value.ready || ui.value.savingConsent) return
+        completedRecordJobs.cancelChildren()
         mutableUi.update {
             it.copy(
                 consent = ConsentStatus.NOT_DECIDED, declined = true, records = emptyList(),
@@ -176,6 +211,7 @@ class SessionViewModel(
     fun withdraw() {
         if (!ui.value.ready || ui.value.savingConsent) return
         registrationJob?.cancel()
+        completedRecordJobs.cancelChildren()
         if (liveEnabled) sttSession.abort()
         // Block callbacks immediately, before the durable write finishes.
         mutableUi.update { it.copy(consent = ConsentStatus.WITHDRAWN, records = emptyList(), historyStorageError = false,

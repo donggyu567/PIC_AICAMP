@@ -23,7 +23,7 @@ interface ConsentStore {
     suspend fun deletionTargets(): Set<DeletionTarget> { throw IOException("session storage unavailable") }
     suspend fun removeTarget(target: DeletionTarget) { throw IOException("session storage unavailable") }
     suspend fun records(): List<AnalysisRecord> = emptyList()
-    suspend fun saveRecord(record: AnalysisRecord) { throw IOException("history unavailable") }
+    suspend fun saveRecord(record: AnalysisRecord, onlyIfPresent: Boolean = false) { throw IOException("history unavailable") }
     suspend fun deleteRecord(id: String) { throw IOException("history unavailable") }
 }
 
@@ -42,10 +42,11 @@ class DataStoreConsentStore(context: Context) : ConsentStore {
             .map { decodeAnalysisRecord(it as String) }.sortedByDescending { it.endedAtMillis }
     }
 
-    override suspend fun saveRecord(record: AnalysisRecord) {
+    override suspend fun saveRecord(record: AnalysisRecord, onlyIfPresent: Boolean) {
+        val key = stringPreferencesKey(recordPrefix + record.id)
         applicationContext.consentDataStore.edit {
-            if (it[statusKey] == ConsentStatus.GRANTED.name)
-                it[stringPreferencesKey(recordPrefix + record.id)] = record.encode()
+            if (it[statusKey] == ConsentStatus.GRANTED.name && (!onlyIfPresent || key in it))
+                it[key] = record.encode()
         }
     }
 

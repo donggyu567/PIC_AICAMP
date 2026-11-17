@@ -33,7 +33,14 @@ data class RiskResult(
     // null when the response does not identify the warning state.
     val warningActive: Boolean? = null,
     val title: String? = null,
+    val summary: String? = null,
+    val warningEvidenceIds: List<Int> = emptyList(),
+    val riskLevel: String? = null,
+    val contextAttention: Boolean = false,
+    val detectedTypes: Set<String> = emptySet(),
 )
+
+data class ConversationSummary(val title: String, val summary: String)
 
 class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { null }) {
     private val client = OkHttpClient.Builder().callTimeout(60, TimeUnit.SECONDS)
@@ -133,6 +140,9 @@ class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { nul
         val types = judgment?.optJSONArray("risk_types")
         val evidence = judgment?.optJSONArray("evidence_utterance_ids")
         val warning = data.optJSONObject("warning")
+        val warningStatus = warning?.optString("status")
+        val display = data.optJSONObject("display")
+        val detectedTypes = data.optJSONArray("detected_types")
         return RiskResult(score("current_risk_score"), score("cumulative_risk_score"),
             warning?.optString("message")?.takeIf { !warning.isNull("message") && it.isNotBlank() },
             context?.optString("status") ?: "not_run",
@@ -142,11 +152,43 @@ class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { nul
             assessment = judgment?.optString("assessment"),
             evidenceIds = evidence?.let { List(it.length()) { index -> it.optInt(index) } }.orEmpty(),
             analysisIncomplete = data.optString("analysis_status") == "error",
-            warningActive = when (warning?.optString("status")) {
+            warningActive = when (warningStatus) {
                 "active" -> true
                 "none", "previous_warning" -> false
                 else -> null
-            })
+            },
+            warningEvidenceIds = if (warningStatus == "active")
+                readWarningEvidenceIds(data.optJSONObject("evidence"), warning?.optString("reason"))
+            else emptyList(),
+            riskLevel = display?.opt("level") as? String,
+            contextAttention = (display?.opt("context_attention") as? Boolean)
+                ?: (judgment?.optString("assessment") == "suspicious"),
+            detectedTypes = buildSet {
+                if (detectedTypes != null) {
+                    for (index in 0 until detectedTypes.length()) {
+                        (detectedTypes.opt(index) as? String)?.let { add(it) }
+                    }
+                }
+            },
+        )
+    }
+
+    private fun readWarningEvidenceIds(evidence: JSONObject?, reason: String?): List<Int> {
+        if (evidence == null) return emptyList()
+        val cumulative = if (reason == "cumulative" || reason == "both") {
+            evidence.optJSONArray("cumulative_events")?.let { events ->
+                events.optJSONObject(events.length() - 1)?.optJSONArray("utterances")
+            }
+        } else null
+        return buildList {
+            if (cumulative != null) {
+                for (index in 0 until cumulative.length()) {
+                    cumulative.optJSONObject(index)?.let { add(it.optInt("utterance_id")) }
+                }
+            }
+            evidence.optJSONObject("recent")?.let { add(it.optInt("utterance_id")) }
+            evidence.optJSONObject("highest")?.let { add(it.optInt("utterance_id")) }
+        }.filter { it > 0 }.distinct()
     }
 
     private fun endpoint(websocketUrl: String, path: String): String {
@@ -165,6 +207,20 @@ class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { nul
             data.optString("status") != "deleted") throw IOException("deletion unavailable")
     }
 
+    suspend fun summarize(websocketUrl: String, conversationId: String): ConversationSummary {
+        val body = JSONObject().put("conversation_id", conversationId)
+        val request = Request.Builder().url(endpoint(websocketUrl, "/api/v1/conversations/summary"))
+            .post(body.toString().toRequestBody("application/json; charset=utf-8".toMediaType())).build()
+        val (status, data) = execute(request)
+        if (status != 200 || data == null) throw IOException("summary unavailable")
+        val title = data.summaryText("title") ?: throw IOException("summary title unavailable")
+        val summary = data.summaryText("summary") ?: throw IOException("summary text unavailable")
+        return ConversationSummary(title, summary)
+    }
+
+    private fun JSONObject.summaryText(key: String): String? =
+        (opt(key) as? String)?.takeIf { it.isNotBlank() }
+
     suspend fun finish(websocketUrl: String, conversationId: String, lastUtteranceId: Int): RiskResult {
         val body = JSONObject().put("conversation_id", conversationId)
             .put("last_utterance_id", lastUtteranceId)
@@ -180,6 +236,8 @@ class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { nul
             last.getString("analysis_status") in setOf("ok", "error"))
         val risk = readRisk(last)
         return risk.copy(
+            title = data.summaryText("title"),
+            summary = data.summaryText("summary"),
             endedAt = data.optString("ended_at").takeIf { !data.isNull("ended_at") && it.isNotBlank() },
             analysisWarning = risk.warningMessage,
             warningMessage = data.optJSONObject("warning")?.optString("message")?.takeIf { it.isNotBlank() } ?: risk.warningMessage,

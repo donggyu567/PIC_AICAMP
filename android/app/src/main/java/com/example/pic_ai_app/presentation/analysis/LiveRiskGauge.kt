@@ -20,11 +20,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pic_ai_app.R
+import com.example.pic_ai_app.data.stt.LiveRiskLevel
+import com.example.pic_ai_app.data.stt.LiveRiskScore
 import com.example.pic_ai_app.ui.theme.PicMuted
 import com.example.pic_ai_app.ui.theme.PicWhite
 import kotlin.math.PI
 import kotlin.math.cos
-import kotlin.math.roundToInt
 import kotlin.math.sin
 
 internal enum class RiskBand(val label: Int, val arc: Color, val ink: Color = arc) {
@@ -34,24 +35,27 @@ internal enum class RiskBand(val label: Int, val arc: Color, val ink: Color = ar
     Danger(R.string.live_danger, Color(0xFFC33138)),
 }
 
-internal fun bandFor(points: Int) = when (points) {
-    in 0..30 -> RiskBand.Normal
-    in 31..50 -> RiskBand.Suspect
-    in 51..70 -> RiskBand.Caution
-    else -> RiskBand.Danger
+private fun bandFor(level: LiveRiskLevel): RiskBand = when (level) {
+    LiveRiskLevel.Normal -> RiskBand.Normal
+    LiveRiskLevel.Suspect -> RiskBand.Suspect
+    LiveRiskLevel.Caution -> RiskBand.Caution
+    LiveRiskLevel.Danger -> RiskBand.Danger
 }
 
+internal fun bandFor(points: Int): RiskBand = bandFor(LiveRiskScore(points).level)
+
+internal fun LiveRiskLevel.labelRes(): Int = bandFor(this).label
+
 @Composable
-internal fun LiveRiskGauge(score: Double?) {
-    val target = score?.takeIf { it.isFinite() }?.coerceIn(0.0, 100.0)?.toFloat()
+internal fun LiveRiskGauge(score: LiveRiskScore?) {
+    val band = bandFor(score?.level ?: LiveRiskLevel.Normal)
+    val target = score?.points?.toFloat()
     val preview = LocalInspectionMode.current
     val progress = remember { Animatable(if (preview) target ?: 0f else 0f) }
     LaunchedEffect(target) {
         if (target == null) progress.snapTo(0f)
         else progress.animateTo(target, tween(650, easing = FastOutSlowInEasing))
     }
-    val points = progress.value.roundToInt()
-    val band = bandFor(points)
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Box(Modifier.widthIn(max = 242.dp).fillMaxWidth().aspectRatio(1.9f)) {
             Canvas(Modifier.fillMaxSize()) {
@@ -73,10 +77,10 @@ internal fun LiveRiskGauge(score: Double?) {
             }
             Column(Modifier.align(Alignment.BottomCenter).padding(bottom = 4.dp),
                 horizontalAlignment = Alignment.CenterHorizontally) {
-                if (target == null) {
+                if (score == null) {
                     Text(stringResource(R.string.live_waiting_score), color = PicMuted, fontSize = 20.sp)
                 } else {
-                    Text(stringResource(R.string.live_points, points), color = band.ink,
+                    Text(stringResource(R.string.live_points, score.points), color = band.ink,
                         fontSize = 36.sp, lineHeight = 42.sp, fontWeight = FontWeight.Bold)
                     Text(stringResource(band.label), color = band.ink, fontSize = 18.sp, fontWeight = FontWeight.Bold)
                 }

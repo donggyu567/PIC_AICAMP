@@ -15,12 +15,6 @@ enum class SttPhase { IDLE, CONNECTING, LISTENING, FINALIZING, STOPPED, ERROR }
 
 internal const val AUDIO_LEVEL_BARS = 17
 
-private const val STATUS_INTERVAL_MS = 30_000L
-
-sealed interface AnalysisNotice
-data class DetectedWarning(val utteranceId: Int, val detectedAtMillis: Long, val result: RiskResult) : AnalysisNotice
-data class AnalysisStatus(val checkedAtMillis: Long) : AnalysisNotice
-
 data class SttState(
     val phase: SttPhase = SttPhase.IDLE,
     val count: Int = 0,
@@ -32,7 +26,7 @@ data class SttState(
     val canRetryFinish: Boolean = false,
     val canRetryAnalysis: Boolean = false,
     val audioLevels: List<Float> = emptyList(),
-    val notices: List<AnalysisNotice> = emptyList(),
+    val liveCards: LiveAnalysisCards = LiveAnalysisCards(),
     val conversationId: String? = null,
 )
 
@@ -62,32 +56,16 @@ class SttSession(
     private var receivedStop = false
     private var serverUrl = ""
     private var recoverySignal: CompletableDeferred<Unit>? = null
-    private var statusTimer: Job? = null
-    private var hasQuietResult = false
+    private var startNoticeJob: Job? = null
 
     private fun update(next: SttState) {
-        if (state.phase == SttPhase.LISTENING && next.phase != SttPhase.LISTENING) {
-            statusTimer?.cancel()
-            hasQuietResult = false
+        if (next.phase != SttPhase.LISTENING) {
+            startNoticeJob?.cancel()
+            startNoticeJob = null
         }
         state = if (next.phase != SttPhase.LISTENING && next.audioLevels.isNotEmpty())
             next.copy(audioLevels = emptyList()) else next
         publish(state)
-    }
-
-    private fun restartStatusTimer(id: Long) {
-        statusTimer?.cancel()
-        hasQuietResult = false
-        statusTimer = scope.launch {
-            while (id == session && state.phase == SttPhase.LISTENING) {
-                delay(STATUS_INTERVAL_MS)
-                if (hasQuietResult && id == session && state.phase == SttPhase.LISTENING) {
-                    val warnings = state.notices.filterIsInstance<DetectedWarning>()
-                    update(state.copy(notices = warnings + AnalysisStatus(System.currentTimeMillis())))
-                }
-                hasQuietResult = false
-            }
-        }
     }
 
     fun start(url: String) {
@@ -151,7 +129,6 @@ class SttSession(
                 conversationId = conversation
                 timeout?.cancel()
                 update(state.copy(phase = SttPhase.LISTENING, conversationId = conversation))
-                restartStatusTimer(id)
                 capture = scope.launch {
                     try {
                         recorder.capture { bytes ->
@@ -163,6 +140,15 @@ class SttSession(
                             val level = pcm16Level(bytes)
                             scope.launch {
                                 if (id == session && state.phase == SttPhase.LISTENING) {
+                                    if (startNoticeJob == null) {
+                                        startNoticeJob = scope.launch {
+                                            delay(3_000)
+                                            if (id == session && state.phase == SttPhase.LISTENING) {
+                                                val cards = state.liveCards.showStartNotice(System.currentTimeMillis())
+                                                if (cards != state.liveCards) update(state.copy(liveCards = cards))
+                                            }
+                                        }
+                                    }
                                     update(state.copy(audioLevels = (state.audioLevels + level).takeLast(AUDIO_LEVEL_BARS)))
                                 }
                             }
@@ -218,14 +204,11 @@ class SttSession(
                         }
                         if (id != session) return@launch
                         pendingMasks--
-                        val notices = if (result != null && result.warningActive == true) {
-                            if (state.phase == SttPhase.LISTENING) restartStatusTimer(id)
-                            state.notices + DetectedWarning(utterance, System.currentTimeMillis(), result)
-                        } else {
-                            hasQuietResult = result?.warningActive == false && result.contextStatus != "error"
-                            state.notices
-                        }
-                        update(state.copy(risk = result ?: state.risk, notices = notices,
+                        val cards = if (result != null && !result.analysisIncomplete) {
+                            state.liveCards.record(utterance, result.cumulativeScore, result.liveSignal(utterance),
+                                result.contextAttention, System.currentTimeMillis(), contextReason = result.contextReason)
+                        } else state.liveCards
+                        update(state.copy(risk = result ?: state.risk, liveCards = cards,
                             analyzing = false, masking = pendingMasks > 0))
                         if (receivedStop && pendingMasks == 0) completeStop()
                     } catch (cancelled: CancellationException) {
