@@ -2,7 +2,7 @@
 <resources>
     <string name="analysis_idle_count_title">보이스피싱 누적 횟수</string>
     <string name="analysis_idle_count">%1$d회</string>
-    <string name="analysis_idle_count_caption">위험 단계로 분류된 기준</string>
+    <string name="analysis_idle_count_caption">이 기기 기록 · 주의 이상</string>
     <string name="analysis_idle_count_note">보이스피싱은 누구나 당할 수 있어요.\n언제나 방심하지 말아요.</string>
     <string name="analysis_idle_title">분석 대기 중</string>
     <string name="analysis_idle_description">현재 분석하고 있지 않아요.\n분석하려면 아래 ‘분석 시작’을\n눌러주세요.</string>

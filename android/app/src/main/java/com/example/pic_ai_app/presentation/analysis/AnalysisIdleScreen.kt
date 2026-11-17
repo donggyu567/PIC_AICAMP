@@ -31,7 +31,7 @@ private val cardColor = Color(0xFFF2F7FC)
 
 @Composable
 internal fun AnalysisIdleScreen(
-    riskCount: Int?, canStart: Boolean, onStart: () -> Unit, onHome: () -> Unit, onSettings: () -> Unit,
+    riskCount: Int, canStart: Boolean, onStart: () -> Unit, onHome: () -> Unit, onSettings: () -> Unit,
     onHistory: () -> Unit = {}, onReport: () -> Unit = {},
 ) {
     Scaffold(
@@ -82,7 +82,7 @@ internal fun AnalysisIdleScreen(
 }
 
 @Composable
-private fun RiskCountCard(riskCount: Int?) {
+private fun RiskCountCard(riskCount: Int) {
     Surface(
         modifier = Modifier.fillMaxWidth().heightIn(min = 169.dp),
         shape = RoundedCornerShape(20.dp), color = cardColor, contentColor = PicNavigationSelected,
@@ -93,9 +93,8 @@ private fun RiskCountCard(riskCount: Int?) {
                 lineHeight = 24.sp, fontWeight = FontWeight.Bold)
             Spacer(Modifier.height(9.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                val displayedCount = riskCount ?: 0
                 Text(
-                    stringResource(R.string.analysis_idle_count, displayedCount),
+                    stringResource(R.string.analysis_idle_count, riskCount),
                     modifier = Modifier.alignByBaseline(),
                     fontSize = 35.sp, lineHeight = 44.sp, color = PicHomeBlue,
                 )

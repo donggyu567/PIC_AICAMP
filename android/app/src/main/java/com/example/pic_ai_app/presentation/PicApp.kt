@@ -28,6 +28,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.pic_ai_app.BuildConfig
 import com.example.pic_ai_app.R
 import com.example.pic_ai_app.data.consent.ConsentStatus
+import com.example.pic_ai_app.data.stt.LiveRiskLevel
+import com.example.pic_ai_app.data.stt.LiveRiskScore
 import com.example.pic_ai_app.data.stt.SttPhase
 import com.example.pic_ai_app.presentation.analysis.AnalysisIdleScreen
 import com.example.pic_ai_app.presentation.analysis.AnalysisLiveScreen
@@ -162,8 +164,14 @@ fun PicApp(session: SessionViewModel) {
                 )
             } else {
                 var showSettings by rememberSaveable { mutableStateOf(false) }
+                val riskCount = remember(access.records) {
+                    access.records.count { record ->
+                        val level = LiveRiskScore.from(record.result.risk?.cumulativeScore)?.level
+                        level != null && level >= LiveRiskLevel.Caution
+                    }
+                }
                 AnalysisIdleScreen(
-                    riskCount = null, canStart = canStart,
+                    riskCount = riskCount, canStart = canStart,
                     onStart = session::start, onHome = session::showHome,
                     onSettings = { showSettings = true },
                     onHistory = session::openHistory, onReport = session::openReport,
