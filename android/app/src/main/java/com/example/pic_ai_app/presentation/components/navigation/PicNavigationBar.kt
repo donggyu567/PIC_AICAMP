@@ -18,14 +18,14 @@ import androidx.compose.ui.unit.sp
 import com.example.pic_ai_app.R
 import com.example.pic_ai_app.ui.theme.*
 
-enum class PicTab(@StringRes val label: Int, @DrawableRes val icon: Int) {
+enum class PicTab(@StringRes val label: Int, @DrawableRes val icon: Int, @DrawableRes val selectedIcon: Int = icon) {
     Home(R.string.tab_home, R.drawable.ic_pic_home),
     Analysis(R.string.tab_analysis, R.drawable.ic_pic_bar_chart),
-    History(R.string.tab_history, R.drawable.ic_pic_folder),
-    Report(R.string.tab_report, R.drawable.ic_pic_report),
+    History(R.string.tab_history, R.drawable.ic_pic_folder, R.drawable.ic_pic_folder_filled),
+    Report(R.string.tab_report, R.drawable.ic_pic_report, R.drawable.ic_pic_report_filled),
 }
 
-internal val mainTabs = setOf(PicTab.Home, PicTab.Analysis, PicTab.History)
+internal val mainTabs = PicTab.entries.toSet()
 
 @Composable
 fun PicNavigationBar(
@@ -38,11 +38,7 @@ fun PicNavigationBar(
         NavigationBar(containerColor = PicWhite, tonalElevation = 0.dp) {
             PicTab.entries.forEach { tab ->
                 val selected = tab == selectedTab
-                val icon = if (tab == PicTab.History && selected) {
-                    R.drawable.ic_pic_folder_filled
-                } else {
-                    tab.icon
-                }
+                val icon = if (selected) tab.selectedIcon else tab.icon
                 NavigationBarItem(
                     modifier = Modifier.heightIn(min = LocalMinimumInteractiveComponentSize.current),
                     selected = selected,

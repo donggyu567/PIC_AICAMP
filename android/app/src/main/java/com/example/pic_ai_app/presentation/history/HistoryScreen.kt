@@ -18,7 +18,7 @@ import com.example.pic_ai_app.data.history.AnalysisRecord
 import com.example.pic_ai_app.data.stt.RiskResult
 import com.example.pic_ai_app.data.stt.SttPhase
 import com.example.pic_ai_app.data.stt.SttState
-import com.example.pic_ai_app.presentation.components.PicHistoryHeader
+import com.example.pic_ai_app.presentation.components.PicTabHeader
 import com.example.pic_ai_app.presentation.components.navigation.PicNavigationBar
 import com.example.pic_ai_app.presentation.components.navigation.PicTab
 import com.example.pic_ai_app.presentation.components.navigation.mainTabs
@@ -36,7 +36,7 @@ internal fun HistoryScreen(
     ) { insets ->
         Column(Modifier.fillMaxSize().padding(insets), horizontalAlignment = Alignment.CenterHorizontally) {
             Box(Modifier.widthIn(max = 480.dp).fillMaxWidth().padding(horizontal = 24.dp)) {
-                PicHistoryHeader()
+                PicTabHeader(PicTab.History)
             }
             Spacer(Modifier.height(12.dp))
             HorizontalDivider(color = PicBorder)

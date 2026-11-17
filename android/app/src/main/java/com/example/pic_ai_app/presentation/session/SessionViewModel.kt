@@ -306,6 +306,7 @@ class SessionViewModel(
     fun showDeletion() = changeFlow { it.copy(screen = Screen.WITHDRAWAL) }
     fun openAnalysis() = changeFlow { it.copy(screen = Screen.ANALYSIS) }
     fun openHistory() = changeFlow { it.copy(screen = Screen.HISTORY) }
+    fun openReport() = changeFlow { it.copy(screen = Screen.REPORT) }
     fun deleteRecord(id: String) = updateHistoryStorage {
         consentStore.deleteRecord(id)
         mutableUi.update { current -> current.copy(records = current.records.filterNot { it.id == id }) }

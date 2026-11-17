@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Intent
 import androidx.core.net.toUri
 import android.provider.Settings
+import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -39,6 +40,7 @@ import com.example.pic_ai_app.presentation.onboarding.OnboardingPermissions
 import com.example.pic_ai_app.presentation.preview.*
 import com.example.pic_ai_app.presentation.screens.*
 import com.example.pic_ai_app.presentation.result.AnalysisResultDetailScreen
+import com.example.pic_ai_app.presentation.report.ReportCallSelectionScreen
 import com.example.pic_ai_app.presentation.session.SessionViewModel
 import com.example.pic_ai_app.ui.theme.PicScreenTheme
 import kotlinx.coroutines.delay
@@ -110,6 +112,14 @@ fun PicApp(session: SessionViewModel) {
     val resultPending = access.stt.phase == SttPhase.FINALIZING || access.stt.canRetryFinish || access.stt.canRetryAnalysis
     val deletionPending = state.deletion in listOf(Deletion.DELETING, Deletion.PENDING)
     val canStart = !state.hasOpenAnalysis && !access.savingConsent && access.pendingConsent == null && !deletionPending
+    val openTab: (PicTab) -> Unit = { tab ->
+        when (tab) {
+            PicTab.Home -> session.showHome()
+            PicTab.Analysis -> if (resultPending) session.openResult() else session.openAnalysis()
+            PicTab.History -> session.openHistory()
+            PicTab.Report -> session.openReport()
+        }
+    }
     when (state.screen) {
         Screen.WELCOME -> WelcomeScreen(
             session::openConsent, session::openData, access.declined,
@@ -148,6 +158,7 @@ fun PicApp(session: SessionViewModel) {
                 onStop = session::finishAndOpenResult,
                 onAnalysis = if (resultPending) session::openResult else session::openAnalysis,
                 onHistory = session::openHistory,
+                onReport = session::openReport,
             )
             SnackbarHost(messages, Modifier.statusBarsPadding().padding(horizontal = 16.dp))
         }
@@ -164,6 +175,7 @@ fun PicApp(session: SessionViewModel) {
                     onStart = session::start, onHome = session::showHome,
                     onSettings = { showSettings = true },
                     onHistory = session::openHistory,
+                    onReport = session::openReport,
                 )
                 if (showSettings) {
                     PicSettingsDialog(
@@ -183,13 +195,7 @@ fun PicApp(session: SessionViewModel) {
                 HistoryScreen(
                     records = access.records, storageError = access.historyStorageError, listState = listState,
                     onOpenRecord = { selectedId = it }, onDeleteRecord = session::deleteRecord,
-                    onTabSelected = { tab ->
-                        when (tab) {
-                            PicTab.Home -> session.showHome()
-                            PicTab.Analysis -> if (resultPending) session.openResult() else session.openAnalysis()
-                            else -> Unit
-                        }
-                    },
+                    onTabSelected = openTab,
                 )
             } else {
                 val close = { selectedId = null }
@@ -198,6 +204,10 @@ fun PicApp(session: SessionViewModel) {
                     hasWarningHistory = record.hasWarningHistory)
             }
         }
+        Screen.REPORT -> ReportCallSelectionScreen(
+            records = access.records, storageError = access.historyStorageError, onTabSelected = openTab,
+            onNext = { Toast.makeText(context, R.string.report_situation_pending, Toast.LENGTH_SHORT).show() },
+        )
         Screen.FINAL -> AnalysisResultDetailScreen(
             state = access.stt, permissionLost = state.error == PreviewError.PERMISSION,
             onBack = session::showHome, onRetryFinish = session::retryFinish, onRetryAnalysis = session::retryAnalysis,

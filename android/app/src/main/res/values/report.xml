@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="report_call_title">신고할 통화를 선택해 주세요.</string>
+    <string name="report_call_description">분석한 통화 내용을 신고 자료로 준비할게요.</string>
+    <string name="report_call_privacy">통화 내용은 자료 준비에만 사용돼요. 외부 기관에는 직접 확인한 후 제출해 주세요.</string>
+    <string name="report_call_empty">선택할 통화 기록이 없어요. 분석을 마치면 이곳에 표시돼요.</string>
+    <string name="report_next">다음</string>
+    <string name="report_situation_pending">상황 확인 화면은 준비 중이에요.</string>
+    <string name="report_step_call_selection">통화 선택</string>
+    <string name="report_step_situation_check">상황 확인</string>
+    <string name="report_step_prepare_materials">자료 준비</string>
+    <string name="report_step_guidance">신고 안내</string>
+    <string name="report_step_completed">완료한 단계</string>
+    <string name="report_step_current">현재 단계</string>
+    <string name="report_step_upcoming">예정 단계</string>
+</resources>
