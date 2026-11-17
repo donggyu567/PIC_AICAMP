@@ -2,8 +2,10 @@
 <data-extraction-rules>
     <cloud-backup>
         <exclude domain="file" path="storage/" />
+        <exclude domain="file" path="datastore/data_consent.preferences_pb" />
     </cloud-backup>
     <device-transfer>
         <exclude domain="file" path="storage/" />
+        <exclude domain="file" path="datastore/data_consent.preferences_pb" />
     </device-transfer>
 </data-extraction-rules>

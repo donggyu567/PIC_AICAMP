@@ -11,8 +11,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.withContext
 
-// 마이크 → 16비트 PCM 수집 → FloatArray 변환 → onAudio 콜백 → 음성 인식 엔진
-class AndroidPcmAudioRecorder {
+// 마이크에서 수집한 PCM16 샘플을 little-endian 바이트로 전달한다.
+interface Microphone {
+    suspend fun capture(onAudio: suspend (ByteArray) -> Unit)
+    fun stop()
+}
+
+class AndroidPcmAudioRecorder : Microphone {
     @Volatile
     private var activeRecorder: AudioRecord? = null     //현재 사용중인 Android 녹음 객체 보관
 
@@ -22,9 +27,9 @@ class AndroidPcmAudioRecorder {
     @SuppressLint("MissingPermission")
     @RequiresPermission(Manifest.permission.RECORD_AUDIO)
     //녹음을 시작하고, 중단될 때까지 오디오를 반복해서 읽어 콜백으로 전달
-    suspend fun capture(onAudio: suspend (FloatArray) -> Unit) = withContext(Dispatchers.IO) {
-        //중단 상태 초기화 및 버퍼 크기 설정
-        stopRequested = false
+    override suspend fun capture(onAudio: suspend (ByteArray) -> Unit) = withContext(Dispatchers.IO) {
+        // 중단 요청을 확인하고 버퍼 크기를 설정한다.
+        if (stopRequested) return@withContext
         val minimumBufferBytes = AudioRecord.getMinBufferSize(
             SAMPLE_RATE,
             AudioFormat.CHANNEL_IN_MONO,
@@ -70,10 +75,18 @@ class AndroidPcmAudioRecorder {
                 )
                 when {
                     sampleCount > 0 -> {
-                        val normalizedSamples = FloatArray(sampleCount) { index ->
-                            pcmBuffer[index] / PCM_NORMALIZATION_FACTOR
+                        val pcmBytes = ByteArray(sampleCount * Short.SIZE_BYTES)
+                        for (index in 0 until sampleCount) {
+                            val sample = pcmBuffer[index].toInt()
+                            pcmBytes[index * 2] = sample.toByte()
+                            pcmBytes[index * 2 + 1] = (sample shr 8).toByte()
                         }
-                        onAudio(normalizedSamples)
+                        var offset = 0
+                        while (offset < pcmBytes.size && !stopRequested) {
+                            val end = minOf(offset + TARGET_BUFFER_BYTES, pcmBytes.size)
+                            onAudio(pcmBytes.copyOfRange(offset, end))
+                            offset = end
+                        }
                     }
 
                     stopRequested -> Unit
@@ -90,7 +103,7 @@ class AndroidPcmAudioRecorder {
     }
 
     //stop() : 녹음 중단 요청
-    fun stop() {
+    override fun stop() {
         stopRequested = true
         val recorder = activeRecorder ?: return
         if (recorder.recordingState == AudioRecord.RECORDSTATE_RECORDING) {
@@ -101,6 +114,6 @@ class AndroidPcmAudioRecorder {
     private companion object {
         const val SAMPLE_RATE = 16_000
         const val TARGET_BUFFER_BYTES = 3_200
-        const val PCM_NORMALIZATION_FACTOR = 32_768.0f
+
     }
 }

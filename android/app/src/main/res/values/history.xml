@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="history_delete_hint">기록을 길게 누르면 삭제할 수 있어요.</string>
+    <string name="history_empty">아직 완료된 분석 기록이 없어요.</string>
+    <string name="history_storage_error">기기에서 일부 기록을 읽거나 저장하지 못했어요.</string>
+    <string name="history_delete">삭제</string>
+    <string name="history_delete_menu">기록 삭제 메뉴 열기</string>
+    <string name="history_score_band">%1$s · %2$s</string>
+</resources>
