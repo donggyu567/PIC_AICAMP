@@ -15,4 +15,3 @@ def validate_utterance(payload: dict[str, object]) -> MaskedTranscript:
 @lru_cache(maxsize=1)
 def get_correction_engine() -> CorrectionEngine:
     return CorrectionEngine(OpenAIResponsesClient())
-

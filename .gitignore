@@ -18,3 +18,8 @@ backend/data/
 *.pt
 *.pth
 pytorch_model*.bin
+
+# Local Android build and report archive.
+/.runtime-build/
+/android/.kotlin/
+/PIC_결과보고서_참고자료/

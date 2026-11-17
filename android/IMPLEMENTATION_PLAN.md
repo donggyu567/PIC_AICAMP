@@ -1,9 +1,11 @@
-# Android v2 구현 계획
+# Android 구현 기록과 검증 계획
 
 작성일: 2026-10-29
 상태: 3단계 동의 DataStore 영속화·실제 OS 마이크 권한·ViewModel 로컬 상태 관리 구현. 단위 테스트 20개 통과. 실제 기기 검수와 서버 연결은 미완료.
 
 ## 최신 우선순위
+
+통합 앱에서 기록 제목과 주의 이상 건수, 신고 두 경로의 복사와 공식 사이트 이동을 실기기로 확인한다. 아래의 2026-11-06 기록은 당시 진행 상태다.
 
 2026-11-06: 사용자 확인으로 실기기에서 서버 연결 및 발화 수 증가를 확인했다. 한국어 인식 내용은 미확인. 기존 NER 마스킹과 화면 표시를 연결했으며 빌드·단위 테스트 23개 통과, 실제 모델의 실기기 검증은 대기 중이다. 사용자가 실기기 마스킹 표시를 확인한 후 서버 토큰 확장·OTP 보호·위험 분석 전송과 결과 표시를 추가했다. 다음 작업은 변경 후 실기기 전체 경로 검증과 실패 복구·서버 통화 종료 연결이다.
 
@@ -12,15 +14,14 @@ STT 및 마스킹 연결 후 실기기에서 마스킹된 문장과 종료를 �
 
 ## 작업 위치와 기준
 
-- 작업 폴더: C:/Archive/005.code/PIC_AICAMP_ANDROID/android
-- 작업 브랜치: feature/android-v2.0
-- 기존 앱 보존: ../android_legacy
+- 앱 작업 폴더: 이 저장소의 android/
+- 이전 앱 소스 백업: feature/android-v3.0
 - 기능 기준: ../PIC 프로젝트_기능명세서_2026-10-28.md
 - 디자인 기준: https://www.figma.com/design/4u4iy7a53GlKadKIiKAWU0/?node-id=1-396
-- 현재 서버 문서: C:/Archive/005.code/PIC_AICAMP/server/README.md
-- 앱·서버 연동 전 먼저 읽을 동봉 계약: ../server/document/APP_SERVER_CONTRACT.md. 현재 PC에서는 C:/Archive/005.code/PIC_AICAMP/server/document/APP_SERVER_CONTRACT.md 최신 원본과 대조하며 서버 담당자의 최신 계약을 우선 적용한다.
+- 현재 서버 문서: ../server/README.md
+- 앱·서버 연결 계약: ../server/document/APP_SERVER_CONTRACT.md
 - 사용자 화면은 '분석', '새 분석 시작'으로 통일한다. 개발 모드의 성능 한계 안내는 유지한다.
-- android_legacy를 일괄 복사하거나 기존 앱 코드를 삭제하지 않는다. 단계별로 필요한 코드를 가져오고 해당 테스트를 재사용한다.
+- 현재 Android 앱에 연결된 코드를 바탕으로 필요한 기능과 관련 테스트를 수정한다.
 - 이미지 등 새 비텍스트 파일은 생성 전에 사용자에게 확인한다. 실제 모델·런타임 준비나 APK 생성 등 비텍스트 산출물이 필요한 검증도 사전에 범위를 확인한다.
 
 ## 앱 화면 구상
@@ -54,7 +55,7 @@ STT 및 마스킹 연결 후 실기기에서 마스킹된 문장과 종료를 �
 
 ## 재사용할 부분과 새로 구현할 부분
 
-- 재사용: android_legacy/app/src/main/java/com/example/pic_ai_app/audio/AndroidPcmAudioRecorder.kt의 마이크 수집·중지 구조. 현재 FloatArray 콜백을 서버 PCM16 계약에 맞추는 부분은 변경한다.
+- 재사용: app/src/main/java/com/example/pic_ai_app/audio/AndroidPcmAudioRecorder.kt의 마이크 수집·중지 구조. 현재 FloatArray 콜백을 서버 PCM16 계약에 맞추는 부분은 변경한다.
 - 재사용: 기존 MainActivity의 권한 요청 패턴. 동의 조건과 수집 시작 순서는 새 상태 관리에 연결한다.
 - 재사용: masking/TranscriptMasker.kt, MaskingPipeline.kt와 NER·Regex·Rule·Resolver·Renderer 및 관련 테스트.
 - 검토 후 필요한 부분 재사용: MaskedTranscript, 마스킹 텍스트 저장·직렬화. 새 API의 masking_status 필드와 현재 세션 ID 규칙을 반영해야 한다.

@@ -76,7 +76,7 @@ def analyze_utterance(
         analysis_service.ensure_conversation_active(snapshot)
         config = analysis_service.prepare_warning_session(snapshot, warning_manager)
         records = snapshot.records if snapshot is not None else []
-        
+
         if records and records[-1].model_result.analysis_status == "error":
             raise analysis_service.AnalysisPendingError(
                 "이전 분석 실패를 복구한 뒤 다음 발화를 보내야 합니다."
@@ -147,7 +147,7 @@ def retry_utterance_analysis(
             )
         analysis_service.ensure_conversation_active(snapshot)
         config = analysis_service.prepare_warning_session(snapshot, warning_manager)
-        
+
         failed = snapshot.records[-1].model_result
         if failed.utterance_id != utterance_id or failed.analysis_status != "error":
             raise AnalysisConflictError("해당 통화의 마지막 실패 발화만 재시도할 수 있습니다.")

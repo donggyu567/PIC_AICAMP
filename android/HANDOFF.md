@@ -1,86 +1,15 @@
-# Android v2 인수인계
+# Android 인수인계
 
-기존 인수인계 기록은 2026-10-29 기준이다. 2026-11-05 현재 STT 연결 코드를 추가했으며 최신 구현·검증 상태와 APK 버전은 README.md와 IMPLEMENTATION_PLAN.md를 우선한다.
-**현재 단계: STT 연결을 구현했으며 실기기·실서버 음성 검증이 남았다. 다음 구현은 마스킹 이식이다.**
-이 문서는 진행 현황·전달 방법을 설명한다. 프로토콜의 최종 기준은 서버 담당자가 관리하는 최신 APP_SERVER_CONTRACT.md다.
+현재 Android 앱과 서버는 한 저장소에 있다. 구현·빌드 방법은 [Android README](README.md), 통신 계약은 [앱·서버 계약](../server/document/APP_SERVER_CONTRACT.md)을 따른다.
 
-## 1. 전달할 폴더
+## 새 PC에서 시작하기
 
-### 앱 담당자에게 반드시 전달
+1. 저장소를 clone하고 루트에서 `git lfs pull`을 실행한다. NER 모델과 ONNX Runtime AAR은 Git LFS에서 받는다.
+2. JDK와 Android SDK를 설정하고 Android Studio에서 `android/`를 연다. 저장소 루트의 PowerShell에서는 `& '.\android\build.ps1'`로 실행한다.
+3. 서버를 직접 구성할 때는 [서버 README](../server/README.md)를 따른다. 서버 소스는 `server/`와 함께 `backend/`, `models/`, `risk_speech_ai/`를 사용한다.
+4. 이전 Android 구현을 참고할 때는 Git의 `feature/android-v3.0` 백업을 확인한다.
 
-현재 PC의 C:/Archive/005.code/PIC_AICAMP_ANDROID에서 아래 항목을 원래 상대 경로를 유지해 전달한다.
-
-- AGENTS.md
-- PIC 프로젝트_기능명세서_2026-10-28.md
-- android/ : 현재 v2 앱 소스, Gradle 설정과 Wrapper, build.ps1, 테스트, README.md, IMPLEMENTATION_PLAN.md, 이 HANDOFF.md.
-- android_legacy/ : 기존 마이크 수집·마스킹 재사용 소스와 관련 테스트. 후속 이식에 필요하다.
-- server/document/APP_SERVER_CONTRACT.md : 이 저장소에 동봉한 앱·서버 연결 계약. 새 담당자도 반드시 읽는다. 2026-10-29 현재 원본 서버 계약과 파일 해시가 동일하다.
-
-android/gradle/wrapper/gradle-wrapper.jar는 빌드 도구이므로 포함한다. 앱의 현재 실행에 NER·STT 모델은 필요하지 않다.
-최신 APK는 확인용으로 android/app/build/outputs/apk/debug/app-debug.apk 하나만 선택적으로 전달한다.
-디자인을 다시 확인하려면 Figma 파일 접근 권한도 전달받아야 한다:
-https://www.figma.com/design/4u4iy7a53GlKadKIiKAWU0/?node-id=1-396
-
-### 서버 쪽에서 함께 전달받을 것
-
-이 저장소의 server/document/APP_SERVER_CONTRACT.md를 먼저 읽는다. 아래 원본 서버 작업 폴더에 접근할 수 있으면 최신본과 대조하고, 다르면 서버 담당자의 최신 계약을 전달본에 반영한다. 다른 PC에서는 동봉된 계약으로 시작하고 서버 담당자에게 최신 여부·접속 주소를 확인한다. 앱 폴더 안 backend/나 다른 브랜치의 오래된 문서로 대체하지 않는다.
-
-- C:/Archive/005.code/PIC_AICAMP/AGENTS.md
-- C:/Archive/005.code/PIC_AICAMP/README.md
-- C:/Archive/005.code/PIC_AICAMP/server/README.md
-- C:/Archive/005.code/PIC_AICAMP/server/document/APP_SERVER_CONTRACT.md
-- C:/Archive/005.code/PIC_AICAMP/server/document/CONTEXT_RISK_CONTRACT.md (후속 문맥 분석 참고)
-
-앱만 구현하고 서버 담당자가 서버를 제공한다면 최신 계약·접속 주소·실행 버전을 공유받으면 된다.
-받는 사람도 서버를 직접 실행할 경우 **서버 담당자의 최신 PIC_AICAMP 저장소 작업 내용**도 받아야 한다.
-server/만 복사해서는 부족하다. server/main.py가 backend.lifespan 및 분석 라우터를 불러오고 기존 backend·models·risk_speech_ai 모듈을 사용한다.
-따라서 서버용 프로젝트의 소스·requirements.txt·.env.example와 필요한 하위 모듈을 함께 전달하고, 가상환경은 받는 PC에서 다시 만든다.
-현재 서버 브랜치는 feature/server-v2.0-stt-relay다. 서버 쪽 미커밋 작업도 빠지지 않도록 서버 담당자가 전달 시점을 확정해야 한다.
-
-### 제외할 것
-
-- 앱/Gradle 캐시: android/.gradle/, android/.gradle-work/, android/.kotlin/
-- 생성 결과: 각 build/ 폴더. 최신 APK 하나는 위 설명대로 선택 전달.
-- PC별 설정: .idea/, android/local.properties
-- 서버 가상환경·캐시: .venv*/, __pycache__/, 임시 실행 파일
-- API 키·인증 정보가 든 .env 및 비밀 파일. .env.example만 전달하고 키는 서버 환경변수로 별도 설정.
-- .codex 작업트리/캐시, Android SDK, JDK, 에뮬레이터 이미지
-
-현재 Gradle 캐시는 기존 파일의 하드링크·폴더 연결을 사용한다. 캐시를 통째로 보내지 말고 받는 PC에서 의존성을 다시 받는다.
-android_legacy의 NER model.onnx와 ONNX Runtime AAR에는 실제 바이너리 대신 Git LFS 포인터가 있는 것으로 이전 단계에서 확인했다. 마스킹 단계에서는 실제 자산을 별도 준비해야 한다.
-
-## 2. Git 전달 시 주의
-
-현재 앱 작업 브랜치는 feature/android-v2.0이지만, 새 앱 구성과 문서에는 **미커밋·미추적 변경이 남아 있다.**
-GitHub 브랜치 이름만 알려주거나 해당 브랜치를 clone하는 것으로 현재 작업 전체를 전달했다고 간주하지 않는다.
-이번 인수인계 문서 정리에서도 커밋·푸시는 수행하지 않았다.
-
-PIC_AICAMP_ANDROID/.git은 일반 .git 디렉터리가 아닌 아래 PC 경로를 가리키는 작업트리 포인터다.
-
-C:/Archive/005.code/PIC_AICAMP/.git/worktrees/PIC_AICAMP
-
-이 .git 파일을 다른 PC로 그대로 복사하면 독립 저장소로 사용할 수 없다.
-현재 상태를 폴더로 전달할 때에는 .git 포인터를 제외하고, 받는 사람이 독립 저장소/정상 clone에 전달받은 소스를 반영하도록 한다.
-Git으로만 전달하려면 담당자가 먼저 현재 앱 변경사항과 android_legacy 이동을 확인해 커밋·푸시하고 서버 쪽 최신 변경도 별도로 전달해야 한다.
-인수인계를 이유로 서버 브랜치의 변경을 앱 브랜치에 일괄 덮어쓰거나 기존 파일을 자동 삭제하지 않는다.
-
-## 3. Codex가 읽을 순서와 작업 위치
-
-1. 앱 루트 AGENTS.md.
-2. android/HANDOFF.md (이 문서).
-3. android/README.md : 현재 구현·검증·빌드 방법.
-4. android/IMPLEMENTATION_PLAN.md : 변경한 순서와 완료 기준.
-5. 앱 루트 PIC 프로젝트_기능명세서_2026-10-28.md.
-6. 이 저장소의 server/document/APP_SERVER_CONTRACT.md. 서버 쪽 루트 AGENTS.md·README.md, server/README.md와 최신 원본 계약은 접근 가능한 경우 함께 확인한다.
-
-현재 PC에서는 명령 실행 위치를 C:/Archive/005.code/PIC_AICAMP로 하고 앱 수정 결과만 C:/Archive/005.code/PIC_AICAMP_ANDROID/android에 둔다.
-Codex 대화의 자동 cwd가 과거 .codex/worktrees 경로일 수 있으므로 명령마다 workdir를 명시한다.
-다른 PC에서는 두 프로젝트의 실제 위치를 정한 뒤 AGENTS.md·문서의 절대 경로를 그 위치로 조정한다.
-서버 코드는 앱 작업의 결과 폴더가 아니며 서버 담당자의 작업을 덮어쓰지 않는다.
-비텍스트 파일 생성은 AGENTS.md의 사용자 확인 지침을 따른다.
-
-서버 문서의 STT·앱 작업 '보류'는 이전 결정이다. **이번 인수인계의 앱 다음 작업 순서는 사용자의 2026-10-29 요청에 따라 STT 선연결로 변경**했다.
-서버 계약의 메시지 형식과 실패 처리 규칙은 계속 최신본을 따른다. 서버 담당자 작업의 우선순위를 이 문서로 임의 변경하지 않는다.
+Gradle·빌드 캐시, `.idea/`, `android/local.properties`, Python 가상환경, API 키와 런타임 데이터는 각 PC에서 관리한다. 아래는 이전 구현 과정의 기록이다.
 
 ## 4. 지금까지 구현한 것
 
@@ -118,7 +47,7 @@ Codex 대화의 자동 cwd가 과거 .codex/worktrees 경로일 수 있으므로
 권장 진행 순서:
 
 1. 서버 최신 계약과 실행 코드를 대조하고, 서버 주소·실행 버전·키 설정 여부를 확인한다. 키 값을 코드나 로그로 출력하지 않는다. .env.example은 안내용이며 서버에서 자동 로딩되지 않는다.
-2. 기존 android_legacy의 audio/AndroidPcmAudioRecorder.kt에서 수집·중지 구조를 재사용한다. FloatArray 콜백을 계약의 16kHz·모노·PCM16 little-endian 바이너리로 맞춘다.
+2. 이전 앱의 AndroidPcmAudioRecorder에서 수집·중지 구조를 재사용한다. FloatArray 콜백을 계약의 16kHz·모노·PCM16 little-endian 바이너리로 맞춘다.
 3. 앱에 실제 WS 클라이언트와 필요한 네트워크 설정을 추가한다. 동의·OS 권한 확인 → 접속 → start → ready 순서를 지킨다. ready 전에는 수집·전송하지 않는다.
 4. 권장 100ms/3,200바이트 청크로 실시간 전송하고 대기열이 무한히 쌓이지 않게 한다. 녹음 파일은 만들지 않는다.
 5. ready의 conversation_id 및 transcript의 utterance_id로 세션·발화를 구분한다. recognizing/finalizing은 상태만 표시한다. 모의 타이머·예시 위험도와 실제 통신 상태를 섞지 않는다.
