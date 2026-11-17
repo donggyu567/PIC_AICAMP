@@ -10,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.pic_ai_app.BuildConfig
 import com.example.pic_ai_app.data.consent.*
 import com.example.pic_ai_app.data.history.AnalysisRecord
+import com.example.pic_ai_app.data.report.HarmReportSuggestion
 import com.example.pic_ai_app.data.stt.*
 import com.example.pic_ai_app.data.security.DeviceTokenStore
 import com.example.pic_ai_app.domain.model.UtteranceTranscript
@@ -21,6 +22,7 @@ import com.example.pic_ai_app.masking.renderer.DefaultMaskedTextRenderer
 import com.example.pic_ai_app.masking.resolver.DefaultCandidateConflictResolver
 import com.example.pic_ai_app.masking.rule.DefaultNumberMaskingRuleEngine
 import com.example.pic_ai_app.presentation.preview.*
+import com.example.pic_ai_app.presentation.report.ReportFlowState
 import java.io.IOException
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -46,6 +48,7 @@ data class SessionUiState(
     val serverUrl: String = "wss://picaicamp.duckdns.org/api/v1/stt",
     val tokenMessage: String? = null,
     val records: List<AnalysisRecord> = emptyList(),
+    val summarizingRecords: Set<String> = emptySet(),
     val historyStorageError: Boolean = false,
 )
 
@@ -61,6 +64,7 @@ class SessionViewModel(
 ) : ViewModel() {
     private val mutableUi = MutableStateFlow(SessionUiState())
     val ui = mutableUi.asStateFlow()
+    internal val report = ReportFlowState()
     private var registrationJob: Job? = null
     private val completedRecordJobs = SupervisorJob(viewModelScope.coroutineContext[Job])
     val deletionRetryAvailable get() = true
@@ -98,34 +102,57 @@ class SessionViewModel(
             current.copy(stt = stt, records = records, flow = current.flow.copy(phase = phase,
                 screen = destination(current.flow.screen), returnScreen = destination(current.flow.returnScreen)))
         }
-        if (record != null) saveCompletedRecord(record, previous.serverUrl)
+        if (record != null) saveCompletedRecord(record)
     }
 
-    private fun saveCompletedRecord(record: AnalysisRecord, serverUrl: String) {
+    private fun saveCompletedRecord(record: AnalysisRecord) {
         viewModelScope.launch(completedRecordJobs) {
             writeHistory { consentStore.saveRecord(record) }
-            val risk = record.result.risk ?: return@launch
-            val conversationId = record.result.conversationId ?: return@launch
-            if (risk.endedAt == null || (risk.title != null && risk.summary != null)) return@launch
-            val summary = try {
-                riskClient.summarize(serverUrl, conversationId)
-            } catch (_: IOException) {
-                return@launch
-            }
-
-            val current = mutableUi.value
-            if (current.consent != ConsentStatus.GRANTED || current.records.none { it.id == record.id }) return@launch
-            val updatedRisk = risk.copy(title = summary.title, summary = summary.summary)
-            val updatedRecord = record.copy(result = record.result.copy(risk = updatedRisk))
-            mutableUi.update {
-                val stt = if (it.stt.conversationId == conversationId && it.stt.phase == SttPhase.STOPPED)
-                    it.stt.copy(risk = updatedRisk) else it.stt
-                it.copy(stt = stt, records = it.records.map { saved ->
-                    if (saved.id == updatedRecord.id) updatedRecord else saved
-                })
-            }
-            writeHistory { consentStore.saveRecord(updatedRecord, onlyIfPresent = true) }
+            requestRecordSummary(record.id)
         }
+    }
+
+    internal fun requestRecordSummary(recordId: String) {
+        val current = ui.value
+        val record = current.records.find { it.id == recordId } ?: return
+        val risk = record.result.risk ?: return
+        if (!liveEnabled || current.consent != ConsentStatus.GRANTED || risk.endedAt == null ||
+            (!risk.title.isNullOrBlank() && !risk.summary.isNullOrBlank()) || recordId in current.summarizingRecords) return
+        mutableUi.update { it.copy(summarizingRecords = it.summarizingRecords + recordId) }
+        viewModelScope.launch(completedRecordJobs) {
+            try {
+                val target = consentStore.deletionTargets().singleOrNull { it.conversationId == recordId }
+                    ?: return@launch
+                val summary = riskClient.summarize(target.serverUrl, target.conversationId)
+                val latest = ui.value
+                if (latest.consent != ConsentStatus.GRANTED) return@launch
+                val saved = latest.records.find { it.id == recordId } ?: return@launch
+                val updatedRisk = saved.result.risk?.copy(title = summary.title, summary = summary.summary)
+                val updatedRecord = saved.copy(result = saved.result.copy(risk = updatedRisk))
+                mutableUi.update {
+                    val stt = if (it.stt.conversationId == recordId && it.stt.phase == SttPhase.STOPPED)
+                        it.stt.copy(risk = updatedRisk) else it.stt
+                    it.copy(stt = stt, records = it.records.map { item ->
+                        if (item.id == recordId) updatedRecord else item
+                    })
+                }
+                writeHistory { consentStore.saveRecord(updatedRecord, onlyIfPresent = true) }
+            } catch (_: IOException) {
+                // The report screen can retry or keep a manually written draft.
+            } finally {
+                mutableUi.update { it.copy(summarizingRecords = it.summarizingRecords - recordId) }
+            }
+        }
+    }
+
+    internal suspend fun generateHarmDraft(recordId: String): HarmReportSuggestion {
+        val current = ui.value
+        if (!liveEnabled || current.consent != ConsentStatus.GRANTED || current.records.none {
+                it.id == recordId && it.result.risk?.endedAt != null
+            }) throw IOException("종료된 통화 기록을 찾을 수 없어요.")
+        val target = consentStore.deletionTargets().singleOrNull { it.conversationId == recordId }
+            ?: throw IOException("통화의 서버 정보를 찾을 수 없어요.")
+        return riskClient.draftHarmReport(target.serverUrl, target.conversationId)
     }
 
     private fun updateHistoryStorage(action: suspend () -> Unit) {
@@ -341,6 +368,10 @@ class SessionViewModel(
     fun showHome() = changeFlow { it.copy(screen = Screen.HOME) }
     fun showDeletion() = changeFlow { it.copy(screen = Screen.WITHDRAWAL) }
     fun openAnalysis() = changeFlow { it.copy(screen = Screen.ANALYSIS) }
+    fun openReport() {
+        if (ui.value.consent == ConsentStatus.GRANTED) changeFlow { it.copy(screen = Screen.REPORT) }
+    }
+
     fun openHistory() = changeFlow { it.copy(screen = Screen.HISTORY) }
     fun deleteRecord(id: String) = updateHistoryStorage {
         consentStore.deleteRecord(id)

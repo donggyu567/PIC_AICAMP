@@ -32,7 +32,7 @@ private val cardColor = Color(0xFFF2F7FC)
 @Composable
 internal fun AnalysisIdleScreen(
     riskCount: Int?, canStart: Boolean, onStart: () -> Unit, onHome: () -> Unit, onSettings: () -> Unit,
-    onHistory: () -> Unit = {},
+    onHistory: () -> Unit = {}, onReport: () -> Unit = {},
 ) {
     Scaffold(
         containerColor = PicHomeBlue,
@@ -44,6 +44,7 @@ internal fun AnalysisIdleScreen(
                     when (tab) {
                         PicTab.Home -> onHome()
                         PicTab.History -> onHistory()
+                        PicTab.Report -> onReport()
                         else -> Unit
                     }
                 },

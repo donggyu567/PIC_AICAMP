@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pic_ai_app.R
 import com.example.pic_ai_app.data.history.AnalysisRecord
+import com.example.pic_ai_app.data.history.CallRecordTitle
 import com.example.pic_ai_app.data.stt.RiskResult
 import com.example.pic_ai_app.data.stt.SttPhase
 import com.example.pic_ai_app.data.stt.SttState
@@ -54,7 +55,7 @@ internal fun HistoryScreen(
                 }
                 items(records, key = { it.id }) { record ->
                     AnalysisResultSummaryCard(
-                        title = record.result.risk?.title,
+                        title = CallRecordTitle.from(record.result),
                         cumulativeScore = record.result.risk?.cumulativeScore, endedAtMillis = record.endedAtMillis,
                         onOpen = { onOpenRecord(record.id) }, onDelete = { onDeleteRecord(record.id) },
                     )

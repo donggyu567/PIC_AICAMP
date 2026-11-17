@@ -25,7 +25,7 @@ enum class PicTab(@StringRes val label: Int, @DrawableRes val icon: Int) {
     Report(R.string.tab_report, R.drawable.ic_pic_report),
 }
 
-internal val mainTabs = setOf(PicTab.Home, PicTab.Analysis, PicTab.History)
+internal val mainTabs = PicTab.entries.toSet()
 
 @Composable
 fun PicNavigationBar(
@@ -38,10 +38,10 @@ fun PicNavigationBar(
         NavigationBar(containerColor = PicWhite, tonalElevation = 0.dp) {
             PicTab.entries.forEach { tab ->
                 val selected = tab == selectedTab
-                val icon = if (tab == PicTab.History && selected) {
-                    R.drawable.ic_pic_folder_filled
-                } else {
-                    tab.icon
+                val icon = when {
+                    selected && tab == PicTab.History -> R.drawable.ic_pic_folder_filled
+                    selected && tab == PicTab.Report -> R.drawable.ic_pic_report_filled
+                    else -> tab.icon
                 }
                 NavigationBarItem(
                     modifier = Modifier.heightIn(min = LocalMinimumInteractiveComponentSize.current),

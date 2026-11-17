@@ -30,7 +30,7 @@ fun HomeScreen(
     liveMode: Boolean = false, serverUrl: String = "", onServerUrlChange: (String) -> Unit = {},
     tokenMessage: String? = null, onSaveToken: (String) -> Unit = {},
     activeSession: SttState? = null, onStop: () -> Unit = {}, onAnalysis: () -> Unit = {},
-    onHistory: () -> Unit = {},
+    onHistory: () -> Unit = {}, onReport: () -> Unit = {},
 ) {
     var showSettings by rememberSaveable { mutableStateOf(false) }
     val scroll = rememberScrollState()
@@ -46,7 +46,7 @@ fun HomeScreen(
                         PicTab.Home -> { scope.launch { scroll.animateScrollTo(0) } }
                         PicTab.Analysis -> onAnalysis()
                         PicTab.History -> onHistory()
-                        PicTab.Report -> Unit
+                        PicTab.Report -> onReport()
                     }
                 },
             )

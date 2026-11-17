@@ -23,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pic_ai_app.R
+import com.example.pic_ai_app.data.history.CallRecordTitle
 import com.example.pic_ai_app.data.stt.RiskResult
 import com.example.pic_ai_app.data.stt.SttPhase
 import com.example.pic_ai_app.data.stt.SttState
@@ -53,7 +54,7 @@ fun AnalysisResultDetailScreen(
     val warningReason = risk?.contextReason?.takeIf { warningMessage != null && it.isNotBlank() }
     val finished = state.phase == SttPhase.STOPPED
     val waiting = state.phase == SttPhase.FINALIZING && state.error == null
-    val title = risk?.title?.takeIf { it.isNotBlank() } ?: stringResource(R.string.final_title)
+    val title = if (finished) CallRecordTitle.from(state) else stringResource(R.string.final_title)
     var showWarning by rememberSaveable { mutableStateOf(false) }
     var showChat by rememberSaveable { mutableStateOf(false) }
     Surface(color = Color.White, contentColor = PicInk, modifier = Modifier.fillMaxSize()) {

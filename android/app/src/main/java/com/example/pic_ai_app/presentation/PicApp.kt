@@ -37,6 +37,7 @@ import com.example.pic_ai_app.presentation.history.HistoryScreen
 import com.example.pic_ai_app.presentation.components.navigation.PicTab
 import com.example.pic_ai_app.presentation.onboarding.OnboardingPermissions
 import com.example.pic_ai_app.presentation.preview.*
+import com.example.pic_ai_app.presentation.report.ReportFlow
 import com.example.pic_ai_app.presentation.screens.*
 import com.example.pic_ai_app.presentation.session.SessionViewModel
 import com.example.pic_ai_app.ui.theme.PicScreenTheme
@@ -67,6 +68,9 @@ fun PicApp(session: SessionViewModel) {
     // never a permission grant or an in-flight analysis from a saved UI bundle.
     LaunchedEffect(state.consented) {
         if (!state.consented) withdrawDialog = false
+    }
+    LaunchedEffect(state.screen, state.consented) {
+        if (state.screen != Screen.REPORT || !state.consented) session.report.clear()
     }
     LaunchedEffect(access.consentError) {
         if (!access.consentError) consentErrorDismissed = false
@@ -146,7 +150,7 @@ fun PicApp(session: SessionViewModel) {
                 activeSession = access.stt.takeIf { capturingOrConnecting },
                 onStop = session::finishAndOpenResult,
                 onAnalysis = if (resultPending) session::openResult else session::openAnalysis,
-                onHistory = session::openHistory,
+                onHistory = session::openHistory, onReport = session::openReport,
             )
             SnackbarHost(messages, Modifier.statusBarsPadding().padding(horizontal = 16.dp))
         }
@@ -162,7 +166,7 @@ fun PicApp(session: SessionViewModel) {
                     riskCount = null, canStart = canStart,
                     onStart = session::start, onHome = session::showHome,
                     onSettings = { showSettings = true },
-                    onHistory = session::openHistory,
+                    onHistory = session::openHistory, onReport = session::openReport,
                 )
                 if (showSettings) {
                     PicSettingsDialog(
@@ -181,12 +185,17 @@ fun PicApp(session: SessionViewModel) {
             if (record == null) {
                 HistoryScreen(
                     records = access.records, storageError = access.historyStorageError, listState = listState,
-                    onOpenRecord = { selectedId = it }, onDeleteRecord = session::deleteRecord,
+                    onOpenRecord = { id ->
+                        selectedId = id
+                        session.requestRecordSummary(id)
+                    },
+                    onDeleteRecord = session::deleteRecord,
                     onTabSelected = { tab ->
                         when (tab) {
                             PicTab.Home -> session.showHome()
                             PicTab.Analysis -> if (resultPending) session.openResult() else session.openAnalysis()
-                            else -> Unit
+                            PicTab.Report -> session.openReport()
+                            PicTab.History -> Unit
                         }
                     },
                 )
@@ -196,6 +205,20 @@ fun PicApp(session: SessionViewModel) {
                 AnalysisResultDetailScreen(record.result, onBack = close, onRetryFinish = {}, onRetryAnalysis = {})
             }
         }
+        Screen.REPORT -> ReportFlow(
+            state = session.report, records = access.records, storageError = access.historyStorageError,
+            summarizingRecords = access.summarizingRecords, onRequestSummary = session::requestRecordSummary,
+            generateHarm = session::generateHarmDraft,
+            onClose = session::showHome,
+            onTabSelected = { tab ->
+                when (tab) {
+                    PicTab.Home -> session.showHome()
+                    PicTab.Analysis -> if (resultPending) session.openResult() else session.openAnalysis()
+                    PicTab.History -> session.openHistory()
+                    PicTab.Report -> Unit
+                }
+            },
+        )
         Screen.FINAL -> AnalysisResultDetailScreen(
             state = access.stt, permissionLost = state.error == PreviewError.PERMISSION,
             onBack = session::showHome, onRetryFinish = session::retryFinish, onRetryAnalysis = session::retryAnalysis,

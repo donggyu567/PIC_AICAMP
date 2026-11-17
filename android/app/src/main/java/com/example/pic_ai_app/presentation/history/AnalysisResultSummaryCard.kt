@@ -41,9 +41,6 @@ internal fun AnalysisResultSummaryCard(
     modifier: Modifier = Modifier,
 ) {
     var showDelete by remember { mutableStateOf(false) }
-    val points = cumulativeScore?.takeIf { it.isFinite() }?.roundToInt()
-    val band = points?.let(::bandFor)
-    val pointsLabel = stringResource(R.string.live_points, points ?: 0)
 
     Box(modifier) {
         Surface(Modifier.fillMaxWidth(), shape = RoundedCornerShape(15.dp), color = PicWhite,
@@ -56,28 +53,7 @@ internal fun AnalysisResultSummaryCard(
                 ).padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                    Text(stringResource(R.string.detail_score), Modifier.weight(1f), color = PicMuted,
-                        fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
-                    Surface(shape = CircleShape, color = (band?.arc ?: PicMuted).copy(alpha = .09f)) {
-                        Text(
-                            if (band == null) pointsLabel else stringResource(R.string.history_score_band, pointsLabel, stringResource(band.label)),
-                            Modifier.padding(horizontal = 10.dp, vertical = 4.dp), color = band?.ink ?: PicMuted,
-                            fontSize = 16.sp, fontWeight = FontWeight.Bold,
-                        )
-                    }
-                }
-                Text(title?.takeIf { it.isNotBlank() } ?: stringResource(R.string.final_title),
-                    color = Color(0xFF111827), fontSize = 20.sp, lineHeight = 28.sp, fontWeight = FontWeight.Bold)
-                endedAtMillis?.let { millis ->
-                    val date = remember(millis) {
-                        SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.KOREA).apply {
-                            timeZone = TimeZone.getTimeZone("Asia/Seoul")
-                        }.format(Date(millis))
-                    }
-                    Text(date, Modifier.align(Alignment.End), color = Color(0xFF374151),
-                        fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
-                }
+                AnalysisSummaryContent(title, cumulativeScore, endedAtMillis)
             }
         }
         DropdownMenu(expanded = showDelete, onDismissRequest = { showDelete = false }) {
@@ -85,6 +61,39 @@ internal fun AnalysisResultSummaryCard(
                 showDelete = false
                 onDelete()
             })
+        }
+    }
+}
+
+@Composable
+internal fun AnalysisSummaryContent(
+    title: String?, cumulativeScore: Double?, endedAtMillis: Long?, modifier: Modifier = Modifier,
+) {
+    val points = cumulativeScore?.takeIf { it.isFinite() }?.roundToInt()
+    val band = points?.let(::bandFor)
+    val pointsLabel = stringResource(R.string.live_points, points ?: 0)
+    Column(modifier, verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+            Text(stringResource(R.string.detail_score), Modifier.weight(1f), color = PicMuted,
+                fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
+            Surface(shape = CircleShape, color = (band?.arc ?: PicMuted).copy(alpha = .09f)) {
+                Text(
+                    if (band == null) pointsLabel else stringResource(R.string.history_score_band, pointsLabel, stringResource(band.label)),
+                    Modifier.padding(horizontal = 10.dp, vertical = 4.dp), color = band?.ink ?: PicMuted,
+                    fontSize = 16.sp, fontWeight = FontWeight.Bold,
+                )
+            }
+        }
+        Text(title?.takeIf { it.isNotBlank() } ?: stringResource(R.string.final_title),
+            color = Color(0xFF111827), fontSize = 20.sp, lineHeight = 28.sp, fontWeight = FontWeight.Bold)
+        endedAtMillis?.let { millis ->
+            val date = remember(millis) {
+                SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.KOREA).apply {
+                    timeZone = TimeZone.getTimeZone("Asia/Seoul")
+                }.format(Date(millis))
+            }
+            Text(date, Modifier.align(Alignment.End), color = Color(0xFF374151),
+                fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
         }
     }
 }

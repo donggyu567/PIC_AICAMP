@@ -1,5 +1,6 @@
 package com.example.pic_ai_app.data.stt
 
+import com.example.pic_ai_app.data.report.HarmReportSuggestion
 import com.example.pic_ai_app.domain.model.MaskedTranscript
 import java.io.IOException
 import java.util.concurrent.TimeUnit
@@ -216,6 +217,19 @@ class RiskAnalysisClient(private val tokenForServer: (String) -> String? = { nul
         val title = data.summaryText("title") ?: throw IOException("summary title unavailable")
         val summary = data.summaryText("summary") ?: throw IOException("summary text unavailable")
         return ConversationSummary(title, summary)
+    }
+
+    suspend fun draftHarmReport(websocketUrl: String, conversationId: String): HarmReportSuggestion {
+        val body = JSONObject().put("conversation_id", conversationId)
+        val request = Request.Builder().url(endpoint(websocketUrl, "/api/v1/conversations/harm-report-draft"))
+            .post(body.toString().toRequestBody("application/json; charset=utf-8".toMediaType())).build()
+        val (status, data) = execute(request)
+        if (status != 200 || data == null) throw IOException("피해 경위 초안을 가져오지 못했어요.")
+        return HarmReportSuggestion(
+            claimedIdentity = data.opt("claimed_identity") as? String ?: throw IOException("초안 형식이 올바르지 않아요."),
+            firstContact = data.opt("first_contact") as? String ?: throw IOException("초안 형식이 올바르지 않아요."),
+            deception = data.opt("deception") as? String ?: throw IOException("초안 형식이 올바르지 않아요."),
+        )
     }
 
     private fun JSONObject.summaryText(key: String): String? =

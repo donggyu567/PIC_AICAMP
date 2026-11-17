@@ -23,7 +23,10 @@ data class AnalysisRecord(
                 stamp?.let { SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX", Locale.US).parse(it)?.time }
             } catch (_: ParseException) { null }
             return AnalysisRecord(state.conversationId ?: UUID.randomUUID().toString(),
-                endTime ?: System.currentTimeMillis(), state.copy(liveCards = LiveAnalysisCards(), audioLevels = emptyList()))
+                endTime ?: System.currentTimeMillis(), state.copy(
+                    recordedRiskTypes = CallRecordTitle.riskTypes(state),
+                    liveCards = LiveAnalysisCards(), audioLevels = emptyList(),
+                ))
         }
     }
 }
@@ -34,6 +37,7 @@ internal fun AnalysisRecord.encode(): String = JSONObject().apply {
     put("endedAtMillis", endedAtMillis)
     put("count", result.count)
     put("maskedTexts", JSONArray(result.maskedTexts))
+    put("recordedRiskTypes", JSONArray(result.recordedRiskTypes))
     result.risk?.let { risk ->
         put("risk", JSONObject().apply {
             put("title", risk.title)
@@ -70,6 +74,10 @@ internal fun decodeAnalysisRecord(raw: String): AnalysisRecord {
             summary = it.text("summary"),
         )
     }
+    val recordedTypes = json.optJSONArray("recordedRiskTypes")?.let { values ->
+        List(values.length()) { values.getString(it) }.toSet()
+    }.orEmpty()
     return AnalysisRecord(json.getString("id"), json.getLong("endedAtMillis"),
-        SttState(phase = SttPhase.STOPPED, count = json.getInt("count"), maskedTexts = json.strings("maskedTexts"), risk = risk))
+        SttState(phase = SttPhase.STOPPED, count = json.getInt("count"), maskedTexts = json.strings("maskedTexts"),
+            risk = risk, recordedRiskTypes = recordedTypes))
 }

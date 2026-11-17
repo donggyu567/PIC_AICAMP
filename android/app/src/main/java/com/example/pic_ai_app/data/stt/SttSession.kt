@@ -28,6 +28,7 @@ data class SttState(
     val audioLevels: List<Float> = emptyList(),
     val liveCards: LiveAnalysisCards = LiveAnalysisCards(),
     val conversationId: String? = null,
+    val recordedRiskTypes: Set<String> = emptySet(),
 )
 
 /** Socket callbacks are serialized onto the supplied main scope. */
