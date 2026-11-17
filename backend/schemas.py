@@ -199,3 +199,22 @@ class ConversationEndResponse(BaseModel):
     warning: WarningPayload | None = None
     evidence: EvidencePayload | None = None
     last_analysis: CalculationPreviewResponse | None = None
+
+
+class ConversationEndWithSummary(ConversationEndResponse):
+    title: str | None = None
+    summary: str | None = None
+
+
+class KeyUtterance(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    utterance_id: int = Field(ge=1)
+    reason: str = Field(min_length=1, max_length=500)
+
+
+class ConversationSummary(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    title: str = Field(min_length=1, max_length=100)
+    summary: str = Field(min_length=1, max_length=1500)
+    key_utterances: list[KeyUtterance] = Field(max_length=10)
+    advice: str = Field(min_length=1, max_length=500)

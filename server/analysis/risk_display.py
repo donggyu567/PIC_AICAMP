@@ -4,7 +4,7 @@ from typing import Literal
 
 from pydantic import BaseModel
 
-from backend.schemas import CalculationPreviewResponse, ConversationEndResponse
+from backend.schemas import CalculationPreviewResponse, ConversationEndWithSummary
 
 
 class RiskDisplay(BaseModel):
@@ -16,7 +16,7 @@ class AnalysisWithDisplay(CalculationPreviewResponse):
     display: RiskDisplay
 
 
-class ConversationEndWithDisplay(ConversationEndResponse):
+class ConversationEndWithDisplay(ConversationEndWithSummary):
     last_analysis: AnalysisWithDisplay | None = None
 
 
@@ -37,7 +37,7 @@ def add_risk_display(result: CalculationPreviewResponse) -> AnalysisWithDisplay:
     return AnalysisWithDisplay(**result.model_dump(), display=RiskDisplay(level=level, context_attention=attention))
 
 
-def add_final_risk_display(result: ConversationEndResponse) -> ConversationEndWithDisplay:
+def add_final_risk_display(result: ConversationEndWithSummary) -> ConversationEndWithDisplay:
     final = result.last_analysis
     return ConversationEndWithDisplay(
         **result.model_dump(exclude={"last_analysis"}),

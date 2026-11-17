@@ -18,7 +18,9 @@ from pydantic import (
     Field,
     model_validator
 )
-from backend.schemas import CalculationPreviewResponse, ModelResultRequest, NotificationRecord
+from backend.schemas import (
+    CalculationPreviewResponse, ConversationSummary, ModelResultRequest, NotificationRecord,
+)
 from backend.stores.analysis_store import AnalysisConflictError, validate_new_result
 from models.warning_manager.contracts import (
     ConversationWarningState, ModelRiskResult, WarningConfig, WarningResult,
@@ -106,6 +108,7 @@ class ConversationSnapshot(BaseModel):
 
     conversation_status: Literal["active", "ended"] = "active"
     ended_at: AwareDatetime | None = None
+    summary: ConversationSummary | None = None
 
     policy: CalculationPolicy
     records: list[StoredAnalysis] = Field(min_length=1)

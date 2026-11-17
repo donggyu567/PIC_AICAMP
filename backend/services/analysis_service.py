@@ -7,7 +7,7 @@ from time import perf_counter
 from typing import Literal
 
 from backend.schemas import (
-    CalculationPreviewResponse, ContextJudgmentResult, ConversationEndResponse,
+    CalculationPreviewResponse, ContextJudgmentResult, ConversationEndWithSummary,
     ModelResultRequest,
 )
 from backend.services.analysis_response import build_analysis_response
@@ -305,7 +305,7 @@ def _retry_model_result_locked(
 def end_conversation(
     conversation_id: str, warning_manager: WarningManager | None = None,
     *, expected_last_utterance_id: int | None = None,
-) -> ConversationEndResponse:
+) -> ConversationEndWithSummary:
     """경고 종료·알림 만료·통화 종료를 함께 저장하고 같은 최종 결과를 반환한다."""
     with conversation_locks.hold(conversation_id):
         snapshot = analysis_store.load(conversation_id)
@@ -349,12 +349,15 @@ def end_conversation(
             analysis_store.save(snapshot)
 
         final_result = snapshot.final_warning_result
-        return ConversationEndResponse(
+        summary = snapshot.summary
+        return ConversationEndWithSummary(
             conversation_id=snapshot.conversation_id,
             ended_at=snapshot.ended_at,
             warning=final_result["warning"] if final_result is not None else None,
             evidence=final_result["evidence"] if final_result is not None else None,
             last_analysis=snapshot.records[-1].response,
+            title=summary.title if summary is not None else None,
+            summary=summary.summary if summary is not None else None,
         )
 
 

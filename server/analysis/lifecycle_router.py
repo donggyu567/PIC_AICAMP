@@ -6,14 +6,14 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Request, Response
 from pydantic import Field
 
 from backend.schemas import (
-    ConversationEndRequest, NotificationAckRequest,
+    ConversationEndRequest, ConversationSummary, NotificationAckRequest,
     NotificationListResponse, NotificationRecord,
 )
 from backend.services import analysis_service
 from backend.services.notification_service import NotificationService
 from server.analysis.router import run_analysis
 from server.analysis.risk_display import ConversationEndWithDisplay, add_final_risk_display
-from server.analysis.summary_service import ConversationSummary, SummaryUnavailableError, summarize_conversation
+from server.analysis.summary_service import SummaryUnavailableError, summarize_conversation
 from server.security import limits
 from server.security.access import authenticated_device, require_conversation_owner
 
@@ -52,9 +52,13 @@ def get_notification_service() -> NotificationService:
 
 
 @router.post("/conversations/end", response_model=ConversationEndWithDisplay)
-def finish_conversation(payload: FinalizeConversationRequest, request: Request, owner: Annotated[str, Depends(authenticated_device)]):
+def finish_conversation(
+    payload: FinalizeConversationRequest, request: Request, response: Response,
+    owner: Annotated[str, Depends(authenticated_device)],
+):
     """마지막 저장 번호 확인 후 경고·미확인 알림을 종료하고 최종 결과를 반환한다."""
     require_conversation_owner(owner, payload.conversation_id)
+    response.headers["Cache-Control"] = "no-store"
     return add_final_risk_display(run_analysis(
         analysis_service.end_conversation, payload.conversation_id,
         request.app.state.warning_manager,
