@@ -2,11 +2,13 @@
 
 갱신: 2026-10-30. 대상은 `server.main:app`이며 기존 `backend.main:app`과 구분한다.
 
+**피해 경위 초안 (AWS 적용):** 종료된 통화의 소유 기기가 `POST /api/v1/conversations/harm-report-draft`에 `{"conversation_id":"..."}`를 보낸다. 서버 저장소의 마스킹 발화로만 `claimed_identity`, `first_contact`, `deception` 문자열을 생성한다. 근거가 없는 항목은 빈 문자열로 응답한다. 기기에서 입력한 성명·생년월일·연락처·계좌·실제 피해와 조치는 요청에 포함되지 않는다. 응답은 저장하지 않으며 `Cache-Control: no-store`를 사용한다. 종료 전이나 철회된 통화는 409, 생성 실패는 503이다. 이미 입력 또는 수정한 항목은 앱에서 보존한다.
+
 현재 서버 구현 범위는 **STT 중계, 마스킹 발화 분석·AI 재시도, 문맥 판단 저장·응답, 결과 조회·알림 조회/수신확인·통화 종료 API**다. API 흐름은 대체 객체로 확인했다. 임시 체크포인트의 CPU 로딩·샘플 추론은 별도로 확인했지만 실제 외부 API·모델·Android를 결합한 전체 흐름은 미검증이다. 사용자 요청으로 STT 실연결·앱 작업은 보류하고 서버 작업을 진행한다. 철회·삭제 API는 아직 없다.
 
 ## 1. 연결 주소와 기본 규칙
 
-**통화 요약 (서버 v2.1 작업 브랜치, AWS 배포 전):** 통화 종료 성공 후 같은 기기의 인증으로 `POST /api/v1/conversations/summary`에 `{"conversation_id":"..."}`를 보낸다. 종료된 통화의 보정된 마스킹 발화를 기반으로 `title`, `summary`, `key_utterances`(각 `utterance_id`, `reason`), `advice`를 반환한다. 근거 발화 번호를 검증하고 첫 성공 결과를 해당 통화 기록에 저장한다. 반복 요청에는 저장된 값을 반환하며, 통화 기록 삭제 시 요약도 함께 삭제된다. 생성 중인 요청은 응답을 기다리고, 생성 또는 저장 실패(503) 시 앱에서 같은 요청을 재시도할 수 있다. 종료 전 또는 철회된 통화는 409다. 응답에 `Cache-Control: no-store`를 적용한다. 최신 Android UIUX 연결과 실제 OpenAI 검증은 후속 작업이다. [통화 기록 명세](CALL_HISTORY_SPEC.md)
+**통화 요약 (서버 v2.1, AWS 적용):** 통화 종료 성공 후 같은 기기의 인증으로 `POST /api/v1/conversations/summary`에 `{"conversation_id":"..."}`를 보낸다. 종료된 통화의 보정된 마스킹 발화를 기반으로 `title`, `summary`, `key_utterances`(각 `utterance_id`, `reason`), `advice`를 반환한다. 근거 발화 번호를 검증하고 첫 성공 결과를 해당 통화 기록에 저장한다. 반복 요청에는 저장된 값을 반환하며, 통화 기록 삭제 시 요약도 함께 삭제된다. 생성 중인 요청은 응답을 기다리고, 생성 또는 저장 실패(503) 시 앱에서 같은 요청을 재시도할 수 있다. 종료 전 또는 철회된 통화는 409다. 응답에 `Cache-Control: no-store`를 적용한다. 2026-11-17 AWS에서 공개 경로의 인증 동작과 가상 마스킹 통화의 실제 OpenAI 생성을 확인했다. [통화 기록 명세](CALL_HISTORY_SPEC.md)
 
 **시연용 위험 단계 (AWS 적용, 앱 표시 연동 전):** 발화 분석·재시도·결과 조회 응답 및 종료 응답의 `last_analysis`에 `display`를 추가한다. `level`은 반올림 전 누적 위험도 기준 `normal`(50 미만), `caution`(50 이상 70 미만), `danger`(70 이상) 또는 분석 실패 시 `unknown`이다. `normal`은 안전 보장이 아니다. `context_attention`은 LLM 문맥 판단이 `suspicious`면 `true`, `no_clear_risk`면 `false`, LLM 실패·미실행·문맥 부족이면 `null`이다. LLM만 의심할 경우 AI 단계와 별개로 주의 안내를 표시한다. 상세 근거는 기존 `context_judgment`를 읽는다. 기존 경고 상태·이력은 별도로 유지하며 위험 단계는 저장된 결과를 응답할 때 계산하므로 이후 정책 변경 시 이전 기록의 표시 단계가 바뀔 수 있다. 이 기준은 성능 검증 전 초기 시연 기준이다.
 

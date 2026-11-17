@@ -101,3 +101,49 @@ class SummaryApiTests(unittest.TestCase):
                 release.set()
             self.assertEqual(pending.result(timeout=5).status_code, 409)
         self.assertFalse(self.store.path_for("call").exists())
+
+    def test_harm_report_uses_only_stored_masked_utterances(self):
+        self.assertEqual(self.post("harm-report-draft").status_code, 409)
+        self.create.assert_not_called()
+        self.assertEqual(self.post("end", last_utterance_id=1).status_code, 200)
+        draft = {
+            "claimed_identity": "금융기관 직원이라고 주장",
+            "first_contact": "전화로 연락을 받았습니다.",
+            "deception": "송금을 요구받았습니다.",
+        }
+        self.create.side_effect = [
+            self.completed(draft | {"damage": "확인되지 않은 피해"}),
+            self.completed(draft),
+        ]
+        self.assertEqual(self.post("harm-report-draft").status_code, 503)
+        response = self.post("harm-report-draft")
+        self.assertEqual(response.status_code, 200, response.text)
+        self.assertEqual(response.headers["Cache-Control"], "no-store")
+        self.assertEqual(response.json(), draft)
+        snapshot = self.store.load("call")
+        self.assertIsNone(snapshot.summary)
+        stored = snapshot.records[0].model_result
+        self.assertEqual(json.loads(self.create.call_args.kwargs["input"]), {
+            "utterances": [{"utterance_id": stored.utterance_id, "text": stored.tuned_text}],
+        })
+        self.assertFalse(self.create.call_args.kwargs["store"])
+
+    def test_withdraw_discards_in_progress_harm_report(self):
+        self.assertEqual(self.post("end", last_utterance_id=1).status_code, 200)
+        generating, release = Event(), Event()
+
+        def delayed_draft(**kwargs):
+            generating.set()
+            if not release.wait(5):
+                raise TimeoutError("test did not release report draft")
+            return self.completed({"claimed_identity": "", "first_contact": "", "deception": ""})
+
+        self.create.side_effect = delayed_draft
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            pending = pool.submit(self.post, "harm-report-draft")
+            try:
+                self.assertTrue(generating.wait(5))
+                self.assertEqual(pool.submit(self.post, "withdraw").result(timeout=3).status_code, 200)
+            finally:
+                release.set()
+            self.assertEqual(pending.result(timeout=5).status_code, 409)

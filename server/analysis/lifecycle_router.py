@@ -13,7 +13,9 @@ from backend.services import analysis_service
 from backend.services.notification_service import NotificationService
 from server.analysis.router import run_analysis
 from server.analysis.risk_display import ConversationEndWithDisplay, add_final_risk_display
-from server.analysis.summary_service import SummaryUnavailableError, summarize_conversation
+from server.analysis.summary_service import (
+    HarmReportDraft, SummaryUnavailableError, draft_harm_report, summarize_conversation,
+)
 from server.security import limits
 from server.security.access import authenticated_device, require_conversation_owner
 
@@ -37,6 +39,19 @@ def summarize(payload: ConversationEndRequest, request: Request, response: Respo
         return run_analysis(summarize_conversation, payload.conversation_id, request.app.state.llm_client)
     except SummaryUnavailableError:
         raise HTTPException(503, "통화 요약을 생성하지 못했습니다.") from None
+
+
+@router.post("/conversations/harm-report-draft", response_model=HarmReportDraft)
+def harm_report_draft(payload: ConversationEndRequest, request: Request, response: Response,
+                      owner: Annotated[str, Depends(authenticated_device)]):
+    require_conversation_owner(owner, payload.conversation_id)
+    if not limits.analysis_requests.allow(owner):
+        raise HTTPException(429, "피해 경위 초안 요청이 너무 많습니다.", headers={"Retry-After": "60"})
+    response.headers["Cache-Control"] = "no-store"
+    try:
+        return run_analysis(draft_harm_report, payload.conversation_id, request.app.state.llm_client)
+    except SummaryUnavailableError:
+        raise HTTPException(503, "피해 경위 초안을 생성하지 못했습니다.") from None
 
 
 @router.post("/conversations/withdraw")
