@@ -70,13 +70,22 @@ class MaskedTranscriptTests(unittest.TestCase):
             )
 
     def test_rejects_unknown_masking_tokens(self) -> None:
-        with self.assertRaisesRegex(ContractError, "EMAIL"):
+        with self.assertRaisesRegex(ContractError, "UNKNOWN"):
             MaskedTranscript.from_dict(
                 valid_masked_transcript(
-                    masked_text="[PERSON]의 [EMAIL]",
-                    masked_types=["PERSON", "EMAIL"],
+                    masked_text="[PERSON]의 [UNKNOWN]",
+                    masked_types=["PERSON", "UNKNOWN"],
                 )
             )
+
+    def test_accepts_android_protection_tokens(self) -> None:
+        tokens = ("CARD_NUMBER", "BIRTH", "EMAIL", "PW", "MASKED", "OTP")
+        payload = valid_masked_transcript(
+            masked_text=" ".join(f"[{token}]" for token in tokens),
+            masked_types=list(tokens),
+        )
+        result = MaskedTranscript.from_dict(payload)
+        self.assertEqual(result.masked_types, tokens)
 
     def test_rejects_a_legacy_korean_masking_token(self) -> None:
         with self.assertRaisesRegex(ContractError, r"\[이름\]"):

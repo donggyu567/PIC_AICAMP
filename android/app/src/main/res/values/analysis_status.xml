@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analysis_status_title">분석 안내</string>
+    <string name="analysis_status_no_new_warning">최근 30초간 분석한 발화에서 새 경고 신호가 감지되지 않았어요.</string>
+    <string name="analysis_status_caution">이런 요청에는 주의하세요</string>
+    <string name="caution_transfer">다른 계좌로 돈을 송금하라는 요구</string>
+    <string name="caution_app">앱을 설치하라는 요구</string>
+    <string name="caution_personal_info">개인정보나 인증번호를 알려 달라는 요구</string>
+</resources>

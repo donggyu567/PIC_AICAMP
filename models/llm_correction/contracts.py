@@ -19,6 +19,11 @@ ALLOWED_MASKED_TYPES = frozenset(
         "RRN",
         "OTP",
         "ADDRESS",
+        "CARD_NUMBER",
+        "BIRTH",
+        "EMAIL",
+        "PW",
+        "MASKED",
     }
 )
 
