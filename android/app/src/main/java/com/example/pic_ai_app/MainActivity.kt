@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.pic_ai_app.presentation.stt.SttScreen
+import com.example.pic_ai_app.presentation.call.CallScreen
 import com.example.pic_ai_app.presentation.stt.SttUiState
 import com.example.pic_ai_app.presentation.stt.SttViewModel
 import com.example.pic_ai_app.ui.theme.PIC_AI_APPTheme
@@ -47,8 +47,9 @@ private fun SttRoute(viewModel: SttViewModel = viewModel()) {
         if (granted) viewModel.startRecording() else viewModel.reportPermissionDenied()
     }
 
-    SttScreen(
-        state = state,
+    CallScreen(
+        sttState = state,
+        warning = null,
         onStart = {
             if (
                 ContextCompat.checkSelfPermission(
@@ -68,10 +69,11 @@ private fun SttRoute(viewModel: SttViewModel = viewModel()) {
 
 @Preview(showBackground = true)
 @Composable
-private fun SttScreenPreview() {
+private fun CallScreenPreview() {
     PIC_AI_APPTheme {
-        SttScreen(
-            state = SttUiState(),
+        CallScreen(
+            sttState = SttUiState(),
+            warning = null,
             onStart = {},
             onStop = {},
             onDismissError = {},

@@ -1,0 +1,24 @@
+[Unit]
+Description=PIC API server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pic
+Group=pic
+WorkingDirectory=/opt/pic
+Environment=HF_HOME=/var/cache/pic-huggingface
+Environment=TOKENIZERS_PARALLELISM=false
+ExecStart=/opt/pic/.venv/bin/python -B -m uvicorn server.main:app --host 127.0.0.1 --port 8000 --workers 1 --proxy-headers --forwarded-allow-ips 127.0.0.1 --no-access-log
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/pic/backend/data /var/cache/pic-huggingface
+
+[Install]
+WantedBy=multi-user.target

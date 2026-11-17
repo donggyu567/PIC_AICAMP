@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -20,7 +19,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,74 +28,75 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun SttScreen(
+fun SttTranscriptSection(state: SttUiState) {
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        Text(
+            text = "온디바이스 음성 인식",
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+        )
+        Text(
+            text = "음성 원문은 이 기기의 앱 전용 저장소에만 보관됩니다.",
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+
+        StatusCard(state)
+        TranscriptCard(
+            title = "실시간 인식 (저장 안 함)",
+            text = state.partialText.ifEmpty {
+                if (state.status == SttStatus.LISTENING) "말씀해 주세요…" else "대기 중"
+            },
+            emphasized = state.partialText.isNotEmpty(),
+        )
+        TranscriptCard(
+            title = "마지막 확정 발화",
+            text = state.lastFinalText.ifEmpty { "아직 저장된 발화가 없습니다." },
+            emphasized = state.lastFinalText.isNotEmpty(),
+        )
+    }
+}
+
+@Composable
+fun SttControlsSection(
     state: SttUiState,
     onStart: () -> Unit,
     onStop: () -> Unit,
     onDismissError: () -> Unit,
 ) {
-    Scaffold { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .padding(horizontal = 24.dp, vertical = 20.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-        ) {
-            Text(
-                text = "온디바이스 음성 인식",
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-            )
-            Text(
-                text = "음성 원문은 이 기기의 앱 전용 저장소에만 보관됩니다.",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-
-            StatusCard(state)
-            TranscriptCard(
-                title = "실시간 인식 (저장 안 함)",
-                text = state.partialText.ifEmpty {
-                    if (state.status == SttStatus.LISTENING) "말씀해 주세요…" else "대기 중"
-                },
-                emphasized = state.partialText.isNotEmpty(),
-            )
-            TranscriptCard(
-                title = "마지막 확정 발화",
-                text = state.lastFinalText.ifEmpty { "아직 저장된 발화가 없습니다." },
-                emphasized = state.lastFinalText.isNotEmpty(),
-            )
-
-            Spacer(modifier = Modifier.weight(1f))
-
-            state.errorMessage?.let { message ->
-                Card(
-                    colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.errorContainer,
-                    ),
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        state.errorMessage?.let { message ->
+            Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.errorContainer,
+                ),
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp),
-                    ) {
-                        Text(
-                            text = message,
-                            color = MaterialTheme.colorScheme.onErrorContainer,
-                        )
-                        OutlinedButton(onClick = onDismissError) {
-                            Text("확인")
-                        }
+                    Text(
+                        text = message,
+                        color = MaterialTheme.colorScheme.onErrorContainer,
+                    )
+                    OutlinedButton(onClick = onDismissError) {
+                        Text("확인")
                     }
                 }
             }
-
-            MicrophoneButton(
-                status = state.status,
-                onStart = onStart,
-                onStop = onStop,
-            )
         }
+
+        MicrophoneButton(
+            status = state.status,
+            onStart = onStart,
+            onStop = onStop,
+        )
     }
 }
 
