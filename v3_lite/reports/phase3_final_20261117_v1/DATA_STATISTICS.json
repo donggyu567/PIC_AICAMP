@@ -1,0 +1,114 @@
+{
+  "status": "PASS",
+  "bindings": {
+    "train": "b1aad8f9c4f8ba6d7f42fb3567d1932e9a0c39e934c0ac4a8237e5fe47b99887",
+    "validation": "284dd36a817c24f852ebf018bac646a530f690a0abfd87f0e96e9176cbaa15d3",
+    "legacy_train": "0b3174b7ca4517ec0dd00decda41f902afde7184f4fd97aedf4c167b98859bb2",
+    "legacy_validation": "be3d7dd3b2090ec33a272e47f4cbb997f36ea72ce1093e1659fefb3ab1c247e8",
+    "inherited_policy_sha256": "7cea7ed9d38641b5a1863235739e7e984bb9c64985ca7291693b89e494465035",
+    "research_manifest_sha256": "f895d17848150edb5db15b6bf800fcb6ee0232f6775c770ce7d15b687fae5173"
+  },
+  "final_train": {
+    "conversations": 104,
+    "families": 104,
+    "utterances": 848,
+    "risk_positive": 209,
+    "normal_conversations": 38,
+    "types": {
+      "institution_impersonation": {
+        "positive": 31,
+        "negative": 817,
+        "positive_families": 21
+      },
+      "money_transfer": {
+        "positive": 22,
+        "negative": 826,
+        "positive_families": 9
+      },
+      "personal_information": {
+        "positive": 42,
+        "negative": 806,
+        "positive_families": 17
+      },
+      "app_installation": {
+        "positive": 22,
+        "negative": 826,
+        "positive_families": 8
+      },
+      "secrecy": {
+        "positive": 21,
+        "negative": 827,
+        "positive_families": 8
+      },
+      "threat_pressure": {
+        "positive": 19,
+        "negative": 829,
+        "positive_families": 8
+      },
+      "loan_fraud": {
+        "positive": 21,
+        "negative": 827,
+        "positive_families": 8
+      },
+      "information_probing": {
+        "positive": 39,
+        "negative": 809,
+        "positive_families": 15
+      }
+    }
+  },
+  "new_validation": {
+    "conversations": 32,
+    "families": 32,
+    "utterances": 256,
+    "risk_positive": 60,
+    "normal_conversations": 12,
+    "types": {
+      "institution_impersonation": {
+        "positive": 5,
+        "negative": 251,
+        "positive_families": 3
+      },
+      "money_transfer": {
+        "positive": 3,
+        "negative": 253,
+        "positive_families": 1
+      },
+      "personal_information": {
+        "positive": 18,
+        "negative": 238,
+        "positive_families": 6
+      },
+      "app_installation": {
+        "positive": 6,
+        "negative": 250,
+        "positive_families": 2
+      },
+      "secrecy": {
+        "positive": 3,
+        "negative": 253,
+        "positive_families": 1
+      },
+      "threat_pressure": {
+        "positive": 3,
+        "negative": 253,
+        "positive_families": 1
+      },
+      "loan_fraud": {
+        "positive": 6,
+        "negative": 250,
+        "positive_families": 2
+      },
+      "information_probing": {
+        "positive": 18,
+        "negative": 238,
+        "positive_families": 6
+      }
+    }
+  },
+  "automated_schema_and_lexical_checks": true,
+  "ai_semantic_review_complete": true,
+  "human_review_complete": false,
+  "semantic_review": "Session separately reread scenarios/labels; focus acts/context versus legitimate minimum information requests checked. Not independent human review; semantic independence remains unproven.",
+  "external_test_comparison": false
+}

@@ -1,0 +1,88 @@
+{
+  "schema": "lossless-model-parts/1",
+  "original_name": "v3_seed42_inference.pt",
+  "bytes": 449438496,
+  "sha256": "35dae5286fb4f39f23821989da6e3afcee5d9827197969e6ec88d09e47d083c2",
+  "parts": [
+    {
+      "index": 1,
+      "name": "v3_seed42_inference.pt.part0001",
+      "offset": 0,
+      "bytes": 67108864,
+      "sha256": "c49978142aa2d0847773bf661b0866d275e493329789ac43dee6c12ae8819f1a",
+      "md5": "b7304a2e0d036634c9e37c55b228bec7",
+      "drive_id": "1PhXEyiz0sYb6VWqPLwZT1e1rl8M49z1i",
+      "url": "https://drive.google.com/file/d/1PhXEyiz0sYb6VWqPLwZT1e1rl8M49z1i/view?usp=drivesdk"
+    },
+    {
+      "index": 2,
+      "name": "v3_seed42_inference.pt.part0002",
+      "offset": 67108864,
+      "bytes": 67108864,
+      "sha256": "101f5c63c9610ce47a3a59a58c796940db6c4bd097cefe69b07c645797bfdfa8",
+      "md5": "ffd9124adfe169bc137cca1445012949",
+      "drive_id": "1HHtz4pVX8uRc9YxvFAzdlczYh_39fX5A",
+      "url": "https://drive.google.com/file/d/1HHtz4pVX8uRc9YxvFAzdlczYh_39fX5A/view?usp=drivesdk"
+    },
+    {
+      "index": 3,
+      "name": "v3_seed42_inference.pt.part0003",
+      "offset": 134217728,
+      "bytes": 67108864,
+      "sha256": "86451e18df684f8def7e3f08283f080072c641487d2437d3d5af0862ce58031e",
+      "md5": "c3fd2c259c355a046306e9186ead6cf7",
+      "drive_id": "1vFps2flb4LrqsklJ6zMN7Hax4L9ZPKYn",
+      "url": "https://drive.google.com/file/d/1vFps2flb4LrqsklJ6zMN7Hax4L9ZPKYn/view?usp=drivesdk"
+    },
+    {
+      "index": 4,
+      "name": "v3_seed42_inference.pt.part0004",
+      "offset": 201326592,
+      "bytes": 67108864,
+      "sha256": "dd1a4ab9f5a25e4740e995c9f1c38688980f8d05acca264b1486963839e6485e",
+      "md5": "35736ae457daa6fbe24f8824931f15c7",
+      "drive_id": "1gQRdyDmvUH4tii0mXPw_KnMn_8uGosgQ",
+      "url": "https://drive.google.com/file/d/1gQRdyDmvUH4tii0mXPw_KnMn_8uGosgQ/view?usp=drivesdk"
+    },
+    {
+      "index": 5,
+      "name": "v3_seed42_inference.pt.part0005",
+      "offset": 268435456,
+      "bytes": 67108864,
+      "sha256": "f80db16310dda931b4381c7ceed1916f09dfc0bbd3e39d2a6e8a0344b2fcc8a7",
+      "md5": "1e8f3d6cae896fc90fc9b0cd3264d303",
+      "drive_id": "1BBb1SnJvQ2CF8rGQJLadr_NBi_rSyJco",
+      "url": "https://drive.google.com/file/d/1BBb1SnJvQ2CF8rGQJLadr_NBi_rSyJco/view?usp=drivesdk"
+    },
+    {
+      "index": 6,
+      "name": "v3_seed42_inference.pt.part0006",
+      "offset": 335544320,
+      "bytes": 67108864,
+      "sha256": "81a9f15cf195c7e3e999ab8c7505ad66c2d42f0368a24865b273ec446a59a9ce",
+      "md5": "687d4c32db301b69ddf4dae8514beaee",
+      "drive_id": "1FF7OiSzm23qPE2dSkfh3GmCQQrEm1kPR",
+      "url": "https://drive.google.com/file/d/1FF7OiSzm23qPE2dSkfh3GmCQQrEm1kPR/view?usp=drivesdk"
+    },
+    {
+      "index": 7,
+      "name": "v3_seed42_inference.pt.part0007",
+      "offset": 402653184,
+      "bytes": 46785312,
+      "sha256": "ba7755a4094fba792f8c139e683e5b05d535ddefa8bccc3132b8651d72554dec",
+      "md5": "963d925120f4445697056d30f046bb8e",
+      "drive_id": "1SS3Va4b-X6Ad_YmCFG6lTsu5hbm2YZ-i",
+      "url": "https://drive.google.com/file/d/1SS3Va4b-X6Ad_YmCFG6lTsu5hbm2YZ-i/view?usp=drivesdk"
+    }
+  ],
+  "reason": "Official connector pre-invocation materialization limit100MiB; each ordinary file64MiB or less, as explicitly allowed by user",
+  "human_reviewed": false,
+  "purpose": "internal_experiment",
+  "deployment_allowed": false,
+  "remote_redownload_and_reassembly_verified": true,
+  "remote_reassembled_sha256": "35dae5286fb4f39f23821989da6e3afcee5d9827197969e6ec88d09e47d083c2",
+  "single_full_file_uploaded": false,
+  "join_script_sha256": "99f8958cb9dadefdbdfb358ae5706626dc0239ca6595325081e24cdc11da3e38",
+  "verified_at": "2026-11-17T10:29:58.249116+00:00",
+  "access": "OWNER_ONLY; named external sharing blocked by automatic approval review; no anyone/domain grant"
+}

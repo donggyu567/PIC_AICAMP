@@ -1,0 +1,115 @@
+{
+  "history": [
+    {
+      "epoch": 1,
+      "optimizer_steps": 106,
+      "epoch_steps": 106,
+      "samples": 848,
+      "train_loss": 0.6600795071923508,
+      "risk_loss": 0.21041333830019213,
+      "type_loss": 0.4496661665023498,
+      "per_type_unweighted": {
+        "institution_impersonation": 0.2638120302614176,
+        "money_transfer": 0.270805427910022,
+        "personal_information": 0.3664674171299305,
+        "app_installation": 0.28597890993334213,
+        "secrecy": 0.2866146591193271,
+        "threat_pressure": 0.2263696664627993,
+        "loan_fraud": 0.23780323157332978,
+        "information_probing": 0.33156145392161496
+      },
+      "per_type_weighted": {
+        "institution_impersonation": 0.3763832035210897,
+        "money_transfer": 0.39272819459438324,
+        "personal_information": 0.6172087808262627,
+        "app_installation": 0.44491718990622825,
+        "secrecy": 0.43708855405731023,
+        "threat_pressure": 0.34504971470472945,
+        "loan_fraud": 0.3525069093085685,
+        "information_probing": 0.6314468146213945
+      },
+      "elapsed_seconds": 1238.1870000000008,
+      "changed_tensors_from_parent": 201,
+      "changed_groups": {
+        "encoder.": 197,
+        "risk_classifier.": 2,
+        "type_classifier.": 2
+      }
+    }
+  ],
+  "parent_sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee",
+  "config": {
+    "schema": "koelectra-v3-lite-config/1",
+    "purpose": "internal_experiment",
+    "seed": 42,
+    "batch_size": 8,
+    "learning_rate": 5e-06,
+    "weight_decay": 0.01,
+    "type_pos_weight": [
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10
+    ],
+    "thresholds": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "epochs_default": 1,
+    "epochs_max": 2,
+    "optimizer_steps_per_epoch": 106,
+    "max_optimizer_steps": 212,
+    "cpu_threads": 2,
+    "gradient_checkpointing": true,
+    "optimizer_reset": true,
+    "precision": "float32",
+    "parent_sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee",
+    "revision": "68b30cd259f34a4b5aa8786392612ba2a2617fcc",
+    "label_order": [
+      "institution_impersonation",
+      "money_transfer",
+      "personal_information",
+      "app_installation",
+      "secrecy",
+      "threat_pressure",
+      "loan_fraud",
+      "information_probing"
+    ],
+    "gates": {
+      "binary_recall_drop_max": 0.02,
+      "binary_f1_drop_max": 0.01,
+      "other_macro_f1_drop_max": 0.02,
+      "other_type_recall_drop_max": 0.1,
+      "focus_f1_gain_min": 0.05,
+      "focus_ap_drop_max": 0.02,
+      "normal_false_alert_increase_max": 0
+    }
+  },
+  "config_sha256": "366ad9c596d29846d3ddf72af29315c35aeafc4d8f805510caf53f8226862f1f",
+  "training_code_sha256": "ce78baddd5d46e1946f0261a2040cc1aa13d6598987eef6bb808a82375641fec",
+  "data_bindings": {
+    "train": "b1aad8f9c4f8ba6d7f42fb3567d1932e9a0c39e934c0ac4a8237e5fe47b99887",
+    "validation": "284dd36a817c24f852ebf018bac646a530f690a0abfd87f0e96e9176cbaa15d3",
+    "legacy_train": "0b3174b7ca4517ec0dd00decda41f902afde7184f4fd97aedf4c167b98859bb2",
+    "legacy_validation": "be3d7dd3b2090ec33a272e47f4cbb997f36ea72ce1093e1659fefb3ab1c247e8",
+    "inherited_policy_sha256": "7cea7ed9d38641b5a1863235739e7e984bb9c64985ca7291693b89e494465035",
+    "research_manifest_sha256": "f895d17848150edb5db15b6bf800fcb6ee0232f6775c770ce7d15b687fae5173"
+  },
+  "source_kind": "llm_synthetic",
+  "human_reviewed": false,
+  "actual_full_model": true,
+  "optimizer_reset": true,
+  "optimizer_state_reused": false,
+  "validation_adopted": false
+}

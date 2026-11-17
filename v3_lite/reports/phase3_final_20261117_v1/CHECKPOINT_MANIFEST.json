@@ -1,0 +1,17 @@
+{
+  "schema": "v3-research-training-manifest/1",
+  "checkpoints": [
+    {
+      "path": "v3_lite/runs/research_synthetic_seed42_20261117_v2/epoch_001.pt",
+      "sha256": "607005ca8ce0e5a1352b4624eb49eab44f66015af58487396fe5b815cc9bfda9",
+      "bytes": 1348303402,
+      "artifact_kind": "research_model",
+      "epoch": 1
+    }
+  ],
+  "selected": null,
+  "selection_status": "NO_IMPROVEMENT_CANDIDATE_ADOPTED",
+  "final_generalization_confirmed": false,
+  "human_reviewed": false,
+  "deployment_allowed": false
+}

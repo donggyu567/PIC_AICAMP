@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "verified_on": "2026-11-18",
+  "retrained": false,
+  "model_hashes": {
+    "training": {
+      "path": "v3_lite\\runs\\research_synthetic_seed42_20261117_v2\\epoch_001.pt",
+      "bytes": 1348303402,
+      "sha256": "607005ca8ce0e5a1352b4624eb49eab44f66015af58487396fe5b815cc9bfda9"
+    },
+    "inference": {
+      "path": "v3_lite\\handoff\\research_20261117_v1\\models\\v3_seed42_inference.pt",
+      "bytes": 449438496,
+      "sha256": "35dae5286fb4f39f23821989da6e3afcee5d9827197969e6ec88d09e47d083c2"
+    },
+    "parent": {
+      "path": ".worktrees\\koelectra-v2-pilot-readiness\\artifacts\\v2_research_handoff\\stage5_final_20261110_v1\\models\\B_ratio\\seed_42.pt",
+      "bytes": 1348303914,
+      "sha256": "0d14fadcc9dbd1a3ea3872074970d47f79148f76766d77188eb808b94ed9d2ee"
+    }
+  },
+  "critical_runtime_files": 23,
+  "cpu_proof_reused_after_hash_validation": true,
+  "training_steps": 106,
+  "trained_epoch": 1,
+  "changed_tensors": 201,
+  "groups": {
+    "encoder.": 197,
+    "risk_classifier.": 2,
+    "type_classifier.": 2
+  },
+  "prior_internal_regression": {
+    "status": "PASS",
+    "tests_run": 31,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "prior_v2_core_regression": {
+    "status": "PASS",
+    "tests_run": 48,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "remote_parts_verified": 7,
+  "remote_complete_file_uploaded": false,
+  "team_access_granted": false,
+  "sharing_retried": false,
+  "test_reopened": false,
+  "public_checkout_tests": {
+    "run": 31,
+    "passed": 29,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 2
+  },
+  "preserved_preexisting_files": 1504,
+  "public_test_command": "PIC_V2_RESEARCH_ROOT=<private-v2-root> python -B -X utf8 -m unittest discover -s v3_lite/tests -t . -v"
+}

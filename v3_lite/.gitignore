@@ -1,0 +1,12 @@
+*.pt
+*.part*
+*.partial
+__pycache__/
+*.pyc
+runs/
+checkpoints/
+transfer_*/
+reports/autonomous_run/
+reports/recovery_*/
+data/*/
+!data/README.md

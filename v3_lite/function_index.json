@@ -1,0 +1,4732 @@
+[
+  {
+    "path": "v3_lite/build_research_data.py",
+    "name": "parse",
+    "line": 12,
+    "end_line": 37,
+    "signature": "role",
+    "calls": [
+      "authored.read_text",
+      "authored.read_text(encoding='utf-8-sig').splitlines",
+      "bool",
+      "cs.append",
+      "current['utterances'].append",
+      "dict",
+      "len",
+      "line.split",
+      "line.startswith",
+      "line.strip",
+      "read_json",
+      "require",
+      "role.upper",
+      "sha",
+      "sorted",
+      "validate_research"
+    ],
+    "returns": [
+      "cs"
+    ],
+    "checks": [
+      "require(len(cs) == len(plan), 'Prospective scenario count mismatch')",
+      "validate_research(cs, role)",
+      "require(family in expected, 'Unknown prospective family')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/build_research_data.py#L12"
+  },
+  {
+    "path": "v3_lite/check_phase2.py",
+    "name": "regression",
+    "line": 18,
+    "end_line": 34,
+    "signature": "out",
+    "calls": [
+      "(out / 'regression.log').write_text",
+      "code_inventory",
+      "create_json",
+      "dict",
+      "digest",
+      "io.StringIO",
+      "len",
+      "print",
+      "require",
+      "result.wasSuccessful",
+      "str",
+      "stream.getvalue",
+      "time.monotonic",
+      "unittest.TextTestRunner",
+      "unittest.TextTestRunner(stream=stream, verbosity=2).run",
+      "unittest.defaultTestLoader.discover"
+    ],
+    "returns": [
+      "record"
+    ],
+    "checks": [
+      "require(record['status'] == 'PASS', 'Regression failed; real training remains blocked')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/check_phase2.py#L18"
+  },
+  {
+    "path": "v3_lite/check_phase2.py",
+    "name": "parent_smoke",
+    "line": 37,
+    "end_line": 76,
+    "signature": "out",
+    "calls": [
+      "abs",
+      "all",
+      "bootstrap",
+      "create_json",
+      "dict",
+      "json.dumps",
+      "len",
+      "list",
+      "load_v2_start",
+      "max",
+      "model.eval",
+      "model.named_parameters",
+      "model.state_dict",
+      "module.raw_logits",
+      "new_optimizer",
+      "parent_state[k].data_ptr",
+      "print",
+      "record.items",
+      "require",
+      "resources",
+      "runtime",
+      "set",
+      "state.items",
+      "str",
+      "time.monotonic",
+      "torch.equal",
+      "torch.load",
+      "torch.set_num_threads",
+      "value.data_ptr",
+      "verify_parent",
+      "zip"
+    ],
+    "returns": [
+      "record"
+    ],
+    "checks": [
+      "require(set(state) == set(parent_state), 'Parent state keys changed')",
+      "require(equal and independent, 'Warm-start parameters not equal/independent')",
+      "require(delta <= 1e-06, 'CPU inference is not repeatable')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/check_phase2.py#L37"
+  },
+  {
+    "path": "v3_lite/check_phase2.py",
+    "name": "preservation",
+    "line": 79,
+    "end_line": 95,
+    "signature": "out",
+    "calls": [
+      "(ROOT / name).is_file",
+      "(ROOT / name).stat",
+      "before['files'].items",
+      "create_json",
+      "dict",
+      "json.dumps",
+      "len",
+      "phase1_hashes.items",
+      "print",
+      "read_json",
+      "require",
+      "sha",
+      "subprocess.check_output",
+      "subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip",
+      "subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=V2, text=True).strip"
+    ],
+    "returns": [
+      "record"
+    ],
+    "checks": [
+      "require(not changed and root_head == before['root_head'] and (v2_head == before['v2_head']), 'Preexisting files/HEAD changed')",
+      "require(not hash_changes, 'Existing required v2 documents changed')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/check_phase2.py#L79"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/core_runtime.py",
+    "name": "require",
+    "line": 17,
+    "end_line": 18,
+    "signature": "ok, message",
+    "calls": [
+      "ValueError"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/core_runtime.py#L17"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/core_runtime.py",
+    "name": "sha",
+    "line": 21,
+    "end_line": 25,
+    "signature": "path",
+    "calls": [
+      "Path",
+      "Path(path).open",
+      "hashlib.sha256",
+      "iter",
+      "stream.read",
+      "value.hexdigest",
+      "value.update"
+    ],
+    "returns": [
+      "value.hexdigest()"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/core_runtime.py#L21"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/core_runtime.py",
+    "name": "read",
+    "line": 28,
+    "end_line": 29,
+    "signature": "path",
+    "calls": [
+      "Path",
+      "Path(path).read_text",
+      "json.loads"
+    ],
+    "returns": [
+      "json.loads(Path(path).read_text(encoding='utf-8-sig'))"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/core_runtime.py#L28"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/core_runtime.py",
+    "name": "relative_file",
+    "line": 32,
+    "end_line": 38,
+    "signature": "root, spec",
+    "calls": [
+      "(root / name).resolve",
+      "Path",
+      "Path(name).is_absolute",
+      "Path(root).resolve",
+      "isinstance",
+      "path.is_file",
+      "path.is_relative_to",
+      "require",
+      "sha"
+    ],
+    "returns": [
+      "path"
+    ],
+    "checks": [
+      "require(isinstance(name, str) and (not Path(name).is_absolute()) and (':' not in name) and ('\\\\' not in name), 'Relative artifact path required')",
+      "require(path.is_relative_to(root) and path.is_file(), 'Missing/escaping bundle artifact')",
+      "require(sha(path) == spec['sha256'], 'Bundle artifact SHA mismatch')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/core_runtime.py#L32"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/core_runtime.py",
+    "name": "compatible_tokenizer",
+    "line": 41,
+    "end_line": 48,
+    "signature": "metadata, tokenizer",
+    "calls": [
+      "actual.pop",
+      "dict",
+      "expected.pop",
+      "require",
+      "tokenizer_behavior",
+      "tokenizer_metadata"
+    ],
+    "returns": [],
+    "checks": [
+      "require(expected == actual, 'Tokenizer content/contract mismatch')",
+      "require(metadata['tokenizer_behavior'] == tokenizer_behavior(tokenizer), 'Tokenizer probe mismatch')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/core_runtime.py#L41"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/core_runtime.py",
+    "name": "load_model",
+    "line": 51,
+    "end_line": 78,
+    "signature": "path, expected_sha, tokenizer, *, arm=None, seed=None, bindings=None, legacy=False",
+    "calls": [
+      "ElectraConfig.from_dict",
+      "ElectraModel",
+      "RiskSpeechClassifier",
+      "checkpoint.get",
+      "compatible_tokenizer",
+      "config.to_dict",
+      "ext.get",
+      "list",
+      "metadata['encoder_config'].get",
+      "model.eval",
+      "model.load_state_dict",
+      "model.modules",
+      "module._buffers.items",
+      "require",
+      "sha",
+      "torch.arange",
+      "torch.arange(tensor.shape[-1], dtype=tensor.dtype).expand",
+      "torch.arange(tensor.shape[-1], dtype=tensor.dtype).expand(tensor.shape).clone",
+      "torch.device",
+      "torch.load",
+      "torch.zeros",
+      "validate_checkpoint_metadata",
+      "validate_model_config"
+    ],
+    "returns": [
+      "(model, metadata)"
+    ],
+    "checks": [
+      "require(sha(path) == expected_sha, 'Checkpoint SHA mismatch')",
+      "validate_checkpoint_metadata(checkpoint)",
+      "require(ext.get('schema') == 'exploratory-checkpoint/1' and ext['arm'] == arm and (ext['seed'] == seed) and (ext['epoch'] == 3), 'Wrong frozen research checkpoint')",
+      "require(ext['bindings'] == bindings, 'Checkpoint data bindings mismatch')",
+      "require(ext['policy']['human_approved'] is False and ext['policy']['deployment_approved'] is False, 'Research checkpoint approval mismatch')",
+      "require(name in ('position_ids', 'token_type_ids') and name in module._non_persistent_buffers_set, 'Unexpected meta buffer')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/core_runtime.py#L51"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/core_runtime.py",
+    "name": "raw_logits",
+    "line": 81,
+    "end_line": 96,
+    "signature": "model, tokenizer, inputs, *, batch_size=8",
+    "calls": [
+      "build_model_input",
+      "features.append",
+      "getattr",
+      "joined.tolist",
+      "len",
+      "model",
+      "range",
+      "require",
+      "tokenizer.pad",
+      "torch.cat",
+      "torch.inference_mode",
+      "torch.isfinite",
+      "torch.isfinite(joined).all",
+      "torch.isfinite(joined).all().item",
+      "values.extend"
+    ],
+    "returns": [
+      "values"
+    ],
+    "checks": [
+      "require(joined.shape == (len(features), 9) and torch.isfinite(joined).all().item(), 'Invalid model logits')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/core_runtime.py#L81"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/core_runtime.py",
+    "name": "validate_request",
+    "line": 99,
+    "end_line": 104,
+    "signature": "request",
+    "calls": [
+      "all",
+      "current.strip",
+      "isinstance",
+      "len",
+      "request.get",
+      "require",
+      "set",
+      "t.strip"
+    ],
+    "returns": [
+      "(history, current)"
+    ],
+    "checks": [
+      "require(isinstance(request, dict) and set(request) <= {'history_texts', 'current_text'}, 'Unknown request fields')",
+      "require(isinstance(history, list) and len(history) <= 100 and all((isinstance(t, str) and t.strip() and (len(t) <= 32000) for t in history)), 'Invalid history_texts')",
+      "require(isinstance(current, str) and current.strip() and (len(current) <= 32000), 'Invalid current_text')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/core_runtime.py#L99"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/core_runtime.py",
+    "name": "output_response",
+    "line": 107,
+    "end_line": 115,
+    "signature": "values, thresholds, *, seed, model_sha",
+    "calls": [
+      "all",
+      "dict",
+      "enumerate",
+      "len",
+      "math.exp",
+      "math.isfinite",
+      "require",
+      "type",
+      "zip"
+    ],
+    "returns": [
+      "dict(ok=True, status='success', http_status=200, result=dict(risk_probability=p[0], risk_score=100 * p[0], is_phishing=p[0] >= thresholds[0], type_probabilities=dict(zip(LABELS, p[1:])), detected_types=[l for i, l in enumerate(LABELS, 1) if"
+    ],
+    "checks": [
+      "require(len(values) == 9 and all((math.isfinite(v) for v in values)), 'Invalid logits')",
+      "require(len(thresholds) == 9 and all((type(v) in (float, int) and math.isfinite(v) and (0 <= v <= 1) for v in thresholds)), 'Invalid thresholds')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/core_runtime.py#L107"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/core_runtime.py",
+    "name": "serve_request",
+    "line": 139,
+    "end_line": 148,
+    "signature": "predictor, request",
+    "calls": [
+      "dict",
+      "failure",
+      "predictor.predict",
+      "validate_request"
+    ],
+    "returns": [
+      "dict(ok=False, status='error', http_status=status, result=None, error=dict(code=code))",
+      "failure('NOT_READY', 503)",
+      "predictor.predict(request)",
+      "failure('INVALID_REQUEST', 400)",
+      "failure('INPUT_TOO_LONG', 422)",
+      "failure('TOKENIZER_CONTRACT', 500)",
+      "failure('MODEL_INFERENCE_ERROR', 500)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/core_runtime.py#L139"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/core_runtime.py",
+    "name": "ResearchPredictor.__init__",
+    "line": 119,
+    "end_line": 132,
+    "signature": "self, bundle=HERE, seed=42, *, expected_manifest_sha=None",
+    "calls": [
+      "AutoTokenizer.from_pretrained",
+      "Path",
+      "Path(bundle).resolve",
+      "isinstance",
+      "list",
+      "load_model",
+      "read",
+      "relative_file",
+      "require",
+      "sha",
+      "str",
+      "type"
+    ],
+    "returns": [],
+    "checks": [
+      "require(isinstance(expected_manifest_sha, str) and sha(self.bundle / 'bundle_manifest.json') == expected_manifest_sha, 'Trusted bundle manifest SHA required')",
+      "require(m['schema'] == 'research-server-bundle/1' and m['deployment_approved'] is False and (m['human_approved'] is False), 'Not a research bundle')",
+      "require(type(seed) is int and str(seed) in m['models'], 'Unregistered seed')",
+      "require(m['label_order'] == list(LABELS) and m['thresholds'] == [0.5] * 9, 'Frozen inference contract changed')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/core_runtime.py#L119"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/core_runtime.py",
+    "name": "ResearchPredictor.predict",
+    "line": 134,
+    "end_line": 136,
+    "signature": "self, request",
+    "calls": [
+      "output_response",
+      "raw_logits",
+      "validate_request"
+    ],
+    "returns": [
+      "output_response(raw_logits(self.model, self.tokenizer, [(history, current)])[0], self.thresholds, seed=self.seed, model_sha=self.model_sha)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/core_runtime.py#L134"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/join_model.py",
+    "name": "require",
+    "line": 8,
+    "end_line": 9,
+    "signature": "condition, message",
+    "calls": [
+      "ValueError"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/join_model.py#L8"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/join_model.py",
+    "name": "join",
+    "line": 12,
+    "end_line": 31,
+    "signature": "manifest_path, output",
+    "calls": [
+      "(path.parent / part['name']).resolve",
+      "FileExistsError",
+      "Path",
+      "Path(manifest_path).resolve",
+      "Path(output).resolve",
+      "check.hexdigest",
+      "check.update",
+      "dict",
+      "enumerate",
+      "f.read",
+      "hashlib.sha256",
+      "iter",
+      "json.loads",
+      "len",
+      "os.fsync",
+      "os.rename",
+      "path.read_text",
+      "require",
+      "source.open",
+      "str",
+      "stream.fileno",
+      "stream.flush",
+      "stream.write",
+      "target.exists",
+      "target.parent.mkdir",
+      "target.with_name",
+      "temp.open",
+      "total.hexdigest",
+      "total.update"
+    ],
+    "returns": [
+      "dict(path=str(target), bytes=size, sha256=total.hexdigest(), parts=len(m['parts']))"
+    ],
+    "checks": [
+      "require(m['schema'] == 'lossless-model-parts/1', 'Wrong transfer schema')",
+      "require(size == m['bytes'] and total.hexdigest() == m['sha256'], 'Full model mismatch')",
+      "require(part['index'] == index and Path(part['name']).name == part['name'], 'Unsafe part name/order')",
+      "require(source.parent == path.parent, 'Part escapes transfer directory')",
+      "require(n == part['bytes'] and check.hexdigest() == part['sha256'], 'Part mismatch: ' + part['name'])"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/join_model.py#L12"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/runtime.py",
+    "name": "serve_request",
+    "line": 50,
+    "end_line": 51,
+    "signature": "predictor, request",
+    "calls": [
+      "core.serve_request"
+    ],
+    "returns": [
+      "core.serve_request(predictor, request)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/runtime.py#L50"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/runtime.py",
+    "name": "V3Predictor.__init__",
+    "line": 16,
+    "end_line": 38,
+    "signature": "self, bundle=HERE, *, expected_manifest_sha",
+    "calls": [
+      "AutoTokenizer.from_pretrained",
+      "Path",
+      "Path(bundle).resolve",
+      "core.load_model",
+      "core.read",
+      "core.relative_file",
+      "core.require",
+      "core.sha",
+      "envelope.get",
+      "ext.get",
+      "list",
+      "str",
+      "torch.load"
+    ],
+    "returns": [],
+    "checks": [
+      "core.require(core.sha(self.bundle / 'bundle_manifest.json') == expected_manifest_sha, 'Trusted manifest SHA mismatch')",
+      "core.require(m['schema'] == 'v3-lite-inference-bundle/1' and m['label_order'] == list(LABELS) and (m['thresholds'] == [0.5] * 9) and (m['purpose'] == 'internal_experiment') and (m['human_reviewed'] is False) and (m['deployment_allowed'] is False), 'Invalid research bundle')",
+      "core.require(envelope.get('inference_only') is True and envelope.get('optimizer_state_dict') == {} and (ext.get('schema') == 'v3-lite-checkpoint/1') and (ext.get('parent_sha256') == m['parent_sha256']) and (ext.get('epoch') == m['epoch']) and (ext.get('human_reviewed') is False), 'Invalid v3 inference lineage')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/runtime.py#L16"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/runtime.py",
+    "name": "V3Predictor.predict",
+    "line": 40,
+    "end_line": 47,
+    "signature": "self, request",
+    "calls": [
+      "core.output_response",
+      "core.raw_logits",
+      "core.validate_request",
+      "response['result'].update"
+    ],
+    "returns": [
+      "response"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/runtime.py#L40"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py",
+    "name": "input_contract",
+    "line": 31,
+    "end_line": 40,
+    "signature": "",
+    "calls": [],
+    "returns": [
+      "{'version': INPUT_CONTRACT_VERSION, 'max_history_utterances': MAX_HISTORY_UTTERANCES, 'max_sequence_length': MAX_SEQUENCE_LENGTH, 'sequence_format': '[CLS] history [SEP] current [SEP]', 'history_separator': '\\n', 'overflow_rule': 'drop_olde"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py#L31"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py",
+    "name": "tokenizer_metadata",
+    "line": 43,
+    "end_line": 65,
+    "signature": "tokenizer: Any",
+    "calls": [
+      "ValueError",
+      "callable",
+      "dict",
+      "getattr",
+      "getattr(tokenizer, 'init_kwargs', {}).get",
+      "hashlib.sha256",
+      "hashlib.sha256(serialized_vocab).hexdigest",
+      "isinstance",
+      "json.dumps",
+      "json.dumps(dict(vocabulary), sort_keys=True, ensure_ascii=False).encode",
+      "json.loads",
+      "len",
+      "tokenizer.get_vocab",
+      "type"
+    ],
+    "returns": [
+      "{'name': getattr(tokenizer, 'name_or_path', None), 'class_name': type(tokenizer).__module__ + '.' + type(tokenizer).__qualname__, 'vocab_size': getattr(tokenizer, 'vocab_size', len(vocabulary)), 'vocab_sha256': hashlib.sha256(serialized_voc"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py#L43"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py",
+    "name": "tokenizer_behavior",
+    "line": 68,
+    "end_line": 82,
+    "signature": "tokenizer: Any",
+    "calls": [
+      "build_model_input"
+    ],
+    "returns": [
+      "[{'text': probe, 'input_ids': prepared.input_ids, 'attention_mask': prepared.attention_mask, 'token_type_ids': prepared.token_type_ids} for probe in TOKENIZER_PROBES for prepared in [build_model_input([], probe, tokenizer=tokenizer)]]"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py#L68"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py",
+    "name": "encoder_config",
+    "line": 85,
+    "end_line": 92,
+    "signature": "model: Any",
+    "calls": [
+      "config.to_json_string",
+      "json.loads",
+      "result.pop"
+    ],
+    "returns": [
+      "result"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py#L85"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py",
+    "name": "read_checkpoint",
+    "line": 95,
+    "end_line": 99,
+    "signature": "path: str | Path, *, map_location: str | torch.device='cpu'",
+    "calls": [
+      "CheckpointCompatibilityError",
+      "isinstance",
+      "torch.load"
+    ],
+    "returns": [
+      "checkpoint"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py#L95"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py",
+    "name": "_required",
+    "line": 102,
+    "end_line": 105,
+    "signature": "mapping: Mapping[str, Any], names: tuple[str, ...], location: str",
+    "calls": [
+      "', '.join",
+      "CheckpointCompatibilityError"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py#L102"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py",
+    "name": "validate_checkpoint_metadata",
+    "line": 108,
+    "end_line": 182,
+    "signature": "checkpoint: Mapping[str, Any]",
+    "calls": [
+      "CheckpointCompatibilityError",
+      "_required",
+      "any",
+      "checkpoint.get",
+      "input_contract",
+      "isinstance",
+      "len",
+      "list",
+      "metadata.get",
+      "metadata['data_version'].strip",
+      "result.get",
+      "type",
+      "value.strip",
+      "zip"
+    ],
+    "returns": [
+      "metadata"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py#L108"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py",
+    "name": "validate_model_config",
+    "line": 185,
+    "end_line": 187,
+    "signature": "metadata: Mapping[str, Any], model: Any",
+    "calls": [
+      "CheckpointCompatibilityError",
+      "encoder_config"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py#L185"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py",
+    "name": "validate_tokenizer",
+    "line": 190,
+    "end_line": 199,
+    "signature": "metadata: Mapping[str, Any], tokenizer: Any",
+    "calls": [
+      "CheckpointCompatibilityError",
+      "isinstance",
+      "metadata.get",
+      "tokenizer_behavior",
+      "tokenizer_metadata"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py#L190"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py",
+    "name": "load_training_checkpoint",
+    "line": 202,
+    "end_line": 222,
+    "signature": "path: str | Path, model: Any, *, tokenizer: Any, optimizer: torch.optim.Optimizer | None=None, map_location: str | torch.device='cpu', checkpoint: dict[str, Any] | None=None",
+    "calls": [
+      "CheckpointCompatibilityError",
+      "copy.deepcopy",
+      "model.load_state_dict",
+      "optimizer.load_state_dict",
+      "read_checkpoint",
+      "temporary_model.load_state_dict",
+      "temporary_model.state_dict",
+      "validate_checkpoint_metadata",
+      "validate_model_config",
+      "validate_tokenizer"
+    ],
+    "returns": [
+      "loaded"
+    ],
+    "checks": [
+      "validate_checkpoint_metadata(loaded)"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/checkpoint.py#L202"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/dataset.py",
+    "name": "make_training_dataloader",
+    "line": 75,
+    "end_line": 89,
+    "signature": "dataset: RiskSpeechDataset, *, tokenizer: Any, batch_size: int, shuffle: bool=True, seed: int=42",
+    "calls": [
+      "DataLoader",
+      "DynamicPaddingCollator",
+      "ValueError",
+      "isinstance",
+      "torch.Generator",
+      "torch.Generator().manual_seed"
+    ],
+    "returns": [
+      "DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, collate_fn=DynamicPaddingCollator(tokenizer), generator=generator, num_workers=0)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/dataset.py#L75"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/dataset.py",
+    "name": "RiskSpeechDataset.__init__",
+    "line": 19,
+    "end_line": 39,
+    "signature": "self, samples: Sequence[TrainingSample], *, tokenizer: Any",
+    "calls": [
+      "TypeError",
+      "ValueError",
+      "any",
+      "build_model_input",
+      "float",
+      "isinstance",
+      "len",
+      "self.items.append"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/dataset.py#L19"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/dataset.py",
+    "name": "RiskSpeechDataset.__len__",
+    "line": 41,
+    "end_line": 42,
+    "signature": "self",
+    "calls": [
+      "len"
+    ],
+    "returns": [
+      "len(self.items)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/dataset.py#L41"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/dataset.py",
+    "name": "RiskSpeechDataset.__getitem__",
+    "line": 44,
+    "end_line": 45,
+    "signature": "self, index: int",
+    "calls": [],
+    "returns": [
+      "self.items[index]"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/dataset.py#L44"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/dataset.py",
+    "name": "DynamicPaddingCollator.__init__",
+    "line": 49,
+    "end_line": 52,
+    "signature": "self, tokenizer: Any",
+    "calls": [
+      "TokenizerContractError",
+      "getattr"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/dataset.py#L49"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/dataset.py",
+    "name": "DynamicPaddingCollator.__call__",
+    "line": 54,
+    "end_line": 72,
+    "signature": "self, items: list[dict[str, Any]]",
+    "calls": [
+      "ValueError",
+      "self.tokenizer.pad",
+      "torch.tensor"
+    ],
+    "returns": [
+      "{'input_ids': batch['input_ids'], 'attention_mask': batch['attention_mask'], 'token_type_ids': batch['token_type_ids'], 'risk_target': torch.tensor([[item['risk_target']] for item in items], dtype=torch.float32), 'type_targets': torch.tenso"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/dataset.py#L54"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py",
+    "name": "sha256_file",
+    "line": 35,
+    "end_line": 40,
+    "signature": "path: Path",
+    "calls": [
+      "digest.hexdigest",
+      "digest.update",
+      "hashlib.sha256",
+      "iter",
+      "path.open",
+      "stream.read"
+    ],
+    "returns": [
+      "digest.hexdigest()"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py#L35"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py",
+    "name": "_write_json",
+    "line": 43,
+    "end_line": 44,
+    "signature": "path: Path, value: object",
+    "calls": [
+      "json.dumps",
+      "path.write_text"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py#L43"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py",
+    "name": "_git",
+    "line": 47,
+    "end_line": 49,
+    "signature": "*args: str",
+    "calls": [
+      "result.stdout.strip",
+      "subprocess.run"
+    ],
+    "returns": [
+      "result.stdout.strip() if result.returncode == 0 else 'not_recorded'"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py#L47"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py",
+    "name": "_duplicates",
+    "line": 52,
+    "end_line": 63,
+    "signature": "label_rows: list[dict], tuned_rows: list[dict]",
+    "calls": [
+      "by_text.values",
+      "by_text[row['tuned_text']].append",
+      "defaultdict",
+      "len",
+      "map",
+      "sum",
+      "tuple"
+    ],
+    "returns": [
+      "{'identical_text_groups': len(repeated), 'utterances_in_identical_text_groups': sum(map(len, repeated)), 'same_conversation_groups': sum((len({row['conversation_id'] for row in rows}) == 1 for rows in repeated)), 'conflicting_risk_groups': "
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py#L52"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py",
+    "name": "_restore_history",
+    "line": 66,
+    "end_line": 95,
+    "signature": "report_dir: Path, checkpoint: dict, observation_path: Path",
+    "calls": [
+      "csv.DictWriter",
+      "json.loads",
+      "observation_path.read_text",
+      "path.open",
+      "writer.writeheader",
+      "writer.writerow"
+    ],
+    "returns": [
+      "{'batch_cumulative_observations': observations['batch_cumulative'], 'epoch_losses': epoch_losses, 'batch_specific_losses': 'not_recorded', 'training_started_at': 'not_recorded', 'training_finished_at': 'not_recorded', 'training_duration_sec"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py#L66"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py",
+    "name": "_latency_summary",
+    "line": 98,
+    "end_line": 103,
+    "signature": "values: list[float]",
+    "calls": [
+      "float",
+      "len",
+      "max",
+      "min",
+      "np.percentile",
+      "statistics.mean",
+      "statistics.median"
+    ],
+    "returns": [
+      "{'n': len(values), 'mean_ms': statistics.mean(values), 'median_ms': statistics.median(values), 'p50_ms': float(np.percentile(values, 50)), 'p95_ms': float(np.percentile(values, 95)), 'min_ms': min(values), 'max_ms': max(values)}"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py#L98"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py",
+    "name": "_write_csv",
+    "line": 106,
+    "end_line": 115,
+    "signature": "path: Path, per_label: dict",
+    "calls": [
+      "csv.DictWriter",
+      "json.dumps",
+      "path.open",
+      "writer.writeheader",
+      "writer.writerow"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py#L106"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py",
+    "name": "_svg_charts",
+    "line": 118,
+    "end_line": 147,
+    "signature": "report_dir: Path, metrics: dict, history: dict",
+    "calls": [
+      "' '.join",
+      "''.join",
+      "(report_dir / 'loss_trend.svg').write_text",
+      "(report_dir / 'per_label_f1.svg').write_text",
+      "(report_dir / 'risk_confusion.svg').write_text",
+      "enumerate",
+      "max",
+      "min",
+      "range"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py#L118"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py",
+    "name": "_markdown",
+    "line": 150,
+    "end_line": 206,
+    "signature": "metrics: dict, benchmark: dict, reproducibility: dict, history: dict",
+    "calls": [
+      "chr",
+      "chr(10).join",
+      "fmt",
+      "types['per_label'].items"
+    ],
+    "returns": [
+      "f\"# KoELECTRA v1 정량 평가\\n\\n**평가 집합: TRAIN (IN-SAMPLE), {risk['n']}발화.** 모델이 학습한 발화를 다시 평가한 결과이며 독립 검증·테스트 성능이 아닙니다.\\n\\n## 학습 기록\\n\\n- 68개 대화, {risk['n']}발화; 피싱 {risk['positive']}, 정상 {risk['negative']}.\\n- 1 epoch, 183 optimizer steps, AdamW,",
+      "'N/A' if value is None else f'{value:.4f}'"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py#L150"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py",
+    "name": "main",
+    "line": 209,
+    "end_line": 376,
+    "signature": "argv: list[str] | None=None",
+    "calls": [
+      "(args.prepared_dir / 'provenance.json').read_text",
+      "(args.report_dir / 'metrics_report.md').write_text",
+      "InferenceInput",
+      "Path",
+      "Path(CHECKPOINT_PATH).resolve",
+      "ValueError",
+      "__import__",
+      "__import__('os').cpu_count",
+      "_duplicates",
+      "_git",
+      "_latency_summary",
+      "_markdown",
+      "_restore_history",
+      "_svg_charts",
+      "_write_csv",
+      "_write_json",
+      "actual_risk.append",
+      "actual_types.append",
+      "any",
+      "argparse.ArgumentParser",
+      "args.checkpoint.resolve",
+      "args.checkpoint.stat",
+      "args.report_dir.mkdir",
+      "batch_latency.append",
+      "batch_length.append",
+      "binary_metrics",
+      "bool",
+      "build_model_input",
+      "build_safe_training_samples",
+      "by_length[name].append",
+      "dict",
+      "gc.collect",
+      "int",
+      "json.dumps",
+      "json.loads",
+      "len",
+      "list",
+      "load_checkpoint_inference",
+      "load_koelectra_tokenizer",
+      "max",
+      "multilabel_metrics",
+      "np.argmax",
+      "np.argmin",
+      "np.argsort",
+      "observed_memory.append",
+      "parser.add_argument",
+      "parser.error",
+      "parser.parse_args",
+      "platform.python_version",
+      "predicted_risk.append",
+      "predicted_types.append",
+      "print",
+      "range",
+      "read_checkpoint",
+      "read_jsonl",
+      "session.predict",
+      "sha256_file",
+      "statistics.mean",
+      "str",
+      "sum",
+      "time.perf_counter",
+      "torch.get_num_threads",
+      "validate_checkpoint_metadata",
+      "warm_timings.append",
+      "working_set_bytes",
+      "zip"
+    ],
+    "returns": [
+      "0"
+    ],
+    "checks": [
+      "validate_checkpoint_metadata(checkpoint)"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/evaluate_cli.py#L209"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/inference.py",
+    "name": "logits_to_outputs",
+    "line": 63,
+    "end_line": 90,
+    "signature": "output: ModelOutput, thresholds: ThresholdConfig | None=None",
+    "calls": [
+      "InferenceOutput",
+      "ThresholdConfig",
+      "ValueError",
+      "dict",
+      "results.append",
+      "risk.detach",
+      "torch.isfinite",
+      "torch.isfinite(risk).all",
+      "torch.isfinite(types).all",
+      "torch.sigmoid",
+      "torch.sigmoid(risk.detach()).cpu",
+      "torch.sigmoid(risk.detach()).cpu().tolist",
+      "torch.sigmoid(types.detach()).cpu",
+      "torch.sigmoid(types.detach()).cpu().tolist",
+      "types.detach",
+      "zip"
+    ],
+    "returns": [
+      "results"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/inference.py#L63"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/inference.py",
+    "name": "infer_batch",
+    "line": 93,
+    "end_line": 124,
+    "signature": "model: RiskSpeechClassifier, inputs: Sequence[InferenceInput], *, tokenizer: Any, thresholds: ThresholdConfig | None=None, device: str | torch.device | None=None",
+    "calls": [
+      "TypeError",
+      "batch['attention_mask'].to",
+      "batch['input_ids'].to",
+      "batch['token_type_ids'].to",
+      "build_model_input",
+      "features.append",
+      "isinstance",
+      "logits_to_outputs",
+      "model",
+      "model.eval",
+      "model.parameters",
+      "model.to",
+      "next",
+      "tokenizer.pad",
+      "torch.device",
+      "torch.no_grad"
+    ],
+    "returns": [
+      "logits_to_outputs(output, thresholds)",
+      "[]"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/inference.py#L93"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/inference.py",
+    "name": "load_checkpoint_inference",
+    "line": 143,
+    "end_line": 170,
+    "signature": "checkpoint_path: str | Path, *, tokenizer: Any, thresholds: ThresholdConfig | None=None, device: str | torch.device | None=None, model: RiskSpeechClassifier | None=None",
+    "calls": [
+      "CheckpointInference",
+      "RiskSpeechClassifier",
+      "ThresholdConfig",
+      "classifier.eval",
+      "classifier.to",
+      "dict",
+      "load_training_checkpoint",
+      "metadata.get",
+      "read_checkpoint",
+      "torch.cuda.is_available",
+      "torch.device",
+      "validate_checkpoint_metadata",
+      "validate_tokenizer"
+    ],
+    "returns": [
+      "CheckpointInference(classifier, tokenizer, selected_thresholds, dict(metadata), chosen_device, selected_thresholds.version)"
+    ],
+    "checks": [
+      "validate_checkpoint_metadata(checkpoint)"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/inference.py#L143"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/inference.py",
+    "name": "ThresholdConfig.__post_init__",
+    "line": 30,
+    "end_line": 45,
+    "signature": "self",
+    "calls": [
+      "MappingProxyType",
+      "ValueError",
+      "any",
+      "float",
+      "isinstance",
+      "math.isfinite",
+      "normalized.values",
+      "object.__setattr__",
+      "self.version.strip",
+      "set"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/inference.py#L30"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/inference.py",
+    "name": "CheckpointInference.predict",
+    "line": 136,
+    "end_line": 140,
+    "signature": "self, inputs: Sequence[InferenceInput]",
+    "calls": [
+      "infer_batch"
+    ],
+    "returns": [
+      "infer_batch(self.model, inputs, tokenizer=self.tokenizer, thresholds=self.thresholds, device=self.device)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/inference.py#L136"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/labels.py",
+    "name": "to_multi_hot",
+    "line": 20,
+    "end_line": 35,
+    "signature": "labels: Iterable[str]",
+    "calls": [
+      "ValueError",
+      "isinstance",
+      "iter"
+    ],
+    "returns": [
+      "targets"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/labels.py#L20"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/metrics.py",
+    "name": "_auc",
+    "line": 10,
+    "end_line": 22,
+    "signature": "y: np.ndarray, p: np.ndarray",
+    "calls": [
+      "float",
+      "int",
+      "len",
+      "np.arange",
+      "np.argsort",
+      "np.unique",
+      "ranks[np.argsort(order)][y == 1].sum",
+      "y.sum",
+      "zip"
+    ],
+    "returns": [
+      "float((positive_ranks - positive * (positive + 1) / 2) / (positive * negative))",
+      "None"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/metrics.py#L10"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/metrics.py",
+    "name": "_average_precision",
+    "line": 25,
+    "end_line": 43,
+    "signature": "y: np.ndarray, p: np.ndarray",
+    "calls": [
+      "float",
+      "int",
+      "len",
+      "np.argsort",
+      "sorted_y[start:end].sum",
+      "y.sum"
+    ],
+    "returns": [
+      "float(total)",
+      "None"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/metrics.py#L25"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/metrics.py",
+    "name": "binary_metrics",
+    "line": 46,
+    "end_line": 91,
+    "signature": "targets: object, probabilities: object, threshold: float=0.5",
+    "calls": [
+      "((p < 0) | (p > 1)).any",
+      "((y == 0) & (predicted == 0)).sum",
+      "((y == 0) & (predicted == 1)).sum",
+      "((y == 1) & (predicted == 0)).sum",
+      "((y == 1) & (predicted == 1)).sum",
+      "(p >= threshold).astype",
+      "ValueError",
+      "_auc",
+      "_average_precision",
+      "float",
+      "int",
+      "len",
+      "mask.any",
+      "mask.sum",
+      "np.asarray",
+      "np.isfinite",
+      "np.isfinite(p).all",
+      "np.isin",
+      "np.isin(y, [0, 1]).all",
+      "np.max",
+      "np.mean",
+      "np.median",
+      "np.min",
+      "np.std",
+      "result['undefined_reasons'].update",
+      "y.astype"
+    ],
+    "returns": [
+      "result"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/metrics.py#L46"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/metrics.py",
+    "name": "multilabel_metrics",
+    "line": 94,
+    "end_line": 121,
+    "signature": "targets: object, probabilities: object, threshold: float=0.5",
+    "calls": [
+      "ValueError",
+      "binary_metrics",
+      "defined_mean",
+      "enumerate",
+      "float",
+      "len",
+      "np.all",
+      "np.asarray",
+      "np.mean",
+      "per_label.items",
+      "per_label.values",
+      "sum"
+    ],
+    "returns": [
+      "{'n': len(y), 'threshold': threshold, 'per_label': per_label, 'micro': {'precision': micro_precision, 'recall': micro_recall, 'f1': micro_f1, **counts}, 'macro': {'precision': defined_mean('precision'), 'recall': defined_mean('recall'), 'f1",
+      "float(np.mean(values)) if values else None"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/metrics.py#L94"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/model.py",
+    "name": "RiskSpeechClassifier.__init__",
+    "line": 24,
+    "end_line": 33,
+    "signature": "self, encoder: ElectraModel | None=None, *, model_revision: str | None=None",
+    "calls": [
+      "ElectraModel.from_pretrained",
+      "ValueError",
+      "nn.Linear",
+      "super",
+      "super().__init__"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/model.py#L24"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/model.py",
+    "name": "RiskSpeechClassifier.forward",
+    "line": 35,
+    "end_line": 57,
+    "signature": "self, input_ids: torch.Tensor, attention_mask: torch.Tensor, token_type_ids: torch.Tensor",
+    "calls": [
+      "ModelOutput",
+      "ValueError",
+      "self.encoder",
+      "self.risk_classifier",
+      "self.type_classifier"
+    ],
+    "returns": [
+      "ModelOutput(risk_logits=self.risk_classifier(cls_state), type_logits=self.type_classifier(cls_state))"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/model.py#L35"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py",
+    "name": "row_hash",
+    "line": 31,
+    "end_line": 35,
+    "signature": "row: dict[str, Any]",
+    "calls": [
+      "encoded.encode",
+      "hashlib.sha256",
+      "hashlib.sha256(encoded.encode('utf-8')).hexdigest",
+      "json.dumps",
+      "row.get"
+    ],
+    "returns": [
+      "hashlib.sha256(encoded.encode('utf-8')).hexdigest()"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py#L31"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py",
+    "name": "_index",
+    "line": 38,
+    "end_line": 45,
+    "signature": "rows: list[dict[str, Any]]",
+    "calls": [
+      "ValueError",
+      "row.get"
+    ],
+    "returns": [
+      "indexed"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py#L38"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py",
+    "name": "_source_rows",
+    "line": 48,
+    "end_line": 55,
+    "signature": "commit: str, path: str, conversation_id: str",
+    "calls": [
+      "FileNotFoundError",
+      "ValueError",
+      "json.loads",
+      "line.strip",
+      "path.endswith",
+      "path.startswith",
+      "result.stdout.decode",
+      "result.stdout.decode('utf-8-sig').splitlines",
+      "row.get",
+      "subprocess.run"
+    ],
+    "returns": [
+      "[row for row in rows if row.get('conversation_id') == conversation_id]"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py#L48"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py",
+    "name": "_decision",
+    "line": 58,
+    "end_line": 107,
+    "signature": "row: dict[str, Any], approval: dict[str, Any] | None, correction: dict[str, Any] | None, commit: str",
+    "calls": [
+      "TOKEN_PATTERN.findall",
+      "any",
+      "approval.get",
+      "approval['evidence_url'].strip",
+      "approval['reviewer'].strip",
+      "bool",
+      "correction.get",
+      "correction['tuned_text'].count",
+      "correction['tuned_text'].strip",
+      "correction['validation_source'].strip",
+      "isinstance",
+      "item.strip",
+      "len",
+      "masked.strip",
+      "row.get",
+      "row_hash",
+      "type"
+    ],
+    "returns": [
+      "None",
+      "'utterance_approval_missing'",
+      "'approval_scope_or_version_unverified'",
+      "'invalid_labels'",
+      "'backend_correction_missing'",
+      "'masked_text_missing'",
+      "'backend_correction_unverified'",
+      "'backend_correction_unverified'",
+      "'backend_mask_contract_mismatch'",
+      "'risk_type_unresolved'",
+      "'invalid_approval_status_or_labels'"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py#L58"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py",
+    "name": "prepare",
+    "line": 110,
+    "end_line": 168,
+    "signature": "manifest: list[dict[str, Any]], approvals: list[dict[str, Any]], corrections: list[dict[str, Any]], commit: str",
+    "calls": [
+      "ValueError",
+      "_decision",
+      "_index",
+      "_source_rows",
+      "approval_by_key.get",
+      "approval_by_key.get(key, {}).get",
+      "conversation_id.startswith",
+      "correction_by_key.get",
+      "int",
+      "labels_out.append",
+      "len",
+      "pending.append",
+      "range",
+      "row.get",
+      "row_hash",
+      "seen.add",
+      "set",
+      "tuned_out.append"
+    ],
+    "returns": [
+      "(labels_out, tuned_out, pending)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py#L110"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py",
+    "name": "prepare_team_approved",
+    "line": 171,
+    "end_line": 242,
+    "signature": "manifest: list[dict[str, Any]], commit: str",
+    "calls": [
+      "EMAIL_PATTERN.search",
+      "PHONE_PATTERN.search",
+      "RRN_PATTERN.search",
+      "TOKEN_PATTERN.findall",
+      "ValueError",
+      "_source_rows",
+      "any",
+      "entry.get",
+      "entry['source'].strip",
+      "isinstance",
+      "labels_out.append",
+      "len",
+      "map",
+      "masked.strip",
+      "pending.append",
+      "pending.extend",
+      "range",
+      "re.fullmatch",
+      "row.get",
+      "row_hash",
+      "seen.add",
+      "set",
+      "tuned_out.append"
+    ],
+    "returns": [
+      "(labels_out, tuned_out, pending)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py#L171"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py",
+    "name": "_write_jsonl",
+    "line": 245,
+    "end_line": 246,
+    "signature": "path: Path, rows: list[dict[str, Any]]",
+    "calls": [
+      "''.join",
+      "json.dumps",
+      "path.write_text"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py#L245"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py",
+    "name": "_file_sha256",
+    "line": 249,
+    "end_line": 250,
+    "signature": "path: Path | None",
+    "calls": [
+      "hashlib.sha256",
+      "hashlib.sha256(path.read_bytes()).hexdigest",
+      "path.read_bytes"
+    ],
+    "returns": [
+      "hashlib.sha256(path.read_bytes()).hexdigest() if path is not None else None"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py#L249"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py",
+    "name": "main",
+    "line": 253,
+    "end_line": 298,
+    "signature": "argv: list[str] | None=None",
+    "calls": [
+      "(args.output_dir / 'provenance.json').write_text",
+      "Counter",
+      "Path",
+      "_file_sha256",
+      "_write_jsonl",
+      "argparse.ArgumentParser",
+      "args.manifest.read_text",
+      "args.output_dir.mkdir",
+      "dict",
+      "json.dumps",
+      "json.loads",
+      "len",
+      "parser.add_argument",
+      "parser.error",
+      "parser.parse_args",
+      "prepare",
+      "prepare_team_approved",
+      "print",
+      "re.fullmatch",
+      "read_jsonl",
+      "row.get",
+      "str",
+      "sum"
+    ],
+    "returns": [
+      "0"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/prepare_training_inputs.py#L253"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/splits.py",
+    "name": "plan_conversation_splits",
+    "line": 10,
+    "end_line": 84,
+    "signature": "label_rows: Sequence[Mapping], tuned_rows: Sequence[Mapping], *, data_version: str, ratios: tuple[float, float, float]=(0.8, 0.1, 0.1), seed: int=42, group_by_source: bool=True",
+    "calls": [
+      "Counter",
+      "ValueError",
+      "abs",
+      "any",
+      "components.sort",
+      "defaultdict",
+      "dict",
+      "enumerate",
+      "find",
+      "groups.values",
+      "groups[find(conversation)].add",
+      "isinstance",
+      "join",
+      "len",
+      "list",
+      "max",
+      "random.Random",
+      "random.Random(seed).shuffle",
+      "row.get",
+      "sorted",
+      "sum",
+      "text.strip",
+      "value.strip",
+      "zip"
+    ],
+    "returns": [
+      "{'data_version': data_version, 'seed': seed, 'requested_ratios': dict(zip(names, ratios)), 'group_by_source': group_by_source, 'component_count': len(components), 'conversation_to_split': assignment, 'utterance_counts': {name: counts[name] ",
+      "value"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/splits.py#L10"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/tokenization.py",
+    "name": "load_koelectra_tokenizer",
+    "line": 43,
+    "end_line": 65,
+    "signature": "revision: str | None=None",
+    "calls": [
+      "AutoConfig.from_pretrained",
+      "AutoTokenizer.from_pretrained",
+      "RuntimeError",
+      "TokenizerContractError",
+      "ValueError",
+      "isinstance",
+      "revision.strip"
+    ],
+    "returns": [
+      "tokenizer"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/tokenization.py#L43"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/tokenization.py",
+    "name": "_encode_pair",
+    "line": 68,
+    "end_line": 116,
+    "signature": "tokenizer: Any, history_texts: Sequence[str], current_text: str",
+    "calls": [
+      "'\\n'.join",
+      "TokenizedInput",
+      "TokenizerContractError",
+      "any",
+      "len",
+      "list",
+      "token_type_ids.index",
+      "tokenizer"
+    ],
+    "returns": [
+      "TokenizedInput(input_ids=input_ids, attention_mask=attention_mask, token_type_ids=token_type_ids, used_history_texts=list(history_texts), dropped_history_count=0, token_count=size)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/tokenization.py#L68"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/tokenization.py",
+    "name": "build_model_input",
+    "line": 119,
+    "end_line": 153,
+    "signature": "history_texts: Sequence[str], current_text: str, *, tokenizer: Any",
+    "calls": [
+      "InputTooLongError",
+      "TokenizedInput",
+      "TokenizerContractError",
+      "ValueError",
+      "_encode_pair",
+      "any",
+      "current_text.strip",
+      "getattr",
+      "isinstance",
+      "len",
+      "list",
+      "text.strip",
+      "used.pop"
+    ],
+    "returns": [
+      "TokenizedInput(input_ids=result.input_ids, attention_mask=result.attention_mask, token_type_ids=result.token_type_ids, used_history_texts=list(used), dropped_history_count=dropped, token_count=result.token_count)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/tokenization.py#L119"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/tokenization.py",
+    "name": "InputTooLongError.__init__",
+    "line": 20,
+    "end_line": 26,
+    "signature": "self, token_count: int, dropped_history_count: int",
+    "calls": [
+      "super",
+      "super().__init__"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/tokenization.py#L20"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/train_cli.py",
+    "name": "read_jsonl",
+    "line": 17,
+    "end_line": 30,
+    "signature": "path: Path",
+    "calls": [
+      "ValueError",
+      "enumerate",
+      "isinstance",
+      "json.loads",
+      "line.strip",
+      "path.open",
+      "rows.append"
+    ],
+    "returns": [
+      "rows"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/train_cli.py#L17"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/train_cli.py",
+    "name": "build_safe_training_samples",
+    "line": 33,
+    "end_line": 41,
+    "signature": "label_rows: list[Mapping[str, Any]], tuned_rows: list[Mapping[str, Any]]",
+    "calls": [
+      "build_training_samples",
+      "row.get"
+    ],
+    "returns": [
+      "(build_training_samples(label_rows, safe_tuned), initial.statistics)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/train_cli.py#L33"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/train_cli.py",
+    "name": "main",
+    "line": 44,
+    "end_line": 84,
+    "signature": "argv: list[str] | None=None",
+    "calls": [
+      "FileExistsError",
+      "Path",
+      "TrainingConfig",
+      "ValueError",
+      "argparse.ArgumentParser",
+      "build_safe_training_samples",
+      "create_training_model",
+      "json.dumps",
+      "load_koelectra_tokenizer",
+      "parser.add_argument",
+      "parser.parse_args",
+      "path.exists",
+      "print",
+      "read_jsonl",
+      "train_model"
+    ],
+    "returns": [
+      "0",
+      "0"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/train_cli.py#L44"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training.py",
+    "name": "set_training_seed",
+    "line": 90,
+    "end_line": 94,
+    "signature": "seed: int",
+    "calls": [
+      "random.seed",
+      "torch.cuda.is_available",
+      "torch.cuda.manual_seed_all",
+      "torch.manual_seed"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training.py#L90"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training.py",
+    "name": "create_training_model",
+    "line": 97,
+    "end_line": 103,
+    "signature": "config: TrainingConfig",
+    "calls": [
+      "RiskSpeechClassifier",
+      "set_training_seed"
+    ],
+    "returns": [
+      "RiskSpeechClassifier(**{'model_revision': config.model_revision} if config.model_revision is not None else {})"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training.py#L97"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training.py",
+    "name": "compute_losses",
+    "line": 106,
+    "end_line": 128,
+    "signature": "output: ModelOutput, risk_target: torch.Tensor, type_targets: torch.Tensor, *, lambda_risk: float=1.0, lambda_type: float=1.0",
+    "calls": [
+      "LossOutput",
+      "TypeError",
+      "ValueError",
+      "criterion",
+      "isinstance",
+      "math.isfinite",
+      "nn.BCEWithLogitsLoss",
+      "risk_target.is_floating_point",
+      "type_targets.is_floating_point"
+    ],
+    "returns": [
+      "LossOutput(risk_loss=risk_loss, type_loss=type_loss, total_loss=lambda_risk * risk_loss + lambda_type * type_loss)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training.py#L106"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training.py",
+    "name": "_metadata",
+    "line": 131,
+    "end_line": 161,
+    "signature": "model: RiskSpeechClassifier, tokenizer: Any, config: TrainingConfig, device: torch.device",
+    "calls": [
+      "asdict",
+      "encoder_config",
+      "getattr",
+      "input_contract",
+      "list",
+      "platform.python_version",
+      "str",
+      "tokenizer_behavior",
+      "tokenizer_metadata"
+    ],
+    "returns": [
+      "{'checkpoint_schema_version': CHECKPOINT_SCHEMA_VERSION, 'model_name': BASE_MODEL_NAME, 'python_version': platform.python_version(), 'torch_version': str(torch.__version__), 'transformers_version': transformers_version, 'base_model': BASE_M"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training.py#L131"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training.py",
+    "name": "train_model",
+    "line": 164,
+    "end_line": 271,
+    "signature": "model: RiskSpeechClassifier, samples: Sequence[TrainingSample], tokenizer: Any, config: TrainingConfig, *, checkpoint_path: str | Path, device: str | torch.device | None=None, log_dir: str | Path | None=None",
+    "calls": [
+      "EpochLoss",
+      "FloatingPointError",
+      "Path",
+      "RiskSpeechDataset",
+      "TrainingJournal",
+      "TrainingResult",
+      "ValueError",
+      "_metadata",
+      "any",
+      "asdict",
+      "batch.items",
+      "compute_losses",
+      "enumerate",
+      "epoch_losses.append",
+      "journal.log_batch",
+      "journal.log_epoch",
+      "len",
+      "list",
+      "losses.risk_loss.detach",
+      "losses.risk_loss.detach().item",
+      "losses.total_loss.backward",
+      "losses.total_loss.detach",
+      "losses.total_loss.detach().item",
+      "losses.type_loss.detach",
+      "losses.type_loss.detach().item",
+      "make_training_dataloader",
+      "model",
+      "model.parameters",
+      "model.state_dict",
+      "model.to",
+      "model.train",
+      "optimizer.state_dict",
+      "optimizer.step",
+      "optimizer.zero_grad",
+      "path.parent.mkdir",
+      "print",
+      "range",
+      "set_training_seed",
+      "str",
+      "time.perf_counter",
+      "torch.cuda.is_available",
+      "torch.device",
+      "torch.isfinite",
+      "torch.optim.AdamW",
+      "torch.save",
+      "value.to",
+      "working_set_bytes"
+    ],
+    "returns": [
+      "TrainingResult(epoch_losses, len(dataset), step_count, path, journal.path)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training.py#L164"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training.py",
+    "name": "TrainingConfig.__post_init__",
+    "line": 43,
+    "end_line": 63,
+    "signature": "self",
+    "calls": [
+      "ValueError",
+      "getattr",
+      "isinstance",
+      "math.isfinite",
+      "self.data_version.strip",
+      "value.strip"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training.py#L43"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_data.py",
+    "name": "_key",
+    "line": 38,
+    "end_line": 44,
+    "signature": "row: Mapping[str, Any]",
+    "calls": [
+      "ValueError",
+      "_order",
+      "conversation_id.strip",
+      "isinstance",
+      "row.get"
+    ],
+    "returns": [
+      "(conversation_id, utterance_id)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_data.py#L38"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_data.py",
+    "name": "_order",
+    "line": 47,
+    "end_line": 54,
+    "signature": "utterance_id: object",
+    "calls": [
+      "ValueError",
+      "_STRING_ID.fullmatch",
+      "int",
+      "isinstance",
+      "match.group"
+    ],
+    "returns": [
+      "utterance_id",
+      "int(match.group(1))"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_data.py#L47"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_data.py",
+    "name": "_index",
+    "line": 57,
+    "end_line": 80,
+    "signature": "rows: Iterable[Mapping[str, Any]], statistics: Counter[str]",
+    "calls": [
+      "ValueError",
+      "_key",
+      "_order",
+      "ambiguous.add",
+      "indexed.pop",
+      "isinstance",
+      "set"
+    ],
+    "returns": [
+      "indexed"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_data.py#L57"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_data.py",
+    "name": "_targets",
+    "line": 83,
+    "end_line": 102,
+    "signature": "row: Mapping[str, Any]",
+    "calls": [
+      "ValueError",
+      "any",
+      "float",
+      "isinstance",
+      "row.get",
+      "to_multi_hot"
+    ],
+    "returns": [
+      "(float(phishing), types)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_data.py#L83"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_data.py",
+    "name": "build_training_samples",
+    "line": 105,
+    "end_line": 186,
+    "signature": "label_rows: Iterable[Mapping[str, Any]], tuned_rows: Iterable[Mapping[str, Any]]",
+    "calls": [
+      "BuildResult",
+      "Counter",
+      "TrainingSample",
+      "_index",
+      "_order",
+      "_targets",
+      "defaultdict",
+      "dict",
+      "entries.sort",
+      "histories.values",
+      "histories[conversation_id].append",
+      "isinstance",
+      "label_row.get",
+      "len",
+      "row.get",
+      "samples.append",
+      "set",
+      "sorted",
+      "statistics.setdefault",
+      "str",
+      "tuned.items",
+      "value.strip"
+    ],
+    "returns": [
+      "BuildResult(samples=samples, statistics=dict(statistics))"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_data.py#L105"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py",
+    "name": "working_set_bytes",
+    "line": 13,
+    "end_line": 43,
+    "signature": "",
+    "calls": [
+      "MemoryCounters",
+      "ctypes.byref",
+      "ctypes.sizeof",
+      "get_memory",
+      "get_process",
+      "int",
+      "resource.getrusage"
+    ],
+    "returns": [
+      "None",
+      "int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024)",
+      "int(counters.working_set_size)",
+      "None"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py#L13"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py",
+    "name": "TrainingJournal.__init__",
+    "line": 47,
+    "end_line": 57,
+    "signature": "self, base_dir: Path, metadata: dict",
+    "calls": [
+      "(self.path / 'batches.jsonl').open",
+      "(self.path / 'epochs.jsonl').open",
+      "(self.path / 'run.json').open",
+      "datetime.now",
+      "datetime.now(timezone.utc).isoformat",
+      "datetime.now(timezone.utc).strftime",
+      "json.dump",
+      "os.fsync",
+      "self.path.mkdir",
+      "stream.fileno",
+      "stream.flush",
+      "uuid4"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py#L47"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py",
+    "name": "TrainingJournal._append",
+    "line": 60,
+    "end_line": 63,
+    "signature": "stream, row: dict",
+    "calls": [
+      "json.dumps",
+      "os.fsync",
+      "stream.fileno",
+      "stream.flush",
+      "stream.write"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py#L60"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py",
+    "name": "TrainingJournal.log_batch",
+    "line": 65,
+    "end_line": 66,
+    "signature": "self, row: dict",
+    "calls": [
+      "self._append"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py#L65"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py",
+    "name": "TrainingJournal.log_epoch",
+    "line": 68,
+    "end_line": 69,
+    "signature": "self, row: dict",
+    "calls": [
+      "self._append"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py#L68"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py",
+    "name": "TrainingJournal.close",
+    "line": 71,
+    "end_line": 73,
+    "signature": "self",
+    "calls": [
+      "self.batch.close",
+      "self.epoch.close"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py#L71"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py",
+    "name": "TrainingJournal.__enter__",
+    "line": 75,
+    "end_line": 76,
+    "signature": "self",
+    "calls": [],
+    "returns": [
+      "self"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py#L75"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py",
+    "name": "TrainingJournal.__exit__",
+    "line": 78,
+    "end_line": 79,
+    "signature": "self, exc_type, exc_value, traceback",
+    "calls": [
+      "self.close"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/training_log.py#L78"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/type_diagnostics.py",
+    "name": "file_hash",
+    "line": 29,
+    "end_line": 34,
+    "signature": "path: Path",
+    "calls": [
+      "digest.hexdigest",
+      "digest.update",
+      "hashlib.sha256",
+      "iter",
+      "path.open",
+      "stream.read"
+    ],
+    "returns": [
+      "digest.hexdigest()"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/type_diagnostics.py#L29"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/type_diagnostics.py",
+    "name": "threshold_rows",
+    "line": 37,
+    "end_line": 47,
+    "signature": "targets: np.ndarray, probabilities: np.ndarray, label: str",
+    "calls": [
+      "binary_metrics",
+      "range",
+      "rows.append"
+    ],
+    "returns": [
+      "rows"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/type_diagnostics.py#L37"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/type_diagnostics.py",
+    "name": "distribution_row",
+    "line": 50,
+    "end_line": 74,
+    "signature": "targets: np.ndarray, probabilities: np.ndarray, label: str",
+    "calls": [
+      "binary_metrics",
+      "float",
+      "int",
+      "len",
+      "np.count_nonzero",
+      "np.max",
+      "np.mean",
+      "np.median",
+      "np.min",
+      "np.percentile",
+      "np.sqrt",
+      "np.std",
+      "np.var"
+    ],
+    "returns": [
+      "row"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/type_diagnostics.py#L50"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/type_diagnostics.py",
+    "name": "write_csv",
+    "line": 77,
+    "end_line": 81,
+    "signature": "path: Path, rows: list[dict]",
+    "calls": [
+      "csv.DictWriter",
+      "list",
+      "path.open",
+      "writer.writeheader",
+      "writer.writerows"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/type_diagnostics.py#L77"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/type_diagnostics.py",
+    "name": "svg_plots",
+    "line": 84,
+    "end_line": 130,
+    "signature": "output_dir: Path, sweep: list[dict], targets: np.ndarray, probabilities: np.ndarray",
+    "calls": [
+      "' '.join",
+      "''.join",
+      "(output_dir / 'probability_histograms.svg').write_text",
+      "(output_dir / 'threshold_f1.svg').write_text",
+      "enumerate",
+      "escape",
+      "int",
+      "max",
+      "neg.max",
+      "np.histogram",
+      "np.linspace",
+      "parts.append",
+      "pos.max",
+      "range",
+      "sum",
+      "zip"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/type_diagnostics.py#L84"
+  },
+  {
+    "path": "v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/type_diagnostics.py",
+    "name": "main",
+    "line": 133,
+    "end_line": 183,
+    "signature": "",
+    "calls": [
+      "(output / 'diagnostic_metadata.json').write_text",
+      "InferenceInput",
+      "Path",
+      "ValueError",
+      "argparse.ArgumentParser",
+      "build_safe_training_samples",
+      "distribution_row",
+      "enumerate",
+      "file_hash",
+      "json.dumps",
+      "len",
+      "load_checkpoint_inference",
+      "load_koelectra_tokenizer",
+      "max",
+      "np.asarray",
+      "np.empty",
+      "output.mkdir",
+      "parser.add_argument",
+      "parser.error",
+      "parser.parse_args",
+      "paths.items",
+      "print",
+      "range",
+      "read_jsonl",
+      "session.predict",
+      "svg_plots",
+      "threshold_rows",
+      "tuple",
+      "write_csv"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/handoff/research_20261117_v1/vendor/risk_speech_ai/type_diagnostics.py#L133"
+  },
+  {
+    "path": "v3_lite/join_model.py",
+    "name": "require",
+    "line": 8,
+    "end_line": 9,
+    "signature": "condition, message",
+    "calls": [
+      "ValueError"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/join_model.py#L8"
+  },
+  {
+    "path": "v3_lite/join_model.py",
+    "name": "join",
+    "line": 12,
+    "end_line": 31,
+    "signature": "manifest_path, output",
+    "calls": [
+      "(path.parent / part['name']).resolve",
+      "FileExistsError",
+      "Path",
+      "Path(manifest_path).resolve",
+      "Path(output).resolve",
+      "check.hexdigest",
+      "check.update",
+      "dict",
+      "enumerate",
+      "f.read",
+      "hashlib.sha256",
+      "iter",
+      "json.loads",
+      "len",
+      "os.fsync",
+      "os.rename",
+      "path.read_text",
+      "require",
+      "source.open",
+      "str",
+      "stream.fileno",
+      "stream.flush",
+      "stream.write",
+      "target.exists",
+      "target.parent.mkdir",
+      "target.with_name",
+      "temp.open",
+      "total.hexdigest",
+      "total.update"
+    ],
+    "returns": [
+      "dict(path=str(target), bytes=size, sha256=total.hexdigest(), parts=len(m['parts']))"
+    ],
+    "checks": [
+      "require(m['schema'] == 'lossless-model-parts/1', 'Wrong transfer schema')",
+      "require(size == m['bytes'] and total.hexdigest() == m['sha256'], 'Full model mismatch')",
+      "require(part['index'] == index and Path(part['name']).name == part['name'], 'Unsafe part name/order')",
+      "require(source.parent == path.parent, 'Part escapes transfer directory')",
+      "require(n == part['bytes'] and check.hexdigest() == part['sha256'], 'Part mismatch: ' + part['name'])"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/join_model.py#L12"
+  },
+  {
+    "path": "v3_lite/package_research.py",
+    "name": "package",
+    "line": 12,
+    "end_line": 48,
+    "signature": "run_path",
+    "calls": [
+      "(out / 'models').mkdir",
+      "all",
+      "create_json",
+      "data['model_state_dict'].items",
+      "dest.stat",
+      "dict",
+      "f.fileno",
+      "f.flush",
+      "gc.collect",
+      "inside",
+      "json.dumps",
+      "len",
+      "list",
+      "os.fsync",
+      "os.rename",
+      "out.mkdir",
+      "out.rglob",
+      "p.is_file",
+      "p.relative_to",
+      "p.relative_to(out).as_posix",
+      "path.stat",
+      "payload.update",
+      "pending.open",
+      "pending.with_suffix",
+      "print",
+      "r.get",
+      "read_json",
+      "require",
+      "sha",
+      "shutil.copyfile",
+      "shutil.copytree",
+      "shutil.ignore_patterns",
+      "sorted",
+      "str",
+      "torch.equal",
+      "torch.load",
+      "torch.save"
+    ],
+    "returns": [
+      "out"
+    ],
+    "checks": [
+      "require(r.get('training_executed') is True and r.get('checkpoints'), 'No actual trained checkpoint')",
+      "require(sha(path) == selected['sha256'], 'Training checkpoint changed')",
+      "require(data['v3_lite_metadata']['parent_sha256'] == PARENT_SHA and data['step_count'] > 0, 'Missing real update lineage')",
+      "require(all((torch.equal(v, check['model_state_dict'][k]) for k, v in data['model_state_dict'].items())), 'Inference export changed weights')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/package_research.py#L12"
+  },
+  {
+    "path": "v3_lite/portable_runtime.py",
+    "name": "serve_request",
+    "line": 50,
+    "end_line": 51,
+    "signature": "predictor, request",
+    "calls": [
+      "core.serve_request"
+    ],
+    "returns": [
+      "core.serve_request(predictor, request)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/portable_runtime.py#L50"
+  },
+  {
+    "path": "v3_lite/portable_runtime.py",
+    "name": "V3Predictor.__init__",
+    "line": 16,
+    "end_line": 38,
+    "signature": "self, bundle=HERE, *, expected_manifest_sha",
+    "calls": [
+      "AutoTokenizer.from_pretrained",
+      "Path",
+      "Path(bundle).resolve",
+      "core.load_model",
+      "core.read",
+      "core.relative_file",
+      "core.require",
+      "core.sha",
+      "envelope.get",
+      "ext.get",
+      "list",
+      "str",
+      "torch.load"
+    ],
+    "returns": [],
+    "checks": [
+      "core.require(core.sha(self.bundle / 'bundle_manifest.json') == expected_manifest_sha, 'Trusted manifest SHA mismatch')",
+      "core.require(m['schema'] == 'v3-lite-inference-bundle/1' and m['label_order'] == list(LABELS) and (m['thresholds'] == [0.5] * 9) and (m['purpose'] == 'internal_experiment') and (m['human_reviewed'] is False) and (m['deployment_allowed'] is False), 'Invalid research bundle')",
+      "core.require(envelope.get('inference_only') is True and envelope.get('optimizer_state_dict') == {} and (ext.get('schema') == 'v3-lite-checkpoint/1') and (ext.get('parent_sha256') == m['parent_sha256']) and (ext.get('epoch') == m['epoch']) and (ext.get('human_reviewed') is False), 'Invalid v3 inference lineage')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/portable_runtime.py#L16"
+  },
+  {
+    "path": "v3_lite/portable_runtime.py",
+    "name": "V3Predictor.predict",
+    "line": 40,
+    "end_line": 47,
+    "signature": "self, request",
+    "calls": [
+      "core.output_response",
+      "core.raw_logits",
+      "core.validate_request",
+      "response['result'].update"
+    ],
+    "returns": [
+      "response"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/portable_runtime.py#L40"
+  },
+  {
+    "path": "v3_lite/src/checkpoint.py",
+    "name": "runtime",
+    "line": 14,
+    "end_line": 19,
+    "signature": "",
+    "calls": [
+      "bootstrap",
+      "importlib.util.module_from_spec",
+      "importlib.util.spec_from_file_location",
+      "spec.loader.exec_module"
+    ],
+    "returns": [
+      "module"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/checkpoint.py#L14"
+  },
+  {
+    "path": "v3_lite/src/checkpoint.py",
+    "name": "verify_parent",
+    "line": 22,
+    "end_line": 32,
+    "signature": "",
+    "calls": [
+      "inside",
+      "list",
+      "read_json",
+      "require",
+      "sha"
+    ],
+    "returns": [
+      "(path, m)"
+    ],
+    "checks": [
+      "require(sha(BUNDLE / 'bundle_manifest.json') == BUNDLE_SHA, 'Parent manifest SHA changed')",
+      "require(m['label_order'] == list(LABELS) and m['default_seed'] == 42 and (m['epoch'] == 3) and (m['candidate_arm'] == 'B_ratio') and (m['thresholds'] == [0.5] * 9) and (m['model_revision'] == m['tokenizer_revision'] == REVISION), 'Wrong parent contract')",
+      "require(spec['path'] == 'models/B_ratio/seed_42.pt' and spec['sha256'] == PARENT_SHA, 'Wrong parent identity')",
+      "require(sha(path) == PARENT_SHA, 'Parent checkpoint SHA changed')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/checkpoint.py#L22"
+  },
+  {
+    "path": "v3_lite/src/checkpoint.py",
+    "name": "load_v2_start",
+    "line": 35,
+    "end_line": 49,
+    "signature": "",
+    "calls": [
+      "AutoTokenizer.from_pretrained",
+      "deepcopy",
+      "model.parameters",
+      "module.load_model",
+      "param.detach",
+      "param.detach().clone",
+      "runtime",
+      "str",
+      "torch.no_grad",
+      "verify_parent"
+    ],
+    "returns": [
+      "(model, tokenizer, deepcopy(metadata), manifest)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/checkpoint.py#L35"
+  },
+  {
+    "path": "v3_lite/src/checkpoint.py",
+    "name": "restore_state",
+    "line": 52,
+    "end_line": 55,
+    "signature": "model, state",
+    "calls": [
+      "model.load_state_dict"
+    ],
+    "returns": [
+      "model"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/checkpoint.py#L52"
+  },
+  {
+    "path": "v3_lite/src/checkpoint.py",
+    "name": "save_v3_checkpoint",
+    "line": 58,
+    "end_line": 100,
+    "signature": "path, model, optimizer, *, metadata, lineage, epoch, history, artifact_kind='research_model'",
+    "calls": [
+      "FileExistsError",
+      "all",
+      "bootstrap",
+      "deepcopy",
+      "dict",
+      "gc.collect",
+      "inside",
+      "lineage.get",
+      "list",
+      "metadata.get",
+      "model.state_dict",
+      "optimizer.state_dict",
+      "os.fsync",
+      "os.rename",
+      "path.exists",
+      "path.parent.mkdir",
+      "path.stat",
+      "path.with_suffix",
+      "payload['model_state_dict'].items",
+      "pending.open",
+      "require",
+      "set",
+      "sha",
+      "str",
+      "stream.fileno",
+      "stream.flush",
+      "torch.load",
+      "torch.save",
+      "validate_checkpoint_metadata",
+      "validate_model_config"
+    ],
+    "returns": [
+      "dict(path=str(path), sha256=sha(path), bytes=path.stat().st_size, artifact_kind=artifact_kind, epoch=epoch)"
+    ],
+    "checks": [
+      "require(path.suffix == '.pt', 'Checkpoint extension must be .pt')",
+      "require(metadata.get('label_order') == list(LABELS), 'Checkpoint label order mismatch')",
+      "require(epoch in (1, 2) and lineage.get('parent_sha256') == PARENT_SHA and (lineage.get('optimizer_reset') is True), 'Checkpoint lineage invalid')",
+      "require(artifact_kind in ('research_model', 'unit_test_fixture'), 'Unknown artifact kind')",
+      "require(lineage.get('artifact_kind') == artifact_kind, 'Artifact kind mismatch')",
+      "require(artifact_kind == 'unit_test_fixture' or lineage.get('training_authorized') is True, 'Unapproved data cannot produce a research-model checkpoint')",
+      "validate_checkpoint_metadata(payload)",
+      "validate_checkpoint_metadata(checked)",
+      "require(set(checked['model_state_dict']) == set(payload['model_state_dict']) and all((checked['model_state_dict'][k].shape == v.shape and checked['model_state_dict'][k].dtype == v.dtype for k, v in payload['model_state_dict'].items())), 'Serialized tensor contract differs')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/checkpoint.py#L58"
+  },
+  {
+    "path": "v3_lite/src/checkpoint.py",
+    "name": "load_v3_state",
+    "line": 103,
+    "end_line": 116,
+    "signature": "path, model, expected_sha, *, tokenizer",
+    "calls": [
+      "bootstrap",
+      "inside",
+      "list",
+      "model.eval",
+      "require",
+      "restore_state",
+      "runtime",
+      "runtime().compatible_tokenizer",
+      "sha",
+      "torch.load",
+      "validate_checkpoint_metadata",
+      "validate_model_config"
+    ],
+    "returns": [
+      "p"
+    ],
+    "checks": [
+      "require(sha(path) == expected_sha, 'Saved v3 hash mismatch')",
+      "require(p['label_order'] == list(LABELS) and p['v3_lite_metadata']['schema'] == 'v3-lite-checkpoint/1', 'Wrong v3 schema')",
+      "validate_checkpoint_metadata(p)"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/checkpoint.py#L103"
+  },
+  {
+    "path": "v3_lite/src/common.py",
+    "name": "require",
+    "line": 30,
+    "end_line": 32,
+    "signature": "condition, reason",
+    "calls": [
+      "GateError"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/common.py#L30"
+  },
+  {
+    "path": "v3_lite/src/common.py",
+    "name": "sha",
+    "line": 35,
+    "end_line": 40,
+    "signature": "path",
+    "calls": [
+      "Path",
+      "Path(path).open",
+      "hashlib.sha256",
+      "iter",
+      "stream.read",
+      "value.hexdigest",
+      "value.update"
+    ],
+    "returns": [
+      "value.hexdigest()"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/common.py#L35"
+  },
+  {
+    "path": "v3_lite/src/common.py",
+    "name": "digest",
+    "line": 43,
+    "end_line": 45,
+    "signature": "value",
+    "calls": [
+      "hashlib.sha256",
+      "hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(',', ':'), allow_nan=False).encode()).hexdigest",
+      "json.dumps",
+      "json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(',', ':'), allow_nan=False).encode"
+    ],
+    "returns": [
+      "hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(',', ':'), allow_nan=False).encode()).hexdigest()"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/common.py#L43"
+  },
+  {
+    "path": "v3_lite/src/common.py",
+    "name": "read_json",
+    "line": 48,
+    "end_line": 56,
+    "signature": "path",
+    "calls": [
+      "(_ for _ in ()).throw",
+      "GateError",
+      "Path",
+      "Path(path).read_text",
+      "json.loads",
+      "require"
+    ],
+    "returns": [
+      "json.loads(Path(path).read_text(encoding='utf-8-sig'), object_pairs_hook=pairs, parse_constant=lambda x: (_ for _ in ()).throw(GateError(f'Nonfinite JSON: {x}')))",
+      "result"
+    ],
+    "checks": [
+      "require(key not in result, f'Duplicate JSON key: {key}')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/common.py#L48"
+  },
+  {
+    "path": "v3_lite/src/common.py",
+    "name": "inside",
+    "line": 59,
+    "end_line": 65,
+    "signature": "path, root",
+    "calls": [
+      "Path",
+      "Path(path).resolve",
+      "Path(root).absolute",
+      "Path(root).resolve",
+      "V3.absolute",
+      "V3.resolve",
+      "path.is_relative_to",
+      "raw_root.is_relative_to",
+      "require",
+      "root.is_relative_to"
+    ],
+    "returns": [
+      "path"
+    ],
+    "checks": [
+      "require(path.is_relative_to(root) and path != root, f'Path outside required root: {root}')",
+      "require(root.is_relative_to(V3.resolve()), 'v3 root redirects outside its workspace')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/common.py#L59"
+  },
+  {
+    "path": "v3_lite/src/common.py",
+    "name": "create_json",
+    "line": 68,
+    "end_line": 73,
+    "signature": "path, value, *, root=V3",
+    "calls": [
+      "inside",
+      "json.dumps",
+      "path.open",
+      "path.parent.mkdir",
+      "stream.write"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/common.py#L68"
+  },
+  {
+    "path": "v3_lite/src/common.py",
+    "name": "bootstrap",
+    "line": 79,
+    "end_line": 101,
+    "signature": "",
+    "calls": [
+      "Path",
+      "Path(labels.__file__).resolve",
+      "Path(labels.__file__).resolve().is_relative_to",
+      "Path(sys.modules['risk_speech_ai'].__file__).resolve",
+      "REFERENCE.resolve",
+      "importlib.import_module",
+      "inside",
+      "location.is_relative_to",
+      "manifest['code'].items",
+      "read_json",
+      "require",
+      "sha",
+      "str",
+      "sys.path.insert",
+      "tuple"
+    ],
+    "returns": [],
+    "checks": [
+      "require(sha(BUNDLE / 'bundle_manifest.json') == BUNDLE_SHA, 'Bundle manifest changed')",
+      "require(tuple(labels.LABELS) == LABELS, 'Canonical label order changed')",
+      "require(Path(labels.__file__).resolve().is_relative_to(REFERENCE.resolve()), 'Wrong pinned core')",
+      "require(sha(inside(V2 / name, V2)) == expected, f'Pinned source changed: {name}')",
+      "require(sha(inside(BUNDLE / item['path'], BUNDLE)) == item['sha256'], 'Bundle support changed')",
+      "require(location.is_relative_to(REFERENCE.resolve()), 'Wrong risk_speech_ai already imported; use a fresh process')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/common.py#L79"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "allowed_role",
+    "line": 22,
+    "end_line": 23,
+    "signature": "role",
+    "calls": [
+      "require"
+    ],
+    "returns": [],
+    "checks": [
+      "require(role in FILES, 'Only TRAIN/VALIDATION allowed; TEST denied before IO')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L22"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "evidence_file",
+    "line": 26,
+    "end_line": 35,
+    "signature": "base, spec",
+    "calls": [
+      "Path",
+      "Path(base).resolve",
+      "Path(name).is_absolute",
+      "inside",
+      "isinstance",
+      "name.lower",
+      "path.is_file",
+      "path.is_relative_to",
+      "require",
+      "set",
+      "sha"
+    ],
+    "returns": [
+      "path"
+    ],
+    "checks": [
+      "require(isinstance(spec, dict) and set(spec) == {'path', 'sha256'}, 'Evidence needs path/SHA')",
+      "require(isinstance(name, str) and ':' not in name and ('\\\\' not in name) and (not Path(name).is_absolute()) and ('..' not in Path(name).parts) and ('test' not in name.lower()) and ('.sealed' not in name.lower()), 'Forbidden evidence path')",
+      "require(path.is_relative_to(Path(base).resolve()), 'Evidence escapes its version directory')",
+      "require(path.is_file() and sha(path) == spec['sha256'], f'Evidence missing/hash mismatch: {name}')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L26"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "jsonl",
+    "line": 38,
+    "end_line": 48,
+    "signature": "path",
+    "calls": [
+      "(_ for _ in ()).throw",
+      "GateError",
+      "Path",
+      "Path(path).read_text",
+      "Path(path).read_text(encoding='utf-8-sig').splitlines",
+      "json.loads",
+      "line.strip",
+      "require"
+    ],
+    "returns": [
+      "[json.loads(line, object_pairs_hook=pairs, parse_constant=lambda x: (_ for _ in ()).throw(GateError('Nonfinite JSONL'))) for line in Path(path).read_text(encoding='utf-8-sig').splitlines() if line.strip()]",
+      "result"
+    ],
+    "checks": [
+      "require(k not in result, 'Duplicate JSONL key')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L38"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "load_manifest",
+    "line": 51,
+    "end_line": 64,
+    "signature": "path",
+    "calls": [
+      "FILES.items",
+      "inside",
+      "list",
+      "m.get",
+      "read_json",
+      "require",
+      "set"
+    ],
+    "returns": [
+      "m"
+    ],
+    "checks": [
+      "require(path.name == 'manifest.json', 'Use a versioned manifest.json')",
+      "require(m.get('schema') == 'v3-lite-data/1' and m.get('purpose') == 'internal_experiment', 'Wrong data schema/purpose')",
+      "require(m.get('artifact_kind') == 'research_corpus', 'Fixtures cannot authorize real training')",
+      "require(m.get('label_order') == list(LABELS), 'Data label order mismatch')",
+      "require(m.get('production_training_authorized') is False and m.get('deployment_approved') is False, 'This entry point never authorizes production training')",
+      "require(set(m.get('splits', {})) == {'train', 'validation'}, 'No TEST references permitted')",
+      "require(m.get('no_v2_test_derivation') is True, 'No TEST derivation declaration missing')",
+      "require(m['splits'][role]['path'] == name, f'Unexpected {role} filename')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L51"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "utterance_binding",
+    "line": 67,
+    "end_line": 70,
+    "signature": "c, u",
+    "calls": [
+      "c.get",
+      "dict",
+      "digest"
+    ],
+    "returns": [
+      "digest(dict(conversation_id=c['conversation_id'], family_id=c.get('family_id', c.get('scenario_family_id')), utterance_id=u['utterance_id'], speaker=u['speaker'], text=u['text'], is_phishing=u['is_phishing'], labels=u['labels']))"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L67"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "validate_reviews",
+    "line": 73,
+    "end_line": 108,
+    "signature": "conversations, reviews, *, required_keys=None",
+    "calls": [
+      "a.get",
+      "a['reviewer_id'].strip",
+      "all",
+      "bool",
+      "datetime.fromisoformat",
+      "decision.get",
+      "dict",
+      "isinstance",
+      "len",
+      "r.get",
+      "require",
+      "review.get",
+      "set",
+      "sorted",
+      "type",
+      "utterance_binding"
+    ],
+    "returns": [],
+    "checks": [
+      "require(key not in by_key, 'Duplicate review key')",
+      "require(key in by_key, f'Missing independent review: {key}')",
+      "require(review.get('record_type') == 'human_review' and review.get('status') == 'resolved', 'Human review unresolved/fixture-only')",
+      "require(review.get('content_sha256') == utterance_binding(c, u), 'Review does not bind current content/labels')",
+      "require(len(raters) == 2 and len({a.get('reviewer_id') for a in raters}) == 2, 'Two distinct reviewers required')",
+      "require(isinstance(a.get('reviewer_id'), str) and a['reviewer_id'].strip() and (a.get('human') is True) and (a.get('independent') is True) and a.get('reviewed_at'), 'Human/independence/time attestation absent')",
+      "require(datetime.fromisoformat(a['reviewed_at']).tzinfo is not None, 'Review timestamp needs timezone')",
+      "require(isinstance(al, list) and all((l in LABELS for l in al)) and (type(a.get('is_phishing')) is bool) and (al == sorted(set(al), key=LABELS.index)) and (a['is_phishing'] == bool(al)), 'Reviewer labels invalid')",
+      "require(decision.get('adjudicator_id') and decision.get('reason') and decision.get('resolved_at') and (decision.get('is_phishing') == actual['is_phishing']) and (decision.get('labels') == actual['labels']), 'Disagreement lacks a bound resolution')",
+      "require(datetime.fromisoformat(decision['resolved_at']).tzinfo is not None, 'Resolution needs timezone')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L73"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "validate_rights",
+    "line": 111,
+    "end_line": 116,
+    "signature": "c, record, role",
+    "calls": [
+      "datetime.fromisoformat",
+      "record.get",
+      "require"
+    ],
+    "returns": [],
+    "checks": [
+      "require(record.get('record_type') == 'data_use_authorization' and record.get('status') == 'confirmed' and (c['source'] in record.get('source_ids', [])) and (role in record.get('permitted_uses', [])) and record.get('authorized_by') and record.get('authorized_at') and record.get('basis'), 'Source rights evidence lacks authority/scope/source binding')",
+      "require(datetime.fromisoformat(record['authorized_at']).tzinfo is not None, 'Rights timestamp needs timezone')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L111"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "validate_schema",
+    "line": 119,
+    "end_line": 154,
+    "signature": "conversations, role",
+    "calls": [
+      "' '.join",
+      "all",
+      "allowed_role",
+      "bool",
+      "c.get",
+      "c['source'].strip",
+      "cid.startswith",
+      "cid.upper",
+      "enumerate",
+      "families.add",
+      "family.upper",
+      "ids.add",
+      "isinstance",
+      "len",
+      "normalized",
+      "provenance.get",
+      "re.findall",
+      "re.search",
+      "require",
+      "rights.get",
+      "set",
+      "sorted",
+      "statistics",
+      "str",
+      "str(provenance['origin_id']).upper",
+      "text.strip",
+      "texts.add",
+      "type",
+      "u.get"
+    ],
+    "returns": [
+      "statistics(conversations)"
+    ],
+    "checks": [
+      "require(bool(conversations), 'Empty corpus')",
+      "require(isinstance(cid, str) and cid.startswith('V3-') and ('TEST' not in cid.upper()), 'New V3 conversation ID required')",
+      "require(cid not in ids and isinstance(family, str) and family and (family not in families) and ('TEST' not in family.upper()), 'Duplicate/invalid conversation/family')",
+      "require(c.get('split') == role and c.get('review_status') == 'reviewed', 'Wrong split/unreviewed conversation')",
+      "require(isinstance(c.get('source'), str) and c['source'].strip(), 'Source missing')",
+      "require(all((provenance.get(k) for k in ['method', 'author_or_generator', 'created_at', 'origin_id', 'semantic_family_id'])), 'Provenance missing')",
+      "require('TEST' not in origin and 'SYN2-' not in origin and ('SYN3-' not in origin) and (provenance.get('test_derived', False) is False), 'New data must not derive from v2 examples/TEST')",
+      "require(rights.get('status') == 'documented' and role in rights.get('permitted_uses', []) and rights.get('evidence'), 'Use rights missing')",
+      "require(c.get('category') in CATEGORIES, 'Hard-negative/scenario category missing')",
+      "require(len(us) == 8, 'Each new conversation needs eight utterances')",
+      "require(textkey not in texts, 'Duplicate conversation text under different IDs')",
+      "require(type(u.get('utterance_id')) is int and u['utterance_id'] == i, 'Duplicate/reordered utterance ID')",
+      "require(u.get('speaker') in ('speaker_A', 'speaker_B'), 'Unknown speaker')",
+      "require(isinstance(text, str) and text.strip() and ('history' not in u), 'Only current text; histories are computed')",
+      "require(not re.search('(?:\\\\d[ -]?){7,}|[\\\\w.+-]+@[\\\\w.-]+\\\\.[A-Za-z]{2,}|https?://', text), 'Unmasked numeric/contact/URL candidate')",
+      "require(all((t in MASKS for t in re.findall('\\\\[([A-Z_]+)\\\\]', text))), 'Unknown masking token')",
+      "require(u.get('masking_reviewed') is True, 'Masking requires explicit human check')",
+      "require(isinstance(labels, list) and all((t in LABELS for t in labels)) and (labels == sorted(set(labels), key=LABELS.index)), 'Labels/order invalid')",
+      "require(type(u.get('is_phishing')) is bool and u['is_phishing'] == bool(labels), 'Risk/type mismatch')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L119"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "statistics",
+    "line": 157,
+    "end_line": 163,
+    "signature": "conversations",
+    "calls": [
+      "any",
+      "c.get",
+      "dict",
+      "len",
+      "sum"
+    ],
+    "returns": [
+      "dict(conversations=len(conversations), families=len({c.get('family_id', c.get('scenario_family_id')) for c in conversations}), utterances=len(rows), risk_positive=sum((u['is_phishing'] for u in rows)), normal_conversations=sum((not any((u['"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L157"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "normalized",
+    "line": 166,
+    "end_line": 167,
+    "signature": "text",
+    "calls": [
+      "''.join",
+      "c.isalnum",
+      "unicodedata.normalize",
+      "unicodedata.normalize('NFKC', text).casefold"
+    ],
+    "returns": [
+      "''.join((c for c in unicodedata.normalize('NFKC', text).casefold() if c.isalnum()))"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L166"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "check_disjoint",
+    "line": 170,
+    "end_line": 186,
+    "signature": "*partitions",
+    "calls": [
+      "' '.join",
+      "SequenceMatcher",
+      "SequenceMatcher(None, x, y, autojunk=False).ratio",
+      "c.get",
+      "c.get('provenance', {}).get",
+      "enumerate",
+      "len",
+      "normalized",
+      "require",
+      "set"
+    ],
+    "returns": [],
+    "checks": [
+      "require(not ids & seen_ids and (not families & seen_family) and (not semantic & seen_semantic), 'Conversation/family/semantic-family overlap')",
+      "require(len(semantic) == len(cs), 'Multiple conversations claim the same semantic family')",
+      "require(SequenceMatcher(None, x, y, autojunk=False).ratio() < 0.8, 'Cross-partition near-duplicate: revise or independently adjudicate before freezing')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L170"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "load_split",
+    "line": 207,
+    "end_line": 218,
+    "signature": "role, manifest_path",
+    "calls": [
+      "Partition",
+      "allowed_role",
+      "evidence_file",
+      "inside",
+      "jsonl",
+      "load_manifest",
+      "read_json",
+      "sha",
+      "str",
+      "tuple",
+      "validate_reviews",
+      "validate_rights",
+      "validate_schema"
+    ],
+    "returns": [
+      "Partition(role, tuple(cs), sha(file), str(file))"
+    ],
+    "checks": [
+      "validate_reviews(cs, reviews)"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L207"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "load_legacy",
+    "line": 221,
+    "end_line": 227,
+    "signature": "role",
+    "calls": [
+      "Partition",
+      "allowed_role",
+      "bootstrap",
+      "jsonl",
+      "read_json",
+      "require",
+      "sha",
+      "str",
+      "tuple"
+    ],
+    "returns": [
+      "Partition(role, tuple(jsonl(path)), sha(path), str(path))"
+    ],
+    "checks": [
+      "require(sha(path) == bundle['bindings'][role + '_sha256'], 'Original v2 data changed')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L221"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "load_training_inputs",
+    "line": 230,
+    "end_line": 261,
+    "signature": "manifest_path",
+    "calls": [
+      "Counter",
+      "Partition",
+      "all",
+      "any",
+      "check_disjoint",
+      "dict",
+      "dict.fromkeys",
+      "digest",
+      "evidence_file",
+      "inside",
+      "jsonl",
+      "len",
+      "list",
+      "load_legacy",
+      "load_manifest",
+      "load_split",
+      "read_json",
+      "require",
+      "required_categories.items",
+      "set",
+      "split_review.get",
+      "statistics",
+      "str",
+      "sum",
+      "tuple",
+      "validate_reviews"
+    ],
+    "returns": [
+      "(Partition('train', all_train, digest(bindings), str(path)), validation, old_val, bindings)"
+    ],
+    "checks": [
+      "validate_reviews(cs, jsonl(evidence_file(path.parent, m['reviews']['legacy_focus'])), required_keys=required)",
+      "require(split_review.get('record_type') == 'human_split_review' and split_review.get('status') == 'resolved' and split_review.get('reviewed_at') and (split_review.get('bindings') == bindings) and (split_review.get('no_test_derivation') is True) and (split_review.get('semantic_independence_reviewed') is True) and (len(set(split_review.get('human_reviewer_ids'",
+      "require(sum((len(c['utterances']) for c in all_train)) == 848, 'TRAIN budget changed')",
+      "require((s['conversations'], s['utterances'], s['normal_conversations']) == (nc, nu, normal), 'Planned corpus counts not met')",
+      "require(all((categories[k] >= n for k, n in required_categories.items())), 'Normal scenario category coverage insufficient')",
+      "require(new_stats['types'][l]['positive'] > 0, 'Validation lacks an output label')",
+      "require(s['types'][l]['positive'] >= 18 and s['types'][l]['positive_families'] >= 6, 'Focus support insufficient')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L230"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "Partition.rows",
+    "line": 196,
+    "end_line": 199,
+    "signature": "self",
+    "calls": [
+      "any",
+      "c.get",
+      "dict"
+    ],
+    "returns": [
+      "[dict(u, conversation_id=c['conversation_id'], scenario_family_id=c.get('family_id', c.get('scenario_family_id')), source_id=c.get('source', 'V2_INHERITED_SYNTHETIC'), category=c.get('category', 'legacy'), hard_negative=not any((v['is_phish"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L196"
+  },
+  {
+    "path": "v3_lite/src/data.py",
+    "name": "Partition.samples",
+    "line": 201,
+    "end_line": 204,
+    "signature": "self",
+    "calls": [
+      "bootstrap",
+      "causal_samples"
+    ],
+    "returns": [
+      "causal_samples(self.conversations)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/data.py#L201"
+  },
+  {
+    "path": "v3_lite/src/diagnostics.py",
+    "name": "type_losses",
+    "line": 13,
+    "end_line": 22,
+    "signature": "output, risk, types",
+    "calls": [
+      "F.binary_cross_entropy_with_logits",
+      "dict",
+      "float",
+      "risk_loss.detach",
+      "torch.full",
+      "unweighted.detach",
+      "unweighted.detach().mean",
+      "unweighted.detach().mean(0).tolist",
+      "weighted.detach",
+      "weighted.detach().mean",
+      "weighted.detach().mean(0).tolist"
+    ],
+    "returns": [
+      "dict(risk=float(risk_loss.detach()), types_unweighted=unweighted.detach().mean(0).tolist(), types_weighted=weighted.detach().mean(0).tolist())"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/diagnostics.py#L13"
+  },
+  {
+    "path": "v3_lite/src/diagnostics.py",
+    "name": "normal_groups",
+    "line": 25,
+    "end_line": 31,
+    "signature": "rows, probabilities",
+    "calls": [
+      "dict",
+      "enumerate",
+      "int",
+      "len",
+      "sorted",
+      "sum"
+    ],
+    "returns": [
+      "groups"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/diagnostics.py#L25"
+  },
+  {
+    "path": "v3_lite/src/diagnostics.py",
+    "name": "score_logits",
+    "line": 34,
+    "end_line": 50,
+    "signature": "partition, logits",
+    "calls": [
+      "allowed_role",
+      "bool",
+      "bootstrap",
+      "dict",
+      "enumerate",
+      "evaluate_logits",
+      "float",
+      "len",
+      "list",
+      "normal_groups",
+      "partition.rows",
+      "probabilities",
+      "ps.max",
+      "ps.mean",
+      "ps.min",
+      "require"
+    ],
+    "returns": [
+      "metrics"
+    ],
+    "checks": [
+      "require(len(rows) == len(values), 'Prediction row alignment differs')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/diagnostics.py#L34"
+  },
+  {
+    "path": "v3_lite/src/diagnostics.py",
+    "name": "evaluate_split",
+    "line": 53,
+    "end_line": 74,
+    "signature": "model, tokenizer, partition",
+    "calls": [
+      "RiskSpeechDataset",
+      "allowed_role",
+      "bootstrap",
+      "dict",
+      "logits.extend",
+      "make_training_dataloader",
+      "model",
+      "model.eval",
+      "model.train",
+      "partition.samples",
+      "score_logits",
+      "torch.cat",
+      "torch.cat([output.risk_logits, output.type_logits], dim=1).tolist",
+      "torch.inference_mode"
+    ],
+    "returns": [
+      "dict(role=partition.role, data_sha256=partition.data_sha256, row_keys=[f'{s.conversation_id}:{s.utterance_id}' for s in samples], logits=logits, metrics=metrics)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/diagnostics.py#L53"
+  },
+  {
+    "path": "v3_lite/src/diagnostics.py",
+    "name": "_defined",
+    "line": 77,
+    "end_line": 78,
+    "signature": "value",
+    "calls": [
+      "math.isfinite",
+      "type"
+    ],
+    "returns": [
+      "type(value) in (int, float) and math.isfinite(value)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/diagnostics.py#L77"
+  },
+  {
+    "path": "v3_lite/src/diagnostics.py",
+    "name": "safety",
+    "line": 81,
+    "end_line": 102,
+    "signature": "baseline, candidate",
+    "calls": [
+      "_defined",
+      "all",
+      "bs.append",
+      "cs.append",
+      "len",
+      "reasons.append",
+      "sum"
+    ],
+    "returns": [
+      "reasons"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/diagnostics.py#L81"
+  },
+  {
+    "path": "v3_lite/src/diagnostics.py",
+    "name": "apply_gates",
+    "line": 105,
+    "end_line": 125,
+    "signature": "baseline, candidate, old_baseline, old_candidate, *, epoch",
+    "calls": [
+      "_defined",
+      "all",
+      "any",
+      "bool",
+      "dict",
+      "require",
+      "safety"
+    ],
+    "returns": [
+      "dict(epoch=epoch, safe=safe, safety_failures=reasons, targets_passed=bool(target), adopt=bool(safe and target), allow_epoch2=bool(allow), normal_fp_outcome='zero_maintained_not_improved' if not bfp and (not cfp) else 'compare_counts', final"
+    ],
+    "checks": [
+      "require(epoch in (1, 2), 'Maximum two epochs')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/diagnostics.py#L105"
+  },
+  {
+    "path": "v3_lite/src/diagnostics.py",
+    "name": "family_paired_uncertainty",
+    "line": 128,
+    "end_line": 155,
+    "signature": "partition, baseline, candidate, *, repetitions=1000",
+    "calls": [
+      "(pred & y).sum",
+      "(pred & ~y).sum",
+      "(~pred & y).sum",
+      "LABELS.index",
+      "allowed_role",
+      "bootstrap",
+      "deltas.items",
+      "deltas[l].append",
+      "dict",
+      "enumerate",
+      "f1",
+      "int",
+      "len",
+      "np.asarray",
+      "np.percentile",
+      "np.percentile(v, [2.5, 97.5]).tolist",
+      "np.random.default_rng",
+      "partition.rows",
+      "probabilities",
+      "range",
+      "require",
+      "rng.choice",
+      "sorted",
+      "y.all",
+      "y.any"
+    ],
+    "returns": [
+      "dict(unit='scenario_family_id', families=len(family), repetitions=repetitions, seed=42, delta_f1={l: dict(valid=len(v), ci95=np.percentile(v, [2.5, 97.5]).tolist() if v else None) for l, v in deltas.items()}, limitation='Small selection set",
+      "2 * tp / (2 * tp + fp + fn)"
+    ],
+    "checks": [
+      "require(baseline['row_keys'] == candidate['row_keys'] and baseline['data_sha256'] == candidate['data_sha256'] == partition.data_sha256, 'Unpaired predictions')",
+      "require(baseline['row_keys'] == [f\"{r['conversation_id']}:{r['utterance_id']}\" for r in rows], 'Prediction keys do not match partition order')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/diagnostics.py#L128"
+  },
+  {
+    "path": "v3_lite/src/research_data.py",
+    "name": "test_origin",
+    "line": 14,
+    "end_line": 15,
+    "signature": "value",
+    "calls": [
+      "bool",
+      "re.search",
+      "str"
+    ],
+    "returns": [
+      "bool(re.search('(?:^|[-_])TEST(?:[-_]|$)', str(value), flags=re.I))"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/research_data.py#L14"
+  },
+  {
+    "path": "v3_lite/src/research_data.py",
+    "name": "validate_research",
+    "line": 18,
+    "end_line": 49,
+    "signature": "conversations, role",
+    "calls": [
+      "' '.join",
+      "POLICY_FIELDS.items",
+      "all",
+      "allowed_role",
+      "bool",
+      "c.get",
+      "cid.startswith",
+      "enumerate",
+      "families.add",
+      "ids.add",
+      "isinstance",
+      "len",
+      "normalized",
+      "p.get",
+      "re.findall",
+      "re.search",
+      "require",
+      "set",
+      "sorted",
+      "statistics",
+      "test_origin",
+      "text.strip",
+      "texts.add",
+      "type",
+      "u.get"
+    ],
+    "returns": [
+      "statistics(conversations)"
+    ],
+    "checks": [
+      "require(bool(conversations), 'Research corpus empty')",
+      "require(all((c.get(k) == v and type(c.get(k)) == type(v) for k, v in POLICY_FIELDS.items())), 'Research provenance/approval flags invalid')",
+      "require(c.get('review_status') == 'ai_provisional' and c.get('label_status') == 'provisional', 'Never assert human-reviewed labels')",
+      "require(isinstance(cid, str) and cid.startswith('V3-') and (not test_origin(cid)) and (cid not in ids), 'Invalid/duplicate research ID')",
+      "require(isinstance(fam, str) and fam and (not test_origin(fam)) and (fam not in families), 'Invalid/duplicate family')",
+      "require(c.get('split') == role and c.get('category') in CATEGORIES, 'Wrong role/category')",
+      "require(all((p.get(k) for k in ['author_or_generator', 'method', 'origin_id', 'semantic_family_id', 'authored_sha256'])), 'Missing generated provenance')",
+      "require(p['method'] == 'session_authored_dialogue_literals' and p.get('actual_call') is False and (p.get('third_party_transcript') is False) and (not test_origin(p['origin_id'])), 'Unapproved source origin')",
+      "require(c.get('rights_basis') == 'user_authorized_self_authored_internal_synthetic_research', 'Source use basis invalid')",
+      "require(len(us) == 8, 'Eight new utterances per family required')",
+      "require(key not in texts, 'Duplicate whole dialogue')",
+      "require(type(u.get('utterance_id')) is int and u['utterance_id'] == i, 'Utterance IDs out of order/duplicated')",
+      "require(u.get('speaker') in ('speaker_A', 'speaker_B'), 'Speaker invalid')",
+      "require(isinstance(text, str) and text.strip() and ('history_texts' not in u), 'Current text required; history is computed')",
+      "require(not re.search('(?:\\\\d[ -]?){7,}|[\\\\w.+-]+@[\\\\w.-]+\\\\.[A-Za-z]{2,}|https?://', text), 'Unmasked contact/identifier/link')",
+      "require(all((t in MASKS for t in re.findall('\\\\[([A-Z_]+)\\\\]', text))), 'Unknown mask')",
+      "require(isinstance(ls, list) and all((l in LABELS for l in ls)) and (ls == sorted(set(ls), key=LABELS.index)), 'Label order/duplicates invalid')",
+      "require(type(u.get('is_phishing')) is bool and u['is_phishing'] == bool(ls), 'Risk/type mismatch')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/research_data.py#L18"
+  },
+  {
+    "path": "v3_lite/src/research_data.py",
+    "name": "load_research_split",
+    "line": 52,
+    "end_line": 65,
+    "signature": "role, manifest_path",
+    "calls": [
+      "POLICY_FIELDS.items",
+      "Partition",
+      "all",
+      "allowed_role",
+      "evidence_file",
+      "inside",
+      "jsonl",
+      "list",
+      "m.get",
+      "m.get('authorization', {}).get",
+      "m['authorization'].get",
+      "re.fullmatch",
+      "read_json",
+      "require",
+      "set",
+      "sha",
+      "str",
+      "tuple",
+      "validate_research"
+    ],
+    "returns": [
+      "Partition(role, tuple(cs), sha(target), str(target))"
+    ],
+    "checks": [
+      "require(path.name == 'research_manifest.json', 'Separate research manifest required')",
+      "require(m.get('schema') == 'research-synthetic-v3/1' and all((m.get(k) == v for k, v in POLICY_FIELDS.items())), 'Not a synthetic research manifest')",
+      "require(m.get('label_order') == list(LABELS) and m.get('mode') == 'research_synthetic_v3', 'Wrong research mode/labels')",
+      "require(m.get('authorization', {}).get('scope') == 'explicit_user_internal_synthetic_generation_and_training' and re.fullmatch('[0-9a-f]{64}', m['authorization'].get('request_sha256', '')), 'Explicit research authorization missing')",
+      "require(set(m['splits']) == {'train', 'validation'}, 'No TEST role permitted')",
+      "require(m['splits'][role]['path'] == {'train': 'train_additions.jsonl', 'validation': 'validation_new.jsonl'}[role], 'Unexpected research file')",
+      "validate_research(cs, role)"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/research_data.py#L52"
+  },
+  {
+    "path": "v3_lite/src/research_data.py",
+    "name": "load_research_inputs",
+    "line": 68,
+    "end_line": 91,
+    "signature": "manifest_path",
+    "calls": [
+      "Counter",
+      "Partition",
+      "all",
+      "any",
+      "check_disjoint",
+      "dict",
+      "dict(financial=3, official=2, identity=3, app=2, quotation=2).items",
+      "digest",
+      "load_legacy",
+      "load_research_split",
+      "read_json",
+      "require",
+      "sha",
+      "statistics",
+      "str"
+    ],
+    "returns": [
+      "(Partition('train', old.conversations + train.conversations, digest(bindings), str(manifest_path)), val, old_val, bindings)"
+    ],
+    "checks": [
+      "require(policy['purpose'] == 'internal_experiment' and policy['source_kind'] == 'llm_synthetic' and (policy['human_approved'] is False) and (policy['production_training_authorized'] is False), 'Inherited research use basis changed')",
+      "require(s['conversations'] == n and s['utterances'] == n * 8 and (s['normal_conversations'] == norm), 'Planned counts not met')",
+      "require(all((s['types'][l]['positive'] > 0 for l in LABELS)) if p.role == 'validation' else True, 'Validation label missing')",
+      "require(all((cats[k] >= v for k, v in dict(financial=3, official=2, identity=3, app=2, quotation=2).items())), 'Normal categories missing')",
+      "require(s['types'][l]['positive'] >= 18 and s['types'][l]['positive_families'] >= 6, 'Focus support not met')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/research_data.py#L68"
+  },
+  {
+    "path": "v3_lite/src/train.py",
+    "name": "code_inventory",
+    "line": 22,
+    "end_line": 24,
+    "signature": "",
+    "calls": [
+      "(V3 / folder).rglob",
+      "p.is_file",
+      "p.relative_to",
+      "p.relative_to(V3).as_posix",
+      "sha",
+      "sorted"
+    ],
+    "returns": [
+      "{p.relative_to(V3).as_posix(): sha(p) for folder in ['src', 'tests', 'configs'] for p in sorted((V3 / folder).rglob('*')) if p.is_file() and p.suffix in ('.py', '.json')}"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/train.py#L22"
+  },
+  {
+    "path": "v3_lite/src/train.py",
+    "name": "load_config",
+    "line": 27,
+    "end_line": 35,
+    "signature": "",
+    "calls": [
+      "dict",
+      "list",
+      "read_json",
+      "require"
+    ],
+    "returns": [
+      "c"
+    ],
+    "checks": [
+      "require(c == fixed, 'Fixed phase-one config changed; no search/overrides allowed')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/train.py#L27"
+  },
+  {
+    "path": "v3_lite/src/train.py",
+    "name": "resources",
+    "line": 38,
+    "end_line": 51,
+    "signature": "",
+    "calls": [
+      "Memory",
+      "bool",
+      "ctypes.byref",
+      "ctypes.sizeof",
+      "ctypes.windll.kernel32.GlobalMemoryStatusEx",
+      "getattr",
+      "int",
+      "os.cpu_count",
+      "require",
+      "result.update",
+      "shutil.disk_usage"
+    ],
+    "returns": [
+      "result"
+    ],
+    "checks": [
+      "require(os.name == 'nt', 'Resource preflight implemented for the specified Windows host')",
+      "require(ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(mem)), 'Cannot inspect Windows memory')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/train.py#L38"
+  },
+  {
+    "path": "v3_lite/src/train.py",
+    "name": "preflight",
+    "line": 54,
+    "end_line": 71,
+    "signature": "manifest_path, regression_receipt, *, data_mode='reviewed'",
+    "calls": [
+      "code_inventory",
+      "digest",
+      "inside",
+      "load_config",
+      "load_research_inputs",
+      "load_training_inputs",
+      "read_json",
+      "receipt.get",
+      "require",
+      "resources",
+      "verify_parent"
+    ],
+    "returns": [
+      "(config, train, validation, old_val, bindings, res)"
+    ],
+    "checks": [
+      "require(data_mode in ('reviewed', 'research_synthetic_v3'), 'Unknown data route')",
+      "require(receipt.get('schema') == 'v3-lite-regression/1' and receipt.get('status') == 'PASS' and (receipt.get('tests_run', 0) > 0) and (receipt.get('failures') == 0) and (receipt.get('errors') == 0) and (receipt.get('skipped') == 0) and (receipt.get('code_sha256') == digest(code_inventory())), 'Fresh passing regression receipt required')",
+      "require(res['training_capacity_ok'], 'Insufficient CPU/memory/commit/disk headroom')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/train.py#L54"
+  },
+  {
+    "path": "v3_lite/src/train.py",
+    "name": "new_optimizer",
+    "line": 74,
+    "end_line": 78,
+    "signature": "model",
+    "calls": [
+      "model.parameters",
+      "require",
+      "torch.optim.AdamW"
+    ],
+    "returns": [
+      "optimizer"
+    ],
+    "checks": [
+      "require(not optimizer.state, 'Warm start must use a new empty optimizer')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/train.py#L74"
+  },
+  {
+    "path": "v3_lite/src/train.py",
+    "name": "train_one_epoch",
+    "line": 81,
+    "end_line": 113,
+    "signature": "model, loader, optimizer, *, epoch, step_offset=0, step_limit=212, progress=None",
+    "calls": [
+      "all",
+      "bootstrap",
+      "dict",
+      "float",
+      "len",
+      "losses",
+      "model",
+      "model.parameters",
+      "model.train",
+      "optimizer.step",
+      "optimizer.zero_grad",
+      "progress",
+      "range",
+      "require",
+      "resources",
+      "risk.detach",
+      "time.monotonic",
+      "torch.isfinite",
+      "torch.isfinite(p).all",
+      "torch.isfinite(p).all().item",
+      "torch.isfinite(p.grad).all",
+      "torch.isfinite(p.grad).all().item",
+      "torch.isfinite(total).item",
+      "total.backward",
+      "total.detach",
+      "type_losses",
+      "types.detach",
+      "zip"
+    ],
+    "returns": [
+      "dict(epoch=epoch, optimizer_steps=step_offset + steps, epoch_steps=steps, samples=seen, train_loss=total_sum / seen, risk_loss=risk_sum / seen, type_loss=type_sum / seen, per_type_unweighted=dict(zip(LABELS, [v / seen for v in unweighted]))"
+    ],
+    "checks": [
+      "require(epoch in (1, 2) and step_offset + len(loader) <= step_limit, 'Epoch/update budget exceeded')",
+      "require(seen > 0, 'Empty training loader')",
+      "require(torch.isfinite(total).item(), 'Nonfinite loss')",
+      "require(all((p.grad is None or torch.isfinite(p.grad).all().item() for p in model.parameters())), 'Nonfinite gradient')",
+      "require(all((torch.isfinite(p).all().item() for p in model.parameters())), 'Nonfinite parameter')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/train.py#L81"
+  },
+  {
+    "path": "v3_lite/src/train.py",
+    "name": "state_inventory",
+    "line": 116,
+    "end_line": 118,
+    "signature": "model",
+    "calls": [
+      "dict",
+      "hashlib.sha256",
+      "hashlib.sha256(v.detach().cpu().contiguous().numpy().tobytes()).hexdigest",
+      "list",
+      "model.state_dict",
+      "model.state_dict().items",
+      "str",
+      "v.detach",
+      "v.detach().cpu",
+      "v.detach().cpu().contiguous",
+      "v.detach().cpu().contiguous().numpy",
+      "v.detach().cpu().contiguous().numpy().tobytes"
+    ],
+    "returns": [
+      "{k: dict(shape=list(v.shape), dtype=str(v.dtype), sha256=hashlib.sha256(v.detach().cpu().contiguous().numpy().tobytes()).hexdigest()) for k, v in model.state_dict().items()}"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/train.py#L116"
+  },
+  {
+    "path": "v3_lite/src/train.py",
+    "name": "run_lite",
+    "line": 121,
+    "end_line": 199,
+    "signature": "manifest_path, *, run_id, regression_receipt, purpose='internal_experiment', data_mode='reviewed'",
+    "calls": [
+      "(path / 'progress.jsonl').open",
+      "RiskSpeechDataset",
+      "TrainingConfig",
+      "_metadata",
+      "abs",
+      "all",
+      "apply_gates",
+      "bootstrap",
+      "code_inventory",
+      "create_json",
+      "datetime.now",
+      "datetime.now(timezone.utc).isoformat",
+      "dict",
+      "digest",
+      "evaluate_split",
+      "f.flush",
+      "f.write",
+      "family_paired_uncertainty",
+      "history.append",
+      "inside",
+      "isinstance",
+      "json.dumps",
+      "k.startswith",
+      "len",
+      "load_research_inputs",
+      "load_training_inputs",
+      "load_v2_start",
+      "load_v3_state",
+      "make_training_dataloader",
+      "max",
+      "model.encoder.gradient_checkpointing_enable",
+      "new_optimizer",
+      "path.exists",
+      "path.mkdir",
+      "preflight",
+      "print",
+      "re.fullmatch",
+      "record['changed_groups'].values",
+      "references.append",
+      "require",
+      "runtime",
+      "runtime().raw_logits",
+      "save_v3_checkpoint",
+      "set_training_seed",
+      "sha",
+      "state_inventory",
+      "sum",
+      "tensors.items",
+      "torch.device",
+      "torch.set_num_threads",
+      "train.samples",
+      "train_one_epoch",
+      "val.samples",
+      "verify_parent",
+      "zip"
+    ],
+    "returns": [
+      "result"
+    ],
+    "checks": [
+      "require(purpose == 'internal_experiment', 'Unapproved legacy model cannot enter production/formal training')",
+      "require(isinstance(run_id, str) and re.fullmatch('[A-Za-z0-9][A-Za-z0-9_-]{2,63}', run_id), 'Safe new run ID required')",
+      "require(not path.exists(), 'Never overwrite/retry an existing run')",
+      "require(len(loader) == 106, 'Expected 106 updates per epoch')",
+      "require(sha(manifest_path) == lineage['manifest_sha256'], 'Manifest changed during baseline')",
+      "require(current_bindings == bindings and digest(code_inventory()) == lineage['code_sha256'], 'Inputs/code changed before first update')",
+      "require(all(record['changed_groups'].values()), 'Encoder and both heads must actually update')",
+      "require(replay_delta <= 1e-06, 'Saved checkpoint CPU replay differs')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/src/train.py#L121"
+  },
+  {
+    "path": "v3_lite/tests/fixtures.py",
+    "name": "conversation",
+    "line": 7,
+    "end_line": 21,
+    "signature": "cid='V3-FIXTURE-TRAIN-001', family='fixture-phone-inquiry', role='train'",
+    "calls": [
+      "bool",
+      "dict",
+      "enumerate",
+      "us.append"
+    ],
+    "returns": [
+      "dict(conversation_id=cid, family_id=family, split=role, source='automated_unit_test_fixture', category='identity', review_status='reviewed', provenance=dict(method='unit_fixture', author_or_generator='automated_test', created_at='2026-11-17"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/fixtures.py#L7"
+  },
+  {
+    "path": "v3_lite/tests/fixtures.py",
+    "name": "simulated_reviews",
+    "line": 24,
+    "end_line": 30,
+    "signature": "cs",
+    "calls": [
+      "deepcopy",
+      "dict",
+      "utterance_binding"
+    ],
+    "returns": [
+      "[dict(record_type='human_review', status='resolved', conversation_id=c['conversation_id'], utterance_id=u['utterance_id'], content_sha256=utterance_binding(c, u), reviewers=[dict(reviewer_id=f'SIMULATED_TEST_RATER_{i}', human=True, independ"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/fixtures.py#L24"
+  },
+  {
+    "path": "v3_lite/tests/fixtures.py",
+    "name": "metrics",
+    "line": 33,
+    "end_line": 35,
+    "signature": "f1=0.5, ap=0.5, normal_fp=1",
+    "calls": [
+      "dict"
+    ],
+    "returns": [
+      "dict(binary=dict(recall=0.9, f1=0.9), per_type={l: dict(f1=f1, recall=0.8, average_precision=ap) for l in LABELS}, conversations=dict(normal=12, normal_false_alerts=normal_fp))"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/fixtures.py#L33"
+  },
+  {
+    "path": "v3_lite/tests/test_data_guards.py",
+    "name": "DataGuards.test_schema_and_risk_type_contract",
+    "line": 16,
+    "end_line": 19,
+    "signature": "self",
+    "calls": [
+      "conversation",
+      "self.assertEqual",
+      "self.assertRaises",
+      "validate_schema"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_data_guards.py#L16"
+  },
+  {
+    "path": "v3_lite/tests/test_data_guards.py",
+    "name": "DataGuards.test_label_order_duplicate_ids_and_unknowns",
+    "line": 21,
+    "end_line": 28,
+    "signature": "self",
+    "calls": [
+      "c['utterances'][0].update",
+      "c['utterances'][1].update",
+      "conversation",
+      "fn",
+      "self.assertRaises",
+      "validate_schema"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_data_guards.py#L21"
+  },
+  {
+    "path": "v3_lite/tests/test_data_guards.py",
+    "name": "DataGuards.test_test_role_denied_before_any_io",
+    "line": 30,
+    "end_line": 34,
+    "signature": "self",
+    "calls": [
+      "load_split",
+      "patch",
+      "reader.assert_not_called",
+      "self.assertRaises"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_data_guards.py#L30"
+  },
+  {
+    "path": "v3_lite/tests/test_data_guards.py",
+    "name": "DataGuards.test_test_and_traversal_paths_denied_before_content_read",
+    "line": 36,
+    "end_line": 38,
+    "signature": "self",
+    "calls": [
+      "evidence_file",
+      "self.assertRaises"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_data_guards.py#L36"
+  },
+  {
+    "path": "v3_lite/tests/test_data_guards.py",
+    "name": "DataGuards.test_rights_masking_and_history_rejected",
+    "line": 40,
+    "end_line": 48,
+    "signature": "self",
+    "calls": [
+      "c.update",
+      "c['provenance'].update",
+      "c['utterances'][0].update",
+      "conversation",
+      "fn",
+      "self.assertRaises",
+      "validate_schema"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_data_guards.py#L40"
+  },
+  {
+    "path": "v3_lite/tests/test_data_guards.py",
+    "name": "DataGuards.test_rights_evidence_requires_source_scope_and_authority",
+    "line": 50,
+    "end_line": 57,
+    "signature": "self",
+    "calls": [
+      "conversation",
+      "deepcopy",
+      "dict",
+      "self.assertRaises",
+      "validate_rights"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_data_guards.py#L50"
+  },
+  {
+    "path": "v3_lite/tests/test_data_guards.py",
+    "name": "DataGuards.test_review_bindings_two_people_and_resolution",
+    "line": 59,
+    "end_line": 75,
+    "signature": "self",
+    "calls": [
+      "conversation",
+      "deepcopy",
+      "dict",
+      "disagree[1]['reviewers'][0].update",
+      "self.assertRaises",
+      "simulated_reviews",
+      "validate_reviews"
+    ],
+    "returns": [],
+    "checks": [
+      "validate_reviews(cs, rs)",
+      "validate_reviews(cs, disagree)",
+      "validate_reviews(cs, one)",
+      "validate_reviews(cs, same)",
+      "validate_reviews(cs, disagree)",
+      "validate_reviews(stale, rs)",
+      "validate_reviews(cs, bad)"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_data_guards.py#L59"
+  },
+  {
+    "path": "v3_lite/tests/test_data_guards.py",
+    "name": "DataGuards.test_family_and_near_duplicate_split",
+    "line": 77,
+    "end_line": 84,
+    "signature": "self",
+    "calls": [
+      "check_disjoint",
+      "conversation",
+      "self.assertRaises"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_data_guards.py#L77"
+  },
+  {
+    "path": "v3_lite/tests/test_data_guards.py",
+    "name": "DataGuards.test_causal_history_uses_only_past_five_turns",
+    "line": 86,
+    "end_line": 91,
+    "signature": "self",
+    "calls": [
+      "Partition",
+      "conversation",
+      "enumerate",
+      "max",
+      "p.samples",
+      "self.assertEqual"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_data_guards.py#L86"
+  },
+  {
+    "path": "v3_lite/tests/test_data_guards.py",
+    "name": "DataGuards.test_fixture_manifest_cannot_authorize_training",
+    "line": 93,
+    "end_line": 101,
+    "signature": "self",
+    "calls": [
+      "DATA.mkdir",
+      "Path",
+      "dict",
+      "json.dumps",
+      "load_manifest",
+      "loader.assert_not_called",
+      "p.write_text",
+      "patch",
+      "run_lite",
+      "self.assertRaises",
+      "tempfile.TemporaryDirectory"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_data_guards.py#L93"
+  },
+  {
+    "path": "v3_lite/tests/test_data_guards.py",
+    "name": "DataGuards.test_unapproved_formal_training_and_missing_data_block_before_model",
+    "line": 103,
+    "end_line": 107,
+    "signature": "self",
+    "calls": [
+      "loader.assert_not_called",
+      "patch",
+      "run_lite",
+      "self.assertRaises"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_data_guards.py#L103"
+  },
+  {
+    "path": "v3_lite/tests/test_diagnostics.py",
+    "name": "Diagnostics.setUpClass",
+    "line": 13,
+    "end_line": 14,
+    "signature": "cls",
+    "calls": [
+      "bootstrap"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_diagnostics.py#L13"
+  },
+  {
+    "path": "v3_lite/tests/test_diagnostics.py",
+    "name": "Diagnostics.test_weighted_loss_has_expected_hand_calculated_value",
+    "line": 16,
+    "end_line": 27,
+    "signature": "self",
+    "calls": [
+      "ModelOutput",
+      "float",
+      "losses",
+      "math.log",
+      "risk.detach",
+      "self.assertAlmostEqual",
+      "self.assertTrue",
+      "torch.isfinite",
+      "torch.isfinite(o.type_logits.grad).all",
+      "torch.zeros",
+      "total.backward",
+      "type_losses",
+      "types.detach"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_diagnostics.py#L16"
+  },
+  {
+    "path": "v3_lite/tests/test_diagnostics.py",
+    "name": "Diagnostics.test_known_logits_metrics_and_type_false_alerts",
+    "line": 29,
+    "end_line": 41,
+    "signature": "self",
+    "calls": [
+      "Partition",
+      "conversation",
+      "float",
+      "json.dumps",
+      "score_logits",
+      "self.assertEqual",
+      "self.assertRaises"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_diagnostics.py#L29"
+  },
+  {
+    "path": "v3_lite/tests/test_diagnostics.py",
+    "name": "Diagnostics.test_normal_binary_and_type_fp_are_distinct",
+    "line": 43,
+    "end_line": 50,
+    "signature": "self",
+    "calls": [
+      "Partition",
+      "conversation",
+      "range",
+      "score_logits",
+      "self.assertEqual",
+      "u.update"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_diagnostics.py#L43"
+  },
+  {
+    "path": "v3_lite/tests/test_diagnostics.py",
+    "name": "Diagnostics.test_adopt_when_both_targets_and_normal_fp_improve",
+    "line": 52,
+    "end_line": 55,
+    "signature": "self",
+    "calls": [
+      "apply_gates",
+      "metrics",
+      "self.assertFalse",
+      "self.assertTrue"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_diagnostics.py#L52"
+  },
+  {
+    "path": "v3_lite/tests/test_diagnostics.py",
+    "name": "Diagnostics.test_epoch2_requires_ap_progress_and_safety",
+    "line": 57,
+    "end_line": 63,
+    "signature": "self",
+    "calls": [
+      "apply_gates",
+      "metrics",
+      "self.assertFalse",
+      "self.assertTrue"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_diagnostics.py#L57"
+  },
+  {
+    "path": "v3_lite/tests/test_diagnostics.py",
+    "name": "Diagnostics.test_binary_or_old_validation_regression_stops",
+    "line": 65,
+    "end_line": 69,
+    "signature": "self",
+    "calls": [
+      "apply_gates",
+      "deepcopy",
+      "metrics",
+      "self.assertFalse"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_diagnostics.py#L65"
+  },
+  {
+    "path": "v3_lite/tests/test_diagnostics.py",
+    "name": "Diagnostics.test_normal_increase_or_other_type_recall_stops",
+    "line": 71,
+    "end_line": 75,
+    "signature": "self",
+    "calls": [
+      "apply_gates",
+      "metrics",
+      "self.assertFalse"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_diagnostics.py#L71"
+  },
+  {
+    "path": "v3_lite/tests/test_diagnostics.py",
+    "name": "Diagnostics.test_undefined_support_never_passes_and_zero_fp_is_not_improvement",
+    "line": 77,
+    "end_line": 83,
+    "signature": "self",
+    "calls": [
+      "apply_gates",
+      "metrics",
+      "self.assertEqual",
+      "self.assertFalse",
+      "self.assertTrue"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_diagnostics.py#L77"
+  },
+  {
+    "path": "v3_lite/tests/test_diagnostics.py",
+    "name": "Diagnostics.test_paired_family_interval_and_alignment",
+    "line": 85,
+    "end_line": 94,
+    "signature": "self",
+    "calls": [
+      "Partition",
+      "bad['row_keys'].reverse",
+      "conversation",
+      "deepcopy",
+      "dict",
+      "family_paired_uncertainty",
+      "self.assertEqual",
+      "self.assertRaises",
+      "u.update"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_diagnostics.py#L85"
+  },
+  {
+    "path": "v3_lite/tests/test_research_data.py",
+    "name": "ResearchData.test_explicit_research_route_and_counts",
+    "line": 10,
+    "end_line": 19,
+    "signature": "self",
+    "calls": [
+      "len",
+      "load_manifest",
+      "load_research_inputs",
+      "manifest.exists",
+      "old.samples",
+      "self.assertEqual",
+      "self.assertFalse",
+      "self.assertRaises",
+      "self.skipTest",
+      "train.samples",
+      "val.samples"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_research_data.py#L10"
+  },
+  {
+    "path": "v3_lite/tests/test_research_data.py",
+    "name": "ResearchData.test_test_role_refused_before_read",
+    "line": 21,
+    "end_line": 24,
+    "signature": "self",
+    "calls": [
+      "load_research_split",
+      "patch",
+      "read.assert_not_called",
+      "self.assertRaises"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_research_data.py#L21"
+  },
+  {
+    "path": "v3_lite/tests/test_research_data.py",
+    "name": "ResearchData.test_research_never_claims_human_or_production_approval",
+    "line": 26,
+    "end_line": 34,
+    "signature": "self",
+    "calls": [
+      "deepcopy",
+      "load_research_split",
+      "manifest.exists",
+      "self.assertRaises",
+      "self.skipTest",
+      "validate_research"
+    ],
+    "returns": [],
+    "checks": [
+      "validate_research([c], 'train')",
+      "validate_research([bad], 'train')"
+    ],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_research_data.py#L26"
+  },
+  {
+    "path": "v3_lite/tests/test_research_data.py",
+    "name": "ResearchData.test_exact_test_origin_token_not_contest_word",
+    "line": 36,
+    "end_line": 38,
+    "signature": "self",
+    "calls": [
+      "self.assertFalse",
+      "self.assertTrue",
+      "test_origin"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_research_data.py#L36"
+  },
+  {
+    "path": "v3_lite/tests/test_warm_start.py",
+    "name": "tiny_model",
+    "line": 13,
+    "end_line": 20,
+    "signature": "",
+    "calls": [
+      "ElectraConfig",
+      "ElectraModel",
+      "RiskSpeechClassifier",
+      "bootstrap"
+    ],
+    "returns": [
+      "RiskSpeechClassifier(ElectraModel(config))"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_warm_start.py#L13"
+  },
+  {
+    "path": "v3_lite/tests/test_warm_start.py",
+    "name": "WarmStart.setUpClass",
+    "line": 25,
+    "end_line": 30,
+    "signature": "cls",
+    "calls": [
+      "AutoTokenizer.from_pretrained",
+      "bootstrap",
+      "str",
+      "torch.set_num_threads"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_warm_start.py#L25"
+  },
+  {
+    "path": "v3_lite/tests/test_warm_start.py",
+    "name": "WarmStart.loader",
+    "line": 32,
+    "end_line": 36,
+    "signature": "self",
+    "calls": [
+      "Partition",
+      "RiskSpeechDataset",
+      "conversation",
+      "make_training_dataloader",
+      "p.samples"
+    ],
+    "returns": [
+      "make_training_dataloader(RiskSpeechDataset(p.samples(), tokenizer=self.tok), tokenizer=self.tok, batch_size=8, seed=42, shuffle=False)"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_warm_start.py#L32"
+  },
+  {
+    "path": "v3_lite/tests/test_warm_start.py",
+    "name": "WarmStart.test_restore_all_weights_and_empty_new_optimizer",
+    "line": 38,
+    "end_line": 47,
+    "signature": "self",
+    "calls": [
+      "a.state_dict",
+      "a.state_dict().items",
+      "all",
+      "b.state_dict",
+      "bad.pop",
+      "deepcopy",
+      "len",
+      "new_optimizer",
+      "restore_state",
+      "self.assertEqual",
+      "self.assertRaises",
+      "self.assertTrue",
+      "state.items",
+      "tiny_model",
+      "torch.equal",
+      "v.detach",
+      "v.detach().clone"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_warm_start.py#L38"
+  },
+  {
+    "path": "v3_lite/tests/test_warm_start.py",
+    "name": "WarmStart.test_loss_and_one_actual_tiny_optimizer_update",
+    "line": 49,
+    "end_line": 57,
+    "signature": "self",
+    "calls": [
+      "len",
+      "m.type_classifier.weight.detach",
+      "m.type_classifier.weight.detach().clone",
+      "new_optimizer",
+      "self.assertAlmostEqual",
+      "self.assertEqual",
+      "self.assertFalse",
+      "self.assertGreater",
+      "self.loader",
+      "set",
+      "tiny_model",
+      "torch.equal",
+      "train_one_epoch"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_warm_start.py#L49"
+  },
+  {
+    "path": "v3_lite/tests/test_warm_start.py",
+    "name": "WarmStart.test_budget_and_nonfinite_update_blocked",
+    "line": 59,
+    "end_line": 66,
+    "signature": "self",
+    "calls": [
+      "float",
+      "len",
+      "m.type_classifier.bias.fill_",
+      "new_optimizer",
+      "self.assertEqual",
+      "self.assertRaises",
+      "self.loader",
+      "tiny_model",
+      "torch.no_grad",
+      "train_one_epoch"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_warm_start.py#L59"
+  },
+  {
+    "path": "v3_lite/tests/test_warm_start.py",
+    "name": "WarmStart.test_separate_save_cpu_reload_and_never_overwrite",
+    "line": 68,
+    "end_line": 89,
+    "signature": "self",
+    "calls": [
+      "Path",
+      "RUNS.mkdir",
+      "TrainingConfig",
+      "_metadata",
+      "dict",
+      "iter",
+      "load_v3_state",
+      "m",
+      "m.eval",
+      "new_optimizer",
+      "next",
+      "restored",
+      "save_v3_checkpoint",
+      "self.assertFalse",
+      "self.assertRaises",
+      "self.assertTrue",
+      "self.loader",
+      "tempfile.TemporaryDirectory",
+      "tiny_model",
+      "torch.device",
+      "torch.equal",
+      "torch.inference_mode"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_warm_start.py#L68"
+  },
+  {
+    "path": "v3_lite/tests/test_warm_start.py",
+    "name": "WarmStart.test_v2_path_and_unapproved_checkpoint_save_rejected",
+    "line": 91,
+    "end_line": 97,
+    "signature": "self",
+    "calls": [
+      "dict",
+      "list",
+      "new_optimizer",
+      "reversed",
+      "save_v3_checkpoint",
+      "self.assertRaises",
+      "tiny_model"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_warm_start.py#L91"
+  },
+  {
+    "path": "v3_lite/tests/test_warm_start.py",
+    "name": "WarmStart.test_actual_tokenizer_input_contract",
+    "line": 99,
+    "end_line": 108,
+    "signature": "self",
+    "calls": [
+      "build_model_input",
+      "len",
+      "self.assertEqual",
+      "self.assertIn",
+      "self.assertLessEqual",
+      "self.assertRaises"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_warm_start.py#L99"
+  },
+  {
+    "path": "v3_lite/tests/test_warm_start.py",
+    "name": "WarmStart.test_fixed_config_has_no_search",
+    "line": 110,
+    "end_line": 113,
+    "signature": "self",
+    "calls": [
+      "load_config",
+      "self.assertEqual"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/tests/test_warm_start.py#L110"
+  },
+  {
+    "path": "v3_lite/verify_handoff.py",
+    "name": "sha",
+    "line": 12,
+    "end_line": 16,
+    "signature": "path",
+    "calls": [
+      "Path",
+      "Path(path).open",
+      "f.read",
+      "h.hexdigest",
+      "h.update",
+      "hashlib.sha256",
+      "iter"
+    ],
+    "returns": [
+      "h.hexdigest()"
+    ],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/verify_handoff.py#L12"
+  },
+  {
+    "path": "v3_lite/verify_handoff.py",
+    "name": "probe",
+    "line": 19,
+    "end_line": 77,
+    "signature": "bundle, training, training_sha, output, parent_inventory=None",
+    "calls": [
+      "Path",
+      "Path(bundle).resolve",
+      "Path(output).open",
+      "Path(parent_inventory).read_text",
+      "abs",
+      "all",
+      "changes['groups'].values",
+      "dict",
+      "enumerate",
+      "hashlib.sha256",
+      "hashlib.sha256(v.detach().contiguous().numpy().tobytes()).hexdigest",
+      "importlib.util.module_from_spec",
+      "importlib.util.spec_from_file_location",
+      "inference_state.items",
+      "json.dump",
+      "json.dumps",
+      "json.loads",
+      "k.startswith",
+      "len",
+      "math.exp",
+      "max",
+      "module.V3Predictor",
+      "module.core.raw_logits",
+      "module.serve_request",
+      "payload['model_state_dict'].items",
+      "predictor.model.eval",
+      "predictor.model.load_state_dict",
+      "predictor.model.state_dict",
+      "print",
+      "record.items",
+      "sha",
+      "spec.loader.exec_module",
+      "str",
+      "sum",
+      "sys.path.insert",
+      "torch.equal",
+      "torch.load",
+      "torch.set_num_threads",
+      "v.detach",
+      "v.detach().contiguous",
+      "v.detach().contiguous().numpy",
+      "v.detach().contiguous().numpy().tobytes",
+      "zip"
+    ],
+    "returns": [],
+    "checks": [],
+    "url": "https://github.com/donggyu567/PIC_AICAMP/blob/feat/koelectra-v3-lite/v3_lite/verify_handoff.py#L19"
+  }
+]
