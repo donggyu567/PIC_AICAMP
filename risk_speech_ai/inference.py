@@ -153,25 +153,37 @@ def load_checkpoint_inference(
     device: str | torch.device | None = None,
     model: RiskSpeechClassifier | None = None,
     checkpoint: dict[str, Any] | None = None,
+    bundled_tokenizer: bool = False,
 ) -> CheckpointInference:
     """Restore a checkpoint, reusing a caller's already loaded data if provided.
 
     A newly created model stays private until restoration succeeds, so loading it
     does not require a second model copy. Caller-owned models retain the protected
     training restore path, which leaves their weights intact on invalid state.
+    A bundled tokenizer is paired with the checkpoint encoder configuration.
     """
 
+    if bundled_tokenizer and model is not None:
+        raise ValueError("bundled_tokenizer cannot be used with a caller-owned model")
     chosen_device = torch.device(device) if device is not None else torch.device(
         "cuda" if torch.cuda.is_available() else "cpu"
     )
     loaded = checkpoint if checkpoint is not None else read_checkpoint(checkpoint_path)
     metadata = validate_checkpoint_metadata(loaded)
     if model is None:
-        validate_tokenizer(metadata, tokenizer)
-        revision = metadata["resolved_model_revision"] or metadata["requested_model_revision"]
-        classifier = RiskSpeechClassifier(
-            **({"model_revision": revision} if revision is not None else {})
-        )
+        validate_tokenizer(metadata, tokenizer, bundled=bundled_tokenizer)
+        if bundled_tokenizer:
+            from transformers import ElectraConfig, ElectraModel
+
+            config = ElectraConfig.from_dict(metadata["encoder_config"])
+            if "attn_implementation" in metadata["encoder_config"]:
+                config.attn_implementation = metadata["encoder_config"]["attn_implementation"]
+            classifier = RiskSpeechClassifier(ElectraModel(config))
+        else:
+            revision = metadata["resolved_model_revision"] or metadata["requested_model_revision"]
+            classifier = RiskSpeechClassifier(
+                **({"model_revision": revision} if revision is not None else {})
+            )
         validate_model_config(metadata, classifier)
         try:
             classifier.load_state_dict(loaded["model_state_dict"])

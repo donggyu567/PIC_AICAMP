@@ -17,7 +17,8 @@ def load_risk_analyzer(
         *,
         model_version: str,
         thresholds: ThresholdConfig | None = None,
-        device: str = "cpu"
+        device: str = "cpu",
+        tokenizer_directory: str | Path | None = None,
 ) -> KoElectraRiskAnalyzer:
     if (
         not isinstance(model_version, str)
@@ -33,14 +34,16 @@ def load_risk_analyzer(
     checkpoint = read_checkpoint(path)
     metadata = validate_checkpoint_metadata(checkpoint)
 
-    tokenizer_revision = (
-        metadata["resolved_tokenizer_revision"]
-        or metadata["requested_tokenizer_revision"]
-    )
+    if tokenizer_directory is None:
+        revision = metadata["resolved_tokenizer_revision"] or metadata["requested_tokenizer_revision"]
+        tokenizer = load_koelectra_tokenizer(revision=revision)
+    else:
+        from transformers import AutoTokenizer
 
-    tokenizer = load_koelectra_tokenizer(
-        revision=tokenizer_revision
-    )
+        directory = Path(tokenizer_directory).expanduser().resolve()
+        if not directory.is_dir():
+            raise FileNotFoundError(f"토크나이저 디렉터리가 없습니다: {directory}")
+        tokenizer = AutoTokenizer.from_pretrained(directory, local_files_only=True)
 
     predictor = load_checkpoint_inference(
         path,
@@ -48,6 +51,7 @@ def load_risk_analyzer(
         thresholds=thresholds,
         device=device,
         checkpoint=checkpoint,
+        bundled_tokenizer=tokenizer_directory is not None,
     )
 
     return KoElectraRiskAnalyzer(
