@@ -1,0 +1,56 @@
+[
+  {
+    "case_id": "normal-001",
+    "expected_assessment": "no_clear_risk",
+    "context": {
+      "conversation_id": "eval-normal-001",
+      "current_utterance_id": 2,
+      "utterances": [
+        {
+          "utterance_id": 1,
+          "text": "오늘 저녁에 같이 밥 먹을까?"
+        },
+        {
+          "utterance_id": 2,
+          "text": "여섯 시에 역 앞에서 만나자. 도착하면 연락해."
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "phishing-001",
+    "expected_assessment": "suspicious",
+    "context": {
+      "conversation_id": "eval-phishing-001",
+      "current_utterance_id": 2,
+      "utterances": [
+        {
+          "utterance_id": 1,
+          "text": "검찰청 수사관입니다. 당신 명의의 계좌가 범죄에 이용됐습니다."
+        },
+        {
+          "utterance_id": 2,
+          "text": "자금을 보호하려면 안전 계좌 [ACCOUNT_NUMBER]로 지금 돈을 보내세요. 가족에게는 말하지 마세요."
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "education-001",
+    "expected_assessment": "no_clear_risk",
+    "context": {
+      "conversation_id": "eval-education-001",
+      "current_utterance_id": 2,
+      "utterances": [
+        {
+          "utterance_id": 1,
+          "text": "지금부터 보이스피싱 예방 교육을 하겠습니다."
+        },
+        {
+          "utterance_id": 2,
+          "text": "안전 계좌로 돈을 보내라는 전화는 사기일 수 있으니 송금하지 마세요."
+        }
+      ]
+    }
+  }
+]
