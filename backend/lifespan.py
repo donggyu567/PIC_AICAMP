@@ -68,6 +68,7 @@ async def lifespan(app: FastAPI):
                 checkpoint_path,
                 model_version=model_version,
                 device="cpu",
+                tokenizer_directory=os.getenv("PIC_AI_TOKENIZER_DIR", "").strip() or None,
             )
 
         # 여기까지 성공해야 서버가 요청을 받기 시작한다.

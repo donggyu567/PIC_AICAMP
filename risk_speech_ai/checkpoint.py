@@ -187,12 +187,20 @@ def validate_model_config(metadata: Mapping[str, Any], model: Any) -> None:
         raise CheckpointCompatibilityError("checkpoint encoder config does not match loaded model")
 
 
-def validate_tokenizer(metadata: Mapping[str, Any], tokenizer: Any) -> None:
+def validate_tokenizer(
+    metadata: Mapping[str, Any], tokenizer: Any, *, bundled: bool = False
+) -> None:
     expected = metadata.get("tokenizer_metadata")
     behavior = tokenizer_behavior(tokenizer)
     actual = tokenizer_metadata(tokenizer)
     if actual["padding_side"] != "right":
         raise CheckpointCompatibilityError("tokenizer padding_side must be right for CLS pooling")
+    if bundled and isinstance(expected, dict):
+        # Packaging changes the local path and may omit the Hub revision.
+        expected = expected.copy()
+        for field in ("name", "resolved_revision"):
+            expected.pop(field, None)
+            actual.pop(field, None)
     if not isinstance(expected, dict) or expected != actual:
         raise CheckpointCompatibilityError("checkpoint tokenizer identity does not match loaded tokenizer")
     if metadata["tokenizer_behavior"] != behavior:
